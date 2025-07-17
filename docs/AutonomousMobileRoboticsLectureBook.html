@@ -1,0 +1,334 @@
+<!DOCTYPE html> 
+<html lang="en-US" xml:lang="en-US" > 
+<head>
+<title></title>
+    <link rel='icon' type='image/x-icon' href='figures/logo.svg'></link> 
+<meta  charset="utf-8" /> 
+<meta name="generator" content="ParSnip" /> 
+<meta name="viewport" content="width=device-width,initial-scale=1" /> 
+<link rel="stylesheet" type="text/css" href="AutonomousMobileRoboticsLectureBook.css" /> 
+<meta name="src" content="AutonomousMobileRoboticsLectureBook.tex" /> 
+ <script type="text/javascript" id="MathJax-script" async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/mml-chtml.js"></script>  
+ <link rel="stylesheet" type="text/css" href="flatweb.css"> 
+ <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script> 
+ <script src="flatjs.js"></script> <link href='http://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>  
+<script type="module"> import pdfjsDist from 'https://cdn.jsdelivr.net/npm/pdfjs-dist@5.3.93/+esm' </script>  
+<script>  
+function moveTOC() { 
+var htmlShow = document.getElementsByClassName("wide"); 
+if (htmlShow[0].style.display === "none") { 
+htmlShow[0].style.display = "block"; 
+} else { 
+htmlShow[0].style.display = "none"; 
+} 
+}  
+</script> <link href="https://unpkg.com/nord-highlightjs@0.1.0/dist/nord.css" rel="stylesheet" type="text/css" /> 
+ <script src="https://unpkg.com/@highlightjs/cdn-assets@11.3.1/highlight.min.js"></script> 
+ <script src="https://unpkg.com/highlightjs-copy/dist/highlightjs-copy.min.js"> </script>  
+<link rel="stylesheet" href="https://unpkg.com/highlightjs-copy/dist/highlightjs-copy.min.css"/>  
+<script src="flatjs.js"> </script>  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/languages/dockerfile.min.js"> </script>  
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/languages/cmake.min.js"> </script>  
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/languages/cpp.min.js"> </script>  
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/makefile.min.js"> </script>  
+
+<header>  
+</header> 
+</head><body 
+>                                                                                
+                                                                                
+<!--l. 2--><p class="noindent" >
+                                                                                
+                                                                                
+</p><!--l. 4--><p class="noindent" ><span 
+class="ec-lmr-7">(2025, D. T. McGuines, Ph.D) </span><br 
+class="newline" />
+</p><!--l. 8--><p class="noindent" ><span 
+class="ec-lmr-7">Current version is 2025.SS. </span><br 
+class="newline" />
+</p><!--l. 10--><p class="noindent" ><span 
+class="ec-lmr-7">This document includes the contents of Autonomous Mobile Robotics, official name being </span><italic>Autonome mobile Robotik</italic><span 
+class="ec-lmr-7">, taught at</span>
+<span 
+class="ec-lmr-7">MCI in the Mechatronik Automation Robotics AI. This document is the part of the module MECH-M-DUAL-3-AMR taught in</span>
+<span 
+class="ec-lmr-7">the M.Sc degree. </span><br 
+class="newline" />
+</p><!--l. 16--><p class="noindent" ><span 
+class="ec-lmr-7">All relevant code of the document is done using </span><italic>SageMath</italic> <span 
+class="ec-lmr-7">where stated and Python v3.13.5. </span><br 
+class="newline" />
+</p><!--l. 19--><p class="noindent" ><span 
+class="ec-lmr-7">This document was compiled with LuaTeX v1.22.0, and all editing were done using GNU Emacs v30.1 using AUCTeX and</span>
+<span 
+class="ec-lmr-7">org-mode package. </span><br 
+class="newline" />
+</p><!--l. 23--><p class="noindent" ><span 
+class="ec-lmr-7">This document is based on the following books and resources shown in no particular order: </span><br 
+class="newline" />
+</p><!--l. 25--><p class="noindent" ><italic>A very informal journey through ROS 2</italic> <span 
+class="ec-lmr-7">by M. M. Bassa , Self-Published </span><italic>A Concise Introduction to Robot Programming with
+ROS2</italic> <span 
+class="ec-lmr-7">by F. M. Rico , Taylor Francis (2022) </span><italic>Programming Principles and Practice using C++</italic> <span 
+class="ec-lmr-7">by B. Stroustrup , Addison</span>
+<span 
+class="ec-lmr-7">Wesley (2014) </span><br 
+class="newline" /><br 
+class="newline" /><br 
+class="newline" /><span 
+class="ec-lmr-7">The document is designed with no intention of publication and has only been designed for education purposes.</span>
+<br 
+class="newline" />
+</p><!--l. 33--><p class="noindent" ><span 
+class="ec-lmr-7">The current maintainer of this work along with the primary lecturer </span><br 
+class="newline" /><span 
+class="ec-lmr-7">is D. T. McGuines, Ph.D.  (dtm@mci4me.at).</span>
+                                                                                
+                                                                                
+                                                                                
+                                                                                
+                                                                                
+                                                                                
+                                                                                
+                                                                                
+</p><!--l. 77--><p class="noindent" ><a 
+ id="chapter*.1"></a>
+</p>
+<div class="tableofcontents">
+<span class="chapterToc" >1 <a 
+href="AutonomousMobileRoboticsLectureBookch1.html#x3-20001" id="QQ2-3-2">Locomotion</a></span>
+<br /><span class="sectionToc" >1.1  <a 
+href="AutonomousMobileRoboticsLectureBookch1.html#x3-30001.1" id="QQ2-3-3">Introduction</a></span>
+<br /><span class="sectionToc" >1.2  <a 
+href="AutonomousMobileRoboticsLectureBookch1.html#x3-50001.2" id="QQ2-3-9">Legged Mobile Robots</a></span>
+<br /><span class="sectionToc" >1.3  <a 
+href="AutonomousMobileRoboticsLectureBookch1.html#x3-120001.3" id="QQ2-3-26">Wheeled Mobile Robots</a></span>
+<br /><span class="chapterToc" >2 <a 
+href="AutonomousMobileRoboticsLectureBookch2.html#x4-270002" id="QQ2-4-45">Mobile Robot Localisation</a></span>
+<br /><span class="sectionToc" >2.1  <a 
+href="AutonomousMobileRoboticsLectureBookch2.html#x4-280002.1" id="QQ2-4-46">Introduction</a></span>
+<br /><span class="sectionToc" >2.2  <a 
+href="AutonomousMobileRoboticsLectureBookch2.html#x4-290002.2" id="QQ2-4-49">The problems of Noise and Aliasing</a></span>
+<br /><span class="sectionToc" >2.3  <a 
+href="AutonomousMobileRoboticsLectureBookch2.html#x4-330002.3" id="QQ2-4-53">Localisation v. Hard-Coded Navigation</a></span>
+<br /><span class="sectionToc" >2.4  <a 
+href="AutonomousMobileRoboticsLectureBookch2.html#x4-340002.4" id="QQ2-4-58">Representing Belief</a></span>
+<br /><span class="sectionToc" >2.5  <a 
+href="AutonomousMobileRoboticsLectureBookch2.html#x4-370002.5" id="QQ2-4-62">Representing Maps</a></span>
+<br /><span class="sectionToc" >2.6  <a 
+href="AutonomousMobileRoboticsLectureBookch2.html#x4-410002.6" id="QQ2-4-69">Probabilistic Map-Based Localisation</a></span>
+<br /><span class="sectionToc" >2.7  <a 
+href="AutonomousMobileRoboticsLectureBookch2.html#x4-490002.7" id="QQ2-4-79">Other Examples of Localisation Methods</a></span>
+<br /><span class="sectionToc" >2.8  <a 
+href="AutonomousMobileRoboticsLectureBookch2.html#x4-540002.8" id="QQ2-4-86">Building Maps</a></span>
+<br /><span class="chapterToc" >3 <a 
+href="AutonomousMobileRoboticsLectureBookch3.html#x5-590003" id="QQ2-5-95">Welcome to Linux</a></span>
+<br /><span class="sectionToc" >3.1  <a 
+href="AutonomousMobileRoboticsLectureBookch3.html#x5-600003.1" id="QQ2-5-96">Learning the Linux Command Line</a></span>
+<br /><span class="sectionToc" >3.2  <a 
+href="AutonomousMobileRoboticsLectureBookch3.html#x5-670003.2" id="QQ2-5-108">Installation</a></span>
+<br /><span class="sectionToc" >3.3  <a 
+href="AutonomousMobileRoboticsLectureBookch3.html#x5-680003.3" id="QQ2-5-109">Docker</a></span>
+<br /><span class="chapterToc" >4 <a 
+href="AutonomousMobileRoboticsLectureBookch4.html#x6-710004" id="QQ2-6-113">Command Line Fundamentals</a></span>
+<br /><span class="sectionToc" >4.1  <a 
+href="AutonomousMobileRoboticsLectureBookch4.html#x6-720004.1" id="QQ2-6-114">Introduction</a></span>
+<br /><span class="sectionToc" >4.2  <a 
+href="AutonomousMobileRoboticsLectureBookch4.html#x6-730004.2" id="QQ2-6-116">The Structure of Commands</a></span>
+<br /><span class="sectionToc" >4.3  <a 
+href="AutonomousMobileRoboticsLectureBookch4.html#x6-750004.3" id="QQ2-6-119">Helpful Keyboard Shortcuts for the Terminal</a></span>
+<br /><span class="sectionToc" >4.4  <a 
+href="AutonomousMobileRoboticsLectureBookch4.html#x6-760004.4" id="QQ2-6-120">When you need help with Commands</a></span>
+<br /><span class="sectionToc" >4.5  <a 
+href="AutonomousMobileRoboticsLectureBookch4.html#x6-770004.5" id="QQ2-6-121">Additional Information</a></span>
+<br /><span class="chapterToc" >5 <a 
+href="AutonomousMobileRoboticsLectureBookch5.html#x7-810005" id="QQ2-7-125">Working with Files and Folders</a></span>
+<br /><span class="sectionToc" >5.1  <a 
+href="AutonomousMobileRoboticsLectureBookch5.html#x7-820005.1" id="QQ2-7-126">Introduction</a></span>
+<br /><span class="sectionToc" >5.2  <a 
+href="AutonomousMobileRoboticsLectureBookch5.html#x7-830005.2" id="QQ2-7-127">A Detailed Look in ls Command</a></span>
+<br /><span class="sectionToc" >5.3  <a 
+href="AutonomousMobileRoboticsLectureBookch5.html#x7-840005.3" id="QQ2-7-128">Creating and Removing Folders</a></span>
+<br /><span class="sectionToc" >5.4  <a 
+href="AutonomousMobileRoboticsLectureBookch5.html#x7-850005.4" id="QQ2-7-129">Move, Copy and Delete Files and Folders</a></span>
+<br /><span class="sectionToc" >5.5  <a 
+href="AutonomousMobileRoboticsLectureBookch5.html#x7-860005.5" id="QQ2-7-130">Role to Users and sudo</a></span>
+<br /><span class="sectionToc" >5.6  <a 
+href="AutonomousMobileRoboticsLectureBookch5.html#x7-870005.6" id="QQ2-7-132">File Permissions</a></span>
+<br /><span class="sectionToc" >5.7  <a 
+href="AutonomousMobileRoboticsLectureBookch5.html#x7-900005.7" id="QQ2-7-137">Hard and Symbolic Links</a></span>
+<br /><span class="sectionToc" >5.8  <a 
+href="AutonomousMobileRoboticsLectureBookch5.html#x7-930005.8" id="QQ2-7-140">The Linux File System</a></span>
+<br /><span class="sectionToc" >5.9  <a 
+href="AutonomousMobileRoboticsLectureBookch5.html#x7-940005.9" id="QQ2-7-141">Common Command-Line Tools and Tasks</a></span>
+<br /><span class="sectionToc" >5.10  <a 
+href="AutonomousMobileRoboticsLectureBookch5.html#x7-980005.10" id="QQ2-7-146">Advanced Topics</a></span>
+<br /><span class="chapterToc" >6 <a 
+href="AutonomousMobileRoboticsLectureBookch6.html#x8-1010006" id="QQ2-8-149">Installation</a></span>
+<br /><span class="sectionToc" >6.1  <a 
+href="AutonomousMobileRoboticsLectureBookch6.html#x8-1020006.1" id="QQ2-8-150">ROS 2 Humble Hawksbill</a></span>
+<br /><span class="sectionToc" >6.2  <a 
+href="AutonomousMobileRoboticsLectureBookch6.html#x8-1080006.2" id="QQ2-8-156">Auto-Install Script</a></span>
+<br /><span class="chapterToc" >7 <a 
+href="AutonomousMobileRoboticsLectureBookch7.html#x9-1090007" id="QQ2-9-157">ROS Concepts</a></span>
+                                                                                
+                                                                                
+<br /><span class="sectionToc" >7.1  <a 
+href="AutonomousMobileRoboticsLectureBookch7.html#x9-1100007.1" id="QQ2-9-158">Introduction</a></span>
+<br /><span class="sectionToc" >7.2  <a 
+href="AutonomousMobileRoboticsLectureBookch7.html#x9-1110007.2" id="QQ2-9-159">Publisher and Subscriber Architecture</a></span>
+<br /><span class="sectionToc" >7.3  <a 
+href="AutonomousMobileRoboticsLectureBookch7.html#x9-1120007.3" id="QQ2-9-160">Nodes - The Building Blocks</a></span>
+<br /><span class="sectionToc" >7.4  <a 
+href="AutonomousMobileRoboticsLectureBookch7.html#x9-1130007.4" id="QQ2-9-161">The Discovery Process</a></span>
+<br /><span class="sectionToc" >7.5  <a 
+href="AutonomousMobileRoboticsLectureBookch7.html#x9-1140007.5" id="QQ2-9-162">Communication Between Nodes</a></span>
+<br /><span class="sectionToc" >7.6  <a 
+href="AutonomousMobileRoboticsLectureBookch7.html#x9-1240007.6" id="QQ2-9-172">Topics</a></span>
+<br /><span class="sectionToc" >7.7  <a 
+href="AutonomousMobileRoboticsLectureBookch7.html#x9-1280007.7" id="QQ2-9-176">Services</a></span>
+<br /><span class="sectionToc" >7.8  <a 
+href="AutonomousMobileRoboticsLectureBookch7.html#x9-1310007.8" id="QQ2-9-179">Actions</a></span>
+<br /><span class="sectionToc" >7.9  <a 
+href="AutonomousMobileRoboticsLectureBookch7.html#x9-1340007.9" id="QQ2-9-182">Parameters</a></span>
+<br /><span class="sectionToc" >7.10  <a 
+href="AutonomousMobileRoboticsLectureBookch7.html#x9-1430007.10" id="QQ2-9-191">Working with Command Line</a></span>
+<br /><span class="sectionToc" >7.11  <a 
+href="AutonomousMobileRoboticsLectureBookch7.html#x9-1440007.11" id="QQ2-9-192">Launch File</a></span>
+<br /><span class="chapterToc" >8 <a 
+href="AutonomousMobileRoboticsLectureBookch8.html#x10-1450008" id="QQ2-10-193">Command Line Tools</a></span>
+<br /><span class="sectionToc" >8.1  <a 
+href="AutonomousMobileRoboticsLectureBookch8.html#x10-1460008.1" id="QQ2-10-194">Setting the Environment</a></span>
+<br /><span class="sectionToc" >8.2  <a 
+href="AutonomousMobileRoboticsLectureBookch8.html#x10-1510008.2" id="QQ2-10-199">Turtles and Graphs</a></span>
+<br /><span class="sectionToc" >8.3  <a 
+href="AutonomousMobileRoboticsLectureBookch8.html#x10-1590008.3" id="QQ2-10-208">A Deeper Look into Nodes</a></span>
+<br /><span class="sectionToc" >8.4  <a 
+href="AutonomousMobileRoboticsLectureBookch8.html#x10-1640008.4" id="QQ2-10-213">Working with Topics</a></span>
+<br /><span class="sectionToc" >8.5  <a 
+href="AutonomousMobileRoboticsLectureBookch8.html#x10-1700008.5" id="QQ2-10-222">Working with Services</a></span>
+<br /><span class="sectionToc" >8.6  <a 
+href="AutonomousMobileRoboticsLectureBookch8.html#x10-1770008.6" id="QQ2-10-229">Working with Parameters</a></span>
+<br /><span class="sectionToc" >8.7  <a 
+href="AutonomousMobileRoboticsLectureBookch8.html#x10-1840008.7" id="QQ2-10-236">A Practical Look into Actions</a></span>
+<br /><span class="sectionToc" >8.8  <a 
+href="AutonomousMobileRoboticsLectureBookch8.html#x10-1880008.8" id="QQ2-10-240">Launching Nodes</a></span>
+<br /><span class="chapterToc" >9 <a 
+href="AutonomousMobileRoboticsLectureBookch9.html#x11-1900009" id="QQ2-11-242">Client Libraries</a></span>
+<br /><span class="sectionToc" >9.1  <a 
+href="AutonomousMobileRoboticsLectureBookch9.html#x11-1910009.1" id="QQ2-11-243">Getting Started with Colcon</a></span>
+<br /><span class="sectionToc" >9.2  <a 
+href="AutonomousMobileRoboticsLectureBookch9.html#x11-1960009.2" id="QQ2-11-248">Creating a Workspace</a></span>
+<br /><span class="sectionToc" >9.3  <a 
+href="AutonomousMobileRoboticsLectureBookch9.html#x11-2040009.3" id="QQ2-11-256">Creating a Package</a></span>
+<br /><span class="sectionToc" >9.4  <a 
+href="AutonomousMobileRoboticsLectureBookch9.html#x11-2060009.4" id="QQ2-11-258">Writing a Simple Publisher &#x0026; Subscriber</a></span>
+<br /><span class="sectionToc" >9.5  <a 
+href="AutonomousMobileRoboticsLectureBookch9.html#x11-2170009.5" id="QQ2-11-269">Writing a Simple Service and Client</a></span>
+<br /><span class="sectionToc" >9.6  <a 
+href="AutonomousMobileRoboticsLectureBookch9.html#x11-2270009.6" id="QQ2-11-279">Creating Custom msg and srv Files</a></span>
+<br /><span class="sectionToc" >9.7  <a 
+href="AutonomousMobileRoboticsLectureBookch9.html#x11-2420009.7" id="QQ2-11-294">Using Parameters in a Class</a></span>
+<br /><span class="sectionToc" >9.8  <a 
+href="AutonomousMobileRoboticsLectureBookch9.html#x11-2520009.8" id="QQ2-11-304">Managing Dependencies</a></span>
+<br /><span class="sectionToc" >9.9  <a 
+href="AutonomousMobileRoboticsLectureBookch9.html#x11-2550009.9" id="QQ2-11-307">Creating an Action</a></span>
+<br /><span class="sectionToc" >9.10  <a 
+href="AutonomousMobileRoboticsLectureBookch9.html#x11-2580009.10" id="QQ2-11-310">Writing an Action Server and Client</a></span>
+<br /><span class="sectionToc" >9.11  <a 
+href="AutonomousMobileRoboticsLectureBookch9.html#x11-2600009.11" id="QQ2-11-312">Writing a Launch File</a></span>
+<br /><span class="chapterToc" >10 <a 
+href="AutonomousMobileRoboticsLectureBookch10.html#x12-26600010" id="QQ2-12-318">Transform Library</a></span>
+<br /><span class="sectionToc" >10.1  <a 
+href="AutonomousMobileRoboticsLectureBookch10.html#x12-26700010.1" id="QQ2-12-319">A Gentle Introduction</a></span>
+<br /><span class="sectionToc" >10.2  <a 
+href="AutonomousMobileRoboticsLectureBookch10.html#x12-27500010.2" id="QQ2-12-328">Writing a Static Broadcaster</a></span>
+<br /><span class="sectionToc" >10.3  <a 
+href="AutonomousMobileRoboticsLectureBookch10.html#x12-28400010.3" id="QQ2-12-337">Writing a Listener</a></span>
+<br /><span class="sectionToc" >10.4  <a 
+href="AutonomousMobileRoboticsLectureBookch10.html#x12-29100010.4" id="QQ2-12-344">Adding a Frame</a></span>
+<br /><span class="sectionToc" >10.5  <a 
+href="AutonomousMobileRoboticsLectureBookch10.html#x12-30500010.5" id="QQ2-12-358">Writing a Broadcaster</a></span>
+</div>
+                                                                                
+                                                                                
+                                                                                
+                                                                                
+<!--l. 8--><p class="noindent" >
+                                                                                
+                                                                                
+</p>
+                                                                                
+                                                                                
+                                                                                
+                                                                                
+
+                                                                                
+                                                                                
+                                                                                
+                                                                                
+</p>
+                                                                                
+                                                                                
+                                                                                
+                                                                                
+</p><!--l. 8--><p class="noindent" >
+                                                                                
+                                                                                
+</p>
+                                                                                
+                                                                                
+                                                                                
+                                                                                
+<!--l. 11--><p class="noindent" >
+                                                                                
+                                                                                
+</p>
+                                                                                
+                                                                                
+                                                                                
+                                                                                
+<!--l. 10--><p class="noindent" >
+                                                                                
+                                                                                
+</p>
+                                                                                
+                                                                                
+                                                                                
+                                                                                
+</p><!--l. 10--><p class="noindent" >
+                                                                                
+                                                                                
+</p>
+                                                                                
+                                                                                
+                                                                                
+                                                                                
+
+                                                                                
+                                                                                
+                                                                                
+                                                                                
+
+                                                                                
+                                                                                
+                                                                                
+                                                                                
+<!--l. 8--><p class="noindent" >
+                                                                                
+                                                                                
+</p>
+                                                                                
+                                                                                
+                                                                                
+                                                                                
+<!--l. 1--><p class="noindent" >
+                                                                                
+                                                                                
+</p><!--l. 1--><p class="noindent" ><a 
+ id="chapter*.162"></a>
+</p> 
+</body> 
+</html>
+                                                                                
+
+

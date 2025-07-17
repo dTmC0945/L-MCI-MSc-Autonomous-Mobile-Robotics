@@ -1,0 +1,291 @@
+#+title: MSc Autonomous Mobile Robotics
+
+** Table of Contents :TOC_2:
+  - [[#lecture-information][Lecture Information]]
+  - [[#requirements-and-the-learning-outcomes][Requirements and the Learning Outcomes]]
+  - [[#grading-of-the-lecture][Grading of the Lecture]]
+  - [[#lecture-sources][Lecture Sources]]
+  - [[#content-and-unit-distribution][Content and Unit Distribution]]
+  - [[#lecture-table-of-contents][Lecture Table of Contents]]
+  - [[#documentation][Documentation]]
+  - [[#related-links][Related Links]]
+
+** Lecture Information
+
+- The goal of this lecture is ...
+    
+| DESCRIPTION        | VALUE                                       |
+| Official Name      | Autonome mobile Robotik                     |
+| Lecture Code       | AMR                                         |
+| Module Code        | MECH-M-DUAL-3-AMR                           |
+| Degree             | M.Sc                                        |
+| Program Name       | Mechatronik Automation Robotics AI          |
+| Lecture Name       | Autonomous Mobile Robotics                  |
+| Semester           | 3                                           |
+| Season             | WS                                          |
+| Room Type          | Lecture Room/Online                         |
+| Assignments        | Personal Assignment A Personal Assignment B |
+| Lecturer           | Daniel T. McGuiness, Ph.D                   |
+| Module Responsible | BnM interim                                 |
+| Software           | Linux, ROS, Python                          |
+| Hardware           | -                                           |
+| SWS Total          | 3                                           |
+| SWS Teaching       | 3                                           |
+| UE Total           | 45                                          |
+| ECTS               | 5                                           |
+| Lecture Type       | ILV                                         |
+| Work Language      | English                                     |
+
+** Requirements and the Learning Outcomes
+
+- The student should have ...
+- After completion, the student will have ...
+
+| REQUIREMENTS       | TAUGHT LECTURE  | CODE | DEGREE | OUTCOME           |
+| C/C++ Programming  | Programming II  | PRO2 | B.Sc   | ROS 2 Programming |
+| Python Programming | Software Design | SWD  | B.Sc   | Linux Experience  |
+| -                  | -               | IOT  | B.Sc   | Programming       |
+| -                  | -               | -    | -      | -                 |
+| -                  | -               | -    | -      | -                 |
+
+** Grading of the Lecture
+
+- 
+- 
+   
+| ASSIGNMENT TYPE       | VALUE | QUANTITY |
+| Personal Assignment A |    50 |        1 |
+| Personal Assignment B |    50 |        1 |
+| SUM                   |   100 |        2 |
+
+** Lecture Sources
+
+The following is a reference material table with useful resources which
+complement well with the lecture.
+
+| AUTHOR        | TITLE                                                 | PUBLISHER             |
+| M. M. Bassa   | A very informal journey through ROS 2                 | Self-Published        |
+| F. M. Rico    | A Concise Introduction to Robot Programming with ROS2 | Taylor Francis (2022) |
+| B. Stroustrup | Programming Principles and Practice using C++         | Addison Wesley (2014) |
+
+** Content and Unit Distribution
+
+    
+- The content and unit distribution of the lecture is as follows where a unit
+  is defined as 45 min lecture.
+    
+| TOPIC                          | UNITS | SELF STUDY |
+| Locomotion                     |     4 |          8 |
+| Mobile Robot Localisation      |     8 |          8 |
+| Welcome to Linux               |     4 |          8 |
+| Command Line Fundamentals      |     4 |          8 |
+| Working with Files and Folders |     4 |          8 |
+| Installation                   |     2 |          8 |
+| ROS Concepts                   |     4 |          8 |
+| Command Line Tools             |     4 |          8 |
+| Client Libraries               |     4 |          8 |
+| Transform Library              |     4 |          8 |
+| SUM                            |    42 |         84 |
+
+** Lecture Table of Contents
+
+- Locomotion
+  - Introduction
+    - Key Issues for Locomotion
+  - Legged Mobile Robots
+      - Leg Configurations and Stability
+    - Examples of Legged Robot Locomotion
+      - Single Leg
+      - Two Legs (Bipedal)
+      - Four Legs (Quadruped)
+      - Six Legs (Hexapod)
+  - Wheeled Mobile Robots
+    - Design
+    - Stability
+    - Manoeuvrability
+    - Controllability
+    - Case Studies for Wheeled Motion
+      - Synchro Drive
+      - Omnidirectional Drive
+      - Omnidirectional locomotion with three spheric wheels
+      - Omnidirectional locomotion with four swedish wheels
+      - Omnidirectional locomotion with four castor wheels and eight motors
+      - Tracked Slip/Skid Locomotion
+    - Walking Wheels
+- Mobile Robot Localisation
+  - Introduction
+  - The problems of Noise and Aliasing
+    - Sensor Noise
+    - Sensor Aliasing
+    - Effector Noise
+    - An Error Model for Odometric Position Estimation
+  - Localisation v. Hard-Coded Navigation
+  - Representing Belief
+    - Single Hypothesis Belief
+    - Multiple Hypothesis Belief
+  - Representing Maps
+    - Continuous Representation
+    - Decomposition Methods
+    - Current Challenges
+  - Probabilistic Map-Based Localisation
+    - Introduction
+    - Markov Localisation
+      - Application of Probability for Localisation
+      - Application: Markov Localisation using a Topological Map
+    - Kalman Filter Localisation
+    - An Implementation of Kalman Filter
+      - A Gentle Introduction to Kalman Filter Theory
+      - Kalman Filter Localisation
+  - Other Examples of Localisation Methods
+    - Landmark-based Navigation
+    - Globally Unique Localisation
+    - Positioning Beacon systems
+    - Route-Based Localisation
+  - Building Maps
+    - Stochastic Map Technique
+    - Other Mapping Techniques
+      - Cyclic Environments
+      - Dynamic Environments
+- Welcome to Linux
+  - Learning the Linux Command Line
+    - A Short History on Computer Interfaces
+    - Linux is a Nutshell
+      - A Brief Description of What Linux Does
+    - Linux Distributions
+  - Installation
+  - Docker
+    - Dockerfile
+    - Running the Container
+- Command Line Fundamentals
+  - Introduction
+  - The Structure of Commands
+    - Some Rules Regarding the Syntax
+  - Helpful Keyboard Shortcuts for the Terminal
+  - When you need help with Commands
+  - Additional Information
+    - Use Tab completion on the Shell
+    - The info command
+    - The whatis command
+- Working with Files and Folders
+  - Introduction
+  - A Detailed Look in ls Command
+  - Creating and Removing Folders
+  - Move, Copy and Delete Files and Folders
+    - Find Files using the Command-Line Interface
+  - Role to Users and sudo
+  - File Permissions
+      - Octal Notation
+      - Symbolic Notation
+  - Hard and Symbolic Links
+    - Symbolic Links
+      - Hard Links
+  - The Linux File System
+  - Common Command-Line Tools and Tasks
+    - The UNIX Philosophy
+    - Connecting Commands with Pipes
+    - Viewing Text Files with cat, head, tail, and less
+    - Manipulate Text with awk Command
+    - Search for test within Files and Streams using grep
+      - Additional Information
+    - a Brief introduction to Vim (Optional Read)
+    - Edition Texts with Nano
+    - Working with TAR and Zip Archives
+    - Output redirection
+    - Exploring the Environment Variables with Path
+  - Advanced Topics
+    - Find Linux Distribution and Kernel Information
+    - Find System Hardware and Disk Information
+- Installation
+  - ROS 2 Humble Hawksbill
+    - Introduction
+    - Setting up the Local
+    - Setting Up the Source Files
+    - Install ROS 2 Packages
+    - Setting Up the Environment
+  - Auto-Install Script
+- ROS Concepts
+  - Introduction
+  - Publisher and Subscriber Architecture
+  - Nodes - The Building Blocks
+  - The Discovery Process
+  - Communication Between Nodes
+    - Description
+    - Messages
+      - Services
+      - Actions
+  - Topics
+    - Publisher - Subscriber Architecture
+    - Anonymity
+    - Strongly-Typed
+  - Services
+    - Service Server
+      - Service Client
+  - Actions
+    - Action Server
+    - Action Client
+  - Parameters
+    - A Detailed Look
+      - Declaring Parameters
+      - Types of Parameters
+      - Parameter Callbacks
+    - Parameter Interaction
+  - Working with Command Line
+  - Launch File
+    - ROS DOMAIN ID
+      - Choosing a domain ID (short version)
+      - Choosing a domain ID (long version)
+    - Client Libraries
+      - Supported Client Libraries
+  - Intermediate Concepts
+    - Defining the ROS Domain
+      - Participant Constraints
+    - ROS 2 Middleware Vendors
+  - Configuring Quality of Service
+    - Topic Statistics
+  - Advanced Concepts
+    - The Build System
+- Command Line Tools
+  - Setting the Environment
+  - Turtles and Graphs
+  - A Deeper Look into Nodes
+  - Working with Topics
+  - Working with Services
+  - Working with Parameters
+  - A Practical Look into Actions
+  - Launching Nodes
+- Client Libraries
+  - Getting Started with Colcon
+  - Creating a Workspace
+  - Creating a Package
+  - Writing a Simple Publisher & Subscriber
+    - Writing the Publisher Node
+    - Writing the Subscriber Node
+    - Building and Running
+  - Writing a Simple Service and Client
+    - Writing the Service Node
+    - Writing the Client Node
+  - Creating Custom msg and srv Files
+    - Creating Custom Definitions
+    - Testing the Newly Built Interfaces
+      - Service Client System
+  - Using Parameters in a Class
+  - Managing Dependencies
+    - Explaining Rosdep
+    - Explaining Pacakge Manifesto
+  - Creating an Action
+  - Writing an Action Server and Client
+  - Writing a Launch File
+- Transform Library
+  - A Gentle Introduction
+  - Writing a Static Broadcaster
+  - Writing a Listener
+  - Adding a Frame
+  - Writing a Broadcaster
+
+** Documentation
+
+For any student in need of a LaTeX class designed from the ground-up for
+assignment/lab/thesis/slide for MCI needs please have a look at ~mcidoc~ class
+hosted at [[https://github.com/dTmC0945/C-MCI-LaTeX-Class-mcidoc][GitHub]].
+
+(-DTMc 2025)

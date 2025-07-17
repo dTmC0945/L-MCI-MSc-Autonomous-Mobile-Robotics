@@ -1,0 +1,6217 @@
+<!DOCTYPE html>
+<html lang="en-US" xml:lang="en-US">
+ <head>
+  <title>
+   8 Command Line Tools
+  </title>
+    <link rel='icon' type='image/x-icon' href='figures/logo.svg'></link>
+  <meta charset="utf-8"/>
+  <meta content="ParSnip" name="generator"/>
+  <meta content="width=device-width,initial-scale=1" name="viewport"/>
+  <link href="AutonomousMobileRoboticsLectureBook.css" rel="stylesheet" type="text/css"/>
+  <meta content="AutonomousMobileRoboticsLectureBook.tex" name="src"/>
+  <script async="async" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/mml-chtml.js" type="text/javascript">
+  </script>
+  <link href="flatweb.css" rel="stylesheet" type="text/css"/>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js">
+  </script>
+  <script src="flatjs.js">
+  </script>
+  <link href="http://fonts.googleapis.com/css?family=Roboto" rel="stylesheet" type="text/css"/>
+  <script type="module">
+   import pdfjsDist from 'https://cdn.jsdelivr.net/npm/pdfjs-dist@5.3.93/+esm'
+  </script>
+  <script>
+   function moveTOC() { 
+var htmlShow = document.getElementsByClassName("wide"); 
+if (htmlShow[0].style.display === "none") { 
+htmlShow[0].style.display = "block"; 
+} else { 
+htmlShow[0].style.display = "none"; 
+} 
+}
+  </script>
+  <link href="https://unpkg.com/nord-highlightjs@0.1.0/dist/nord.css" rel="stylesheet" type="text/css"/>
+  <script src="https://unpkg.com/@highlightjs/cdn-assets@11.3.1/highlight.min.js">
+  </script>
+  <script src="https://unpkg.com/highlightjs-copy/dist/highlightjs-copy.min.js">
+  </script>
+  <link href="https://unpkg.com/highlightjs-copy/dist/highlightjs-copy.min.css" rel="stylesheet"/>
+  <script src="flatjs.js">
+  </script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/languages/dockerfile.min.js">
+  </script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/languages/cmake.min.js">
+  </script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/languages/cpp.min.js">
+  </script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/makefile.min.js">
+  </script>
+  <header>
+  </header>
+ </head>
+ <body id="top">
+  <nav class="wide">
+   <div class="contents">
+    <h3 style="font-weight:lighter; padding: 20px 0 20px 0;">
+     8
+   
+     
+   
+
+   Command Line Tools
+    </h3>
+    <h4 style="font-weight:lighter">
+     Chapter Table of Contents
+    </h4>
+    <ul>
+     <div class="chapterTOCS">
+      <li>
+       <span class="sectionToc">
+        <small>
+         8.1
+        </small>
+        <a href="#x10-1460008.1">
+         Setting the Environment
+        </a>
+       </span>
+      </li>
+      <li>
+       <span class="sectionToc">
+        <small>
+         8.2
+        </small>
+        <a href="#x10-1510008.2">
+         Turtles and Graphs
+        </a>
+       </span>
+      </li>
+      <li>
+       <span class="sectionToc">
+        <small>
+         8.3
+        </small>
+        <a href="#x10-1590008.3">
+         A Deeper Look into Nodes
+        </a>
+       </span>
+      </li>
+      <li>
+       <span class="sectionToc">
+        <small>
+         8.4
+        </small>
+        <a href="#x10-1640008.4">
+         Working with Topics
+        </a>
+       </span>
+      </li>
+      <li>
+       <span class="sectionToc">
+        <small>
+         8.5
+        </small>
+        <a href="#x10-1700008.5">
+         Working with Services
+        </a>
+       </span>
+      </li>
+      <li>
+       <span class="sectionToc">
+        <small>
+         8.6
+        </small>
+        <a href="#x10-1770008.6">
+         Working with Parameters
+        </a>
+       </span>
+      </li>
+      <li>
+       <span class="sectionToc">
+        <small>
+         8.7
+        </small>
+        <a href="#x10-1840008.7">
+         A Practical Look into Actions
+        </a>
+       </span>
+      </li>
+      <li>
+       <span class="sectionToc">
+        <small>
+         8.8
+        </small>
+        <a href="#x10-1880008.8">
+         Launching Nodes
+        </a>
+       </span>
+      </li>
+     </div>
+    </ul>
+    <div class="prev-next" style="text-align: center">
+     <p class="noindent">
+      <a href="AutonomousMobileRoboticsLectureBookch9.html" style="float:right; font-size:10px">
+       NEXT →
+      </a>
+      <a href="AutonomousMobileRoboticsLectureBookch7.html" style="float:left; font-size:10px">
+       ← PREV
+      </a>
+      <a href="index.html">
+       TOP
+      </a>
+     </p>
+    </div>
+    <div id="author-info" style="bottom: 0; padding-bottom: 10px;">
+     <div id="author-logo">
+      <img src="figures/logo.svg" style="margin: 10px 0;"/>
+      <div>
+       <div>
+        <h4 style="color:#7aa0b8; font-weight:lighter;">
+         WebBook | D. T. McGuiness, P.hD
+        </h4>
+       </div>
+      </div>
+      <div id="author-text" style="bottom: 0; padding-top: 50px;border-top: solid 1px #3b4b5e;font-size: 12px;text-align: right;">
+       <p>
+        <b>
+         Authors Note
+        </b>
+        The website you are viewing is auto-generated
+    using ParSnip and therefore subject to slight errors in
+    typography and formatting. When in doubt, please consult the
+    LectureBook.
+       </p>
+      </div>
+     </div>
+    </div>
+   </div>
+  </nav>
+  <div class="page">
+   <article class="chapter">
+    <h1 class="chapterHead">
+     <div class="number">
+      8
+     </div>
+     <a id="x10-1450008">
+     </a>
+     Command Line Tools
+    </h1><button id='toc-button' onclick='moveTOC()'>TOC</button>
+    <div class="section-control" style="text-align: center">
+     <a id="prev-section" onclick="goPrev()" style="float:left;">
+      ← Previous Section
+     </a>
+     <a id="next-section" onclick="goNext()" style="float:right;">
+      Next Section →
+     </a>
+    </div>
+    <h2 class="sectionHead">
+     <a aria-label="Link to this section in PDF version" class="pdf-link" href="AutonomousMobileRoboticsLectureBook.pdf#section.8.1" style="color: red;  position: absolute;  left: -30px;" target="_blank">
+      <svg class="bi bi-file-pdf" fill="currentColor" height="20" viewbox="0 0 16 16" width="20" xmlns="http://www.w3.org/2000/svg">
+       <path d="M4 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H4zm0 1h8a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1z">
+       </path>
+       <path d="M4.603 12.087a.81.81 0 0 1-.438-.42c-.195-.388-.13-.776.08-1.102.198-.307.526-.568.897-.787a7.68 7.68 0 0 1 1.482-.645 19.701 19.701 0 0 0 1.062-2.227 7.269 7.269 0 0 1-.43-1.295c-.086-.4-.119-.796-.046-1.136.075-.354.274-.672.65-.823.192-.077.4-.12.602-.077a.7.7 0 0 1 .477.365c.088.164.12.356.127.538.007.187-.012.395-.047.614-.084.51-.27 1.134-.52 1.794a10.954 10.954 0 0 0 .98 1.686 5.753 5.753 0 0 1 1.334.05c.364.065.734.195.96.465.12.144.193.32.2.518.007.192-.047.382-.138.563a1.04 1.04 0 0 1-.354.416.856.856 0 0 1-.51.138c-.331-.014-.654-.196-.933-.417a5.716 5.716 0 0 1-.911-.95 11.642 11.642 0 0 0-1.997.406 11.311 11.311 0 0 1-1.021 1.51c-.29.35-.608.655-.926.787a.793.793 0 0 1-.58.029zm1.379-1.901c-.166.076-.32.156-.459.238-.328.194-.541.383-.647.547-.094.145-.096.25-.04.361.01.022.02.036.026.044a.27.27 0 0 0 .035-.012c.137-.056.355-.235.635-.572a8.18 8.18 0 0 0 .45-.606zm1.64-1.33a12.647 12.647 0 0 1 1.01-.193 11.666 11.666 0 0 1-.51-.858 20.741 20.741 0 0 1-.5 1.05zm2.446.45c.15.162.296.3.435.41.24.19.407.253.498.256a.107.107 0 0 0 .07-.015.307.307 0 0 0 .094-.125.436.436 0 0 0 .059-.2.095.095 0 0 0-.026-.063c-.052-.062-.2-.152-.518-.209a3.881 3.881 0 0 0-.612-.053zM8.078 5.8a6.7 6.7 0 0 0 .2-.828c.031-.188.043-.343.038-.465a.613.613 0 0 0-.032-.198.517.517 0 0 0-.145.04c-.087.035-.158.106-.196.283-.04.192-.03.469.046.822.024.111.054.227.09.346z">
+       </path>
+      </svg>
+     </a>
+     <small class="titlemark">
+      8.1
+     </small>
+     <a id="x10-1460008.1">
+     </a>
+     Setting the Environment
+    </h2>
+    <p class="noindent">
+     <a class="glossary" href="AutonomousMobileRoboticsLectureBookli2.html#glo:ros">
+      ROS
+     </a>
+     relies on the notion of combining workspaces using the shell environment.
+     <alert style="color: #821131;">
+      <span id="bold" style="font-weight:bold;">
+       <sup class="textsuperscript">
+        1
+       </sup>
+      </span>
+     </alert>
+     <span class="marginnote">
+      <alert style="color: #821131;">
+       <span id="bold" style="font-weight:bold;">
+        <sup class="textsuperscript">
+         1
+        </sup>
+       </span>
+      </alert>
+      <span style="color:#0A2A0A;">
+       In this case, of course, it is
+our bash shell.
+      </span>
+     </span>
+     The “workspace” is a
+     <a class="glossary" href="AutonomousMobileRoboticsLectureBookli2.html#glo:ros">
+      ROS
+     </a>
+     term for the location on our system where we’re developing with
+     <a class="glossary" href="AutonomousMobileRoboticsLectureBookli2.html#glo:ros">
+      ROS
+     </a>.
+    </p>
+    <ul class="itemize1">
+     <li class="itemize">
+      <p class="noindent">
+       the
+core
+       <a class="glossary" href="AutonomousMobileRoboticsLectureBookli2.html#glo:ros">
+        ROS
+       </a>
+       workspace
+is
+called
+the
+underlay,
+      </p>
+     </li>
+     <li class="itemize">
+      <p class="noindent">
+       and
+any
+subsequent
+local
+workspaces
+are
+called
+overlays.
+      </p>
+     </li>
+    </ul>
+    <p class="noindent">
+     When developing with
+     <a class="glossary" href="AutonomousMobileRoboticsLectureBookli2.html#glo:ros">
+      ROS
+     </a>, we will typically have several workspaces active concurrently.
+    </p>
+    <p class="noindent">
+     Combining
+workspaces
+makes
+developing
+against
+different
+versions
+of
+     <a class="glossary" href="AutonomousMobileRoboticsLectureBookli2.html#glo:ros">
+      ROS
+     </a>,
+                                                                                
+                                                                                
+                                                                              
+or
+against
+different
+sets
+of
+packages,
+easier.
+It
+also
+allows
+the
+installation
+of
+several
+     <a class="glossary" href="AutonomousMobileRoboticsLectureBookli2.html#glo:ros">
+      ROS
+     </a>
+     distributions
+     <alert style="color: #821131;">
+      <span id="bold" style="font-weight:bold;">
+       <sup class="textsuperscript">
+        2
+       </sup>
+      </span>
+     </alert>
+     <span class="marginnote">
+      <alert style="color: #821131;">
+       <span id="bold" style="font-weight:bold;">
+        <sup class="textsuperscript">
+         2
+        </sup>
+       </span>
+      </alert>
+      <span style="color:#0A2A0A;">
+       or
+“distros”,
+e.g.
+Dashing
+and
+Eloquent.
+      </span>
+     </span>
+     on
+the
+same
+computer
+and
+switching
+between
+them.
+This
+is
+accomplished
+by
+sourcing
+setup
+files
+every
+time
+we
+open
+a
+new
+shell,
+or
+by
+adding
+the
+source
+command
+to
+our
+shell
+startup
+script
+once.
+Without
+sourcing
+the
+setup
+files,
+we
+won’t
+be
+able
+to
+                                                                                
+                                                                                
+                                                                            
+access
+     <a class="glossary" href="AutonomousMobileRoboticsLectureBookli2.html#glo:ros">
+      ROS
+     </a>
+     commands,
+or
+find
+or
+use
+     <a class="glossary" href="AutonomousMobileRoboticsLectureBookli2.html#glo:ros">
+      ROS
+     </a>
+     packages.
+    </p>
+    <p class="noindent">
+     In
+other
+words,
+we
+won’t
+be
+able
+to
+use
+     <a class="glossary" href="AutonomousMobileRoboticsLectureBookli2.html#glo:ros">
+      ROS
+     </a>.
+To
+source,
+simply
+type
+the
+following:
+    </p>
+    <p class="noindent">
+    </p>
+    <div class="code-block">
+     <div class="code-lang">
+      bash
+     </div>
+     <pre><div class="language-bash" id="fancyvrb127" style="padding:20px;border-radius: 3px;"><a id="x10-146002r41"></a><span style="color:#008700;"><italic># Replace ".bash" with your shell if you're not using bash</italic></span> 
+<a id="x10-146004r42"></a><span style="color:#008700;"><italic># Possible values are: setup.bash, setup.sh, setup.zsh</italic></span> 
+<a id="x10-146006r43"></a><span style="color:#2B2BFF;">source</span><span style="color:#BABABA;"> </span>/opt/ros/humble/setup.bash</div></pre>
+    </div>
+    <div class="warning">
+     <p class="noindent">
+      The
+exact
+command
+depends
+on
+where
+we
+installed
+      <a class="glossary" href="AutonomousMobileRoboticsLectureBookli2.html#glo:ros">
+       ROS
+      </a>.
+Of
+course,
+if
+we
+have
+installed
+      <a class="glossary" href="AutonomousMobileRoboticsLectureBookli2.html#glo:ros">
+       ROS
+      </a>
+      using
+a
+docker
+container,
+this
+section
+can
+be
+skipped.
+     </p>
+    </div>
+    <a id="paragraph*.35">
+    </a>
+    <p class="noindent">
+     <span class="paragraphHead">
+      <a id="x10-147000">
+      </a>
+      Sourcing
+the
+Script
+     </span>
+     If
+we
+                                                                                
+                                                                                
+                                                                            
+don’t
+want
+to
+have
+to
+source
+the
+setup
+file
+every
+time
+we
+open
+a
+new
+shell,
+then
+we
+can
+add
+the
+command
+to
+our
+shell
+startup
+script:
+     <alert style="color: #821131;">
+      <span id="bold" style="font-weight:bold;">
+       <sup class="textsuperscript">
+        3
+       </sup>
+      </span>
+     </alert>
+     <span class="marginnote">
+      <alert style="color: #821131;">
+       <span id="bold" style="font-weight:bold;">
+        <sup class="textsuperscript">
+         3
+        </sup>
+       </span>
+      </alert>
+      <span style="color:#0A2A0A;">
+       For
+our
+case
+it
+is <span style="color:#054C5C;"><code class="verb">.bashrc</code></span>
+      </span>
+     </span>
+    </p>
+    <p class="noindent">
+    </p>
+    <div class="code-block">
+     <div class="code-lang">
+      bash
+     </div>
+     <pre><div class="language-bash" id="fancyvrb128" style="padding:20px;border-radius: 3px;"><a id="x10-147002r48"></a><span style="color:#008700;"><italic># Replace ".bash" with your shell if you're not using bash</italic></span> 
+<a id="x10-147004r49"></a><span style="color:#2B2BFF;">echo</span><span style="color:#BABABA;"> </span><span style="color:#800080;">"source /opt/ros/humble/setup.bash"</span><span style="color:#BABABA;"> </span>»<span style="color:#BABABA;"> </span>~/.bashrc</div></pre>
+    </div>
+    <a id="paragraph*.36">
+    </a>
+    <p class="noindent">
+     <span class="paragraphHead">
+      <a id="x10-148000">
+      </a>
+      Checking
+Environment
+Variables
+     </span>
+     Sourcing
+     <a class="glossary" href="AutonomousMobileRoboticsLectureBookli2.html#glo:ros">
+      ROS
+     </a>
+     setup
+files
+will
+set
+several
+environment
+variables
+necessary
+for
+operating
+     <a class="glossary" href="AutonomousMobileRoboticsLectureBookli2.html#glo:ros">
+      ROS
+     </a>.
+If
+we
+ever
+have
+problems
+finding
+or
+using
+                                                                                
+                                                                                
+                                                                             
+our
+     <a class="glossary" href="AutonomousMobileRoboticsLectureBookli2.html#glo:ros">
+      ROS
+     </a>
+     packages,
+make
+sure
+that
+our
+environment
+is
+properly
+set
+up
+using
+the
+following
+command:
+    </p>
+    <p class="noindent">
+    </p>
+    <div class="code-block">
+     <div class="code-lang">
+      bash
+     </div>
+     <pre><div class="language-bash" id="fancyvrb129" style="padding:20px;border-radius: 3px;"><a id="x10-148002r54"></a>printenv<span style="color:#BABABA;"> </span>|<span style="color:#BABABA;"> </span>grep<span style="color:#BABABA;"> </span>-i<span style="color:#BABABA;"> </span>ROS</div></pre>
+    </div>
+    <div class="informationblock" id="tcolobox-58">
+     <div class="title">
+      <p class="noindent">
+       <span id="bold" style="font-weight:bold;">
+        Information
+       </span>
+       :
+The <span style="color:#054C5C;"><code class="verb">printenv</code></span>
+       Command
+      </p>
+     </div>
+     <div class="box-content">
+      <p class="noindent">
+       Displays the values of environment variables.
+      </p>
+     </div>
+    </div>
+    <p class="noindent">
+     Using
+this
+command
+let’s
+check
+all
+variables
+like <span style="color:#054C5C;"><code class="verb">ROS_DISTRO</code></span>
+     and <span style="color:#054C5C;"><code class="verb">ROS_VERSION</code></span>
+     are
+set.
+    </p>
+    <div class="tcolorbox tcolorbox" id="tcolobox-59">
+     <div class="tcolorbox-content">
+      <div class="code-block">
+       <div class="code-lang">
+        text
+       </div>
+       <pre><div class="language-text" id="fancyvrb130" style="padding:20px;border-radius: 3px;"><a id="x10-148004r1"></a>ROS_VERSION=2 
+<a id="x10-148006r2"></a>ROS_PYTHON_VERSION=3 
+<a id="x10-148008r3"></a>AMENT_PREFIX_PATH=/opt/ros/humble 
+<a id="x10-148010r4"></a>PYTHONPATH=/opt/ros/humble/lib/python3.10/site-packages:/opt/ros/humble/local/lib/python3.10/dist-packages 
+<a id="x10-148012r5"></a>LD_LIBRARY_PATH=/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/aarch64-linux-gnu:/opt/ros/humble/lib 
+<a id="x10-148014r6"></a>ROS_LOCALHOST_ONLY=0 
+<a id="x10-148016r7"></a>PATH=/opt/ros/humble/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin 
+<a id="x10-148018r8"></a>ROS_DISTRO=humble</div></pre>
+      </div>
+     </div>
+    </div>
+    <div class="warning">
+     <p class="noindent">
+      If
+the
+environment
+variables
+are
+      <span id="bold" style="font-weight:bold;">
+       NOT
+      </span>
+      set
+correctly,
+it
+might
+be
+worthwhile
+to
+reinstall
+      <a class="glossary" href="AutonomousMobileRoboticsLectureBookli2.html#glo:ros">
+       ROS
+      </a>.
+     </p>
+    </div>
+    <a id="paragraph*.37">
+    </a>
+    <p class="noindent">
+     <span class="paragraphHead">
+      <a id="x10-149000">
+      </a>
+      The
+ROS
+Domain
+ID
+Variable
+     </span>
+     Once
+we
+have
+determined
+a
+     <alert style="color: #821131;">
+      unique
+integer
+     </alert>
+     for
+our
+group
+of
+     <a class="glossary" href="AutonomousMobileRoboticsLectureBookli2.html#glo:ros">
+      ROS
+     </a>
+     nodes,
+we
+can
+set
+the
+environment
+variable
+with
+the
+following
+command:
+    </p>
+    <p class="noindent">
+    </p>
+    <div class="code-block">
+     <div class="code-lang">
+      bash
+     </div>
+     <pre><div class="language-bash" id="fancyvrb131" style="padding:20px;border-radius: 3px;"><a id="x10-149002r71"></a><span style="color:#2B2BFF;">export</span><span style="color:#BABABA;"> </span><span style="color:#2B2BFF;"><span id="bold" style="font-weight:bold;">ROS_DOMAIN_ID</span></span>=&lt;your_domain_id&gt;</div></pre>
+    </div>
+    <p class="noindent">
+     To
+maintain
+this
+setting
+between
+shell
+sessions,
+we
+can
+also
+add
+the
+command
+to
+our
+shell
+startup
+script <span style="color:#054C5C;"><code class="verb">.bashrc</code></span>
+     :
+    </p>
+    <p class="noindent">
+    </p>
+    <div class="code-block">
+     <div class="code-lang">
+      bash
+     </div>
+     <pre><div class="language-bash" id="fancyvrb132" style="padding:20px;border-radius: 3px;"><a id="x10-149004r76"></a><span style="color:#2B2BFF;">echo</span><span style="color:#BABABA;"> </span><span style="color:#800080;">"export ROS_DOMAIN_ID=&lt;your_domain_id&gt;"</span><span style="color:#BABABA;"> </span>»<span style="color:#BABABA;"> </span>~/.bashrc</div></pre>
+    </div>
+    <a id="paragraph*.38">
+    </a>
+    <p class="noindent">
+     <span class="paragraphHead">
+      <a id="x10-150000">
+      </a>
+      Changing
+the
+                                                                                
+                                                                                
+                                                                         
+Localhost
+Variable
+     </span>
+     By
+default,
+     <a class="glossary" href="AutonomousMobileRoboticsLectureBookli2.html#glo:ros">
+      ROS
+     </a>
+     communication
+is
+     <span id="bold" style="font-weight:bold;">
+      NOT
+     </span>
+     limited
+to
+localhost.
+     <alert style="color: #821131;">
+      <span id="bold" style="font-weight:bold;">
+       <sup class="textsuperscript">
+        4
+       </sup>
+      </span>
+     </alert>
+     <span class="marginnote">
+      <alert style="color: #821131;">
+       <span id="bold" style="font-weight:bold;">
+        <sup class="textsuperscript">
+         4
+        </sup>
+       </span>
+      </alert>
+      <span style="color:#0A2A0A;">
+       Localhost
+is
+a
+form
+of
+hostname,
+meaning
+the
+specific
+computer
+that
+the
+program
+is
+running
+on.
+It
+is
+employed
+as
+a
+method
+of
+connecting
+to
+services
+on
+the
+network
+on
+the
+physical
+host
+machine
+without
+the
+services
+of
+an
+outer
+network.
+When
+using
+“localhost”,
+we
+are
+connected
+to
+our
+computer
+or
+the
+node
+that
+is
+                                                                                
+                                                                                
+addressed
+by
+the
+IP
+address
+127.
+Often
+used
+for
+testing
+and
+development,
+it
+lets
+developers
+run
+and
+test
+Web
+applications,
+or
+any
+other
+network
+service,
+locally
+before
+putting
+them
+on
+a
+live
+server.
+To
+summarize,
+it
+can
+be
+mentioned
+that
+localhost
+is
+the
+loopback
+network
+interface.
+      </span>
+     </span> <span style="color:#054C5C;"><code class="verb">ROS_LOCALHOST_ONLY</code></span>
+     environment
+variable
+allows
+us
+to
+limit
+     <a class="glossary" href="AutonomousMobileRoboticsLectureBookli2.html#glo:ros">
+      ROS
+     </a>
+     communication
+to
+localhost
+only.
+    </p>
+    <p class="noindent">
+     This
+means
+our
+     <a class="glossary" href="AutonomousMobileRoboticsLectureBookli2.html#glo:ros">
+      ROS
+     </a>
+     system,
+and
+its
+topics,
+services,
+                                                                                
+                                                                                
+and
+actions
+will
+     <span id="bold" style="font-weight:bold;">
+      NOT
+     </span>
+     be
+visible
+to
+other
+computers
+on
+the
+local
+network.
+    </p>
+    <p class="noindent">
+     Using <span style="color:#054C5C;"><code class="verb">ROS_LOCALHOST_ONLY</code></span>
+     is
+helpful
+in
+certain
+settings,
+such
+as
+classrooms,
+where
+multiple
+robots
+may
+publish
+to
+the
+same
+topic
+causing
+strange
+behaviors.
+We
+can
+set
+the
+environment
+variable
+with
+the
+following
+command:
+    </p>
+    <p class="noindent">
+    </p>
+    <div class="code-block">
+     <div class="code-lang">
+      bash
+     </div>
+     <pre><div class="language-bash" id="fancyvrb133" style="padding:20px;border-radius: 3px;"><a id="x10-150002r81"></a><span style="color:#2B2BFF;">export</span><span style="color:#BABABA;"> </span><span style="color:#2B2BFF;"><span id="bold" style="font-weight:bold;">ROS_LOCALHOST_ONLY</span></span>=<span style="color:#2B8554;"><span id="bold" style="font-weight:bold;">1</span></span></div></pre>
+    </div>
+    <p class="noindent">
+     Of
+course,
+to
+maintain
+it
+across
+different
+shell
+session
+we
+can
+write
+this
+command
+to
+our <span style="color:#054C5C;"><code class="verb">.bashrc</code></span>
+     :
+    </p>
+    <p class="noindent">
+    </p>
+    <div class="code-block">
+     <div class="code-lang">
+      bash
+     </div>
+     <pre><div class="language-bash" id="fancyvrb134" style="padding:20px;border-radius: 3px;"><a id="x10-150004r86"></a><span style="color:#2B2BFF;">echo</span><span style="color:#BABABA;"> </span><span style="color:#800080;">"export ROS_LOCALHOST_ONLY=1"</span><span style="color:#BABABA;"> </span>»<span style="color:#BABABA;"> </span>~/.bashrc</div></pre>
+    </div>
+    <p class="noindent">
+    </p>
+    <h2 class="sectionHead">
+     <a aria-label="Link to this section in PDF version" class="pdf-link" href="AutonomousMobileRoboticsLectureBook.pdf#section.8.2" style="color: red;  position: absolute;  left: -30px;" target="_blank">
+      <svg class="bi bi-file-pdf" fill="currentColor" height="20" viewbox="0 0 16 16" width="20" xmlns="http://www.w3.org/2000/svg">
+       <path d="M4 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H4zm0 1h8a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1z">
+       </path>
+       <path d="M4.603 12.087a.81.81 0 0 1-.438-.42c-.195-.388-.13-.776.08-1.102.198-.307.526-.568.897-.787a7.68 7.68 0 0 1 1.482-.645 19.701 19.701 0 0 0 1.062-2.227 7.269 7.269 0 0 1-.43-1.295c-.086-.4-.119-.796-.046-1.136.075-.354.274-.672.65-.823.192-.077.4-.12.602-.077a.7.7 0 0 1 .477.365c.088.164.12.356.127.538.007.187-.012.395-.047.614-.084.51-.27 1.134-.52 1.794a10.954 10.954 0 0 0 .98 1.686 5.753 5.753 0 0 1 1.334.05c.364.065.734.195.96.465.12.144.193.32.2.518.007.192-.047.382-.138.563a1.04 1.04 0 0 1-.354.416.856.856 0 0 1-.51.138c-.331-.014-.654-.196-.933-.417a5.716 5.716 0 0 1-.911-.95 11.642 11.642 0 0 0-1.997.406 11.311 11.311 0 0 1-1.021 1.51c-.29.35-.608.655-.926.787a.793.793 0 0 1-.58.029zm1.379-1.901c-.166.076-.32.156-.459.238-.328.194-.541.383-.647.547-.094.145-.096.25-.04.361.01.022.02.036.026.044a.27.27 0 0 0 .035-.012c.137-.056.355-.235.635-.572a8.18 8.18 0 0 0 .45-.606zm1.64-1.33a12.647 12.647 0 0 1 1.01-.193 11.666 11.666 0 0 1-.51-.858 20.741 20.741 0 0 1-.5 1.05zm2.446.45c.15.162.296.3.435.41.24.19.407.253.498.256a.107.107 0 0 0 .07-.015.307.307 0 0 0 .094-.125.436.436 0 0 0 .059-.2.095.095 0 0 0-.026-.063c-.052-.062-.2-.152-.518-.209a3.881 3.881 0 0 0-.612-.053zM8.078 5.8a6.7 6.7 0 0 0 .2-.828c.031-.188.043-.343.038-.465a.613.613 0 0 0-.032-.198.517.517 0 0 0-.145.04c-.087.035-.158.106-.196.283-.04.192-.03.469.046.822.024.111.054.227.09.346z">
+       </path>
+      </svg>
+     </a>
+     <small class="titlemark">
+      8.2
+     </small>
+     <a id="x10-1510008.2">
+     </a>
+     Turtles  and  Graphs
+    </h2>
+    <p class="noindent">
+     Turtlesim is a great introduction to
+     <a class="glossary" href="AutonomousMobileRoboticsLectureBookli2.html#glo:ros">
+      ROS
+     </a>
+     as it is a lightweight simulator and easy to work on. It illustrates what
+     <a class="glossary" href="AutonomousMobileRoboticsLectureBookli2.html#glo:ros">
+      ROS
+     </a>
+     does
+at the most basic level to give us an idea of what we will do with a real robot or a robot simulation later on.
+    </p>
+    <p class="noindent">
+     The <span style="color:#054C5C;"><code class="verb">ros2</code></span>
+     tool is how the user manages, introspects, and interacts with a ROS system. It
+supports multiple commands which target different aspects of the system and its operation.
+    </p>
+    <p class="noindent">
+    </p>
+    <div class="quoteblock">
+     <p class="noindent">
+      One
+might
+use
+it
+to
+start
+a
+node,
+set
+a
+parameter,
+listen
+to
+a
+topic,
+and
+many
+more.
+     </p>
+    </div>
+    <div class="warning">
+     <p class="noindent">
+      The <span style="color:#054C5C;"><code class="verb">ros2</code></span>
+      tool is part of the core
+      <a class="glossary" href="AutonomousMobileRoboticsLectureBookli2.html#glo:ros">
+       ROS
+      </a>
+      installation and should already be installed. This can easily be tested by typing <span style="color:#054C5C;"><code class="verb">ros2</code></span>
+      into a terminal.
+     </p>
+    </div>
+    <p class="noindent">
+     The  second  tool  is <span style="color:#054C5C;"><code class="verb">rqt</code></span>,  a
+     <a class="glossary" href="AutonomousMobileRoboticsLectureBookli2.html#glo:gui">
+      GUI
+     </a>
+     tool  for
+     <a class="glossary" href="AutonomousMobileRoboticsLectureBookli2.html#glo:ros">
+      ROS
+     </a>.
+    </p>
+    <div class="knowledge">
+     <p class="noindent">
+      Everything done in <span style="color:#054C5C;"><code class="verb">rqt</code></span>
+      can be done using
+      <a class="glossary" href="AutonomousMobileRoboticsLectureBookli2.html#glo:cli">
+       CLI
+      </a>, but <span style="color:#054C5C;"><code class="verb">rqt</code></span>
+      provides a more user-friendly way to manipulate
+      <a class="glossary" href="AutonomousMobileRoboticsLectureBookli2.html#glo:ros">
+       ROS
+      </a>
+      elements.
+     </p>
+    </div>
+    <p class="noindent">
+     We will work together to understand the fundamental concept which build the core of
+     <a class="glossary" href="AutonomousMobileRoboticsLectureBookli2.html#glo:ros">
+      ROS
+     </a>, like nodes, topics, and services. All of these concepts will be elaborated on later.
+    </p>
+    <p class="noindent">
+     For now, we will simply set up the tools and get a feel for them.
+     <a id="paragraph*.39">
+     </a>
+    </p>
+    <p class="noindent">
+     <span class="paragraphHead">
+      <a id="x10-152000">
+      </a>
+      Installing  the  Required  Packages
+     </span>
+     In case of
+     <span id="bold" style="font-weight:bold;">
+      NOT
+     </span>
+     having a configured docker container which was discussed in detail
+previously, please use the following commands to install all the necessary packages.
+    </p>
+    <p class="noindent">
+    </p>
+    <div class="code-block">
+     <div class="code-lang">
+      bash
+     </div>
+     <pre><div class="language-bash" id="fancyvrb135" style="padding:20px;border-radius: 3px;"><a id="x10-152002r93"></a>sudo<span style="color:#BABABA;"> </span>apt<span style="color:#BABABA;"> </span>update 
+<a id="x10-152004r94"></a>sudo<span style="color:#BABABA;"> </span>apt<span style="color:#BABABA;"> </span>install<span style="color:#BABABA;"> </span>ros-humble-turtlesim</div></pre>
+    </div>
+    <div class="tcolorbox tcolorbox" id="tcolobox-60">
+     <div class="tcolorbox-content">
+      <div class="code-block">
+       <div class="code-lang">
+        text
+       </div>
+       <pre><div class="language-text" id="fancyvrb136" style="padding:20px;border-radius: 3px;"><a id="x10-152006r1"></a>0 upgraded, 0 newly installed, 0 to remove and 6 not upgraded.</div></pre>
+      </div>
+     </div>
+    </div>
+    <p class="noindent">
+     To check if the package is installed, run the following command in the terminal:
+    </p>
+    <p class="noindent">
+    </p>
+    <div class="code-block">
+     <div class="code-lang">
+      bash
+     </div>
+     <pre><div class="language-bash" id="fancyvrb137" style="padding:20px;border-radius: 3px;"><a id="x10-152008r104"></a>ros2<span style="color:#BABABA;"> </span>pkg<span style="color:#BABABA;"> </span>executables<span style="color:#BABABA;"> </span>turtlesim</div></pre>
+    </div>
+    <p class="noindent">
+     which should return a list of turtlesim’s executable options:
+    </p>
+    <div class="tcolorbox tcolorbox" id="tcolobox-61">
+     <div class="tcolorbox-content">
+      <div class="code-block">
+       <div class="code-lang">
+        text
+       </div>
+       <pre><div class="language-text" id="fancyvrb138" style="padding:20px;border-radius: 3px;"><a id="x10-152010r1"></a>turtlesim draw_square 
+<a id="x10-152012r2"></a>turtlesim mimic 
+<a id="x10-152014r3"></a>turtlesim turtle_teleop_key 
+<a id="x10-152016r4"></a>turtlesim turtlesim_node</div></pre>
+      </div>
+     </div>
+    </div>
+    <a id="paragraph*.40">
+    </a>
+    <p class="noindent">
+     <span class="paragraphHead">
+      <a id="x10-153000">
+      </a>
+      Installing  and  Starting  Turtlesim
+     </span>
+     Let’s  begin  the  tutorial  by  starting  turtlesim:
+    </p>
+    <p class="noindent">
+    </p>
+    <div class="code-block">
+     <div class="code-lang">
+      bash
+     </div>
+     <pre><div class="language-bash" id="fancyvrb139" style="padding:20px;border-radius: 3px;"><a id="x10-153002r117"></a>ros2<span style="color:#BABABA;"> </span>run<span style="color:#BABABA;"> </span>turtlesim<span style="color:#BABABA;"> </span>turtlesim_node</div></pre>
+    </div>
+    <p class="noindent">
+     Under the command, we will see messages from the node. There we can see the default turtle’s name and the coordinates where it spawns.
+    </p>
+    <div class="tcolorbox tcolorbox" id="tcolobox-62">
+     <div class="tcolorbox-content">
+      <div class="code-block">
+       <div class="code-lang">
+        text
+       </div>
+       <pre><div class="language-text" id="fancyvrb140" style="padding:20px;border-radius: 3px;"><a id="x10-153004r1"></a>QStandardPaths: XDG_RUNTIME_DIR not set, defaulting to '/tmp/runtime-ubuntu' 
+<a id="x10-153006r2"></a>[INFO] [1748967100.900464593] [turtlesim]: Starting turtlesim with node name /turtlesim 
+<a id="x10-153008r3"></a>[INFO] [1748967100.908647551] [turtlesim]: Spawning turtle [turtle1] at x=[5.544445], y=[5.544445], theta=[0.000000]</div></pre>
+      </div>
+     </div>
+    </div>
+    <p class="noindent">
+     The
+simulator
+window
+should
+appear,
+with
+a
+random
+turtle
+in
+the
+centre.
+     <alert style="color: #821131;">
+      <span id="bold" style="font-weight:bold;">
+       <sup class="textsuperscript">
+        5
+       </sup>
+      </span>
+     </alert>
+     <span class="marginnote">
+      <img alt="PIC" height="" src="figures/Command-Line-Tools/raster/tsim-1.png" width="100%"/>
+      <alert style="color: #821131;">
+       <span id="bold" style="font-weight:bold;">
+        <sup class="textsuperscript">
+         5
+        </sup>
+       </span>
+      </alert>
+      <span style="color:#0A2A0A;">
+       Here
+we
+can
+see
+the
+turtlebot
+in
+its
+natural
+habitat,
+the
+turtlesim
+environment.
+The
+type
+of
+the
+turtle
+changes
+every
+time
+a
+new
+turtlesim
+environment
+is
+called.
+All
+these
+turtles
+represent
+a
+version
+of
+       <a class="glossary" href="AutonomousMobileRoboticsLectureBookli2.html#glo:ros">
+        ROS
+       </a>.
+      </span>
+     </span>
+     <a id="paragraph*.41">
+     </a>
+    </p>
+    <p class="noindent">
+     <span class="paragraphHead">
+      <a id="x10-154000">
+      </a>
+      Making
+the
+Turtle
+                                                                                
+                                                                                
+                                                                            
+Move
+Around
+     </span>
+     Now,
+     <alert style="color: #821131;">
+      open
+a
+new
+terminal
+     </alert>
+     and
+if
+it
+is
+     <span id="bold" style="font-weight:bold;">
+      NOT
+     </span>
+     automatic,
+source
+     <a class="glossary" href="AutonomousMobileRoboticsLectureBookli2.html#glo:ros">
+      ROS
+     </a>
+     again.
+Now
+we
+will
+run
+a
+new
+node
+to
+control
+the
+turtle
+in
+the
+first
+node:
+    </p>
+    <p class="noindent">
+    </p>
+    <div class="code-block">
+     <div class="code-lang">
+      bash
+     </div>
+     <pre><div class="language-bash" id="fancyvrb141" style="padding:20px;border-radius: 3px;"><a id="x10-154002r130"></a>ros2<span style="color:#BABABA;"> </span>run<span style="color:#BABABA;"> </span>turtlesim<span style="color:#BABABA;"> </span>turtle_teleop_key</div></pre>
+    </div>
+    <div class="tcolorbox tcolorbox" id="tcolobox-63">
+     <div class="tcolorbox-content">
+      <div class="code-block">
+       <div class="code-lang">
+        text
+       </div>
+       <pre><div class="language-text" id="fancyvrb142" style="padding:20px;border-radius: 3px;"><a id="x10-154004r1"></a>Reading from keyboard 
+<a id="x10-154006r2"></a>--------------------------- 
+<a id="x10-154008r3"></a>Use arrow keys to move the turtle. 
+<a id="x10-154010r4"></a>Use G|B|V|C|D|E|R|T keys to rotate to absolute orientations. 'F' to cancel a rotation. 
+<a id="x10-154012r5"></a>'Q' to quit.</div></pre>
+      </div>
+     </div>
+    </div>
+    <p class="noindent">
+     At
+this
+point
+we
+should
+have
+three
+<alert style="color: #821131;">(3)</alert> windows
+open:
+    </p>
+    <ul class="itemize1">
+     <li class="itemize">
+      <p class="noindent">
+       a
+terminal
+running <span style="color:#054C5C;"><code class="verb">turtlesim_node</code></span>,
+      </p>
+     </li>
+     <li class="itemize">
+      <p class="noindent">
+       a
+terminal
+                                                                                
+                                                                                
+     
+running <span style="color:#054C5C;"><code class="verb">turtle_teleop_key</code></span>,
+and
+      </p>
+     </li>
+     <li class="itemize">
+      <p class="noindent">
+       the
+turtlesim
+window
+itself.
+      </p>
+     </li>
+    </ul>
+    <p class="noindent">
+     Let’s
+arrange
+these
+windows
+so
+we
+can
+see
+the
+turtlesim
+window,
+but
+also
+have
+the
+terminal
+running <span style="color:#054C5C;"><code class="verb">turtle_teleop_key</code></span>
+     active
+so
+that
+we
+can
+control
+the
+turtle
+in
+turtlesim
+using
+the
+arrow
+keys
+on
+the
+keyboard.
+It
+will
+move
+around
+the
+screen,
+using
+its
+attached
+“pen”
+to
+draw
+the
+path
+it
+followed
+so
+far.
+    </p>
+    <div class="warning">
+     <p class="noindent">
+      Pressing
+an
+arrow
+key
+will
+only
+cause
+the
+turtle
+to
+move
+a
+short
+distance
+and
+then
+stop.
+This
+is
+because,
+realistically,
+we
+wouldn’t
+want
+a
+robot
+to
+continue
+carrying
+on
+an
+instruction
+if,
+for
+example,
+the
+operator
+lost
+the
+connection
+to
+the
+robot.
+     </p>
+    </div>
+    <p class="noindent">
+     We
+can
+see
+the
+nodes,
+and
+their
+associated
+topics,
+services,
+and
+actions,
+using
+the
+list
+sub-commands
+of
+the
+respective
+commands:
+    </p>
+    <p class="noindent">
+    </p>
+    <div class="code-block">
+     <div class="code-lang">
+      bash
+     </div>
+     <pre><div class="language-bash" id="fancyvrb143" style="padding:20px;border-radius: 3px;"><a id="x10-154014r144"></a><span style="color:#2B2BFF;">echo</span><span style="color:#BABABA;"> </span><span style="color:#800080;">"~~ Node information ~~"</span><span style="color:#BABABA;"> </span>&amp;&amp; 
+<a id="x10-154016r145"></a><span style="color:#BABABA;">   </span>ros2<span style="color:#BABABA;"> </span>node<span style="color:#BABABA;"> </span>list<span style="color:#BABABA;"> </span>&amp;&amp; 
+<a id="x10-154018r146"></a><span style="color:#BABABA;">   </span><span style="color:#2B2BFF;">echo</span><span style="color:#BABABA;"> </span><span style="color:#800080;">"~~ Topic information ~~"</span><span style="color:#BABABA;"> </span>&amp;&amp; 
+<a id="x10-154020r147"></a><span style="color:#BABABA;">   </span>ros2<span style="color:#BABABA;"> </span>topic<span style="color:#BABABA;"> </span>list<span style="color:#BABABA;"> </span>&amp;&amp; 
+<a id="x10-154022r148"></a><span style="color:#BABABA;">   </span><span style="color:#2B2BFF;">echo</span><span style="color:#BABABA;"> </span><span style="color:#800080;">"~~ Service information ~~"</span><span style="color:#BABABA;"> </span>&amp;&amp; 
+<a id="x10-154024r149"></a><span style="color:#BABABA;">   </span>ros2<span style="color:#BABABA;"> </span>service<span style="color:#BABABA;"> </span>list<span style="color:#BABABA;"> </span>&amp;&amp; 
+<a id="x10-154026r150"></a><span style="color:#BABABA;">   </span><span style="color:#2B2BFF;">echo</span><span style="color:#BABABA;"> </span><span style="color:#800080;">"~~ Action information ~~"</span><span style="color:#BABABA;"> </span>&amp;&amp; 
+<a id="x10-154028r151"></a><span style="color:#BABABA;">   </span>ros2<span style="color:#BABABA;"> </span>action<span style="color:#BABABA;"> </span>list<span style="color:#BABABA;"> </span></div></pre>
+    </div>
+    <div class="tcolorbox tcolorbox" id="tcolobox-64">
+     <div class="tcolorbox-content">
+      <div class="code-block">
+       <div class="code-lang">
+        text
+       </div>
+       <pre><div class="language-text" id="fancyvrb144" style="padding:20px;border-radius: 3px;"><a id="x10-154030r1"></a>~~ Node information ~~ 
+<a id="x10-154032r2"></a>/teleop_turtle 
+<a id="x10-154034r3"></a>/turtlesim 
+<a id="x10-154036r4"></a>~~ Topic information ~~ 
+<a id="x10-154038r5"></a>/parameter_events 
+<a id="x10-154040r6"></a>/rosout 
+<a id="x10-154042r7"></a>/turtle1/cmd_vel 
+<a id="x10-154044r8"></a>/turtle1/color_sensor 
+<a id="x10-154046r9"></a>/turtle1/pose 
+<a id="x10-154048r10"></a>~~ Service information ~~ 
+<a id="x10-154050r11"></a>/clear 
+<a id="x10-154052r12"></a>/kill 
+<a id="x10-154054r13"></a>/reset 
+<a id="x10-154056r14"></a>/spawn 
+<a id="x10-154058r15"></a>/teleop_turtle/describe_parameters 
+<a id="x10-154060r16"></a>/teleop_turtle/get_parameter_types 
+<a id="x10-154062r17"></a>/teleop_turtle/get_parameters 
+<a id="x10-154064r18"></a>/teleop_turtle/list_parameters 
+<a id="x10-154066r19"></a>/teleop_turtle/set_parameters 
+<a id="x10-154068r20"></a>/teleop_turtle/set_parameters_atomically 
+<a id="x10-154070r21"></a>/turtle1/set_pen 
+<a id="x10-154072r22"></a>/turtle1/teleport_absolute 
+<a id="x10-154074r23"></a>/turtle1/teleport_relative 
+<a id="x10-154076r24"></a>/turtlesim/describe_parameters 
+<a id="x10-154078r25"></a>/turtlesim/get_parameter_types 
+<a id="x10-154080r26"></a>/turtlesim/get_parameters 
+<a id="x10-154082r27"></a>/turtlesim/list_parameters 
+<a id="x10-154084r28"></a>/turtlesim/set_parameters 
+<a id="x10-154086r29"></a>/turtlesim/set_parameters_atomically 
+<a id="x10-154088r30"></a>~~ Action information ~~ 
+<a id="x10-154090r31"></a>/turtle1/rotate_absolute</div></pre>
+      </div>
+     </div>
+    </div>
+    <p class="noindent">
+     Don’t
+worry
+about
+what
+this
+all
+means
+as
+we
+will
+have
+a
+detailed
+look
+into
+each
+of
+them
+in
+a
+later
+part.
+     <a id="paragraph*.42">
+     </a>
+    </p>
+    <p class="noindent">
+     <span class="paragraphHead">
+      <a id="x10-155000">
+      </a>
+      Running
+rqt
+     </span> <span style="color:#054C5C;"><code class="verb">rqt</code></span>
+     is
+a
+     <a class="glossary" href="AutonomousMobileRoboticsLectureBookli2.html#glo:gui">
+      GUI
+     </a>
+     framework
+which
+implements
+various
+tools
+and
+interfaces
+in
+the
+form
+of
+plugins.
+If
+it
+is
+not
+installed
+on
+our
+system
+please
+run
+the
+following
+commands:
+    </p>
+    <p class="noindent">
+    </p>
+    <div class="code-block">
+     <div class="code-lang">
+      bash
+     </div>
+     <pre><div class="language-bash" id="fancyvrb145" style="padding:20px;border-radius: 3px;"><a id="x10-155002r192"></a>sudo<span style="color:#BABABA;"> </span>apt<span style="color:#BABABA;"> </span>update 
+<a id="x10-155004r193"></a>sudo<span style="color:#BABABA;"> </span>apt<span style="color:#BABABA;"> </span>install<span style="color:#BABABA;"> </span><span style="color:#800080;">'~nros-humble-rqt*'</span></div></pre>
+    </div>
+    <p class="noindent">
+     Once
+installed,
+running
+it
+is
+pretty
+straightforward:
+    </p>
+    <p class="noindent">
+    </p>
+    <div class="code-block">
+     <div class="code-lang">
+      bash
+     </div>
+     <pre><div class="language-bash" id="fancyvrb146" style="padding:20px;border-radius: 3px;"><a id="x10-155006r199"></a>rqt</div></pre>
+    </div>
+    <p class="noindent">
+     When
+running <span style="color:#054C5C;"><code class="verb">rqt</code></span>
+     for
+the
+first
+time,
+the
+window
+will
+be
+blank.
+This
+is
+normal.
+To
+see
+what
+is
+currently
+going
+on
+just
+select <span style="color:#054C5C;"><code class="verb">Plugins/Services/Service Caller</code></span>
+     from
+the
+menu
+bar
+at
+the
+top.
+     <alert style="color: #821131;">
+      <span id="bold" style="font-weight:bold;">
+       <sup class="textsuperscript">
+        6
+       </sup>
+      </span>
+     </alert>
+     <span class="marginnote">
+      <img alt="PIC" height="" src="figures/Command-Line-Tools/raster/rqt-1.png" width="100%"/>
+      <alert style="color: #821131;">
+       <span id="bold" style="font-weight:bold;">
+        <sup class="textsuperscript">
+         6
+        </sup>
+       </span>
+      </alert>
+      <span style="color:#0A2A0A;">
+       The
+view
+of <span style="color:#054C5C;"><code class="verb">rqt</code></span>
+       with
+only
+turtlesim
+and
+teleop
+running.
+      </span>
+     </span>
+    </p>
+    <p class="noindent">
+     Use
+the
+refresh
+button
+to
+the
+left
+of
+the
+Service
+                                                                                
+                                                                                
+dropdown
+list
+to
+ensure
+all
+the
+services
+of
+our
+turtlesim
+node
+are
+available.
+Once
+refreshed,
+click
+on
+the
+Service
+dropdown
+list
+to
+see
+services
+belonging
+to <span style="color:#054C5C;"><code class="verb">turtlesim</code></span>,
+and
+select
+the <span style="color:#054C5C;"><code class="verb">/spawn</code></span>
+     service.
+     <a id="paragraph*.43">
+     </a>
+    </p>
+    <p class="noindent">
+     <span class="paragraphHead">
+      <a id="x10-156000">
+      </a>
+      Working  the  the  spawn  service
+     </span>
+     Let’s use <span style="color:#054C5C;"><code class="verb">rqt</code></span>
+     to call the <span style="color:#054C5C;"><code class="verb">/spawn</code></span>
+     service. We can guess from its name that <span style="color:#054C5C;"><code class="verb">/spawn</code></span>
+     will create another turtle in the turtlesim window.
+    </p>
+    <p class="noindent">
+     Give the new turtle a unique name, like <span style="color:#054C5C;"><code class="verb">turtle2</code></span>, by double-clicking between the empty single quotes in
+the Expression column. We can see that this expression corresponds to the value of name and is of type string.
+    </p>
+    <p class="noindent">
+     Next enter some valid coordinates at which to spawn the new turtle, like <span style="color:#054C5C;"><code class="verb">x = 1.0</code></span>
+     and <span style="color:#054C5C;"><code class="verb">y = 1.0</code></span>.
+    </p>
+    <div class="warning">
+     <p class="noindent">
+      If we try to spawn a new turtle with the same name as an existing turtle, like the
+default turtle1, we will get an error message in the terminal running <span style="color:#054C5C;"><code class="verb">turtlesim_node</code></span>.
+     </p>
+    </div>
+    <p class="noindent">
+     To spawn <span style="color:#054C5C;"><code class="verb">turtle2</code></span>, we then need to call the service by clicking the Call button on the upper right side of the <span style="color:#054C5C;"><code class="verb">rqt</code></span>
+     window.
+    </p>
+    <p class="noindent">
+     If the service call was successful, we should see a new turtle, again with a random design. spawn at the coordinates we input for <span style="color:#054C5C;"><code class="verb">x</code></span>
+     and <span style="color:#054C5C;"><code class="verb">y</code></span>.
+    </p>
+    <aside class="wrapfig-r">
+     <img alt="PIC" height="" src="figures/Command-Line-Tools/raster/rqt-2.png" width="100%"/>
+     <a id="x10-156001r1">
+     </a>
+     <figcaption class="caption">
+      <span class="id">
+       Figure 8.1:
+      </span>
+      <span class="content">
+       Generating a new turtlebot to be
+spawned.
+      </span>
+     </figcaption>
+    </aside>
+    <p class="noindent">
+     If we refresh the service list in <span style="color:#054C5C;"><code class="verb">rqt</code></span>, we will also see that now there are services related to the new turtle, <span style="color:#054C5C;"><code class="verb">turtle2</code></span>, in addition to <span style="color:#054C5C;"><code class="verb">turtle1</code></span>.
+     <a id="paragraph*.44">
+     </a>
+    </p>
+    <p class="noindent">
+     <span class="paragraphHead">
+      <a id="x10-157000">
+      </a>
+      Changing  the  Trail  Parameters
+     </span>
+     Now let’s give <span style="color:#054C5C;"><code class="verb">turtle1</code></span>
+     a unique pen using the <span style="color:#054C5C;"><code class="verb">/set_pen</code></span>
+     service:
+    </p>
+    <figure class="figure">
+     <div class="subfigure" style="width:49%;">
+      <p class="noindent">
+      </p>
+      <p class="noindent">
+       <img alt="PIC" height="" src="figures/Command-Line-Tools/raster/rqt-3.png" width=""/>
+       <a id="x10-157001r1">
+       </a>
+      </p>
+      <div class="caption">
+       <span class="id">
+        (a)
+       </span>
+       <span class="content">
+        The parameters of the <span style="color:#054C5C;"><code class="verb">/set_pen</code></span>
+        service.
+       </span>
+      </div>
+     </div>
+     <div class="subfigure" style="width:49%;">
+      <p class="noindent">
+      </p>
+      <p class="noindent">
+       <img alt="PIC" height="" src="figures/Command-Line-Tools/raster/tsim-3.png" width=""/>
+       <a id="x10-157002r2">
+       </a>
+      </p>
+      <div class="caption">
+       <span class="id">
+        (b)
+       </span>
+       <span class="content">
+        The trail line of <span style="color:#054C5C;"><code class="verb">turtle1</code></span>
+        has changed
+       </span>
+      </div>
+     </div>
+    </figure>
+    <p class="noindent">
+     The values for <span style="color:#054C5C;"><code class="verb">r</code></span>, <span style="color:#054C5C;"><code class="verb">g</code></span>, and <span style="color:#054C5C;"><code class="verb">b</code></span>, which are between 0 and 255, set the colour of the pen <span style="color:#054C5C;"><code class="verb">turtle1</code></span>
+     draws with, and width sets the thickness of the line.
+    </p>
+    <p class="noindent">
+     To have <span style="color:#054C5C;"><code class="verb">turtle1</code></span>
+     draw with a distinct red line, change the value of <span style="color:#054C5C;"><code class="verb">r</code></span>
+     to 255, and the value of width to 5.
+    </p>
+    <div class="warning">
+     <p class="noindent">
+      Don’t forget to call the service after updating the values.
+     </p>
+    </div>
+    <p class="noindent">
+     If we were to return to the terminal where <span style="color:#054C5C;"><code class="verb">turtle_teleop_key</code></span>
+     is running and press the arrow keys, we will see <span style="color:#054C5C;"><code class="verb">turtle1</code></span>
+     ’s pen has
+changed and also noticed that there’s no way to move <span style="color:#054C5C;"><code class="verb">turtle2</code></span>. That’s because there is no teleop node for <span style="color:#054C5C;"><code class="verb">turtle2</code></span>.
+     <a id="paragraph*.45">
+     </a>
+    </p>
+    <p class="noindent">
+     <span class="paragraphHead">
+      <a id="x10-158000">
+      </a>
+      Remapping  Controls
+     </span>
+     We need a second teleop node in order to control <span style="color:#054C5C;"><code class="verb">turtle2</code></span>. However, if we try to run the same command as before, we will
+notice that this one also controls <span style="color:#054C5C;"><code class="verb">turtle1</code></span>. The way to change this behavior is by remapping the <span style="color:#054C5C;"><code class="verb">cmd_vel</code></span>
+     topic.
+    </p>
+    <p class="noindent">
+     To  do  that,  In  a  new  terminal,  source
+     <a class="glossary" href="AutonomousMobileRoboticsLectureBookli2.html#glo:ros">
+      ROS
+     </a>,  and  run:
+    </p>
+    <p class="noindent">
+    </p>
+    <div class="code-block">
+     <div class="code-lang">
+      bash
+     </div>
+     <pre><div class="language-bash" id="fancyvrb147" style="padding:20px;border-radius: 3px;"><a id="x10-158002r274"></a>ros2<span style="color:#BABABA;"> </span>run<span style="color:#BABABA;"> </span>turtlesim<span style="color:#BABABA;"> </span>turtlesim_node<span style="color:#BABABA;"> </span>--ros-args<span style="color:#BABABA;"> </span>--remap<span style="color:#BABABA;"> </span>__node:=my_turtle</div></pre>
+    </div>
+    <p class="noindent">
+     Now, we can move <span style="color:#054C5C;"><code class="verb">turtle2</code></span>
+     when this terminal is active, and <span style="color:#054C5C;"><code class="verb">turtle1</code></span>
+     when the other terminal running <span style="color:#054C5C;"><code class="verb">turtle_teleop_key</code></span>
+     is active.
+    </p>
+    <p class="noindent">
+    </p>
+    <h2 class="sectionHead">
+     <a aria-label="Link to this section in PDF version" class="pdf-link" href="AutonomousMobileRoboticsLectureBook.pdf#section.8.3" style="color: red;  position: absolute;  left: -30px;" target="_blank">
+      <svg class="bi bi-file-pdf" fill="currentColor" height="20" viewbox="0 0 16 16" width="20" xmlns="http://www.w3.org/2000/svg">
+       <path d="M4 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H4zm0 1h8a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1z">
+       </path>
+       <path d="M4.603 12.087a.81.81 0 0 1-.438-.42c-.195-.388-.13-.776.08-1.102.198-.307.526-.568.897-.787a7.68 7.68 0 0 1 1.482-.645 19.701 19.701 0 0 0 1.062-2.227 7.269 7.269 0 0 1-.43-1.295c-.086-.4-.119-.796-.046-1.136.075-.354.274-.672.65-.823.192-.077.4-.12.602-.077a.7.7 0 0 1 .477.365c.088.164.12.356.127.538.007.187-.012.395-.047.614-.084.51-.27 1.134-.52 1.794a10.954 10.954 0 0 0 .98 1.686 5.753 5.753 0 0 1 1.334.05c.364.065.734.195.96.465.12.144.193.32.2.518.007.192-.047.382-.138.563a1.04 1.04 0 0 1-.354.416.856.856 0 0 1-.51.138c-.331-.014-.654-.196-.933-.417a5.716 5.716 0 0 1-.911-.95 11.642 11.642 0 0 0-1.997.406 11.311 11.311 0 0 1-1.021 1.51c-.29.35-.608.655-.926.787a.793.793 0 0 1-.58.029zm1.379-1.901c-.166.076-.32.156-.459.238-.328.194-.541.383-.647.547-.094.145-.096.25-.04.361.01.022.02.036.026.044a.27.27 0 0 0 .035-.012c.137-.056.355-.235.635-.572a8.18 8.18 0 0 0 .45-.606zm1.64-1.33a12.647 12.647 0 0 1 1.01-.193 11.666 11.666 0 0 1-.51-.858 20.741 20.741 0 0 1-.5 1.05zm2.446.45c.15.162.296.3.435.41.24.19.407.253.498.256a.107.107 0 0 0 .07-.015.307.307 0 0 0 .094-.125.436.436 0 0 0 .059-.2.095.095 0 0 0-.026-.063c-.052-.062-.2-.152-.518-.209a3.881 3.881 0 0 0-.612-.053zM8.078 5.8a6.7 6.7 0 0 0 .2-.828c.031-.188.043-.343.038-.465a.613.613 0 0 0-.032-.198.517.517 0 0 0-.145.04c-.087.035-.158.106-.196.283-.04.192-.03.469.046.822.024.111.054.227.09.346z">
+       </path>
+      </svg>
+     </a>
+     <small class="titlemark">
+      8.3
+     </small>
+     <a id="x10-1590008.3">
+     </a>
+     A  Deeper  Look  into  Nodes
+    </h2>
+    <p class="noindent">
+     Each node in
+     <a class="glossary" href="AutonomousMobileRoboticsLectureBookli2.html#glo:ros">
+      ROS
+     </a>
+     should be responsible for a
+     <alert style="color: #821131;">
+      single
+     </alert>
+     ,
+     <alert style="color: #821131;">
+      modular purpose
+     </alert>
+     .
+     <alert style="color: #821131;">
+      <span id="bold" style="font-weight:bold;">
+       <sup class="textsuperscript">
+        7
+       </sup>
+      </span>
+     </alert>
+     <span class="marginnote">
+      <alert style="color: #821131;">
+       <span id="bold" style="font-weight:bold;">
+        <sup class="textsuperscript">
+         7
+        </sup>
+       </span>
+      </alert>
+      <span style="color:#0A2A0A;">
+       e.g., controlling the wheel motors or
+publishing the sensor data from a laser range-finder.
+      </span>
+     </span>
+     Each node can send and receive data from other nodes using:
+    </p>
+    <ul class="itemize1">
+     <li class="itemize">
+      <p class="noindent">
+       topics,
+      </p>
+     </li>
+     <li class="itemize">
+      <p class="noindent">
+       services,
+      </p>
+     </li>
+     <li class="itemize">
+      <p class="noindent">
+       actions,
+or
+      </p>
+     </li>
+     <li class="itemize">
+      <p class="noindent">
+       parameters.
+      </p>
+     </li>
+    </ul>
+    <p class="noindent">
+     A
+full
+robotic
+system
+is
+comprised
+of
+many
+interconnected
+nodes
+working
+in
+unison.
+In
+     <a class="glossary" href="AutonomousMobileRoboticsLectureBookli2.html#glo:ros">
+      ROS
+     </a>,
+for
+example,
+a
+single
+executable
+     <alert style="color: #821131;">
+      <span id="bold" style="font-weight:bold;">
+       <sup class="textsuperscript">
+        8
+       </sup>
+      </span>
+     </alert>
+     <span class="marginnote">
+      <alert style="color: #821131;">
+       <span id="bold" style="font-weight:bold;">
+        <sup class="textsuperscript">
+         8
+        </sup>
+       </span>
+      </alert>
+      <span style="color:#0A2A0A;">
+       C++
+program,
+Python
+program,
+etc.
+      </span>
+     </span>
+     can
+contain
+one
+or
+more
+nodes.
+     <a id="paragraph*.46">
+     </a>
+    </p>
+    <p class="noindent">
+     <span class="paragraphHead">
+      <a id="x10-160000">
+      </a>
+      ros2  run
+     </span>
+     Now let’s put all this knowledge into motion. The command <span style="color:#054C5C;"><code class="verb">ros2 run</code></span>
+     launches an executable from a package.
+    </p>
+    <p class="noindent">
+    </p>
+    <div class="code-block">
+     <div class="code-lang">
+      bash
+     </div>
+     <pre><div class="language-bash" id="fancyvrb148" style="padding:20px;border-radius: 3px;"><a id="x10-160002r216"></a>ros2<span style="color:#BABABA;"> </span>run<span style="color:#BABABA;"> </span>&lt;package_name&gt;<span style="color:#BABABA;"> </span>&lt;executable_name&gt;</div></pre>
+    </div>
+    <p class="noindent">
+     To run turtlesim, open a new terminal (
+     <kbd>
+      Ctrl
+     </kbd>
+     +
+     <kbd>
+      Alt
+     </kbd>
+     +
+     <kbd>
+      T
+     </kbd>
+     ), and enter the following command:
+    </p>
+    <p class="noindent">
+    </p>
+    <div class="code-block">
+     <div class="code-lang">
+      bash
+     </div>
+     <pre><div class="language-bash" id="fancyvrb149" style="padding:20px;border-radius: 3px;"><a id="x10-160004r222"></a>ros2<span style="color:#BABABA;"> </span>run<span style="color:#BABABA;"> </span>turtlesim<span style="color:#BABABA;"> </span>turtlesim_node</div></pre>
+    </div>
+    <p class="noindent">
+     Here, the package name is turtlesim and the executable name is <span style="color:#054C5C;"><code class="verb">turtlesim_node</code></span>. We still don’t know the node name, however.
+     <a id="paragraph*.47">
+     </a>
+    </p>
+    <p class="noindent">
+     <span class="paragraphHead">
+      <a id="x10-161000">
+      </a>
+      ros2  node  list
+     </span>
+     We can find node names by using <span style="color:#054C5C;"><code class="verb">ros2 node list</code></span>, which will show us the names of all running nodes. This is especially useful
+when we want to interact with a node, or when we have a system running many nodes and need to keep track of them.
+    </p>
+    <p class="noindent">
+     Open a new terminal while turtlesim is
+     <alert style="color: #821131;">
+      still running in the other one
+     </alert>
+     , and enter the following command. The terminal will return the node name:
+    </p>
+    <p class="noindent">
+    </p>
+    <div class="code-block">
+     <div class="code-lang">
+      bash
+     </div>
+     <pre><div class="language-bash" id="fancyvrb150" style="padding:20px;border-radius: 3px;"><a id="x10-161002r232"></a>ros2<span style="color:#BABABA;"> </span>node<span style="color:#BABABA;"> </span>list</div></pre>
+    </div>
+    <div class="tcolorbox tcolorbox" id="tcolobox-65">
+     <div class="tcolorbox-content">
+      <div class="code-block">
+       <div class="code-lang">
+        text
+       </div>
+       <pre><div class="language-text" id="fancyvrb151" style="padding:20px;border-radius: 3px;"><a id="x10-161004r1"></a>/turtlesim</div></pre>
+      </div>
+     </div>
+    </div>
+    <p class="noindent">
+     Open another new terminal and start the teleop node with the command:
+    </p>
+    <p class="noindent">
+    </p>
+    <div class="code-block">
+     <div class="code-lang">
+      bash
+     </div>
+     <pre><div class="language-bash" id="fancyvrb152" style="padding:20px;border-radius: 3px;"><a id="x10-161006r242"></a>ros2<span style="color:#BABABA;"> </span>run<span style="color:#BABABA;"> </span>turtlesim<span style="color:#BABABA;"> </span>turtle_teleop_key</div></pre>
+    </div>
+    <p class="noindent">
+     Here, we are referring to the turtlesim package again, but this time we target the executable named <span style="color:#054C5C;"><code class="verb">turtle_teleop_key</code></span>.
+    </p>
+    <p class="noindent">
+     Return to the terminal where we ran ros2 node list and run it again. We will now see the names of two active nodes:
+    </p>
+    <p class="noindent">
+    </p>
+    <div class="code-block">
+     <div class="code-lang">
+      bash
+     </div>
+     <pre><div class="language-bash" id="fancyvrb153" style="padding:20px;border-radius: 3px;"><a id="x10-161008r247"></a>ros2<span style="color:#BABABA;"> </span>node<span style="color:#BABABA;"> </span>list</div></pre>
+    </div>
+    <div class="tcolorbox tcolorbox" id="tcolobox-66">
+     <div class="tcolorbox-content">
+      <div class="code-block">
+       <div class="code-lang">
+        text
+       </div>
+       <pre><div class="language-text" id="fancyvrb154" style="padding:20px;border-radius: 3px;"><a id="x10-161010r1"></a>/turtlesim 
+<a id="x10-161012r2"></a>/teleop_turtle</div></pre>
+      </div>
+     </div>
+    </div>
+    <a id="paragraph*.48">
+    </a>
+    <p class="noindent">
+     <span class="paragraphHead">
+      <a id="x10-162000">
+      </a>
+      Remapping  a  Node
+     </span>
+     Remapping allows us to reassign default node properties:
+    </p>
+    <p class="noindent">
+    </p>
+    <div class="quoteblock">
+     <p class="noindent">
+      like
+node
+name,
+topic
+names,
+service
+names,
+etc.,
+to
+custom
+values.
+     </p>
+    </div>
+    <p class="noindent">
+     Previously, we have used remapping on <span style="color:#054C5C;"><code class="verb">turtle_teleop_key</code></span>
+     to change the <span style="color:#054C5C;"><code class="verb">cmd_vel</code></span>
+     topic and target <span style="color:#054C5C;"><code class="verb">turtle2</code></span>.
+    </p>
+    <p class="noindent">
+     Now, let’s reassign the name of our <span style="color:#054C5C;"><code class="verb">/turtlesim</code></span>
+     node. In a new terminal, run the following command:
+    </p>
+    <p class="noindent">
+    </p>
+    <div class="code-block">
+     <div class="code-lang">
+      bash
+     </div>
+     <pre><div class="language-bash" id="fancyvrb155" style="padding:20px;border-radius: 3px;"><a id="x10-162002r258"></a>ros2<span style="color:#BABABA;"> </span>run<span style="color:#BABABA;"> </span>turtlesim<span style="color:#BABABA;"> </span>turtlesim_node<span style="color:#BABABA;"> </span>--ros-args<span style="color:#BABABA;"> </span>--remap<span style="color:#BABABA;"> </span>__node:=my_turtle</div></pre>
+    </div>
+    <p class="noindent">
+     Since we’re calling <span style="color:#054C5C;"><code class="verb">ros2 run</code></span>
+     on turtlesim again, another turtlesim window will open. However, now if we
+return to the terminal where we ran <span style="color:#054C5C;"><code class="verb">ros2 node list</code></span>, and run it again, we will see three <alert style="color: #821131;">(3)</alert> node names:
+    </p>
+    <div class="tcolorbox tcolorbox" id="tcolobox-67">
+     <div class="tcolorbox-content">
+      <div class="code-block">
+       <div class="code-lang">
+        text
+       </div>
+       <pre><div class="language-text" id="fancyvrb156" style="padding:20px;border-radius: 3px;"><a id="x10-162004r1"></a>/my_turtle 
+<a id="x10-162006r2"></a>/turtlesim 
+<a id="x10-162008r3"></a>/teleop_turtle</div></pre>
+      </div>
+     </div>
+    </div>
+    <a id="paragraph*.49">
+    </a>
+    <p class="noindent">
+     <span class="paragraphHead">
+      <a id="x10-163000">
+      </a>
+      ros2  node  info
+     </span>
+     Now that we know the names of our nodes, we can access more information about them with:
+    </p>
+    <p class="noindent">
+    </p>
+    <div class="code-block">
+     <div class="code-lang">
+      bash
+     </div>
+     <pre><div class="language-bash" id="fancyvrb157" style="padding:20px;border-radius: 3px;"><a id="x10-163002r282"></a>ros2<span style="color:#BABABA;"> </span>node<span style="color:#BABABA;"> </span>info<span style="color:#BABABA;"> </span>&lt;node_name&gt;</div></pre>
+    </div>
+    <p class="noindent">
+     To examine our latest node, <span style="color:#054C5C;"><code class="verb">my_turtle</code></span>, run the following command:
+    </p>
+    <p class="noindent">
+    </p>
+    <div class="code-block">
+     <div class="code-lang">
+      bash
+     </div>
+     <pre><div class="language-bash" id="fancyvrb158" style="padding:20px;border-radius: 3px;"><a id="x10-163004r287"></a>ros2<span style="color:#BABABA;"> </span>node<span style="color:#BABABA;"> </span>info<span style="color:#BABABA;"> </span>/my_turtle</div></pre>
+    </div>
+    <div class="tcolorbox tcolorbox" id="tcolobox-68">
+     <div class="tcolorbox-content">
+      <div class="code-block">
+       <div class="code-lang">
+        text
+       </div>
+       <pre><div class="language-text" id="fancyvrb159" style="padding:20px;border-radius: 3px;"><a id="x10-163006r1"></a>/my_turtle 
+<a id="x10-163008r2"></a>  Subscribers: 
+<a id="x10-163010r3"></a>    /parameter_events: rcl_interfaces/msg/ParameterEvent 
+<a id="x10-163012r4"></a>    /turtle1/cmd_vel: geometry_msgs/msg/Twist 
+<a id="x10-163014r5"></a>  Publishers: 
+<a id="x10-163016r6"></a>    /parameter_events: rcl_interfaces/msg/ParameterEvent 
+<a id="x10-163018r7"></a>    /rosout: rcl_interfaces/msg/Log 
+<a id="x10-163020r8"></a>    /turtle1/color_sensor: turtlesim/msg/Color 
+<a id="x10-163022r9"></a>    /turtle1/pose: turtlesim/msg/Pose 
+<a id="x10-163024r10"></a>  Service Servers: 
+<a id="x10-163026r11"></a>    /clear: std_srvs/srv/Empty 
+<a id="x10-163028r12"></a>    /kill: turtlesim/srv/Kill 
+<a id="x10-163030r13"></a>    /my_turtle/describe_parameters: rcl_interfaces/srv/DescribeParameters 
+<a id="x10-163032r14"></a>    /my_turtle/get_parameter_types: rcl_interfaces/srv/GetParameterTypes 
+<a id="x10-163034r15"></a>    /my_turtle/get_parameters: rcl_interfaces/srv/GetParameters 
+<a id="x10-163036r16"></a>    /my_turtle/list_parameters: rcl_interfaces/srv/ListParameters 
+<a id="x10-163038r17"></a>    /my_turtle/set_parameters: rcl_interfaces/srv/SetParameters 
+<a id="x10-163040r18"></a>    /my_turtle/set_parameters_atomically: rcl_interfaces/srv/SetParametersAtomically 
+<a id="x10-163042r19"></a>    /reset: std_srvs/srv/Empty 
+<a id="x10-163044r20"></a>    /spawn: turtlesim/srv/Spawn 
+<a id="x10-163046r21"></a>    /turtle1/set_pen: turtlesim/srv/SetPen 
+<a id="x10-163048r22"></a>    /turtle1/teleport_absolute: turtlesim/srv/TeleportAbsolute 
+<a id="x10-163050r23"></a>    /turtle1/teleport_relative: turtlesim/srv/TeleportRelative 
+<a id="x10-163052r24"></a>  Service Clients: 
+<a id="x10-163054r25"></a> 
+<a id="x10-163056r26"></a>  Action Servers: 
+<a id="x10-163058r27"></a>    /turtle1/rotate_absolute: turtlesim/action/RotateAbsolute 
+<a id="x10-163060r28"></a>  Action Clients:</div></pre>
+      </div>
+     </div>
+    </div>
+    <p class="noindent"> <span style="color:#054C5C;"><code class="verb">ros2 node info</code></span>
+     returns
+a
+list
+of
+subscribers,
+publishers,
+services,
+and
+actions.
+     <alert style="color: #821131;">
+      <span id="bold" style="font-weight:bold;">
+       <sup class="textsuperscript">
+        9
+       </sup>
+      </span>
+     </alert>
+     <span class="marginnote">
+      <alert style="color: #821131;">
+       <span id="bold" style="font-weight:bold;">
+        <sup class="textsuperscript">
+         9
+        </sup>
+       </span>
+      </alert>
+      <span style="color:#0A2A0A;">
+       i.e.,
+the
+       <a class="glossary" href="AutonomousMobileRoboticsLectureBookli2.html#glo:ros">
+        ROS
+       </a>
+       graph
+connections
+that
+interact
+with
+that
+node.
+      </span>
+     </span>
+    </p>
+    <p class="noindent">
+     Now
+try
+running
+the
+same
+command
+on
+the <span style="color:#054C5C;"><code class="verb">/teleop_turtle</code></span>
+     node,
+and
+see
+how
+its
+connections
+differ
+                                                                                
+                                                                                
+from <span style="color:#054C5C;"><code class="verb">my_turtle</code></span>.
+    </p>
+    <p class="noindent">
+    </p>
+    <h2 class="sectionHead">
+     <a aria-label="Link to this section in PDF version" class="pdf-link" href="AutonomousMobileRoboticsLectureBook.pdf#section.8.4" style="color: red;  position: absolute;  left: -30px;" target="_blank">
+      <svg class="bi bi-file-pdf" fill="currentColor" height="20" viewbox="0 0 16 16" width="20" xmlns="http://www.w3.org/2000/svg">
+       <path d="M4 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H4zm0 1h8a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1z">
+       </path>
+       <path d="M4.603 12.087a.81.81 0 0 1-.438-.42c-.195-.388-.13-.776.08-1.102.198-.307.526-.568.897-.787a7.68 7.68 0 0 1 1.482-.645 19.701 19.701 0 0 0 1.062-2.227 7.269 7.269 0 0 1-.43-1.295c-.086-.4-.119-.796-.046-1.136.075-.354.274-.672.65-.823.192-.077.4-.12.602-.077a.7.7 0 0 1 .477.365c.088.164.12.356.127.538.007.187-.012.395-.047.614-.084.51-.27 1.134-.52 1.794a10.954 10.954 0 0 0 .98 1.686 5.753 5.753 0 0 1 1.334.05c.364.065.734.195.96.465.12.144.193.32.2.518.007.192-.047.382-.138.563a1.04 1.04 0 0 1-.354.416.856.856 0 0 1-.51.138c-.331-.014-.654-.196-.933-.417a5.716 5.716 0 0 1-.911-.95 11.642 11.642 0 0 0-1.997.406 11.311 11.311 0 0 1-1.021 1.51c-.29.35-.608.655-.926.787a.793.793 0 0 1-.58.029zm1.379-1.901c-.166.076-.32.156-.459.238-.328.194-.541.383-.647.547-.094.145-.096.25-.04.361.01.022.02.036.026.044a.27.27 0 0 0 .035-.012c.137-.056.355-.235.635-.572a8.18 8.18 0 0 0 .45-.606zm1.64-1.33a12.647 12.647 0 0 1 1.01-.193 11.666 11.666 0 0 1-.51-.858 20.741 20.741 0 0 1-.5 1.05zm2.446.45c.15.162.296.3.435.41.24.19.407.253.498.256a.107.107 0 0 0 .07-.015.307.307 0 0 0 .094-.125.436.436 0 0 0 .059-.2.095.095 0 0 0-.026-.063c-.052-.062-.2-.152-.518-.209a3.881 3.881 0 0 0-.612-.053zM8.078 5.8a6.7 6.7 0 0 0 .2-.828c.031-.188.043-.343.038-.465a.613.613 0 0 0-.032-.198.517.517 0 0 0-.145.04c-.087.035-.158.106-.196.283-.04.192-.03.469.046.822.024.111.054.227.09.346z">
+       </path>
+      </svg>
+     </a>
+     <small class="titlemark">
+      8.4
+     </small>
+     <a id="x10-1640008.4">
+     </a>
+     Working  with  Topics
+    </h2>
+    <p class="noindent">
+     <a class="glossary" href="AutonomousMobileRoboticsLectureBookli2.html#glo:ros">
+      ROS
+     </a>
+     breaks complex systems down into many modular nodes. Topics are a vital element of the ROS graph that act as a bus for nodes to exchange messages.
+    </p>
+    <p class="noindent">
+     A node may publish data to any number of topics and simultaneously have subscriptions to any number of topics.
+    </p>
+    <p class="noindent">
+     Topics are one of the main ways in which data is moved between nodes and therefore between different parts of the system.
+    </p>
+    <p class="noindent">
+     To begin we start with a fresh new terminal (
+     <kbd>
+      Ctrl
+     </kbd>
+     +
+     <kbd>
+      Alt
+     </kbd>
+     +
+     <kbd>
+      T
+     </kbd>
+     ) and type the following command:
+    </p>
+    <p class="noindent">
+    </p>
+    <div class="code-block">
+     <div class="code-lang">
+      bash
+     </div>
+     <pre><div class="language-bash" id="fancyvrb160" style="padding:20px;border-radius: 3px;"><a id="x10-164002r601"></a>ros2<span style="color:#BABABA;"> </span>run<span style="color:#BABABA;"> </span>turtlesim<span style="color:#BABABA;"> </span>turtlesim_node</div></pre>
+    </div>
+    <p class="noindent">
+     And of course we would like to control this turtle so we need to add the <span style="color:#054C5C;"><code class="verb">teleop</code></span>
+     node as well.
+    </p>
+    <p class="noindent">
+    </p>
+    <div class="code-block">
+     <div class="code-lang">
+      bash
+     </div>
+     <pre><div class="language-bash" id="fancyvrb161" style="padding:20px;border-radius: 3px;"><a id="x10-164004r606"></a>ros2<span style="color:#BABABA;"> </span>run<span style="color:#BABABA;"> </span>turtlesim<span style="color:#BABABA;"> </span>turtle_teleop_key</div></pre>
+    </div>
+    <a id="paragraph*.50">
+    </a>
+    <p class="noindent">
+     <span class="paragraphHead">
+      <a id="x10-165000">
+      </a>
+      Graphing  the  Topics
+     </span>
+     Throughout this tutorial, we will use <span style="color:#054C5C;"><code class="verb">rqt_graph</code></span>
+     to visualize the changing nodes and topics, as well as the connections between them.
+    </p>
+    <p class="noindent">
+     The turtlesim tutorial tells us how to install rqt and all its plugins, including <span style="color:#054C5C;"><code class="verb">rqt_graph</code></span>.
+    </p>
+    <p class="noindent">
+     To run <span style="color:#054C5C;"><code class="verb">rqt_graph</code></span>, open a new terminal and enter the command:
+    </p>
+    <p class="noindent">
+    </p>
+    <div class="code-block">
+     <div class="code-lang">
+      bash
+     </div>
+     <pre><div class="language-bash" id="fancyvrb162" style="padding:20px;border-radius: 3px;"><a id="x10-165002r329"></a>rqt_graph</div></pre>
+    </div>
+    <div class="figure">
+     <p class="noindent">
+      <img alt="PIC" height="" src="figures/Command-Line-Tools/raster/rqt-graph-1.png" width="150%"/>
+      <a id="x10-165003r2">
+      </a>
+     </p>
+     <figcaption class="caption">
+      <span class="id">
+       Figure 8.2:
+      </span>
+      <span class="content">
+       A visual representation of the communication happening between the nodes <span style="color:#054C5C;"><code class="verb">/turtlesim</code></span>
+       and <span style="color:#054C5C;"><code class="verb">/teleop</code></span>.
+      </span>
+     </figcaption>
+    </div>
+    <p class="noindent">
+     Wou should see the above nodes and topic, as well as two <alert style="color: #821131;">(2)</alert> actions around the periphery of
+the graph. If we hover your mouse over the topic in the centre, we’ll see the color highlighting.
+    </p>
+    <p class="noindent">
+     The
+graph
+is
+depicting
+how
+the <span style="color:#054C5C;"><code class="verb">/turtlesim</code></span>
+     node
+and
+the <span style="color:#054C5C;"><code class="verb">/teleop_turtle</code></span>
+     node
+are
+communicating
+with
+each
+other
+over
+a
+topic.
+The <span style="color:#054C5C;"><code class="verb">/teleop_turtle</code></span>
+     node
+is
+publishing
+data
+     <alert style="color: #821131;">
+      <span id="bold" style="font-weight:bold;">
+       <sup class="textsuperscript">
+        10
+       </sup>
+      </span>
+     </alert>
+     <span class="marginnote">
+      <alert style="color: #821131;">
+       <span id="bold" style="font-weight:bold;">
+        <sup class="textsuperscript">
+         10
+        </sup>
+       </span>
+      </alert>
+      <span style="color:#0A2A0A;">
+       the
+keystrokes
+you
+enter
+to
+move
+the
+turtle
+around
+      </span>
+     </span>
+     to
+the <span style="color:#054C5C;"><code class="verb">/turtle1/cmd_vel</code></span>
+     topic,
+and
+the <span style="color:#054C5C;"><code class="verb">/turtlesim</code></span>
+     node
+is
+subscribed
+to
+that
+topic
+to
+receive
+the
+data.
+    </p>
+    <div class="knowledge">
+     <p class="noindent">
+      The
+highlighting
+feature
+of <span style="color:#054C5C;"><code class="verb">rqt_graph</code></span>
+      is
+very
+helpful
+                                                                                
+                                                                                
+                                                                            
+when
+examining
+more
+complex
+systems
+with
+many
+nodes
+and
+topics
+connected
+in
+many
+different
+ways.
+     </p>
+    </div>
+    <a id="paragraph*.51">
+    </a>
+    <p class="noindent">
+     <span class="paragraphHead">
+      <a id="x10-166000">
+      </a>
+      ros2
+topic
+list
+     </span>
+     Running
+the <span style="color:#054C5C;"><code class="verb">ros2 topic list</code></span>
+     command
+in
+a
+new
+terminal
+will
+return
+a
+list
+of
+all
+the
+topics
+currently
+active
+in
+the
+system:
+    </p>
+    <p class="noindent">
+    </p>
+    <div class="code-block">
+     <div class="code-lang">
+      bash
+     </div>
+     <pre><div class="language-bash" id="fancyvrb163" style="padding:20px;border-radius: 3px;"><a id="x10-166002r336"></a>ros2<span style="color:#BABABA;"> </span>topic<span style="color:#BABABA;"> </span>list</div></pre>
+    </div>
+    <div class="tcolorbox tcolorbox" id="tcolobox-69">
+     <div class="tcolorbox-content">
+      <div class="code-block">
+       <div class="code-lang">
+        text
+       </div>
+       <pre><div class="language-text" id="fancyvrb164" style="padding:20px;border-radius: 3px;"><a id="x10-166004r1"></a>/parameter_events 
+<a id="x10-166006r2"></a>/rosout 
+<a id="x10-166008r3"></a>/turtle1/cmd_vel 
+<a id="x10-166010r4"></a>/turtle1/color_sensor 
+<a id="x10-166012r5"></a>/turtle1/pose</div></pre>
+      </div>
+     </div>
+    </div>
+    <p class="noindent">
+     Alternatively,
+running <span style="color:#054C5C;"><code class="verb">ros2 topic list -t</code></span>
+     will
+return
+the
+same
+list
+of
+topics,
+this
+time
+                                                                                
+                                                                                
+                                                                             
+with
+the
+topic
+type
+appended
+in
+brackets:
+    </p>
+    <p class="noindent">
+    </p>
+    <div class="code-block">
+     <div class="code-lang">
+      bash
+     </div>
+     <pre><div class="language-bash" id="fancyvrb165" style="padding:20px;border-radius: 3px;"><a id="x10-166014r350"></a>ros2<span style="color:#BABABA;"> </span>topic<span style="color:#BABABA;"> </span>list<span style="color:#BABABA;"> </span>-t</div></pre>
+    </div>
+    <div class="tcolorbox tcolorbox" id="tcolobox-70">
+     <div class="tcolorbox-content">
+      <div class="code-block">
+       <div class="code-lang">
+        text
+       </div>
+       <pre><div class="language-text" id="fancyvrb166" style="padding:20px;border-radius: 3px;"><a id="x10-166016r1"></a>/parameter_events [rcl_interfaces/msg/ParameterEvent] 
+<a id="x10-166018r2"></a>/rosout [rcl_interfaces/msg/Log] 
+<a id="x10-166020r3"></a>/turtle1/cmd_vel [geometry_msgs/msg/Twist] 
+<a id="x10-166022r4"></a>/turtle1/color_sensor [turtlesim/msg/Color] 
+<a id="x10-166024r5"></a>/turtle1/pose [turtlesim/msg/Pose]</div></pre>
+      </div>
+     </div>
+    </div>
+    <p class="noindent">
+     These
+attributes,
+particularly
+the
+type,
+are
+how
+nodes
+know
+they’re
+talking
+about
+the
+same
+information
+as
+it
+moves
+over
+topics.
+    </p>
+    <p class="noindent">
+     If
+you’re
+wondering
+where
+all
+these
+topics
+are
+in <span style="color:#054C5C;"><code class="verb">rqt_graph</code></span>,
+you
+can
+uncheck
+all
+the
+boxes
+under
+Hide:
+    </p>
+    <div class="figure">
+     <p class="noindent">
+      <img alt="PIC" height="" src="figures/Command-Line-Tools/raster/rqt-graph-2.png" width="150%"/>
+      <a id="x10-166025r3">
+      </a>
+     </p>
+     <figcaption class="caption">
+      <span class="id">
+       Figure 8.3:
+      </span>
+      <span class="content">
+      </span>
+     </figcaption>
+    </div>
+    <a id="paragraph*.52">
+    </a>
+    <p class="noindent">
+     <span class="paragraphHead">
+      <a id="x10-167000">
+      </a>
+      ros2
+topic
+echo
+     </span>
+     To
+see
+the
+data
+being
+published
+on
+a
+topic,
+use:
+    </p>
+    <p class="noindent">
+    </p>
+    <div class="code-block">
+     <div class="code-lang">
+      bash
+     </div>
+     <pre><div class="language-bash" id="fancyvrb167" style="padding:20px;border-radius: 3px;"><a id="x10-167002r366"></a>ros2<span style="color:#BABABA;"> </span>topic<span style="color:#BABABA;"> </span><span style="color:#2B2BFF;">echo</span><span style="color:#BABABA;"> </span>&lt;topic_name&gt;</div></pre>
+    </div>
+    <p class="noindent">
+     Since
+we
+know
+that <span style="color:#054C5C;"><code class="verb">/teleop_turtle</code></span>
+     publishes
+data
+to <span style="color:#054C5C;"><code class="verb">/turtlesim</code></span>
+     over
+the <span style="color:#054C5C;"><code class="verb">/turtle1/cmd_vel</code></span>
+     topic,
+let’s
+use
+echo
+to
+introspect
+that
+topic:
+    </p>
+    <p class="noindent">
+    </p>
+    <div class="code-block">
+     <div class="code-lang">
+      bash
+     </div>
+     <pre><div class="language-bash" id="fancyvrb168" style="padding:20px;border-radius: 3px;"><a id="x10-167004r371"></a>ros2<span style="color:#BABABA;"> </span>topic<span style="color:#BABABA;"> </span><span style="color:#2B2BFF;">echo</span><span style="color:#BABABA;"> </span>/turtle1/cmd_vel</div></pre>
+    </div>
+    <p class="noindent">
+     At
+first,
+this
+command
+won’t
+return
+any
+data.
+That’s
+because
+it’s
+waiting
+for <span style="color:#054C5C;"><code class="verb">/teleop_turtle</code></span>
+     to
+publish
+something.
+    </p>
+    <p class="noindent">
+     Return
+to
+the
+                                                                                
+                                                                                
+                                                                          
+terminal
+where <span style="color:#054C5C;"><code class="verb">turtle_teleop_key</code></span>
+     is
+running
+and
+use
+the
+arrows
+to
+move
+the
+turtle
+around.
+Watch
+the
+terminal
+where
+your
+echo
+is
+running
+at
+the
+same
+time,
+and
+you’ll
+see
+position
+data
+being
+published
+for
+every
+movement
+you
+make:
+    </p>
+    <div class="tcolorbox tcolorbox" id="tcolobox-71">
+     <div class="tcolorbox-content">
+      <div class="code-block">
+       <div class="code-lang">
+        text
+       </div>
+       <pre><div class="language-text" id="fancyvrb169" style="padding:20px;border-radius: 3px;"><a id="x10-167006r1"></a>linear: 
+<a id="x10-167008r2"></a>  x: 2.0 
+<a id="x10-167010r3"></a>  y: 0.0 
+<a id="x10-167012r4"></a>  z: 0.0 
+<a id="x10-167014r5"></a>angular: 
+<a id="x10-167016r6"></a>  x: 0.0 
+<a id="x10-167018r7"></a>  y: 0.0 
+<a id="x10-167020r8"></a>  z: 0.0 
+<a id="x10-167022r9"></a>  ---</div></pre>
+      </div>
+     </div>
+    </div>
+    <p class="noindent">
+     Now
+return
+to <span style="color:#054C5C;"><code class="verb">rqt_graph</code></span>
+     and
+uncheck
+the
+Debug
+box.
+    </p>
+    <div class="figure">
+     <p class="noindent">
+      <img alt="PIC" height="" src="figures/Command-Line-Tools/raster/rqt-graph-3.png" width="150%"/>
+      <a id="x10-167023r4">
+      </a>
+     </p>
+     <figcaption class="caption">
+      <span class="id">
+       Figure 8.4:
+      </span>
+      <span class="content">
+      </span>
+     </figcaption>
+    </div>
+    <p class="noindent"> <span style="color:#054C5C;"><code class="verb">/_ros2cli_5707</code></span>
+     is
+the
+node
+created
+by
+the
+echo
+command
+we
+just
+ran
+(the
+number
+might
+be
+different).
+Now
+you
+can
+see
+that
+the
+publisher
+is
+publishing
+data
+over
+the <span style="color:#054C5C;"><code class="verb">cmd_vel</code></span>
+     topic,
+and
+two
+<alert style="color: #821131;">(2)</alert> subscribers
+are
+subscribed
+to
+it.
+     <a id="paragraph*.53">
+     </a>
+    </p>
+    <p class="noindent">
+     <span class="paragraphHead">
+      <a id="x10-168000">
+      </a>
+      ros2
+topic
+info
+     </span>
+     Topics
+don’t
+have
+to
+only
+be
+one-to-one
+communication;
+they
+can
+be
+one-to-many,
+many-to-one,
+or
+many-to-many.
+    </p>
+    <p class="noindent">
+     Another
+way
+to
+look
+at
+this
+                                                                                
+                                                                                
+                                                                               
+is
+running:
+    </p>
+    <p class="noindent">
+    </p>
+    <div class="code-block">
+     <div class="code-lang">
+      bash
+     </div>
+     <pre><div class="language-bash" id="fancyvrb170" style="padding:20px;border-radius: 3px;"><a id="x10-168002r391"></a>ros2<span style="color:#BABABA;"> </span>topic<span style="color:#BABABA;"> </span>info<span style="color:#BABABA;"> </span>/turtle1/cmd_vel</div></pre>
+    </div>
+    <div class="tcolorbox tcolorbox" id="tcolobox-72">
+     <div class="tcolorbox-content">
+      <div class="code-block">
+       <div class="code-lang">
+        text
+       </div>
+       <pre><div class="language-text" id="fancyvrb171" style="padding:20px;border-radius: 3px;"><a id="x10-168004r1"></a>Type: geometry_msgs/msg/Twist 
+<a id="x10-168006r2"></a>Publisher count: 1 
+<a id="x10-168008r3"></a>Subscription count: 2</div></pre>
+      </div>
+     </div>
+    </div>
+    <a id="paragraph*.54">
+    </a>
+    <p class="noindent">
+     <span class="paragraphHead">
+      <a id="x10-169000">
+      </a>
+      ros2
+interface
+show
+     </span>
+     Nodes
+send
+data
+over
+topics
+using
+messages.
+Publishers
+and
+subscribers
+must
+send
+and
+receive
+the
+same
+type
+of
+message
+to
+communicate.
+    </p>
+    <p class="noindent">
+     The
+topic
+types
+we
+saw
+earlier
+after
+running <span style="color:#054C5C;"><code class="verb">ros2 topic list -t</code></span>
+     let
+us
+know
+what
+message
+type
+is
+used
+on
+each
+topic.
+Recall
+that
+the <span style="color:#054C5C;"><code class="verb">cmd_vel</code></span>
+     topic
+has
+                                                                                
+                                                                                
+                                                                              
+the
+type:
+    </p>
+    <p class="noindent">
+    </p>
+    <div class="code-block">
+     <div class="code-lang">
+      bash
+     </div>
+     <pre><div class="language-bash" id="fancyvrb172" style="padding:20px;border-radius: 3px;"><a id="x10-169002r405"></a>geometry_msgs/msg/Twist</div></pre>
+    </div>
+    <p class="noindent">
+     This
+means
+that
+in
+the
+package <span style="color:#054C5C;"><code class="verb">geometry_msgs</code></span>
+     there
+is
+a
+msg
+called
+Twist.
+    </p>
+    <p class="noindent">
+     Now
+we
+can
+run
+ros2
+interface
+show <span style="color:#054C5C;"><code class="verb">&lt;msg_type&gt;</code></span>
+     on
+this
+type
+to
+learn
+its
+details.
+Specifically,
+what
+structure
+of
+data
+the
+message
+expects.
+    </p>
+    <p class="noindent">
+    </p>
+    <div class="code-block">
+     <div class="code-lang">
+      bash
+     </div>
+     <pre><div class="language-bash" id="fancyvrb173" style="padding:20px;border-radius: 3px;"><a id="x10-169004r410"></a>ros2<span style="color:#BABABA;"> </span>interface<span style="color:#BABABA;"> </span>show<span style="color:#BABABA;"> </span>geometry_msgs/msg/Twist</div></pre>
+    </div>
+    <p class="noindent">
+     Which
+will
+return
+    </p>
+    <div class="tcolorbox tcolorbox" id="tcolobox-73">
+     <div class="tcolorbox-content">
+      <div class="code-block">
+       <div class="code-lang">
+        text
+       </div>
+       <pre><div class="language-text" id="fancyvrb174" style="padding:20px;border-radius: 3px;"><a id="x10-169006r1"></a># This expresses velocity in free space broken into its linear and angular parts. 
+<a id="x10-169008r2"></a>    Vector3  linear 
+<a id="x10-169010r3"></a>            float64 x 
+<a id="x10-169012r4"></a>            float64 y 
+<a id="x10-169014r5"></a>            float64 z 
+<a id="x10-169016r6"></a>    Vector3  angular 
+<a id="x10-169018r7"></a>            float64 x 
+<a id="x10-169020r8"></a>            float64 y 
+<a id="x10-169022r9"></a>            float64 z</div></pre>
+      </div>
+     </div>
+    </div>
+    <p class="noindent">
+     This
+tells
+you
+that
+the
+/turtlesim
+node
+is
+expecting
+                                                                                
+                                                                                
+                                                                               
+a
+message
+with
+two
+vectors,
+linear
+and
+angular,
+of
+three
+elements
+each.
+If
+you
+recall
+the
+data
+we
+saw <span style="color:#054C5C;"><code class="verb">/teleop_turtle</code></span>
+     passing
+to
+/turtlesim
+with
+the
+echo
+command,
+it’s
+in
+the
+same
+structure:
+    </p>
+    <div class="tcolorbox tcolorbox" id="tcolobox-74">
+     <div class="tcolorbox-content">
+      <div class="code-block">
+       <div class="code-lang">
+        text
+       </div>
+       <pre><div class="language-text" id="fancyvrb175" style="padding:20px;border-radius: 3px;"><a id="x10-169024r1"></a>linear: 
+<a id="x10-169026r2"></a>  x: 2.0 
+<a id="x10-169028r3"></a>  y: 0.0 
+<a id="x10-169030r4"></a>  z: 0.0 
+<a id="x10-169032r5"></a>angular: 
+<a id="x10-169034r6"></a>  x: 0.0 
+<a id="x10-169036r7"></a>  y: 0.0 
+<a id="x10-169038r8"></a>  z: 0.0 
+<a id="x10-169040r9"></a>  ---</div></pre>
+      </div>
+     </div>
+    </div>
+    <p class="noindent">
+    </p>
+    <h2 class="sectionHead">
+     <a aria-label="Link to this section in PDF version" class="pdf-link" href="AutonomousMobileRoboticsLectureBook.pdf#section.8.5" style="color: red;  position: absolute;  left: -30px;" target="_blank">
+      <svg class="bi bi-file-pdf" fill="currentColor" height="20" viewbox="0 0 16 16" width="20" xmlns="http://www.w3.org/2000/svg">
+       <path d="M4 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H4zm0 1h8a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1z">
+       </path>
+       <path d="M4.603 12.087a.81.81 0 0 1-.438-.42c-.195-.388-.13-.776.08-1.102.198-.307.526-.568.897-.787a7.68 7.68 0 0 1 1.482-.645 19.701 19.701 0 0 0 1.062-2.227 7.269 7.269 0 0 1-.43-1.295c-.086-.4-.119-.796-.046-1.136.075-.354.274-.672.65-.823.192-.077.4-.12.602-.077a.7.7 0 0 1 .477.365c.088.164.12.356.127.538.007.187-.012.395-.047.614-.084.51-.27 1.134-.52 1.794a10.954 10.954 0 0 0 .98 1.686 5.753 5.753 0 0 1 1.334.05c.364.065.734.195.96.465.12.144.193.32.2.518.007.192-.047.382-.138.563a1.04 1.04 0 0 1-.354.416.856.856 0 0 1-.51.138c-.331-.014-.654-.196-.933-.417a5.716 5.716 0 0 1-.911-.95 11.642 11.642 0 0 0-1.997.406 11.311 11.311 0 0 1-1.021 1.51c-.29.35-.608.655-.926.787a.793.793 0 0 1-.58.029zm1.379-1.901c-.166.076-.32.156-.459.238-.328.194-.541.383-.647.547-.094.145-.096.25-.04.361.01.022.02.036.026.044a.27.27 0 0 0 .035-.012c.137-.056.355-.235.635-.572a8.18 8.18 0 0 0 .45-.606zm1.64-1.33a12.647 12.647 0 0 1 1.01-.193 11.666 11.666 0 0 1-.51-.858 20.741 20.741 0 0 1-.5 1.05zm2.446.45c.15.162.296.3.435.41.24.19.407.253.498.256a.107.107 0 0 0 .07-.015.307.307 0 0 0 .094-.125.436.436 0 0 0 .059-.2.095.095 0 0 0-.026-.063c-.052-.062-.2-.152-.518-.209a3.881 3.881 0 0 0-.612-.053zM8.078 5.8a6.7 6.7 0 0 0 .2-.828c.031-.188.043-.343.038-.465a.613.613 0 0 0-.032-.198.517.517 0 0 0-.145.04c-.087.035-.158.106-.196.283-.04.192-.03.469.046.822.024.111.054.227.09.346z">
+       </path>
+      </svg>
+     </a>
+     <small class="titlemark">
+      8.5
+     </small>
+     <a id="x10-1700008.5">
+     </a>
+     Working
+with
+Services
+    </h2>
+    <p class="noindent">
+     As
+a
+brief
+review,
+services
+are
+yet
+another
+method
+of
+communication
+for
+nodes
+in
+the
+     <a class="glossary" href="AutonomousMobileRoboticsLectureBookli2.html#glo:ros">
+      ROS
+     </a>
+     graph.
+Services
+are
+based
+on
+a
+call-and-response
+model
+versus
+the
+publisher-subscriber
+model
+of
+topics.
+While
+topics
+allow
+nodes
+to
+subscribe
+to
+data
+streams
+and
+get
+continual
+updates,
+services
+only
+provide
+data
+when
+they
+are
+specifically
+called
+by
+a
+client.
+    </p>
+    <p class="noindent">
+     To
+begin
+                                                                                
+                                                                                
+                                                                              
+we
+start
+with
+a
+fresh
+new
+terminal
+(
+     <kbd>
+      Ctrl
+     </kbd>
+     +
+     <kbd>
+      Alt
+     </kbd>
+     +
+     <kbd>
+      T
+     </kbd>
+     )
+and
+type
+the
+following
+command
+to
+start
+the <span style="color:#054C5C;"><code class="verb">/turtlesim</code></span>
+     and <span style="color:#054C5C;"><code class="verb">/teleop_turtle</code></span>
+     nodes:
+    </p>
+    <p class="noindent">
+    </p>
+    <div class="code-block">
+     <div class="code-lang">
+      bash
+     </div>
+     <pre><div class="language-bash" id="fancyvrb176" style="padding:20px;border-radius: 3px;"><a id="x10-170002r459"></a>ros2<span style="color:#BABABA;"> </span>run<span style="color:#BABABA;"> </span>turtlesim<span style="color:#BABABA;"> </span>turtlesim_node</div></pre>
+    </div>
+    <p class="noindent">
+    </p>
+    <div class="code-block">
+     <div class="code-lang">
+      bash
+     </div>
+     <pre><div class="language-bash" id="fancyvrb177" style="padding:20px;border-radius: 3px;"><a id="x10-170004r464"></a>ros2<span style="color:#BABABA;"> </span>run<span style="color:#BABABA;"> </span>turtlesim<span style="color:#BABABA;"> </span>turtle_teleop_key</div></pre>
+    </div>
+    <a id="paragraph*.55">
+    </a>
+    <p class="noindent">
+     <span class="paragraphHead">
+      <a id="x10-171000">
+      </a>
+      ros2
+service
+list
+     </span>
+     Running
+the <span style="color:#054C5C;"><code class="verb">ros2 service list</code></span>
+     command
+in
+a
+new
+terminal
+will
+return
+a
+list
+of
+all
+the
+services
+currently
+active
+in
+the
+system:
+    </p>
+    <p class="noindent">
+    </p>
+    <div class="code-block">
+     <div class="code-lang">
+      bash
+     </div>
+     <pre><div class="language-bash" id="fancyvrb178" style="padding:20px;border-radius: 3px;"><a id="x10-171002r469"></a>ros2<span style="color:#BABABA;"> </span>service<span style="color:#BABABA;"> </span>list</div></pre>
+    </div>
+    <div class="tcolorbox tcolorbox" id="tcolobox-75">
+     <div class="tcolorbox-content">
+      <div class="code-block">
+       <div class="code-lang">
+        text
+       </div>
+       <pre><div class="language-text" id="fancyvrb179" style="padding:20px;border-radius: 3px;"><a id="x10-171004r1"></a>/clear 
+<a id="x10-171006r2"></a>/kill 
+<a id="x10-171008r3"></a>/reset 
+<a id="x10-171010r4"></a>/spawn 
+<a id="x10-171012r5"></a>/teleop_turtle/describe_parameters 
+<a id="x10-171014r6"></a>/teleop_turtle/get_parameter_types 
+<a id="x10-171016r7"></a>/teleop_turtle/get_parameters 
+<a id="x10-171018r8"></a>/teleop_turtle/list_parameters 
+<a id="x10-171020r9"></a>/teleop_turtle/set_parameters 
+<a id="x10-171022r10"></a>/teleop_turtle/set_parameters_atomically 
+<a id="x10-171024r11"></a>/turtle1/set_pen 
+<a id="x10-171026r12"></a>/turtle1/teleport_absolute 
+<a id="x10-171028r13"></a>/turtle1/teleport_relative 
+<a id="x10-171030r14"></a>/turtlesim/describe_parameters 
+<a id="x10-171032r15"></a>/turtlesim/get_parameter_types 
+<a id="x10-171034r16"></a>/turtlesim/get_parameters 
+<a id="x10-171036r17"></a>/turtlesim/list_parameters 
+<a id="x10-171038r18"></a>/turtlesim/set_parameters 
+<a id="x10-171040r19"></a>/turtlesim/set_parameters_atomically</div></pre>
+      </div>
+     </div>
+    </div>
+    <p class="noindent">
+     Looking
+at
+this
+output
+we
+will
+see
+both
+nodes
+have
+the
+same
+six
+<alert style="color: #821131;">(6)</alert> services
+with
+parameters
+in
+their
+names.
+Nearly
+every
+node
+in
+     <a class="glossary" href="AutonomousMobileRoboticsLectureBookli2.html#glo:ros">
+      ROS
+     </a>
+     has
+these
+infrastructure
+services
+that
+parameters
+are
+built
+off
+of.
+    </p>
+    <p class="noindent">
+     For
+now,
+let’s
+focus
+on
+the
+turtlesim-specific
+services:
+    </p>
+    <ul class="itemize1">
+     <li class="itemize">
+      <p class="noindent"> <span style="color:#054C5C;"><code class="verb">/clear</code></span>,
+      </p>
+     </li>
+     <li class="itemize">
+      <p class="noindent"> <span style="color:#054C5C;"><code class="verb">/kill</code></span>
+      </p>
+     </li>
+     <li class="itemize">
+      <p class="noindent"> <span style="color:#054C5C;"><code class="verb">/reset</code></span>
+      </p>
+     </li>
+     <li class="itemize">
+      <p class="noindent"> <span style="color:#054C5C;"><code class="verb">/spawn</code></span>,
+      </p>
+     </li>
+     <li class="itemize">
+      <p class="noindent"> <span style="color:#054C5C;"><code class="verb">/turtle1/set_pen</code></span>,
+      </p>
+     </li>
+     <li class="itemize">
+      <p class="noindent"> <span style="color:#054C5C;"><code class="verb">/turtle1/teleport_absolute</code></span>,
+and
+      </p>
+     </li>
+     <li class="itemize">
+      <p class="noindent"> <span style="color:#054C5C;"><code class="verb">/turtle1/teleport_relative</code></span>.
+      </p>
+     </li>
+    </ul>
+    <div class="knowledge">
+     <p class="noindent">
+      We
+have
+interacted
+some
+of
+these
+services
+using <span style="color:#054C5C;"><code class="verb">rqt</code></span>
+      previously.
+     </p>
+    </div>
+    <a id="paragraph*.56">
+    </a>
+    <p class="noindent">
+     <span class="paragraphHead">
+      <a id="x10-172000">
+      </a>
+      ros2
+service
+type
+     </span>
+     Services
+have
+types
+which
+describe
+how
+the
+     <alert style="color: #821131;">
+      request
+     </alert>
+     and
+     <alert style="color: #821131;">
+      response
+     </alert>
+     data
+of
+a
+service
+is
+structured.
+Service
+types
+are
+defined
+similarly
+to
+topic
+types,
+except
+                                                                                
+                                                                                
+                                                                           
+service
+types
+have
+two
+<alert style="color: #821131;">(2)</alert> parts:
+    </p>
+    <ul class="itemize1">
+     <li class="itemize">
+      <p class="noindent">
+       one
+message
+for
+request,
+      </p>
+     </li>
+     <li class="itemize">
+      <p class="noindent">
+       another
+one
+for
+response.
+      </p>
+     </li>
+    </ul>
+    <p class="noindent">
+     To
+find
+out
+the
+type
+of
+a
+service,
+use
+the
+command:
+    </p>
+    <p class="noindent">
+    </p>
+    <div class="code-block">
+     <div class="code-lang">
+      bash
+     </div>
+     <pre><div class="language-bash" id="fancyvrb180" style="padding:20px;border-radius: 3px;"><a id="x10-172002r497"></a>ros2<span style="color:#BABABA;"> </span>service<span style="color:#BABABA;"> </span><span style="color:#2B2BFF;">type</span><span style="color:#BABABA;"> </span>&lt;service_name&gt;</div></pre>
+    </div>
+    <p class="noindent">
+     Let’s
+take
+a
+look
+at
+turtlesim’s <span style="color:#054C5C;"><code class="verb">/clear</code></span>
+     service.
+In
+a
+brand
+new
+terminal,
+let’s
+enter
+the
+command:
+    </p>
+    <p class="noindent">
+    </p>
+    <div class="code-block">
+     <div class="code-lang">
+      bash
+     </div>
+     <pre><div class="language-bash" id="fancyvrb181" style="padding:20px;border-radius: 3px;"><a id="x10-172004r502"></a>ros2<span style="color:#BABABA;"> </span>service<span style="color:#BABABA;"> </span><span style="color:#2B2BFF;">type</span><span style="color:#BABABA;"> </span>/clear</div></pre>
+    </div>
+    <div class="tcolorbox tcolorbox" id="tcolobox-76">
+     <div class="tcolorbox-content">
+      <div class="code-block">
+       <div class="code-lang">
+        text
+       </div>
+       <pre><div class="language-text" id="fancyvrb182" style="padding:20px;border-radius: 3px;"><a id="x10-172006r1"></a>std_srvs/srv/Empty</div></pre>
+      </div>
+     </div>
+    </div>
+    <p class="noindent">
+     In
+this
+context,
+the <span style="color:#054C5C;"><code class="verb">Empty</code></span>
+     type
+means
+the
+service
+call
+sends
+no
+data
+when
+making
+a
+request
+and
+receives
+no
+data
+when
+receiving
+a
+response.
+     <a id="paragraph*.57">
+     </a>
+    </p>
+    <p class="noindent">
+     <span class="paragraphHead">
+      <a id="x10-173000">
+      </a>
+      ros2
+service
+list
+-t
+     </span>
+     To
+see
+the
+types
+of
+all
+the
+active
+services
+at
+the
+same
+time,
+we
+can
+append
+the <span style="color:#054C5C;"><code class="verb">--show-types</code></span>
+     option,
+abbreviated
+as <span style="color:#054C5C;"><code class="verb">-t</code></span>,
+to
+the
+list
+command:
+    </p>
+    <p class="noindent">
+    </p>
+    <div class="code-block">
+     <div class="code-lang">
+      bash
+     </div>
+     <pre><div class="language-bash" id="fancyvrb183" style="padding:20px;border-radius: 3px;"><a id="x10-173002r512"></a>ros2<span style="color:#BABABA;"> </span>service<span style="color:#BABABA;"> </span>list<span style="color:#BABABA;"> </span>-t</div></pre>
+    </div>
+    <div class="tcolorbox tcolorbox" id="tcolobox-77">
+     <div class="tcolorbox-content">
+      <div class="code-block">
+       <div class="code-lang">
+        text
+       </div>
+       <pre><div class="language-text" id="fancyvrb184" style="padding:20px;border-radius: 3px;"><a id="x10-173004r1"></a>/clear [std_srvs/srv/Empty] 
+<a id="x10-173006r2"></a>/kill [turtlesim/srv/Kill] 
+<a id="x10-173008r3"></a>/reset [std_srvs/srv/Empty] 
+<a id="x10-173010r4"></a>/spawn [turtlesim/srv/Spawn] 
+<a id="x10-173012r5"></a>... 
+<a id="x10-173014r6"></a>/turtle1/set_pen [turtlesim/srv/SetPen] 
+<a id="x10-173016r7"></a>/turtle1/teleport_absolute [turtlesim/srv/TeleportAbsolute] 
+<a id="x10-173018r8"></a>/turtle1/teleport_relative [turtlesim/srv/TeleportRelative] 
+<a id="x10-173020r9"></a>...</div></pre>
+      </div>
+     </div>
+    </div>
+    <a id="paragraph*.58">
+    </a>
+    <p class="noindent">
+     <span class="paragraphHead">
+      <a id="x10-174000">
+      </a>
+      ros2
+service
+find
+     </span>
+     If
+we
+want
+to
+find
+all
+the
+services
+of
+a
+specific
+type,
+we
+can
+use
+the
+command,
+which
+the
+syntax
+is
+as
+follows:
+    </p>
+    <p class="noindent">
+    </p>
+    <div class="code-block">
+     <div class="code-lang">
+      bash
+     </div>
+     <pre><div class="language-bash" id="fancyvrb185" style="padding:20px;border-radius: 3px;"><a id="x10-174002r530"></a>ros2<span style="color:#BABABA;"> </span>service<span style="color:#BABABA;"> </span>find<span style="color:#BABABA;"> </span>&lt;type_name&gt;</div></pre>
+    </div>
+    <p class="noindent">
+     For
+example,
+we
+can
+find
+all
+the <span style="color:#054C5C;"><code class="verb">Empty</code></span>
+     typed
+services
+like
+this:
+    </p>
+    <p class="noindent">
+    </p>
+    <div class="code-block">
+     <div class="code-lang">
+      bash
+     </div>
+     <pre><div class="language-bash" id="fancyvrb186" style="padding:20px;border-radius: 3px;"><a id="x10-174004r535"></a>ros2<span style="color:#BABABA;"> </span>service<span style="color:#BABABA;"> </span>find<span style="color:#BABABA;"> </span>std_srvs/srv/Empty</div></pre>
+    </div>
+    <div class="tcolorbox tcolorbox" id="tcolobox-78">
+     <div class="tcolorbox-content">
+      <div class="code-block">
+       <div class="code-lang">
+        text
+       </div>
+       <pre><div class="language-text" id="fancyvrb187" style="padding:20px;border-radius: 3px;"><a id="x10-174006r1"></a>/clear 
+<a id="x10-174008r2"></a>/reset</div></pre>
+      </div>
+     </div>
+    </div>
+    <a id="paragraph*.59">
+    </a>
+    <p class="noindent">
+     <span class="paragraphHead">
+      <a id="x10-175000">
+      </a>
+      ros2
+                                                                                
+                                                                                
+                                                                          
+interface
+show
+     </span>
+     We
+can
+call
+services
+from
+the
+command
+line,
+but
+first
+we
+need
+to
+know
+the
+structure
+of
+the
+input
+arguments.
+The
+syntax
+of
+the
+interface
+command
+is
+as
+follows:
+    </p>
+    <p class="noindent">
+    </p>
+    <div class="code-block">
+     <div class="code-lang">
+      bash
+     </div>
+     <pre><div class="language-bash" id="fancyvrb188" style="padding:20px;border-radius: 3px;"><a id="x10-175002r546"></a>ros2<span style="color:#BABABA;"> </span>interface<span style="color:#BABABA;"> </span>show<span style="color:#BABABA;"> </span>&lt;type_name&gt;</div></pre>
+    </div>
+    <p class="noindent">
+     Try
+this
+on
+the <span style="color:#054C5C;"><code class="verb">/clear</code></span>
+     service’s
+type, <span style="color:#054C5C;"><code class="verb">Empty</code></span>
+     :
+    </p>
+    <p class="noindent">
+    </p>
+    <div class="code-block">
+     <div class="code-lang">
+      bash
+     </div>
+     <pre><div class="language-bash" id="fancyvrb189" style="padding:20px;border-radius: 3px;"><a id="x10-175004r551"></a>ros2<span style="color:#BABABA;"> </span>interface<span style="color:#BABABA;"> </span>show<span style="color:#BABABA;"> </span>std_srvs/srv/Empty</div></pre>
+    </div>
+    <div class="tcolorbox tcolorbox" id="tcolobox-79">
+     <div class="tcolorbox-content">
+      <div class="code-block">
+       <div class="code-lang">
+        text
+       </div>
+       <pre><div class="language-text" id="fancyvrb190" style="padding:20px;border-radius: 3px;"><a id="x10-175006r1"></a>---</div></pre>
+      </div>
+     </div>
+    </div>
+    <p class="noindent">
+     The <span style="color:#054C5C;"><code class="verb">---</code></span>
+     separates
+the
+request
+structure
+(above)
+from
+the
+response
+structure
+(below).
+                                                                                
+                                                                                
+                                                                             
+But,
+as
+we
+learned
+earlier,
+the <span style="color:#054C5C;"><code class="verb">Empty</code></span>
+     type
+doesn’t
+send
+or
+receive
+any
+data.
+So,
+naturally,
+its
+structure
+is
+blank.
+    </p>
+    <p class="noindent">
+     Let’s
+introspect
+a
+service
+with
+a
+type
+that
+sends
+and
+receives
+data,
+like <span style="color:#054C5C;"><code class="verb">/spawn</code></span>.
+From
+the
+results
+of <span style="color:#054C5C;"><code class="verb">ros2 service list -t</code></span>,
+we
+know <span style="color:#054C5C;"><code class="verb">/spawn</code></span>
+     ’s
+type
+is <span style="color:#054C5C;"><code class="verb">turtlesim/srv/Spawn</code></span>.
+    </p>
+    <p class="noindent">
+     To
+see
+the
+request
+and
+response
+arguments
+of
+the <span style="color:#054C5C;"><code class="verb">/spawn</code></span>
+     service,
+run
+the
+command:
+    </p>
+    <p class="noindent">
+    </p>
+    <div class="code-block">
+     <div class="code-lang">
+      bash
+     </div>
+     <pre><div class="language-bash" id="fancyvrb191" style="padding:20px;border-radius: 3px;"><a id="x10-175008r561"></a>ros2<span style="color:#BABABA;"> </span>interface<span style="color:#BABABA;"> </span>show<span style="color:#BABABA;"> </span>turtlesim/srv/Spawn</div></pre>
+    </div>
+    <div class="tcolorbox tcolorbox" id="tcolobox-80">
+     <div class="tcolorbox-content">
+      <div class="code-block">
+       <div class="code-lang">
+        text
+       </div>
+       <pre><div class="language-text" id="fancyvrb192" style="padding:20px;border-radius: 3px;"><a id="x10-175010r1"></a>float32 x 
+<a id="x10-175012r2"></a>float32 y 
+<a id="x10-175014r3"></a>float32 theta 
+<a id="x10-175016r4"></a>string name # Optional.  A unique name will be created and returned if this is empty 
+<a id="x10-175018r5"></a>--- 
+<a id="x10-175020r6"></a>string name</div></pre>
+      </div>
+     </div>
+    </div>
+    <p class="noindent">
+     The
+information
+above
+the <span style="color:#054C5C;"><code class="verb">---</code></span>
+     line
+tells
+us
+the
+arguments
+needed
+to
+call <span style="color:#054C5C;"><code class="verb">/spawn</code></span>. <span style="color:#054C5C;"><code class="verb">x</code></span>, <span style="color:#054C5C;"><code class="verb">y</code></span>
+     and <span style="color:#054C5C;"><code class="verb">theta</code></span>
+     determine
+the
+2D
+pose
+of
+the
+spawned
+turtle,
+and
+name
+is
+clearly
+optional.
+    </p>
+    <p class="noindent">
+     The
+information
+below
+the
+line
+isn’t
+something
+we
+need
+to
+know
+in
+this
+case,
+but
+it
+can
+help
+us
+understand
+the
+data
+type
+of
+the
+response
+we
+get
+from
+the
+call.
+     <a id="paragraph*.60">
+     </a>
+    </p>
+    <p class="noindent">
+     <span class="paragraphHead">
+      <a id="x10-176000">
+      </a>
+      ros2
+service
+call
+     </span>
+     Now
+that
+we
+know
+what
+a
+service
+type
+is,
+how
+to
+find
+a
+service’s
+type,
+and
+how
+to
+find
+the
+structure
+of
+that
+type’s
+arguments,
+we
+can
+call
+a
+service
+using:
+    </p>
+    <p class="noindent">
+    </p>
+    <div class="code-block">
+     <div class="code-lang">
+      bash
+     </div>
+     <pre><div class="language-bash" id="fancyvrb193" style="padding:20px;border-radius: 3px;"><a id="x10-176002r576"></a>ros2<span style="color:#BABABA;"> </span>service<span style="color:#BABABA;"> </span>call<span style="color:#BABABA;"> </span>&lt;service_name&gt;<span style="color:#BABABA;"> </span>&lt;service_type&gt;<span style="color:#BABABA;"> </span>&lt;arguments&gt;</div></pre>
+    </div>
+    <p class="noindent">
+     The
+&lt;arguments&gt;
+part
+is
+optional.
+For
+example,
+we
+know
+that
+Empty
+typed
+services
+don’t
+have
+any
+arguments:
+    </p>
+    <p class="noindent">
+    </p>
+    <div class="code-block">
+     <div class="code-lang">
+      bash
+     </div>
+     <pre><div class="language-bash" id="fancyvrb194" style="padding:20px;border-radius: 3px;"><a id="x10-176004r581"></a>ros2<span style="color:#BABABA;"> </span>service<span style="color:#BABABA;"> </span>call<span style="color:#BABABA;"> </span>/clear<span style="color:#BABABA;"> </span>std_srvs/srv/Empty</div></pre>
+    </div>
+    <p class="noindent">
+     This
+command
+will
+clear
+the
+                                                                                
+                                                                                
+                                                                          
+turtlesim
+window
+of
+any
+lines
+our
+turtle
+has
+drawn.
+Now
+let’s
+spawn
+a
+new
+turtle
+by
+calling
+/spawn
+and
+setting
+arguments.
+Input
+&lt;arguments&gt;
+in
+a
+service
+call
+from
+the
+command-line
+need
+to
+be
+in
+YAML
+syntax.
+    </p>
+    <p class="noindent">
+     Enter
+the
+command:
+    </p>
+    <p class="noindent">
+    </p>
+    <div class="code-block">
+     <div class="code-lang">
+      bash
+     </div>
+     <pre><div class="language-bash" id="fancyvrb195" style="padding:20px;border-radius: 3px;"><a id="x10-176006r586"></a>ros2<span style="color:#BABABA;"> </span>service<span style="color:#BABABA;"> </span>call<span style="color:#BABABA;"> </span>/spawn<span style="color:#BABABA;"> </span>turtlesim/srv/Spawn<span style="color:#BABABA;"> </span><span style="color:#800080;">"{x: 2, y: 2, theta: 0.2, name: ''}"</span></div></pre>
+    </div>
+    <div class="tcolorbox tcolorbox" id="tcolobox-81">
+     <div class="tcolorbox-content">
+      <div class="code-block">
+       <div class="code-lang">
+        text
+       </div>
+       <pre><div class="language-text" id="fancyvrb196" style="padding:20px;border-radius: 3px;"><a id="x10-176008r1"></a>requester: making request: turtlesim.srv.Spawn_Request(x=2.0, y=2.0, theta=0.2, name='') 
+<a id="x10-176010r2"></a> 
+<a id="x10-176012r3"></a>response: 
+<a id="x10-176014r4"></a>turtlesim.srv.Spawn_Response(name='turtle2')</div></pre>
+      </div>
+     </div>
+    </div>
+    <p class="noindent">
+     We
+will
+get
+this
+method-style
+view
+of
+what’s
+happening,
+and
+then
+the
+service
+response.
+    </p>
+    <p class="noindent">
+     Our
+turtlesim
+window
+                                                                                
+                                                                                
+                                                                             
+will
+update
+with
+the
+newly
+spawned
+turtle
+right
+away:
+    </p>
+    <p class="noindent">
+    </p>
+    <h2 class="sectionHead">
+     <a aria-label="Link to this section in PDF version" class="pdf-link" href="AutonomousMobileRoboticsLectureBook.pdf#section.8.6" style="color: red;  position: absolute;  left: -30px;" target="_blank">
+      <svg class="bi bi-file-pdf" fill="currentColor" height="20" viewbox="0 0 16 16" width="20" xmlns="http://www.w3.org/2000/svg">
+       <path d="M4 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H4zm0 1h8a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1z">
+       </path>
+       <path d="M4.603 12.087a.81.81 0 0 1-.438-.42c-.195-.388-.13-.776.08-1.102.198-.307.526-.568.897-.787a7.68 7.68 0 0 1 1.482-.645 19.701 19.701 0 0 0 1.062-2.227 7.269 7.269 0 0 1-.43-1.295c-.086-.4-.119-.796-.046-1.136.075-.354.274-.672.65-.823.192-.077.4-.12.602-.077a.7.7 0 0 1 .477.365c.088.164.12.356.127.538.007.187-.012.395-.047.614-.084.51-.27 1.134-.52 1.794a10.954 10.954 0 0 0 .98 1.686 5.753 5.753 0 0 1 1.334.05c.364.065.734.195.96.465.12.144.193.32.2.518.007.192-.047.382-.138.563a1.04 1.04 0 0 1-.354.416.856.856 0 0 1-.51.138c-.331-.014-.654-.196-.933-.417a5.716 5.716 0 0 1-.911-.95 11.642 11.642 0 0 0-1.997.406 11.311 11.311 0 0 1-1.021 1.51c-.29.35-.608.655-.926.787a.793.793 0 0 1-.58.029zm1.379-1.901c-.166.076-.32.156-.459.238-.328.194-.541.383-.647.547-.094.145-.096.25-.04.361.01.022.02.036.026.044a.27.27 0 0 0 .035-.012c.137-.056.355-.235.635-.572a8.18 8.18 0 0 0 .45-.606zm1.64-1.33a12.647 12.647 0 0 1 1.01-.193 11.666 11.666 0 0 1-.51-.858 20.741 20.741 0 0 1-.5 1.05zm2.446.45c.15.162.296.3.435.41.24.19.407.253.498.256a.107.107 0 0 0 .07-.015.307.307 0 0 0 .094-.125.436.436 0 0 0 .059-.2.095.095 0 0 0-.026-.063c-.052-.062-.2-.152-.518-.209a3.881 3.881 0 0 0-.612-.053zM8.078 5.8a6.7 6.7 0 0 0 .2-.828c.031-.188.043-.343.038-.465a.613.613 0 0 0-.032-.198.517.517 0 0 0-.145.04c-.087.035-.158.106-.196.283-.04.192-.03.469.046.822.024.111.054.227.09.346z">
+       </path>
+      </svg>
+     </a>
+     <small class="titlemark">
+      8.6
+     </small>
+     <a id="x10-1770008.6">
+     </a>
+     Working
+with
+Parameters
+    </h2>
+    <p class="noindent">
+     To
+give
+a
+brief
+refreshment,
+a
+parameter
+is
+a
+     <alert style="color: #821131;">
+      configuration
+value
+     </alert>
+     of
+a
+node.
+Think
+of
+parameters
+as
+node
+settings
+or
+its
+configuration
+file.
+A
+node
+can
+store
+parameters
+as
+integers,
+floats,
+booleans,
+strings,
+and
+lists.
+    </p>
+    <div class="knowledge">
+     <p class="noindent">
+      In
+      <a class="glossary" href="AutonomousMobileRoboticsLectureBookli2.html#glo:ros">
+       ROS
+      </a>,
+each
+node
+maintains
+its
+own
+parameters.
+     </p>
+    </div>
+    <p class="noindent">
+     To
+begin
+we
+start
+with
+a
+fresh
+new
+terminal
+                                                                                
+                                                                                
+                                                                            
+(
+     <kbd>
+      Ctrl
+     </kbd>
+     +
+     <kbd>
+      Alt
+     </kbd>
+     +
+     <kbd>
+      T
+     </kbd>
+     )
+and
+type
+the
+following
+command:
+    </p>
+    <p class="noindent">
+    </p>
+    <div class="code-block">
+     <div class="code-lang">
+      bash
+     </div>
+     <pre><div class="language-bash" id="fancyvrb197" style="padding:20px;border-radius: 3px;"><a id="x10-177002r601"></a>ros2<span style="color:#BABABA;"> </span>run<span style="color:#BABABA;"> </span>turtlesim<span style="color:#BABABA;"> </span>turtlesim_node</div></pre>
+    </div>
+    <p class="noindent">
+     And
+of
+course
+we
+would
+like
+to
+control
+this
+turtle
+so
+we
+need
+to
+add
+the <span style="color:#054C5C;"><code class="verb">teleop</code></span>
+     node
+as
+well.
+    </p>
+    <p class="noindent">
+    </p>
+    <div class="code-block">
+     <div class="code-lang">
+      bash
+     </div>
+     <pre><div class="language-bash" id="fancyvrb198" style="padding:20px;border-radius: 3px;"><a id="x10-177004r606"></a>ros2<span style="color:#BABABA;"> </span>run<span style="color:#BABABA;"> </span>turtlesim<span style="color:#BABABA;"> </span>turtle_teleop_key</div></pre>
+    </div>
+    <a id="paragraph*.61">
+    </a>
+    <p class="noindent">
+     <span class="paragraphHead">
+      <a id="x10-178000">
+      </a>
+      ros2
+param
+list
+     </span>
+     Now
+that
+both
+of
+them
+are
+running
+     <alert style="color: #821131;">
+      at
+the
+same
+time
+     </alert>
+     ,
+lets
+look
+at
+all
+the
+parameters
+in
+this
+system
+    </p>
+    <p class="noindent">
+    </p>
+    <div class="code-block">
+     <div class="code-lang">
+      bash
+     </div>
+     <pre><div class="language-bash" id="fancyvrb199" style="padding:20px;border-radius: 3px;"><a id="x10-178002r611"></a>ros2<span style="color:#BABABA;"> </span>run<span style="color:#BABABA;"> </span>turtlesim<span style="color:#BABABA;"> </span>turtle_teleop_key</div></pre>
+    </div>
+    <div class="tcolorbox tcolorbox" id="tcolobox-82">
+     <div class="tcolorbox-content">
+      <div class="code-block">
+       <div class="code-lang">
+        text
+       </div>
+       <pre><div class="language-text" id="fancyvrb200" style="padding:20px;border-radius: 3px;"><a id="x10-178004r1"></a>/teleop_turtle: 
+<a id="x10-178006r2"></a>  qos_overrides./parameter_events.publisher.depth 
+<a id="x10-178008r3"></a>  qos_overrides./parameter_events.publisher.durability 
+<a id="x10-178010r4"></a>  qos_overrides./parameter_events.publisher.history 
+<a id="x10-178012r5"></a>  qos_overrides./parameter_events.publisher.reliability 
+<a id="x10-178014r6"></a>  scale_angular 
+<a id="x10-178016r7"></a>  scale_linear 
+<a id="x10-178018r8"></a>  use_sim_time 
+<a id="x10-178020r9"></a>/turtlesim: 
+<a id="x10-178022r10"></a>  background_b 
+<a id="x10-178024r11"></a>  background_g 
+<a id="x10-178026r12"></a>  background_r 
+<a id="x10-178028r13"></a>  qos_overrides./parameter_events.publisher.depth 
+<a id="x10-178030r14"></a>  qos_overrides./parameter_events.publisher.durability 
+<a id="x10-178032r15"></a>  qos_overrides./parameter_events.publisher.history 
+<a id="x10-178034r16"></a>  qos_overrides./parameter_events.publisher.reliability 
+<a id="x10-178036r17"></a>  use_sim_time</div></pre>
+      </div>
+     </div>
+    </div>
+    <div class="warning">
+     <p class="noindent">
+      Every
+node
+has
+the
+parameter <span style="color:#054C5C;"><code class="verb">use_sim_time</code></span>.
+It
+is
+      <span id="bold" style="font-weight:bold;">
+       NOT
+      </span>
+      unique
+to <span style="color:#054C5C;"><code class="verb">turtlesim</code></span>.
+     </p>
+    </div>
+    <p class="noindent">
+     Based
+on
+their
+names,
+it
+looks
+like <span style="color:#054C5C;"><code class="verb">/turtlesim</code></span>
+     parameters
+determine
+the
+background
+color
+of
+the
+turtlesim
+window
+using
+RGB
+color
+values.
+     <a id="paragraph*.62">
+     </a>
+    </p>
+    <p class="noindent">
+     <span class="paragraphHead">
+      <a id="x10-179000">
+      </a>
+      ros2
+param
+get
+     </span>
+     To
+determine
+a
+type
+of
+the
+parameter
+we
+are
+trying
+to
+understand
+let’s
+use <span style="color:#054C5C;"><code class="verb">ros2 param get</code></span>.
+The
+following
+is
+the
+syntax
+of
+the
+command
+    </p>
+    <p class="noindent">
+    </p>
+    <div class="code-block">
+     <div class="code-lang">
+      bash
+     </div>
+     <pre><div class="language-bash" id="fancyvrb201" style="padding:20px;border-radius: 3px;"><a id="x10-179002r637"></a>ros2<span style="color:#BABABA;"> </span>param<span style="color:#BABABA;"> </span>get<span style="color:#BABABA;"> </span>&lt;node_name&gt;<span style="color:#BABABA;"> </span>&lt;parameter_name&gt;</div></pre>
+    </div>
+    <p class="noindent">
+     Now,
+let’s
+use
+this
+command
+to
+determine
+they
+type
+and
+the
+value
+of
+the
+parameter:
+    </p>
+    <div class="tcolorbox tcolorbox" id="tcolobox-83">
+     <div class="tcolorbox-content">
+      <div class="code-block">
+       <div class="code-lang">
+        text
+       </div>
+       <pre><div class="language-text" id="fancyvrb202" style="padding:20px;border-radius: 3px;"><a id="x10-179004r1"></a>Integer value is: 86</div></pre>
+      </div>
+     </div>
+    </div>
+    <p class="noindent">
+     It
+seems
+the <span style="color:#054C5C;"><code class="verb">background_g</code></span>
+     parameter
+holds
+an
+integer
+value.
+If
+we
+were
+to
+run
+the
+same
+command
+on <span style="color:#054C5C;"><code class="verb">background_r</code></span>
+     and <span style="color:#054C5C;"><code class="verb">background_b</code></span>,
+we
+will
+get
+the
+values
+69
+and
+255
+,
+respectively.
+     <a id="paragraph*.63">
+     </a>
+    </p>
+    <p class="noindent">
+     <span class="paragraphHead">
+      <a id="x10-180000">
+      </a>
+      ros2
+param
+set
+     </span>
+     Time
+to
+change
+these
+parameters
+and
+play
+around.
+To
+change
+a
+parameter’s
+value
+at
+runtime,
+use
+the
+command:
+    </p>
+    <p class="noindent">
+    </p>
+    <div class="code-block">
+     <div class="code-lang">
+      bash
+     </div>
+     <pre><div class="language-bash" id="fancyvrb203" style="padding:20px;border-radius: 3px;"><a id="x10-180002r652"></a>ros2<span style="color:#BABABA;"> </span>param<span style="color:#BABABA;"> </span><span style="color:#2B2BFF;">set</span><span style="color:#BABABA;"> </span>&lt;node_name&gt;<span style="color:#BABABA;"> </span>&lt;parameter_name&gt;<span style="color:#BABABA;"> </span>&lt;value&gt;</div></pre>
+    </div>
+    <p class="noindent">
+     Let’s
+do
+something
+simple
+and
+try
+to
+change
+the <span style="color:#054C5C;"><code class="verb">/turtlesim</code></span>
+     node’s
+background:
+    </p>
+    <p class="noindent">
+    </p>
+    <div class="code-block">
+     <div class="code-lang">
+      bash
+     </div>
+     <pre><div class="language-bash" id="fancyvrb204" style="padding:20px;border-radius: 3px;"><a id="x10-180004r657"></a>ros2<span style="color:#BABABA;"> </span>param<span style="color:#BABABA;"> </span><span style="color:#2B2BFF;">set</span><span style="color:#BABABA;"> </span>/turtlesim<span style="color:#BABABA;"> </span>background_r<span style="color:#BABABA;"> </span><span style="color:#2B8554;"><span id="bold" style="font-weight:bold;">150</span></span></div></pre>
+    </div>
+    <div class="tcolorbox tcolorbox" id="tcolobox-84">
+     <div class="tcolorbox-content">
+      <div class="code-block">
+       <div class="code-lang">
+        text
+       </div>
+       <pre><div class="language-text" id="fancyvrb205" style="padding:20px;border-radius: 3px;"><a id="x10-180006r1"></a>Set parameter successful</div></pre>
+      </div>
+     </div>
+    </div>
+    <p class="noindent">
+     The
+background
+of
+our
+turtlesim
+window
+should
+change
+colours.
+     <alert style="color: #821131;">
+      <span id="bold" style="font-weight:bold;">
+       <sup class="textsuperscript">
+        11
+       </sup>
+      </span>
+     </alert>
+     <span class="marginnote">
+      <img alt="PIC" height="" src="figures/Command-Line-Tools/raster/ros-param-purple-bg.png" width="100%"/>
+      <alert style="color: #821131;">
+       <span id="bold" style="font-weight:bold;">
+        <sup class="textsuperscript">
+         11
+        </sup>
+       </span>
+      </alert>
+      <span style="color:#0A2A0A;">
+       While
+the
+original
+value
+was
+86
+                                                                                
+                                                                                
+                                                                              
+by
+using <span style="color:#054C5C;"><code class="verb">ros param set</code></span>
+       we
+were
+able
+to
+change
+the
+value
+of
+the
+parameter
+and
+change
+the
+background
+to
+a
+nice
+purple.
+      </span>
+     </span>
+     It
+is
+worth
+mentioning
+that,
+setting
+parameters
+with
+the
+set
+command
+will
+only
+change
+them
+in
+our
+     <alert style="color: #821131;">
+      current
+     </alert>
+     session,
+     <span id="bold" style="font-weight:bold;">
+      NOT
+     </span>
+     permanently.
+However,
+we
+can
+save
+our
+settings
+and
+reload
+them
+the
+next
+time
+we
+want
+to
+start
+a
+node.
+     <a id="paragraph*.64">
+     </a>
+    </p>
+    <p class="noindent">
+     <span class="paragraphHead">
+      <a id="x10-181000">
+      </a>
+      ros2
+param
+dump
+     </span>
+     For
+this
+we
+need
+to
+dump
+this
+parameters
+to
+some
+other
+file
+for
+later
+use.
+Let’s
+have
+a
+look
+at
+the <span style="color:#054C5C;"><code class="verb">ros2 param dump</code></span>
+     command.
+This
+allows
+us
+to
+view
+all
+of
+a
+node’s
+current
+parameter
+values:
+    </p>
+    <p class="noindent">
+    </p>
+    <div class="code-block">
+     <div class="code-lang">
+      bash
+     </div>
+     <pre><div class="language-bash" id="fancyvrb206" style="padding:20px;border-radius: 3px;"><a id="x10-181002r667"></a>ros2<span style="color:#BABABA;"> </span>param<span style="color:#BABABA;"> </span>dump<span style="color:#BABABA;"> </span>&lt;node_name&gt;</div></pre>
+    </div>
+    <p class="noindent">
+     The
+command
+prints
+to
+the
+standard
+output <span style="color:#054C5C;">(<code class="verb">stdout</code>)</span>
+by
+default
+but
+we
+can
+also
+redirect
+the
+parameter
+values
+into
+a
+file
+to
+save
+them
+for
+later.
+    </p>
+    <p class="noindent">
+     To
+save
+                                                                                
+                                                                                
+                                                                             
+our
+current
+configuration
+of <span style="color:#054C5C;"><code class="verb">/turtlesim</code></span>
+     parameters
+into
+the
+file <span style="color:#054C5C;"><code class="verb">turtlesim.yaml</code></span>,
+enter
+the
+command:
+    </p>
+    <p class="noindent">
+    </p>
+    <div class="code-block">
+     <div class="code-lang">
+      bash
+     </div>
+     <pre><div class="language-bash" id="fancyvrb207" style="padding:20px;border-radius: 3px;"><a id="x10-181004r672"></a>ros2<span style="color:#BABABA;"> </span>param<span style="color:#BABABA;"> </span>dump<span style="color:#BABABA;"> </span>/turtlesim<span style="color:#BABABA;"> </span>&gt;<span style="color:#BABABA;"> </span>turtlesim.yaml</div></pre>
+    </div>
+    <p class="noindent">
+     In
+the
+current
+working
+directory
+we
+will
+find
+a
+new
+file.
+If
+we
+were
+to
+open
+this
+file,
+we’ll
+see
+the
+following
+content:
+    </p>
+    <p class="noindent">
+    </p>
+    <div class="code-block">
+     <div class="code-lang">
+      yaml
+     </div>
+     <pre><div class="language-yaml" id="fancyvrb208" style="padding:20px;border-radius: 3px;"><a id="x10-181006r677"></a><span style="color:#800080;">/turtlesim:</span> 
+<a id="x10-181008r678"></a><span style="color:#BABABA;"> </span><span style="color:#800080;">ros__parameters:</span> 
+<a id="x10-181010r679"></a><span style="color:#BABABA;">   </span><span style="color:#800080;">background_b:</span><span style="color:#2B2BFF;"><span id="bold" style="font-weight:bold;"> </span></span><span style="color:#800080;">255</span> 
+<a id="x10-181012r680"></a><span style="color:#BABABA;">   </span><span style="color:#800080;">background_g:</span><span style="color:#2B2BFF;"><span id="bold" style="font-weight:bold;"> </span></span><span style="color:#800080;">86</span> 
+<a id="x10-181014r681"></a><span style="color:#BABABA;">   </span><span style="color:#800080;">background_r:</span><span style="color:#2B2BFF;"><span id="bold" style="font-weight:bold;"> </span></span><span style="color:#800080;">150</span> 
+<a id="x10-181016r682"></a><span style="color:#BABABA;">   </span><span style="color:#800080;">qos_overrides:</span> 
+<a id="x10-181018r683"></a><span style="color:#BABABA;">    </span><span style="color:#800080;">/parameter_events:</span> 
+<a id="x10-181020r684"></a><span style="color:#BABABA;">      </span><span style="color:#800080;">publisher:</span> 
+<a id="x10-181022r685"></a><span style="color:#BABABA;">       </span><span style="color:#800080;">depth:</span><span style="color:#2B2BFF;"><span id="bold" style="font-weight:bold;"> </span></span><span style="color:#800080;">1000</span> 
+<a id="x10-181024r686"></a><span style="color:#BABABA;">       </span><span style="color:#800080;">durability:</span><span style="color:#2B2BFF;"><span id="bold" style="font-weight:bold;"> </span></span><span style="color:#800080;">volatile</span> 
+<a id="x10-181026r687"></a><span style="color:#BABABA;">       </span><span style="color:#800080;">history:</span><span style="color:#2B2BFF;"><span id="bold" style="font-weight:bold;"> </span></span><span style="color:#800080;">keep_last</span> 
+<a id="x10-181028r688"></a><span style="color:#BABABA;">       </span><span style="color:#800080;">reliability:</span><span style="color:#2B2BFF;"><span id="bold" style="font-weight:bold;"> </span></span><span style="color:#800080;">reliable</span> 
+<a id="x10-181030r689"></a><span style="color:#BABABA;">   </span><span style="color:#800080;">use_sim_time:</span><span style="color:#2B2BFF;"><span id="bold" style="font-weight:bold;"> </span></span><span style="color:#800080;">false</span></div></pre>
+    </div>
+    <p class="noindent">
+     Dumping
+parameters
+comes
+in
+handy
+if
+we
+want
+to
+reload
+the
+node
+with
+the
+same
+parameters
+in
+the
+future.
+     <a id="paragraph*.65">
+     </a>
+    </p>
+    <p class="noindent">
+     <span class="paragraphHead">
+      <a id="x10-182000">
+      </a>
+      ros2
+param
+load
+     </span>
+     Once
+the
+parameters
+are
+dumped
+into
+a
+file,
+we
+can
+load
+them
+to
+a
+currently
+running
+node
+using
+the
+command:
+    </p>
+    <p class="noindent">
+    </p>
+    <div class="code-block">
+     <div class="code-lang">
+      bash
+     </div>
+     <pre><div class="language-bash" id="fancyvrb209" style="padding:20px;border-radius: 3px;"><a id="x10-182002r694"></a>ros2<span style="color:#BABABA;"> </span>param<span style="color:#BABABA;"> </span>load<span style="color:#BABABA;"> </span>&lt;node_name&gt;<span style="color:#BABABA;"> </span>&lt;parameter_file&gt;</div></pre>
+    </div>
+    <p class="noindent">
+     To
+load
+the <span style="color:#054C5C;"><code class="verb">turtlesim.yaml</code></span>
+     file
+we
+just
+generated
+with <span style="color:#054C5C;"><code class="verb">ros2 param dump</code></span>
+     into <span style="color:#054C5C;"><code class="verb">/turtlesim</code></span>
+     node
+parameters,
+we
+just
+have
+to
+enter
+the
+command:
+    </p>
+    <p class="noindent">
+    </p>
+    <div class="code-block">
+     <div class="code-lang">
+      bash
+     </div>
+     <pre><div class="language-bash" id="fancyvrb210" style="padding:20px;border-radius: 3px;"><a id="x10-182004r699"></a>ros2<span style="color:#BABABA;"> </span>param<span style="color:#BABABA;"> </span>load<span style="color:#BABABA;"> </span>/turtlesim<span style="color:#BABABA;"> </span>turtlesim.yaml</div></pre>
+    </div>
+    <div class="tcolorbox tcolorbox" id="tcolobox-85">
+     <div class="tcolorbox-content">
+      <div class="code-block">
+       <div class="code-lang">
+        text
+       </div>
+       <pre><div class="language-text" id="fancyvrb211" style="padding:20px;border-radius: 3px;"><a id="x10-182006r1"></a>Set parameter background_b successful 
+<a id="x10-182008r2"></a>Set parameter background_g successful 
+<a id="x10-182010r3"></a>Set parameter background_r successful 
+<a id="x10-182012r4"></a>Set parameter qos_overrides./parameter_events.publisher.depth failed: parameter 'qos_overrides./parameter_events.publisher.depth' cannot be set because it is read-only 
+<a id="x10-182014r5"></a>Set parameter qos_overrides./parameter_events.publisher.durability failed: parameter 'qos_overrides./parameter_events.publisher.durability' cannot be set because it is read-only 
+<a id="x10-182016r6"></a>Set parameter qos_overrides./parameter_events.publisher.history failed: parameter 'qos_overrides./parameter_events.publisher.history' cannot be set because it is read-only 
+<a id="x10-182018r7"></a>Set parameter qos_overrides./parameter_events.publisher.reliability failed: parameter 'qos_overrides./parameter_events.publisher.reliability' cannot be set because it is read-only 
+<a id="x10-182020r8"></a>Set parameter use_sim_time successful</div></pre>
+      </div>
+     </div>
+    </div>
+    <div class="warning">
+     <p class="noindent">
+      Read-only
+parameters
+can
+                                                                                
+                                                                                
+                                                                             
+only
+be
+modified
+at
+startup
+and
+not
+afterwards,
+that
+is
+why
+there
+are
+some
+warnings
+for
+the <span style="color:#054C5C;"><code class="verb">qos_overrides</code></span>
+      parameters.
+     </p>
+    </div>
+    <a id="paragraph*.66">
+    </a>
+    <p class="noindent">
+     <span class="paragraphHead">
+      <a id="x10-183000">
+      </a>
+      Loading
+Parameters
+on
+Startup
+     </span>
+     To
+start
+the
+same
+node
+using
+our
+saved
+parameter
+values,
+use:
+    </p>
+    <p class="noindent">
+    </p>
+    <div class="code-block">
+     <div class="code-lang">
+      bash
+     </div>
+     <pre><div class="language-bash" id="fancyvrb212" style="padding:20px;border-radius: 3px;"><a id="x10-183002r716"></a>ros2<span style="color:#BABABA;"> </span>run<span style="color:#BABABA;"> </span>&lt;package_name&gt;<span style="color:#BABABA;"> </span>&lt;executable_name&gt;<span style="color:#BABABA;"> </span>--ros-args<span style="color:#BABABA;"> </span>--params-file<span style="color:#BABABA;"> </span>&lt;file_name&gt;</div></pre>
+    </div>
+    <p class="noindent">
+     This
+is
+the
+same
+command
+we
+always
+use
+to
+start
+turtlesim,
+with
+the
+added
+flags <span style="color:#054C5C;"><code class="verb">--ros-args</code></span>
+     and <span style="color:#054C5C;"><code class="verb">--params-file</code></span>,
+followed
+by
+the
+file
+we
+                                                                                
+                                                                                
+                                                                            
+want
+to
+load.
+    </p>
+    <p class="noindent">
+     To
+test
+this
+out,
+stop
+our
+running
+turtlesim
+node,
+and
+try
+reloading
+it
+with
+our
+saved
+parameters,
+using:
+    </p>
+    <p class="noindent">
+    </p>
+    <div class="code-block">
+     <div class="code-lang">
+      bash
+     </div>
+     <pre><div class="language-bash" id="fancyvrb213" style="padding:20px;border-radius: 3px;"><a id="x10-183004r721"></a>ros2<span style="color:#BABABA;"> </span>run<span style="color:#BABABA;"> </span>turtlesim<span style="color:#BABABA;"> </span>turtlesim_node<span style="color:#BABABA;"> </span>--ros-args<span style="color:#BABABA;"> </span>--params-file<span style="color:#BABABA;"> </span>turtlesim.yaml</div></pre>
+    </div>
+    <p class="noindent">
+     The
+turtlesim
+window
+should
+appear
+as
+usual,
+but
+with
+the
+purple
+background
+we
+set
+earlier.
+    </p>
+    <div class="warning">
+     <p class="noindent">
+      When
+a
+parameter
+file
+is
+used
+at
+node
+startup,
+all
+parameters,
+including
+the
+read-only
+ones,
+will
+be
+updated.
+     </p>
+    </div>
+    <p class="noindent">
+    </p>
+    <h2 class="sectionHead">
+     <a aria-label="Link to this section in PDF version" class="pdf-link" href="AutonomousMobileRoboticsLectureBook.pdf#section.8.7" style="color: red;  position: absolute;  left: -30px;" target="_blank">
+      <svg class="bi bi-file-pdf" fill="currentColor" height="20" viewbox="0 0 16 16" width="20" xmlns="http://www.w3.org/2000/svg">
+       <path d="M4 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H4zm0 1h8a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1z">
+       </path>
+       <path d="M4.603 12.087a.81.81 0 0 1-.438-.42c-.195-.388-.13-.776.08-1.102.198-.307.526-.568.897-.787a7.68 7.68 0 0 1 1.482-.645 19.701 19.701 0 0 0 1.062-2.227 7.269 7.269 0 0 1-.43-1.295c-.086-.4-.119-.796-.046-1.136.075-.354.274-.672.65-.823.192-.077.4-.12.602-.077a.7.7 0 0 1 .477.365c.088.164.12.356.127.538.007.187-.012.395-.047.614-.084.51-.27 1.134-.52 1.794a10.954 10.954 0 0 0 .98 1.686 5.753 5.753 0 0 1 1.334.05c.364.065.734.195.96.465.12.144.193.32.2.518.007.192-.047.382-.138.563a1.04 1.04 0 0 1-.354.416.856.856 0 0 1-.51.138c-.331-.014-.654-.196-.933-.417a5.716 5.716 0 0 1-.911-.95 11.642 11.642 0 0 0-1.997.406 11.311 11.311 0 0 1-1.021 1.51c-.29.35-.608.655-.926.787a.793.793 0 0 1-.58.029zm1.379-1.901c-.166.076-.32.156-.459.238-.328.194-.541.383-.647.547-.094.145-.096.25-.04.361.01.022.02.036.026.044a.27.27 0 0 0 .035-.012c.137-.056.355-.235.635-.572a8.18 8.18 0 0 0 .45-.606zm1.64-1.33a12.647 12.647 0 0 1 1.01-.193 11.666 11.666 0 0 1-.51-.858 20.741 20.741 0 0 1-.5 1.05zm2.446.45c.15.162.296.3.435.41.24.19.407.253.498.256a.107.107 0 0 0 .07-.015.307.307 0 0 0 .094-.125.436.436 0 0 0 .059-.2.095.095 0 0 0-.026-.063c-.052-.062-.2-.152-.518-.209a3.881 3.881 0 0 0-.612-.053zM8.078 5.8a6.7 6.7 0 0 0 .2-.828c.031-.188.043-.343.038-.465a.613.613 0 0 0-.032-.198.517.517 0 0 0-.145.04c-.087.035-.158.106-.196.283-.04.192-.03.469.046.822.024.111.054.227.09.346z">
+       </path>
+      </svg>
+     </a>
+     <small class="titlemark">
+      8.7
+     </small>
+     <a id="x10-1840008.7">
+     </a>
+     A
+Practical
+Look
+into
+Actions
+    </h2>
+    <p class="noindent">
+     Actions
+are
+one
+of
+the
+communication
+types
+in
+     <a class="glossary" href="AutonomousMobileRoboticsLectureBookli2.html#glo:ros">
+      ROS
+     </a>
+     and
+are
+intended
+for
+long
+running
+tasks.
+They
+consist
+of
+three
+parts:
+a
+goal,
+feedback,
+and
+a
+result.
+    </p>
+    <p class="noindent">
+     Actions
+are
+built
+on
+topics
+and
+services.
+Their
+functionality
+is
+similar
+to
+services,
+except
+actions
+can
+be
+canceled.
+They
+also
+provide
+steady
+feedback,
+as
+opposed
+to
+services
+which
+                                                                                
+                                                                                
+                                                                            
+return
+a
+single
+response.
+    </p>
+    <p class="noindent">
+     Actions
+use
+a
+client-server
+model,
+similar
+to
+the
+publisher-subscriber
+model
+(described
+in
+the
+topics
+tutorial).
+An
+“action
+client”
+node
+sends
+a
+goal
+to
+an
+“action
+server”
+node
+that
+acknowledges
+the
+goal
+and
+returns
+a
+stream
+of
+feedback
+and
+a
+result.
+    </p>
+    <p class="noindent">
+     To
+begin
+we
+start
+with
+a
+fresh
+new
+terminal
+(
+     <kbd>
+      Ctrl
+     </kbd>
+     +
+     <kbd>
+      Alt
+     </kbd>
+     +
+     <kbd>
+      T
+     </kbd>
+     )
+and
+type
+the
+following
+command:
+    </p>
+    <p class="noindent">
+    </p>
+    <div class="code-block">
+     <div class="code-lang">
+      bash
+     </div>
+     <pre><div class="language-bash" id="fancyvrb214" style="padding:20px;border-radius: 3px;"><a id="x10-184002r601"></a>ros2<span style="color:#BABABA;"> </span>run<span style="color:#BABABA;"> </span>turtlesim<span style="color:#BABABA;"> </span>turtlesim_node</div></pre>
+    </div>
+    <p class="noindent">
+     And
+of
+course
+we
+would
+like
+to
+control
+this
+turtle
+so
+we
+need
+to
+add
+the <span style="color:#054C5C;"><code class="verb">teleop</code></span>
+     node
+as
+well.
+    </p>
+    <p class="noindent">
+    </p>
+    <div class="code-block">
+     <div class="code-lang">
+      bash
+     </div>
+     <pre><div class="language-bash" id="fancyvrb215" style="padding:20px;border-radius: 3px;"><a id="x10-184004r606"></a>ros2<span style="color:#BABABA;"> </span>run<span style="color:#BABABA;"> </span>turtlesim<span style="color:#BABABA;"> </span>turtle_teleop_key</div></pre>
+    </div>
+    <p class="noindent">
+     When
+we
+launch
+the <span style="color:#054C5C;"><code class="verb">/teleop_turtle</code></span>
+     node,
+we
+will
+see
+the
+following
+message
+in
+our
+terminal:
+    </p>
+    <div class="tcolorbox tcolorbox" id="tcolobox-86">
+     <div class="tcolorbox-content">
+      <div class="code-block">
+       <div class="code-lang">
+        text
+       </div>
+       <pre><div class="language-text" id="fancyvrb216" style="padding:20px;border-radius: 3px;"><a id="x10-184006r1"></a>Use arrow keys to move the turtle. 
+<a id="x10-184008r2"></a>Use G|B|V|C|D|E|R|T keys to rotate to absolute orientations. 'F' to cancel a rotation.</div></pre>
+      </div>
+     </div>
+    </div>
+    <p class="noindent">
+     Let’s
+focus
+on
+the
+second
+line,
+which
+corresponds
+to
+an
+action.
+Pay
+attention
+to
+the
+terminal
+where
+the <span style="color:#054C5C;"><code class="verb">/turtlesim</code></span>
+     node
+                                                                                
+                                                                                
+                                                                               
+is
+running.
+Each
+time
+we
+press
+one
+of
+these
+keys,
+we
+are
+sending
+a
+goal
+to
+an
+action
+server
+that
+is
+part
+of
+the <span style="color:#054C5C;"><code class="verb">/turtlesim</code></span>
+     node.
+The
+goal
+is
+to
+rotate
+the
+turtle
+to
+face
+a
+particular
+direction.
+A
+message
+relaying
+the
+result
+of
+the
+goal
+should
+display
+once
+the
+turtle
+completes
+its
+rotation:
+    </p>
+    <div class="tcolorbox tcolorbox" id="tcolobox-87">
+     <div class="tcolorbox-content">
+      <div class="code-block">
+       <div class="code-lang">
+        text
+       </div>
+       <pre><div class="language-text" id="fancyvrb217" style="padding:20px;border-radius: 3px;"><a id="x10-184010r1"></a>[INFO] [turtlesim]: Rotation goal completed successfully</div></pre>
+      </div>
+     </div>
+    </div>
+    <p class="noindent">
+     The
+F
+key
+will
+cancel
+                                                                                
+                                                                                
+                                                                               
+a
+goal
+mid-execution.
+    </p>
+    <p class="noindent">
+     Try
+pressing
+the
+C
+key,
+and
+then
+pressing
+the
+F
+key
+before
+the
+turtle
+can
+complete
+its
+rotation.
+In
+the
+terminal
+where
+the
+/turtlesim
+node
+is
+running,
+we
+will
+see
+the
+message:
+    </p>
+    <div class="tcolorbox tcolorbox" id="tcolobox-88">
+     <div class="tcolorbox-content">
+      <div class="code-block">
+       <div class="code-lang">
+        text
+       </div>
+       <pre><div class="language-text" id="fancyvrb218" style="padding:20px;border-radius: 3px;"><a id="x10-184012r1"></a>[INFO] [turtlesim]: Rotation goal canceled</div></pre>
+      </div>
+     </div>
+    </div>
+    <p class="noindent">
+     Not
+only
+can
+the
+client-side
+(our
+input
+in
+the
+teleop)
+stop
+a
+goal,
+but
+the
+server-side
+(the
+/turtlesim
+node)
+can
+as
+well.
+When
+the
+                                                                                
+                                                                                
+                                                                         
+server-side
+chooses
+to
+stop
+processing
+a
+goal,
+it
+is
+said
+to
+“abort”
+the
+goal.
+    </p>
+    <p class="noindent">
+     Try
+hitting
+the
+D
+key,
+then
+the
+G
+key
+before
+the
+first
+rotation
+can
+complete.
+In
+the
+terminal
+where
+the
+/turtlesim
+node
+is
+running,
+we
+will
+see
+the
+message:
+    </p>
+    <div class="tcolorbox tcolorbox" id="tcolobox-89">
+     <div class="tcolorbox-content">
+      <div class="code-block">
+       <div class="code-lang">
+        text
+       </div>
+       <pre><div class="language-text" id="fancyvrb219" style="padding:20px;border-radius: 3px;"><a id="x10-184014r1"></a>[WARN] [turtlesim]: Rotation goal received before a previous goal finished. 
+<a id="x10-184016r2"></a>                    Aborting previous goal</div></pre>
+      </div>
+     </div>
+    </div>
+    <p class="noindent">
+     This
+action
+server
+chose
+to
+abort
+the
+first
+goal
+because
+it
+got
+a
+new
+one.
+It
+                                                                                
+                                                                                
+                                                                            
+could
+have
+chosen
+something
+else,
+like
+reject
+the
+new
+goal
+or
+execute
+the
+second
+goal
+after
+the
+first
+one
+finished.
+Don’t
+assume
+every
+action
+server
+will
+choose
+to
+abort
+the
+current
+goal
+when
+it
+gets
+a
+new
+one.
+     <a id="paragraph*.67">
+     </a>
+    </p>
+    <p class="noindent">
+     <span class="paragraphHead">
+      <a id="x10-185000">
+      </a>
+      ros2
+node
+info
+     </span>
+     To
+see
+the
+list
+of
+actions
+a
+node
+provides, <span style="color:#054C5C;"><code class="verb">/turtlesim</code></span>
+     in
+this
+case,
+open
+a
+new
+terminal
+and
+run
+the
+command:
+    </p>
+    <p class="noindent">
+    </p>
+    <div class="code-block">
+     <div class="code-lang">
+      bash
+     </div>
+     <pre><div class="language-bash" id="fancyvrb220" style="padding:20px;border-radius: 3px;"><a id="x10-185002r753"></a>ros2<span style="color:#BABABA;"> </span>node<span style="color:#BABABA;"> </span>info<span style="color:#BABABA;"> </span>/turtlesim</div></pre>
+    </div>
+    <div class="tcolorbox tcolorbox" id="tcolobox-90">
+     <div class="tcolorbox-content">
+      <div class="code-block">
+       <div class="code-lang">
+        text
+       </div>
+       <pre><div class="language-text" id="fancyvrb221" style="padding:20px;border-radius: 3px;"><a id="x10-185004r1"></a>/turtlesim 
+<a id="x10-185006r2"></a>  Subscribers: 
+<a id="x10-185008r3"></a>   /parameter_events: rcl_interfaces/msg/ParameterEvent 
+<a id="x10-185010r4"></a>   /turtle1/cmd_vel: geometry_msgs/msg/Twist 
+<a id="x10-185012r5"></a>  Publishers: 
+<a id="x10-185014r6"></a>   /parameter_events: rcl_interfaces/msg/ParameterEvent 
+<a id="x10-185016r7"></a>   /rosout: rcl_interfaces/msg/Log 
+<a id="x10-185018r8"></a>   /turtle1/color_sensor: turtlesim/msg/Color 
+<a id="x10-185020r9"></a>   /turtle1/pose: turtlesim/msg/Pose 
+<a id="x10-185022r10"></a>  Service Servers: 
+<a id="x10-185024r11"></a>   /clear: std_srvs/srv/Empty 
+<a id="x10-185026r12"></a>   /kill: turtlesim/srv/Kill 
+<a id="x10-185028r13"></a>   /reset: std_srvs/srv/Empty 
+<a id="x10-185030r14"></a>   /spawn: turtlesim/srv/Spawn 
+<a id="x10-185032r15"></a>   /turtle1/set_pen: turtlesim/srv/SetPen 
+<a id="x10-185034r16"></a>   /turtle1/teleport_absolute: turtlesim/srv/TeleportAbsolute 
+<a id="x10-185036r17"></a>   /turtle1/teleport_relative: turtlesim/srv/TeleportRelative 
+<a id="x10-185038r18"></a>   /turtlesim/describe_parameters: rcl_interfaces/srv/DescribeParameters 
+<a id="x10-185040r19"></a>   /turtlesim/get_parameter_types: rcl_interfaces/srv/GetParameterTypes 
+<a id="x10-185042r20"></a>   /turtlesim/get_parameters: rcl_interfaces/srv/GetParameters 
+<a id="x10-185044r21"></a>   /turtlesim/list_parameters: rcl_interfaces/srv/ListParameters 
+<a id="x10-185046r22"></a>   /turtlesim/set_parameters: rcl_interfaces/srv/SetParameters 
+<a id="x10-185048r23"></a>   /turtlesim/set_parameters_atomically: rcl_interfaces/srv/SetParametersAtomically 
+<a id="x10-185050r24"></a>  Service Clients: 
+<a id="x10-185052r25"></a> 
+<a id="x10-185054r26"></a>  Action Servers: 
+<a id="x10-185056r27"></a>   /turtle1/rotate_absolute: turtlesim/action/RotateAbsolute 
+<a id="x10-185058r28"></a>  Action Clients:</div></pre>
+      </div>
+     </div>
+    </div>
+    <p class="noindent">
+     The
+command
+returns
+a
+list
+of
+/turtlesim’s
+subscribers,
+publishers,
+services,
+action
+servers
+and
+action
+clients.
+    </p>
+    <p class="noindent">
+     Notice
+that
+the <span style="color:#054C5C;"><code class="verb">/turtle1/rotate_absolute</code></span>
+     action
+for <span style="color:#054C5C;"><code class="verb">/turtlesim</code></span>
+     is
+under
+Action
+Servers.
+This
+means
+/turtlesim
+responds
+to
+and
+provides
+feedback
+for
+the <span style="color:#054C5C;"><code class="verb">/turtle1/rotate_absolute</code></span>
+     action.
+    </p>
+    <p class="noindent">
+     The <span style="color:#054C5C;"><code class="verb">/teleop_turtle</code></span>
+     node
+has
+the
+name <span style="color:#054C5C;"><code class="verb">/turtle1/rotate_absolute</code></span>
+     under
+Action
+Clients
+meaning
+that
+it
+sends
+goals
+for
+that
+action
+name.
+To
+                                                                                
+                                                                                
+                                                                              
+see
+that,
+run:
+    </p>
+    <p class="noindent">
+    </p>
+    <div class="code-block">
+     <div class="code-lang">
+      bash
+     </div>
+     <pre><div class="language-bash" id="fancyvrb222" style="padding:20px;border-radius: 3px;"><a id="x10-185060r790"></a>ros2<span style="color:#BABABA;"> </span>node<span style="color:#BABABA;"> </span>info<span style="color:#BABABA;"> </span>/teleop_turtle</div></pre>
+    </div>
+    <div class="tcolorbox tcolorbox" id="tcolobox-91">
+     <div class="tcolorbox-content">
+      <div class="code-block">
+       <div class="code-lang">
+        text
+       </div>
+       <pre><div class="language-text" id="fancyvrb223" style="padding:20px;border-radius: 3px;"><a id="x10-185062r1"></a>/teleop_turtle 
+<a id="x10-185064r2"></a>  Subscribers: 
+<a id="x10-185066r3"></a>   /parameter_events: rcl_interfaces/msg/ParameterEvent 
+<a id="x10-185068r4"></a>  Publishers: 
+<a id="x10-185070r5"></a>   /parameter_events: rcl_interfaces/msg/ParameterEvent 
+<a id="x10-185072r6"></a>   /rosout: rcl_interfaces/msg/Log 
+<a id="x10-185074r7"></a>   /turtle1/cmd_vel: geometry_msgs/msg/Twist 
+<a id="x10-185076r8"></a>  Service Servers: 
+<a id="x10-185078r9"></a>   /teleop_turtle/describe_parameters: rcl_interfaces/srv/DescribeParameters 
+<a id="x10-185080r10"></a>   /teleop_turtle/get_parameter_types: rcl_interfaces/srv/GetParameterTypes 
+<a id="x10-185082r11"></a>   /teleop_turtle/get_parameters: rcl_interfaces/srv/GetParameters 
+<a id="x10-185084r12"></a>   /teleop_turtle/list_parameters: rcl_interfaces/srv/ListParameters 
+<a id="x10-185086r13"></a>   /teleop_turtle/set_parameters: rcl_interfaces/srv/SetParameters 
+<a id="x10-185088r14"></a>   /teleop_turtle/set_parameters_atomically: rcl_interfaces/srv/SetParametersAtomically 
+<a id="x10-185090r15"></a>  Service Clients: 
+<a id="x10-185092r16"></a> 
+<a id="x10-185094r17"></a>  Action Servers: 
+<a id="x10-185096r18"></a> 
+<a id="x10-185098r19"></a>  Action Clients: 
+<a id="x10-185100r20"></a>   /turtle1/rotate_absolute: turtlesim/action/RotateAbsolute</div></pre>
+      </div>
+     </div>
+    </div>
+    <a id="paragraph*.68">
+    </a>
+    <p class="noindent">
+     <span class="paragraphHead">
+      <a id="x10-186000">
+      </a>
+      ros2
+action
+list
+     </span>
+     To
+identify
+all
+the
+actions
+in
+the
+ROS
+graph,
+run
+the
+command:
+    </p>
+    <p class="noindent">
+    </p>
+    <div class="code-block">
+     <div class="code-lang">
+      bash
+     </div>
+     <pre><div class="language-bash" id="fancyvrb224" style="padding:20px;border-radius: 3px;"><a id="x10-186002r821"></a>ros2<span style="color:#BABABA;"> </span>action<span style="color:#BABABA;"> </span>list</div></pre>
+    </div>
+    <div class="tcolorbox tcolorbox" id="tcolobox-92">
+     <div class="tcolorbox-content">
+      <div class="code-block">
+       <div class="code-lang">
+        text
+       </div>
+       <pre><div class="language-text" id="fancyvrb225" style="padding:20px;border-radius: 3px;"><a id="x10-186004r1"></a>/turtle1/rotate_absolute</div></pre>
+      </div>
+     </div>
+    </div>
+    <p class="noindent">
+     This
+is
+the
+only
+action
+in
+the
+ROS
+graph
+right
+now.
+It
+controls
+the
+turtle’s
+rotation,
+as
+we
+saw
+earlier.
+We
+also
+                                                                                
+                                                                                
+                                                                           
+already
+know
+that
+there
+is
+one
+action
+client
+(part
+of <span style="color:#054C5C;"><code class="verb">/teleop_turtle</code></span>
+     )
+and
+one
+action
+server
+(part
+of <span style="color:#054C5C;"><code class="verb">/turtlesim</code></span>
+     )
+for
+this
+action
+from
+using
+the
+ros2
+node
+info <span style="color:#054C5C;"><code class="verb">&lt;node_name&gt;</code></span>
+     command.
+     <a id="paragraph*.69">
+     </a>
+    </p>
+    <p class="noindent">
+     <span class="paragraphHead">
+      <a id="x10-187000">
+      </a>
+      ros2
+action
+list
+-t
+     </span>
+     Actions
+have
+types,
+similar
+to
+topics
+and
+services.
+To
+find <span style="color:#054C5C;"><code class="verb">/turtle1/rotate_absolute</code></span>
+     ’s
+type,
+run
+the
+command:
+    </p>
+    <p class="noindent">
+    </p>
+    <div class="code-block">
+     <div class="code-lang">
+      bash
+     </div>
+     <pre><div class="language-bash" id="fancyvrb226" style="padding:20px;border-radius: 3px;"><a id="x10-187002r833"></a>ros2<span style="color:#BABABA;"> </span>action<span style="color:#BABABA;"> </span>list<span style="color:#BABABA;"> </span>-t</div></pre>
+    </div>
+    <div class="tcolorbox tcolorbox" id="tcolobox-93">
+     <div class="tcolorbox-content">
+      <div class="code-block">
+       <div class="code-lang">
+        text
+       </div>
+       <pre><div class="language-text" id="fancyvrb227" style="padding:20px;border-radius: 3px;"><a id="x10-187004r1"></a>/turtle1/rotate_absolute [turtlesim/action/RotateAbsolute]</div></pre>
+      </div>
+     </div>
+    </div>
+    <p class="noindent">
+     In
+brackets
+to
+the
+                                                                                
+                                                                                
+                                                                            
+right
+of
+each
+action
+name
+(in
+this
+case
+only <span style="color:#054C5C;"><code class="verb">/turtle1/rotate_absolute</code></span>
+     )
+is
+the
+action
+type,
+turtlesim/action/RotateAbsolute.
+We
+will
+need
+this
+when
+we
+want
+to
+execute
+an
+action
+from
+the
+command
+line
+or
+from
+code.
+    </p>
+    <p class="noindent">
+    </p>
+    <h2 class="sectionHead">
+     <a aria-label="Link to this section in PDF version" class="pdf-link" href="AutonomousMobileRoboticsLectureBook.pdf#section.8.8" style="color: red;  position: absolute;  left: -30px;" target="_blank">
+      <svg class="bi bi-file-pdf" fill="currentColor" height="20" viewbox="0 0 16 16" width="20" xmlns="http://www.w3.org/2000/svg">
+       <path d="M4 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H4zm0 1h8a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1z">
+       </path>
+       <path d="M4.603 12.087a.81.81 0 0 1-.438-.42c-.195-.388-.13-.776.08-1.102.198-.307.526-.568.897-.787a7.68 7.68 0 0 1 1.482-.645 19.701 19.701 0 0 0 1.062-2.227 7.269 7.269 0 0 1-.43-1.295c-.086-.4-.119-.796-.046-1.136.075-.354.274-.672.65-.823.192-.077.4-.12.602-.077a.7.7 0 0 1 .477.365c.088.164.12.356.127.538.007.187-.012.395-.047.614-.084.51-.27 1.134-.52 1.794a10.954 10.954 0 0 0 .98 1.686 5.753 5.753 0 0 1 1.334.05c.364.065.734.195.96.465.12.144.193.32.2.518.007.192-.047.382-.138.563a1.04 1.04 0 0 1-.354.416.856.856 0 0 1-.51.138c-.331-.014-.654-.196-.933-.417a5.716 5.716 0 0 1-.911-.95 11.642 11.642 0 0 0-1.997.406 11.311 11.311 0 0 1-1.021 1.51c-.29.35-.608.655-.926.787a.793.793 0 0 1-.58.029zm1.379-1.901c-.166.076-.32.156-.459.238-.328.194-.541.383-.647.547-.094.145-.096.25-.04.361.01.022.02.036.026.044a.27.27 0 0 0 .035-.012c.137-.056.355-.235.635-.572a8.18 8.18 0 0 0 .45-.606zm1.64-1.33a12.647 12.647 0 0 1 1.01-.193 11.666 11.666 0 0 1-.51-.858 20.741 20.741 0 0 1-.5 1.05zm2.446.45c.15.162.296.3.435.41.24.19.407.253.498.256a.107.107 0 0 0 .07-.015.307.307 0 0 0 .094-.125.436.436 0 0 0 .059-.2.095.095 0 0 0-.026-.063c-.052-.062-.2-.152-.518-.209a3.881 3.881 0 0 0-.612-.053zM8.078 5.8a6.7 6.7 0 0 0 .2-.828c.031-.188.043-.343.038-.465a.613.613 0 0 0-.032-.198.517.517 0 0 0-.145.04c-.087.035-.158.106-.196.283-.04.192-.03.469.046.822.024.111.054.227.09.346z">
+       </path>
+      </svg>
+     </a>
+     <small class="titlemark">
+      8.8
+     </small>
+     <a id="x10-1880008.8">
+     </a>
+     Launching
+Nodes
+    </h2>
+    <p class="noindent">
+     Up
+to
+now,
+we
+have
+been
+opening
+new
+terminals
+for
+every
+new
+node
+we
+ran.
+As
+we
+create
+more
+complex
+systems
+with
+more
+and
+more
+nodes
+running
+simultaneously,
+opening
+terminals
+and
+reentering
+configuration
+details
+becomes
+tedious.
+    </p>
+    <p class="noindent">
+     Launch
+files
+allow
+we
+to
+start
+up
+and
+configure
+a
+number
+of
+executables
+containing
+     <a class="glossary" href="AutonomousMobileRoboticsLectureBookli2.html#glo:ros">
+      ROS
+     </a>
+     nodes
+simultaneously.
+    </p>
+    <p class="noindent">
+     Running
+a
+single
+launch
+file
+                                                                                
+                                                                                
+with
+the
+ros2
+launch
+command
+will
+start
+up
+our
+entire
+system
+     <alert style="color: #821131;">
+      <span id="bold" style="font-weight:bold;">
+       <sup class="textsuperscript">
+        12
+       </sup>
+      </span>
+     </alert>
+     <span class="marginnote">
+      <alert style="color: #821131;">
+       <span id="bold" style="font-weight:bold;">
+        <sup class="textsuperscript">
+         12
+        </sup>
+       </span>
+      </alert>
+      <span style="color:#0A2A0A;">
+       which
+includes
+all
+nodes
+and
+their
+configurations
+      </span>
+     </span>
+     at
+once.
+    </p>
+    <p class="noindent">
+    </p>
+    <div class="code-block">
+     <div class="code-lang">
+      bash
+     </div>
+     <pre><div class="language-bash" id="fancyvrb228" style="padding:20px;border-radius: 3px;"><a id="x10-188002r912"></a>ros2<span style="color:#BABABA;"> </span>launch<span style="color:#BABABA;"> </span>turtlesim<span style="color:#BABABA;"> </span>multisim.launch.py</div></pre>
+    </div>
+    <p class="noindent">
+     This
+command
+will
+run
+the
+following
+launch
+file:
+    </p>
+    <p class="noindent">
+    </p>
+    <div class="code-block">
+     <div class="code-lang">
+      python
+     </div>
+     <pre><div class="language-python" id="fancyvrb229" style="padding:20px;border-radius: 3px;"><a id="x10-188004r917"></a><span style="color:#2B2BFF;">from</span><span style="color:#BABABA;"> </span>launch<span style="color:#BABABA;"> </span><span style="color:#2B2BFF;">import</span> LaunchDescription 
+<a id="x10-188006r918"></a><span style="color:#2B2BFF;">import</span><span style="color:#BABABA;"> </span>launch_ros.actions 
+<a id="x10-188008r919"></a> 
+<a id="x10-188010r920"></a> 
+<a id="x10-188012r921"></a><span style="color:#2B2BFF;">def</span><span style="color:#BABABA;"> </span><italic><span id="bold" style="font-weight:bold;">generate_launch_description</span></italic>(): 
+<a id="x10-188014r922"></a>   <span style="color:#2B2BFF;">return</span> LaunchDescription([ 
+<a id="x10-188016r923"></a>      launch_ros.actions.Node( 
+<a id="x10-188018r924"></a>         namespace=<span style="color:#800080;">'turtlesim1'</span>, package=<span style="color:#800080;">'turtlesim'</span>, 
+<a id="x10-188020r925"></a>         executable=<span style="color:#800080;">'turtlesim_node'</span>, output=<span style="color:#800080;">'screen'</span>), 
+<a id="x10-188022r926"></a>      launch_ros.actions.Node( 
+<a id="x10-188024r927"></a>         namespace=<span style="color:#800080;">'turtlesim2'</span>, package=<span style="color:#800080;">'turtlesim'</span>, 
+<a id="x10-188026r928"></a>         executable=<span style="color:#800080;">'turtlesim_node'</span>, output=<span style="color:#800080;">'screen'</span>), 
+<a id="x10-188028r929"></a>   ])</div></pre>
+    </div>
+    <div class="knowledge">
+     <p class="noindent">
+      The launch file above is written in Python, but we can also use XML and YAML to create launch files. We can see a
+comparison of these different
+      <a class="glossary" href="AutonomousMobileRoboticsLectureBookli2.html#glo:ros">
+       ROS
+      </a>
+      launch formats in Using XML, YAML, and Python for
+      <a class="glossary" href="AutonomousMobileRoboticsLectureBookli2.html#glo:ros">
+       ROS
+      </a>
+      Launch Files.
+     </p>
+    </div>
+    <p class="noindent">
+     If this is working well, then we should see two turtlesim environments popping up. This will run two <alert style="color: #821131;">(2)</alert> turtlesim nodes.
+     <a id="paragraph*.70">
+     </a>
+    </p>
+    <p class="noindent">
+     <span class="paragraphHead">
+      <a id="x10-189000">
+      </a>
+      Controlling  the  Nodes
+     </span>
+     Now that these nodes are running, we can control them like any other
+     <a class="glossary" href="AutonomousMobileRoboticsLectureBookli2.html#glo:ros">
+      ROS
+     </a>
+     nodes. For example, we can make the
+turtles drive in opposite directions by opening up two additional terminals and running the following commands:
+    </p>
+    <p class="noindent">
+     In  a  second  terminal:
+    </p>
+    <p class="noindent">
+    </p>
+    <div class="code-block">
+     <div class="code-lang">
+      bash
+     </div>
+     <pre><div class="language-bash" id="fancyvrb230" style="padding:20px;border-radius: 3px;"><a id="x10-189002r934"></a>ros2<span style="color:#BABABA;"> </span>topic<span style="color:#BABABA;"> </span>pub<span style="color:#BABABA;">  </span>/turtlesim1/turtle1/cmd_vel<span style="color:#BABABA;"> </span>geometry_msgs/msg/Twist<span style="color:#BABABA;"> </span><span style="color:#800080;">"{linear: {x: 2.0, y: 0.0, z: 0.0}, angular: {x: 0.0, y: 0.0, z: 1.8}}"</span></div></pre>
+    </div>
+    <p class="noindent">
+     In  a  third  terminal:
+    </p>
+    <p class="noindent">
+    </p>
+    <div class="code-block">
+     <div class="code-lang">
+      bash
+     </div>
+     <pre><div class="language-bash" id="fancyvrb231" style="padding:20px;border-radius: 3px;"><a id="x10-189004r939"></a>ros2<span style="color:#BABABA;"> </span>topic<span style="color:#BABABA;"> </span>pub<span style="color:#BABABA;">  </span>/turtlesim2/turtle1/cmd_vel<span style="color:#BABABA;"> </span>geometry_msgs/msg/Twist<span style="color:#BABABA;"> </span><span style="color:#800080;">"{linear: {x: 2.0, y: 0.0, z: 0.0}, angular: {x: 0.0, y: 0.0, z: -1.8}}"</span></div></pre>
+    </div>
+    <p class="noindent">
+     After running these commands, we should see the two turtles in their respective envrionment spinning like a record.
+    </p>
+   </article>
+   <footer>
+    <div class="next">
+     <p class="noindent">
+      <a href="AutonomousMobileRoboticsLectureBookch9.html" style="float: right;">
+       Next Chapter →
+      </a>
+      <a href="AutonomousMobileRoboticsLectureBookch7.html" style="float: left;">
+       ← Previous Chapter
+      </a>
+      <a href="index.html">
+       TOP
+      </a>
+     </p>
+    </div>
+   </footer>
+  </div>
+  <p class="noindent">
+   <a id="tailAutonomousMobileRoboticsLectureBookch8.html">
+   </a>
+  </p>
+ </body>
+</html>
