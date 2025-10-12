@@ -12,7 +12,10 @@
 
 ** Lecture Information
 
-- The goal of this lecture is ...
+- The goal of this lecture is to give you a better view of how mobile robotics
+  works, the different challenges it faces and methods to overcome them.
+- This lecture you will use ROS, a versatile software capable of doing
+  pathfinding and localisation, a perfect fit for use in mobile robotics.
     
 | DESCRIPTION        | VALUE                                       |
 | Official Name      | Autonome mobile Robotik                     |
@@ -38,8 +41,9 @@
 
 ** Requirements and the Learning Outcomes
 
-- The student should have ...
-- After completion, the student will have ...
+- The student should be comfortable with working with either Python
+  and/or C++ and should have an beginner level knowledge of the Linux
+  environment and the command line interface
 
 | REQUIREMENTS       | TAUGHT LECTURE  | CODE | DEGREE | OUTCOME           |
 | C/C++ Programming  | Programming II  | PRO2 | B.Sc   | ROS 2 Programming |
@@ -50,8 +54,10 @@
 
 ** Grading of the Lecture
 
-- 
-- 
+- The lecture will have two personal assignments which will be based on Mobile
+  robotics, ROS and programming applications related to it. More details will
+  be given in the assignment.
+      
    
 | ASSIGNMENT TYPE       | VALUE | QUANTITY |
 | Personal Assignment A |    50 |        1 |
@@ -63,10 +69,11 @@
 The following is a reference material table with useful resources which
 complement well with the lecture.
 
-| AUTHOR        | TITLE                                                 | PUBLISHER             |
-| M. M. Bassa   | A very informal journey through ROS 2                 | Self-Published        |
-| F. M. Rico    | A Concise Introduction to Robot Programming with ROS2 | Taylor Francis (2022) |
-| B. Stroustrup | Programming Principles and Practice using C++         | Addison Wesley (2014) |
+| AUTHOR              | TITLE                                                 | PUBLISHER             |
+| M. M. Bassa         | A very informal journey through ROS 2                 | Self-Published        |
+| F. M. Rico          | A Concise Introduction to Robot Programming with ROS2 | Taylor Francis (2022) |
+| B. Stroustrup       | Programming Principles and Practice using C++         | Addison Wesley (2014) |
+| R. Siegwart, et. al | Introduction to Autonomous Mobile Robots              | MIT Press (2011)      |
 
 ** Content and Unit Distribution
 
@@ -76,16 +83,18 @@ complement well with the lecture.
     
 | TOPIC                          | UNITS | SELF STUDY |
 | Locomotion                     |     4 |          8 |
-| Mobile Robot Localisation      |     8 |          8 |
+| Mobile Robot Kinematics        |     4 |          8 |
+| Perception                     |     4 |          8 |
+| Mobile Robot Localisation      |     4 |          8 |
 | Welcome to Linux               |     4 |          8 |
 | Command Line Fundamentals      |     4 |          8 |
 | Working with Files and Folders |     4 |          8 |
-| Installation                   |     2 |          8 |
+| Installation                   |     1 |          8 |
 | ROS Concepts                   |     4 |          8 |
 | Command Line Tools             |     4 |          8 |
 | Client Libraries               |     4 |          8 |
 | Transform Library              |     4 |          8 |
-| SUM                            |    42 |         84 |
+| SUM                            |    45 |         90 |
 
 ** Lecture Table of Contents
 
@@ -112,6 +121,41 @@ complement well with the lecture.
       - Omnidirectional locomotion with four castor wheels and eight motors
       - Tracked Slip/Skid Locomotion
     - Walking Wheels
+- Mobile Robot Kinematics
+- Perception
+  - Introduction
+    - Sensors for Mobile Robotics
+    - Sensor Classification
+    - Characterising Sensor Performance
+      - Basic Sensor Response Ratings
+      - In Situ Sensor Performance
+      - Characterising Error
+    - Wheel and Motor Sensors
+      - Optical Encoders
+      - Heading Sensors
+      - Gyroscope
+      - Mechanical Gyroscopes
+      - Ground Based Beacons
+      - Global Positioning System
+  - Active Ranging
+      - Time-of-FLight Active Ranging
+    - The Ultrasonic Sensor
+      - Laser Rangefinder
+      - Triangulation-based Active Ranging
+      - Optical Triangulation (1D Sensor)
+      - Structured Light (2D Sensor)
+    - Motion and Speed Sensors
+      - Doppler Effect
+  - Vision Based Sensors
+      - CCD and CMOS Sensors
+    - CMOS Technology
+    - Visual Ranging Sensors
+    - Depth from Focus
+  - Feature Extraction
+    - Defining Feature
+    - Using Range Data
+      - Line Extraction
+      - Probabilistic Line Extraction
 - Mobile Robot Localisation
   - Introduction
   - The problems of Noise and Aliasing
