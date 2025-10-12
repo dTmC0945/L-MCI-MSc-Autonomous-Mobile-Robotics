@@ -122,6 +122,7 @@ complement well with the lecture.
       - Tracked Slip/Skid Locomotion
     - Walking Wheels
 - Mobile Robot Kinematics
+  - Coordinate Systems
 - Perception
   - Introduction
     - Sensors for Mobile Robotics
