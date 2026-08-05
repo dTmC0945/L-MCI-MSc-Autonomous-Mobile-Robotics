@@ -205,10 +205,12 @@ $(window).resize(function() {
     if($(this).width() <= 1200) {
 
         $("nav.wide").hide('slow');
+        $('.crosslinks-bottom').css('width', '100%')
 
     } else {
 
         $("nav.wide").show('slow');
+        $('.crosslinks-bottom').css('width', 'calc(100% - 336px)')
     }
 
 

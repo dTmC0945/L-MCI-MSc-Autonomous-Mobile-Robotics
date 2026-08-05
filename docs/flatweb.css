@@ -641,6 +641,7 @@ button.toc:hover {
 }
 
 body {
+    padding-bottom: 200px;
     color: black;
     font:  var(--main-text-font);
     
@@ -1005,14 +1006,14 @@ nav {
 
     a {
         margin:30px;
-        font-weight: bolds;
+        font-weight: bold;
         color: white;
     }
     
     .nav-inactive {
         color: color-mix(white, black 40%);
         margin:30px;
-        font-weight: bolds;
+        font-weight: bold;
     }
 
     p {
@@ -1022,6 +1023,7 @@ nav {
         font-weight: normal;
     }
 }
+
 
 
 
@@ -2844,8 +2846,6 @@ dt.thebibliography {
     }
     
     figcaption.caption {
-
-        width: 60vw;
         
         text-align: left;
         text-indent: 0px;
