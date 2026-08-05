@@ -1,0 +1,365 @@
+<!DOCTYPE html> 
+<html lang="en">  
+<head><title>References</title> 
+<meta  charset="utf-8" /> 
+<meta name="generator" content="TeX4ht (https://tug.org/tex4ht/)" /> 
+<meta name="viewport" content="width=device-width,initial-scale=1" /> 
+<link rel="stylesheet" type="text/css" href="\aa:CssFile " /> 
+<meta name="src" content="AutonomousMobileRoboticsLectureBook.tex" /> 
+ <script type="text/javascript" id="MathJax-script" async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/mml-chtml.js"></script>  
+<title>Autonomous Mobile Robotics</title> 
+<link href="/pagefind/pagefind-component-ui.css" rel="stylesheet"> 
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script> 
+<script src="/pagefind/pagefind-component-ui.js" type="module"></script> 
+<link rel="stylesheet" type="text/css" href="flatweb.css"> 
+<script type="text/javascript" src="flatweb.js"></script> 
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/styles/default.min.css"> 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/highlight.min.js"></script> 
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/styles/base16/solarized-light.min.css"/> 
+<script src="https://unpkg.com/highlightjs-copy/dist/highlightjs-copy.min.js"></script> 
+<link rel="stylesheet" href="https://unpkg.com/highlightjs-copy/dist/highlightjs-copy.min.css"/> 
+<link href='http://fonts.googleapis.com/css?family=Roboto:400,100,100italic,300,300italic,400italic,500,500italic,700,700italic,900italic,900' rel='stylesheet' type='text/css'> 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/languages/cpp.min.js"></script> 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/languages/latex.min.js"></script> 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/languages/matlab.min.js"></script> 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/languages/dockerfile.min.js"></script> 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/languages/cmake.min.js"></script> 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/languages/makefile.min.js"></script> 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/languages/markdown.min.js"></script> 
+ <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/> <style> 
+ </style> 
+ <header> 
+ <pagefind-modal></pagefind-modal> 
+ </header> 
+</head><body 
+>
+<page> 
+<div class="keyboard-help-menu"><div style="overflow-x:auto"> <table> <thead> <tr> <th>Key</th> <th>Description</th> </tr> </thead> <tbody> <tr> <td><kbd>t</kbd></td> <td>Enable/Disable Table of Contents</td> </tr> <tr> <td><kbd>n</kbd></td> <td>Visit Next Chapter</td> </tr> <tr> <td><kbd>p</kbd></td> <td>Visit Previous Chapter</td> </tr> <tr> <td><kbd>u</kbd></td> <td>Go to Top of Page</td> </tr> <tr> <td><kbd>b</kbd></td> <td>Go to Bottom of Page</td> </tr> <tr> <td><kbd>i</kbd></td> <td>Visit the Introduction Page</td> </tr> </tbody> </table> </div> </div> <nav class="wide"><img class="webbook-logo" src="logo/webbook-logo.svg"></img> <div class="header"> <div class="header-left"><span class="header-lecture-grade">M.Sc</span> 
+<span class="header-lecture-name">Autonomous Mobile Robotics</span> 
+<span class="header-webBook">WebBook</span> </div> <div class="header-right"> <span class="header-version">2026.WS</span> 
+ <span class="header-chapter">Locomotion</span></div></div> <div class="toc"><pagefind-modal-trigger></pagefind-modal-trigger><div class="toc-links"><a href="https://github.com/dTmC0945" title="Lecturer GitHub Repo"><i class="fab fa-github" style='font-size:20px'></i></a><a href="https://scholar.google.com/citations?view_op=list_works\&hl=en\&user=lxQGADMAAAAJ" title="Lecturer Google Scholar Page"><i class="fa-brands fa-google-scholar" style='font-size:20px'></i></a><a href="https://www.researchgate.net/profile/Daniel-Mcguiness-2" title="Lecturer ResearchGate Account"><i class="fa-brands fa-researchgate" style='font-size:20px'></i></a><a href="https://dtmc0945.github.io/Th-MCI-Thesis-Topics/" title="Lecturer Thesis Ideas for B.Sc and M.Sc"><i class="fa-solid fa-book" style='font-size:20px'></i></a><a href="https://github.com/dTmC0945/C-MCI-LaTeX-Class-mcidoc/tree/main" title="mcidoc LaTeX Standard"><i class="fa-regular fa-file-lines" style='font-size:20px'></i></a></div><hr><span class="chapterToc"><span class="number">0</span><span class="title"><a 
+href="index.html#x2-10000">index</a></span></span><span class="chapterToc"><span class="number">1</span><span class="title"><a 
+href="Locomotion.html#x3-20001">Locomotion</a></span></span><span class="subsectionToc"><span class="number">1.0.1</span><span class="title"><a 
+href="Locomotion.html#x3-30001.0.1">Key Issues for Locomotion</a></span></span><span class="sectionToc"><span class="number">1.1</span><span class="title"><a 
+href="LeggedMobileRobots.html#x4-40001.1">Legged Mobile
+Robots</a></span></span><span class="subsectionToc"><span class="number">1.1.1</span><span class="title"><a 
+href="LeggedMobileRobots.html#x4-60001.1.1">Examples  of  Legged  Robot  Locomotion</a></span></span><span class="sectionToc"><span class="number">1.2</span><span class="title"><a 
+href="WheeledMobileRobots.html#x5-120001.2">Wheeled  Mobile
+Robots</a></span></span><span class="subsectionToc"><span class="number">1.2.1</span><span class="title"><a 
+href="WheeledMobileRobots.html#x5-130001.2.1">Design</a></span></span><span class="subsectionToc"><span class="number">1.2.2</span><span class="title"><a 
+href="WheeledMobileRobots.html#x5-160001.2.2">Stability</a></span></span><span class="subsectionToc"><span class="number">1.2.3</span><span class="title"><a 
+href="WheeledMobileRobots.html#x5-170001.2.3">Manoeuvrability</a></span></span><span class="subsectionToc"><span class="number">1.2.4</span><span class="title"><a 
+href="WheeledMobileRobots.html#x5-180001.2.4">Controllability</a></span></span><span class="subsectionToc"><span class="number">1.2.5</span><span class="title"><a 
+href="WheeledMobileRobots.html#x5-190001.2.5">Case
+Studies for Wheeled Motion</a></span></span><span class="subsectionToc"><span class="number">1.2.6</span><span class="title"><a 
+href="WheeledMobileRobots.html#x5-260001.2.6">Walking Wheels</a></span></span>
+<!--l. 155--><p class="noindent" ><div class="nav-footer"><div class="nav-footer-left"><span class="nav-footer-lecture">D. T. McGuiness, PhD</span> 
+<span class="nav-footer-webBook"><span id="bold" style="font-weight:bold;">Last Updated:</span> 5.8.2026, at 15:38.</span></div></div><span class="nav-comments">The website you are viewing is auto-generated using ParSnip and therefore subject to slight errors in typography and formatting. When in doubt, please consult the LectureBook. </span></div></div></nav> 
+
+</p>
+<article class="chapter"> 
+<nav class="crosslinks-top"> <span class="nav-inactive"><span class="nav-next">NEXT</span></span> <a 
+href="WheeledMobileRobots.html" ><span class="nav-prev">PREV</span></a><a 
+href="WheeledMobileRobots.html#tailWheeledMobileRobots.html" ><span class="nav-prev-tail">PREV-TAIL</span></a><a 
+href="#tailReferences.html"><span class="nav-tail">TAIL</span></a><a 
+href="AutonomousMobileRoboticsLectureBook.html#References.html" ><span class="nav-up">UP</span></a></nav> 
+<h2 class="addchapHead">  <a 
+ id="x6-27000"></a>References</h2>
+<dl class="thebibliography"><dt id="X0-bulliet2016wheel" class="thebibliography"> 
+1.  
+</dt><dd 
+id="bib-1" class="thebibliography">
+<!--l. 155--><p class="noindent" ><a id="page.lxxiii"></a><a 
+href="References.html" id="X0-" ></a>Bulliet, R. W. The wheel: inventions and reinventions (Columbia University Press, 2016).
+</p>    
+</dd>
+<dt id="X0-labarbera1983wheels" class="thebibliography">
+2.  
+</dt><dd 
+id="bib-2" class="thebibliography">
+<!--l. 155--><p class="noindent" >LaBarbera, M. Why the wheels won’t go. The American Naturalist <span id="bold" style="font-weight:bold;">121</span><span id="bold" style="font-weight:bold;">,</span> 395–408 (1983).
+</p>    
+</dd>
+<dt id="X0-vincent2006biomimetics" class="thebibliography">
+3.  
+</dt><dd 
+id="bib-3" class="thebibliography">
+<!--l. 155--><p class="noindent" >Vincent,  J. F.,  Bogatyreva,  O. A.,  Bogatyrev,  N. R.,  Bowyer,  A.  &#x0026;  Pahl,  A.-K.
+Biomimetics: its practice and theory. Journal of the Royal Society Interface <span id="bold" style="font-weight:bold;">3</span><span id="bold" style="font-weight:bold;">,</span> 471 (2006).
+</p>    
+</dd>
+<dt id="X0-druelle2023convergence" class="thebibliography">
+4.  
+</dt><dd 
+id="bib-4" class="thebibliography">
+<!--l. 155--><p class="noindent" >Druelle, F., Abourachid, A., Vasilopoulou-Kampitsi, M. &#x0026; Aerts, P. Convergence of bipedal
+locomotion: why walk or run on only two legs in Convergent Evolution: Animal Form and
+Function 431–476 (Springer, 2023).
+</p>    
+</dd>
+<dt id="X0-lyons2005rotational" class="thebibliography">
+5.  
+</dt><dd 
+id="bib-5" class="thebibliography">
+<!--l. 155--><p class="noindent" >Lyons, D. M. &#x0026; Pamnany, K. Rotational legged locomotion in ICAR’05. Proceedings., 12th
+International Conference on Advanced Robotics, 2005. (2005), 223–228.
+</p>    
+</dd>
+<dt id="X0-siegwart2011introduction" class="thebibliography">
+6.  
+</dt><dd 
+id="bib-6" class="thebibliography">
+<!--l. 155--><p class="noindent" >Siegwart, R., Nourbakhsh, I. R. &#x0026; Scaramuzza, D. Introduction to autonomous mobile
+robots (MIT press, 2011).
+</p>    
+</dd>
+<dt id="X0-schweitzer1991robotrac" class="thebibliography">
+7.  
+</dt><dd 
+id="bib-7" class="thebibliography">
+<!--l. 155--><p class="noindent" >Schweitzer, G. ROBOTRAC-a Mobile Manipulator Platform for Rough Terrain in Proc. of
+Int. Symp. on Advanced Robot Technology (1991), 411–416.
+</p>    
+</dd>
+<dt id="X0-thor2018dung" class="thebibliography">
+8.  
+</dt><dd 
+id="bib-8" class="thebibliography">
+<!--l. 155--><p class="noindent" >Thor, M. et al. A dung beetle-inspired robotic model and its distributed sensor-driven
+control for walking and ball rolling. Artificial Life and Robotics <span id="bold" style="font-weight:bold;">23</span><span id="bold" style="font-weight:bold;">,</span> 435–443 (2018).
+                                                                                
+                                                                                
+    
+</p>
+</dd>    
+<dt id="X0-Jones2018Dung" class="thebibliography">
+9.  
+</dt><dd 
+id="bib-9" class="thebibliography">
+<!--l. 155--><p class="noindent" >R. Jones, Z. P. S. All Praise The Humble Dung Beetle 2018.
+</p>    
+</dd>
+<dt id="X0-Sharp2018" class="thebibliography">
+10.  
+</dt><dd 
+id="bib-10" class="thebibliography">
+<!--l. 155--><p class="noindent" >Photography, S. Common ostrich (Struthio camelus australis) male running (composite
+image), Damaraland, Namibia 2018.
+</p>    
+</dd>
+<dt id="X0-Porges2008" class="thebibliography">
+11.  
+</dt><dd 
+id="bib-11" class="thebibliography">
+<!--l. 155--><p class="noindent" >Porges. Zebra in Wellington Zoo 2025.
+</p>    
+</dd>
+<dt id="X0-BrittanicaAnt2025" class="thebibliography">
+12.  
+</dt><dd 
+id="bib-12" class="thebibliography">
+<!--l. 155--><p class="noindent" >Brittanica, E. Ant 2025.
+</p>    
+</dd>
+<dt id="X0-song2025impact" class="thebibliography">
+13.  
+</dt><dd 
+id="bib-13" class="thebibliography">
+<!--l. 155--><p class="noindent" >Song, Z., Hou, B., Ji, Z. &#x0026; Jiang, G. The Impact of Exercise Play on the Biomechanical
+Characteristics of Single-Leg Jumping in 5-to 6-Year-Old Preschool Children. Sensors <span id="bold" style="font-weight:bold;">25</span><span id="bold" style="font-weight:bold;">,</span>
+422 (2025).
+</p>    
+</dd>
+<dt id="X0-bottcher2006principles" class="thebibliography">
+14.  
+</dt><dd 
+id="bib-14" class="thebibliography">
+<!--l. 155--><p class="noindent" >Böttcher,  S.  Principles of robot locomotion  in  Proceedings of human robot interaction
+seminar (2006).
+</p>    
+</dd>
+<dt id="X0-krzywinski1984growth" class="thebibliography">
+15.  
+</dt><dd 
+id="bib-15" class="thebibliography">
+<!--l. 155--><p class="noindent" >Krzywinski, A., Niedbalska, A. &#x0026; Twardowski, L. Growth and development of hand reared
+fallow deer fawns. Acta theriologica <span id="bold" style="font-weight:bold;">29</span><span id="bold" style="font-weight:bold;">,</span> 349–356 (1984).
+</p>    
+</dd>
+<dt id="X0-brackenbury1997caterpillar" class="thebibliography">
+16.  
+</dt><dd 
+id="bib-16" class="thebibliography">
+<!--l. 155--><p class="noindent" >Brackenbury, J. Caterpillar kinematics. Nature <span id="bold" style="font-weight:bold;">390</span><span id="bold" style="font-weight:bold;">,</span> 453–453 (1997).
+</p>    
+</dd>
+<dt id="X0-pons2008wearable" class="thebibliography">
+17.  
+</dt><dd 
+id="bib-17" class="thebibliography">
+<!--l. 155--><p class="noindent" >Pons, J. L. Wearable robots: biomechatronic exoskeletons (John Wiley &#x0026; Sons, 2008).
+</p>    
+</dd>
+<dt id="X0-winter1991biomechanics" class="thebibliography">
+18.  
+</dt><dd 
+id="bib-18" class="thebibliography">
+<!--l. 155--><p class="noindent" >Winter,  D. A.  Biomechanics  and  motor  control  of  human  gait:  normal,  elderly  and
+pathological (1991).
+</p>    
+</dd>
+<dt id="X0-lacquaniti2012patterned" class="thebibliography">
+19.  
+</dt><dd 
+id="bib-19" class="thebibliography">
+<!--l. 155--><p class="noindent" >Lacquaniti, F., Ivanenko, Y. P. &#x0026; Zago, M. Patterned control of human locomotion. The
+Journal of physiology <span id="bold" style="font-weight:bold;">590</span><span id="bold" style="font-weight:bold;">,</span> 2189–2199 (2012).
+</p>    
+</dd>
+<dt id="X0-zyhowski2023adaptive" class="thebibliography">
+20.  
+</dt><dd 
+id="bib-20" class="thebibliography">
+                                                                                
+                                                                                
+    
+<!--l. 155--><p class="noindent" >Zyhowski, W. P., Zill, S. N. &#x0026; Szczecinski, N. S. Adaptive load feedback robustly signals
+force dynamics in robotic model of Carausius morosus stepping. Frontiers in Neurorobotics
+<span id="bold" style="font-weight:bold;">17</span><span id="bold" style="font-weight:bold;">,</span> 1125171 (2023).
+</p>    
+</dd>
+<dt id="X0-lee2013investigation" class="thebibliography">
+21.  
+</dt><dd 
+id="bib-21" class="thebibliography">
+<!--l. 155--><p class="noindent" >Lee, H. &#x0026; Hogan, N. Investigation of human ankle mechanical impedance during locomotion
+using  a  wearable  ankle  robot  in  2013  IEEE  International  Conference  on  Robotics  and
+Automation (2013), 2651–2656.
+</p>    
+</dd>
+<dt id="X0-alexander1989optimization" class="thebibliography">
+22.  
+</dt><dd 
+id="bib-22" class="thebibliography">
+<!--l. 155--><p class="noindent" >Alexander, R. M. Optimization and gaits in the locomotion of vertebrates. Physiological
+reviews <span id="bold" style="font-weight:bold;">69</span><span id="bold" style="font-weight:bold;">,</span> 1199–1227 (1989).
+</p>    
+</dd>
+<dt id="X0-MITRaibert1984" class="thebibliography">
+23.  
+</dt><dd 
+id="bib-23" class="thebibliography">
+<!--l. 155--><p class="noindent" >MIT. The Raibert Hopper 1984.
+</p>    
+</dd>
+<dt id="X0-murthy19843d" class="thebibliography">
+24.  
+</dt><dd 
+id="bib-24" class="thebibliography">
+<!--l. 155--><p class="noindent" >Murthy, S. S. &#x0026; Raibert, M. H. 3D balance in legged locomotion: modeling and simulation
+for the one-legged case. ACM SIGGRAPH Computer Graphics <span id="bold" style="font-weight:bold;">18</span><span id="bold" style="font-weight:bold;">,</span> 27–27 (1984).
+</p>    
+</dd>
+<dt id="X0-raibert1984experiments" class="thebibliography">
+25.  
+</dt><dd 
+id="bib-25" class="thebibliography">
+<!--l. 155--><p class="noindent" >Raibert, M. H., Brown Jr, H. B. &#x0026; Chepponis, M. Experiments in balance with a 3D
+one-legged  hopping  machine.  The International Journal of Robotics Research  <span id="bold" style="font-weight:bold;">3</span><span id="bold" style="font-weight:bold;">,</span> 75–92
+(1984).
+</p>    
+</dd>
+<dt id="X0-brown1998bow" class="thebibliography">
+26.  
+</dt><dd 
+id="bib-26" class="thebibliography">
+<!--l. 155--><p class="noindent" >Brown, B. &#x0026; Zeglin, G. The bow leg hopping robot in Proceedings. 1998 IEEE International
+Conference on Robotics and Automation (Cat. No. 98CH36146) <span id="bold" style="font-weight:bold;">1</span> (1998), 781–786.
+</p>    
+</dd>
+<dt id="X0-ringrose1997self" class="thebibliography">
+27.  
+</dt><dd 
+id="bib-27" class="thebibliography">
+<!--l. 155--><p class="noindent" >Ringrose, R. Self-stabilizing running in Proceedings of International Conference on Robotics
+and Automation <span id="bold" style="font-weight:bold;">1</span> (1997), 487–493.
+</p>    
+</dd>
+<dt id="X0-Asimo2005" class="thebibliography">
+28.  
+</dt><dd 
+id="bib-28" class="thebibliography">
+<!--l. 155--><p class="noindent" >Citizendium. Asimo 2005.
+</p>    
+</dd>
+<dt id="X0-Flamingo2000" class="thebibliography">
+29.  
+</dt><dd 
+id="bib-29" class="thebibliography">
+<!--l. 155--><p class="noindent" >Flamingo. Spring Flamingo 2000.
+</p>    
+</dd>
+<dt id="X0-erland1974rad" class="thebibliography">
+30.  
+</dt><dd 
+id="bib-30" class="thebibliography">
+<!--l. 155--><p class="noindent" >Erland,  I. B.  Rad  fuer  ein  laufstabiles,  selbstfahrendes  fahrzeug.  German  Patent  No.
+DE2354404A1 (1974).
+                                                                                
+                                                                                
+    
+</p>
+</dd>    
+<dt id="X0-dowling1990navlab" class="thebibliography">
+31.  
+</dt><dd 
+id="bib-31" class="thebibliography">
+<!--l. 155--><p class="noindent" >Dowling, K. et al. NAVLAB An Autonomous Navigation Testbed in Vision and Navigation:
+The Carnegie Mellon Navlab 259–282 (Springer, 1990).
+</p>    
+</dd>
+<dt id="X0-ackerman2025" class="thebibliography">
+32.  
+</dt><dd 
+id="bib-32" class="thebibliography">
+<!--l. 155--><p class="noindent" >ackerman. Ackerman Steering Mechanism 2025.
+</p>    
+</dd>
+<dt id="X0-steinmetz2001autonomous" class="thebibliography">
+33.  
+</dt><dd 
+id="bib-33" class="thebibliography">
+<!--l. 155--><p class="noindent" >Steinmetz, B., Arbter, K, Brunner, B &#x0026; Landzettel, K. Autonomous vision-based navigation
+of the nanokhod rover. CD i-SAIRAS 2001 (2001).
+</p>    
+</dd>
+<dt id="X0-siegwart2002innovative" class="thebibliography">
+34.  
+</dt><dd 
+id="bib-34" class="thebibliography">
+<!--l. 155--><p class="noindent" >Siegwart, R., Lamon, P., Estier, T., Lauria, M. &#x0026; Piguet, R. Innovative design for wheeled
+locomotion in rough terrain. Robotics and Autonomous systems <span id="bold" style="font-weight:bold;">40</span><span id="bold" style="font-weight:bold;">,</span> 151–162 (2002).</p></dd></dl>
+                                                                                
+                                                                                
+<div class="crosslinks-bottom"><span class="nav-inactive"><span class="nav-next">NEXT</span></span> <a 
+href="WheeledMobileRobots.html" ><span class="nav-prev">PREV</span></a><a 
+href="WheeledMobileRobots.html#tailWheeledMobileRobots.html" ><span class="nav-prev-tail">PREV-TAIL</span></a><a 
+href="References.html" ><span class="nav-front">FRONT</span></a><a 
+href="AutonomousMobileRoboticsLectureBook.html#References.html" ><span class="nav-up">UP</span></a></nav><a 
+ id="tailReferences.html"></a></div> <div class="footer"> <div class="footer-left"><span class="footer-lecture">D. T. McGuiness, PhD</span> 
+<span class="footer-webBook"><span id="bold" style="font-weight:bold;">Last Updated:</span> 5.8.2026, at 15:38.</span> </div> </div> </div> <div class="author-notes"> 
+<span class="note">Authors Note </span> 
+<span class="text">The website you are viewing is auto-generated using ParSnip and therefore subject to slight errors in typography and formatting. When in doubt, please consult the LectureBook. </span> 
+</div> 
+</article> 
+<div class="mode-line"> 
+<div class="core-line"> 
+<div class="button-group"> 
+</div> 
+</div> 
+<div class="supp-line"></div> 
+</div> 
+</page> 
+ 
+</body> 
+</html>

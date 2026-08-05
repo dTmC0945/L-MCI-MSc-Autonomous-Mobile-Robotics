@@ -1,0 +1,669 @@
+<!DOCTYPE html> 
+<html lang="en">  
+<head><title>Legged Mobile Robots</title> 
+<meta  charset="utf-8" /> 
+<meta name="generator" content="TeX4ht (https://tug.org/tex4ht/)" /> 
+<meta name="viewport" content="width=device-width,initial-scale=1" /> 
+<link rel="stylesheet" type="text/css" href="\aa:CssFile " /> 
+<meta name="src" content="AutonomousMobileRoboticsLectureBook.tex" /> 
+ <script type="text/javascript" id="MathJax-script" async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/mml-chtml.js"></script>  
+<title>Autonomous Mobile Robotics</title> 
+<link href="/pagefind/pagefind-component-ui.css" rel="stylesheet"> 
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script> 
+<script src="/pagefind/pagefind-component-ui.js" type="module"></script> 
+<link rel="stylesheet" type="text/css" href="flatweb.css"> 
+<script type="text/javascript" src="flatweb.js"></script> 
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/styles/default.min.css"> 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/highlight.min.js"></script> 
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/styles/base16/solarized-light.min.css"/> 
+<script src="https://unpkg.com/highlightjs-copy/dist/highlightjs-copy.min.js"></script> 
+<link rel="stylesheet" href="https://unpkg.com/highlightjs-copy/dist/highlightjs-copy.min.css"/> 
+<link href='http://fonts.googleapis.com/css?family=Roboto:400,100,100italic,300,300italic,400italic,500,500italic,700,700italic,900italic,900' rel='stylesheet' type='text/css'> 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/languages/cpp.min.js"></script> 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/languages/latex.min.js"></script> 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/languages/matlab.min.js"></script> 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/languages/dockerfile.min.js"></script> 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/languages/cmake.min.js"></script> 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/languages/makefile.min.js"></script> 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/languages/markdown.min.js"></script> 
+ <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/> <style> 
+ </style> 
+ <header> 
+ <pagefind-modal></pagefind-modal> 
+ </header> 
+</head><body 
+>
+<page> 
+<div class="keyboard-help-menu"><div style="overflow-x:auto"> <table> <thead> <tr> <th>Key</th> <th>Description</th> </tr> </thead> <tbody> <tr> <td><kbd>t</kbd></td> <td>Enable/Disable Table of Contents</td> </tr> <tr> <td><kbd>n</kbd></td> <td>Visit Next Chapter</td> </tr> <tr> <td><kbd>p</kbd></td> <td>Visit Previous Chapter</td> </tr> <tr> <td><kbd>u</kbd></td> <td>Go to Top of Page</td> </tr> <tr> <td><kbd>b</kbd></td> <td>Go to Bottom of Page</td> </tr> <tr> <td><kbd>i</kbd></td> <td>Visit the Introduction Page</td> </tr> </tbody> </table> </div> </div> <nav class="wide"><img class="webbook-logo" src="logo/webbook-logo.svg"></img> <div class="header"> <div class="header-left"><span class="header-lecture-grade">M.Sc</span> 
+<span class="header-lecture-name">Autonomous Mobile Robotics</span> 
+<span class="header-webBook">WebBook</span> </div> <div class="header-right"> <span class="header-version">2026.WS</span> 
+ <span class="header-chapter">Locomotion</span></div></div> <div class="toc"><pagefind-modal-trigger></pagefind-modal-trigger><div class="toc-links"><a href="https://github.com/dTmC0945" title="Lecturer GitHub Repo"><i class="fab fa-github" style='font-size:20px'></i></a><a href="https://scholar.google.com/citations?view_op=list_works\&hl=en\&user=lxQGADMAAAAJ" title="Lecturer Google Scholar Page"><i class="fa-brands fa-google-scholar" style='font-size:20px'></i></a><a href="https://www.researchgate.net/profile/Daniel-Mcguiness-2" title="Lecturer ResearchGate Account"><i class="fa-brands fa-researchgate" style='font-size:20px'></i></a><a href="https://dtmc0945.github.io/Th-MCI-Thesis-Topics/" title="Lecturer Thesis Ideas for B.Sc and M.Sc"><i class="fa-solid fa-book" style='font-size:20px'></i></a><a href="https://github.com/dTmC0945/C-MCI-LaTeX-Class-mcidoc/tree/main" title="mcidoc LaTeX Standard"><i class="fa-regular fa-file-lines" style='font-size:20px'></i></a></div><hr><span class="chapterToc"><span class="number">0</span><span class="title"><a 
+href="index.html#x2-10000">index</a></span></span><span class="chapterToc"><span class="number">1</span><span class="title"><a 
+href="Locomotion.html#x3-20001">Locomotion</a></span></span><span class="subsectionToc"><span class="number">1.0.1</span><span class="title"><a 
+href="Locomotion.html#x3-30001.0.1">Key Issues for Locomotion</a></span></span><span class="sectionToc"><span class="number">1.1</span><span class="title"><a 
+href="#x4-40001.1">Legged Mobile
+Robots</a></span></span><span class="subsectionToc"><span class="number">1.1.1</span><span class="title"><a 
+href="#x4-60001.1.1">Examples  of  Legged  Robot  Locomotion</a></span></span><span class="sectionToc"><span class="number">1.2</span><span class="title"><a 
+href="WheeledMobileRobots.html#x5-120001.2">Wheeled  Mobile
+Robots</a></span></span><span class="subsectionToc"><span class="number">1.2.1</span><span class="title"><a 
+href="WheeledMobileRobots.html#x5-130001.2.1">Design</a></span></span><span class="subsectionToc"><span class="number">1.2.2</span><span class="title"><a 
+href="WheeledMobileRobots.html#x5-160001.2.2">Stability</a></span></span><span class="subsectionToc"><span class="number">1.2.3</span><span class="title"><a 
+href="WheeledMobileRobots.html#x5-170001.2.3">Manoeuvrability</a></span></span><span class="subsectionToc"><span class="number">1.2.4</span><span class="title"><a 
+href="WheeledMobileRobots.html#x5-180001.2.4">Controllability</a></span></span><span class="subsectionToc"><span class="number">1.2.5</span><span class="title"><a 
+href="WheeledMobileRobots.html#x5-190001.2.5">Case
+Studies for Wheeled Motion</a></span></span><span class="subsectionToc"><span class="number">1.2.6</span><span class="title"><a 
+href="WheeledMobileRobots.html#x5-260001.2.6">Walking Wheels</a></span></span>
+<!--l. 244--><p class="noindent" ><div class="nav-footer"><div class="nav-footer-left"><span class="nav-footer-lecture">D. T. McGuiness, PhD</span> 
+<span class="nav-footer-webBook"><span id="bold" style="font-weight:bold;">Last Updated:</span> 5.8.2026, at 15:38.</span></div></div><span class="nav-comments">The website you are viewing is auto-generated using ParSnip and therefore subject to slight errors in typography and formatting. When in doubt, please consult the LectureBook. </span></div></div></nav> 
+
+</p>
+<article class="chapter"> 
+<nav class="crosslinks-top"> <a 
+href="WheeledMobileRobots.html" ><span class="nav-next">NEXT</span></a><a 
+href="Locomotion.html" ><span class="nav-prev">PREV</span></a><a 
+href="Locomotion.html#tailLocomotion.html" ><span class="nav-prev-tail">PREV-TAIL</span></a><a 
+href="#tailLeggedMobileRobots.html"><span class="nav-tail">TAIL</span></a><a 
+href="Locomotion.html#LeggedMobileRobots.html" ><span class="nav-up">UP</span></a></nav> 
+<div class="section-header"> <h3 id="header-section-1.1"> <a class="pdf-icon" href="AutonomousMobileRoboticsLectureBook.pdf#section.1.1"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-file-pdf" viewBox="0 0 16 16"><path d="M4 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H4zm0 1h8a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1z"></path><path d="M4.603 12.087a.81.81 0 0 1-.438-.42c-.195-.388-.13-.776.08-1.102.198-.307.526-.568.897-.787a7.68 7.68 0 0 1 1.482-.645 19.701 19.701 0 0 0 1.062-2.227 7.269 7.269 0 0 1-.43-1.295c-.086-.4-.119-.796-.046-1.136.075-.354.274-.672.65-.823.192-.077.4-.12.602-.077a.7.7 0 0 1 .477.365c.088.164.12.356.127.538.007.187-.012.395-.047.614-.084.51-.27 1.134-.52 1.794a10.954 10.954 0 0 0 .98 1.686 5.753 5.753 0 0 1 1.334.05c.364.065.734.195.96.465.12.144.193.32.2.518.007.192-.047.382-.138.563a1.04 1.04 0 0 1-.354.416.856.856 0 0 1-.51.138c-.331-.014-.654-.196-.933-.417a5.716 5.716 0 0 1-.911-.95 11.642 11.642 0 0 0-1.997.406 11.311 11.311 0 0 1-1.021 1.51c-.29.35-.608.655-.926.787a.793.793 0 0 1-.58.029zm1.379-1.901c-.166.076-.32.156-.459.238-.328.194-.541.383-.647.547-.094.145-.096.25-.04.361.01.022.02.036.026.044a.27.27 0 0 0 .035-.012c.137-.056.355-.235.635-.572a8.18 8.18 0 0 0 .45-.606zm1.64-1.33a12.647 12.647 0 0 1 1.01-.193 11.666 11.666 0 0 1-.51-.858 20.741 20.741 0 0 1-.5 1.05zm2.446.45c.15.162.296.3.435.41.24.19.407.253.498.256a.107.107 0 0 0 .07-.015.307.307 0 0 0 .094-.125.436.436 0 0 0 .059-.2.095.095 0 0 0-.026-.063c-.052-.062-.2-.152-.518-.209a3.881 3.881 0 0 0-.612-.053zM8.078 5.8a6.7 6.7 0 0 0 .2-.828c.031-.188.043-.343.038-.465a.613.613 0 0 0-.032-.198.517.517 0 0 0-.145.04c-.087.035-.158.106-.196.283-.04.192-.03.469.046.822.024.111.054.227.09.346z"></path></svg></a> <span class="number">1.1</span> <span class="title">  <a 
+ id="x4-40001.1"></a>Legged Mobile Robots</span></h3></div><p>
+<!--l. 249--><p class="noindent" ><span class="margin-block"><span class="margin"><span>Legged [5]</span><span class="sidenote"><span class="sidenote-image"><img 
+ 
+src="figures/Locomotion/raster/dung-beetle.jpg" alt="PIC"  
+style="" /></span><span class="sidenote-text"><span class="ellipsis">[5]</span>Dung-beetle are a great example for legged mobile robotics <span class="cite"><span class="cite-show">[†]</span><span class="cite-detail"><a 
+ id="x4-4001"></a>Thor, M. et al. A dung
+beetle-inspired robotic model and its distributed sensor-driven control for walking and ball rolling.
+Artificial Life and Robotics <span id="bold" style="font-weight:bold;">23</span><span id="bold" style="font-weight:bold;">,</span> 435–443 (2018)</span></span> as not only they can manoeuvre in their environment
+using legged motion, they can also manipulate their environment and generate rotational
+motion <span class="cite"><span class="cite-show">[†]</span><span class="cite-detail"><a 
+ id="x4-4002"></a>R. Jones, Z. P. S. All Praise The Humble Dung Beetle 2018</span></span>. </span></span></span></span> locomotion is
+characterised by a <italic>series of point contacts between the robot and the ground</italic>. The primary
+advantages include <span class="alert"><alert style="color: #821131;">adaptability</alert></span> and <span class="alert"><alert style="color: #821131;">manoeuvrability</alert></span> in rough terrain. Because only a
+set of point contacts is required, the quality of the ground between those points does not
+matter, so long as the robot can maintain adequate ground clearance. In addition, a walking
+robot is capable of crossing a hole or chasm so long as its reach exceeds the width of the
+hole. A final advantage of legged locomotion is the potential to manipulate objects in the
+environment with great skill. <div class="quote"><p>  The dung beetle, is capable of rolling a ball while locomotion as a
+result of its dexterous front legs shown in <span id="bold" style="font-weight:bold;">Fig.</span> <a 
+href="#x4-40001.1">1.1<!--tex4ht:ref: fig:dung-beetle --></a>.  </p></p></div><p>  The main disadvantages of legged
+locomotion include <span class="alert"><alert style="color: #821131;">power and mechanical complexity</alert></span>. The leg, which may include
+several <span class="acronym"><span class="acronym-short"><a 
+href="#glo:dof" class="glossary" >DoF</a></span><span class="acronym-detail"><span class="acronym-long"><a 
+href="#glo:dof" class="glossary" >Degrees of Freedom</a></span><span class="acronym-desc"><a 
+href="#glo:dof" class="glossary" >Degrees of Freedom</a></span></span></span>, must be capable of sustaining part of the
+robot’s total weight, and in many robots must be capable of lifting and lowering the robot.
+Additionally, high manoeuvrability will only be achieved if the legs have a sufficient number
+of <span class="acronym"><span class="acronym-short"><a 
+href="#glo:dof" class="glossary" >DoF</a></span><span class="acronym-detail"><span class="acronym-long"><a 
+href="#glo:dof" class="glossary" >Degrees of Freedom</a></span><span class="acronym-desc"><a 
+href="#glo:dof" class="glossary" >Degrees of Freedom</a></span></span></span> to impart forces in a number of different
+directions.
+
+                                                                                
+                                                                                
+<!--l. 269--><p class="noindent" ><h5 id="header-subsubsection-1" class="subsubsectionHead"> <a 
+ id="x4-5000"></a>Leg Configurations and Stability</h5>
+</p><!--l. 271--><p class="noindent" >Because legged robots are biologically inspired, it is instructive to examine biologically successful legged
+systems. A number of different leg configurations have been successful in a variety or organisms seen in
+<span id="bold" style="font-weight:bold;">Fig.</span> <a 
+href="#x4-5001r5">1.5<!--tex4ht:ref: fig:motion-in-kingdom --></a>. </p><figure class="figure"> 
+
+                                                                                
+                                                                                
+                                                                                
+                                                                                
+<a 
+ id="x4-5001r5"></a>
+<figcaption class="caption" ><span class="id">Figure 1.5: 
+         </span><span  
+class="content">A broad classification of legged motion (a) Bipedal motion <span class="cite"><span class="cite-show">[†]</span><span class="cite-detail">Photography, S. Common ostrich (Struthio
+         camelus  australis)  male  running  (composite  image),  Damaraland,  Namibia  2018</span></span>  (b)  Quadpedal
+         motion <span class="cite"><span class="cite-show">[†]</span><span class="cite-detail">Porges. Zebra in Wellington Zoo 2025</span></span> (c) Hexapedal motion    <span class="cite"><span class="cite-show">[†]</span><span class="cite-detail">Brittanica, E. Ant 2025</span></span>   </span></figcaption><!--tex4ht:label?: x4-5001r5 -->
+<img 
+ 
+src="figures/Locomotion/raster/legged-motion.png" alt="PIC"  
+style="" />
+                                                                                
+                                                                                
+</figure>
+<!--l. 283--><p class="noindent" >Large animals such as mammals and reptiles have four (<span class="alert"><alert style="color: #821131;">4</alert></span>) legs whereas insects have six (<span class="alert"><alert style="color: #821131;">6</alert></span>) or more
+legs. In some mammals, the ability to walk on only two (<span class="alert"><alert style="color: #821131;">2</alert></span>) legs has been perfected. Especially in the
+case of humans, balance has progressed to the point that we can even jump with one <span class="margin-block">leg <span class="margin-comment"><span class="ellipsis">[6]</span> 
+<span class="sidenote">In child
+development, one of the tests used to determine if the child is acquiring advanced locomotion skills is
+the ability to jump on one leg <span class="cite"><span class="cite-show">[†]</span><span class="cite-detail"><a 
+ id="x4-5005"></a>Song, Z. et al. The Impact of Exercise Play on the Biomechanical
+Characteristics of Single-Leg Jumping in 5-to 6-Year-Old Preschool Children. Sensors <span id="bold" style="font-weight:bold;">25</span><span id="bold" style="font-weight:bold;">,</span> 422
+(2025)</span></span>.</span></span></span>.
+</p><!--l. 289--><p class="noindent" >This exceptional manoeuvrability comes at a price:
+</p>
+<div class="warning">
+<!--l. 293--><p class="noindent" >Bipedal motion requires <span class="alert"><alert style="color: #821131;">complex active control</alert></span> to maintain balance.
+</p>
+</div>
+<!--l. 295--><p class="noindent" >In contrast, a creature with three (<span class="alert"><alert style="color: #821131;">3</alert></span>) legs can exhibit a static, stable pose provided that it can ensure
+that its centre of gravity is within the tripod of ground contact. Static stability, demonstrated by a
+three-legged stool, means that balance is maintained with no need for motion. A small deviation from
+<span class="margin-block">stability <span class="margin-comment"><span class="ellipsis">[7]</span> 
+<span class="sidenote">e.g., such as gently pushing the stool</span></span></span> is passively corrected towards the stable
+pose when the upsetting force stops. But a robot must be able to lift its legs in order to
+walk. To achieve static walking, a robot <span id="bold" style="font-weight:bold;">must</span> have at least six (<span class="alert"><alert style="color: #821131;">6</alert></span>) legs <span class="cite"><span class="cite-show">[†]</span><span class="cite-detail"><a 
+ id="x4-5006"></a>Böttcher, S.
+Principles of robot locomotion in Proceedings of human robot interaction seminar (2006)</span></span>. In
+such a configuration, it is possible to design a <span class="margin-block">gait <span class="margin-comment"><span class="ellipsis">[8]</span> 
+<span class="sidenote">the pattern of steps of an animal at a
+particular speed.</span></span></span> in which a statically stable tripod of legs is in contact with the ground at all
+times.
+</p><!--l. 305--><p class="noindent" ><span class="margin-block">Insects <span class="margin-comment"><span class="ellipsis">[9]</span> 
+<span class="sidenote">such as spiders, ant, beetles, …</span></span></span> are immediately able to walk when born. For them, the problem
+of balance during walking is relatively simple. Mammals, with four (<span class="alert"><alert style="color: #821131;">4</alert></span>) legs, cannot achieve static
+walking, but are able to stand easily on four (<span class="alert"><alert style="color: #821131;">4</alert></span>) legs. <span class="margin-block">Fauns <span class="margin-comment"><span class="ellipsis">[10]</span> 
+<span class="sidenote">a baby deer</span></span></span>, for example, spend several
+minutes attempting to stand before they are able to do so, then spend several more minutes
+learning to walk without falling <span class="cite"><span class="cite-show">[†]</span><span class="cite-detail"><a 
+ id="x4-5007"></a>Krzywinski, A., Niedbalska, A. &#x0026; Twardowski, L. Growth
+and development of hand reared fallow deer fawns. Acta theriologica <span id="bold" style="font-weight:bold;">29</span><span id="bold" style="font-weight:bold;">,</span> 349–356 (1984)</span></span>.
+Humans, with two (<span class="alert"><alert style="color: #821131;">2</alert></span>) legs, cannot even stand in one place with static stability. Infants
+require months to stand and walk, and even longer to learn to jump, run and stand on one
+leg.
+</p>
+<div class="sidenote"> <span class="figure" 
+>
+                                                                                
+                                                                                
+                                                                                
+                                                                                
+<a 
+ id="x4-5008r6"></a>
+<figcaption class="caption" ><span class="id">Figure 1.6: </span><span  
+class="content">Main locomotory gaits in <italic>Pleurotya</italic> caterpillar <span class="cite"><span class="cite-show">[†]</span><span class="cite-detail">Brackenbury, J. Caterpillar kinematics. Nature <span id="bold" style="font-weight:bold;">390</span><span id="bold" style="font-weight:bold;">,</span>
+453–453 (1997)</span></span>. 
+</span></figcaption><!--tex4ht:label?: x4-5008r6 -->
+<img 
+ 
+src="figures/Locomotion/raster/caterpillar-locomotion.png" alt="PIC"  
+style="" />
+                                                                                
+                                                                                
+</div>
+<!--l. 319--><p class="noindent" ></div> </p><p>
+There is also the potential for great variety in the complexity of each individual leg. Once again, the
+biological world provides ample examples at both extremes. For instance, in the case of the caterpillar,
+each leg is extended using <span id="bold" style="font-weight:bold;">hydraulic pressure</span> by constricting the body cavity and forcing
+an increase in pressure, and each leg is retracted longitudinally by relaxing the hydraulic
+pressure, then activating a single tensile muscle that pulls the leg in towards the body, seen in
+<span id="bold" style="font-weight:bold;">Fig.</span> <a 
+href="#x4-5008r6">1.6<!--tex4ht:ref: fig:caterpillar-motion --></a>.
+<!--l. 328--><p class="noindent" >Each leg has only a single <span class="acronym"><span class="acronym-short"><a 
+href="#glo:dof" class="glossary" >DoF</a></span><span class="acronym-detail"><span class="acronym-long"><a 
+href="#glo:dof" class="glossary" >Degrees of Freedom</a></span><span class="acronym-desc"><a 
+href="#glo:dof" class="glossary" >Degrees of Freedom</a></span></span></span>, which is oriented longitudinally
+along the leg. Forward locomotion depends on the hydraulic pressure in the body, which extends the
+distance between pairs of legs. The caterpillar leg is therefore mechanically very simple, using a
+minimal number of extrinsic muscles to achieve complex overall locomotion.
+At the other extreme, the human leg has more than six (<span class="alert"><alert style="color: #821131;">6</alert></span>) major degrees of freedom, combined with
+further actuation at the <span class="margin-block"><span class="margin"><span>toes. [11]</span><span class="sidenote"><span class="sidenote-image"><img 
+ 
+src="figures/Locomotion/raster/human-leg-dof.jpg" alt="PIC"  
+style="" /></span><span class="sidenote-text"><span class="ellipsis">[11]</span>The <span class="acronym"><span class="acronym-short"><a 
+href="#glo:dof" class="glossary" >DoF</a></span><span class="acronym-detail"><span class="acronym-long"><a 
+href="#glo:dof" class="glossary" >Degrees of Freedom</a></span><span class="acronym-desc"><a 
+href="#glo:dof" class="glossary" >Degrees of Freedom</a></span></span></span> a human leg
+has <span class="cite"><span class="cite-show">[†]</span><span class="cite-detail"><a 
+ id="x4-5010"></a>Pons, J. L. Wearable robots: biomechatronic exoskeletons (John Wiley &#x0026; Sons, 2008)</span></span>.</span></span></span></span>
+There are more than 50 muscles in each lower limb and at least half of them participate
+actively in the control of leg motion <span class="cite"><span class="cite-show">[†]</span><span class="cite-detail"><a 
+ id="x4-5011"></a>Winter, D. A. Biomechanics and motor control of
+human gait: normal, elderly and pathological (1991), <a 
+ id="x4-5012"></a>Lacquaniti, F., Ivanenko, Y. P. &#x0026;
+Zago, M. Patterned control of human locomotion. The Journal of physiology <span id="bold" style="font-weight:bold;">590</span><span id="bold" style="font-weight:bold;">,</span> 2189–2199
+(2012)</span></span>.
+</p>
+<div class="sidenote"> <span class="figure" 
+>
+                                                                                
+                                                                                
+                                                                                
+                                                                                
+<a 
+ id="x4-5013r7"></a>
+<figcaption class="caption" ><span class="id">Figure 1.7: </span><span  
+class="content">An example of a leg possessing three (<span class="alert"><alert style="color: #821131;">3</alert></span>) <span class="acronym"><span class="acronym-short"><a 
+href="#glo:dof" class="glossary" >DoF</a></span><span class="acronym-detail"><span class="acronym-long"><a 
+href="#glo:dof" class="glossary" >Degrees of Freedom</a></span><span class="acronym-desc"><a 
+href="#glo:dof" class="glossary" >Degrees of Freedom</a></span></span></span> <span class="cite"><span class="cite-show">[†]</span><span class="cite-detail">Zyhowski, W. P.,
+Zill, S. N. &#x0026; Szczecinski, N. S. Adaptive load feedback robustly signals force dynamics in robotic model of Carausius
+morosus stepping. Frontiers in Neurorobotics <span id="bold" style="font-weight:bold;">17</span><span id="bold" style="font-weight:bold;">,</span> 1125171 (2023)</span></span>. 
+</span></figcaption><!--tex4ht:label?: x4-5013r7 -->
+<img 
+ 
+src="figures/Locomotion/raster/leg-3-dof.png" alt="PIC"  
+style="" />
+                                                                                
+                                                                                
+</div>
+<!--l. 343--><p class="noindent" ></div> </p><p>
+<!--l. 345--><p class="noindent" >In the case of legged <span class="acronym"><span class="acronym-short"><a 
+href="#glo:amr" class="glossary" >AMR</a></span><span class="acronym-detail"><span class="acronym-long"><a 
+href="#glo:amr" class="glossary" >Autonomous Mobile Robotics</a></span><span class="acronym-desc"><a 
+href="#glo:amr" class="glossary" >Autonomous Mobile Robotics</a></span></span></span>, a
+minimum of two (<span class="alert"><alert style="color: #821131;">2</alert></span>) <span class="acronym"><span class="acronym-short"><a 
+href="#glo:dof" class="glossary" >DoF</a></span><span class="acronym-detail"><span class="acronym-long"><a 
+href="#glo:dof" class="glossary" >Degrees of Freedom</a></span><span class="acronym-desc"><a 
+href="#glo:dof" class="glossary" >Degrees of Freedom</a></span></span></span> is generally required to move a
+leg forward by lifting the left and swinging it forward. More common is the addition of a
+<!--l. 347--><math 
+ 
+display="inline" ><msup><mrow 
+><mstyle 
+class="text"><mtext  >3</mtext></mstyle></mrow><mrow 
+><mstyle 
+class="text"><mtext  >rd</mtext></mstyle></mrow></msup 
+></math>
+<span class="acronym"><span class="acronym-short"><a 
+href="#glo:dof" class="glossary" >DoF</a></span><span class="acronym-detail"><span class="acronym-long"><a 
+href="#glo:dof" class="glossary" >Degrees of Freedom</a></span><span class="acronym-desc"><a 
+href="#glo:dof" class="glossary" >Degrees of Freedom</a></span></span></span> for more complex manoeuvres, resulting in legs such as
+those shown in <span id="bold" style="font-weight:bold;">Fig.</span> <a 
+href="#x4-5013r7">1.7<!--tex4ht:ref: fig:leg-3-dof --></a>.
+Recent successes in the creation of bipedal walking robots have added a fourth <span class="acronym"><span class="acronym-short"><a 
+href="#glo:dof" class="glossary" >DoF</a></span><span class="acronym-detail"><span class="acronym-long"><a 
+href="#glo:dof" class="glossary" >Degrees of
+Freedom</a></span><span class="acronym-desc"><a 
+href="#glo:dof" class="glossary" >Degrees of Freedom</a></span></span></span> at the ankle joint <span class="cite"><span class="cite-show">[†]</span><span class="cite-detail"><a 
+ id="x4-5015"></a>Lee, H. &#x0026; Hogan, N. Investigation of human ankle
+mechanical impedance during locomotion using a wearable ankle robot in 2013 IEEE International
+Conference on Robotics and Automation (2013), 2651–2656</span></span>. The ankle enables more consistent ground
+contact by actuating the pose of the sole of the foot. In general, adding <span class="acronym"><span class="acronym-short"><a 
+href="#glo:dof" class="glossary" >DoF</a></span><span class="acronym-detail"><span class="acronym-long"><a 
+href="#glo:dof" class="glossary" >Degrees of Freedom</a></span><span class="acronym-desc"><a 
+href="#glo:dof" class="glossary" >Degrees
+of Freedom</a></span></span></span> to a robot leg increases the manoeuvrability of the robot, both augmenting the range
+of terrains on which it can travel and the ability of the robot to travel with a variety of
+gaits.
+The primary disadvantages of additional joints and actuators is, of course, energy, control and mass.
+Additional actuators require energy and control, and they also add to leg mass, further increasing
+power and load requirements on existing actuators.
+</p><!--l. 360--><p class="noindent" >In the case of a multi-legged <span class="acronym"><span class="acronym-short"><a 
+href="#glo:amr" class="glossary" >AMR</a></span><span class="acronym-detail"><span class="acronym-long"><a 
+href="#glo:amr" class="glossary" >Autonomous Mobile Robotics</a></span><span class="acronym-desc"><a 
+href="#glo:amr" class="glossary" >Autonomous Mobile Robotics</a></span></span></span>, there is
+the issue of leg coordination for locomotion, or <span id="bold" style="font-weight:bold;">gait control</span>.
+</p>
+<div class="warning">
+<!--l. 365--><p class="noindent" >The number of possible gaits depends on the number of legs <span class="cite"><span class="cite-show">[†]</span><span class="cite-detail"><a 
+ id="x4-5016"></a>Alexander, R. M. Optimization and
+gaits in the locomotion of vertebrates. Physiological reviews <span id="bold" style="font-weight:bold;">69</span><span id="bold" style="font-weight:bold;">,</span> 1199–1227 (1989)</span></span>.
+</p>
+</div>
+<!--l. 367--><p class="noindent" >The gait is a sequence of lift and release events for the individual legs. For a mobile robot with
+<!--l. 368--><math 
+ 
+display="inline" ><mi 
+>k</mi></math> legs, the total number
+of possible events <!--l. 368--><math 
+ 
+display="inline" ><mi 
+>N</mi></math>
+for a walking machine is:
+</p>
+<div class="highlight-equation"> <span class="highlight-equation-title"> </span><table class="equation"><tr><td>
+<!--l. 371--><math 
+ 
+display="block" class="equation">
+                                  <mstyle 
+   id="x4-5017r1"  class="label" ></mstyle><!--endlabel-->
+                                  <mi 
+>N</mi> <mo 
+class="MathClass-rel" stretchy="false">=</mo><msup><mrow 
+> <mrow><mo fence="true" form="prefix">(</mo><mrow><mn>2</mn><mi 
+>k</mi> <mo 
+class="MathClass-bin" stretchy="false">−</mo> <mn>1</mn></mrow><mo fence="true" form="postfix">)</mo></mrow></mrow><mrow 
+></mrow></msup 
+><mo 
+class="MathClass-punc" stretchy="false">!</mo>
+</math></td><td class="eq-no">(1.1)</td></tr></table>
+<!--l. 372--><p class="noindent" ><p></div></p></div><p class="noindent">
+                                                                                
+                                                                                
+<!--l. 374--><p class="noindent" >For a bipedal walker (<!--l. 374--><math 
+ 
+display="inline" ><mi 
+>k</mi></math>=2) legs
+the number of possible events <!--l. 374--><math 
+ 
+display="inline" ><mi 
+>N</mi></math>
+is: </p><table class="equation"><tr><td>
+<!--l. 376--><math 
+ 
+display="block" class="equation">
+                           <mstyle 
+   id="x4-5018r2"  class="label" ></mstyle><!--endlabel-->
+                           <mi 
+>N</mi> <mo 
+class="MathClass-rel" stretchy="false">=</mo><msup><mrow 
+> <mrow><mo fence="true" form="prefix">(</mo><mrow><mn>2</mn><mi 
+>k</mi> <mo 
+class="MathClass-bin" stretchy="false">−</mo> <mn>1</mn></mrow><mo fence="true" form="postfix">)</mo></mrow></mrow><mrow 
+></mrow></msup 
+><mo 
+class="MathClass-punc" stretchy="false">!</mo> <mo 
+class="MathClass-rel" stretchy="false">=</mo> <mn>3</mn><mo 
+class="MathClass-punc" stretchy="false">!</mo> <mo 
+class="MathClass-rel" stretchy="false">=</mo> <mn>3</mn> <mi 
+>·</mi> <mn>2</mn> <mi 
+>·</mi> <mn>1</mn> <mo 
+class="MathClass-rel" stretchy="false">=</mo> <mn>6</mn>
+</math></td><td class="eq-no">(1.2)</td></tr></table>
+<!--l. 378--><p class="noindent" ><p>The six (<span class="alert"><alert style="color: #821131;">6</alert></span>) different events are:  </p>
+<ul class="itemize1">     
+<li class="itemize">
+<!--l. 385--><p class="noindent" >lift right leg
+</p>     
+</li>
+<li class="itemize">     
+<!--l. 386--><p class="noindent" >lift left leg
+</p>     
+</li>
+<li class="itemize">     
+<!--l. 387--><p class="noindent" >release right leg
+</p>     
+</li>
+<li class="itemize">     
+<!--l. 388--><p class="noindent" >release left leg
+</p>     
+</li>
+<li class="itemize">     
+<!--l. 389--><p class="noindent" >lift both legs together
+</p>     
+</li>
+<li class="itemize">     
+<!--l. 390--><p class="noindent" >release both legs together</p></li></ul>
+<!--l. 392--><p class="noindent" ><p> As can we see, this list of possible events quickly grows quite large. For example, a robot with six
+(<span class="alert"><alert style="color: #821131;">6</alert></span>) legs has far more gaits theoretically: </p><table class="equation"><tr><td>
+<!--l. 397--><math 
+ 
+display="block" class="equation">
+                            <mstyle 
+   id="x4-5019r3"  class="label" ></mstyle><!--endlabel-->
+                            <mi 
+>N</mi> <mo 
+class="MathClass-rel" stretchy="false">=</mo> <mn>1</mn><mn>1</mn><mo 
+class="MathClass-punc" stretchy="false">!</mo> <mo 
+class="MathClass-rel" stretchy="false">=</mo> <mn>3</mn><mi 
+>,</mi><mn>9</mn><mn>9</mn><mn>1</mn><mo 
+class="MathClass-punc" stretchy="false">.</mo><mn>6</mn><mn>8</mn><mn>0</mn><mo 
+class="MathClass-punc" stretchy="false">.</mo><mn>0</mn> <mi 
+>×</mi> <mn>1</mn><msup><mrow 
+><mn>0</mn></mrow><mrow 
+><mn>7</mn></mrow></msup 
+>
+</math></td><td class="eq-no">(1.3)</td></tr></table>
+                                                                                
+                                                                                
+<!--l. 399--><p class="noindent" ><p>
+
+</p>
+<!--l. 401--><p class="noindent" ><div class="subsection-header"> <h4 id="header-subsection-1.1.1"> <a class="pdf-icon" href="AutonomousMobileRoboticsLectureBook.pdf#subsection.1.1.1"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-file-pdf" viewBox="0 0 16 16"><path d="M4 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H4zm0 1h8a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1z"></path><path d="M4.603 12.087a.81.81 0 0 1-.438-.42c-.195-.388-.13-.776.08-1.102.198-.307.526-.568.897-.787a7.68 7.68 0 0 1 1.482-.645 19.701 19.701 0 0 0 1.062-2.227 7.269 7.269 0 0 1-.43-1.295c-.086-.4-.119-.796-.046-1.136.075-.354.274-.672.65-.823.192-.077.4-.12.602-.077a.7.7 0 0 1 .477.365c.088.164.12.356.127.538.007.187-.012.395-.047.614-.084.51-.27 1.134-.52 1.794a10.954 10.954 0 0 0 .98 1.686 5.753 5.753 0 0 1 1.334.05c.364.065.734.195.96.465.12.144.193.32.2.518.007.192-.047.382-.138.563a1.04 1.04 0 0 1-.354.416.856.856 0 0 1-.51.138c-.331-.014-.654-.196-.933-.417a5.716 5.716 0 0 1-.911-.95 11.642 11.642 0 0 0-1.997.406 11.311 11.311 0 0 1-1.021 1.51c-.29.35-.608.655-.926.787a.793.793 0 0 1-.58.029zm1.379-1.901c-.166.076-.32.156-.459.238-.328.194-.541.383-.647.547-.094.145-.096.25-.04.361.01.022.02.036.026.044a.27.27 0 0 0 .035-.012c.137-.056.355-.235.635-.572a8.18 8.18 0 0 0 .45-.606zm1.64-1.33a12.647 12.647 0 0 1 1.01-.193 11.666 11.666 0 0 1-.51-.858 20.741 20.741 0 0 1-.5 1.05zm2.446.45c.15.162.296.3.435.41.24.19.407.253.498.256a.107.107 0 0 0 .07-.015.307.307 0 0 0 .094-.125.436.436 0 0 0 .059-.2.095.095 0 0 0-.026-.063c-.052-.062-.2-.152-.518-.209a3.881 3.881 0 0 0-.612-.053zM8.078 5.8a6.7 6.7 0 0 0 .2-.828c.031-.188.043-.343.038-.465a.613.613 0 0 0-.032-.198.517.517 0 0 0-.145.04c-.087.035-.158.106-.196.283-.04.192-.03.469.046.822.024.111.054.227.09.346z"></path></svg></a><span class="number">1.1.1</span> <span class="title">  <a 
+ id="x4-60001.1.1"></a>Examples of Legged Robot Locomotion</span></h4></div><p>
+</p><!--l. 403--><p class="noindent" >Although there are no high-volume industrial applications to date, legged locomotion is an important
+area of long-term research. Several interesting designs are presented below, beginning with the
+one-legged robot and finishing with six-legged robots.
+
+</p>
+<!--l. 407--><p class="noindent" ><h5 id="header-subsubsection-2" class="subsubsectionHead"> <a 
+ id="x4-7000"></a>Single Leg</h5>
+</p>
+<div class="sidenote"> <span class="figure" 
+>
+                                                                                
+                                                                                
+                                                                                
+                                                                                
+<a 
+ id="x4-7001r8"></a>
+<figcaption class="caption" ><span class="id">Figure 1.8: </span><span  
+class="content">The Raibert hopper <span class="cite"><span class="cite-show">[†]</span><span class="cite-detail">MIT. The Raibert Hopper 1984</span></span>. 
+</span></figcaption><!--tex4ht:label?: x4-7001r8 -->
+<img 
+ 
+src="figures/Locomotion/raster/hopper.jpg" alt="PIC"  
+style="" />
+                                                                                
+                                                                                
+</div>
+<!--l. 412--><p class="noindent" ></div> </p><p>
+<!--l. 414--><p class="noindent" >The minimum number of legs a legged robot can have is, of course, one. Minimising the number of legs
+is beneficial for several reasons. </p>
+<ul class="itemize1">     
+<li class="itemize">
+<!--l. 418--><p class="noindent" >Body mass is particularly important to walking machines, and the single leg minimizes
+cumulative leg mass.
+</p>     
+</li>
+<li class="itemize">     
+<!--l. 420--><p class="noindent" >Leg coordination is required when a robot has several legs, but with one leg no such
+coordination is needed.
+</p>     
+</li>
+<li class="itemize">     
+<!--l. 422--><p class="noindent" >The one-legged robot maximises the basic advantage of legged locomotion: legs have single points
+of contact with the ground in lieu of an entire track as with wheels. <div class="quote"><p>  A single legged
+robot requires only a sequence of single contacts, making it useful in rough terrain.  </p></p></div><p>
+</li></ul>
+<!--l. 432--><p class="noindent" >Perhaps most importantly, a hopping robot can dynamically cross a gap that is larger than its stride by
+taking a running start, whereas a multi-legged walking robot that cannot run is limited to crossing gaps
+that are as large as its reach.
+</p><!--l. 436--><p class="noindent" >The major challenge of creating a single-leg robot is <span class="alert"><alert style="color: #821131;">balance</alert></span>. For a robot with one leg, static walking
+is not only impossible, but static stability when stationary is also impossible. The robot must
+actively balance itself by either changing its centre of gravity or by imparting corrective
+forces.
+</p>
+<div class="warning">
+<!--l. 443--><p class="noindent" >Thus, the successful single-leg robot <span class="alert"><alert style="color: #821131;">must be dynamically stable</alert></span>.
+</p>
+</div>
+<!--l. 445--><p class="noindent" ><span id="bold" style="font-weight:bold;">Fig.</span> <a 
+href="#x4-7001r8">1.8<!--tex4ht:ref: fig:hopper --></a> shows the Raibert Hopper <span class="cite"><span class="cite-show">[†]</span><span class="cite-detail"><a 
+ id="x4-7003"></a>Murthy, S. S. &#x0026; Raibert, M. H. 3D balance in legged
+locomotion: modeling and simulation for the one-legged case. ACM SIGGRAPH Computer Graphics
+<span id="bold" style="font-weight:bold;">18</span><span id="bold" style="font-weight:bold;">,</span> 27–27 (1984), <a 
+ id="x4-7004"></a>Raibert, M. H., Brown Jr, H. B. &#x0026; Chepponis, M. Experiments in balance with a 3D
+one-legged hopping machine. The International Journal of Robotics Research <span id="bold" style="font-weight:bold;">3</span><span id="bold" style="font-weight:bold;">,</span> 75–92 (1984)</span></span>, one of
+the most well-known single-leg hopping robots created.
+</p><!--l. 448--><p class="noindent" >This robot makes continuous corrections to body attitude and to robot velocity by adjusting the leg
+angle with respect to the body. The actuation is hydraulic, including high-power longitudinal extension
+of the leg during stance to hop back into the air.
+</p>
+<div class="sidenote"> <span class="figure" 
+>
+                                                                                
+                                                                                
+                                                                                
+                                                                                
+<a 
+ id="x4-7005r9"></a>
+<figcaption class="caption" ><span class="id">Figure 1.9: </span><span  
+class="content">The 2D single Bow Leg Hopper. 
+</span></figcaption><!--tex4ht:label?: x4-7005r9 -->
+<img 
+ 
+src="figures/Locomotion/raster/bowleg.jpg" alt="PIC"  
+style="" />
+                                                                                
+                                                                                
+</div>
+<!--l. 456--><p class="noindent" ></div> </p><p>
+<!--l. 458--><p class="noindent" >Although powerful, these actuators require a large, off-board hydraulic pump to be connected to the
+robot at all times. <span id="bold" style="font-weight:bold;">Fig.</span> <a 
+href="#x4-7005r9">1.9<!--tex4ht:ref: fig:bowleg --></a> shows a more energy efficient design developed <span class="cite"><span class="cite-show">[†]</span><span class="cite-detail"><a 
+ id="x4-7006"></a>Brown, B. &#x0026; Zeglin, G.
+The bow leg hopping robot in Proceedings. 1998 IEEE International Conference on Robotics and
+Automation (Cat. No. 98CH36146) <span id="bold" style="font-weight:bold;">1</span> (1998), 781–786</span></span>. Instead of supplying power by means of an
+off-board hydraulic pump, the Bow Leg Hopper is designed to capture the kinetic energy of
+the robot as it lands using an efficient bow spring leg. This spring returns approximately
+85% of the energy, meaning that stable hopping requires only the addition of 15% of the
+required energy on each hop. This robot, which is constrained along one axis by a boom, has
+demonstrated continuous hopping for 20 minutes using a single set of batteries carried on board the
+robot.
+</p><!--l. 467--><p class="noindent" >As with the <italic>Raibert Hopper</italic>, the <italic>Bow Leg Hopper</italic> controls velocity by changing the angle of the leg to
+the body at the hip joint. The paper <span class="cite"><span class="cite-show">[†]</span><span class="cite-detail"><a 
+ id="x4-7007"></a>Ringrose, R. Self-stabilizing running in Proceedings of
+International Conference on Robotics and Automation <span id="bold" style="font-weight:bold;">1</span> (1997), 487–493</span></span> demonstrates the very
+important duality of mechanics and controls as applied to a single leg hopping machine.
+Often clever mechanical design can perform the same operations as complex active control
+circuitry.
+</p><!--l. 473--><p class="noindent" >In this robot, the physical shape of the foot is exactly the right curve so that when the robot lands
+without being perfectly vertical, the proper corrective force is provided from the impact, making the
+robot vertical by the next landing. This robot is dynamically stable, and is furthermore
+passive.
+</p>
+<div class="knowledge">
+<!--l. 481--><p class="noindent" >The correction is provided by physical interactions between the robot and its environment, with no
+computer nor any active control in the loop.
+</p>
+</div><p class="noindent">
+
+<!--l. 483--><p class="noindent" ><h5 id="header-subsubsection-3" class="subsubsectionHead"> <a 
+ id="x4-8000"></a>Two Legs (Bipedal)</h5>
+</p><!--l. 485--><p class="noindent" >A variety of successful bipedal robots have been demonstrated. Two-legged robots have been shown to
+run, jump, travel up and down stairs and even do aerial tricks such as somersaults. The Honda P2
+bipedal <span class="margin-block"><span class="margin"><span>robot, [12]</span><span class="sidenote"><span class="sidenote-image"><img 
+ 
+src="figures/Locomotion/raster/honda-asimo.jpg" alt="PIC"  
+style="" /></span><span class="sidenote-text"><span class="ellipsis">[12]</span>The New ASIMO introduced in 2005 <span class="cite"><span class="cite-show">[†]</span><span class="cite-detail"><a 
+ id="x4-8001"></a>Citizendium. Asimo 2005</span></span>.</span></span></span></span> which is the
+product of tens of millions of research dollars and more than a decade of work. This biped can
+walk on slopes, climb and descend stairs, and push shopping carts. The crucial technology
+that enables this robot is Honda’s research into the fabrication of extremely high torque,
+low mass motors that serve as the robot’s joints. In the case of P2, the most significant
+obstacle that remains is energy capacity, efficiency and autonomous navigation. This robot can
+operate for only about 20 minutes with on-board power. An important feature of bipedal
+robots is their anthropomorphic shape. They can be built to have the same approximate
+dimensions as humans, and this makes them excellent vehicles for research in human-robot
+interaction.
+</p><!--l. 499--><p class="noindent" >Bipedal robots can only be statically stable within some limits, and so robots such as P2 and Wabian
+                                                                                
+                                                                                
+generally must perform continuous balance-correcting servoing even when standing still. Furthermore,
+each leg must have sufficient capacity to support the full weight of the robot. In the case of
+four-legged robots, the balance problem is facilitated along with the load requirements of
+each leg. An elegant design of a biped robot is the Spring Flamingo of <span class="margin-block"><span class="margin"><span>MIT. [13]</span><span class="sidenote"><span class="sidenote-image"><img 
+ 
+src="figures/Locomotion/raster/flamingo.jpg" alt="PIC"  
+style="" /></span><span class="sidenote-text"><span class="ellipsis">[13]</span>Spring
+Flamingo is a planar bipedal walking robot <span class="cite"><span class="cite-show">[†]</span><span class="cite-detail"><a 
+ id="x4-8002"></a>Flamingo. Spring Flamingo 2000</span></span>.</span></span></span></span> This robot
+inserts springs in series with the leg actuators to achieve a more elastic gait. Combined
+with “kneecaps” that limit knee joint angles, the Flamingo achieves surprisingly biomimetic
+motion.
+
+</p>
+<!--l. 509--><p class="noindent" ><h5 id="header-subsubsection-4" class="subsubsectionHead"> <a 
+ id="x4-9000"></a>Four Legs (Quadruped)</h5>
+</p><!--l. 511--><p class="noindent" >Although standing still on four legs is <span class="alert"><alert style="color: #821131;">passively stable</alert></span>, walking remains challenging because to
+remain stable the robot’s center of gravity must be actively shifted during the gait.
+Four legged robots have the potential to serve as effective artifacts for research in human-robot
+<span class="margin-block"><span class="margin"><span>interaction. [14]</span><span class="sidenote"><span class="sidenote-image"><img 
+ 
+src="figures/Locomotion/raster/spot.jpg" alt="PIC"  
+style="" /></span><span class="sidenote-text"><span class="ellipsis">[14]</span>The four-legged canine-inspired Spot, weighing 25 kg (55 pounds), which was
+lighter than their other products. Spot was designed to travel over terrain or environments that were
+previously difficult for other robots.</span></span></span></span> Humans can treat the quadruped robots, for example,
+as a pet and might develop an emotional relationship similar to that between man and
+dog.
+</p><!--l. 522--><p class="noindent" >As the challenges of high energy storage and motor technology are solved, it is likely that quadruped
+robots much more capable will become common throughout the human environment.
+
+</p>
+<!--l. 525--><p class="noindent" ><h5 id="header-subsubsection-5" class="subsubsectionHead"> <a 
+ id="x4-10000"></a>Six Legs (Hexapod)</h5>
+</p><!--l. 527--><p class="noindent" >Six legged configurations have been extremely popular in <span class="acronym"><span class="acronym-short"><a 
+href="#glo:amr" class="glossary" >AMR</a></span><span class="acronym-detail"><span class="acronym-long"><a 
+href="#glo:amr" class="glossary" >Autonomous Mobile Robotics</a></span><span class="acronym-desc"><a 
+href="#glo:amr" class="glossary" >Autonomous
+Mobile Robotics</a></span></span></span> due to their static stability during walking, therefore reducing the control complexity.
+For most cases, each leg has 3 <span class="acronym"><span class="acronym-short"><a 
+href="#glo:dof" class="glossary" >DoF</a></span><span class="acronym-detail"><span class="acronym-long"><a 
+href="#glo:dof" class="glossary" >Degrees of Freedom</a></span><span class="acronym-desc"><a 
+href="#glo:dof" class="glossary" >Degrees of Freedom</a></span></span></span>, including hip flexion, knee
+flexion and hip abduction.
+</p>
+<div class="sidenote"> <span class="figure" 
+>
+                                                                                
+                                                                                
+                                                                                
+                                                                                
+<a 
+ id="x4-10001r10"></a>
+<figcaption class="caption" ><span class="id">Figure 1.10: </span><span  
+class="content">Genghis, one of the most famous walking robots from MIT uses hobby servomotors as its actuators. 
+</span></figcaption><!--tex4ht:label?: x4-10001r10 -->
+<img 
+ 
+src="figures/Locomotion/raster/genghis.png" alt="PIC"  
+style="" />
+                                                                                
+                                                                                
+</div>
+<!--l. 536--><p class="noindent" ></div> </p><p>
+Genghis is a commercially available hobby robot which has six legs, each of which has 2 <span class="acronym"><span class="acronym-short"><a 
+href="#glo:dof" class="glossary" >DoF</a></span><span class="acronym-detail"><span class="acronym-long"><a 
+href="#glo:dof" class="glossary" >Degrees of
+Freedom</a></span><span class="acronym-desc"><a 
+href="#glo:dof" class="glossary" >Degrees of Freedom</a></span></span></span> provided by hobby servos, shown in <span id="bold" style="font-weight:bold;">Fig.</span> <a 
+href="#x4-10001r10">1.10<!--tex4ht:ref: fig:genghis --></a>. Such a robot,
+which consists only of hip flexion and hip abduction, has less maneuverability in rough
+terrain but performs quite well on flat ground. Because it consists of a straightforward
+arrangement of servo motors and straight legs, such robots can be readily built by a robot
+hobbyist.
+Insects, which are arguably the most successful locomoting creatures on earth, excel at traversing all
+forms of terrain with six legs, even upside down.
+<div class="info-block"> <span class="info-upper"> <span class="info-header"> <span id="bold" style="font-weight:bold;">Information 1.<a 
+ id="x4-10002r2"></a>2: </span> </span> <span class="info-title"> Playing Catch-up </span> </span> <div class="body"><p>
+<!--l. 549--><p class="noindent" >Currently, the gap between the capabilities of six-legged insects and artificial six-legged robots is still
+quite large. Interestingly, this is not due to a lack of sufficient numbers of degrees of freedom on the
+robots. Rather, insects combine a small number of active <span class="acronym"><span class="acronym-short"><a 
+href="#glo:dof" class="glossary" >DoF</a></span><span class="acronym-detail"><span class="acronym-long"><a 
+href="#glo:dof" class="glossary" >Degrees of Freedom</a></span><span class="acronym-desc"><a 
+href="#glo:dof" class="glossary" >Degrees of Freedom</a></span></span></span>
+with <span class="alert"><alert style="color: #821131;">passive structures</alert></span>, such as microscopic barbs and textured pads, that increase the gripping
+strength of each leg significantly.
+</p></div></div><p class="noindent">
+
+</p>
+<!--l. 557--><p class="noindent" ><span class="paragraphHead"> <a 
+ id="x4-11000"></a>Final Remarks</span>
+It is clear from the above examples that legged robots have much progress to make before they are
+competitive with their biological equivalents. Nevertheless, significant gains have been realized recently,
+primarily due to advances in motor design.
+</p><!--l. 563--><p class="noindent" >Creating actuation systems that approach the efficiency of animal muscles remains far from the
+reach of robotics, as does energy storage with the energy densities found in organic life
+forms.
+                                                                                
+                                                                                
+</p>
+<div class="crosslinks-bottom"><a 
+href="WheeledMobileRobots.html" ><span class="nav-next">NEXT</span></a><a 
+href="Locomotion.html" ><span class="nav-prev">PREV</span></a><a 
+href="Locomotion.html#tailLocomotion.html" ><span class="nav-prev-tail">PREV-TAIL</span></a><a 
+href="LeggedMobileRobots.html" ><span class="nav-front">FRONT</span></a><a 
+href="Locomotion.html#LeggedMobileRobots.html" ><span class="nav-up">UP</span></a></nav><a 
+ id="tailLeggedMobileRobots.html"></a>     </div> <div class="footer"> <div class="footer-left"><span class="footer-lecture">D. T. McGuiness, PhD</span> 
+<span class="footer-webBook"><span id="bold" style="font-weight:bold;">Last Updated:</span> 5.8.2026, at 15:38.</span> </div> </div> </div> <div class="author-notes"> 
+<span class="note">Authors Note </span> 
+<span class="text">The website you are viewing is auto-generated using ParSnip and therefore subject to slight errors in typography and formatting. When in doubt, please consult the LectureBook. </span> 
+</div> 
+</article> 
+<div class="mode-line"> 
+<div class="core-line"> 
+<div class="button-group"> 
+</div> 
+</div> 
+<div class="supp-line"></div> 
+</div> 
+</page> 
+ 
+</body> 
+</html>

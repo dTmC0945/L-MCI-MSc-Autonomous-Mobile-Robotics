@@ -1,341 +1,109 @@
-<!DOCTYPE html>
-<html lang="en-US" xml:lang="en-US">
- <head>
-  <title>
-   Table of Contents
-  </title>
-    <link rel='icon' type='image/x-icon' href='figures/logo.svg'></link>
-  <meta charset="utf-8"/>
-  <meta content="ParSnip" name="generator"/>
-  <meta content="width=device-width,initial-scale=1" name="viewport"/>
-  <link href="AutonomousMobileRoboticsLectureBook.css" rel="stylesheet" type="text/css"/>
-  <meta content="AutonomousMobileRoboticsLectureBook.tex" name="src"/>
-  <script async="async" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/mml-chtml.js" type="text/javascript">
-  </script>
-  <link href="flatweb.css" rel="stylesheet" type="text/css"/>
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js">
-  </script>
-  <script src="flatjs.js">
-  </script>
-  <link href="http://fonts.googleapis.com/css?family=Roboto" rel="stylesheet" type="text/css"/>
-  <script type="module">
-   import pdfjsDist from 'https://cdn.jsdelivr.net/npm/pdfjs-dist@5.3.93/+esm'
-  </script>
-  <script>
-   function moveTOC() { 
-var htmlShow = document.getElementsByClassName("wide"); 
-if (htmlShow[0].style.display === "none") { 
-htmlShow[0].style.display = "block"; 
-} else { 
-htmlShow[0].style.display = "none"; 
-} 
-}
-  </script>
-  <link href="https://unpkg.com/nord-highlightjs@0.1.0/dist/nord.css" rel="stylesheet" type="text/css">
-   <script src="https://unpkg.com/@highlightjs/cdn-assets@11.3.1/highlight.min.js">
-   </script>
-   <script src="https://unpkg.com/highlightjs-copy/dist/highlightjs-copy.min.js">
-   </script>
-   <link href="https://unpkg.com/highlightjs-copy/dist/highlightjs-copy.min.css" rel="stylesheet">
-    <script src="flatjs.js">
-    </script>
-    <header>
-    </header>
-   </link>
-  </link>
- </head>
- <body>
-  <!--l. 67-->
-  <nav class="wide">
-   <div class="contents">
-    <h3 style="font-weight:lighter;padding: 20px 0 20px 0;">
-     WebBook
-    </h3>
-    <h2>
-     Table of Contents
-    </h2>
-    <div style="margin: 50px auto;">
-     <h3>
-      Lecture Sources
-     </h3>
-     <div style="align-content: center;">
-      <div class="lecbook-text" style="/*! float: right; *//*! width: 100px; *//*! position: absolute; *//*! right: 90px; *//*! top: 220px; */">
-       <span style='font: 400 12px/18px "Source Sans Pro", sans-serif;font-size: 12px;text-align: center;text-transform: uppercase;letter-spacing: 1px;'>
-        Lecture Book
-       </span>
-      </div>
-     </div>
-    </div>
-    <div id="author-info" style="padding-bottom: 10px;">
-     <div id="author-logo">
-      <img src="figures/logo.svg" style="margin: 10px 0; width: 100%;"/>
-     </div>
-     <h4 style="color:#7aa0b8; font-weight:lighter;">
-      WebBook | D. T. McGuiness, P.hD
-     </h4>
-     <div id="author-text" style="bottom: 0; padding-top: 50px;border-top: solid 1px #3b4b5e;font-size: 12px;text-align: right;">
-      <p>
-       <b>
-        Authors Note
-       </b>
-       The website you are viewing is auto-generated
-    using ParSnip and therefore subject to slight errors in
-    typography and formatting. When in doubt, please consult the
-    LectureBook.
-      </p>
-     </div>
-    </div>
-   </div>
-  </nav>
-  <div class="page">
-   <article class="chapter">
-    <h1 class="chapterHead">
-     Autonomous Mobile Robotics
-    </h1>
-<h2> Table of Contents </h2>
-<p>The contents of the lecture is as follows</p>
-    <div class="tableofcontents">
-     <span class="chapterToc">
-      1
-      <a href="AutonomousMobileRoboticsLectureBookch1.html#x3-20001">
-       Locomotion
-      </a>
-     </span>
-     <br/>
-     <span class="sectionToc">
-      1.1
-      <a href="AutonomousMobileRoboticsLectureBookch1.html#x3-30001.1">
-       Introduction
-      </a>
-     </span>
-     <br/>
-     <span class="subsectionToc">
-      1.1.1
-      <a href="AutonomousMobileRoboticsLectureBookch1.html#x3-40001.1.1" id="QQ2-3-8">
-       Key Issues for Locomotion
-      </a>
-     </span>
-     <br/>
-     <span class="sectionToc">
-      1.2
-      <a href="AutonomousMobileRoboticsLectureBookch1.html#x3-50001.2">
-       Legged Mobile Robots
-      </a>
-     </span>
-     <br/>
-     <span class="subsectionToc">
-      1.2.1
-      <a href="AutonomousMobileRoboticsLectureBookch1.html#x3-70001.2.1" id="QQ2-3-17">
-       Examples of Legged Robot Locomotion
-      </a>
-     </span>
-     <br/>
-     <span class="sectionToc">
-      1.3
-      <a href="AutonomousMobileRoboticsLectureBookch1.html#x3-120001.3">
-       Wheeled Mobile Robots
-      </a>
-     </span>
-     <br/>
-     <span class="subsectionToc">
-      1.3.1
-      <a href="AutonomousMobileRoboticsLectureBookch1.html#x3-130001.3.1" id="QQ2-3-28">
-       Design
-      </a>
-     </span>
-     <br/>
-     <span class="subsectionToc">
-      1.3.2
-      <a href="AutonomousMobileRoboticsLectureBookch1.html#x3-160001.3.2" id="QQ2-3-33">
-       Stability
-      </a>
-     </span>
-     <br/>
-     <span class="subsectionToc">
-      1.3.3
-      <a href="AutonomousMobileRoboticsLectureBookch1.html#x3-170001.3.3" id="QQ2-3-34">
-       Manoeuvrability
-      </a>
-     </span>
-     <br/>
-     <span class="subsectionToc">
-      1.3.4
-      <a href="AutonomousMobileRoboticsLectureBookch1.html#x3-180001.3.4" id="QQ2-3-35">
-       Controllability
-      </a>
-     </span>
-     <br/>
-     <span class="subsectionToc">
-      1.3.5
-      <a href="AutonomousMobileRoboticsLectureBookch1.html#x3-190001.3.5" id="QQ2-3-37">
-       Case Studies for Wheeled Motion
-      </a>
-     </span>
-     <br/>
-     <span class="subsectionToc">
-      1.3.6
-      <a href="AutonomousMobileRoboticsLectureBookch1.html#x3-260001.3.6" id="QQ2-3-44">
-       Walking Wheels
-      </a>
-     </span>
-     <br/>
-     <span class="chapterToc">
-      2
-      <a href="AutonomousMobileRoboticsLectureBookch2.html#x4-270002">
-       Perception
-      </a>
-     </span>
-     <br/>
-     <span class="sectionToc">
-      2.1
-      <a href="AutonomousMobileRoboticsLectureBookch2.html#x4-280002.1">
-       Introduction
-      </a>
-     </span>
-     <br/>
-     <span class="subsectionToc">
-      2.1.1
-      <a href="AutonomousMobileRoboticsLectureBookch2.html#x4-290002.1.1" id="QQ2-4-47">
-       Sensors for Mobile Robotics
-      </a>
-     </span>
-     <br/>
-     <span class="subsectionToc">
-      2.1.2
-      <a href="AutonomousMobileRoboticsLectureBookch2.html#x4-300002.1.2" id="QQ2-4-48">
-       Sensor Classification
-      </a>
-     </span>
-     <br/>
-     <span class="subsectionToc">
-      2.1.3
-      <a href="AutonomousMobileRoboticsLectureBookch2.html#x4-310002.1.3" id="QQ2-4-49">
-       Characterising Sensor Performance
-      </a>
-     </span>
-     <br/>
-     <span class="subsectionToc">
-      2.1.4
-      <a href="AutonomousMobileRoboticsLectureBookch2.html#x4-370002.1.4" id="QQ2-4-55">
-       Wheel and Motor Sensors
-      </a>
-     </span>
-     <br/>
-     <span class="sectionToc">
-      2.2
-      <a href="AutonomousMobileRoboticsLectureBookch2.html#x4-460002.2">
-       Active Ranging
-      </a>
-     </span>
-     <br/>
-     <span class="subsectionToc">
-      2.2.1
-      <a href="AutonomousMobileRoboticsLectureBookch2.html#x4-480002.2.1" id="QQ2-4-70">
-       The Ultrasonic Sensor
-      </a>
-     </span>
-     <br/>
-     <span class="subsectionToc">
-      2.2.2
-      <a href="AutonomousMobileRoboticsLectureBookch2.html#x4-550002.2.2" id="QQ2-4-85">
-       Motion and Speed Sensors
-      </a>
-     </span>
-     <br/>
-     <span class="sectionToc">
-      2.3
-      <a href="AutonomousMobileRoboticsLectureBookch2.html#x4-570002.3">
-       Vision Based Sensors
-      </a>
-     </span>
-     <br/>
-     <span class="subsectionToc">
-      2.3.1
-      <a href="AutonomousMobileRoboticsLectureBookch2.html#x4-590002.3.1" id="QQ2-4-94">
-       CMOS Technology
-      </a>
-     </span>
-     <br/>
-     <span class="subsectionToc">
-      2.3.2
-      <a href="AutonomousMobileRoboticsLectureBookch2.html#x4-600002.3.2" id="QQ2-4-97">
-       Visual Ranging Sensors
-      </a>
-     </span>
-     <br/>
-     <span class="subsectionToc">
-      2.3.3
-      <a href="AutonomousMobileRoboticsLectureBookch2.html#x4-610002.3.3" id="QQ2-4-98">
-       Depth from Focus
-      </a>
-     </span>
-     <br/>
-     <span class="sectionToc">
-      2.4
-      <a href="AutonomousMobileRoboticsLectureBookch2.html#x4-620002.4">
-       Feature Extraction
-      </a>
-     </span>
-     <br/>
-     <span class="subsectionToc">
-      2.4.1
-      <a href="AutonomousMobileRoboticsLectureBookch2.html#x4-630002.4.1" id="QQ2-4-102">
-       Defining Feature
-      </a>
-     </span>
-     <br/>
-     <span class="subsectionToc">
-      2.4.2
-      <a href="AutonomousMobileRoboticsLectureBookch2.html#x4-640002.4.2" id="QQ2-4-103">
-       Using Range Data
-      </a>
-     </span>
-     <br/>
-     <span class="chapterToc">
-      <a href="AutonomousMobileRoboticsLectureBookch2.html#Q1-4-106">
-       List of Acronyms
-      </a>
-     </span>
-     <br/>
-     <span class="addchapToc">
-      <a href="AutonomousMobileRoboticsLectureBookad1.html#x6-68000" id="QQ2-6-108">
-       Bibliography
-      </a>
-     </span>
-    </div>
-<div class='copyright-info' style='font-size: 14px; border-top: solid 1px #dee9ed;'>
-<h2>Copyright Information</h2><br>
-<p>(2025, D. T. McGuines, Ph.D)<br /><br/>
-This document includes the contents of Autonomous Mobile Robotics,
-official name being <em>Autonome mobile Robotik</em>, taught at MCI in
-the Mechatronik Automation Robotics AI. This document is the part of the
-module MECH-M-DUAL-3-AMR taught in the M.Sc degree.<br/><br/>
-All relevant code of the document is done using <em>SageMath</em> where
-stated and Python v3.13.7.<br />
-This document was compiled with LuaTeX  v1.22.0, and all editing were
-done using GNU Emacs v30.1 using AUCTeX  and org-mode package.<br /><br/>
-This document is based on the following books and resources shown in no
-particular order:<br/><br/>
-<em>A very informal journey through ROS 2</em> by M. M. Bassa ,
-Self-Published <em>A Concise Introduction to Robot Programming with
-ROS2</em> by F. M. Rico , Taylor Francis (2022) <em>Programming
-Principles and Practice using C++</em> by B. Stroustrup , Addison Wesley
-(2014) <em>Introduction to Autonomous Mobile Robots</em> by R. Siegwart,
-et. al , MIT Press (2011)<br/>
-<br />
-The document is designed with no intention of publication and has only
-been designed for education purposes.<br /><br/>
-The current maintainer of this work along with the primary
-lecturer<br />
-is D. T. McGuines, Ph.D.   (dtm@mci4me.at).</p>
+<!DOCTYPE html> 
+<html lang="en">  
+<head><title>0 index</title> 
+<meta  charset="utf-8" /> 
+<meta name="generator" content="TeX4ht (https://tug.org/tex4ht/)" /> 
+<meta name="viewport" content="width=device-width,initial-scale=1" /> 
+<link rel="stylesheet" type="text/css" href="\aa:CssFile " /> 
+<meta name="src" content="AutonomousMobileRoboticsLectureBook.tex" /> 
+ <script type="text/javascript" id="MathJax-script" async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/mml-chtml.js"></script>  
+<title>Autonomous Mobile Robotics</title> 
+<link href="/pagefind/pagefind-component-ui.css" rel="stylesheet"> 
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script> 
+<script src="/pagefind/pagefind-component-ui.js" type="module"></script> 
+<link rel="stylesheet" type="text/css" href="flatweb.css"> 
+<script type="text/javascript" src="flatweb.js"></script> 
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/styles/default.min.css"> 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/highlight.min.js"></script> 
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/styles/base16/solarized-light.min.css"/> 
+<script src="https://unpkg.com/highlightjs-copy/dist/highlightjs-copy.min.js"></script> 
+<link rel="stylesheet" href="https://unpkg.com/highlightjs-copy/dist/highlightjs-copy.min.css"/> 
+<link href='http://fonts.googleapis.com/css?family=Roboto:400,100,100italic,300,300italic,400italic,500,500italic,700,700italic,900italic,900' rel='stylesheet' type='text/css'> 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/languages/cpp.min.js"></script> 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/languages/latex.min.js"></script> 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/languages/matlab.min.js"></script> 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/languages/dockerfile.min.js"></script> 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/languages/cmake.min.js"></script> 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/languages/makefile.min.js"></script> 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/languages/markdown.min.js"></script> 
+ <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/> <style> 
+ </style> 
+ <header> 
+ <pagefind-modal></pagefind-modal> 
+ </header> 
+</head><body 
+>
+<page> 
+<div class="keyboard-help-menu"><div style="overflow-x:auto"> <table> <thead> <tr> <th>Key</th> <th>Description</th> </tr> </thead> <tbody> <tr> <td><kbd>t</kbd></td> <td>Enable/Disable Table of Contents</td> </tr> <tr> <td><kbd>n</kbd></td> <td>Visit Next Chapter</td> </tr> <tr> <td><kbd>p</kbd></td> <td>Visit Previous Chapter</td> </tr> <tr> <td><kbd>u</kbd></td> <td>Go to Top of Page</td> </tr> <tr> <td><kbd>b</kbd></td> <td>Go to Bottom of Page</td> </tr> <tr> <td><kbd>i</kbd></td> <td>Visit the Introduction Page</td> </tr> </tbody> </table> </div> </div> <nav class="wide"><img class="webbook-logo" src="logo/webbook-logo.svg"></img> <div class="header"> <div class="header-left"><span class="header-lecture-grade">M.Sc</span> 
+<span class="header-lecture-name">Autonomous Mobile Robotics</span> 
+<span class="header-webBook">WebBook</span> </div> <div class="header-right"> <span class="header-version">2026.WS</span> 
+ <span class="header-chapter"></span></div></div> <div class="toc"><pagefind-modal-trigger></pagefind-modal-trigger><div class="toc-links"><a href="https://github.com/dTmC0945" title="Lecturer GitHub Repo"><i class="fab fa-github" style='font-size:20px'></i></a><a href="https://scholar.google.com/citations?view_op=list_works\&hl=en\&user=lxQGADMAAAAJ" title="Lecturer Google Scholar Page"><i class="fa-brands fa-google-scholar" style='font-size:20px'></i></a><a href="https://www.researchgate.net/profile/Daniel-Mcguiness-2" title="Lecturer ResearchGate Account"><i class="fa-brands fa-researchgate" style='font-size:20px'></i></a><a href="https://dtmc0945.github.io/Th-MCI-Thesis-Topics/" title="Lecturer Thesis Ideas for B.Sc and M.Sc"><i class="fa-solid fa-book" style='font-size:20px'></i></a><a href="https://github.com/dTmC0945/C-MCI-LaTeX-Class-mcidoc/tree/main" title="mcidoc LaTeX Standard"><i class="fa-regular fa-file-lines" style='font-size:20px'></i></a></div><hr><span class="chapterToc"><span class="number">0</span><span class="title"><a 
+href="#x2-10000">index</a></span></span><span class="chapterToc"><span class="number">1</span><span class="title"><a 
+href="Locomotion.html#x3-20001">Locomotion</a></span></span><span class="subsectionToc"><span class="number">1.0.1</span><span class="title"><a 
+href="Locomotion.html#x3-30001.0.1" id="QQ2-3-8">Key Issues for Locomotion</a></span></span><span class="sectionToc"><span class="number">1.1</span><span class="title"><a 
+href="LeggedMobileRobots.html#x4-40001.1">Legged Mobile
+Robots</a></span></span><span class="subsectionToc"><span class="number">1.1.1</span><span class="title"><a 
+href="LeggedMobileRobots.html#x4-60001.1.1" id="QQ2-4-14">Examples  of  Legged  Robot  Locomotion</a></span></span><span class="sectionToc"><span class="number">1.2</span><span class="title"><a 
+href="WheeledMobileRobots.html#x5-120001.2">Wheeled  Mobile
+Robots</a></span></span><span class="subsectionToc"><span class="number">1.2.1</span><span class="title"><a 
+href="WheeledMobileRobots.html#x5-130001.2.1" id="QQ2-5-24">Design</a></span></span><span class="subsectionToc"><span class="number">1.2.2</span><span class="title"><a 
+href="WheeledMobileRobots.html#x5-160001.2.2" id="QQ2-5-29">Stability</a></span></span><span class="subsectionToc"><span class="number">1.2.3</span><span class="title"><a 
+href="WheeledMobileRobots.html#x5-170001.2.3" id="QQ2-5-30">Manoeuvrability</a></span></span><span class="subsectionToc"><span class="number">1.2.4</span><span class="title"><a 
+href="WheeledMobileRobots.html#x5-180001.2.4" id="QQ2-5-31">Controllability</a></span></span><span class="subsectionToc"><span class="number">1.2.5</span><span class="title"><a 
+href="WheeledMobileRobots.html#x5-190001.2.5" id="QQ2-5-33">Case
+Studies for Wheeled Motion</a></span></span><span class="subsectionToc"><span class="number">1.2.6</span><span class="title"><a 
+href="WheeledMobileRobots.html#x5-260001.2.6" id="QQ2-5-42">Walking Wheels</a></span></span>
+<!--l. 1195--><p class="noindent" ><div class="nav-footer"><div class="nav-footer-left"><span class="nav-footer-lecture">D. T. McGuiness, PhD</span> 
+<span class="nav-footer-webBook"><span id="bold" style="font-weight:bold;">Last Updated:</span> 5.8.2026, at 15:38.</span></div></div><span class="nav-comments">The website you are viewing is auto-generated using ParSnip and therefore subject to slight errors in typography and formatting. When in doubt, please consult the LectureBook. </span></div></div></nav> 
+
+</p>
+<article class="chapter"> 
+<nav class="crosslinks-top"> <a 
+href="Locomotion.html" ><span class="nav-next">NEXT</span></a><a 
+href="AutonomousMobileRoboticsLectureBook.html" ><span class="nav-prev">PREV</span></a><a 
+href="AutonomousMobileRoboticsLectureBook.html#tailAutonomousMobileRoboticsLectureBook" ><span class="nav-prev-tail">PREV-TAIL</span></a><a 
+href="#tailindex.html"><span class="nav-tail">TAIL</span></a><a 
+href="AutonomousMobileRoboticsLectureBook.html#index.html" ><span class="nav-up">UP</span></a></nav> 
+<h2 class="chapterHead"><div class="chapter-header">Chapter <span class="titlemark">0</span>  </div><br />  <a 
+ id="x2-10000"></a>index</h2>
+<!--l. 1197--><p class="noindent" ><div class="introduction"> (2026, D. T. McGuiness, PhD) <br 
+class="newline" />
+</p><!--l. 1200--><p class="noindent" >Current version of this document is 2026.WS. <br 
+class="newline" /><span id="bold" style="font-weight:bold;">Last Updated:</span> 5.8.2026, at 15:38.<br 
+class="newline" />
+</p><!--l. 1203--><p class="noindent" >This document includes the contents of Autonomous Mobile Robotics, taught at the M.Sc degree.
+<br 
+class="newline" />
+</p><!--l. 1205--><p class="noindent" >All relevant code of the document is done using Python 3.14.3 . This document was compiled with
+LuaHBTeX, Version 1.24.0 (TeX Live 2026)  and all editing were done using GNU Emacs 30.2  using
+AUCTeX, and org-mode package. <br 
+class="newline" />
+</p><!--l. 1210--><p class="noindent" >-DTMc </div><div class="lecture-information"></div> 
+</p>
+<div class="tableofcontents">
 </div>
-   </article>
-  </div>
-  <!--l. 8-->
-  <!--l. 8-->
-  <p class="noindent">
-   <a id="tailAutonomousMobileRoboticsLectureBookli1.html">
-   </a>
-  </p>
- </body>
+                                                                                
+                                                                                
+<div class="crosslinks-bottom"><a 
+href="Locomotion.html" ><span class="nav-next">NEXT</span></a><a 
+href="AutonomousMobileRoboticsLectureBook.html" ><span class="nav-prev">PREV</span></a><a 
+href="AutonomousMobileRoboticsLectureBook.html#tailAutonomousMobileRoboticsLectureBook" ><span class="nav-prev-tail">PREV-TAIL</span></a><a 
+href="index.html" ><span class="nav-front">FRONT</span></a><a 
+href="AutonomousMobileRoboticsLectureBook.html#index.html" ><span class="nav-up">UP</span></a></nav><a 
+ id="tailindex.html"></a> </div> <div class="footer"> <div class="footer-left"><span class="footer-lecture">D. T. McGuiness, PhD</span> 
+<span class="footer-webBook"><span id="bold" style="font-weight:bold;">Last Updated:</span> 5.8.2026, at 15:38.</span> </div> </div> </div> <div class="author-notes"> 
+<span class="note">Authors Note </span> 
+<span class="text">The website you are viewing is auto-generated using ParSnip and therefore subject to slight errors in typography and formatting. When in doubt, please consult the LectureBook. </span> 
+</div> 
+</article> 
+<div class="mode-line"> 
+<div class="core-line"> 
+<div class="button-group"> 
+</div> 
+</div> 
+<div class="supp-line"></div> 
+</div> 
+</page> 
+ 
+</body> 
 </html>
