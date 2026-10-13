@@ -1,0 +1,657 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><title>Building Maps</title>
+<meta charset="utf-8"/>
+<meta content="lms-WebBook" name="generator"/>
+<meta content="width=device-width,initial-scale=1" name="viewport"/>
+<script async="async" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/mml-chtml.js" type="text/javascript"></script>
+<link href="logo/lms.ico" rel="icon" type="image/x-icon"/>
+<link href="./pagefind/pagefind-component-ui.css" rel="stylesheet"/>
+<script src="./pagefind/pagefind-component-ui.js" type="text/javascript"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<link href="https://cdn.jsdelivr.net/gh/sugina-dev/latin-modern-web@1.0.1/style/latinmodern-mono.css" rel="stylesheet"/>
+<link href="https://cdn.jsdelivr.net/gh/dTmC0945/Wb-LMS-WebBook-Infrastructure/flatweb.css" rel="stylesheet" type="text/css"/>
+<script async="true" crossorigin="anonymous" src="https://cdn.jsdelivr.net/gh/dTmC0945/Wb-LMS-WebBook-Infrastructure/flatweb.js"></script>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/styles/default.min.css" rel="stylesheet"/>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/highlight.min.js"></script>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/styles/base16/solarized-light.min.css" rel="stylesheet"/>
+<script src="https://unpkg.com/highlightjs-copy/dist/highlightjs-copy.min.js"></script>
+<link href="https://unpkg.com/highlightjs-copy/dist/highlightjs-copy.min.css" rel="stylesheet"/>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css?family=Roboto:400,100,100italic,300,300italic,400italic,500,500italic,700,700italic,900italic,900" rel="stylesheet"/>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/languages/cpp.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/languages/latex.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/languages/matlab.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/languages/dockerfile.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/languages/cmake.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/languages/makefile.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/languages/markdown.min.js"></script>
+ </head><body>
+<page>
+<nav class="wide"> <div class="header"><div class="header-left"><span class="header-lecture-grade">M.Sc</span>
+<span class="header-lecture-name">Autonomous Mobile Robotics</span>
+<span class="header-webBook">WebBook 2.1</span></div><div class="header-right"><span class="header-version">2026.WS</span>
+<span class="header-chapter">Mobile Robot Localisation</span></div></div><div class="toc"><pagefind-modal-trigger></pagefind-modal-trigger><pagefind-modal></pagefind-modal><div class="toc-links"><a href="https://github.com/dTmC0945" title="Lecturer GitHub Repo"><i class="fab fa-github" style="font-size:20px"></i></a><a href="https://scholar.google.com/citations?view_op=list_works\&amp;hl=en\&amp;user=lxQGADMAAAAJ" title="Lecturer Google Scholar Page"><i class="fa-brands fa-google-scholar" style="font-size:20px"></i></a><a href="https://www.researchgate.net/profile/Daniel-Mcguiness-2" title="Lecturer ResearchGate Account"><i class="fa-brands fa-researchgate" style="font-size:20px"></i></a><a href="https://dtmc0945.github.io/Th-MCI-Thesis-Topics/" title="Lecturer Thesis Ideas for B.Sc and M.Sc"><i class="fa-solid fa-book" style="font-size:20px"></i></a><a href="https://github.com/dTmC0945/C-MCI-LaTeX-Class-mcidoc/tree/main" title="mcidoc LaTeX Standard"><i class="fa-regular fa-file-lines" style="font-size:20px"></i></a></div><hr/><span class="chapterToc"><span class="number"></span><span class="title"><a href="index.html#x2-10000">Entry Point</a></span></span><span class="chapterToc"><span class="number">1</span><span class="title"><a href="Locomotion.html#x3-20001">Locomotion</a></span></span><span class="subsectionToc"><span class="number">1.0.1</span><span class="title"><a href="Locomotion.html#x3-30001.0.1">Key  Issues  for  Locomotion</a></span></span><span class="sectionToc"><span class="number">1.1</span><span class="title"><a href="LeggedMobileRobots.html#x4-40001.1">Legged  Mobile
+Robots</a></span></span><span class="subsectionToc"><span class="number">1.1.1</span><span class="title"><a href="LeggedMobileRobots.html#x4-60001.1.1">Examples  of  Legged  Robot  Locomotion</a></span></span><span class="sectionToc"><span class="number">1.2</span><span class="title"><a href="WheeledMobileRobots.html#x5-120001.2">Wheeled  Mobile
+Robots</a></span></span><span class="subsectionToc"><span class="number">1.2.1</span><span class="title"><a href="WheeledMobileRobots.html#x5-130001.2.1">Design</a></span></span><span class="subsectionToc"><span class="number">1.2.2</span><span class="title"><a href="WheeledMobileRobots.html#x5-160001.2.2">Stability</a></span></span><span class="subsectionToc"><span class="number">1.2.3</span><span class="title"><a href="WheeledMobileRobots.html#x5-170001.2.3">Manoeuvrability</a></span></span><span class="subsectionToc"><span class="number">1.2.4</span><span class="title"><a href="WheeledMobileRobots.html#x5-180001.2.4">Controllability</a></span></span><span class="subsectionToc"><span class="number">1.2.5</span><span class="title"><a href="WheeledMobileRobots.html#x5-190001.2.5">Case
+Studies for Wheeled Motion</a></span></span><span class="subsectionToc"><span class="number">1.2.6</span><span class="title"><a href="WheeledMobileRobots.html#x5-260001.2.6">Walking Wheels</a></span></span><span class="chapterToc"><span class="number">2</span><span class="title"><a href="MobileRobotKinematics.html#x6-270002">Mobile Robot Kinematics</a></span></span><span class="sectionToc"><span class="number">2.1</span><span class="title"><a href="KinematicModelsandConstraints.html#x7-280002.1">Kinematic
+Models and Constraints</a></span></span><span class="subsectionToc"><span class="number">2.1.1</span><span class="title"><a href="KinematicModelsandConstraints.html#x7-290002.1.1">Representing robot position</a></span></span><span class="subsectionToc"><span class="number">2.1.2</span><span class="title"><a href="KinematicModelsandConstraints.html#x7-300002.1.2">Forward kinematic
+models</a></span></span><span class="subsectionToc"><span class="number">2.1.3</span><span class="title"><a href="KinematicModelsandConstraints.html#x7-310002.1.3">Wheel kinematic constraints</a></span></span><span class="subsectionToc"><span class="number">2.1.4</span><span class="title"><a href="KinematicModelsandConstraints.html#x7-370002.1.4">Robot kinematic constraints</a></span></span><span class="subsectionToc"><span class="number">2.1.5</span><span class="title"><a href="KinematicModelsandConstraints.html#x7-380002.1.5">Examples:
+robot kinematic models and constraints</a></span></span><span class="sectionToc"><span class="number">2.2</span><span class="title"><a href="MobileRobotManeuverability.html#x8-410002.2">Mobile Robot Maneuverability</a></span></span><span class="subsectionToc"><span class="number">2.2.1</span><span class="title"><a href="MobileRobotManeuverability.html#x8-420002.2.1">Degree
+of Mobility</a></span></span><span class="subsectionToc"><span class="number">2.2.2</span><span class="title"><a href="MobileRobotManeuverability.html#x8-450002.2.2">Degree of steerability</a></span></span><span class="subsectionToc"><span class="number">2.2.3</span><span class="title"><a href="MobileRobotManeuverability.html#x8-470002.2.3">Robot maneuverability</a></span></span><span class="sectionToc"><span class="number">2.3</span><span class="title"><a href="MobileRobotWorkspace.html#x9-480002.3">Mobile Robot
+Workspace</a></span></span><span class="subsectionToc"><span class="number">2.3.1</span><span class="title"><a href="MobileRobotWorkspace.html#x9-490002.3.1">Degrees of freedom</a></span></span><span class="subsectionToc"><span class="number">2.3.2</span><span class="title"><a href="MobileRobotWorkspace.html#x9-500002.3.2">Holonomic robots</a></span></span><span class="subsectionToc"><span class="number">2.3.3</span><span class="title"><a href="MobileRobotWorkspace.html#x9-530002.3.3">Path and trajectory
+considerations</a></span></span><span class="subsectionToc"><span class="number">2.3.4</span><span class="title"><a href="MobileRobotWorkspace.html#x9-540002.3.4">Beyond Basic Kinematics</a></span></span><span class="sectionToc"><span class="number">2.4</span><span class="title"><a href="MotionControlKinematicControl.html#x10-550002.4">Motion Control (Kinematic
+Control)</a></span></span><span class="subsectionToc"><span class="number">2.4.1</span><span class="title"><a href="MotionControlKinematicControl.html#x10-560002.4.1">Open loop control</a></span></span><span class="subsectionToc"><span class="number">2.4.2</span><span class="title"><a href="MotionControlKinematicControl.html#x10-570002.4.2">Feedback control</a></span></span><span class="chapterToc"><span class="number">3</span><span class="title"><a href="Perception.html#x11-630003">Perception</a></span></span><span class="sectionToc"><span class="number">3.1</span><span class="title"><a href="SensorsforMobileRobotics.html#x12-640003.1">Sensors for Mobile
+Robotics</a></span></span><span class="subsectionToc"><span class="number">3.1.1</span><span class="title"><a href="SensorsforMobileRobotics.html#x12-650003.1.1">Sensor Classification</a></span></span><span class="subsectionToc"><span class="number">3.1.2</span><span class="title"><a href="SensorsforMobileRobotics.html#x12-660003.1.2">Characterisation of Sensor Performance</a></span></span><span class="subsectionToc"><span class="number">3.1.3</span><span class="title"><a href="SensorsforMobileRobotics.html#x12-720003.1.3">Wheel
+and Motor Sensors</a></span></span><span class="subsectionToc"><span class="number">3.1.4</span><span class="title"><a href="SensorsforMobileRobotics.html#x12-740003.1.4">Heading Sensors</a></span></span><span class="subsectionToc"><span class="number">3.1.5</span><span class="title"><a href="SensorsforMobileRobotics.html#x12-810003.1.5">Ground Based Beacons</a></span></span><span class="subsectionToc"><span class="number">3.1.6</span><span class="title"><a href="SensorsforMobileRobotics.html#x12-830003.1.6">Active
+Ranging</a></span></span><span class="subsectionToc"><span class="number">3.1.7</span><span class="title"><a href="SensorsforMobileRobotics.html#x12-850003.1.7">The Ultrasonic Sensor</a></span></span><span class="subsectionToc"><span class="number">3.1.8</span><span class="title"><a href="SensorsforMobileRobotics.html#x12-920003.1.8">Motion and Speed Sensors</a></span></span><span class="sectionToc"><span class="number">3.2</span><span class="title"><a href="VisionBasedSensors.html#x13-940003.2">Vision Based
+Sensors</a></span></span><span class="subsectionToc"><span class="number">3.2.1</span><span class="title"><a href="VisionBasedSensors.html#x13-950003.2.1">CCD Sensors</a></span></span><span class="subsectionToc"><span class="number">3.2.2</span><span class="title"><a href="VisionBasedSensors.html#x13-970003.2.2">CMOS Technology</a></span></span><span class="subsectionToc"><span class="number">3.2.3</span><span class="title"><a href="VisionBasedSensors.html#x13-980003.2.3">Visual Ranging Sensors</a></span></span><span class="subsectionToc"><span class="number">3.2.4</span><span class="title"><a href="VisionBasedSensors.html#x13-990003.2.4">Depth
+from Focus</a></span></span><span class="sectionToc"><span class="number">3.3</span><span class="title"><a href="RepresentingUncertainty.html#x14-1070003.3">Representing Uncertainty</a></span></span><span class="subsectionToc"><span class="number">3.3.1</span><span class="title"><a href="RepresentingUncertainty.html#x14-1080003.3.1">Statistical Representation</a></span></span><span class="subsectionToc"><span class="number">3.3.2</span><span class="title"><a href="RepresentingUncertainty.html#x14-1090003.3.2">Independence
+of random variables</a></span></span><span class="subsectionToc"><span class="number">3.3.3</span><span class="title"><a href="RepresentingUncertainty.html#x14-1110003.3.3">Propagation of Error</a></span></span><span class="sectionToc"><span class="number">3.4</span><span class="title"><a href="FeatureExtraction.html#x15-1120003.4">Feature Extraction</a></span></span><span class="subsectionToc"><span class="number">3.4.1</span><span class="title"><a href="FeatureExtraction.html#x15-1130003.4.1">Defining
+Feature</a></span></span><span class="subsectionToc"><span class="number">3.4.2</span><span class="title"><a href="FeatureExtraction.html#x15-1140003.4.2">Using Range Data</a></span></span><span class="chapterToc"><span class="number">4</span><span class="title"><a href="MobileRobotLocalisation.html#x16-1290004">Mobile Robot Localisation</a></span></span><span class="sectionToc"><span class="number">4.1</span><span class="title"><a href="TheProblemsofNoiseandAliasing.html#x17-1300004.1">The Problems of Noise and
+Aliasing</a></span></span><span class="subsectionToc"><span class="number">4.1.1</span><span class="title"><a href="TheProblemsofNoiseandAliasing.html#x17-1310004.1.1">Sensor Noise</a></span></span><span class="subsectionToc"><span class="number">4.1.2</span><span class="title"><a href="TheProblemsofNoiseandAliasing.html#x17-1320004.1.2">Sensor Aliasing</a></span></span><span class="subsectionToc"><span class="number">4.1.3</span><span class="title"><a href="TheProblemsofNoiseandAliasing.html#x17-1330004.1.3">Effector Noise</a></span></span><span class="subsectionToc"><span class="number">4.1.4</span><span class="title"><a href="TheProblemsofNoiseandAliasing.html#x17-1340004.1.4">An Error Model for
+Odometric Position Estimation</a></span></span><span class="sectionToc"><span class="number">4.2</span><span class="title"><a href="LocalisationTechniques.html#x18-1350004.2">Localisation Techniques</a></span></span><span class="sectionToc"><span class="number">4.3</span><span class="title"><a href="RepresentingBelief.html#x19-1360004.3">Representing Belief</a></span></span><span class="subsectionToc"><span class="number">4.3.1</span><span class="title"><a href="RepresentingBelief.html#x19-1370004.3.1">Single
+Hypothesis Belief</a></span></span><span class="subsectionToc"><span class="number">4.3.2</span><span class="title"><a href="RepresentingBelief.html#x19-1380004.3.2">Multiple Hypothesis Belief</a></span></span><span class="sectionToc"><span class="number">4.4</span><span class="title"><a href="RepresentingMaps.html#x20-1390004.4">Representing Maps</a></span></span><span class="subsectionToc"><span class="number">4.4.1</span><span class="title"><a href="RepresentingMaps.html#x20-1400004.4.1">Continuous
+Representation</a></span></span><span class="subsectionToc"><span class="number">4.4.2</span><span class="title"><a href="RepresentingMaps.html#x20-1410004.4.2">Decomposition Methods</a></span></span><span class="subsectionToc"><span class="number">4.4.3</span><span class="title"><a href="RepresentingMaps.html#x20-1420004.4.3">Current Challenges</a></span></span><span class="sectionToc"><span class="number">4.5</span><span class="title"><a href="ProbabilisticMapBasedLocalisation.html#x21-1430004.5">Probabilistic
+Map-Based Localisation</a></span></span><span class="subsectionToc"><span class="number">4.5.1</span><span class="title"><a href="ProbabilisticMapBasedLocalisation.html#x21-1440004.5.1">Problem Definition</a></span></span><span class="subsectionToc"><span class="number">4.5.2</span><span class="title"><a href="ProbabilisticMapBasedLocalisation.html#x21-1450004.5.2">Markov Localisation</a></span></span><span class="subsectionToc"><span class="number">4.5.3</span><span class="title"><a href="ProbabilisticMapBasedLocalisation.html#x21-1490004.5.3">Kalman
+Filter Localisation</a></span></span><span class="subsectionToc"><span class="number">4.5.4</span><span class="title"><a href="ProbabilisticMapBasedLocalisation.html#x21-1500004.5.4">An Implementation of Kalman Filter</a></span></span><span class="sectionToc"><span class="number">4.6</span><span class="title"><a href="OtherExamplesofLocalisationMethods.html#x22-1550004.6">Other Examples
+of Localisation Methods</a></span></span><span class="subsectionToc"><span class="number">4.6.1</span><span class="title"><a href="OtherExamplesofLocalisationMethods.html#x22-1560004.6.1">Landmark-based Navigation</a></span></span><span class="subsectionToc"><span class="number">4.6.2</span><span class="title"><a href="OtherExamplesofLocalisationMethods.html#x22-1570004.6.2">Globally Unique
+Localisation</a></span></span><span class="subsectionToc"><span class="number">4.6.3</span><span class="title"><a href="OtherExamplesofLocalisationMethods.html#x22-1580004.6.3">Positioning Beacon systems</a></span></span><span class="subsectionToc"><span class="number">4.6.4</span><span class="title"><a href="OtherExamplesofLocalisationMethods.html#x22-1590004.6.4">Route-Based Localisation</a></span></span><span class="sectionToc"><span class="number">4.7</span><span class="title"><a href="#x23-1600004.7">Building
+Maps</a></span></span><span class="subsectionToc"><span class="number">4.7.1</span><span class="title"><a href="#x23-1610004.7.1">Stochastic Map Technique</a></span></span><span class="subsectionToc"><span class="number">4.7.2</span><span class="title"><a href="#x23-1620004.7.2">Other Mapping Techniques</a></span></span><span class="chapterToc"><span class="number">5</span><span class="title"><a href="WelcometoLinux.html#x24-1650005">Welcome to Linux</a></span></span><span class="sectionToc"><span class="number">5.1</span><span class="title"><a href="AHistoryofUNIXLinux.html#x25-1660005.1">A
+History of UNIX/Linux</a></span></span><span class="subsectionToc"><span class="number">5.1.1</span><span class="title"><a href="AHistoryofUNIXLinux.html#x25-1680005.1.1">A Short History on Computer Interfaces</a></span></span><span class="subsectionToc"><span class="number">5.1.2</span><span class="title"><a href="AHistoryofUNIXLinux.html#x25-1700005.1.2">Linux is a
+Nutshell</a></span></span><span class="subsectionToc"><span class="number">5.1.3</span><span class="title"><a href="AHistoryofUNIXLinux.html#x25-1730005.1.3">Linux Distributions</a></span></span><span class="sectionToc"><span class="number">5.2</span><span class="title"><a href="Installation.html#x26-1740005.2">Installation</a></span></span><span class="subsectionToc"><span class="number">5.2.1</span><span class="title"><a href="Installation.html#x26-1750005.2.1">Docker</a></span></span><span class="subsectionToc"><span class="number">5.2.2</span><span class="title"><a href="Installation.html#x26-1760005.2.2">Dockerfile</a></span></span><span class="subsectionToc"><span class="number">5.2.3</span><span class="title"><a href="Installation.html#x26-1770005.2.3">Running
+the Container</a></span></span><span class="chapterToc"><span class="number">6</span><span class="title"><a href="CommandLineFundamentals.html#x27-1780006">Command Line Fundamentals</a></span></span><span class="sectionToc"><span class="number">6.1</span><span class="title"><a href="ToCommandaComputer.html#x28-1790006.1">To Command a Computer</a></span></span><span class="subsectionToc"><span class="number">6.1.1</span><span class="title"><a href="ToCommandaComputer.html#x28-1800006.1.1">The
+Command Line Interface</a></span></span><span class="subsectionToc"><span class="number">6.1.2</span><span class="title"><a href="ToCommandaComputer.html#x28-1810006.1.2">The Structure of Commands</a></span></span><span class="subsectionToc"><span class="number">6.1.3</span><span class="title"><a href="ToCommandaComputer.html#x28-1820006.1.3">Some Rules Regarding
+the Syntax</a></span></span><span class="sectionToc"><span class="number">6.2</span><span class="title"><a href="WhenWeNeedHelpwithCommands.html#x29-1830006.2">When We Need Help with Commands</a></span></span><span class="subsectionToc"><span class="number">6.2.1</span><span class="title"><a href="WhenWeNeedHelpwithCommands.html#x29-1840006.2.1">Use Tab completion on
+the Shell</a></span></span><span class="subsectionToc"><span class="number">6.2.2</span><span class="title"><a href="WhenWeNeedHelpwithCommands.html#x29-1850006.2.2">The info command</a></span></span><span class="subsectionToc"><span class="number">6.2.3</span><span class="title"><a href="WhenWeNeedHelpwithCommands.html#x29-1860006.2.3">The whatis command</a></span></span><span class="chapterToc"><span class="number">7</span><span class="title"><a href="WorkingwithFilesandFolders.html#x30-1880007">Working with Files
+and Folders</a></span></span><span class="sectionToc"><span class="number">7.1</span><span class="title"><a href="FilesandFolders.html#x31-1890007.1">Files and Folders</a></span></span><span class="subsectionToc"><span class="number">7.1.1</span><span class="title"><a href="FilesandFolders.html#x31-1900007.1.1">A Detailed Look in ls Command</a></span></span><span class="subsectionToc"><span class="number">7.1.2</span><span class="title"><a href="FilesandFolders.html#x31-1910007.1.2">Creating
+and Removing Folders</a></span></span><span class="subsectionToc"><span class="number">7.1.3</span><span class="title"><a href="FilesandFolders.html#x31-1920007.1.3">Move, Copy and Delete Files and Folders</a></span></span><span class="sectionToc"><span class="number">7.2</span><span class="title"><a href="PermissionsandLinks.html#x32-1990007.2">Permissions
+and Links</a></span></span><span class="subsectionToc"><span class="number">7.2.1</span><span class="title"><a href="PermissionsandLinks.html#x32-2000007.2.1">Role to Users and sudo</a></span></span><span class="subsectionToc"><span class="number">7.2.2</span><span class="title"><a href="PermissionsandLinks.html#x32-2010007.2.2">File Permissions</a></span></span><span class="subsectionToc"><span class="number">7.2.3</span><span class="title"><a href="PermissionsandLinks.html#x32-2040007.2.3">Hard and Symbolic
+Links</a></span></span><span class="subsectionToc"><span class="number">7.2.4</span><span class="title"><a href="PermissionsandLinks.html#x32-2050007.2.4">Soft (Symbolic) Links</a></span></span><span class="subsectionToc"><span class="number">7.2.5</span><span class="title"><a href="PermissionsandLinks.html#x32-2070007.2.5">The Linux File System</a></span></span><span class="subsectionToc"><span class="number">7.2.6</span><span class="title"><a href="PermissionsandLinks.html#x32-2080007.2.6">The UNIX
+Philosophy</a></span></span><span class="sectionToc"><span class="number">7.3</span><span class="title"><a href="CommonCommandLineToolsandTasks.html#x33-2090007.3">Common Command-Line Tools and Tasks</a></span></span><span class="subsectionToc"><span class="number">7.3.1</span><span class="title"><a href="CommonCommandLineToolsandTasks.html#x33-2100007.3.1">Connecting Commands
+with Pipes</a></span></span><span class="subsectionToc"><span class="number">7.3.2</span><span class="title"><a href="CommonCommandLineToolsandTasks.html#x33-2110007.3.2">Viewing Text Files with cat, head, tail, and less</a></span></span><span class="subsectionToc"><span class="number">7.3.3</span><span class="title"><a href="CommonCommandLineToolsandTasks.html#x33-2120007.3.3">Finding
+Linux Distribution and Kernel Information</a></span></span><span class="subsectionToc"><span class="number">7.3.4</span><span class="title"><a href="CommonCommandLineToolsandTasks.html#x33-2140007.3.4">Find System Hardware and Disk
+Information</a></span></span><span class="chapterToc"><span class="number">8</span><span class="title"><a href="ROSConcepts.html#x34-2160008">ROS Concepts</a></span></span><span class="sectionToc"><span class="number">8.1</span><span class="title"><a href="PublisherandSubscriberArchitecture.html#x35-2170008.1">Publisher and Subscriber Architecture</a></span></span><span class="subsectionToc"><span class="number">8.1.1</span><span class="title"><a href="PublisherandSubscriberArchitecture.html#x35-2180008.1.1">ROS 2
+Architecture</a></span></span><span class="sectionToc"><span class="number">8.2</span><span class="title"><a href="BuildingBlocks.html#x36-2200008.2">Building Blocks</a></span></span><span class="subsectionToc"><span class="number">8.2.1</span><span class="title"><a href="BuildingBlocks.html#x36-2210008.2.1">Nodes</a></span></span><span class="subsectionToc"><span class="number">8.2.2</span><span class="title"><a href="BuildingBlocks.html#x36-2220008.2.2">The Discovery Process</a></span></span><span class="subsectionToc"><span class="number">8.2.3</span><span class="title"><a href="BuildingBlocks.html#x36-2230008.2.3">Communication
+Interface</a></span></span><span class="subsectionToc"><span class="number">8.2.4</span><span class="title"><a href="BuildingBlocks.html#x36-2320008.2.4">Topics</a></span></span><span class="subsectionToc"><span class="number">8.2.5</span><span class="title"><a href="BuildingBlocks.html#x36-2360008.2.5">Services</a></span></span><span class="subsectionToc"><span class="number">8.2.6</span><span class="title"><a href="BuildingBlocks.html#x36-2390008.2.6">Actions</a></span></span><span class="subsectionToc"><span class="number">8.2.7</span><span class="title"><a href="BuildingBlocks.html#x36-2420008.2.7">Parameters</a></span></span><span class="subsectionToc"><span class="number">8.2.8</span><span class="title"><a href="BuildingBlocks.html#x36-2510008.2.8">Working with
+Command Line</a></span></span><span class="subsectionToc"><span class="number">8.2.9</span><span class="title"><a href="BuildingBlocks.html#x36-2530008.2.9">Launch Files</a></span></span><span class="sectionToc"><span class="number">8.3</span><span class="title"><a href="AdvancedConcepts.html#x37-2540008.3">Advanced Concepts</a></span></span><span class="subsectionToc"><span class="number">8.3.1</span><span class="title"><a href="AdvancedConcepts.html#x37-2550008.3.1">ROS DOMAIN ID</a></span></span><span class="chapterToc"><span class="number">9</span><span class="title"><a href="CommandLineTools.html#x38-2570009">Command
+Line Tools</a></span></span><span class="sectionToc"><span class="number">9.1</span><span class="title"><a href="SettingtheEnvironment.html#x39-2580009.1">Setting the Environment</a></span></span><span class="sectionToc"><span class="number">9.2</span><span class="title"><a href="TurtlesandGraphs.html#x40-2630009.2">Turtles and Graphs</a></span></span><span class="sectionToc"><span class="number">9.3</span><span class="title"><a href="ADeeperLookintoNodes.html#x41-2710009.3">A Deeper Look into
+Nodes</a></span></span><span class="sectionToc"><span class="number">9.4</span><span class="title"><a href="WorkingwithTopics.html#x42-2760009.4">Working with Topics</a></span></span><span class="sectionToc"><span class="number">9.5</span><span class="title"><a href="WorkingwithServices.html#x43-2820009.5">Working with Services</a></span></span><span class="sectionToc"><span class="number">9.6</span><span class="title"><a href="WorkingwithParameters.html#x44-2890009.6">Working with Parameters</a></span></span><span class="sectionToc"><span class="number">9.7</span><span class="title"><a href="APracticalLookintoActions.html#x45-2960009.7">A
+Practical Look into Actions</a></span></span><span class="sectionToc"><span class="number">9.8</span><span class="title"><a href="LaunchingNodes.html#x46-3030009.8">Launching Nodes</a></span></span><span class="chapterToc"><span class="number">10</span><span class="title"><a href="ClientLibraries.html#x47-30500010">Client Libraries</a></span></span><span class="sectionToc"><span class="number">10.1</span><span class="title"><a href="GettingStartedwithColcon.html#x48-30600010.1">Getting Started with
+Colcon</a></span></span><span class="subsectionToc"><span class="number">10.1.1</span><span class="title"><a href="GettingStartedwithColcon.html#x48-30700010.1.1">The Structure of a Package</a></span></span><span class="subsectionToc"><span class="number">10.1.2</span><span class="title"><a href="GettingStartedwithColcon.html#x48-30800010.1.2">Sourcing an Underlay</a></span></span><span class="subsectionToc"><span class="number">10.1.3</span><span class="title"><a href="GettingStartedwithColcon.html#x48-30900010.1.3">Building the
+Workspace</a></span></span><span class="subsectionToc"><span class="number">10.1.4</span><span class="title"><a href="GettingStartedwithColcon.html#x48-31000010.1.4">Sourcing the New Package</a></span></span><span class="subsectionToc"><span class="number">10.1.5</span><span class="title"><a href="GettingStartedwithColcon.html#x48-31100010.1.5">Creating a Workspace</a></span></span><span class="subsectionToc"><span class="number">10.1.6</span><span class="title"><a href="GettingStartedwithColcon.html#x48-31200010.1.6">Sourcing the
+Environment</a></span></span><span class="subsectionToc"><span class="number">10.1.7</span><span class="title"><a href="GettingStartedwithColcon.html#x48-31300010.1.7">Creating a New Directory</a></span></span><span class="subsectionToc"><span class="number">10.1.8</span><span class="title"><a href="GettingStartedwithColcon.html#x48-31400010.1.8">Cloning a Sample Repo</a></span></span><span class="subsectionToc"><span class="number">10.1.9</span><span class="title"><a href="GettingStartedwithColcon.html#x48-31500010.1.9">Resolving
+Dependencies</a></span></span><span class="subsectionToc"><span class="number">10.1.10</span><span class="title"><a href="GettingStartedwithColcon.html#x48-31600010.1.10">Building the Workspace</a></span></span><span class="subsectionToc"><span class="number">10.1.11</span><span class="title"><a href="GettingStartedwithColcon.html#x48-31700010.1.11">Sourcing our Overlay</a></span></span><span class="subsectionToc"><span class="number">10.1.12</span><span class="title"><a href="GettingStartedwithColcon.html#x48-31800010.1.12">Modifying
+the Overlay</a></span></span><span class="subsectionToc"><span class="number">10.1.13</span><span class="title"><a href="GettingStartedwithColcon.html#x48-31900010.1.13">Creating a Package</a></span></span><span class="sectionToc"><span class="number">10.2</span><span class="title"><a href="WritingaSimplePublisherandSubscriber.html#x49-32200010.2">Writing a Simple Publisher and
+Subscriber</a></span></span><span class="subsectionToc"><span class="number">10.2.1</span><span class="title"><a href="WritingaSimplePublisherandSubscriber.html#x49-32300010.2.1">Creating a ROS Packages</a></span></span><span class="subsectionToc"><span class="number">10.2.2</span><span class="title"><a href="WritingaSimplePublisherandSubscriber.html#x49-32400010.2.2">Writing the Publisher Node</a></span></span><span class="subsectionToc"><span class="number">10.2.3</span><span class="title"><a href="WritingaSimplePublisherandSubscriber.html#x49-32900010.2.3">Writing
+the Subscriber Node</a></span></span><span class="subsectionToc"><span class="number">10.2.4</span><span class="title"><a href="WritingaSimplePublisherandSubscriber.html#x49-33200010.2.4">Building and Running</a></span></span><span class="sectionToc"><span class="number">10.3</span><span class="title"><a href="WritingaSimpleServiceandClient.html#x50-33300010.3">Writing a Simple Service and
+Client</a></span></span><span class="subsectionToc"><span class="number">10.3.1</span><span class="title"><a href="WritingaSimpleServiceandClient.html#x50-33400010.3.1">Creating a New Package</a></span></span><span class="subsectionToc"><span class="number">10.3.2</span><span class="title"><a href="WritingaSimpleServiceandClient.html#x50-33700010.3.2">Writing the Service Node</a></span></span><span class="subsectionToc"><span class="number">10.3.3</span><span class="title"><a href="WritingaSimpleServiceandClient.html#x50-34000010.3.3">Writing the Client
+Node</a></span></span><span class="sectionToc"><span class="number">10.4</span><span class="title"><a href="CreatingCustommsgandsrvFiles.html#x51-34300010.4">Creating Custom msg and srv Files</a></span></span><span class="subsectionToc"><span class="number">10.4.1</span><span class="title"><a href="CreatingCustommsgandsrvFiles.html#x51-34400010.4.1">Creating a New Package</a></span></span><span class="subsectionToc"><span class="number">10.4.2</span><span class="title"><a href="CreatingCustommsgandsrvFiles.html#x51-34500010.4.2">Creating
+Custom Definitions</a></span></span><span class="subsectionToc"><span class="number">10.4.3</span><span class="title"><a href="CreatingCustommsgandsrvFiles.html#x51-35200010.4.3">Testing the Newly Built Interfaces</a></span></span><span class="sectionToc"><span class="number">10.5</span><span class="title"><a href="UsingParametersinaClass.html#x52-35400010.5">Using Parameters in a
+Class</a></span></span><span class="subsectionToc"><span class="number">10.5.1</span><span class="title"><a href="UsingParametersinaClass.html#x52-35500010.5.1">Creating a Package</a></span></span><span class="subsectionToc"><span class="number">10.5.2</span><span class="title"><a href="UsingParametersinaClass.html#x52-35700010.5.2">Writing our Python Code</a></span></span><span class="subsectionToc"><span class="number">10.5.3</span><span class="title"><a href="UsingParametersinaClass.html#x52-36200010.5.3">Changing Output using
+the Console</a></span></span><span class="subsectionToc"><span class="number">10.5.4</span><span class="title"><a href="UsingParametersinaClass.html#x52-36300010.5.4">Changing using the Launch File</a></span></span><span class="sectionToc"><span class="number">10.6</span><span class="title"><a href="ManagingDependencies.html#x53-36400010.6">Managing Dependencies</a></span></span><span class="sectionToc"><span class="number">10.7</span><span class="title"><a href="CreatinganAction.html#x54-36600010.7">Creating
+an Action</a></span></span><span class="sectionToc"><span class="number">10.8</span><span class="title"><a href="WritinganActionServerandClient.html#x55-36900010.8">Writing an Action Server and Client</a></span></span><span class="sectionToc"><span class="number">10.9</span><span class="title"><a href="WritingaLaunchFile.html#x56-37100010.9">Writing a Launch File</a></span></span>
+<div class="nav-footer"><div class="nav-footer-left"><span class="nav-footer-lecture">D. T. McGuiness, PhD</span>
+<span class="nav-footer-webBook"><b>Last Updated:</b> 13.10.2026, at 8:16.</span></div></div><p class="nav-comments">The website you are viewing is auto-generated using lms-WebBook and therefore subject to slight errors in typography and formatting. When in doubt, please consult the LectureBook. </p></div></nav>
+<article class="chapter">
+<nav class="crosslinks-top"> <span class="nav-button"><i class="fa-solid fa-caret-right"></i><a class="nav-link" href="WelcometoLinux.html">Chapter: Welcome to
+Linux</a></span><span class="nav-button"><i class="fa-solid fa-caret-left"></i><a class="nav-link" href="OtherExamplesofLocalisationMethods.html">Other Examples of Localisation Methods</a></span><span class="nav-button"><i class="fa-solid fa-caret-up"></i><a class="nav-link" href="MobileRobotLocalisation.html#BuildingMaps.html">Chapter: Mobile Robot
+Localisation</a></span><span class="nav-button">
+<a href="index.html" rel="index" title="Visit Entry Point">
+<i class="fa-solid fa-table-list">
+</i>
+<span class="nav-info">Visit Index Page</span>
+</a></span><span class="nav-button">
+<a href="Index.html" rel="index" title="Visit Material GitHub Repo">
+<i class="fa-brands fa-git-alt"></i>
+<span class="nav-info">Visit Material GitHub Repo</span>
+</a></span></nav>
+<div class="section-header"> <h3 id="header-section-4.7"> <a class="pdf-icon" href="AutonomousMobileRoboticsLectureBook.pdf#section.4.7"><svg class="bi bi-file-pdf" fill="currentColor" height="20" viewbox="0 0 16 16" width="20" xmlns="http://www.w3.org/2000/svg"><path d="M4 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H4zm0 1h8a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1z"></path><path d="M4.603 12.087a.81.81 0 0 1-.438-.42c-.195-.388-.13-.776.08-1.102.198-.307.526-.568.897-.787a7.68 7.68 0 0 1 1.482-.645 19.701 19.701 0 0 0 1.062-2.227 7.269 7.269 0 0 1-.43-1.295c-.086-.4-.119-.796-.046-1.136.075-.354.274-.672.65-.823.192-.077.4-.12.602-.077a.7.7 0 0 1 .477.365c.088.164.12.356.127.538.007.187-.012.395-.047.614-.084.51-.27 1.134-.52 1.794a10.954 10.954 0 0 0 .98 1.686 5.753 5.753 0 0 1 1.334.05c.364.065.734.195.96.465.12.144.193.32.2.518.007.192-.047.382-.138.563a1.04 1.04 0 0 1-.354.416.856.856 0 0 1-.51.138c-.331-.014-.654-.196-.933-.417a5.716 5.716 0 0 1-.911-.95 11.642 11.642 0 0 0-1.997.406 11.311 11.311 0 0 1-1.021 1.51c-.29.35-.608.655-.926.787a.793.793 0 0 1-.58.029zm1.379-1.901c-.166.076-.32.156-.459.238-.328.194-.541.383-.647.547-.094.145-.096.25-.04.361.01.022.02.036.026.044a.27.27 0 0 0 .035-.012c.137-.056.355-.235.635-.572a8.18 8.18 0 0 0 .45-.606zm1.64-1.33a12.647 12.647 0 0 1 1.01-.193 11.666 11.666 0 0 1-.51-.858 20.741 20.741 0 0 1-.5 1.05zm2.446.45c.15.162.296.3.435.41.24.19.407.253.498.256a.107.107 0 0 0 .07-.015.307.307 0 0 0 .094-.125.436.436 0 0 0 .059-.2.095.095 0 0 0-.026-.063c-.052-.062-.2-.152-.518-.209a3.881 3.881 0 0 0-.612-.053zM8.078 5.8a6.7 6.7 0 0 0 .2-.828c.031-.188.043-.343.038-.465a.613.613 0 0 0-.032-.198.517.517 0 0 0-.145.04c-.087.035-.158.106-.196.283-.04.192-.03.469.046.822.024.111.054.227.09.346z"></path></svg></a> <span class="number">4.7</span> <span class="title"> <a id="x23-1600004.7"></a>Building Maps</span></h3></div>
+<p class="noindent"></p><figure class="float">
+<a id="x23-160001r20"></a>
+<figcaption class="caption"><span class="id">Figure 4.20: 
+          </span><span class="content">2005 DARPA Grand Challenge winner Stanley performed SLAM as part of its autonomous driving system
+          <span class="cite"><a class="cite-show" href="#w3-20001">[†-1]</a><span class="cite-detail"> Kivaan. An official DARPA photograph of Stanley at the 2005 DARPA Grand Challenge. 2007</span></span>.  </span></figcaption>
+<img alt="PIC" src="figures/Mobile-Robot-Localisation/raster/slam-car.jpg" style=""/>
+</figure>
+<p class="noindent">Humans are excellent navigators due to their remarkable ability to build cognitive maps <span class="cite"><a class="cite-show" href="#w3-20001">[†-2]</a><span class="cite-detail">
+<a id="x23-160003"></a>McNamara, T. P., Hardy, J. K. &amp; Hirtle, S. C. Subjective hierarchies in spatial memory. Journal of
+Experimental Psychology: Learning, Memory, and Cognition <b>15</b><b>,</b> 211 (1989)</span></span> which form the basis of
+spatial memory <span class="cite"><a class="cite-show" href="#w3-20001">[†-3]</a><span class="cite-detail"> <a id="x23-160004"></a>Chun, M. M. &amp; Jiang, Y. Contextual cueing: Implicit learning and memory of visual
+context guides spatial attention. Cognitive psychology <b>36</b><b>,</b> 28–71 (1998), <a id="x23-160005"></a>Huang, C. et al. Visual
+language maps for robot navigation in 2023 IEEE International Conference on Robotics and
+Automation (ICRA) (2023), 10608–10615</span></span>. However, when it comes to <span class="acronym"><span class="acronym-short"><a class="glossary" href="#glo:amr">AMR</a></span><span class="acronym-detail"><span class="acronym-long"><a class="glossary" href="#glo:amr">Autonomous Mobile
+Robotics</a></span><span class="acronym-desc"><a class="glossary" href="#glo:amr">Self-navigating machines moving materials and goods independently without fixed
+tracks or wires. They use smart software, cameras, and sensors to map spaces and safely
+steer around people or obstacles in real time.</a></span></span></span>, we unfortunately need to be more hands
+on.
+All of the localisation strategies we have discussed previously require active human effort to install
+the robot into a space. Artificial environmental modifications may be necessary to reduce
+ambiguity <span class="cite"><a class="cite-show" href="#w3-20001">[†-4]</a><span class="cite-detail"> <a id="x23-160006"></a>Meyer-Delius, D. et al. Using artificial landmarks to reduce the ambiguity in the
+environment of a mobile robot in 2011 IEEE International Conference on Robotics and Automation
+(2011), 5173–5178</span></span>. Even if this is not so, a map of the environment must be created for the
+robot.
+</p>
+<div class="warning"><div class="warning-upper">Warning</div><div class="body">
+<p class="noindent">But a robot which localizes successfully has the right sensors for detecting the environment, and so the
+<span class="alert">robot ought to build its own map</span>. </p></div></div>
+<p class="noindent">This ambition goes to the heart of <span class="acronym"><span class="acronym-short"><a class="glossary" href="#glo:amr">AMR</a></span><span class="acronym-detail"><span class="acronym-long"><a class="glossary" href="#glo:amr">Autonomous Mobile Robotics</a></span><span class="acronym-desc"><a class="glossary" href="#glo:amr">Self-navigating machines moving
+materials and goods independently without fixed tracks or wires. They use smart software, cameras,
+and sensors to map spaces and safely steer around people or obstacles in real time.</a></span></span></span>. In prose,
+we can express our eventual goal as follows: </p><div class="quote">  Starting from an arbitrary initial point, a
+<span class="acronym"><span class="acronym-short"><a class="glossary" href="#glo:amr">AMR</a></span><span class="acronym-detail"><span class="acronym-long"><a class="glossary" href="#glo:amr">Autonomous Mobile Robotics</a></span><span class="acronym-desc"><a class="glossary" href="#glo:amr">Self-navigating machines moving materials and goods
+independently without fixed tracks or wires. They use smart software, cameras, and sensors
+to map spaces and safely steer around people or obstacles in real time.</a></span></span></span> should be able to
+autonomously explore the environment with its on-board sensors, gain knowledge about
+it, interpret the scene, build an appropriate map and localize itself relative to this map.
+</div>
+<p class="noindent">While we have system which allows certain level of intelligence to robots, most applications require a
+connected network or a central node to achieve any autonomous action <span class="cite"><a class="cite-show" href="#w3-20001">[†-5]</a><span class="cite-detail"> <a id="x23-160007"></a>Hazik, J. et al. Fleet
+management system for an industry environment. Journal of Robotics and Control (JRC) <b>3</b><b>,</b> 779–789
+(2022), <a id="x23-160008"></a>Xidias, E., Zacharia, P. &amp; Nearchou, A. Intelligent fleet management of autonomous vehicles for
+city logistics. Applied Intelligence <b>52</b><b>,</b> 18030–18048 (2022)</span></span>. Accomplishing this goal purely using
+internal components in a robust is probably years away, but an important sub-goal is the invention of
+techniques for autonomous creation and modification of an environment map. Of course a
+<span class="acronym"><span class="acronym-short"><a class="glossary" href="#glo:amr">AMR</a></span><span class="acronym-detail"><span class="acronym-long"><a class="glossary" href="#glo:amr">Autonomous Mobile Robotics</a></span><span class="acronym-desc"><a class="glossary" href="#glo:amr">Self-navigating machines moving materials and goods independently
+without fixed tracks or wires. They use smart software, cameras, and sensors to map spaces and safely
+steer around people or obstacles in real time.</a></span></span></span>’s sensors have only limited range, and so it must
+physically explore its environment to build such a map. So, the robot must not only create a map but it
+must do so while moving and localizing to explore the environment. This is often called the
+<span class="acronym"><span class="acronym-short"><a class="glossary" href="#glo:slam">SLAM</a></span><span class="acronym-detail"><span class="acronym-long"><a class="glossary" href="#glo:slam">Simultaneous Localisation and Mapping</a></span><span class="acronym-desc"><a class="glossary" href="#glo:slam">A process where a computer constructs or
+updates a map of an unknown environment while simultaneously keeping track of an entity’s
+location within it. While this initially appears to be a chicken or the egg problem, there are
+several algorithms known to solve it in, at least approximately, tractable time for certain
+environments. Popular approximate solution methods include the particle filter, extended Kalman
+filter, covariance intersection, and GraphSLAM. SLAM algorithms are based on concepts in
+computational geometry and computer vision, and are used in robot navigation, robotic mapping
+and odometry for virtual reality or augmented reality.</a></span></span></span> problem, arguably the most difficult
+problem specific to <span class="acronym"><span class="acronym-short"><a class="glossary" href="#glo:amr">AMR</a></span><span class="acronym-detail"><span class="acronym-long"><a class="glossary" href="#glo:amr">Autonomous Mobile Robotics</a></span><span class="acronym-desc"><a class="glossary" href="#glo:amr">Self-navigating machines moving
+materials and goods independently without fixed tracks or wires. They use smart software,
+cameras, and sensors to map spaces and safely steer around people or obstacles in real time.</a></span></span></span>
+systems.
+</p>
+<div class="info-block" id="info-block-4.21"> <a class="copiable-link" href="#info-block-4.21"> ¶</a> <span class="info-upper"> <span class="info-header"> <b>Information 4.<a id="x23-160009r21"></a>21: </b> </span> <span class="info-title"> Simultaneous Localization and Mapping </span> </span> <div class="body">
+<p class="noindent">Computational problem of constructing or updating a map of an unknown environment while
+simultaneously keeping track of an agent’s location within it. While this initially appears to be a
+chicken or the egg problem, there are several algorithms known to solve it in, at least approximately
+and in reasonable time for certain environments. Popular solutions include the particle filter, extended
+Kalman filter, covariance intersection, and Graph <span class="acronym"><span class="acronym-short"><a class="glossary" href="#glo:slam">SLAM</a></span><span class="acronym-detail"><span class="acronym-long"><a class="glossary" href="#glo:slam">Simultaneous Localisation and Mapping</a></span><span class="acronym-desc"><a class="glossary" href="#glo:slam">A
+process where a computer constructs or updates a map of an unknown environment while
+simultaneously keeping track of an entity’s location within it. While this initially appears
+to be a chicken or the egg problem, there are several algorithms known to solve it in, at
+least approximately, tractable time for certain environments. Popular approximate solution
+methods include the particle filter, extended Kalman filter, covariance intersection, and
+GraphSLAM. SLAM algorithms are based on concepts in computational geometry and computer
+vision, and are used in robot navigation, robotic mapping and odometry for virtual reality or
+augmented reality.</a></span></span></span>. </p>
+<hr/>
+<p class="noindent">
+<span class="acronym"><span class="acronym-short"><a class="glossary" href="#glo:slam">SLAM</a></span><span class="acronym-detail"><span class="acronym-long"><a class="glossary" href="#glo:slam">Simultaneous Localisation and Mapping</a></span><span class="acronym-desc"><a class="glossary" href="#glo:slam">A process where a computer
+constructs or updates a map of an unknown environment while simultaneously keeping track
+of an entity’s location within it. While this initially appears to be a chicken or the egg
+problem, there are several algorithms known to solve it in, at least approximately, tractable
+time for certain environments. Popular approximate solution methods include the particle
+filter, extended Kalman filter, covariance intersection, and GraphSLAM. SLAM algorithms
+are based on concepts in computational geometry and computer vision, and are used in
+robot navigation, robotic mapping and odometry for virtual reality or augmented reality.</a></span></span></span>
+algorithms are based on concepts in computational geometry and computer vision, and are
+used in robot navigation, robotic mapping and odometry for virtual reality or augmented
+reality.
+</p>
+</div></div>
+<p class="noindent">The reason why <span class="acronym"><span class="acronym-short"><a class="glossary" href="#glo:slam">SLAM</a></span><span class="acronym-detail"><span class="acronym-long"><a class="glossary" href="#glo:slam">Simultaneous Localisation and Mapping</a></span><span class="acronym-desc"><a class="glossary" href="#glo:slam">A process where a computer constructs
+or updates a map of an unknown environment while simultaneously keeping track of an entity’s location
+within it. While this initially appears to be a chicken or the egg problem, there are several algorithms
+known to solve it in, at least approximately, tractable time for certain environments. Popular
+approximate solution methods include the particle filter, extended Kalman filter, covariance
+intersection, and GraphSLAM. SLAM algorithms are based on concepts in computational geometry and
+computer vision, and are used in robot navigation, robotic mapping and odometry for virtual
+reality or augmented reality.</a></span></span></span> is difficult is born precisely from the interaction between the
+robot’s position updates as it localizes and its mapping actions. If a <span class="acronym"><span class="acronym-short"><a class="glossary" href="#glo:amr">AMR</a></span><span class="acronym-detail"><span class="acronym-long"><a class="glossary" href="#glo:amr">Autonomous Mobile
+Robotics</a></span><span class="acronym-desc"><a class="glossary" href="#glo:amr">Self-navigating machines moving materials and goods independently without fixed tracks
+or wires. They use smart software, cameras, and sensors to map spaces and safely steer
+around people or obstacles in real time.</a></span></span></span> updates its position based on an observation of an
+imprecisely known feature, the resulting position estimate becomes correlated with the feature
+location estimate. Similarly, the map becomes correlated with the position estimate if an
+observation taken from an imprecisely known position is used to update or add a feature to the
+map.
+</p>
+<div class="warning"><div class="warning-upper">Warning</div><div class="body">
+<p class="noindent">For localization the robot needs to know where the features are whereas for map building the robot
+needs to know where it is on the map. </p></div></div>
+<p class="noindent">The only path to a complete and optimal solution to this joint problem is to consider all the
+correlations between between position estimation and feature location estimation. Such
+cross-correlated maps are called stochastic maps <span class="cite"><a class="cite-show" href="#w3-20001">[†-6]</a><span class="cite-detail"> <a id="x23-160010"></a>Hashimoto, S. et al. Humanoid robots in waseda
+university–hadaly-2 and wabian. Autonomous Robots <b>12</b><b>,</b> 25–38 (2002)</span></span>. Unfortunately, implementing
+such an optimal solution is still computationally prohibitive.
+</p>
+<p class="noindent"><div class="subsection-header"> <h4 id="header-subsection-4.7.1"> <a class="pdf-icon" href="AutonomousMobileRoboticsLectureBook.pdf#subsection.4.7.1"><svg class="bi bi-file-pdf" fill="currentColor" height="20" viewbox="0 0 16 16" width="20" xmlns="http://www.w3.org/2000/svg"><path d="M4 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H4zm0 1h8a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1z"></path><path d="M4.603 12.087a.81.81 0 0 1-.438-.42c-.195-.388-.13-.776.08-1.102.198-.307.526-.568.897-.787a7.68 7.68 0 0 1 1.482-.645 19.701 19.701 0 0 0 1.062-2.227 7.269 7.269 0 0 1-.43-1.295c-.086-.4-.119-.796-.046-1.136.075-.354.274-.672.65-.823.192-.077.4-.12.602-.077a.7.7 0 0 1 .477.365c.088.164.12.356.127.538.007.187-.012.395-.047.614-.084.51-.27 1.134-.52 1.794a10.954 10.954 0 0 0 .98 1.686 5.753 5.753 0 0 1 1.334.05c.364.065.734.195.96.465.12.144.193.32.2.518.007.192-.047.382-.138.563a1.04 1.04 0 0 1-.354.416.856.856 0 0 1-.51.138c-.331-.014-.654-.196-.933-.417a5.716 5.716 0 0 1-.911-.95 11.642 11.642 0 0 0-1.997.406 11.311 11.311 0 0 1-1.021 1.51c-.29.35-.608.655-.926.787a.793.793 0 0 1-.58.029zm1.379-1.901c-.166.076-.32.156-.459.238-.328.194-.541.383-.647.547-.094.145-.096.25-.04.361.01.022.02.036.026.044a.27.27 0 0 0 .035-.012c.137-.056.355-.235.635-.572a8.18 8.18 0 0 0 .45-.606zm1.64-1.33a12.647 12.647 0 0 1 1.01-.193 11.666 11.666 0 0 1-.51-.858 20.741 20.741 0 0 1-.5 1.05zm2.446.45c.15.162.296.3.435.41.24.19.407.253.498.256a.107.107 0 0 0 .07-.015.307.307 0 0 0 .094-.125.436.436 0 0 0 .059-.2.095.095 0 0 0-.026-.063c-.052-.062-.2-.152-.518-.209a3.881 3.881 0 0 0-.612-.053zM8.078 5.8a6.7 6.7 0 0 0 .2-.828c.031-.188.043-.343.038-.465a.613.613 0 0 0-.032-.198.517.517 0 0 0-.145.04c-.087.035-.158.106-.196.283-.04.192-.03.469.046.822.024.111.054.227.09.346z"></path></svg></a><span class="number">4.7.1</span> <span class="title"> <a id="x23-1610004.7.1"></a>Stochastic Map Technique</span></h4></div>
+</p><p class="noindent"><b>Fig.</b> ?? presents a diagram incorporating map building and maintenance into the standard localization
+loop depicted by Figure (5.29) during discussion of <i>Kalman filter localisation</i> [9]. The added arcs
+represent the additional flow of information which occurs when there is an imperfect match between
+observations and measurement predictions.
+</p><p class="noindent">Unexpected observations will affect the creation of new features in the map whereas unobserved
+measurement predictions will affect the removal of features from the map. As discussed previously, each
+specific prediction or observation has an unknown exact value and so it is represented by a
+distribution. The uncertainties of all of these quantities must be considered throughout this
+process.
+</p>
+<p class="noindent"></p><figure class="float">
+<a id="x23-161001r21"></a>
+<figcaption class="caption"><span class="id">Figure 4.21: </span><span class="content">General schematic for concurrent localization and map building.                           </span></figcaption>
+<img alt="PIC" src="figures/Mobile-Robot-Localisation/figures-11.png" style=""/>
+</figure>
+<div class="warning"><div class="warning-upper">Warning</div><div class="body">
+<p class="noindent">The new type of map we are creating not only has features in it as did previous maps, but it <span class="alert">also has varying degrees of probability that each feature is indeed part of the environment</span>.
+</p></div></div>
+<p class="noindent">We represent this new map <math display="inline"><mi>M</mi></math>
+with a set <math display="inline"><mi>n</mi></math> of probabilistic
+feature locations <math display="inline"><msub><mrow><mi>ẑ</mi></mrow><mrow><mi>n</mi></mrow></msub></math>, each
+with the covariance matrix <math display="inline"><msub><mrow><mi mathvariant="normal">Σ</mi></mrow><mrow><mi>t</mi></mrow></msub></math>
+and an associated <span class="alert">credibility factor</span> <math display="inline"><msub><mrow><mi>c</mi></mrow><mrow><mi>t</mi></mrow></msub></math>
+between 0 and 1.
+</p>
+<div class="knowledge"><div class="knowledge-upper">Knowledge</div><div class="body">
+<p class="noindent">The purpose of <math display="inline"><msub><mrow><mi>c</mi></mrow><mrow><mi>t</mi></mrow></msub></math>
+is to quantify the belief in the existence of the feature in the environment: </p></div></div>
+<table class="equation"><tr><td>
+<math class="equation" display="block">
+<mstyle class="label" id="x23-161002r25"></mstyle>
+<mi>M</mi> <mo class="MathClass-rel" stretchy="false">=</mo><msup><mrow> <mrow><mo fence="true" form="prefix">{</mo><mrow><msub><mrow><mi>ẑ</mi></mrow><mrow><mi>t</mi></mrow></msub><mo class="MathClass-punc" stretchy="false">,</mo><mspace class="thinspace" width="0.17em"></mspace><msub><mrow><mi mathvariant="normal">Σ</mi></mrow><mrow><mi>t</mi></mrow></msub><mo class="MathClass-punc" stretchy="false">,</mo><mspace class="thinspace" width="0.17em"></mspace><msub><mrow><mi>c</mi></mrow><mrow><mi>t</mi></mrow></msub><mspace class="thinspace" width="0.17em"></mspace><mstyle mathsize="1.61em"><mrow><mo fence="true" form="prefix">|</mo><mrow></mrow><mo fence="true" form="postfix"></mo></mrow></mstyle><mspace class="thinspace" width="0.17em"></mspace><msup><mrow> <mrow><mo fence="true" form="prefix">(</mo><mrow><mn>1</mn> <mo class="MathClass-rel" stretchy="false">≦</mo> <mi>t</mi> <mo class="MathClass-rel" stretchy="false">≦</mo> <mi>n</mi></mrow><mo fence="true" form="postfix">)</mo></mrow></mrow><mrow></mrow></msup></mrow><mo fence="true" form="postfix">}</mo></mrow></mrow><mrow></mrow></msup>
+</math></td><td class="eq-no">(4.25)</td></tr></table>
+<p class="noindent"></p>
+<p class="noindent">In contrast to the map used for <i>Kalman filter localisation</i> previously, the map
+<math display="inline"><mi>M</mi></math> is
+<b>NOT</b> assumed to be <span class="alert">precisely known</span> as it will be created by an uncertain robot over time. This is why the features
+<math display="inline"><msub><mrow><mi>ẑ</mi></mrow><mrow><mi>t</mi></mrow></msub></math> are described with associated
+covariance matrices <math display="inline"><msub><mrow><mi mathvariant="normal">Σ</mi></mrow><mrow><mi>t</mi></mrow></msub></math>.
+</p><p class="noindent">Similar to Kalman filter localisation, the matching steps has three (<span class="alert">3</span>) outcomes in regard to
+measurement predictions and observations: </p>
+<ul class="itemize1">
+<li class="itemize">
+<p class="noindent">matched prediction and observations,
+</p>
+</li>
+<li class="itemize">
+<p class="noindent">unexpected observations, and
+</p>
+</li>
+<li class="itemize">
+<p class="noindent">unobserved predictions</p></li></ul>
+<p class="noindent">Localisation, or the position update of the robot, proceeds as before. However, the map is
+also updated now, using all three outcomes and complete propagation of all the correllated
+uncertainties.
+</p><p class="noindent">The interesting concept in this modeling is the <span class="alert">credibility factor</span>
+<math display="inline"><msub><mrow><mi>c</mi></mrow><mrow><mi>t</mi></mrow></msub></math> , which
+governs the likelihood that the mapped feature is indeed in the environment. </p><div class="quote">  How should the robot’s
+failure to match observed features to a particular map feature reduce that map feature’s
+credibility?
+<p class="noindent">How should the robot’s success at matching a mapped feature increase the chance that the mapped
+feature is “correct?” </p></div>
+<p class="noindent">As an example, in <span class="cite"><a class="cite-show" href="#w3-20001">[†-7]</a><span class="cite-detail"> <a id="x23-161003"></a>Carroll, R. J. &amp; Ruppert, D. Transformation and weighting in regression
+(Chapman and Hall/CRC, 2017)</span></span> the following function is proposed for calculating credibility:
+</p><table class="equation"><tr><td>
+<math class="equation" display="block">
+<mstyle class="label" id="x23-161004r26"></mstyle>
+<msub><mrow><mi>c</mi></mrow><mrow><mi>t</mi></mrow></msub><mo class="MathClass-open" stretchy="false">(</mo><mi>k</mi><mo class="MathClass-close" stretchy="false">)</mo> <mo class="MathClass-rel" stretchy="false">=</mo> <mn>1</mn> <mo class="MathClass-bin" stretchy="false">−</mo> <mi class="loglike">exp</mi><mo>⁡</mo> <mrow><mo fence="true" form="prefix">[</mo><mrow><mo class="MathClass-bin" stretchy="false">−</mo><msup><mrow> <mrow><mo fence="true" form="prefix">(</mo><mrow><mfrac><mrow><msub><mrow><mi>n</mi></mrow><mrow><mi>s</mi></mrow></msub></mrow>
+<mrow>
+<mi>a</mi></mrow></mfrac> <mo class="MathClass-bin" stretchy="false">−</mo> <mfrac><mrow><msub><mrow><mi>n</mi></mrow><mrow><mi>u</mi></mrow></msub></mrow>
+<mrow>
+<mi>b</mi></mrow></mfrac> </mrow><mo fence="true" form="postfix">)</mo></mrow></mrow><mrow></mrow></msup></mrow><mo fence="true" form="postfix">]</mo></mrow><mstyle class="text"><mtext></mtext></mstyle>
+</math></td><td class="eq-no">(4.26)</td></tr></table>
+<p class="noindent"></p>
+<p class="noindent">where <math display="inline"><mi>a</mi></math> and
+<math display="inline"><mi>b</mi></math> define the <span class="alert">learning</span> and
+<span class="alert">forgetting</span> rate and <math display="inline"><msub><mrow><mi>n</mi></mrow><mrow><mi>s</mi></mrow></msub></math>
+and <math display="inline"><msub><mrow><mi>n</mi></mrow><mrow><mi>u</mi></mrow></msub></math>
+are the number of matched and unobserved predictions up to time
+<math display="inline"><mi>k</mi></math>, respectively. The update
+of the covariance matrix <math display="inline"><msub><mrow><mi mathvariant="normal">Σ</mi></mrow><mrow><mi>t</mi></mrow></msub></math>
+building the feature positions and the robot’s position are strongly correlated.
+</p>
+<div class="warning"><div class="warning-upper">Warning</div><div class="body">
+<p class="noindent">This forces us to use a <span class="alert">stochastic map</span>, in which all cross-correlations must be updated in each cycle. </p></div></div>
+<p class="noindent">The stochastic map consists of a stacked system state vector: </p><table class="equation"><tr><td>
+<math class="equation" display="block">
+<mstyle class="label" id="x23-161005r27"></mstyle>
+<mstyle mathvariant="bold">
+<mi>X</mi></mstyle>
+<mo class="MathClass-rel" stretchy="false">=</mo> <mrow><mo fence="true" form="prefix">[</mo><mrow><msub><mrow><mi>x</mi></mrow><mrow><mi>r</mi></mrow></msub><mo class="MathClass-open" stretchy="false">(</mo><mi>k</mi><mo class="MathClass-close" stretchy="false">)</mo><mspace class="quad" width="1em"></mspace><msub><mrow><mi>x</mi></mrow><mrow><mn>1</mn></mrow></msub><mo class="MathClass-open" stretchy="false">(</mo><mi>k</mi><mo class="MathClass-close" stretchy="false">)</mo><mspace class="quad" width="1em"></mspace><msub><mrow><mi>x</mi></mrow><mrow><mn>2</mn></mrow></msub><mo class="MathClass-open" stretchy="false">(</mo><mi>k</mi><mo class="MathClass-close" stretchy="false">)</mo><mspace class="quad" width="1em"></mspace><mo>…</mo><mspace class="quad" width="1em"></mspace><msub><mrow><mi>x</mi></mrow><mrow><mi>n</mi></mrow></msub><mo class="MathClass-open" stretchy="false">(</mo><mi>k</mi><mo class="MathClass-close" stretchy="false">)</mo></mrow><mo fence="true" form="postfix">]</mo></mrow> <mi>T</mi>
+<mstyle class="text"><mtext></mtext></mstyle>
+</math></td><td class="eq-no">(4.27)</td></tr></table>
+<p class="noindent"></p>
+<p class="noindent">and a system state covariance matrix: </p><table class="equation"><tr><td>
+<math class="equation" display="block">
+<mstyle class="label" id="x23-161006r28"></mstyle><mi mathvariant="normal">Σ</mi> <mo class="MathClass-rel" stretchy="false">=</mo> <mrow><mo fence="true" form="prefix">[</mo><mrow><mtable align="axis" class="array" columnlines="none none none none none none none none none" displaystyle="true" equalcolumns="false" equalrows="false" style=""> <mtr class="array-row"><mtd class="array-td" columnalign="center"> <msub><mrow><mi>C</mi></mrow><mrow><mi>r</mi><mi>r</mi></mrow></msub> </mtd>
+<mtd class="array-td" columnalign="center"> <msub><mrow><mi>C</mi></mrow><mrow><mi>r</mi><mn>1</mn></mrow></msub> </mtd>
+<mtd class="array-td" columnalign="center"> <mo class="MathClass-rel" stretchy="false">⋯</mo> </mtd>
+<mtd class="array-td" columnalign="center"> <msub><mrow><mi>C</mi></mrow><mrow><mi>r</mi><mi>n</mi></mrow></msub> </mtd>
+</mtr> <mtr class="array-row"><mtd class="array-td" columnalign="center"> <msub><mrow><mi>C</mi></mrow><mrow><mn>1</mn><mi>r</mi></mrow></msub> </mtd><mtd class="array-td" columnalign="center"> <msub><mrow><mi>C</mi></mrow><mrow><mn>1</mn><mn>1</mn></mrow></msub> </mtd><mtd class="array-td" columnalign="center"> <mo class="MathClass-rel" stretchy="false">⋯</mo> </mtd><mtd class="array-td" columnalign="center"> <msub><mrow><mi>C</mi></mrow><mrow><mn>1</mn><mi>n</mi></mrow></msub> </mtd></mtr> <mtr class="array-row"><mtd class="array-td" columnalign="center"> <mi>⋮</mi> </mtd> <mtd class="array-td" columnalign="center"> <mi>⋮</mi> </mtd> <mtd class="array-td" columnalign="center"> <mo class="MathClass-rel" stretchy="false">⋱</mo> </mtd> <mtd class="array-td" columnalign="center"> <mi>⋮</mi></mtd>
+</mtr>
+<mtr class="array-row"><mtd class="array-td" columnalign="center"> <msub><mrow><mi>C</mi></mrow><mrow><mi>n</mi><mi>r</mi></mrow></msub> </mtd>
+<mtd class="array-td" columnalign="center"> <msub><mrow><mi>C</mi></mrow><mrow><mi>n</mi><mn>1</mn></mrow></msub> </mtd>
+<mtd class="array-td" columnalign="center"> <mo class="MathClass-rel" stretchy="false">⋯</mo> </mtd>
+<mtd class="array-td" columnalign="center"> <msub><mrow><mi>C</mi></mrow><mrow><mi>n</mi><mi>n</mi></mrow></msub> </mtd>
+</mtr>
+<mtr class="array-row"><mtd class="array-td" columnalign="center"> </mtd>
+</mtr>
+</mtable> </mrow><mo fence="true" form="postfix">]</mo></mrow>
+</math></td><td class="eq-no">(4.28)</td></tr></table>
+<p class="noindent"></p>
+<p class="noindent">where the index <math display="inline"><mi>r</mi></math> stands for
+the robot and the index <math display="inline"><mi>i</mi> <mo class="MathClass-rel" stretchy="false">=</mo> <mn>1</mn></math>
+to <math display="inline"><mi>n</mi></math> for
+the features in the map.
+</p><p class="noindent">In contrast to localization based on an <i>a priori</i> accurate map, in the case of a stochastic map the
+cross-correlations must be maintained and updated as the robot is performing automatic map-building.
+During each localization cycle, the cross-correlations robot-to-feature and feature-to-robot are also
+updated.
+</p><p class="noindent">In short, this optimal approach requires every value in the map to depend on every other value, and
+therein lies the reason that such a complete solution to the automatic mapping problem is beyond the
+reach of even today’s computational resources.
+</p>
+<p class="noindent"><div class="subsection-header"> <h4 id="header-subsection-4.7.2"> <a class="pdf-icon" href="AutonomousMobileRoboticsLectureBook.pdf#subsection.4.7.2"><svg class="bi bi-file-pdf" fill="currentColor" height="20" viewbox="0 0 16 16" width="20" xmlns="http://www.w3.org/2000/svg"><path d="M4 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H4zm0 1h8a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1z"></path><path d="M4.603 12.087a.81.81 0 0 1-.438-.42c-.195-.388-.13-.776.08-1.102.198-.307.526-.568.897-.787a7.68 7.68 0 0 1 1.482-.645 19.701 19.701 0 0 0 1.062-2.227 7.269 7.269 0 0 1-.43-1.295c-.086-.4-.119-.796-.046-1.136.075-.354.274-.672.65-.823.192-.077.4-.12.602-.077a.7.7 0 0 1 .477.365c.088.164.12.356.127.538.007.187-.012.395-.047.614-.084.51-.27 1.134-.52 1.794a10.954 10.954 0 0 0 .98 1.686 5.753 5.753 0 0 1 1.334.05c.364.065.734.195.96.465.12.144.193.32.2.518.007.192-.047.382-.138.563a1.04 1.04 0 0 1-.354.416.856.856 0 0 1-.51.138c-.331-.014-.654-.196-.933-.417a5.716 5.716 0 0 1-.911-.95 11.642 11.642 0 0 0-1.997.406 11.311 11.311 0 0 1-1.021 1.51c-.29.35-.608.655-.926.787a.793.793 0 0 1-.58.029zm1.379-1.901c-.166.076-.32.156-.459.238-.328.194-.541.383-.647.547-.094.145-.096.25-.04.361.01.022.02.036.026.044a.27.27 0 0 0 .035-.012c.137-.056.355-.235.635-.572a8.18 8.18 0 0 0 .45-.606zm1.64-1.33a12.647 12.647 0 0 1 1.01-.193 11.666 11.666 0 0 1-.51-.858 20.741 20.741 0 0 1-.5 1.05zm2.446.45c.15.162.296.3.435.41.24.19.407.253.498.256a.107.107 0 0 0 .07-.015.307.307 0 0 0 .094-.125.436.436 0 0 0 .059-.2.095.095 0 0 0-.026-.063c-.052-.062-.2-.152-.518-.209a3.881 3.881 0 0 0-.612-.053zM8.078 5.8a6.7 6.7 0 0 0 .2-.828c.031-.188.043-.343.038-.465a.613.613 0 0 0-.032-.198.517.517 0 0 0-.145.04c-.087.035-.158.106-.196.283-.04.192-.03.469.046.822.024.111.054.227.09.346z"></path></svg></a><span class="number">4.7.2</span> <span class="title"> <a id="x23-1620004.7.2"></a>Other Mapping Techniques</span></h4></div>
+</p><p class="noindent">The <span class="acronym"><span class="acronym-short"><a class="glossary" href="#glo:amr">AMR</a></span><span class="acronym-detail"><span class="acronym-long"><a class="glossary" href="#glo:amr">Autonomous Mobile Robotics</a></span><span class="acronym-desc"><a class="glossary" href="#glo:amr">Self-navigating machines moving materials and goods
+independently without fixed tracks or wires. They use smart software, cameras, and sensors to map
+spaces and safely steer around people or obstacles in real time.</a></span></span></span> research community has spent
+significant research effort on the problem of automatic mapping, and has demonstrating working
+systems in many environments without having solved the complete stochastic map problem described
+earlier.
+</p>
+<div class="warning"><div class="warning-upper">Warning</div><div class="body">
+<p class="noindent">This field of <span class="acronym"><span class="acronym-short"><a class="glossary" href="#glo:amr">AMR</a></span><span class="acronym-detail"><span class="acronym-long"><a class="glossary" href="#glo:amr">Autonomous Mobile Robotics</a></span><span class="acronym-desc"><a class="glossary" href="#glo:amr">Self-navigating machines moving materials and
+goods independently without fixed tracks or wires. They use smart software, cameras, and
+sensors to map spaces and safely steer around people or obstacles in real time.</a></span></span></span> research is
+extremely large, and this LectureBook will <b>NOT</b> present a comprehensive survey of the field.
+</p></div></div>
+<p class="noindent">Instead, let’s look at the two (<span class="alert">2</span>) key considerations associated with automatic mapping, together with
+brief discussions of the approaches taken by several automatic mapping solutions to overcome these
+challenges.
+</p>
+<p class="noindent"><h5 class="subsubsectionHead" id="header-subsubsection-59"> <a id="x23-163000"></a>Cyclic Environments</h5>
+</p><p class="noindent">Possibly the single hardest challenge for automatic mapping to be conquered is to correctly map cyclic
+environments <span class="cite"><a class="cite-show" href="#w3-20001">[†-8]</a><span class="cite-detail"> <a id="x23-163001"></a>Gutmann, J.-S. &amp; Konolige, K. Incremental mapping of large cyclic environments in
+Proceedings 1999 IEEE International Symposium on Computational Intelligence in Robotics
+and Automation. CIRA’99 (Cat. No. 99EX375) (1999), 318–325</span></span>. The problem is simple: </p><div class="quote">
+Given an environment which has one or more loops or <span class="margin-block">cycles, <span class="margin-comment"><a class="ellipsis" href="#m-ref-142">[142]</a>
+<span class="sidenote">Such as four (<span class="alert">4</span>) hallways that
+intersect to form a rectangle</span></span></span> create a globally consistent map for the whole environment.
+</div>
+<p class="noindent">This problem is hard because of the fundamental behavior of automatic mapping systems:
+</p>
+<div class="warning"><div class="warning-upper">Warning</div><div class="body">
+<p class="noindent">The maps they create are <span class="alert">not perfect</span>. </p></div></div>
+<p class="noindent">And, given any local imperfection, accumulating such imperfections over time can lead to
+arbitrarily large global errors between a map, at the macro level, and the real world, as shown in
+<b>Fig.</b> <a href="#x23-163002r22">4.22</a>.
+</p>
+<p class="noindent"></p><figure class="float">
+<a id="x23-163002r22"></a>
+<figcaption class="caption"><span class="id">Figure 4.22: 
+          </span><span class="content">A naive, local mapping strategy with small local error leads to global maps that have a significant error, as
+          demonstrated by this real-world run on the left. By applying topological correction, the grid map on the
+          right is extracted <span class="cite"><a class="cite-show" href="#w3-20001">[†-9]</a><span class="cite-detail"> Bruce, J., Balch, T. &amp; Veloso, M. Fast and inexpensive color image segmentation
+          for interactive robots in Proceedings. 2000 IEEE/RSJ International Conference on Intelligent Robots
+          and Systems (IROS 2000)(Cat. No. 00CH37113) <b>3</b> (2000), 2061–2066</span></span>.                      </span></figcaption>
+<img alt="PIC" src="figures/Mobile-Robot-Localisation/raster/cyclic-environments.png" style=""/>
+</figure>
+<p class="noindent">Such global error is usually irrelevant for <span class="acronym"><span class="acronym-short"><a class="glossary" href="#glo:amr">AMR</a></span><span class="acronym-detail"><span class="acronym-long"><a class="glossary" href="#glo:amr">Autonomous Mobile Robotics</a></span><span class="acronym-desc"><a class="glossary" href="#glo:amr">Self-navigating
+machines moving materials and goods independently without fixed tracks or wires. They
+use smart software, cameras, and sensors to map spaces and safely steer around people or
+obstacles in real time.</a></span></span></span> localisation and navigation. After all, a warped map will still serve the
+robot perfectly well <b>so long as the local error is bounded</b>. However, an extremely large
+loop still eventually returns to the same spot, and the robot must be able to note this fact
+in its map. Therefore, global error does indeed matter in the case of cycles. In some of
+the earliest work attempting to solve the cyclic environment problem, [116] used a purely
+topological representation of the environment, reasoning that the topological representation only
+captures the most abstract, most important features and avoids a great deal of irrelevant
+detail.
+When the robot arrives at a topological node that could be the same as a previously visited
+and mapped <span class="margin-block">node, <span class="margin-comment"><a class="ellipsis" href="#m-ref-143">[143]</a>
+<span class="sidenote">e.g., similar distinguishing features.</span></span></span> then the robot postulates that it
+has indeed returned to the same node. To check this hypothesis, the robot explicitly plans
+and moves to adjacent nodes to see if its perceptual readings are consistent with the cycle
+hypothesis.
+</p><p class="noindent">With the recent popularity of metric maps such as <i>fixed decomposition grid representations</i>,
+the cycle detection strategy is not as straightforward. Two important features are found
+in most autonomous mapping systems that claim to solve the cycle detection problem:
+</p>
+<ul class="itemize1">
+<li class="itemize">
+<p class="noindent">First, as with many recent systems, these <span class="acronym"><span class="acronym-short"><a class="glossary" href="#glo:amr">AMR</a></span><span class="acronym-detail"><span class="acronym-long"><a class="glossary" href="#glo:amr">Autonomous Mobile Robotics</a></span><span class="acronym-desc"><a class="glossary" href="#glo:amr">Self-navigating
+machines moving materials and goods independently without fixed tracks or wires. They use
+smart software, cameras, and sensors to map spaces and safely steer around people or obstacles in
+real time.</a></span></span></span> tend to accumulate recent perceptual history to <span class="alert">create small-scale local sub-maps</span> <span class="cite"><a class="cite-show" href="#w3-20001">[†-10]</a><span class="cite-detail"> <a id="x23-163004"></a>Nourbakhsh, I. R.
+et al. Mobile robot obstacle avoidance via depth from focus. Robotics and Autonomous
+Systems <b>22</b><b>,</b> 151–158 (1997)</span></span>. In this approach, each sub-map is treated as a singular
+sensor during the robot’s position update. The advantage of this approach is two-fold.
+</p>
+<ul class="itemize2">
+<li class="itemize">
+<p class="noindent">As odometry is relatively accurate over small distances, the relative registration of
+features and raw sensor strikes in a local sub-map will be quite accurate.
+</p>
+</li>
+<li class="itemize">
+<p class="noindent">The robot will have created a virtual sensor system with a significantly larger horizon
+than its actual sensor system’s range. In a sense, this strategy at the very least defers
+the problem of very large cyclic environments by increasing the map scale that can
+be handled well by the robot.</p></li></ul>
+</li>
+<li class="itemize">
+<p class="noindent">The second recent technique for dealing with cycle environments is in fact a <span class="alert">return to the topological representation</span>. Some recent
+automatic mapping systems will attempt to identify cycles by associating a topology with
+the set of metric sub-maps, explicitly identifying the loops first at the topological
+level.</p></li></ul>
+<p class="noindent">One could certainly imagine other augmentations based on known topological methods.
+</p>
+<div class="knowledge"><div class="knowledge-upper">Knowledge</div><div class="body">
+<p class="noindent">For example, the globally unique localisation methods described previously could be used to identify
+topological correctness. </p></div></div>
+<p class="noindent"><h5 class="subsubsectionHead" id="header-subsubsection-60"> <a id="x23-164000"></a>Dynamic Environments</h5>
+</p><p class="noindent">A second challenge extends <b>NOT</b> just to existing autonomous mapping solutions but even to the basic
+execution of the <b>stochastic map approach</b>.
+</p>
+<div class="info-block" id="info-block-4.22"> <a class="copiable-link" href="#info-block-4.22"> ¶</a> <span class="info-upper"> <span class="info-header"> <b>Information 4.<a id="x23-164001r22"></a>22: </b> </span> <span class="info-title"> Previous Assumptions </span> </span> <div class="body">
+<p class="noindent">All previously mentioned strategies tend to assume the environment is either <span class="alert">unchanging</span> or changes in ways that
+are <span class="alert">virtually insignificant</span>. </p>
+<hr/>
+<p class="noindent"> 
+Such assumptions are certainly valid with respect to some environments, such as for example the
+department during Christmas.
+</p>
+</div></div>
+<p class="noindent">However, for numerous practical applications, this assumption is lacking at best. In the case of
+wide-open spaces which are popular gathering places for humans, there is rapid change in the free-space
+and a vast majority of sensor strikes represent detection of the transient humans rather than fixed
+surfaces such as the perimeter wall.
+</p><p class="noindent">Another class of dynamic environments are spaces such as <span class="alert">factory floors</span> and <span class="alert">warehouses</span>, where the objects being stored
+redefine the topology of the pathways on a day-to-day basis as shipments are moved in and
+out.
+</p><p class="noindent">In all such dynamic environments, an <b>automatic mapping system</b> should capture the <span class="margin-block">salient <span class="margin-comment"><a class="ellipsis" href="#m-ref-144">[144]</a>
+<span class="sidenote">In this
+context, salient means anything which is sticking out.</span></span></span> objects detected by its sensors and, furthermore,
+the robot should have the flexibility to modify its map as the position of these salient objects
+changes.
+</p><p class="noindent">The subject of <span class="alert">continuous mapping</span>, or mapping of dynamic environments is to some degree a direct outgrowth of successful
+strategies for automatic mapping of unfamiliar environments.
+</p><p class="noindent">For example, in the case of stochastic mapping using the credibility factor
+<math display="inline"><msub><mrow><mi>c</mi></mrow><mrow><mi>t</mi></mrow></msub></math>
+mechanism, the credibility equation can continue to provide feedback regarding the probability of
+existence of various mapped features after the initial map creation process is ostensibly complete.
+Therefore, a mapping system can become a map-modifying system by simply continuing to
+operate.
+</p>
+<div class="knowledge"><div class="knowledge-upper">Knowledge</div><div class="body">
+<p class="noindent">This is most effective, of course, if the mapping system is <span class="alert">real-time</span> and <span class="alert">incremental</span>. </p></div></div>
+<p class="noindent">If map construction requires off-line global optimisation, then the desire to make small-grained,
+incremental adjustments to the map is more difficult to satisfy.
+</p><p class="noindent">Earlier we’ve stated a mapping system should capture only the salient objects detected by its sensors. One
+common argument for handling the detection of, for instance, humans in the environment is that mechanisms
+such as <math display="inline"><msub><mrow><mi>c</mi></mrow><mrow><mi>t</mi></mrow></msub></math>
+serve to be mapped in the first place.
+</p><p class="noindent">The general solution to the problem of detecting salient features, however, requires a solution to the
+perception problem in general. When a robot’s sensor system can reliably detect the difference between
+a wall and a human, using for example a vision system, then the problem of mapping in dynamic
+environments will become significantly more straightforward.
+</p><p class="noindent">We have discussed just two important considerations for automatic mapping. There is still a great deal
+of research activity focusing on the general map building and localization problem. This field is certain
+to produce significant new results in the next several years, and as the perceptual power of robots
+improves we expect the payoff to be greatest here.
+</p>
+<div class="info-block" id="info-block-4.23"> <a class="copiable-link" href="#info-block-4.23"> ¶</a> <span class="info-upper"> <span class="info-header"> <b>Information 4.<a id="x23-164002r23"></a>23: </b> </span> <span class="info-title"> DARPA Grand Challenge </span> </span> <div class="body">
+<p class="noindent">A prize competition for American autonomous vehicles, funded by the Defense Advanced Research
+Projects Agency (DARPA). The goal of the challenge is too further DARPA’s mission to sponsor
+revolutionary, high-payoff research that bridges the gap between fundamental discoveries and military
+use. The initial DARPA Grand <span class="margin-block"><span class="margin"><span>Challenge <a class="ellipsis" href="#m-ref-145">[145]</a></span><span class="sidenote"><a class="copiable-link" href="#m-ref-145" id="m-ref-145"> ¶</a><span class="sidenote-image"><img alt="PIC" src="figures/Mobile-Robot-Localisation/raster/darpa-challenge.jpg" style=""/></span><span class="sidenote-text"><span class="ellipsis">[145]</span>Stanford Racing and Victor Tango together at an
+intersection in the DARPA Urban Challenge Finals.</span></span></span></span> in 2004 was created to spur the development of
+technologies needed to create the first fully autonomous ground vehicles capable of completing a
+substantial off-road course within a limited time. </p>
+<hr/>
+<p class="noindent"> 
+The third event, the DARPA Urban Challenge in
+2007, extended the initial Challenge to autonomous operation in a mock urban environment. The
+2012 DARPA Robotics Challenge, focused on autonomous emergency-maintenance robots,
+and new Challenges are still being conceived. </p>
+<hr/>
+<p class="noindent"> 
+The DARPA Subterranean Challenge was
+tasked with building robotic teams to autonomously map, navigate, and search subterranean
+environments. Such teams could be useful in exploring hazardous areas and in search and
+rescue.
+</p>
+</div></div>
+<div class="section-header">
+<h3 id="header-section-glossary">
+<span class="number">
+<i class="fa-regular fa-bookmark"></i>
+</span>
+<span class="title">
+<a id="page-glossary"></a>
+        Page Glossary Terms</span>
+</h3>
+</div>
+<div class="acronym-block">
+<dl class="acr-list">
+<a class="copiable-link" href="#glo:slam">¶</a>
+<dt class="acr-bottom" id="glo:slam"><span class="acr-short">SLAM</span><span class="acr-long">Simultaneous Localisation and Mapping</span></dt>
+<dd class="acr-desc"><p>A process where a computer constructs or
+updates a map of an unknown environment while simultaneously keeping track of an entity’s
+location within it. While this initially appears to be a chicken or the egg problem, there are
+several algorithms known to solve it in, at least approximately, tractable time for certain
+environments. Popular approximate solution methods include the particle filter, extended Kalman
+filter, covariance intersection, and GraphSLAM. SLAM algorithms are based on concepts in
+computational geometry and computer vision, and are used in robot navigation, robotic mapping
+and odometry for virtual reality or augmented reality.</p></dd>
+</dl>
+<dl class="acr-list">
+<a class="copiable-link" href="#glo:amr">¶</a>
+<dt class="acr-bottom" id="glo:amr"><span class="acr-short">AMR</span><span class="acr-long">Autonomous Mobile
+Robotics</span></dt>
+<dd class="acr-desc"><p>Self-navigating machines moving materials and goods independently without fixed
+tracks or wires. They use smart software, cameras, and sensors to map spaces and safely
+steer around people or obstacles in real time.</p></dd>
+</dl>
+</div>
+<div class="section-header">
+<h3 id="header-section-references">
+<span class="number">
+<i class="fa-solid fa-magnifying-glass"></i>
+</span>
+<span class="title">
+<a id="page-glossary"></a>
+            Page References</span>
+</h3>
+</div>
+<div class="cite-block">
+<dl class="enumerate-enumitem">
+<dt class="enumerate-enumitem" id="w3-20001"><span class="acr-short">1.</span><span class="acr-long"></span></dt>
+<dd class="enumerate-enumitem"> Kivaan. An official DARPA photograph of Stanley at the 2005 DARPA Grand Challenge. 2007</dd>
+</dl>
+<dl class="enumerate-enumitem">
+<dt class="enumerate-enumitem" id="w3-20001"><span class="acr-short">2.</span><span class="acr-long"></span></dt>
+<dd class="enumerate-enumitem"> McNamara, T. P., Hardy, J. K. &amp; Hirtle, S. C. Subjective hierarchies in spatial memory. Journal of Experimental Psychology: Learning, Memory, and Cognition 15, 211 (1989)</dd>
+</dl>
+<dl class="enumerate-enumitem">
+<dt class="enumerate-enumitem" id="w3-20001"><span class="acr-short">3.</span><span class="acr-long"></span></dt>
+<dd class="enumerate-enumitem"> Chun, M. M. &amp; Jiang, Y. Contextual cueing: Implicit learning and memory of visual context guides spatial attention. Cognitive psychology 36, 28–71 (1998), Huang, C. et al. Visual language maps for robot navigation in 2023 IEEE International Conference on Robotics and Automation (ICRA) (2023), 10608–10615</dd>
+</dl>
+<dl class="enumerate-enumitem">
+<dt class="enumerate-enumitem" id="w3-20001"><span class="acr-short">4.</span><span class="acr-long"></span></dt>
+<dd class="enumerate-enumitem"> Meyer-Delius, D. et al. Using artificial landmarks to reduce the ambiguity in the environment of a mobile robot in 2011 IEEE International Conference on Robotics and Automation (2011), 5173–5178</dd>
+</dl>
+<dl class="enumerate-enumitem">
+<dt class="enumerate-enumitem" id="w3-20001"><span class="acr-short">5.</span><span class="acr-long"></span></dt>
+<dd class="enumerate-enumitem"> Hazik, J. et al. Fleet management system for an industry environment. Journal of Robotics and Control (JRC) 3, 779–789 (2022), Xidias, E., Zacharia, P. &amp; Nearchou, A. Intelligent fleet management of autonomous vehicles for city logistics. Applied Intelligence 52, 18030–18048 (2022)</dd>
+</dl>
+<dl class="enumerate-enumitem">
+<dt class="enumerate-enumitem" id="w3-20001"><span class="acr-short">6.</span><span class="acr-long"></span></dt>
+<dd class="enumerate-enumitem"> Hashimoto, S. et al. Humanoid robots in waseda university–hadaly-2 and wabian. Autonomous Robots 12, 25–38 (2002)</dd>
+</dl>
+<dl class="enumerate-enumitem">
+<dt class="enumerate-enumitem" id="w3-20001"><span class="acr-short">7.</span><span class="acr-long"></span></dt>
+<dd class="enumerate-enumitem"> Carroll, R. J. &amp; Ruppert, D. Transformation and weighting in regression (Chapman and Hall/CRC, 2017)</dd>
+</dl>
+<dl class="enumerate-enumitem">
+<dt class="enumerate-enumitem" id="w3-20001"><span class="acr-short">8.</span><span class="acr-long"></span></dt>
+<dd class="enumerate-enumitem"> Gutmann, J.-S. &amp; Konolige, K. Incremental mapping of large cyclic environments in Proceedings 1999 IEEE International Symposium on Computational Intelligence in Robotics and Automation. CIRA’99 (Cat. No. 99EX375) (1999), 318–325</dd>
+</dl>
+<dl class="enumerate-enumitem">
+<dt class="enumerate-enumitem" id="w3-20001"><span class="acr-short">9.</span><span class="acr-long"></span></dt>
+<dd class="enumerate-enumitem"> Bruce, J., Balch, T. &amp; Veloso, M. Fast and inexpensive color image segmentation for interactive robots in Proceedings. 2000 IEEE/RSJ International Conference on Intelligent Robots and Systems (IROS 2000)(Cat. No. 00CH37113) 3 (2000), 2061–2066</dd>
+</dl>
+<dl class="enumerate-enumitem">
+<dt class="enumerate-enumitem" id="w3-20001"><span class="acr-short">10.</span><span class="acr-long"></span></dt>
+<dd class="enumerate-enumitem"> Nourbakhsh, I. R. et al. Mobile robot obstacle avoidance via depth from focus. Robotics and Autonomous Systems 22, 151–158 (1997)</dd>
+</dl></div>
+<div class="section-header">
+<h3 id="header-section-references">
+<span class="number">
+<i class="fa-regular fa-note-sticky"></i>
+</span>
+<span class="title">
+<a id="page-glossary"></a>
+                    Page Footnotes</span>
+</h3>
+</div>
+<div class="footnote-block">
+<dl class="enumerate-enumitem">
+<dt class="enumerate-enumitem" id="m-ref-142"><span class="acr-short">[142].</span></dt>
+<dd class="enumerate-enumitem"><span class="">Such as four (<span class="alert">4</span>) hallways that
+intersect to form a rectangle</span></dd>
+</dl>
+<dl class="enumerate-enumitem">
+<dt class="enumerate-enumitem" id="m-ref-143"><span class="acr-short">[143].</span></dt>
+<dd class="enumerate-enumitem"><span class="">e.g., similar distinguishing features.</span></dd>
+</dl>
+<dl class="enumerate-enumitem">
+<dt class="enumerate-enumitem" id="m-ref-144"><span class="acr-short">[144].</span></dt>
+<dd class="enumerate-enumitem"><span class="">In this
+context, salient means anything which is sticking out.</span></dd>
+</dl></div><nav class="crosslinks-bottom"><div class="navigation"><span class="nav-button"><a href="WelcometoLinux.html"><i class="fa-solid fa-caret-right"></i></a></span><span class="nav-button"><a href="OtherExamplesofLocalisationMethods.html"><i class="fa-solid fa-caret-left"></i></a></span><span class="nav-button"><a href="MobileRobotLocalisation.html#BuildingMaps.html"><i class="fa-solid fa-caret-up"></i></a></span><span class="nav-button">
+<a href="index.html" rel="index" title="Index">
+<i class="fa-solid fa-table-list">
+</i>
+</a></span><span class="nav-button">
+<a href="Index.html" rel="index" title="Index">
+<i class="fa-brands fa-git-alt"></i>
+</a></span></div></nav> <div class="footer"> <div class="footer-left"><span class="footer-lecture">D. T. McGuiness, PhD</span>
+<span class="footer-webBook"><b>Last Updated:</b> 13.10.2026, at 8:16.</span></div></div><div class="author-notes">
+<span class="note">Authors Note </span>
+<span class="text">The website you are viewing is auto-generated using lms-WebBook and therefore subject to slight errors in typography and formatting. When in doubt, please consult the LectureBook. </span>
+</div>
+</article>
+<div class="mode-line">
+<div class="core-line"><div class="core-line-image"><img class="webbook-logo" src="logo/webbook-logo.svg"/></div>
+<div class="current-header">
+<span class="header-pretext">Viewing | </span>
+<span class="header-text">Section 4.7: Building Maps</span>
+</div>
+<div class="button-group">
+</div>
+</div>
+<div class="supp-line"></div>
+</div>
+</page>
+</body>
+</html>

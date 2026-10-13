@@ -1,0 +1,1033 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><title>Building Blocks</title>
+<meta charset="utf-8"/>
+<meta content="lms-WebBook" name="generator"/>
+<meta content="width=device-width,initial-scale=1" name="viewport"/>
+<script async="async" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/mml-chtml.js" type="text/javascript"></script>
+<link href="logo/lms.ico" rel="icon" type="image/x-icon"/>
+<link href="./pagefind/pagefind-component-ui.css" rel="stylesheet"/>
+<script src="./pagefind/pagefind-component-ui.js" type="text/javascript"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<link href="https://cdn.jsdelivr.net/gh/sugina-dev/latin-modern-web@1.0.1/style/latinmodern-mono.css" rel="stylesheet"/>
+<link href="https://cdn.jsdelivr.net/gh/dTmC0945/Wb-LMS-WebBook-Infrastructure/flatweb.css" rel="stylesheet" type="text/css"/>
+<script async="true" crossorigin="anonymous" src="https://cdn.jsdelivr.net/gh/dTmC0945/Wb-LMS-WebBook-Infrastructure/flatweb.js"></script>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/styles/default.min.css" rel="stylesheet"/>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/highlight.min.js"></script>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/styles/base16/solarized-light.min.css" rel="stylesheet"/>
+<script src="https://unpkg.com/highlightjs-copy/dist/highlightjs-copy.min.js"></script>
+<link href="https://unpkg.com/highlightjs-copy/dist/highlightjs-copy.min.css" rel="stylesheet"/>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css?family=Roboto:400,100,100italic,300,300italic,400italic,500,500italic,700,700italic,900italic,900" rel="stylesheet"/>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/languages/cpp.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/languages/latex.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/languages/matlab.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/languages/dockerfile.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/languages/cmake.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/languages/makefile.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/languages/markdown.min.js"></script>
+ </head><body>
+<page>
+<nav class="wide"> <div class="header"><div class="header-left"><span class="header-lecture-grade">M.Sc</span>
+<span class="header-lecture-name">Autonomous Mobile Robotics</span>
+<span class="header-webBook">WebBook 2.1</span></div><div class="header-right"><span class="header-version">2026.WS</span>
+<span class="header-chapter">ROS Concepts</span></div></div><div class="toc"><pagefind-modal-trigger></pagefind-modal-trigger><pagefind-modal></pagefind-modal><div class="toc-links"><a href="https://github.com/dTmC0945" title="Lecturer GitHub Repo"><i class="fab fa-github" style="font-size:20px"></i></a><a href="https://scholar.google.com/citations?view_op=list_works\&amp;hl=en\&amp;user=lxQGADMAAAAJ" title="Lecturer Google Scholar Page"><i class="fa-brands fa-google-scholar" style="font-size:20px"></i></a><a href="https://www.researchgate.net/profile/Daniel-Mcguiness-2" title="Lecturer ResearchGate Account"><i class="fa-brands fa-researchgate" style="font-size:20px"></i></a><a href="https://dtmc0945.github.io/Th-MCI-Thesis-Topics/" title="Lecturer Thesis Ideas for B.Sc and M.Sc"><i class="fa-solid fa-book" style="font-size:20px"></i></a><a href="https://github.com/dTmC0945/C-MCI-LaTeX-Class-mcidoc/tree/main" title="mcidoc LaTeX Standard"><i class="fa-regular fa-file-lines" style="font-size:20px"></i></a></div><hr/><span class="chapterToc"><span class="number"></span><span class="title"><a href="index.html#x2-10000">Entry Point</a></span></span><span class="chapterToc"><span class="number">1</span><span class="title"><a href="Locomotion.html#x3-20001">Locomotion</a></span></span><span class="subsectionToc"><span class="number">1.0.1</span><span class="title"><a href="Locomotion.html#x3-30001.0.1">Key  Issues  for  Locomotion</a></span></span><span class="sectionToc"><span class="number">1.1</span><span class="title"><a href="LeggedMobileRobots.html#x4-40001.1">Legged  Mobile
+Robots</a></span></span><span class="subsectionToc"><span class="number">1.1.1</span><span class="title"><a href="LeggedMobileRobots.html#x4-60001.1.1">Examples  of  Legged  Robot  Locomotion</a></span></span><span class="sectionToc"><span class="number">1.2</span><span class="title"><a href="WheeledMobileRobots.html#x5-120001.2">Wheeled  Mobile
+Robots</a></span></span><span class="subsectionToc"><span class="number">1.2.1</span><span class="title"><a href="WheeledMobileRobots.html#x5-130001.2.1">Design</a></span></span><span class="subsectionToc"><span class="number">1.2.2</span><span class="title"><a href="WheeledMobileRobots.html#x5-160001.2.2">Stability</a></span></span><span class="subsectionToc"><span class="number">1.2.3</span><span class="title"><a href="WheeledMobileRobots.html#x5-170001.2.3">Manoeuvrability</a></span></span><span class="subsectionToc"><span class="number">1.2.4</span><span class="title"><a href="WheeledMobileRobots.html#x5-180001.2.4">Controllability</a></span></span><span class="subsectionToc"><span class="number">1.2.5</span><span class="title"><a href="WheeledMobileRobots.html#x5-190001.2.5">Case
+Studies for Wheeled Motion</a></span></span><span class="subsectionToc"><span class="number">1.2.6</span><span class="title"><a href="WheeledMobileRobots.html#x5-260001.2.6">Walking Wheels</a></span></span><span class="chapterToc"><span class="number">2</span><span class="title"><a href="MobileRobotKinematics.html#x6-270002">Mobile Robot Kinematics</a></span></span><span class="sectionToc"><span class="number">2.1</span><span class="title"><a href="KinematicModelsandConstraints.html#x7-280002.1">Kinematic
+Models and Constraints</a></span></span><span class="subsectionToc"><span class="number">2.1.1</span><span class="title"><a href="KinematicModelsandConstraints.html#x7-290002.1.1">Representing robot position</a></span></span><span class="subsectionToc"><span class="number">2.1.2</span><span class="title"><a href="KinematicModelsandConstraints.html#x7-300002.1.2">Forward kinematic
+models</a></span></span><span class="subsectionToc"><span class="number">2.1.3</span><span class="title"><a href="KinematicModelsandConstraints.html#x7-310002.1.3">Wheel kinematic constraints</a></span></span><span class="subsectionToc"><span class="number">2.1.4</span><span class="title"><a href="KinematicModelsandConstraints.html#x7-370002.1.4">Robot kinematic constraints</a></span></span><span class="subsectionToc"><span class="number">2.1.5</span><span class="title"><a href="KinematicModelsandConstraints.html#x7-380002.1.5">Examples:
+robot kinematic models and constraints</a></span></span><span class="sectionToc"><span class="number">2.2</span><span class="title"><a href="MobileRobotManeuverability.html#x8-410002.2">Mobile Robot Maneuverability</a></span></span><span class="subsectionToc"><span class="number">2.2.1</span><span class="title"><a href="MobileRobotManeuverability.html#x8-420002.2.1">Degree
+of Mobility</a></span></span><span class="subsectionToc"><span class="number">2.2.2</span><span class="title"><a href="MobileRobotManeuverability.html#x8-450002.2.2">Degree of steerability</a></span></span><span class="subsectionToc"><span class="number">2.2.3</span><span class="title"><a href="MobileRobotManeuverability.html#x8-470002.2.3">Robot maneuverability</a></span></span><span class="sectionToc"><span class="number">2.3</span><span class="title"><a href="MobileRobotWorkspace.html#x9-480002.3">Mobile Robot
+Workspace</a></span></span><span class="subsectionToc"><span class="number">2.3.1</span><span class="title"><a href="MobileRobotWorkspace.html#x9-490002.3.1">Degrees of freedom</a></span></span><span class="subsectionToc"><span class="number">2.3.2</span><span class="title"><a href="MobileRobotWorkspace.html#x9-500002.3.2">Holonomic robots</a></span></span><span class="subsectionToc"><span class="number">2.3.3</span><span class="title"><a href="MobileRobotWorkspace.html#x9-530002.3.3">Path and trajectory
+considerations</a></span></span><span class="subsectionToc"><span class="number">2.3.4</span><span class="title"><a href="MobileRobotWorkspace.html#x9-540002.3.4">Beyond Basic Kinematics</a></span></span><span class="sectionToc"><span class="number">2.4</span><span class="title"><a href="MotionControlKinematicControl.html#x10-550002.4">Motion Control (Kinematic
+Control)</a></span></span><span class="subsectionToc"><span class="number">2.4.1</span><span class="title"><a href="MotionControlKinematicControl.html#x10-560002.4.1">Open loop control</a></span></span><span class="subsectionToc"><span class="number">2.4.2</span><span class="title"><a href="MotionControlKinematicControl.html#x10-570002.4.2">Feedback control</a></span></span><span class="chapterToc"><span class="number">3</span><span class="title"><a href="Perception.html#x11-630003">Perception</a></span></span><span class="sectionToc"><span class="number">3.1</span><span class="title"><a href="SensorsforMobileRobotics.html#x12-640003.1">Sensors for Mobile
+Robotics</a></span></span><span class="subsectionToc"><span class="number">3.1.1</span><span class="title"><a href="SensorsforMobileRobotics.html#x12-650003.1.1">Sensor Classification</a></span></span><span class="subsectionToc"><span class="number">3.1.2</span><span class="title"><a href="SensorsforMobileRobotics.html#x12-660003.1.2">Characterisation of Sensor Performance</a></span></span><span class="subsectionToc"><span class="number">3.1.3</span><span class="title"><a href="SensorsforMobileRobotics.html#x12-720003.1.3">Wheel
+and Motor Sensors</a></span></span><span class="subsectionToc"><span class="number">3.1.4</span><span class="title"><a href="SensorsforMobileRobotics.html#x12-740003.1.4">Heading Sensors</a></span></span><span class="subsectionToc"><span class="number">3.1.5</span><span class="title"><a href="SensorsforMobileRobotics.html#x12-810003.1.5">Ground Based Beacons</a></span></span><span class="subsectionToc"><span class="number">3.1.6</span><span class="title"><a href="SensorsforMobileRobotics.html#x12-830003.1.6">Active
+Ranging</a></span></span><span class="subsectionToc"><span class="number">3.1.7</span><span class="title"><a href="SensorsforMobileRobotics.html#x12-850003.1.7">The Ultrasonic Sensor</a></span></span><span class="subsectionToc"><span class="number">3.1.8</span><span class="title"><a href="SensorsforMobileRobotics.html#x12-920003.1.8">Motion and Speed Sensors</a></span></span><span class="sectionToc"><span class="number">3.2</span><span class="title"><a href="VisionBasedSensors.html#x13-940003.2">Vision Based
+Sensors</a></span></span><span class="subsectionToc"><span class="number">3.2.1</span><span class="title"><a href="VisionBasedSensors.html#x13-950003.2.1">CCD Sensors</a></span></span><span class="subsectionToc"><span class="number">3.2.2</span><span class="title"><a href="VisionBasedSensors.html#x13-970003.2.2">CMOS Technology</a></span></span><span class="subsectionToc"><span class="number">3.2.3</span><span class="title"><a href="VisionBasedSensors.html#x13-980003.2.3">Visual Ranging Sensors</a></span></span><span class="subsectionToc"><span class="number">3.2.4</span><span class="title"><a href="VisionBasedSensors.html#x13-990003.2.4">Depth
+from Focus</a></span></span><span class="sectionToc"><span class="number">3.3</span><span class="title"><a href="RepresentingUncertainty.html#x14-1070003.3">Representing Uncertainty</a></span></span><span class="subsectionToc"><span class="number">3.3.1</span><span class="title"><a href="RepresentingUncertainty.html#x14-1080003.3.1">Statistical Representation</a></span></span><span class="subsectionToc"><span class="number">3.3.2</span><span class="title"><a href="RepresentingUncertainty.html#x14-1090003.3.2">Independence
+of random variables</a></span></span><span class="subsectionToc"><span class="number">3.3.3</span><span class="title"><a href="RepresentingUncertainty.html#x14-1110003.3.3">Propagation of Error</a></span></span><span class="sectionToc"><span class="number">3.4</span><span class="title"><a href="FeatureExtraction.html#x15-1120003.4">Feature Extraction</a></span></span><span class="subsectionToc"><span class="number">3.4.1</span><span class="title"><a href="FeatureExtraction.html#x15-1130003.4.1">Defining
+Feature</a></span></span><span class="subsectionToc"><span class="number">3.4.2</span><span class="title"><a href="FeatureExtraction.html#x15-1140003.4.2">Using Range Data</a></span></span><span class="chapterToc"><span class="number">4</span><span class="title"><a href="MobileRobotLocalisation.html#x16-1290004">Mobile Robot Localisation</a></span></span><span class="sectionToc"><span class="number">4.1</span><span class="title"><a href="TheProblemsofNoiseandAliasing.html#x17-1300004.1">The Problems of Noise and
+Aliasing</a></span></span><span class="subsectionToc"><span class="number">4.1.1</span><span class="title"><a href="TheProblemsofNoiseandAliasing.html#x17-1310004.1.1">Sensor Noise</a></span></span><span class="subsectionToc"><span class="number">4.1.2</span><span class="title"><a href="TheProblemsofNoiseandAliasing.html#x17-1320004.1.2">Sensor Aliasing</a></span></span><span class="subsectionToc"><span class="number">4.1.3</span><span class="title"><a href="TheProblemsofNoiseandAliasing.html#x17-1330004.1.3">Effector Noise</a></span></span><span class="subsectionToc"><span class="number">4.1.4</span><span class="title"><a href="TheProblemsofNoiseandAliasing.html#x17-1340004.1.4">An Error Model for
+Odometric Position Estimation</a></span></span><span class="sectionToc"><span class="number">4.2</span><span class="title"><a href="LocalisationTechniques.html#x18-1350004.2">Localisation Techniques</a></span></span><span class="sectionToc"><span class="number">4.3</span><span class="title"><a href="RepresentingBelief.html#x19-1360004.3">Representing Belief</a></span></span><span class="subsectionToc"><span class="number">4.3.1</span><span class="title"><a href="RepresentingBelief.html#x19-1370004.3.1">Single
+Hypothesis Belief</a></span></span><span class="subsectionToc"><span class="number">4.3.2</span><span class="title"><a href="RepresentingBelief.html#x19-1380004.3.2">Multiple Hypothesis Belief</a></span></span><span class="sectionToc"><span class="number">4.4</span><span class="title"><a href="RepresentingMaps.html#x20-1390004.4">Representing Maps</a></span></span><span class="subsectionToc"><span class="number">4.4.1</span><span class="title"><a href="RepresentingMaps.html#x20-1400004.4.1">Continuous
+Representation</a></span></span><span class="subsectionToc"><span class="number">4.4.2</span><span class="title"><a href="RepresentingMaps.html#x20-1410004.4.2">Decomposition Methods</a></span></span><span class="subsectionToc"><span class="number">4.4.3</span><span class="title"><a href="RepresentingMaps.html#x20-1420004.4.3">Current Challenges</a></span></span><span class="sectionToc"><span class="number">4.5</span><span class="title"><a href="ProbabilisticMapBasedLocalisation.html#x21-1430004.5">Probabilistic
+Map-Based Localisation</a></span></span><span class="subsectionToc"><span class="number">4.5.1</span><span class="title"><a href="ProbabilisticMapBasedLocalisation.html#x21-1440004.5.1">Problem Definition</a></span></span><span class="subsectionToc"><span class="number">4.5.2</span><span class="title"><a href="ProbabilisticMapBasedLocalisation.html#x21-1450004.5.2">Markov Localisation</a></span></span><span class="subsectionToc"><span class="number">4.5.3</span><span class="title"><a href="ProbabilisticMapBasedLocalisation.html#x21-1490004.5.3">Kalman
+Filter Localisation</a></span></span><span class="subsectionToc"><span class="number">4.5.4</span><span class="title"><a href="ProbabilisticMapBasedLocalisation.html#x21-1500004.5.4">An Implementation of Kalman Filter</a></span></span><span class="sectionToc"><span class="number">4.6</span><span class="title"><a href="OtherExamplesofLocalisationMethods.html#x22-1550004.6">Other Examples
+of Localisation Methods</a></span></span><span class="subsectionToc"><span class="number">4.6.1</span><span class="title"><a href="OtherExamplesofLocalisationMethods.html#x22-1560004.6.1">Landmark-based Navigation</a></span></span><span class="subsectionToc"><span class="number">4.6.2</span><span class="title"><a href="OtherExamplesofLocalisationMethods.html#x22-1570004.6.2">Globally Unique
+Localisation</a></span></span><span class="subsectionToc"><span class="number">4.6.3</span><span class="title"><a href="OtherExamplesofLocalisationMethods.html#x22-1580004.6.3">Positioning Beacon systems</a></span></span><span class="subsectionToc"><span class="number">4.6.4</span><span class="title"><a href="OtherExamplesofLocalisationMethods.html#x22-1590004.6.4">Route-Based Localisation</a></span></span><span class="sectionToc"><span class="number">4.7</span><span class="title"><a href="BuildingMaps.html#x23-1600004.7">Building
+Maps</a></span></span><span class="subsectionToc"><span class="number">4.7.1</span><span class="title"><a href="BuildingMaps.html#x23-1610004.7.1">Stochastic Map Technique</a></span></span><span class="subsectionToc"><span class="number">4.7.2</span><span class="title"><a href="BuildingMaps.html#x23-1620004.7.2">Other Mapping Techniques</a></span></span><span class="chapterToc"><span class="number">5</span><span class="title"><a href="WelcometoLinux.html#x24-1650005">Welcome to Linux</a></span></span><span class="sectionToc"><span class="number">5.1</span><span class="title"><a href="AHistoryofUNIXLinux.html#x25-1660005.1">A
+History of UNIX/Linux</a></span></span><span class="subsectionToc"><span class="number">5.1.1</span><span class="title"><a href="AHistoryofUNIXLinux.html#x25-1680005.1.1">A Short History on Computer Interfaces</a></span></span><span class="subsectionToc"><span class="number">5.1.2</span><span class="title"><a href="AHistoryofUNIXLinux.html#x25-1700005.1.2">Linux is a
+Nutshell</a></span></span><span class="subsectionToc"><span class="number">5.1.3</span><span class="title"><a href="AHistoryofUNIXLinux.html#x25-1730005.1.3">Linux Distributions</a></span></span><span class="sectionToc"><span class="number">5.2</span><span class="title"><a href="Installation.html#x26-1740005.2">Installation</a></span></span><span class="subsectionToc"><span class="number">5.2.1</span><span class="title"><a href="Installation.html#x26-1750005.2.1">Docker</a></span></span><span class="subsectionToc"><span class="number">5.2.2</span><span class="title"><a href="Installation.html#x26-1760005.2.2">Dockerfile</a></span></span><span class="subsectionToc"><span class="number">5.2.3</span><span class="title"><a href="Installation.html#x26-1770005.2.3">Running
+the Container</a></span></span><span class="chapterToc"><span class="number">6</span><span class="title"><a href="CommandLineFundamentals.html#x27-1780006">Command Line Fundamentals</a></span></span><span class="sectionToc"><span class="number">6.1</span><span class="title"><a href="ToCommandaComputer.html#x28-1790006.1">To Command a Computer</a></span></span><span class="subsectionToc"><span class="number">6.1.1</span><span class="title"><a href="ToCommandaComputer.html#x28-1800006.1.1">The
+Command Line Interface</a></span></span><span class="subsectionToc"><span class="number">6.1.2</span><span class="title"><a href="ToCommandaComputer.html#x28-1810006.1.2">The Structure of Commands</a></span></span><span class="subsectionToc"><span class="number">6.1.3</span><span class="title"><a href="ToCommandaComputer.html#x28-1820006.1.3">Some Rules Regarding
+the Syntax</a></span></span><span class="sectionToc"><span class="number">6.2</span><span class="title"><a href="WhenWeNeedHelpwithCommands.html#x29-1830006.2">When We Need Help with Commands</a></span></span><span class="subsectionToc"><span class="number">6.2.1</span><span class="title"><a href="WhenWeNeedHelpwithCommands.html#x29-1840006.2.1">Use Tab completion on
+the Shell</a></span></span><span class="subsectionToc"><span class="number">6.2.2</span><span class="title"><a href="WhenWeNeedHelpwithCommands.html#x29-1850006.2.2">The info command</a></span></span><span class="subsectionToc"><span class="number">6.2.3</span><span class="title"><a href="WhenWeNeedHelpwithCommands.html#x29-1860006.2.3">The whatis command</a></span></span><span class="chapterToc"><span class="number">7</span><span class="title"><a href="WorkingwithFilesandFolders.html#x30-1880007">Working with Files
+and Folders</a></span></span><span class="sectionToc"><span class="number">7.1</span><span class="title"><a href="FilesandFolders.html#x31-1890007.1">Files and Folders</a></span></span><span class="subsectionToc"><span class="number">7.1.1</span><span class="title"><a href="FilesandFolders.html#x31-1900007.1.1">A Detailed Look in ls Command</a></span></span><span class="subsectionToc"><span class="number">7.1.2</span><span class="title"><a href="FilesandFolders.html#x31-1910007.1.2">Creating
+and Removing Folders</a></span></span><span class="subsectionToc"><span class="number">7.1.3</span><span class="title"><a href="FilesandFolders.html#x31-1920007.1.3">Move, Copy and Delete Files and Folders</a></span></span><span class="sectionToc"><span class="number">7.2</span><span class="title"><a href="PermissionsandLinks.html#x32-1990007.2">Permissions
+and Links</a></span></span><span class="subsectionToc"><span class="number">7.2.1</span><span class="title"><a href="PermissionsandLinks.html#x32-2000007.2.1">Role to Users and sudo</a></span></span><span class="subsectionToc"><span class="number">7.2.2</span><span class="title"><a href="PermissionsandLinks.html#x32-2010007.2.2">File Permissions</a></span></span><span class="subsectionToc"><span class="number">7.2.3</span><span class="title"><a href="PermissionsandLinks.html#x32-2040007.2.3">Hard and Symbolic
+Links</a></span></span><span class="subsectionToc"><span class="number">7.2.4</span><span class="title"><a href="PermissionsandLinks.html#x32-2050007.2.4">Soft (Symbolic) Links</a></span></span><span class="subsectionToc"><span class="number">7.2.5</span><span class="title"><a href="PermissionsandLinks.html#x32-2070007.2.5">The Linux File System</a></span></span><span class="subsectionToc"><span class="number">7.2.6</span><span class="title"><a href="PermissionsandLinks.html#x32-2080007.2.6">The UNIX
+Philosophy</a></span></span><span class="sectionToc"><span class="number">7.3</span><span class="title"><a href="CommonCommandLineToolsandTasks.html#x33-2090007.3">Common Command-Line Tools and Tasks</a></span></span><span class="subsectionToc"><span class="number">7.3.1</span><span class="title"><a href="CommonCommandLineToolsandTasks.html#x33-2100007.3.1">Connecting Commands
+with Pipes</a></span></span><span class="subsectionToc"><span class="number">7.3.2</span><span class="title"><a href="CommonCommandLineToolsandTasks.html#x33-2110007.3.2">Viewing Text Files with cat, head, tail, and less</a></span></span><span class="subsectionToc"><span class="number">7.3.3</span><span class="title"><a href="CommonCommandLineToolsandTasks.html#x33-2120007.3.3">Finding
+Linux Distribution and Kernel Information</a></span></span><span class="subsectionToc"><span class="number">7.3.4</span><span class="title"><a href="CommonCommandLineToolsandTasks.html#x33-2140007.3.4">Find System Hardware and Disk
+Information</a></span></span><span class="chapterToc"><span class="number">8</span><span class="title"><a href="ROSConcepts.html#x34-2160008">ROS Concepts</a></span></span><span class="sectionToc"><span class="number">8.1</span><span class="title"><a href="PublisherandSubscriberArchitecture.html#x35-2170008.1">Publisher and Subscriber Architecture</a></span></span><span class="subsectionToc"><span class="number">8.1.1</span><span class="title"><a href="PublisherandSubscriberArchitecture.html#x35-2180008.1.1">ROS 2
+Architecture</a></span></span><span class="sectionToc"><span class="number">8.2</span><span class="title"><a href="#x36-2200008.2">Building Blocks</a></span></span><span class="subsectionToc"><span class="number">8.2.1</span><span class="title"><a href="#x36-2210008.2.1">Nodes</a></span></span><span class="subsectionToc"><span class="number">8.2.2</span><span class="title"><a href="#x36-2220008.2.2">The Discovery Process</a></span></span><span class="subsectionToc"><span class="number">8.2.3</span><span class="title"><a href="#x36-2230008.2.3">Communication
+Interface</a></span></span><span class="subsectionToc"><span class="number">8.2.4</span><span class="title"><a href="#x36-2320008.2.4">Topics</a></span></span><span class="subsectionToc"><span class="number">8.2.5</span><span class="title"><a href="#x36-2360008.2.5">Services</a></span></span><span class="subsectionToc"><span class="number">8.2.6</span><span class="title"><a href="#x36-2390008.2.6">Actions</a></span></span><span class="subsectionToc"><span class="number">8.2.7</span><span class="title"><a href="#x36-2420008.2.7">Parameters</a></span></span><span class="subsectionToc"><span class="number">8.2.8</span><span class="title"><a href="#x36-2510008.2.8">Working with
+Command Line</a></span></span><span class="subsectionToc"><span class="number">8.2.9</span><span class="title"><a href="#x36-2530008.2.9">Launch Files</a></span></span><span class="sectionToc"><span class="number">8.3</span><span class="title"><a href="AdvancedConcepts.html#x37-2540008.3">Advanced Concepts</a></span></span><span class="subsectionToc"><span class="number">8.3.1</span><span class="title"><a href="AdvancedConcepts.html#x37-2550008.3.1">ROS DOMAIN ID</a></span></span><span class="chapterToc"><span class="number">9</span><span class="title"><a href="CommandLineTools.html#x38-2570009">Command
+Line Tools</a></span></span><span class="sectionToc"><span class="number">9.1</span><span class="title"><a href="SettingtheEnvironment.html#x39-2580009.1">Setting the Environment</a></span></span><span class="sectionToc"><span class="number">9.2</span><span class="title"><a href="TurtlesandGraphs.html#x40-2630009.2">Turtles and Graphs</a></span></span><span class="sectionToc"><span class="number">9.3</span><span class="title"><a href="ADeeperLookintoNodes.html#x41-2710009.3">A Deeper Look into
+Nodes</a></span></span><span class="sectionToc"><span class="number">9.4</span><span class="title"><a href="WorkingwithTopics.html#x42-2760009.4">Working with Topics</a></span></span><span class="sectionToc"><span class="number">9.5</span><span class="title"><a href="WorkingwithServices.html#x43-2820009.5">Working with Services</a></span></span><span class="sectionToc"><span class="number">9.6</span><span class="title"><a href="WorkingwithParameters.html#x44-2890009.6">Working with Parameters</a></span></span><span class="sectionToc"><span class="number">9.7</span><span class="title"><a href="APracticalLookintoActions.html#x45-2960009.7">A
+Practical Look into Actions</a></span></span><span class="sectionToc"><span class="number">9.8</span><span class="title"><a href="LaunchingNodes.html#x46-3030009.8">Launching Nodes</a></span></span><span class="chapterToc"><span class="number">10</span><span class="title"><a href="ClientLibraries.html#x47-30500010">Client Libraries</a></span></span><span class="sectionToc"><span class="number">10.1</span><span class="title"><a href="GettingStartedwithColcon.html#x48-30600010.1">Getting Started with
+Colcon</a></span></span><span class="subsectionToc"><span class="number">10.1.1</span><span class="title"><a href="GettingStartedwithColcon.html#x48-30700010.1.1">The Structure of a Package</a></span></span><span class="subsectionToc"><span class="number">10.1.2</span><span class="title"><a href="GettingStartedwithColcon.html#x48-30800010.1.2">Sourcing an Underlay</a></span></span><span class="subsectionToc"><span class="number">10.1.3</span><span class="title"><a href="GettingStartedwithColcon.html#x48-30900010.1.3">Building the
+Workspace</a></span></span><span class="subsectionToc"><span class="number">10.1.4</span><span class="title"><a href="GettingStartedwithColcon.html#x48-31000010.1.4">Sourcing the New Package</a></span></span><span class="subsectionToc"><span class="number">10.1.5</span><span class="title"><a href="GettingStartedwithColcon.html#x48-31100010.1.5">Creating a Workspace</a></span></span><span class="subsectionToc"><span class="number">10.1.6</span><span class="title"><a href="GettingStartedwithColcon.html#x48-31200010.1.6">Sourcing the
+Environment</a></span></span><span class="subsectionToc"><span class="number">10.1.7</span><span class="title"><a href="GettingStartedwithColcon.html#x48-31300010.1.7">Creating a New Directory</a></span></span><span class="subsectionToc"><span class="number">10.1.8</span><span class="title"><a href="GettingStartedwithColcon.html#x48-31400010.1.8">Cloning a Sample Repo</a></span></span><span class="subsectionToc"><span class="number">10.1.9</span><span class="title"><a href="GettingStartedwithColcon.html#x48-31500010.1.9">Resolving
+Dependencies</a></span></span><span class="subsectionToc"><span class="number">10.1.10</span><span class="title"><a href="GettingStartedwithColcon.html#x48-31600010.1.10">Building the Workspace</a></span></span><span class="subsectionToc"><span class="number">10.1.11</span><span class="title"><a href="GettingStartedwithColcon.html#x48-31700010.1.11">Sourcing our Overlay</a></span></span><span class="subsectionToc"><span class="number">10.1.12</span><span class="title"><a href="GettingStartedwithColcon.html#x48-31800010.1.12">Modifying
+the Overlay</a></span></span><span class="subsectionToc"><span class="number">10.1.13</span><span class="title"><a href="GettingStartedwithColcon.html#x48-31900010.1.13">Creating a Package</a></span></span><span class="sectionToc"><span class="number">10.2</span><span class="title"><a href="WritingaSimplePublisherandSubscriber.html#x49-32200010.2">Writing a Simple Publisher and
+Subscriber</a></span></span><span class="subsectionToc"><span class="number">10.2.1</span><span class="title"><a href="WritingaSimplePublisherandSubscriber.html#x49-32300010.2.1">Creating a ROS Packages</a></span></span><span class="subsectionToc"><span class="number">10.2.2</span><span class="title"><a href="WritingaSimplePublisherandSubscriber.html#x49-32400010.2.2">Writing the Publisher Node</a></span></span><span class="subsectionToc"><span class="number">10.2.3</span><span class="title"><a href="WritingaSimplePublisherandSubscriber.html#x49-32900010.2.3">Writing
+the Subscriber Node</a></span></span><span class="subsectionToc"><span class="number">10.2.4</span><span class="title"><a href="WritingaSimplePublisherandSubscriber.html#x49-33200010.2.4">Building and Running</a></span></span><span class="sectionToc"><span class="number">10.3</span><span class="title"><a href="WritingaSimpleServiceandClient.html#x50-33300010.3">Writing a Simple Service and
+Client</a></span></span><span class="subsectionToc"><span class="number">10.3.1</span><span class="title"><a href="WritingaSimpleServiceandClient.html#x50-33400010.3.1">Creating a New Package</a></span></span><span class="subsectionToc"><span class="number">10.3.2</span><span class="title"><a href="WritingaSimpleServiceandClient.html#x50-33700010.3.2">Writing the Service Node</a></span></span><span class="subsectionToc"><span class="number">10.3.3</span><span class="title"><a href="WritingaSimpleServiceandClient.html#x50-34000010.3.3">Writing the Client
+Node</a></span></span><span class="sectionToc"><span class="number">10.4</span><span class="title"><a href="CreatingCustommsgandsrvFiles.html#x51-34300010.4">Creating Custom msg and srv Files</a></span></span><span class="subsectionToc"><span class="number">10.4.1</span><span class="title"><a href="CreatingCustommsgandsrvFiles.html#x51-34400010.4.1">Creating a New Package</a></span></span><span class="subsectionToc"><span class="number">10.4.2</span><span class="title"><a href="CreatingCustommsgandsrvFiles.html#x51-34500010.4.2">Creating
+Custom Definitions</a></span></span><span class="subsectionToc"><span class="number">10.4.3</span><span class="title"><a href="CreatingCustommsgandsrvFiles.html#x51-35200010.4.3">Testing the Newly Built Interfaces</a></span></span><span class="sectionToc"><span class="number">10.5</span><span class="title"><a href="UsingParametersinaClass.html#x52-35400010.5">Using Parameters in a
+Class</a></span></span><span class="subsectionToc"><span class="number">10.5.1</span><span class="title"><a href="UsingParametersinaClass.html#x52-35500010.5.1">Creating a Package</a></span></span><span class="subsectionToc"><span class="number">10.5.2</span><span class="title"><a href="UsingParametersinaClass.html#x52-35700010.5.2">Writing our Python Code</a></span></span><span class="subsectionToc"><span class="number">10.5.3</span><span class="title"><a href="UsingParametersinaClass.html#x52-36200010.5.3">Changing Output using
+the Console</a></span></span><span class="subsectionToc"><span class="number">10.5.4</span><span class="title"><a href="UsingParametersinaClass.html#x52-36300010.5.4">Changing using the Launch File</a></span></span><span class="sectionToc"><span class="number">10.6</span><span class="title"><a href="ManagingDependencies.html#x53-36400010.6">Managing Dependencies</a></span></span><span class="sectionToc"><span class="number">10.7</span><span class="title"><a href="CreatinganAction.html#x54-36600010.7">Creating
+an Action</a></span></span><span class="sectionToc"><span class="number">10.8</span><span class="title"><a href="WritinganActionServerandClient.html#x55-36900010.8">Writing an Action Server and Client</a></span></span><span class="sectionToc"><span class="number">10.9</span><span class="title"><a href="WritingaLaunchFile.html#x56-37100010.9">Writing a Launch File</a></span></span>
+<div class="nav-footer"><div class="nav-footer-left"><span class="nav-footer-lecture">D. T. McGuiness, PhD</span>
+<span class="nav-footer-webBook"><b>Last Updated:</b> 13.10.2026, at 8:16.</span></div></div><p class="nav-comments">The website you are viewing is auto-generated using lms-WebBook and therefore subject to slight errors in typography and formatting. When in doubt, please consult the LectureBook. </p></div></nav>
+<article class="chapter">
+<nav class="crosslinks-top"> <span class="nav-button"><i class="fa-solid fa-caret-right"></i><a class="nav-link" href="AdvancedConcepts.html">Advanced Concepts</a></span><span class="nav-button"><i class="fa-solid fa-caret-left"></i><a class="nav-link" href="PublisherandSubscriberArchitecture.html">Publisher and Subscriber Architecture</a></span><span class="nav-button"><i class="fa-solid fa-caret-up"></i><a class="nav-link" href="ROSConcepts.html#BuildingBlocks.html">Chapter: ROS
+Concepts</a></span><span class="nav-button">
+<a href="index.html" rel="index" title="Visit Entry Point">
+<i class="fa-solid fa-table-list">
+</i>
+<span class="nav-info">Visit Index Page</span>
+</a></span><span class="nav-button">
+<a href="Index.html" rel="index" title="Visit Material GitHub Repo">
+<i class="fa-brands fa-git-alt"></i>
+<span class="nav-info">Visit Material GitHub Repo</span>
+</a></span></nav>
+<div class="section-header"> <h3 id="header-section-8.2"> <a class="pdf-icon" href="AutonomousMobileRoboticsLectureBook.pdf#section.8.2"><svg class="bi bi-file-pdf" fill="currentColor" height="20" viewbox="0 0 16 16" width="20" xmlns="http://www.w3.org/2000/svg"><path d="M4 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H4zm0 1h8a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1z"></path><path d="M4.603 12.087a.81.81 0 0 1-.438-.42c-.195-.388-.13-.776.08-1.102.198-.307.526-.568.897-.787a7.68 7.68 0 0 1 1.482-.645 19.701 19.701 0 0 0 1.062-2.227 7.269 7.269 0 0 1-.43-1.295c-.086-.4-.119-.796-.046-1.136.075-.354.274-.672.65-.823.192-.077.4-.12.602-.077a.7.7 0 0 1 .477.365c.088.164.12.356.127.538.007.187-.012.395-.047.614-.084.51-.27 1.134-.52 1.794a10.954 10.954 0 0 0 .98 1.686 5.753 5.753 0 0 1 1.334.05c.364.065.734.195.96.465.12.144.193.32.2.518.007.192-.047.382-.138.563a1.04 1.04 0 0 1-.354.416.856.856 0 0 1-.51.138c-.331-.014-.654-.196-.933-.417a5.716 5.716 0 0 1-.911-.95 11.642 11.642 0 0 0-1.997.406 11.311 11.311 0 0 1-1.021 1.51c-.29.35-.608.655-.926.787a.793.793 0 0 1-.58.029zm1.379-1.901c-.166.076-.32.156-.459.238-.328.194-.541.383-.647.547-.094.145-.096.25-.04.361.01.022.02.036.026.044a.27.27 0 0 0 .035-.012c.137-.056.355-.235.635-.572a8.18 8.18 0 0 0 .45-.606zm1.64-1.33a12.647 12.647 0 0 1 1.01-.193 11.666 11.666 0 0 1-.51-.858 20.741 20.741 0 0 1-.5 1.05zm2.446.45c.15.162.296.3.435.41.24.19.407.253.498.256a.107.107 0 0 0 .07-.015.307.307 0 0 0 .094-.125.436.436 0 0 0 .059-.2.095.095 0 0 0-.026-.063c-.052-.062-.2-.152-.518-.209a3.881 3.881 0 0 0-.612-.053zM8.078 5.8a6.7 6.7 0 0 0 .2-.828c.031-.188.043-.343.038-.465a.613.613 0 0 0-.032-.198.517.517 0 0 0-.145.04c-.087.035-.158.106-.196.283-.04.192-.03.469.046.822.024.111.054.227.09.346z"></path></svg></a> <span class="number">8.2</span> <span class="title"> <a id="x36-2200008.2"></a>Building Blocks</span></h3></div>
+<p class="noindent"><div class="subsection-header"> <h4 id="header-subsection-8.2.1"> <a class="pdf-icon" href="AutonomousMobileRoboticsLectureBook.pdf#subsection.8.2.1"><svg class="bi bi-file-pdf" fill="currentColor" height="20" viewbox="0 0 16 16" width="20" xmlns="http://www.w3.org/2000/svg"><path d="M4 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H4zm0 1h8a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1z"></path><path d="M4.603 12.087a.81.81 0 0 1-.438-.42c-.195-.388-.13-.776.08-1.102.198-.307.526-.568.897-.787a7.68 7.68 0 0 1 1.482-.645 19.701 19.701 0 0 0 1.062-2.227 7.269 7.269 0 0 1-.43-1.295c-.086-.4-.119-.796-.046-1.136.075-.354.274-.672.65-.823.192-.077.4-.12.602-.077a.7.7 0 0 1 .477.365c.088.164.12.356.127.538.007.187-.012.395-.047.614-.084.51-.27 1.134-.52 1.794a10.954 10.954 0 0 0 .98 1.686 5.753 5.753 0 0 1 1.334.05c.364.065.734.195.96.465.12.144.193.32.2.518.007.192-.047.382-.138.563a1.04 1.04 0 0 1-.354.416.856.856 0 0 1-.51.138c-.331-.014-.654-.196-.933-.417a5.716 5.716 0 0 1-.911-.95 11.642 11.642 0 0 0-1.997.406 11.311 11.311 0 0 1-1.021 1.51c-.29.35-.608.655-.926.787a.793.793 0 0 1-.58.029zm1.379-1.901c-.166.076-.32.156-.459.238-.328.194-.541.383-.647.547-.094.145-.096.25-.04.361.01.022.02.036.026.044a.27.27 0 0 0 .035-.012c.137-.056.355-.235.635-.572a8.18 8.18 0 0 0 .45-.606zm1.64-1.33a12.647 12.647 0 0 1 1.01-.193 11.666 11.666 0 0 1-.51-.858 20.741 20.741 0 0 1-.5 1.05zm2.446.45c.15.162.296.3.435.41.24.19.407.253.498.256a.107.107 0 0 0 .07-.015.307.307 0 0 0 .094-.125.436.436 0 0 0 .059-.2.095.095 0 0 0-.026-.063c-.052-.062-.2-.152-.518-.209a3.881 3.881 0 0 0-.612-.053zM8.078 5.8a6.7 6.7 0 0 0 .2-.828c.031-.188.043-.343.038-.465a.613.613 0 0 0-.032-.198.517.517 0 0 0-.145.04c-.087.035-.158.106-.196.283-.04.192-.03.469.046.822.024.111.054.227.09.346z"></path></svg></a><span class="number">8.2.1</span> <span class="title"> <a id="x36-2210008.2.1"></a>Nodes</span></h4></div>
+</p>
+<p class="noindent"></p><figure class="float">
+<a id="x36-221001r4"></a>
+<figcaption class="caption"><span class="id">Figure 8.4: 
+         </span><span class="content">A diagram showing the node communication process. Here we can see a node communication with another
+         node using methods such as <span class="alert">request</span> and <span class="alert">response</span> and publish and subscribe to specific <span class="alert">topic</span>.                      </span></figcaption>
+<img alt="PIC" src="figures/ROS-Concepts/figures-3.png" style=""/>
+</figure>
+<p class="noindent">A node is just an actor in the overall <span class="acronym"><span class="acronym-short"><a class="glossary" href="#glo:ros">ROS</a></span><span class="acronym-detail"><span class="acronym-long"><a class="glossary" href="#glo:ros">Robot Operating System 2</a></span><span class="acronym-desc"><a class="glossary" href="#glo:ros">Robot Operating System 2</a></span></span></span> graph,
+which uses a <span class="margin-block">client library <span class="margin-comment"><a class="ellipsis" href="#m-ref-192">[192]</a>
+<span class="sidenote">This could either be <code class="verb">rospy</code>  or <code class="verb">roscpp</code>  depending on the chosen language.</span></span></span> to
+communicate with <span class="alert">other nodes</span>.
+</p>
+<div class="knowledge"><div class="knowledge-upper">Knowledge</div><div class="body">
+<p class="noindent">Nodes can also communicate with other nodes <b>within the same process</b>, in a different process, or on
+a different machine and are considered the <span class="alert">unit of computation</span> in a <span class="acronym"><span class="acronym-short"><a class="glossary" href="#glo:ros">ROS</a></span><span class="acronym-detail"><span class="acronym-long"><a class="glossary" href="#glo:ros">Robot Operating System 2</a></span><span class="acronym-desc"><a class="glossary" href="#glo:ros">Robot Operating
+System 2</a></span></span></span> graph as each node should do one logical thing. </p></div></div>
+<p class="noindent">Nodes can either: </p>
+<ul class="itemize1">
+<li class="itemize">
+<p class="noindent"><span class="alert">publish</span> to named topics to deliver data to other nodes, or
+</p>
+</li>
+<li class="itemize">
+<p class="noindent"><span class="alert">subscribe</span> to named topics to get data from other nodes.</p></li></ul>
+<p class="noindent">They can also act as a <span class="alert">service client</span> to have another node perform a computation on their behalf, or as a service
+server to provide functionality to other <span class="margin-block">nodes. <span class="margin-comment"><a class="ellipsis" href="#m-ref-193">[193]</a>
+<span class="sidenote">We will have a look at what a service is in just a
+bit.</span></span></span>
+</p><p class="noindent">For long-running calculations, a node can act as an <b>action client</b> to have another node perform it on
+their behalf, or as an action server to provide functionality to other nodes. Nodes can provide
+configurable parameters to change behaviour during run-time.
+</p>
+<div class="knowledge"><div class="knowledge-upper">Knowledge</div><div class="body">
+<p class="noindent">Nodes are often a complex combination of publishers, subscribers, service servers, service clients, action
+servers, and action clients, all at the same time. </p></div></div>
+<p class="noindent">An advantage of using nodes is that it allows <span class="alert">language agnostic programming</span>. It means we can write one node in Python, another node
+in C++, and both can communicate without any problem. In addition they provide a <span class="alert">great fault tolerance</span>. As
+nodes only communicate through <span class="acronym"><span class="acronym-short"><a class="glossary" href="#glo:ros">ROS</a></span><span class="acronym-detail"><span class="acronym-long"><a class="glossary" href="#glo:ros">Robot Operating System 2</a></span><span class="acronym-desc"><a class="glossary" href="#glo:ros">Robot Operating System
+2</a></span></span></span>, they are <b>NOT</b> directly linked. If one node crashes, it will not make the other nodes
+crash.
+For all these actions to work, a node needs to know where others are. Therefore, to achieve this we use
+a method called a <span class="alert">distributed discovery process</span>.
+</p>
+<p class="noindent"><div class="subsection-header"> <h4 id="header-subsection-8.2.2"> <a class="pdf-icon" href="AutonomousMobileRoboticsLectureBook.pdf#subsection.8.2.2"><svg class="bi bi-file-pdf" fill="currentColor" height="20" viewbox="0 0 16 16" width="20" xmlns="http://www.w3.org/2000/svg"><path d="M4 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H4zm0 1h8a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1z"></path><path d="M4.603 12.087a.81.81 0 0 1-.438-.42c-.195-.388-.13-.776.08-1.102.198-.307.526-.568.897-.787a7.68 7.68 0 0 1 1.482-.645 19.701 19.701 0 0 0 1.062-2.227 7.269 7.269 0 0 1-.43-1.295c-.086-.4-.119-.796-.046-1.136.075-.354.274-.672.65-.823.192-.077.4-.12.602-.077a.7.7 0 0 1 .477.365c.088.164.12.356.127.538.007.187-.012.395-.047.614-.084.51-.27 1.134-.52 1.794a10.954 10.954 0 0 0 .98 1.686 5.753 5.753 0 0 1 1.334.05c.364.065.734.195.96.465.12.144.193.32.2.518.007.192-.047.382-.138.563a1.04 1.04 0 0 1-.354.416.856.856 0 0 1-.51.138c-.331-.014-.654-.196-.933-.417a5.716 5.716 0 0 1-.911-.95 11.642 11.642 0 0 0-1.997.406 11.311 11.311 0 0 1-1.021 1.51c-.29.35-.608.655-.926.787a.793.793 0 0 1-.58.029zm1.379-1.901c-.166.076-.32.156-.459.238-.328.194-.541.383-.647.547-.094.145-.096.25-.04.361.01.022.02.036.026.044a.27.27 0 0 0 .035-.012c.137-.056.355-.235.635-.572a8.18 8.18 0 0 0 .45-.606zm1.64-1.33a12.647 12.647 0 0 1 1.01-.193 11.666 11.666 0 0 1-.51-.858 20.741 20.741 0 0 1-.5 1.05zm2.446.45c.15.162.296.3.435.41.24.19.407.253.498.256a.107.107 0 0 0 .07-.015.307.307 0 0 0 .094-.125.436.436 0 0 0 .059-.2.095.095 0 0 0-.026-.063c-.052-.062-.2-.152-.518-.209a3.881 3.881 0 0 0-.612-.053zM8.078 5.8a6.7 6.7 0 0 0 .2-.828c.031-.188.043-.343.038-.465a.613.613 0 0 0-.032-.198.517.517 0 0 0-.145.04c-.087.035-.158.106-.196.283-.04.192-.03.469.046.822.024.111.054.227.09.346z"></path></svg></a><span class="number">8.2.2</span> <span class="title"> <a id="x36-2220008.2.2"></a>The Discovery Process</span></h4></div>
+</p><p class="noindent">Discovery of nodes happens <b>automatically</b> through the underlying middle-ware of <span class="acronym"><span class="acronym-short"><a class="glossary" href="#glo:ros">ROS</a></span><span class="acronym-detail"><span class="acronym-long"><a class="glossary" href="#glo:ros">Robot
+Operating System 2</a></span><span class="acronym-desc"><a class="glossary" href="#glo:ros">Robot Operating System 2</a></span></span></span>. The sequence of operations can be summarised as
+follows:
+</p>
+<dl class="enumerate-enumitem"><dt class="enumerate-enumitem">   
+i. 
+</dt><dd class="enumerate-enumitem">When a node is started, it advertises its presence to other nodes on the network with
+the same <span class="acronym"><span class="acronym-short"><a class="glossary" href="#glo:ros">ROS</a></span><span class="acronym-detail"><span class="acronym-long"><a class="glossary" href="#glo:ros">Robot Operating System 2</a></span><span class="acronym-desc"><a class="glossary" href="#glo:ros">Robot Operating System 2</a></span></span></span> <span class="margin-block">domain. <span class="margin-comment"><a class="ellipsis" href="#m-ref-194">[194]</a>
+<span class="sidenote">This is set
+with the <code class="verb">ROS_DOMAIN_ID</code>   environment variable which is used to isolate multiple <span class="acronym"><span class="acronym-short"><a class="glossary" href="#glo:ros">ROS</a></span><span class="acronym-detail"><span class="acronym-long"><a class="glossary" href="#glo:ros">Robot Operating
+System 2</a></span><span class="acronym-desc"><a class="glossary" href="#glo:ros">Robot Operating System 2</a></span></span></span> systems from each other on the same network.</span></span></span> Nodes
+respond to this advertisement with information about themselves so that the appropriate
+connections can be made and the nodes can communicate.
+</dd>
+<dt class="enumerate-enumitem">
+ii. 
+</dt><dd class="enumerate-enumitem">Nodes <span class="alert">periodically</span> announce their presence so connections can be made with new-found entities, <span class="alert">even after the initial discovery period</span>.
+</dd>
+<dt class="enumerate-enumitem">
+iii. 
+</dt><dd class="enumerate-enumitem">Nodes advertise to other nodes when they go offline.</dd></dl>
+<div class="warning"><div class="warning-upper">Warning</div><div class="body">
+<p class="noindent">Nodes will only establish connections with others having compatible <span class="margin-block">Quality of Service. <span class="margin-comment"><a class="ellipsis" href="#m-ref-195">[195]</a>
+<span class="sidenote">In this context
+it means the description or measurement of the overall performance of a service, such as a telephony or
+computer network, or a cloud computing service, particularly the performance seen by the users of the
+network.</span></span></span> </p></div></div>
+<p class="noindent">As an example to see whats going on let’s used the built-in example called <code class="verb">talker-listener</code> . As the name implies, one
+node <i>advertises the presence</i> and the other listens.
+</p>
+<pre><div class="code-header"> <span class="code-language">bash</span> </div> <code class="language-bash">
+<pre class="fancyvrb" id="fancyvrb125"><a id="x36-222005r151"></a>. ~/ros2_humble/install/local_setup.bash 
+<a id="x36-222007r152"></a>ros2 run demo_nodes_cpp talker</pre>
+</code></pre>
+<pre><code class="language-text">
+<pre class="fancyvrb" id="fancyvrb126"><a id="x36-222009r157"></a>[INFO] [1748930700.789182596] [talker]: Publishing: 'Hello World: 1' 
+<a id="x36-222011r158"></a>[INFO] [1748930701.785043679] [talker]: Publishing: 'Hello World: 2' 
+<a id="x36-222013r159"></a>[INFO] [1748930702.785231597] [talker]: Publishing: 'Hello World: 3' 
+<a id="x36-222015r160"></a>[INFO] [1748930703.785897764] [talker]: Publishing: 'Hello World: 4'</pre>
+</code></pre>
+<p class="noindent">Now it is running in one, open another terminal window, and type:
+</p>
+<pre><div class="code-header"> <span class="code-language">bash</span> </div> <code class="language-bash">
+<pre class="fancyvrb" id="fancyvrb127"><a id="x36-222017r166"></a>. ~/ros2_humble/install/local_setup.bash 
+<a id="x36-222019r167"></a>ros2 run demo_nodes_py listener</pre>
+</code></pre>
+<pre><code class="language-text">
+<pre class="fancyvrb" id="fancyvrb128"><a id="x36-222021r172"></a>[INFO] [1748930759.815469762] [listener]: I heard: [Hello World: 60] 
+<a id="x36-222023r173"></a>[INFO] [1748930760.787999512] [listener]: I heard: [Hello World: 61] 
+<a id="x36-222025r174"></a>[INFO] [1748930761.787663179] [listener]: I heard: [Hello World: 62] 
+<a id="x36-222027r175"></a>[INFO] [1748930762.787127847] [listener]: I heard: [Hello World: 63]</pre>
+</code></pre>
+<p class="noindent">Running the C++ talker node in one terminal will <b>publish</b> messages on a topic, and the
+Python listener node running in another terminal will <b>subscribe</b> to messages on the same
+topic.
+</p><p class="noindent">We should see that these nodes discover each other automatically, and begin to exchange
+messages.
+</p>
+<p class="noindent"><div class="subsection-header"> <h4 id="header-subsection-8.2.3"> <a class="pdf-icon" href="AutonomousMobileRoboticsLectureBook.pdf#subsection.8.2.3"><svg class="bi bi-file-pdf" fill="currentColor" height="20" viewbox="0 0 16 16" width="20" xmlns="http://www.w3.org/2000/svg"><path d="M4 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H4zm0 1h8a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1z"></path><path d="M4.603 12.087a.81.81 0 0 1-.438-.42c-.195-.388-.13-.776.08-1.102.198-.307.526-.568.897-.787a7.68 7.68 0 0 1 1.482-.645 19.701 19.701 0 0 0 1.062-2.227 7.269 7.269 0 0 1-.43-1.295c-.086-.4-.119-.796-.046-1.136.075-.354.274-.672.65-.823.192-.077.4-.12.602-.077a.7.7 0 0 1 .477.365c.088.164.12.356.127.538.007.187-.012.395-.047.614-.084.51-.27 1.134-.52 1.794a10.954 10.954 0 0 0 .98 1.686 5.753 5.753 0 0 1 1.334.05c.364.065.734.195.96.465.12.144.193.32.2.518.007.192-.047.382-.138.563a1.04 1.04 0 0 1-.354.416.856.856 0 0 1-.51.138c-.331-.014-.654-.196-.933-.417a5.716 5.716 0 0 1-.911-.95 11.642 11.642 0 0 0-1.997.406 11.311 11.311 0 0 1-1.021 1.51c-.29.35-.608.655-.926.787a.793.793 0 0 1-.58.029zm1.379-1.901c-.166.076-.32.156-.459.238-.328.194-.541.383-.647.547-.094.145-.096.25-.04.361.01.022.02.036.026.044a.27.27 0 0 0 .035-.012c.137-.056.355-.235.635-.572a8.18 8.18 0 0 0 .45-.606zm1.64-1.33a12.647 12.647 0 0 1 1.01-.193 11.666 11.666 0 0 1-.51-.858 20.741 20.741 0 0 1-.5 1.05zm2.446.45c.15.162.296.3.435.41.24.19.407.253.498.256a.107.107 0 0 0 .07-.015.307.307 0 0 0 .094-.125.436.436 0 0 0 .059-.2.095.095 0 0 0-.026-.063c-.052-.062-.2-.152-.518-.209a3.881 3.881 0 0 0-.612-.053zM8.078 5.8a6.7 6.7 0 0 0 .2-.828c.031-.188.043-.343.038-.465a.613.613 0 0 0-.032-.198.517.517 0 0 0-.145.04c-.087.035-.158.106-.196.283-.04.192-.03.469.046.822.024.111.054.227.09.346z"></path></svg></a><span class="number">8.2.3</span> <span class="title"> <a id="x36-2230008.2.3"></a>Communication Interface</span></h4></div>
+</p>
+<p class="noindent"><h5 class="subsubsectionHead" id="header-subsubsection-72"> <a id="x36-224000"></a>Description</h5>
+</p><p class="noindent"><span class="acronym"><span class="acronym-short"><a class="glossary" href="#glo:ros">ROS</a></span><span class="acronym-detail"><span class="acronym-long"><a class="glossary" href="#glo:ros">Robot Operating System 2</a></span><span class="acronym-desc"><a class="glossary" href="#glo:ros">Robot Operating System 2</a></span></span></span> applications generally communicate through
+interfaces of one of three (<span class="alert">3</span>) types: </p><div class="quote">  topics, services, and actions. </div>
+<p class="noindent"><span class="acronym"><span class="acronym-short"><a class="glossary" href="#glo:ros">ROS</a></span><span class="acronym-detail"><span class="acronym-long"><a class="glossary" href="#glo:ros">Robot Operating System 2</a></span><span class="acronym-desc"><a class="glossary" href="#glo:ros">Robot Operating System 2</a></span></span></span> uses a <span class="margin-block">simplified description language
+<span class="margin-comment"><a class="ellipsis" href="#m-ref-196">[196]</a>
+<span class="sidenote">interface definition language.</span></span></span> to describe these interfaces. This description allows simplification for
+<span class="acronym"><span class="acronym-short"><a class="glossary" href="#glo:ros">ROS</a></span><span class="acronym-detail"><span class="acronym-long"><a class="glossary" href="#glo:ros">Robot Operating System 2</a></span><span class="acronym-desc"><a class="glossary" href="#glo:ros">Robot Operating System 2</a></span></span></span> tools to automatically generate source code
+for the interface type in several target <span class="margin-block">languages. <span class="margin-comment"><a class="ellipsis" href="#m-ref-197">[197]</a>
+<span class="sidenote">i.e., Python, C++</span></span></span> Here we will look at the following
+supported types: </p>
+<dl class="description"><dt class="description"><a id="x36-224001x8.2.3.0"></a>
+<span style="color:#0A2A0A;"><code class="verb">msg</code> (<code class="verb">.msg</code> )</span>
+</dt><dd class="description">
+<p class="noindent"> simple text files describing the fields of a <span class="acronym"><span class="acronym-short"><a class="glossary" href="#glo:ros">ROS</a></span><span class="acronym-detail"><span class="acronym-long"><a class="glossary" href="#glo:ros">Robot Operating System 2</a></span><span class="acronym-desc"><a class="glossary" href="#glo:ros">Robot Operating
+System  2</a></span></span></span>  message.  They  are  used  to  generate  source  code  for  messages  in  different
+languages.
+</p>
+</dd>
+<dt class="description"><a id="x36-224002x8.2.3.0"></a>
+<span style="color:#0A2A0A;"><code class="verb">srv</code> (<code class="verb">.srv</code> )</span>
+</dt><dd class="description">
+<p class="noindent"> describes a service and composed of two (<span class="alert">2</span>) parts: </p><div class="quote">  a request, and a response. </div>
+<p class="noindent">The request and response are <span class="alert">message declarations</span>.
+</p>
+</dd>
+<dt class="description"><a id="x36-224003x8.2.3.0"></a>
+<span style="color:#0A2A0A;"><code class="verb">action</code> (<code class="verb">.action</code> )</span>
+</dt><dd class="description">
+<p class="noindent"> describes actions and composed of three (<span class="alert">3</span>) parts: </p><div class="quote">  a goal, a result, and a feedback.
+</div>
+<p class="noindent">Each part is <span class="alert">a message declaration itself</span>.</p></dd></dl>
+<p class="noindent"><h5 class="subsubsectionHead" id="header-subsubsection-73"> <a id="x36-225000"></a>Messages</h5>
+</p><p class="noindent">Messages are a way for a <span class="acronym"><span class="acronym-short"><a class="glossary" href="#glo:ros">ROS</a></span><span class="acronym-detail"><span class="acronym-long"><a class="glossary" href="#glo:ros">Robot Operating System 2</a></span><span class="acronym-desc"><a class="glossary" href="#glo:ros">Robot Operating System 2</a></span></span></span> node to <span class="alert">send data</span> on the
+network to other <span class="acronym"><span class="acronym-short"><a class="glossary" href="#glo:ros">ROS</a></span><span class="acronym-detail"><span class="acronym-long"><a class="glossary" href="#glo:ros">Robot Operating System 2</a></span><span class="acronym-desc"><a class="glossary" href="#glo:ros">Robot Operating System 2</a></span></span></span> nodes, <span class="alert">without expecting any responses</span>. </p><div class="quote">  As an example,
+let’s say a <span class="acronym"><span class="acronym-short"><a class="glossary" href="#glo:ros">ROS</a></span><span class="acronym-detail"><span class="acronym-long"><a class="glossary" href="#glo:ros">Robot Operating System 2</a></span><span class="acronym-desc"><a class="glossary" href="#glo:ros">Robot Operating System 2</a></span></span></span> node reads temperature data
+from a sensor. It can then <b>publish</b> that data on the <span class="acronym"><span class="acronym-short"><a class="glossary" href="#glo:ros">ROS</a></span><span class="acronym-detail"><span class="acronym-long"><a class="glossary" href="#glo:ros">Robot Operating System 2</a></span><span class="acronym-desc"><a class="glossary" href="#glo:ros">Robot
+Operating System 2</a></span></span></span> network using a <code class="verb">Temperature</code>  message. Other nodes on the <span class="acronym"><span class="acronym-short"><a class="glossary" href="#glo:ros">ROS</a></span><span class="acronym-detail"><span class="acronym-long"><a class="glossary" href="#glo:ros">Robot Operating
+System 2</a></span><span class="acronym-desc"><a class="glossary" href="#glo:ros">Robot Operating System 2</a></span></span></span> network can <span class="alert">subscribe</span> to that data and receive the <code class="verb">Temperature</code>  message.
+</div>
+<p class="noindent">Messages are described and defined in <code class="verb">.msg</code>  files in the <span class="code-directory"><code class="verb">msg/</code></span> directory of a <span class="acronym"><span class="acronym-short"><a class="glossary" href="#glo:ros">ROS</a></span><span class="acronym-detail"><span class="acronym-long"><a class="glossary" href="#glo:ros">Robot Operating System
+2</a></span><span class="acronym-desc"><a class="glossary" href="#glo:ros">Robot Operating System 2</a></span></span></span> package.
+Primarily, <code class="verb">.msg</code>  files are composed of two (<span class="alert">2</span>) parts:  </p>
+<dl class="description"><dt class="description"><a id="x36-225001x8.2.3.0"></a>
+<span style="color:#0A2A0A;">Fields</span>
+</dt><dd class="description">
+<p class="noindent"> Information about a data type and its name.
+</p>
+</dd>
+<dt class="description"><a id="x36-225002x8.2.3.0"></a>
+<span style="color:#0A2A0A;">Constants</span>
+</dt><dd class="description">
+<p class="noindent"> Similar to other languages, define an <span class="alert">unchangeable</span> variable.</p></dd></dl>
+<p class="noindent"><p>
+</p>
+<p class="noindent"><span class="paragraphHead"> <a id="x36-226000"></a>Fields</span>
+Each field consists of a <b>type</b> and a <b>name</b>, separated by a space. The syntax for this would be the
+following:
+</p>
+<pre><div class="code-header"> <span class="code-language">text</span> </div> <code class="language-text">
+<pre class="fancyvrb" id="fancyvrb129"><a id="x36-226002r24"></a>fieldtype1 fieldname1 
+<a id="x36-226004r25"></a>fieldtype2 fieldname2 
+<a id="x36-226006r26"></a>fieldtype3 fieldname3</pre>
+</code></pre>
+<p class="noindent">As an example, let’s say we want to define a <math display="inline"><mn>3</mn><mn>2</mn></math>-bit
+integer and a string variable. If we want to implement this, we would have to write the
+following:
+</p>
+<pre><div class="code-header"> <span class="code-language">text</span> </div> <code class="language-text">
+<pre class="fancyvrb" id="fancyvrb130"><a id="x36-226008r31"></a>int32 my_int 
+<a id="x36-226010r32"></a>string my_string</pre>
+</code></pre>
+<p class="noindent"><span class="subparagraphHead"> <a id="x36-227000"></a>Field Types</span>
+As with most <span class="alert">statically-typed</span> <span class="margin-block">languages <span class="margin-comment"><a class="ellipsis" href="#m-ref-198">[198]</a>
+<span class="sidenote">This means the variable’s type is known at compile-time (before the program
+runs). Here, we declare explicitly the variable type while we are typing our program rather than letting
+the compiler figure out the type based on how it is used.</span></span></span> we need to define what type of variables we
+are working. In <span class="acronym"><span class="acronym-short"><a class="glossary" href="#glo:ros">ROS</a></span><span class="acronym-detail"><span class="acronym-long"><a class="glossary" href="#glo:ros">Robot Operating System 2</a></span><span class="acronym-desc"><a class="glossary" href="#glo:ros">Robot Operating System 2</a></span></span></span>, the fields type can be one of
+two (<span class="alert">2</span>) things: </p>
+<ul class="itemize1">
+<li class="itemize">
+<p class="noindent">A built-in type,
+</p>
+</li>
+<li class="itemize">
+<p class="noindent">names of Message descriptions defined on their own, such as <code class="verb">geometry_msgs/PoseStamped</code> </p></li></ul>
+<p class="noindent">The following is a table of all currently built-in variable types.
+</p>
+<table class="tabularray tblr" id="tbl-94">
+<p class="noindent"><tr id="row-94-1-"><td id="1-1" style=""> <b>Type name</b> </td><td id="1-2" style=""> <b>C++</b> </td><td id="1-3" style=""> <b>Python</b> </td><td colspan="12" id="1-4" style=""> <b>DDS type</b> </td></tr>
+<tr id="row-94-2-"><td id="2-1" style=""> <code class="verb">bool</code> </td><td id="2-2" style=""> <code class="verb">bool</code> </td><td id="2-3" style=""> <code class="verb">builtins.bool</code> </td><td colspan="12" id="2-4" style=""> <code class="verb">boolean</code> </td></tr>
+<tr id="row-94-3-"><td id="3-1" style=""> <code class="verb">byte</code> </td><td id="3-2" style=""> <code class="verb">uint8_t</code> </td><td id="3-3" style=""> <code class="verb">builtins.bytes*</code> </td><td colspan="12" id="3-4" style=""> <code class="verb">octet</code> </td></tr>
+<tr id="row-94-4-"><td id="4-1" style=""> <code class="verb">char</code> </td><td id="4-2" style=""> <code class="verb">char</code> </td><td id="4-3" style=""> <code class="verb">builtins.int*</code> </td><td colspan="12" id="4-4" style=""> <code class="verb">char</code> </td></tr>
+<tr id="row-94-5-"><td id="5-1" style=""> <code class="verb">float32</code> </td><td id="5-2" style=""> <code class="verb">float</code> </td><td id="5-3" style=""> <code class="verb">builtins.float*</code> </td><td colspan="12" id="5-4" style=""> <code class="verb">float</code> </td></tr>
+<tr id="row-94-6-"><td id="6-1" style=""> <code class="verb">float64</code> </td><td id="6-2" style=""> <code class="verb">double</code> </td><td id="6-3" style=""> <code class="verb">builtins.float*</code> </td><td colspan="12" id="6-4" style=""> <code class="verb">double</code> </td></tr>
+<tr id="row-94-7-"><td id="7-1" style=""> <code class="verb">int8</code> </td><td id="7-2" style=""> <code class="verb">int8_t</code> </td><td id="7-3" style=""> <code class="verb">builtins.int*</code> </td><td colspan="12" id="7-4" style=""> <code class="verb">octet</code> </td></tr>
+<tr id="row-94-8-"><td id="8-1" style=""> <code class="verb">uint8</code> </td><td id="8-2" style=""> <code class="verb">uint8_t</code> </td><td id="8-3" style=""> <code class="verb">builtins.int*</code> </td><td colspan="12" id="8-4" style=""> <code class="verb">octet</code> </td></tr>
+<tr id="row-94-9-"><td id="9-1" style=""> <code class="verb">int16</code> </td><td id="9-2" style=""> <code class="verb">int16_t</code> </td><td id="9-3" style=""> <code class="verb">builtins.int*</code> </td><td colspan="12" id="9-4" style=""> <code class="verb">short</code> </td></tr>
+<tr id="row-94-10-"><td id="10-1" style=""> <code class="verb">uint16</code> </td><td id="10-2" style=""> <code class="verb">uint16_t</code> </td><td id="10-3" style=""> <code class="verb">builtins.int*</code> </td><td colspan="12" id="10-4" style=""> <code class="verb">unsigned short</code> </td></tr>
+<tr id="row-94-11-"><td id="11-1" style=""> <code class="verb">int32</code> </td><td id="11-2" style=""> <code class="verb">int32_t</code> </td><td id="11-3" style=""> <code class="verb">builtins.int*</code> </td><td colspan="12" id="11-4" style=""> <code class="verb">long</code> </td></tr>
+<tr id="row-94-12-"><td id="12-1" style=""> <code class="verb">uint32</code> </td><td id="12-2" style=""> <code class="verb">uint32_t</code> </td><td id="12-3" style=""> <code class="verb">builtins.int*</code> </td><td colspan="12" id="12-4" style=""> <code class="verb">unsigned long</code> </td></tr>
+<tr id="row-94-13-"><td id="13-1" style=""> <code class="verb">int64</code> </td><td id="13-2" style=""> <code class="verb">int64_t</code> </td><td id="13-3" style=""> <code class="verb">builtins.int*</code> </td><td colspan="12" id="13-4" style=""> <code class="verb">long long</code> </td></tr>
+<tr id="row-94-14-"><td id="14-1" style=""> <code class="verb">uint64</code> </td><td id="14-2" style=""> <code class="verb">uint64_t</code> </td><td id="14-3" style=""> <code class="verb">builtins.int*</code> </td><td colspan="12" id="14-4" style=""> <code class="verb">unsigned long long</code> </td></tr>
+<tr id="row-94-15-"><td id="15-1" style=""> <code class="verb">string</code> </td><td id="15-2" style=""> <code class="verb">std::string</code> </td><td id="15-3" style=""> <code class="verb">builtins.str</code> </td><td colspan="12" id="15-4" style=""> <code class="verb">string</code> </td></tr>
+<tr id="row-94-16-"><td id="16-1" style=""> <code class="verb">wstring</code> </td><td id="16-2" style=""> <code class="verb">std::u16string</code> </td><td id="16-3" style=""> <code class="verb">builtins.str</code> </td><td colspan="12" id="16-4" style=""> <code class="verb">wstring</code> </td></tr>
+</p></table>
+<p class="noindent">In addition, array-like feature are also supported
+</p>
+<table class="tabularray tblr" id="tbl-95"> <tr id="row-95-1-"><td id="1-1" style=""> <b>Type name</b></td><td id="1-2" style=""> <b>C++</b></td><td id="1-3" style=""> <b>Python</b></td><td colspan="12" id="1-4" style=""> <b>DDS type</b></td></tr>
+<tr id="row-95-2-"><td id="2-1" style=""> <code class="verb">static array</code> </td><td id="2-2" style=""> <code class="verb">None</code> </td><td id="2-3" style=""> <code class="verb">builtins.list*</code> </td><td colspan="12" id="2-4" style=""> <code class="verb">T[N]</code> </td></tr>
+<tr id="row-95-3-"><td id="3-1" style=""> <code class="verb">unbounded dynamic array</code> </td><td id="3-2" style=""> <code class="verb">std::vector</code> </td><td id="3-3" style=""> <code class="verb">builtins.list</code> </td><td colspan="12" id="3-4" style=""> <code class="verb">sequence</code> </td></tr>
+<tr id="row-95-4-"><td id="4-1" style=""> <code class="verb">bounded dynamic array</code> </td><td id="4-2" style=""> <code class="verb">None</code> </td><td id="4-3" style=""> <code class="verb">builtins.list*</code> </td><td colspan="12" id="4-4" style=""> <code class="verb">None</code> </td></tr>
+<tr id="row-95-5-"><td id="5-1" style=""> <code class="verb">bounded string</code> </td><td id="5-2" style=""> <code class="verb">std::string</code> </td><td id="5-3" style=""> <code class="verb">builtins.str*</code> </td><td colspan="12" id="5-4" style=""> <code class="verb">string</code> </td></tr></table>
+<div class="warning"><div class="warning-upper">Warning</div><div class="body">
+<p class="noindent">All types which are more permissive than their <span class="acronym"><span class="acronym-short"><a class="glossary" href="#glo:ros">ROS</a></span><span class="acronym-detail"><span class="acronym-long"><a class="glossary" href="#glo:ros">Robot Operating System 2</a></span><span class="acronym-desc"><a class="glossary" href="#glo:ros">Robot Operating
+System 2</a></span></span></span> definition enforce the <span class="acronym"><span class="acronym-short"><a class="glossary" href="#glo:ros">ROS</a></span><span class="acronym-detail"><span class="acronym-long"><a class="glossary" href="#glo:ros">Robot Operating System 2</a></span><span class="acronym-desc"><a class="glossary" href="#glo:ros">Robot Operating System 2</a></span></span></span> constraints
+in range and length by software. </p></div></div>
+<p class="noindent">Example of message definition using arrays and bounded types:
+</p>
+<pre><div class="code-header"> <span class="code-language">text</span> </div> <code class="language-text">
+<pre class="fancyvrb" id="fancyvrb131"><a id="x36-227002r37"></a>int32[] unbounded_integer_array 
+<a id="x36-227004r38"></a>int32[5] five_integers_array 
+<a id="x36-227006r39"></a>int32[&lt;=5] up_to_five_integers_array 
+<a id="x36-227008r40"></a> 
+<a id="x36-227010r41"></a>string string_of_unbounded_size 
+<a id="x36-227012r42"></a>string&lt;=10 up_to_ten_characters_string 
+<a id="x36-227014r43"></a> 
+<a id="x36-227016r44"></a>string[&lt;=5] up_to_five_unbounded_strings 
+<a id="x36-227018r45"></a>string&lt;=10[] unbounded_array_of_strings_up_to_ten_characters_each 
+<a id="x36-227020r46"></a>string&lt;=10[&lt;=5] up_to_five_strings_up_to_ten_characters_each</pre>
+</code></pre>
+<div class="info-block" id="info-block-8.34"> <a class="copiable-link" href="#info-block-8.34"> ¶</a> <span class="info-upper"> <span class="info-header"> <b>Information 8.<a id="x36-227021r34"></a>34: </b> </span> <span class="info-title"> Field Naming Conventions </span> </span> <div class="body">
+<p class="noindent">There are some restrictions in how these variables are named and therefore are worth of mention. Field
+names <span class="alert">must be lowercase alphanumeric characters with underscores for separating words</span>. They must start with an alphabetic character, and they must <b>NOT</b> end with an underscore or
+have two (<span class="alert">2</span>) consecutive underscores.
+</p>
+</div></div>
+<p class="noindent"><span class="subparagraphHead"> <a id="x36-228000"></a>Default Values</span>
+Default values can be set to any field in the message type. Currently default values are
+<b>NOT</b> supported for string arrays and complex <span class="margin-block">types. <span class="margin-comment"><a class="ellipsis" href="#m-ref-199">[199]</a>
+<span class="sidenote">types <b>NOT</b> present in the built-in-types which
+applies to all nested messages.</span></span></span>
+</p><p class="noindent">Defining a default value is done by adding a <span class="alert">third</span> element to the field definition line. For example:
+</p>
+<pre><div class="code-header"> <span class="code-language">text</span> </div> <code class="language-text">
+<pre class="fancyvrb" id="fancyvrb132"><a id="x36-228002r51"></a>fieldtype fieldname fielddefaultvalue</pre>
+</code></pre>
+<p class="noindent">An example implementation would be:
+</p>
+<pre><div class="code-header"> <span class="code-language">text</span> </div> <code class="language-text">
+<pre class="fancyvrb" id="fancyvrb133"><a id="x36-228004r56"></a>uint8 x 42 
+<a id="x36-228006r57"></a>int16 y -2000 
+<a id="x36-228008r58"></a>string full_name "John Doe" 
+<a id="x36-228010r59"></a>int32[] samples [-200, -100, 0, 100, 200]</pre>
+</code></pre>
+<p class="noindent">For example, in the first line we define a 8-bit unsigned integer (<code class="verb">uint8</code> ), call it
+<math display="inline"><mi>x</mi></math>, and give it a
+default value of <math display="inline"><mn>4</mn><mn>2</mn></math>.
+</p>
+<div class="warning"><div class="warning-upper">Warning</div><div class="body">
+<p class="noindent">String values must be defined in <code class="verb">'</code>  or <code class="verb">"</code>  quotes and currently string values are <b>NOT</b> escaped.
+</p></div></div>
+<p class="noindent"><span class="subparagraphHead"> <a id="x36-229000"></a>Constant Values</span>
+Each constant definition is like a field description with a <span class="alert">default</span> value, except that this <b>value can never be
+changed programmatically</b>. This value assignment is indicated by use of an equal (<code class="verb">=</code> ) sign. The
+syntax is:
+</p>
+<pre><div class="code-header"> <span class="code-language">text</span> </div> <code class="language-text">
+<pre class="fancyvrb" id="fancyvrb134"><a id="x36-229002r64"></a>constanttype CONSTANTNAME=constantvalue</pre>
+</code></pre>
+<p class="noindent">For example:
+</p>
+<pre><div class="code-header"> <span class="code-language">text</span> </div> <code class="language-text">
+<pre class="fancyvrb" id="fancyvrb135"><a id="x36-229004r69"></a>int32 X=123 
+<a id="x36-229006r70"></a>int32 Y=-123 
+<a id="x36-229008r71"></a>string FOO="foo" 
+<a id="x36-229010r72"></a>string EXAMPLE='bar'</pre>
+</code></pre>
+<div class="warning"><div class="warning-upper">Warning</div><div class="body">
+<p class="noindent">Constants names have to be <b>UPPERCASE</b>. </p></div></div>
+<p class="noindent"><h5 class="subsubsectionHead" id="header-subsubsection-74"> <a id="x36-230000"></a>Services</h5>
+</p><p class="noindent">Services are a request/response communication, where the client, i.e., requester, is waiting for the
+server, called responder, to make a short computation and return a result. Services are described and
+defined in <code class="verb">.srv</code>  files in the <span class="code-directory"><code class="verb">srv</code></span> directory of a <span class="acronym"><span class="acronym-short"><a class="glossary" href="#glo:ros">ROS</a></span><span class="acronym-detail"><span class="acronym-long"><a class="glossary" href="#glo:ros">Robot Operating System 2</a></span><span class="acronym-desc"><a class="glossary" href="#glo:ros">Robot Operating System 2</a></span></span></span>
+package.
+A service description file consists of a request and a response <code class="verb">msg</code>  type, separated by <code class="verb">---</code> . Any two <code class="verb">.msg</code>  files
+concatenated with a <code class="verb">---</code>  are a legal service description.
+</p><p class="noindent">Here is a very simple example of a service that takes in a string and returns a string:
+</p>
+<pre><div class="code-header"> <span class="code-language">text</span> </div> <code class="language-text">
+<pre class="fancyvrb" id="fancyvrb136"><a id="x36-230002r79"></a>string str 
+<a id="x36-230004r80"></a>--- 
+<a id="x36-230006r81"></a>string str</pre>
+</code></pre>
+<p class="noindent">We can of course get much more <span class="margin-block">complicated: <span class="margin-comment"><a class="ellipsis" href="#m-ref-200">[200]</a>
+<span class="sidenote">If we want to refer to a message from the same package
+we must <b>NOT</b> mention the package name.</span></span></span>
+</p>
+<pre><div class="code-header"> <span class="code-language">text</span> </div> <code class="language-text">
+<pre class="fancyvrb" id="fancyvrb137"><a id="x36-230008r86"></a># request constants 
+<a id="x36-230010r87"></a>int8 FOO=1 
+<a id="x36-230012r88"></a>int8 BAR=2 
+<a id="x36-230014r89"></a># request fields 
+<a id="x36-230016r90"></a>int8 foobar 
+<a id="x36-230018r91"></a>another_pkg/AnotherMessage msg 
+<a id="x36-230020r92"></a>--- 
+<a id="x36-230022r93"></a># response constants 
+<a id="x36-230024r94"></a>uint32 SECRET=123456 
+<a id="x36-230026r95"></a># response fields 
+<a id="x36-230028r96"></a>another_pkg/YetAnotherMessage val 
+<a id="x36-230030r97"></a>CustomMessageDefinedInThisPackage value 
+<a id="x36-230032r98"></a>uint32 an_integer</pre>
+</code></pre>
+<div class="warning"><div class="warning-upper">Warning</div><div class="body">
+<p class="noindent">We cannot embed another service inside of a service. </p></div></div>
+<p class="noindent"><h5 class="subsubsectionHead" id="header-subsubsection-75"> <a id="x36-231000"></a>Actions</h5>
+</p><p class="noindent">Actions are a long-running request/response communication, where the action client, <span class="alert">requester</span>, is waiting for the
+action server, <span class="alert">the responder</span>, to take some action and return a result. In contrast to services, actions can be
+<span class="margin-block">long-running, <span class="margin-comment"><a class="ellipsis" href="#m-ref-201">[201]</a>
+<span class="sidenote">This could be many seconds up to minutes.</span></span></span> provide feedback while they are happening,
+and can be interrupted.
+</p><p class="noindent">Action definitions have the following form:
+</p>
+<pre><div class="code-header"> <span class="code-language">text</span> </div> <code class="language-text">
+<pre class="fancyvrb" id="fancyvrb138"><a id="x36-231002r105"></a>&lt;request_type&gt; &lt;request_fieldname&gt; 
+<a id="x36-231004r106"></a>--- 
+<a id="x36-231006r107"></a>&lt;response_type&gt; &lt;response_fieldname&gt; 
+<a id="x36-231008r108"></a>--- 
+<a id="x36-231010r109"></a>&lt;feedback_type&gt; &lt;feedback_fieldname&gt;</pre>
+</code></pre>
+<p class="noindent">Similar to services, the request fields are before and the response fields are after the first triple-dash (<code class="verb">---</code> ),
+respectively. There is also a third set of fields after the second triple-dash, which is the fields to be sent
+when sending feedback. There can be: </p>
+<ul class="itemize1">
+<li class="itemize">
+<p class="noindent">arbitrary numbers of request fields (including zero),
+</p>
+</li>
+<li class="itemize">
+<p class="noindent">arbitrary numbers of response fields (including zero), and
+</p>
+</li>
+<li class="itemize">
+<p class="noindent">arbitrary numbers of feedback fields (including zero).</p></li></ul>
+<div class="knowledge"><div class="knowledge-upper">Knowledge</div><div class="body">
+<p class="noindent">The <code class="verb">None</code> , <code class="verb">None</code> , and <code class="verb">None</code>  follow all of the same rules as the <code class="verb">None</code>  for a message. </p></div></div>
+<div class="knowledge"><div class="knowledge-upper">Knowledge</div><div class="body">
+<p class="noindent">The <code class="verb">None</code> , <code class="verb">None</code> , and <code class="verb">None</code>  follow all of the same rules as the <code class="verb">None</code>  for a message. </p></div></div>
+<p class="noindent">As an example, the <span class="alert">Fibonacci</span> action definition contains the following:
+</p>
+<pre><div class="code-header"> <span class="code-language">text</span> </div> <code class="language-text">
+<pre class="fancyvrb" id="fancyvrb139"><a id="x36-231012r114"></a>int32 order 
+<a id="x36-231014r115"></a>--- 
+<a id="x36-231016r116"></a>int32[] sequence 
+<a id="x36-231018r117"></a>--- 
+<a id="x36-231020r118"></a>int32[] sequence</pre>
+</code></pre>
+<p class="noindent">This is an action definition where the action client is sending a single <code class="verb">int32</code>  field representing the number of
+Fibonacci steps to take, and expecting the action server to produce an array of <code class="verb">int32</code>  containing the
+complete steps. Along the way, the action server may also provide an intermediate array of <code class="verb">int32</code>  contains
+the steps accomplished up until a certain point.
+</p>
+<p class="noindent"><div class="subsection-header"> <h4 id="header-subsection-8.2.4"> <a class="pdf-icon" href="AutonomousMobileRoboticsLectureBook.pdf#subsection.8.2.4"><svg class="bi bi-file-pdf" fill="currentColor" height="20" viewbox="0 0 16 16" width="20" xmlns="http://www.w3.org/2000/svg"><path d="M4 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H4zm0 1h8a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1z"></path><path d="M4.603 12.087a.81.81 0 0 1-.438-.42c-.195-.388-.13-.776.08-1.102.198-.307.526-.568.897-.787a7.68 7.68 0 0 1 1.482-.645 19.701 19.701 0 0 0 1.062-2.227 7.269 7.269 0 0 1-.43-1.295c-.086-.4-.119-.796-.046-1.136.075-.354.274-.672.65-.823.192-.077.4-.12.602-.077a.7.7 0 0 1 .477.365c.088.164.12.356.127.538.007.187-.012.395-.047.614-.084.51-.27 1.134-.52 1.794a10.954 10.954 0 0 0 .98 1.686 5.753 5.753 0 0 1 1.334.05c.364.065.734.195.96.465.12.144.193.32.2.518.007.192-.047.382-.138.563a1.04 1.04 0 0 1-.354.416.856.856 0 0 1-.51.138c-.331-.014-.654-.196-.933-.417a5.716 5.716 0 0 1-.911-.95 11.642 11.642 0 0 0-1.997.406 11.311 11.311 0 0 1-1.021 1.51c-.29.35-.608.655-.926.787a.793.793 0 0 1-.58.029zm1.379-1.901c-.166.076-.32.156-.459.238-.328.194-.541.383-.647.547-.094.145-.096.25-.04.361.01.022.02.036.026.044a.27.27 0 0 0 .035-.012c.137-.056.355-.235.635-.572a8.18 8.18 0 0 0 .45-.606zm1.64-1.33a12.647 12.647 0 0 1 1.01-.193 11.666 11.666 0 0 1-.51-.858 20.741 20.741 0 0 1-.5 1.05zm2.446.45c.15.162.296.3.435.41.24.19.407.253.498.256a.107.107 0 0 0 .07-.015.307.307 0 0 0 .094-.125.436.436 0 0 0 .059-.2.095.095 0 0 0-.026-.063c-.052-.062-.2-.152-.518-.209a3.881 3.881 0 0 0-.612-.053zM8.078 5.8a6.7 6.7 0 0 0 .2-.828c.031-.188.043-.343.038-.465a.613.613 0 0 0-.032-.198.517.517 0 0 0-.145.04c-.087.035-.158.106-.196.283-.04.192-.03.469.046.822.024.111.054.227.09.346z"></path></svg></a><span class="number">8.2.4</span> <span class="title"> <a id="x36-2320008.2.4"></a>Topics</span></h4></div>
+</p><p class="noindent">Topics are one of the three (<span class="alert">3</span>) primary styles of interfaces provided by <span class="acronym"><span class="acronym-short"><a class="glossary" href="#glo:ros">ROS</a></span><span class="acronym-detail"><span class="acronym-long"><a class="glossary" href="#glo:ros">Robot Operating System
+2</a></span><span class="acronym-desc"><a class="glossary" href="#glo:ros">Robot Operating System 2</a></span></span></span>. Topics <b>should be used for continuous data streams</b>, like sensor data,
+robot state, etc. As stated earlier, <span class="acronym"><span class="acronym-short"><a class="glossary" href="#glo:ros">ROS</a></span><span class="acronym-detail"><span class="acronym-long"><a class="glossary" href="#glo:ros">Robot Operating System 2</a></span><span class="acronym-desc"><a class="glossary" href="#glo:ros">Robot Operating System 2</a></span></span></span> is a <span class="alert">strongly-typed</span>, <span class="alert">anonymous</span>
+publish/subscribe system.
+Let’s break down that sentence and explain it a bit more.
+</p>
+<p class="noindent"><h5 class="subsubsectionHead" id="header-subsubsection-76"> <a id="x36-233000"></a>Publisher - Subscriber Architecture</h5>
+</p><p class="noindent">While we have looked at this topic previously, we looked at it from a more general point-of-view. Here
+we will focus our attention on its implementation to the <span class="acronym"><span class="acronym-short"><a class="glossary" href="#glo:ros">ROS</a></span><span class="acronym-detail"><span class="acronym-long"><a class="glossary" href="#glo:ros">Robot Operating System 2</a></span><span class="acronym-desc"><a class="glossary" href="#glo:ros">Robot
+Operating System 2</a></span></span></span>. A publish/subscribe system is one in which there are:
+</p>
+<dl class="enumerate-enumitem"><dt class="enumerate-enumitem">  
+1. 
+</dt><dd class="enumerate-enumitem">producers of data which are called publishers,
+</dd>
+<dt class="enumerate-enumitem">
+2. 
+</dt><dd class="enumerate-enumitem">consumers of data which are called subscribers.</dd></dl>
+<p class="noindent">The publishers and subscribers know how to contact each other through the concept of a <span class="alert">topic</span>, which is a
+common name so that the entities can find each other.
+</p>
+<div class="knowledge"><div class="knowledge-upper">Knowledge</div><div class="body">
+<p class="noindent">When we create a publisher, we must also give it a string which is the name of the topic and the same
+goes for the subscriber. </p></div></div>
+<p class="noindent">Any publishers and subscribers which are on the same topic name can <span class="alert">directly communicate with each other</span>. There may be zero
+(<span class="alert">0</span>) or more publishers and zero or more subscribers on any particular topic. When data is
+published to the topic by any of the publishers, all subscribers in the system will receive the
+data.
+</p><p class="noindent">This system is also known as a <span class="alert">bus</span> as it resembles a bus bar from used in power engineering. This concept
+of a bus is part of what makes <span class="acronym"><span class="acronym-short"><a class="glossary" href="#glo:ros">ROS</a></span><span class="acronym-detail"><span class="acronym-long"><a class="glossary" href="#glo:ros">Robot Operating System 2</a></span><span class="acronym-desc"><a class="glossary" href="#glo:ros">Robot Operating System 2</a></span></span></span> a powerful
+and flexible system. Publishers and subscribers can come and go as needed, meaning that debugging
+and introspection are natural extensions to the system.
+As an example, if we want to record data, we can use the <code class="verb">ros2 bag record</code>  command. Under the hood, <code class="verb">ros2 bag record</code>  creates a new
+subscriber to whatever topic we tell it, without interrupting the flow of data to the other parts of the
+system.
+</p>
+<p class="noindent"><h5 class="subsubsectionHead" id="header-subsubsection-77"> <a id="x36-234000"></a>Anonymity</h5>
+</p><p class="noindent">Another fact mentioned in the introduction is that <span class="acronym"><span class="acronym-short"><a class="glossary" href="#glo:ros">ROS</a></span><span class="acronym-detail"><span class="acronym-long"><a class="glossary" href="#glo:ros">Robot Operating System 2</a></span><span class="acronym-desc"><a class="glossary" href="#glo:ros">Robot Operating
+System 2</a></span></span></span> is <span class="alert">anonymous</span>. This means that when a subscriber gets a piece of data, it doesn’t generally know or care
+which publisher originally sent <span class="margin-block">it. <span class="margin-comment"><a class="ellipsis" href="#m-ref-202">[202]</a>
+<span class="sidenote">If needed though, it can find out.</span></span></span> The benefit to this architecture is
+that publishers and subscribers can be swapped out at will without affecting the rest of the
+system.
+</p>
+<p class="noindent"><h5 class="subsubsectionHead" id="header-subsubsection-78"> <a id="x36-235000"></a>Strongly-Typed</h5>
+</p><p class="noindent">As a last point, the publish/subscribe system is <b>strongly-typed</b>. That has two (<span class="alert">2</span>) meanings in this
+context: </p>
+<ul class="itemize1">
+<li class="itemize">
+<p class="noindent">The types of each field in a <span class="acronym"><span class="acronym-short"><a class="glossary" href="#glo:ros">ROS</a></span><span class="acronym-detail"><span class="acronym-long"><a class="glossary" href="#glo:ros">Robot Operating System 2</a></span><span class="acronym-desc"><a class="glossary" href="#glo:ros">Robot Operating System 2</a></span></span></span>
+message are typed, and that type is <span class="alert">enforced</span> at various levels. For instance, if the <span class="acronym"><span class="acronym-short"><a class="glossary" href="#glo:ros">ROS</a></span><span class="acronym-detail"><span class="acronym-long"><a class="glossary" href="#glo:ros">Robot
+Operating System 2</a></span><span class="acronym-desc"><a class="glossary" href="#glo:ros">Robot Operating System 2</a></span></span></span> message contains:</p></li></ul>
+<pre><div class="code-header"> <span class="code-language">text</span> </div> <code class="language-text">
+<pre class="fancyvrb" id="fancyvrb140"><a id="x36-235002r126"></a>uint32 field1 
+<a id="x36-235004r127"></a>string field2</pre>
+</code></pre>
+<ul class="itemize1">
+<li class="itemize">
+<p class="noindent"> Then the code will ensure the <code class="verb">field1</code>  is always an <span class="alert">unsigned integer</span> and <code class="verb">field2</code>  is always a <span class="alert">string</span>.
+</p>
+</li>
+<li class="itemize">
+<p class="noindent">The semantics of each field are <span class="alert">well-defined</span>. </p>
+<ul class="itemize2">
+<li class="itemize">
+<p class="noindent">There  is  no  automated  mechanism  to  ensure  this,  but  all  of  the  core  <span class="acronym"><span class="acronym-short"><a class="glossary" href="#glo:ros">ROS</a></span><span class="acronym-detail"><span class="acronym-long"><a class="glossary" href="#glo:ros">Robot
+Operating System 2</a></span><span class="acronym-desc"><a class="glossary" href="#glo:ros">Robot Operating System 2</a></span></span></span> types have strong semantics associated
+with them.
+</p>
+</li>
+<li class="itemize">
+<p class="noindent">For instance, the IMU message contains a 3-dimensional vector for the measured
+angular velocity, and each of the dimensions is specified to be in radians/second. Other
+interpretations should <b>NOT</b> be placed into the message.</p></li></ul>
+</li></ul>
+<p class="noindent"><div class="subsection-header"> <h4 id="header-subsection-8.2.5"> <a class="pdf-icon" href="AutonomousMobileRoboticsLectureBook.pdf#subsection.8.2.5"><svg class="bi bi-file-pdf" fill="currentColor" height="20" viewbox="0 0 16 16" width="20" xmlns="http://www.w3.org/2000/svg"><path d="M4 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H4zm0 1h8a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1z"></path><path d="M4.603 12.087a.81.81 0 0 1-.438-.42c-.195-.388-.13-.776.08-1.102.198-.307.526-.568.897-.787a7.68 7.68 0 0 1 1.482-.645 19.701 19.701 0 0 0 1.062-2.227 7.269 7.269 0 0 1-.43-1.295c-.086-.4-.119-.796-.046-1.136.075-.354.274-.672.65-.823.192-.077.4-.12.602-.077a.7.7 0 0 1 .477.365c.088.164.12.356.127.538.007.187-.012.395-.047.614-.084.51-.27 1.134-.52 1.794a10.954 10.954 0 0 0 .98 1.686 5.753 5.753 0 0 1 1.334.05c.364.065.734.195.96.465.12.144.193.32.2.518.007.192-.047.382-.138.563a1.04 1.04 0 0 1-.354.416.856.856 0 0 1-.51.138c-.331-.014-.654-.196-.933-.417a5.716 5.716 0 0 1-.911-.95 11.642 11.642 0 0 0-1.997.406 11.311 11.311 0 0 1-1.021 1.51c-.29.35-.608.655-.926.787a.793.793 0 0 1-.58.029zm1.379-1.901c-.166.076-.32.156-.459.238-.328.194-.541.383-.647.547-.094.145-.096.25-.04.361.01.022.02.036.026.044a.27.27 0 0 0 .035-.012c.137-.056.355-.235.635-.572a8.18 8.18 0 0 0 .45-.606zm1.64-1.33a12.647 12.647 0 0 1 1.01-.193 11.666 11.666 0 0 1-.51-.858 20.741 20.741 0 0 1-.5 1.05zm2.446.45c.15.162.296.3.435.41.24.19.407.253.498.256a.107.107 0 0 0 .07-.015.307.307 0 0 0 .094-.125.436.436 0 0 0 .059-.2.095.095 0 0 0-.026-.063c-.052-.062-.2-.152-.518-.209a3.881 3.881 0 0 0-.612-.053zM8.078 5.8a6.7 6.7 0 0 0 .2-.828c.031-.188.043-.343.038-.465a.613.613 0 0 0-.032-.198.517.517 0 0 0-.145.04c-.087.035-.158.106-.196.283-.04.192-.03.469.046.822.024.111.054.227.09.346z"></path></svg></a><span class="number">8.2.5</span> <span class="title"> <a id="x36-2360008.2.5"></a>Services</span></h4></div>
+</p><p class="noindent">In <span class="acronym"><span class="acronym-short"><a class="glossary" href="#glo:ros">ROS</a></span><span class="acronym-detail"><span class="acronym-long"><a class="glossary" href="#glo:ros">Robot Operating System 2</a></span><span class="acronym-desc"><a class="glossary" href="#glo:ros">Robot Operating System 2</a></span></span></span>, a service refers to a <i>remote procedure</i>
+call. In other words, </p><div class="quote">  a node can make a remote procedure call to another node which will do a
+computation and return a result. </div>
+<p class="noindent">This structure is reflected in how a service message definition looks:
+</p>
+<pre><div class="code-header"> <span class="code-language">text</span> </div> <code class="language-text">
+<pre class="fancyvrb" id="fancyvrb141"><a id="x36-236002r79"></a>string str 
+<a id="x36-236004r80"></a>--- 
+<a id="x36-236006r81"></a>string str</pre>
+</code></pre>
+<p class="noindent">In <span class="acronym"><span class="acronym-short"><a class="glossary" href="#glo:ros">ROS</a></span><span class="acronym-detail"><span class="acronym-long"><a class="glossary" href="#glo:ros">Robot Operating System 2</a></span><span class="acronym-desc"><a class="glossary" href="#glo:ros">Robot Operating System 2</a></span></span></span>, services are expected to return quickly,
+as the client is generally waiting on the result. <span class="alert">Services should never be used for longer running processes</span>, in particular processes that might need to be
+pre-empted for exceptional situations.
+</p>
+<div class="knowledge"><div class="knowledge-upper">Knowledge</div><div class="body">
+<p class="noindent">If we have a service that will be doing a long-running computation, consider using an <b>action</b>.
+</p></div></div>
+<p class="noindent">Services are identified by a service name, which looks much like a topic <span class="margin-block">name. <span class="margin-comment"><a class="ellipsis" href="#m-ref-203">[203]</a>
+<span class="sidenote">but is in a different
+namespace.</span></span></span> A service consists of two (<span class="alert">2</span>) parts: </p><div class="quote">  The service server, and the service client.
+</div>
+<p class="noindent"><h5 class="subsubsectionHead" id="header-subsubsection-79"> <a id="x36-237000"></a>Service Server</h5>
+</p><p class="noindent">A service server is the entity that will accept a remote procedure request, and perform some
+computation on it. For instance, suppose the <span class="acronym"><span class="acronym-short"><a class="glossary" href="#glo:ros">ROS</a></span><span class="acronym-detail"><span class="acronym-long"><a class="glossary" href="#glo:ros">Robot Operating System 2</a></span><span class="acronym-desc"><a class="glossary" href="#glo:ros">Robot Operating System 2</a></span></span></span>
+message contains the following:
+</p>
+<pre><div class="code-header"> <span class="code-language">text</span> </div> <code class="language-text">
+<pre class="fancyvrb" id="fancyvrb142"><a id="x36-237002r86"></a># request constants 
+<a id="x36-237004r87"></a>int8 FOO=1 
+<a id="x36-237006r88"></a>int8 BAR=2 
+<a id="x36-237008r89"></a># request fields 
+<a id="x36-237010r90"></a>int8 foobar 
+<a id="x36-237012r91"></a>another_pkg/AnotherMessage msg 
+<a id="x36-237014r92"></a>--- 
+<a id="x36-237016r93"></a># response constants 
+<a id="x36-237018r94"></a>uint32 SECRET=123456 
+<a id="x36-237020r95"></a># response fields 
+<a id="x36-237022r96"></a>another_pkg/YetAnotherMessage val 
+<a id="x36-237024r97"></a>CustomMessageDefinedInThisPackage value 
+<a id="x36-237026r98"></a>uint32 an_integer</pre>
+</code></pre>
+<p class="noindent">The service server would receive this message, adds <code class="verb">a</code>  and <code class="verb">b</code>  together, and returns the <code class="verb">sum</code> .
+</p>
+<div class="warning"><div class="warning-upper">Warning</div><div class="body">
+<p class="noindent">There should only be one (<span class="alert">1</span>) service server per service name. It is undefined which service server
+will receive client requests in case of multiple service servers on the same service name.
+</p></div></div>
+<p class="noindent"><h5 class="subsubsectionHead" id="header-subsubsection-80"> <a id="x36-238000"></a>Service Client</h5>
+</p><p class="noindent">A service client is an entity that will request a remote service server to perform a computation on its
+behalf. Following the previous example, the service client is the entity that creates the initial
+message containing <code class="verb">a</code>  and <code class="verb">b</code> , and waits for the service server to compute the <code class="verb">sum</code>  and return the
+result.
+</p>
+<div class="warning"><div class="warning-upper">Warning</div><div class="body">
+<p class="noindent">Unlike service server, there can be a number of service clients using the same service name.
+</p></div></div>
+<p class="noindent"><div class="subsection-header"> <h4 id="header-subsection-8.2.6"> <a class="pdf-icon" href="AutonomousMobileRoboticsLectureBook.pdf#subsection.8.2.6"><svg class="bi bi-file-pdf" fill="currentColor" height="20" viewbox="0 0 16 16" width="20" xmlns="http://www.w3.org/2000/svg"><path d="M4 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H4zm0 1h8a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1z"></path><path d="M4.603 12.087a.81.81 0 0 1-.438-.42c-.195-.388-.13-.776.08-1.102.198-.307.526-.568.897-.787a7.68 7.68 0 0 1 1.482-.645 19.701 19.701 0 0 0 1.062-2.227 7.269 7.269 0 0 1-.43-1.295c-.086-.4-.119-.796-.046-1.136.075-.354.274-.672.65-.823.192-.077.4-.12.602-.077a.7.7 0 0 1 .477.365c.088.164.12.356.127.538.007.187-.012.395-.047.614-.084.51-.27 1.134-.52 1.794a10.954 10.954 0 0 0 .98 1.686 5.753 5.753 0 0 1 1.334.05c.364.065.734.195.96.465.12.144.193.32.2.518.007.192-.047.382-.138.563a1.04 1.04 0 0 1-.354.416.856.856 0 0 1-.51.138c-.331-.014-.654-.196-.933-.417a5.716 5.716 0 0 1-.911-.95 11.642 11.642 0 0 0-1.997.406 11.311 11.311 0 0 1-1.021 1.51c-.29.35-.608.655-.926.787a.793.793 0 0 1-.58.029zm1.379-1.901c-.166.076-.32.156-.459.238-.328.194-.541.383-.647.547-.094.145-.096.25-.04.361.01.022.02.036.026.044a.27.27 0 0 0 .035-.012c.137-.056.355-.235.635-.572a8.18 8.18 0 0 0 .45-.606zm1.64-1.33a12.647 12.647 0 0 1 1.01-.193 11.666 11.666 0 0 1-.51-.858 20.741 20.741 0 0 1-.5 1.05zm2.446.45c.15.162.296.3.435.41.24.19.407.253.498.256a.107.107 0 0 0 .07-.015.307.307 0 0 0 .094-.125.436.436 0 0 0 .059-.2.095.095 0 0 0-.026-.063c-.052-.062-.2-.152-.518-.209a3.881 3.881 0 0 0-.612-.053zM8.078 5.8a6.7 6.7 0 0 0 .2-.828c.031-.188.043-.343.038-.465a.613.613 0 0 0-.032-.198.517.517 0 0 0-.145.04c-.087.035-.158.106-.196.283-.04.192-.03.469.046.822.024.111.054.227.09.346z"></path></svg></a><span class="number">8.2.6</span> <span class="title"> <a id="x36-2390008.2.6"></a>Actions</span></h4></div>
+</p><p class="noindent">In <span class="acronym"><span class="acronym-short"><a class="glossary" href="#glo:ros">ROS</a></span><span class="acronym-detail"><span class="acronym-long"><a class="glossary" href="#glo:ros">Robot Operating System 2</a></span><span class="acronym-desc"><a class="glossary" href="#glo:ros">Robot Operating System 2</a></span></span></span>, an action refers to a <span class="alert">long-running remote procedure call with feedback</span> and the ability to
+cancel or pre-empt the goal. </p><div class="quote">  For example, the high-level state machine running a robot may <b>call an
+action</b> to tell the navigation subsystem to travel to a way point, which can take minutes. Along
+the way, the navigation subsystem can provide feedback on how far along it is, and the
+high-level state machine has the option to cancel or preempt the travel to that way point.
+</div>
+<p class="noindent">This structure is reflected in how an action message definition looks:
+</p>
+<pre><div class="code-header"> <span class="code-language">text</span> </div> <code class="language-text">
+<pre class="fancyvrb" id="fancyvrb143"><a id="x36-239002r105"></a>&lt;request_type&gt; &lt;request_fieldname&gt; 
+<a id="x36-239004r106"></a>--- 
+<a id="x36-239006r107"></a>&lt;response_type&gt; &lt;response_fieldname&gt; 
+<a id="x36-239008r108"></a>--- 
+<a id="x36-239010r109"></a>&lt;feedback_type&gt; &lt;feedback_fieldname&gt;</pre>
+</code></pre>
+<p class="noindent">In <span class="acronym"><span class="acronym-short"><a class="glossary" href="#glo:ros">ROS</a></span><span class="acronym-detail"><span class="acronym-long"><a class="glossary" href="#glo:ros">Robot Operating System 2</a></span><span class="acronym-desc"><a class="glossary" href="#glo:ros">Robot Operating System 2</a></span></span></span>, actions are expected to be long running
+procedures, as there is overhead in setting up and monitoring the connection.
+</p>
+<div class="knowledge"><div class="knowledge-upper">Knowledge</div><div class="body">
+<p class="noindent">If we need a short running remote procedure call, consider using a service instead. </p></div></div>
+<p class="noindent">Actions are identified by an <code class="verb">action name</code> , which looks much like a topic name (but is in a different namespace) and
+consists of two (<span class="alert">2</span>) parts:  </p>
+<dl class="enumerate-enumitem"><dt class="enumerate-enumitem">   
+i. 
+</dt><dd class="enumerate-enumitem">the action server,
+</dd>
+<dt class="enumerate-enumitem">
+ii. 
+</dt><dd class="enumerate-enumitem">the action client.</dd></dl>
+<p class="noindent"><p>
+</p>
+<p class="noindent"><h5 class="subsubsectionHead" id="header-subsubsection-81"> <a id="x36-240000"></a>Action Server</h5>
+</p><p class="noindent">The action server is the entity that will accept the remote procedure request and perform some
+procedure on it. It is also responsible for sending out feedback as the action progresses and should react
+to cancellation/preemption requests.
+</p><p class="noindent">For instance, consider an action to calculate the Fibonacci sequence with the following interface we
+looked at previously:
+</p>
+<pre><div class="code-header"> <span class="code-language">text</span> </div> <code class="language-text">
+<pre class="fancyvrb" id="fancyvrb144"><a id="x36-240002r114"></a>int32 order 
+<a id="x36-240004r115"></a>--- 
+<a id="x36-240006r116"></a>int32[] sequence 
+<a id="x36-240008r117"></a>--- 
+<a id="x36-240010r118"></a>int32[] sequence</pre>
+</code></pre>
+<p class="noindent">The action server is the entity that receives this message, starts calculating the sequence up to <span class="margin-block">order,
+<span class="margin-comment"><a class="ellipsis" href="#m-ref-204">[204]</a>
+<span class="sidenote">providing feedback along the way.</span></span></span> and finally returns a full result in sequence.
+</p>
+<div class="warning"><div class="warning-upper">Warning</div><div class="body">
+<p class="noindent">There should only ever be one action server per action name. It is undefined which action server
+will receive client requests in the case of multiple action servers on the same action name.
+</p></div></div>
+<p class="noindent"><h5 class="subsubsectionHead" id="header-subsubsection-82"> <a id="x36-241000"></a>Action Client</h5>
+</p><p class="noindent">An action client is an entity that will <b>request</b> a remote action server to perform a procedure on its
+behalf. Following the previous example, the action client is the entity that creates the initial message
+containing the order, and waits for the action server to compute the sequence and return it (with
+feedback along the way).
+</p>
+<div class="knowledge"><div class="knowledge-upper">Knowledge</div><div class="body">
+<p class="noindent">Unlike action server, there can be a number of action clients using the same action name.
+</p></div></div>
+<p class="noindent"><div class="subsection-header"> <h4 id="header-subsection-8.2.7"> <a class="pdf-icon" href="AutonomousMobileRoboticsLectureBook.pdf#subsection.8.2.7"><svg class="bi bi-file-pdf" fill="currentColor" height="20" viewbox="0 0 16 16" width="20" xmlns="http://www.w3.org/2000/svg"><path d="M4 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H4zm0 1h8a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1z"></path><path d="M4.603 12.087a.81.81 0 0 1-.438-.42c-.195-.388-.13-.776.08-1.102.198-.307.526-.568.897-.787a7.68 7.68 0 0 1 1.482-.645 19.701 19.701 0 0 0 1.062-2.227 7.269 7.269 0 0 1-.43-1.295c-.086-.4-.119-.796-.046-1.136.075-.354.274-.672.65-.823.192-.077.4-.12.602-.077a.7.7 0 0 1 .477.365c.088.164.12.356.127.538.007.187-.012.395-.047.614-.084.51-.27 1.134-.52 1.794a10.954 10.954 0 0 0 .98 1.686 5.753 5.753 0 0 1 1.334.05c.364.065.734.195.96.465.12.144.193.32.2.518.007.192-.047.382-.138.563a1.04 1.04 0 0 1-.354.416.856.856 0 0 1-.51.138c-.331-.014-.654-.196-.933-.417a5.716 5.716 0 0 1-.911-.95 11.642 11.642 0 0 0-1.997.406 11.311 11.311 0 0 1-1.021 1.51c-.29.35-.608.655-.926.787a.793.793 0 0 1-.58.029zm1.379-1.901c-.166.076-.32.156-.459.238-.328.194-.541.383-.647.547-.094.145-.096.25-.04.361.01.022.02.036.026.044a.27.27 0 0 0 .035-.012c.137-.056.355-.235.635-.572a8.18 8.18 0 0 0 .45-.606zm1.64-1.33a12.647 12.647 0 0 1 1.01-.193 11.666 11.666 0 0 1-.51-.858 20.741 20.741 0 0 1-.5 1.05zm2.446.45c.15.162.296.3.435.41.24.19.407.253.498.256a.107.107 0 0 0 .07-.015.307.307 0 0 0 .094-.125.436.436 0 0 0 .059-.2.095.095 0 0 0-.026-.063c-.052-.062-.2-.152-.518-.209a3.881 3.881 0 0 0-.612-.053zM8.078 5.8a6.7 6.7 0 0 0 .2-.828c.031-.188.043-.343.038-.465a.613.613 0 0 0-.032-.198.517.517 0 0 0-.145.04c-.087.035-.158.106-.196.283-.04.192-.03.469.046.822.024.111.054.227.09.346z"></path></svg></a><span class="number">8.2.7</span> <span class="title"> <a id="x36-2420008.2.7"></a>Parameters</span></h4></div>
+</p><p class="noindent">Parameters in <span class="acronym"><span class="acronym-short"><a class="glossary" href="#glo:ros">ROS</a></span><span class="acronym-detail"><span class="acronym-long"><a class="glossary" href="#glo:ros">Robot Operating System 2</a></span><span class="acronym-desc"><a class="glossary" href="#glo:ros">Robot Operating System 2</a></span></span></span> are associated with <span class="alert">individual nodes</span>.
+Parameters are used to configure nodes at startup, and during runtime <span class="alert">without changing the code</span>. The lifetime of a parameter is
+tied to the lifetime of the <span class="margin-block">node. <span class="margin-comment"><a class="ellipsis" href="#m-ref-205">[205]</a>
+<span class="sidenote">though the node could implement some sort of persistence to reload
+values after restart.</span></span></span> Parameters are addressed by <b>node name</b>, <b>node namespace</b>, <b>parameter name</b>,
+and <b>parameter namespace</b>.
+</p>
+<div class="knowledge"><div class="knowledge-upper">Knowledge</div><div class="body">
+<p class="noindent">Providing a parameter namespace is optional. </p></div></div>
+<p class="noindent">Each parameter consists of a <b>key</b>, a <b>value</b>, and a<b> descriptor</b>. The key is a string and the value is one
+of the following types: </p><div class="quote"> <code class="verb">bool</code> , <code class="verb">int64</code> , <code class="verb">float64</code> , <code class="verb">string</code> , <code class="verb">byte[]</code> , <code class="verb">bool[]</code> , <code class="verb">int64[]</code> , <code class="verb">float64[]</code>  or <code class="verb">string[]</code> . </div>
+<p class="noindent">By default all descriptors are empty, but can contain parameter descriptions, value ranges, type
+information, and additional constraints.
+</p>
+<p class="noindent"><h5 class="subsubsectionHead" id="header-subsubsection-83"> <a id="x36-243000"></a>A Detailed Look</h5>
+</p>
+<p class="noindent"><span class="paragraphHead"> <a id="x36-244000"></a>Declaring Parameters</span>
+By default, a node needs to declare all of the parameters that it will accept during its lifetime.
+</p>
+<div class="knowledge"><div class="knowledge-upper">Knowledge</div><div class="body">
+<p class="noindent">We do this so the type and name of the parameters are well-defined at node startup time, which
+reduces the chances of misconfiguration later on. </p></div></div>
+<p class="noindent">For some types of nodes, <span class="alert">not all of the parameters will be known ahead of time</span>. In these cases, the node can be instantiated with <code class="verb">allow_undeclared_parameters</code>  set to <code class="verb">true</code> , which will allow
+parameters to be get and set on the node even if they haven’t been declared.
+</p>
+<p class="noindent"><span class="paragraphHead"> <a id="x36-245000"></a>Types of Parameters</span>
+Each parameter on a <span class="acronym"><span class="acronym-short"><a class="glossary" href="#glo:ros">ROS</a></span><span class="acronym-detail"><span class="acronym-long"><a class="glossary" href="#glo:ros">Robot Operating System 2</a></span><span class="acronym-desc"><a class="glossary" href="#glo:ros">Robot Operating System 2</a></span></span></span> node has one of the
+pre-defined parameter types as mentioned.
+</p>
+<div class="warning"><div class="warning-upper">Warning</div><div class="body">
+<p class="noindent">By default, any attempts to change the type of a declared parameter at runtime <b>will fail</b>. This
+prevents common mistakes, such as putting a boolean value into an integer parameter.
+</p></div></div>
+<p class="noindent">If a parameter needs to be multiple different types, and the code using the parameter can handle it, this
+default behaviour can be changed. When the parameter is declared, it should be declared using a <code class="verb">ParameterDescriptor</code>  with
+the <code class="verb">dynamic_typing</code>  member variable set to <code class="verb">true</code> .
+</p>
+<p class="noindent"><span class="paragraphHead"> <a id="x36-246000"></a>Parameter Callbacks</span>
+A <span class="acronym"><span class="acronym-short"><a class="glossary" href="#glo:ros">ROS</a></span><span class="acronym-detail"><span class="acronym-long"><a class="glossary" href="#glo:ros">Robot Operating System 2</a></span><span class="acronym-desc"><a class="glossary" href="#glo:ros">Robot Operating System 2</a></span></span></span> node can register two (<span class="alert">2</span>) different types of
+callbacks to be informed when changes are happening to parameters. Both of the callbacks are
+<b>optional</b>. </p>
+<dl class="description"><dt class="description"><a id="x36-246001x8.2.7.0.0"></a>
+<span style="color:#0A2A0A;">set parameter callback</span>
+</dt><dd class="description">
+<p class="noindent">    set       by       calling       from       the       node       <span class="margin-block"><span class="acronym"><span class="acronym-short"><a class="glossary" href="#glo:api">API</a></span><span class="acronym-detail"><span class="acronym-long"><a class="glossary" href="#glo:api">Application-Programming
+Interface</a></span><span class="acronym-desc"><a class="glossary" href="#glo:api">Application-Programming Interface</a></span></span></span>, <span class="margin-comment"><a class="ellipsis" href="#m-ref-206">[206]</a>
+<span class="sidenote">A way for two or more computer programs
+or components to communicate with each other. It is a type of software interface, offering
+a service to other pieces of software.</span></span></span> <code class="verb">add_on_set_parameters_callback</code> . The callback is passed a list of immutable <code class="verb">Parameter</code>  objects,
+and returns an <code class="verb">rcl_interfaces/msg/SetParametersResult</code> .</p></dd></dl>
+<div class="knowledge"><div class="knowledge-upper">Knowledge</div><div class="body">
+<p class="noindent">The primary purpose of <b>set parameter</b> callback is to give the user the ability to inspect the upcoming
+change to the parameter and explicitly reject the change. </p></div></div>
+<div class="warning"><div class="warning-upper">Warning</div><div class="body">
+<p class="noindent">It is important to make sure that <b>set parameter</b> callbacks have no side-effects. Since multiple set
+parameter callbacks can be chained, there is no way for an individual callback to know if a later
+callback will reject the update. If the individual callback were to make changes to the class it is
+in, for instance, it may get out-of-sync with the actual parameter. To get a callback after
+a parameter has been successfully changed, we may need to look into the lower option.
+</p></div></div>
+<dl class="description"><dt class="description"><a id="x36-246002x8.2.7.0.0"></a>
+<span style="color:#0A2A0A;">on parameter event callback</span>
+</dt><dd class="description">
+<p class="noindent">      set          by          calling          <code class="verb">on_parameter_event</code>                   from          parameter          client
+<span class="acronym"><span class="acronym-short"><a class="glossary" href="#glo:api">API</a></span><span class="acronym-detail"><span class="acronym-long"><a class="glossary" href="#glo:api">Application-Programming Interface</a></span><span class="acronym-desc"><a class="glossary" href="#glo:api">Application-Programming Interface</a></span></span></span>s. The callback
+is passed an <code class="verb">rcl_interfaces/msg/ParameterEvent</code>  object, and returns nothing. This callback will be called after all parameters
+in the input event have been declared, changed, or deleted.</p></dd></dl>
+<div class="knowledge"><div class="knowledge-upper">Knowledge</div><div class="body">
+<p class="noindent">The primary purpose of <b>on parameter event</b> callback is to give the user the ability to react to
+changes from parameters that have successfully been accepted. </p></div></div>
+<p class="noindent"><h5 class="subsubsectionHead" id="header-subsubsection-84"> <a id="x36-247000"></a>Parameter Interaction</h5>
+</p><p class="noindent"><span class="acronym"><span class="acronym-short"><a class="glossary" href="#glo:ros">ROS</a></span><span class="acronym-detail"><span class="acronym-long"><a class="glossary" href="#glo:ros">Robot Operating System 2</a></span><span class="acronym-desc"><a class="glossary" href="#glo:ros">Robot Operating System 2</a></span></span></span> 2 nodes can perform parameter operations
+through node <span class="acronym"><span class="acronym-short"><a class="glossary" href="#glo:api">API</a></span><span class="acronym-detail"><span class="acronym-long"><a class="glossary" href="#glo:api">Application-Programming Interface</a></span><span class="acronym-desc"><a class="glossary" href="#glo:api">Application-Programming Interface</a></span></span></span>s. External
+processes can perform parameter operations via parameter services that are created by default when a
+node is instantiated.
+The services that are created by default are:
+</p>
+<dl class="description"><dt class="description"><a id="x36-247001x8.2.7.0"></a>
+<span style="color:#0A2A0A;"></span>
+</dt><dd class="description">
+<p class="noindent"><code class="verb">node_name/describe_parameters</code> : Uses service type <code class="verb">rcl_interfaces/srv/DescribeParameters</code> . Given a list of parameter names, returns a list of descriptors associated
+with the parameters.
+</p>
+</dd>
+<dt class="description"><a id="x36-247002x8.2.7.0"></a>
+<span style="color:#0A2A0A;"></span>
+</dt><dd class="description">
+<p class="noindent"><code class="verb">node_name/get_parameter_types</code> : Uses service type <code class="verb">rcl_interfaces/srv/GetParameterTypes</code> . Given a list of parameter names, returns a list of parameter types
+associated with the parameters.
+</p>
+</dd>
+<dt class="description"><a id="x36-247003x8.2.7.0"></a>
+<span style="color:#0A2A0A;"></span>
+</dt><dd class="description">
+<p class="noindent"><code class="verb">node_name/get_parameters</code> : Uses service type <code class="verb">rcl_interfaces/srv/GetParameters</code> . Given a list of parameter names, returns a list of parameter values
+associated with the parameters.
+</p>
+</dd>
+<dt class="description"><a id="x36-247004x8.2.7.0"></a>
+<span style="color:#0A2A0A;"></span>
+</dt><dd class="description">
+<p class="noindent"><code class="verb">node_name/list_parameters</code> : Uses service type <code class="verb">rcl_interfaces/srv/ListParameters</code> . Given an optional list of parameter prefixes, returns a list of the
+available parameters with that prefix. If the prefixes are empty, returns all parameters.
+</p>
+</dd>
+<dt class="description"><a id="x36-247005x8.2.7.0"></a>
+<span style="color:#0A2A0A;"></span>
+</dt><dd class="description">
+<p class="noindent"><code class="verb">node_name/set_parameters</code> : Uses service type <code class="verb">rcl_interfaces/srv/SetParameters</code> . Given a list of parameter names and values, attempts to set the
+parameters on the node. Returns a list of results from trying to set each parameter; some
+of them may have succeeded and some may have failed.
+</p>
+</dd>
+<dt class="description"><a id="x36-247006x8.2.7.0"></a>
+<span style="color:#0A2A0A;"></span>
+</dt><dd class="description">
+<p class="noindent"><code class="verb">node_name/set_parameters_atomically</code> : Uses service type <code class="verb">rcl_interfaces/srv/SetParametersAtomically</code> . Given a list of parameter names and values, attempts to set the
+parameters on the node. Returns a single result from trying to set all parameters, so if one
+failed, all of them failed.</p></dd></dl>
+<p class="noindent">Some additional information regarding parameters are as follows:
+</p>
+<p class="noindent"><span class="paragraphHead"> <a id="x36-248000"></a>Setting Initial Parameters Values when a Node is Running</span>
+Initial parameter values can be set when running the node either through individual command-line
+arguments, or through YAML files.
+</p>
+<div class="info-block" id="info-block-8.35"> <a class="copiable-link" href="#info-block-8.35"> ¶</a> <span class="info-upper"> <span class="info-header"> <b>Information 8.<a id="x36-248001r35"></a>35: </b> </span> <span class="info-title"> The <code class="verb">.yaml</code>  Format </span> </span> <div class="body">
+<p class="noindent">A human-readable data serialization language. It is commonly used for configuration files and in
+applications where data is being stored or transmitted. Stands for <i>YAML Ain’t Markup Language</i>.
+</p></div></div>
+<p class="noindent"><span class="paragraphHead"> <a id="x36-249000"></a>Setting Initial Parameters Values when a Node is Launching</span>
+Initial parameter values can also be set when running the node through the ROS 2 launch
+facility.
+</p>
+<p class="noindent"><span class="paragraphHead"> <a id="x36-250000"></a>Manipulating parameter values at runtime</span>
+The <code class="verb">ros2 param</code>  command is the general way to interact with parameters for nodes that are already running. <code class="verb">ros2 param</code>
+uses the parameter service <span class="acronym"><span class="acronym-short"><a class="glossary" href="#glo:api">API</a></span><span class="acronym-detail"><span class="acronym-long"><a class="glossary" href="#glo:api">Application-Programming Interface</a></span><span class="acronym-desc"><a class="glossary" href="#glo:api">Application-Programming Interface</a></span></span></span>
+as described above to perform the various operations.
+</p>
+<p class="noindent"><div class="subsection-header"> <h4 id="header-subsection-8.2.8"> <a class="pdf-icon" href="AutonomousMobileRoboticsLectureBook.pdf#subsection.8.2.8"><svg class="bi bi-file-pdf" fill="currentColor" height="20" viewbox="0 0 16 16" width="20" xmlns="http://www.w3.org/2000/svg"><path d="M4 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H4zm0 1h8a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1z"></path><path d="M4.603 12.087a.81.81 0 0 1-.438-.42c-.195-.388-.13-.776.08-1.102.198-.307.526-.568.897-.787a7.68 7.68 0 0 1 1.482-.645 19.701 19.701 0 0 0 1.062-2.227 7.269 7.269 0 0 1-.43-1.295c-.086-.4-.119-.796-.046-1.136.075-.354.274-.672.65-.823.192-.077.4-.12.602-.077a.7.7 0 0 1 .477.365c.088.164.12.356.127.538.007.187-.012.395-.047.614-.084.51-.27 1.134-.52 1.794a10.954 10.954 0 0 0 .98 1.686 5.753 5.753 0 0 1 1.334.05c.364.065.734.195.96.465.12.144.193.32.2.518.007.192-.047.382-.138.563a1.04 1.04 0 0 1-.354.416.856.856 0 0 1-.51.138c-.331-.014-.654-.196-.933-.417a5.716 5.716 0 0 1-.911-.95 11.642 11.642 0 0 0-1.997.406 11.311 11.311 0 0 1-1.021 1.51c-.29.35-.608.655-.926.787a.793.793 0 0 1-.58.029zm1.379-1.901c-.166.076-.32.156-.459.238-.328.194-.541.383-.647.547-.094.145-.096.25-.04.361.01.022.02.036.026.044a.27.27 0 0 0 .035-.012c.137-.056.355-.235.635-.572a8.18 8.18 0 0 0 .45-.606zm1.64-1.33a12.647 12.647 0 0 1 1.01-.193 11.666 11.666 0 0 1-.51-.858 20.741 20.741 0 0 1-.5 1.05zm2.446.45c.15.162.296.3.435.41.24.19.407.253.498.256a.107.107 0 0 0 .07-.015.307.307 0 0 0 .094-.125.436.436 0 0 0 .059-.2.095.095 0 0 0-.026-.063c-.052-.062-.2-.152-.518-.209a3.881 3.881 0 0 0-.612-.053zM8.078 5.8a6.7 6.7 0 0 0 .2-.828c.031-.188.043-.343.038-.465a.613.613 0 0 0-.032-.198.517.517 0 0 0-.145.04c-.087.035-.158.106-.196.283-.04.192-.03.469.046.822.024.111.054.227.09.346z"></path></svg></a><span class="number">8.2.8</span> <span class="title"> <a id="x36-2510008.2.8"></a>Working with Command Line</span></h4></div>
+</p><p class="noindent"><span class="acronym"><span class="acronym-short"><a class="glossary" href="#glo:ros">ROS</a></span><span class="acronym-detail"><span class="acronym-long"><a class="glossary" href="#glo:ros">Robot Operating System 2</a></span><span class="acronym-desc"><a class="glossary" href="#glo:ros">Robot Operating System 2</a></span></span></span> 2 includes a suite of command-line tools for
+introspecting a <span class="acronym"><span class="acronym-short"><a class="glossary" href="#glo:ros">ROS</a></span><span class="acronym-detail"><span class="acronym-long"><a class="glossary" href="#glo:ros">Robot Operating System 2</a></span><span class="acronym-desc"><a class="glossary" href="#glo:ros">Robot Operating System 2</a></span></span></span> 2 system.
+The main entry point for the tools is the command <code class="verb">ros2</code> , which itself has various sub-commands for
+introspecting and working with nodes, topics, services, and more.
+</p><p class="noindent">To see all available sub-commands run:
+</p>
+<pre><div class="code-header"> <span class="code-language">bash</span> </div> <code class="language-bash">
+<pre class="fancyvrb" id="fancyvrb145"><a id="x36-251002r188"></a>ros2 --help</pre>
+</code></pre>
+<pre><code class="language-text">
+<pre class="fancyvrb" id="fancyvrb146"><a id="x36-251004r193"></a>usage: ros2 [-h] [--use-python-default-buffering] Call `ros2 &lt;command&gt; -h` for more detailed usage. ... 
+<a id="x36-251006r194"></a> 
+<a id="x36-251008r195"></a>ros2 is an extensible command-line tool for ROS 2. 
+<a id="x36-251010r196"></a> 
+<a id="x36-251012r197"></a>options: 
+<a id="x36-251014r198"></a>  -h, --help            show this help message and exit 
+<a id="x36-251016r199"></a>  --use-python-default-buffering 
+<a id="x36-251018r200"></a>                        Do not force line buffering in stdout and instead use the python default buffering, which might be affected by PYTHONUNBUFFERED/-u and depends on whatever stdout is interactive or 
+<a id="x36-251020r201"></a>                        not 
+<a id="x36-251022r202"></a> 
+<a id="x36-251024r203"></a>Commands: 
+<a id="x36-251026r204"></a>  action     Various action related sub-commands 
+<a id="x36-251028r205"></a>  bag        Various rosbag related sub-commands 
+<a id="x36-251030r206"></a>  component  Various component related sub-commands 
+<a id="x36-251032r207"></a>  daemon     Various daemon related sub-commands 
+<a id="x36-251034r208"></a>  doctor     Check ROS setup and other potential issues 
+<a id="x36-251036r209"></a>  interface  Show information about ROS interfaces 
+<a id="x36-251038r210"></a>  launch     Run a launch file 
+<a id="x36-251040r211"></a>  lifecycle  Various lifecycle related sub-commands 
+<a id="x36-251042r212"></a>  multicast  Various multicast related sub-commands 
+<a id="x36-251044r213"></a>  node       Various node related sub-commands 
+<a id="x36-251046r214"></a>  param      Various param related sub-commands 
+<a id="x36-251048r215"></a>  pkg        Various package related sub-commands 
+<a id="x36-251050r216"></a>  run        Run a package specific executable 
+<a id="x36-251052r217"></a>  security   Various security related sub-commands 
+<a id="x36-251054r218"></a>  service    Various service related sub-commands 
+<a id="x36-251056r219"></a>  topic      Various topic related sub-commands 
+<a id="x36-251058r220"></a>  wtf        Use `wtf` as alias to `doctor` 
+<a id="x36-251060r221"></a> 
+<a id="x36-251062r222"></a>  Call `ros2 &lt;command&gt; -h` for more detailed usage.</pre>
+</code></pre>
+<p class="noindent"><h5 class="subsubsectionHead" id="header-subsubsection-85"> <a id="x36-252000"></a>ROS 2 Daemon: Background Discovery Service</h5>
+</p><p class="noindent"><span class="acronym"><span class="acronym-short"><a class="glossary" href="#glo:ros">ROS</a></span><span class="acronym-detail"><span class="acronym-long"><a class="glossary" href="#glo:ros">Robot Operating System 2</a></span><span class="acronym-desc"><a class="glossary" href="#glo:ros">Robot Operating System 2</a></span></span></span> 2 uses a <span class="acronym"><span class="acronym-short"><a class="glossary" href="#glo:dds">DDS</a></span><span class="acronym-detail"><span class="acronym-long"><a class="glossary" href="#glo:dds">Data Distribution Service</a></span><span class="acronym-desc"><a class="glossary" href="#glo:dds">Data
+Distribution Service</a></span></span></span> for nodes to connect to each other. As this process purposefully does <b>NOT</b> use a
+centralized discovery mechanism, it can take time for ROS nodes to discover all other participants in
+the <span class="acronym"><span class="acronym-short"><a class="glossary" href="#glo:ros">ROS</a></span><span class="acronym-detail"><span class="acronym-long"><a class="glossary" href="#glo:ros">Robot Operating System 2</a></span><span class="acronym-desc"><a class="glossary" href="#glo:ros">Robot Operating System 2</a></span></span></span> graph. To address this, ROS 2 runs a
+background daemon process that maintains information about the ROS graph to provide faster
+responses to queries, such as the list of node names.
+The ROS 2 daemon is automatically started when on the first use of command-line tools like <code class="verb">ros2 node list</code> , <code class="verb">ros2 topic list</code> , or
+other introspection commands.
+</p>
+<div class="warning"><div class="warning-upper">Warning</div><div class="body">
+<p class="noindent">If no daemon is running, these tools will instantiate a new daemon process in the background before
+executing the requested command. </p></div></div>
+<p class="noindent">The daemon communicates using the localhost network interface (<code class="verb">127.0.0.1</code> ) and uses the <code class="verb">ROS_DOMAIN_ID</code>  environment
+variable as a port number offset. This means that if you want to control a specific daemon instance
+(for example, using <code class="verb">ros2 daemon stop</code> ), you must ensure that your <code class="verb">ROS_DOMAIN_ID</code>  matches the domain ID used by that
+daemon. Different <code class="verb">ROS_DOMAIN_ID</code>  values will result in separate daemon instances running on different
+ports.
+</p><p class="noindent">You can run ros2 daemon <code class="verb">--help</code>  for more options for interacting with the daemon, including commands to
+start, stop, or check the status of the daemon process.
+</p>
+<p class="noindent"><div class="subsection-header"> <h4 id="header-subsection-8.2.9"> <a class="pdf-icon" href="AutonomousMobileRoboticsLectureBook.pdf#subsection.8.2.9"><svg class="bi bi-file-pdf" fill="currentColor" height="20" viewbox="0 0 16 16" width="20" xmlns="http://www.w3.org/2000/svg"><path d="M4 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H4zm0 1h8a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1z"></path><path d="M4.603 12.087a.81.81 0 0 1-.438-.42c-.195-.388-.13-.776.08-1.102.198-.307.526-.568.897-.787a7.68 7.68 0 0 1 1.482-.645 19.701 19.701 0 0 0 1.062-2.227 7.269 7.269 0 0 1-.43-1.295c-.086-.4-.119-.796-.046-1.136.075-.354.274-.672.65-.823.192-.077.4-.12.602-.077a.7.7 0 0 1 .477.365c.088.164.12.356.127.538.007.187-.012.395-.047.614-.084.51-.27 1.134-.52 1.794a10.954 10.954 0 0 0 .98 1.686 5.753 5.753 0 0 1 1.334.05c.364.065.734.195.96.465.12.144.193.32.2.518.007.192-.047.382-.138.563a1.04 1.04 0 0 1-.354.416.856.856 0 0 1-.51.138c-.331-.014-.654-.196-.933-.417a5.716 5.716 0 0 1-.911-.95 11.642 11.642 0 0 0-1.997.406 11.311 11.311 0 0 1-1.021 1.51c-.29.35-.608.655-.926.787a.793.793 0 0 1-.58.029zm1.379-1.901c-.166.076-.32.156-.459.238-.328.194-.541.383-.647.547-.094.145-.096.25-.04.361.01.022.02.036.026.044a.27.27 0 0 0 .035-.012c.137-.056.355-.235.635-.572a8.18 8.18 0 0 0 .45-.606zm1.64-1.33a12.647 12.647 0 0 1 1.01-.193 11.666 11.666 0 0 1-.51-.858 20.741 20.741 0 0 1-.5 1.05zm2.446.45c.15.162.296.3.435.41.24.19.407.253.498.256a.107.107 0 0 0 .07-.015.307.307 0 0 0 .094-.125.436.436 0 0 0 .059-.2.095.095 0 0 0-.026-.063c-.052-.062-.2-.152-.518-.209a3.881 3.881 0 0 0-.612-.053zM8.078 5.8a6.7 6.7 0 0 0 .2-.828c.031-.188.043-.343.038-.465a.613.613 0 0 0-.032-.198.517.517 0 0 0-.145.04c-.087.035-.158.106-.196.283-.04.192-.03.469.046.822.024.111.054.227.09.346z"></path></svg></a><span class="number">8.2.9</span> <span class="title"> <a id="x36-2530008.2.9"></a>Launch Files</span></h4></div>
+</p><p class="noindent">A ROS 2 system typically consists of many nodes running across many different <span class="margin-block">processes. <span class="margin-comment"><a class="ellipsis" href="#m-ref-207">[207]</a>
+<span class="sidenote">and even
+different machines</span></span></span> While it is possible to run each of these nodes separately, it gets cumbersome quite
+quickly.
+</p><p class="noindent">The launch system in ROS 2 is meant to automate the running of many nodes with a single command.
+It helps the user describe the configuration of their system and then executes it as described. The
+configuration of the system includes what programs to run, where to run them, what arguments to pass
+them, and ROS-specific conventions which make it easy to reuse components throughout the system by
+giving them each a different configuration. It is also responsible for monitoring the state
+of the processes launched, and reporting and/or reacting to changes in the state of those
+processes.
+</p><p class="noindent">All of the above is specified in a launch file, which can be written in Python, XML, or YAML. This
+launch file can then be run using the <code class="verb">ros2 launch</code>  command, and all of the nodes specified will be
+run.
+<div class="section-header">
+<h3 id="header-section-glossary">
+<span class="number">
+<i class="fa-regular fa-bookmark"></i>
+</span>
+<span class="title">
+<a id="page-glossary"></a>
+        Page Glossary Terms</span>
+</h3>
+</div>
+<div class="acronym-block">
+<dl class="acr-list">
+<a class="copiable-link" href="#glo:dds">¶</a>
+<dt class="acr-bottom" id="glo:dds"><span class="acr-short">DDS</span><span class="acr-long">Data Distribution Service</span></dt>
+<dd class="acr-desc"><p>Data
+Distribution Service</p></dd>
+</dl>
+<dl class="acr-list">
+<a class="copiable-link" href="#glo:api">¶</a>
+<dt class="acr-bottom" id="glo:api"><span class="acr-short">API</span><span class="acr-long">Application-Programming
+Interface</span></dt>
+<dd class="acr-desc"><p>Application-Programming Interface</p></dd>
+</dl>
+<dl class="acr-list">
+<a class="copiable-link" href="#glo:ros">¶</a>
+<dt class="acr-bottom" id="glo:ros"><span class="acr-short">ROS</span><span class="acr-long">Robot Operating System 2</span></dt>
+<dd class="acr-desc"><p>Robot Operating System 2</p></dd>
+</dl>
+</div>
+<div class="section-header">
+<h3 id="header-section-references">
+<span class="number">
+<i class="fa-regular fa-note-sticky"></i>
+</span>
+<span class="title">
+<a id="page-glossary"></a>
+                    Page Footnotes</span>
+</h3>
+</div>
+<div class="footnote-block">
+<dl class="enumerate-enumitem">
+<dt class="enumerate-enumitem" id="m-ref-192"><span class="acr-short">[192].</span></dt>
+<dd class="enumerate-enumitem"><span class="">This could either be <code class="verb">rospy</code>  or <code class="verb">roscpp</code>  depending on the chosen language.</span></dd>
+</dl>
+<dl class="enumerate-enumitem">
+<dt class="enumerate-enumitem" id="m-ref-193"><span class="acr-short">[193].</span></dt>
+<dd class="enumerate-enumitem"><span class="">We will have a look at what a service is in just a
+bit.</span></dd>
+</dl>
+<dl class="enumerate-enumitem">
+<dt class="enumerate-enumitem" id="m-ref-194"><span class="acr-short">[194].</span></dt>
+<dd class="enumerate-enumitem"><span class="">This is set
+with the <code class="verb">ROS_DOMAIN_ID</code>   environment variable which is used to isolate multiple <span class="acronym"><span class="acronym-short"><a class="glossary" href="#glo:ros">ROS</a></span><span class="acronym-detail"><span class="acronym-long"><a class="glossary" href="#glo:ros">Robot Operating
+System 2</a></span><span class="acronym-desc"><a class="glossary" href="#glo:ros">Robot Operating System 2</a></span></span></span> systems from each other on the same network.</span></dd>
+</dl>
+<dl class="enumerate-enumitem">
+<dt class="enumerate-enumitem" id="m-ref-195"><span class="acr-short">[195].</span></dt>
+<dd class="enumerate-enumitem"><span class="">In this context
+it means the description or measurement of the overall performance of a service, such as a telephony or
+computer network, or a cloud computing service, particularly the performance seen by the users of the
+network.</span></dd>
+</dl>
+<dl class="enumerate-enumitem">
+<dt class="enumerate-enumitem" id="m-ref-196"><span class="acr-short">[196].</span></dt>
+<dd class="enumerate-enumitem"><span class="">interface definition language.</span></dd>
+</dl>
+<dl class="enumerate-enumitem">
+<dt class="enumerate-enumitem" id="m-ref-197"><span class="acr-short">[197].</span></dt>
+<dd class="enumerate-enumitem"><span class="">i.e., Python, C++</span></dd>
+</dl>
+<dl class="enumerate-enumitem">
+<dt class="enumerate-enumitem" id="m-ref-198"><span class="acr-short">[198].</span></dt>
+<dd class="enumerate-enumitem"><span class="">This means the variable’s type is known at compile-time (before the program
+runs). Here, we declare explicitly the variable type while we are typing our program rather than letting
+the compiler figure out the type based on how it is used.</span></dd>
+</dl>
+<dl class="enumerate-enumitem">
+<dt class="enumerate-enumitem" id="m-ref-199"><span class="acr-short">[199].</span></dt>
+<dd class="enumerate-enumitem"><span class="">types <b>NOT</b> present in the built-in-types which
+applies to all nested messages.</span></dd>
+</dl>
+<dl class="enumerate-enumitem">
+<dt class="enumerate-enumitem" id="m-ref-200"><span class="acr-short">[200].</span></dt>
+<dd class="enumerate-enumitem"><span class="">If we want to refer to a message from the same package
+we must <b>NOT</b> mention the package name.</span></dd>
+</dl>
+<dl class="enumerate-enumitem">
+<dt class="enumerate-enumitem" id="m-ref-201"><span class="acr-short">[201].</span></dt>
+<dd class="enumerate-enumitem"><span class="">This could be many seconds up to minutes.</span></dd>
+</dl>
+<dl class="enumerate-enumitem">
+<dt class="enumerate-enumitem" id="m-ref-202"><span class="acr-short">[202].</span></dt>
+<dd class="enumerate-enumitem"><span class="">If needed though, it can find out.</span></dd>
+</dl>
+<dl class="enumerate-enumitem">
+<dt class="enumerate-enumitem" id="m-ref-203"><span class="acr-short">[203].</span></dt>
+<dd class="enumerate-enumitem"><span class="">but is in a different
+namespace.</span></dd>
+</dl>
+<dl class="enumerate-enumitem">
+<dt class="enumerate-enumitem" id="m-ref-204"><span class="acr-short">[204].</span></dt>
+<dd class="enumerate-enumitem"><span class="">providing feedback along the way.</span></dd>
+</dl>
+<dl class="enumerate-enumitem">
+<dt class="enumerate-enumitem" id="m-ref-205"><span class="acr-short">[205].</span></dt>
+<dd class="enumerate-enumitem"><span class="">though the node could implement some sort of persistence to reload
+values after restart.</span></dd>
+</dl>
+<dl class="enumerate-enumitem">
+<dt class="enumerate-enumitem" id="m-ref-206"><span class="acr-short">[206].</span></dt>
+<dd class="enumerate-enumitem"><span class="">A way for two or more computer programs
+or components to communicate with each other. It is a type of software interface, offering
+a service to other pieces of software.</span></dd>
+</dl>
+<dl class="enumerate-enumitem">
+<dt class="enumerate-enumitem" id="m-ref-207"><span class="acr-short">[207].</span></dt>
+<dd class="enumerate-enumitem"><span class="">and even
+different machines</span></dd>
+</dl></div><nav class="crosslinks-bottom"><div class="navigation"><span class="nav-button"><a href="AdvancedConcepts.html"><i class="fa-solid fa-caret-right"></i></a></span><span class="nav-button"><a href="PublisherandSubscriberArchitecture.html"><i class="fa-solid fa-caret-left"></i></a></span><span class="nav-button"><a href="ROSConcepts.html#BuildingBlocks.html"><i class="fa-solid fa-caret-up"></i></a></span><span class="nav-button">
+<a href="index.html" rel="index" title="Index">
+<i class="fa-solid fa-table-list">
+</i>
+</a></span><span class="nav-button">
+<a href="Index.html" rel="index" title="Index">
+<i class="fa-brands fa-git-alt"></i>
+</a></span></div></nav> </p><div class="footer"> <div class="footer-left"><span class="footer-lecture">D. T. McGuiness, PhD</span>
+<span class="footer-webBook"><b>Last Updated:</b> 13.10.2026, at 8:16.</span></div></div><div class="author-notes">
+<span class="note">Authors Note </span>
+<span class="text">The website you are viewing is auto-generated using lms-WebBook and therefore subject to slight errors in typography and formatting. When in doubt, please consult the LectureBook. </span>
+</div>
+</p></p></article>
+<div class="mode-line">
+<div class="core-line"><div class="core-line-image"><img class="webbook-logo" src="logo/webbook-logo.svg"/></div>
+<div class="current-header">
+<span class="header-pretext">Viewing | </span>
+<span class="header-text">Section 8.2: Building Blocks</span>
+</div>
+<div class="button-group">
+</div>
+</div>
+<div class="supp-line"></div>
+</div>
+</page>
+</body>
+</html>

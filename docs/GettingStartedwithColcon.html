@@ -1,0 +1,675 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><title>Getting Started with Colcon</title>
+<meta charset="utf-8"/>
+<meta content="lms-WebBook" name="generator"/>
+<meta content="width=device-width,initial-scale=1" name="viewport"/>
+<script async="async" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/mml-chtml.js" type="text/javascript"></script>
+<link href="logo/lms.ico" rel="icon" type="image/x-icon"/>
+<link href="./pagefind/pagefind-component-ui.css" rel="stylesheet"/>
+<script src="./pagefind/pagefind-component-ui.js" type="text/javascript"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<link href="https://cdn.jsdelivr.net/gh/sugina-dev/latin-modern-web@1.0.1/style/latinmodern-mono.css" rel="stylesheet"/>
+<link href="https://cdn.jsdelivr.net/gh/dTmC0945/Wb-LMS-WebBook-Infrastructure/flatweb.css" rel="stylesheet" type="text/css"/>
+<script async="true" crossorigin="anonymous" src="https://cdn.jsdelivr.net/gh/dTmC0945/Wb-LMS-WebBook-Infrastructure/flatweb.js"></script>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/styles/default.min.css" rel="stylesheet"/>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/highlight.min.js"></script>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/styles/base16/solarized-light.min.css" rel="stylesheet"/>
+<script src="https://unpkg.com/highlightjs-copy/dist/highlightjs-copy.min.js"></script>
+<link href="https://unpkg.com/highlightjs-copy/dist/highlightjs-copy.min.css" rel="stylesheet"/>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css?family=Roboto:400,100,100italic,300,300italic,400italic,500,500italic,700,700italic,900italic,900" rel="stylesheet"/>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/languages/cpp.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/languages/latex.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/languages/matlab.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/languages/dockerfile.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/languages/cmake.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/languages/makefile.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/languages/markdown.min.js"></script>
+ </head><body>
+<page>
+<nav class="wide"> <div class="header"><div class="header-left"><span class="header-lecture-grade">M.Sc</span>
+<span class="header-lecture-name">Autonomous Mobile Robotics</span>
+<span class="header-webBook">WebBook 2.1</span></div><div class="header-right"><span class="header-version">2026.WS</span>
+<span class="header-chapter">Client Libraries</span></div></div><div class="toc"><pagefind-modal-trigger></pagefind-modal-trigger><pagefind-modal></pagefind-modal><div class="toc-links"><a href="https://github.com/dTmC0945" title="Lecturer GitHub Repo"><i class="fab fa-github" style="font-size:20px"></i></a><a href="https://scholar.google.com/citations?view_op=list_works\&amp;hl=en\&amp;user=lxQGADMAAAAJ" title="Lecturer Google Scholar Page"><i class="fa-brands fa-google-scholar" style="font-size:20px"></i></a><a href="https://www.researchgate.net/profile/Daniel-Mcguiness-2" title="Lecturer ResearchGate Account"><i class="fa-brands fa-researchgate" style="font-size:20px"></i></a><a href="https://dtmc0945.github.io/Th-MCI-Thesis-Topics/" title="Lecturer Thesis Ideas for B.Sc and M.Sc"><i class="fa-solid fa-book" style="font-size:20px"></i></a><a href="https://github.com/dTmC0945/C-MCI-LaTeX-Class-mcidoc/tree/main" title="mcidoc LaTeX Standard"><i class="fa-regular fa-file-lines" style="font-size:20px"></i></a></div><hr/><span class="chapterToc"><span class="number"></span><span class="title"><a href="index.html#x2-10000">Entry Point</a></span></span><span class="chapterToc"><span class="number">1</span><span class="title"><a href="Locomotion.html#x3-20001">Locomotion</a></span></span><span class="subsectionToc"><span class="number">1.0.1</span><span class="title"><a href="Locomotion.html#x3-30001.0.1">Key  Issues  for  Locomotion</a></span></span><span class="sectionToc"><span class="number">1.1</span><span class="title"><a href="LeggedMobileRobots.html#x4-40001.1">Legged  Mobile
+Robots</a></span></span><span class="subsectionToc"><span class="number">1.1.1</span><span class="title"><a href="LeggedMobileRobots.html#x4-60001.1.1">Examples  of  Legged  Robot  Locomotion</a></span></span><span class="sectionToc"><span class="number">1.2</span><span class="title"><a href="WheeledMobileRobots.html#x5-120001.2">Wheeled  Mobile
+Robots</a></span></span><span class="subsectionToc"><span class="number">1.2.1</span><span class="title"><a href="WheeledMobileRobots.html#x5-130001.2.1">Design</a></span></span><span class="subsectionToc"><span class="number">1.2.2</span><span class="title"><a href="WheeledMobileRobots.html#x5-160001.2.2">Stability</a></span></span><span class="subsectionToc"><span class="number">1.2.3</span><span class="title"><a href="WheeledMobileRobots.html#x5-170001.2.3">Manoeuvrability</a></span></span><span class="subsectionToc"><span class="number">1.2.4</span><span class="title"><a href="WheeledMobileRobots.html#x5-180001.2.4">Controllability</a></span></span><span class="subsectionToc"><span class="number">1.2.5</span><span class="title"><a href="WheeledMobileRobots.html#x5-190001.2.5">Case
+Studies for Wheeled Motion</a></span></span><span class="subsectionToc"><span class="number">1.2.6</span><span class="title"><a href="WheeledMobileRobots.html#x5-260001.2.6">Walking Wheels</a></span></span><span class="chapterToc"><span class="number">2</span><span class="title"><a href="MobileRobotKinematics.html#x6-270002">Mobile Robot Kinematics</a></span></span><span class="sectionToc"><span class="number">2.1</span><span class="title"><a href="KinematicModelsandConstraints.html#x7-280002.1">Kinematic
+Models and Constraints</a></span></span><span class="subsectionToc"><span class="number">2.1.1</span><span class="title"><a href="KinematicModelsandConstraints.html#x7-290002.1.1">Representing robot position</a></span></span><span class="subsectionToc"><span class="number">2.1.2</span><span class="title"><a href="KinematicModelsandConstraints.html#x7-300002.1.2">Forward kinematic
+models</a></span></span><span class="subsectionToc"><span class="number">2.1.3</span><span class="title"><a href="KinematicModelsandConstraints.html#x7-310002.1.3">Wheel kinematic constraints</a></span></span><span class="subsectionToc"><span class="number">2.1.4</span><span class="title"><a href="KinematicModelsandConstraints.html#x7-370002.1.4">Robot kinematic constraints</a></span></span><span class="subsectionToc"><span class="number">2.1.5</span><span class="title"><a href="KinematicModelsandConstraints.html#x7-380002.1.5">Examples:
+robot kinematic models and constraints</a></span></span><span class="sectionToc"><span class="number">2.2</span><span class="title"><a href="MobileRobotManeuverability.html#x8-410002.2">Mobile Robot Maneuverability</a></span></span><span class="subsectionToc"><span class="number">2.2.1</span><span class="title"><a href="MobileRobotManeuverability.html#x8-420002.2.1">Degree
+of Mobility</a></span></span><span class="subsectionToc"><span class="number">2.2.2</span><span class="title"><a href="MobileRobotManeuverability.html#x8-450002.2.2">Degree of steerability</a></span></span><span class="subsectionToc"><span class="number">2.2.3</span><span class="title"><a href="MobileRobotManeuverability.html#x8-470002.2.3">Robot maneuverability</a></span></span><span class="sectionToc"><span class="number">2.3</span><span class="title"><a href="MobileRobotWorkspace.html#x9-480002.3">Mobile Robot
+Workspace</a></span></span><span class="subsectionToc"><span class="number">2.3.1</span><span class="title"><a href="MobileRobotWorkspace.html#x9-490002.3.1">Degrees of freedom</a></span></span><span class="subsectionToc"><span class="number">2.3.2</span><span class="title"><a href="MobileRobotWorkspace.html#x9-500002.3.2">Holonomic robots</a></span></span><span class="subsectionToc"><span class="number">2.3.3</span><span class="title"><a href="MobileRobotWorkspace.html#x9-530002.3.3">Path and trajectory
+considerations</a></span></span><span class="subsectionToc"><span class="number">2.3.4</span><span class="title"><a href="MobileRobotWorkspace.html#x9-540002.3.4">Beyond Basic Kinematics</a></span></span><span class="sectionToc"><span class="number">2.4</span><span class="title"><a href="MotionControlKinematicControl.html#x10-550002.4">Motion Control (Kinematic
+Control)</a></span></span><span class="subsectionToc"><span class="number">2.4.1</span><span class="title"><a href="MotionControlKinematicControl.html#x10-560002.4.1">Open loop control</a></span></span><span class="subsectionToc"><span class="number">2.4.2</span><span class="title"><a href="MotionControlKinematicControl.html#x10-570002.4.2">Feedback control</a></span></span><span class="chapterToc"><span class="number">3</span><span class="title"><a href="Perception.html#x11-630003">Perception</a></span></span><span class="sectionToc"><span class="number">3.1</span><span class="title"><a href="SensorsforMobileRobotics.html#x12-640003.1">Sensors for Mobile
+Robotics</a></span></span><span class="subsectionToc"><span class="number">3.1.1</span><span class="title"><a href="SensorsforMobileRobotics.html#x12-650003.1.1">Sensor Classification</a></span></span><span class="subsectionToc"><span class="number">3.1.2</span><span class="title"><a href="SensorsforMobileRobotics.html#x12-660003.1.2">Characterisation of Sensor Performance</a></span></span><span class="subsectionToc"><span class="number">3.1.3</span><span class="title"><a href="SensorsforMobileRobotics.html#x12-720003.1.3">Wheel
+and Motor Sensors</a></span></span><span class="subsectionToc"><span class="number">3.1.4</span><span class="title"><a href="SensorsforMobileRobotics.html#x12-740003.1.4">Heading Sensors</a></span></span><span class="subsectionToc"><span class="number">3.1.5</span><span class="title"><a href="SensorsforMobileRobotics.html#x12-810003.1.5">Ground Based Beacons</a></span></span><span class="subsectionToc"><span class="number">3.1.6</span><span class="title"><a href="SensorsforMobileRobotics.html#x12-830003.1.6">Active
+Ranging</a></span></span><span class="subsectionToc"><span class="number">3.1.7</span><span class="title"><a href="SensorsforMobileRobotics.html#x12-850003.1.7">The Ultrasonic Sensor</a></span></span><span class="subsectionToc"><span class="number">3.1.8</span><span class="title"><a href="SensorsforMobileRobotics.html#x12-920003.1.8">Motion and Speed Sensors</a></span></span><span class="sectionToc"><span class="number">3.2</span><span class="title"><a href="VisionBasedSensors.html#x13-940003.2">Vision Based
+Sensors</a></span></span><span class="subsectionToc"><span class="number">3.2.1</span><span class="title"><a href="VisionBasedSensors.html#x13-950003.2.1">CCD Sensors</a></span></span><span class="subsectionToc"><span class="number">3.2.2</span><span class="title"><a href="VisionBasedSensors.html#x13-970003.2.2">CMOS Technology</a></span></span><span class="subsectionToc"><span class="number">3.2.3</span><span class="title"><a href="VisionBasedSensors.html#x13-980003.2.3">Visual Ranging Sensors</a></span></span><span class="subsectionToc"><span class="number">3.2.4</span><span class="title"><a href="VisionBasedSensors.html#x13-990003.2.4">Depth
+from Focus</a></span></span><span class="sectionToc"><span class="number">3.3</span><span class="title"><a href="RepresentingUncertainty.html#x14-1070003.3">Representing Uncertainty</a></span></span><span class="subsectionToc"><span class="number">3.3.1</span><span class="title"><a href="RepresentingUncertainty.html#x14-1080003.3.1">Statistical Representation</a></span></span><span class="subsectionToc"><span class="number">3.3.2</span><span class="title"><a href="RepresentingUncertainty.html#x14-1090003.3.2">Independence
+of random variables</a></span></span><span class="subsectionToc"><span class="number">3.3.3</span><span class="title"><a href="RepresentingUncertainty.html#x14-1110003.3.3">Propagation of Error</a></span></span><span class="sectionToc"><span class="number">3.4</span><span class="title"><a href="FeatureExtraction.html#x15-1120003.4">Feature Extraction</a></span></span><span class="subsectionToc"><span class="number">3.4.1</span><span class="title"><a href="FeatureExtraction.html#x15-1130003.4.1">Defining
+Feature</a></span></span><span class="subsectionToc"><span class="number">3.4.2</span><span class="title"><a href="FeatureExtraction.html#x15-1140003.4.2">Using Range Data</a></span></span><span class="chapterToc"><span class="number">4</span><span class="title"><a href="MobileRobotLocalisation.html#x16-1290004">Mobile Robot Localisation</a></span></span><span class="sectionToc"><span class="number">4.1</span><span class="title"><a href="TheProblemsofNoiseandAliasing.html#x17-1300004.1">The Problems of Noise and
+Aliasing</a></span></span><span class="subsectionToc"><span class="number">4.1.1</span><span class="title"><a href="TheProblemsofNoiseandAliasing.html#x17-1310004.1.1">Sensor Noise</a></span></span><span class="subsectionToc"><span class="number">4.1.2</span><span class="title"><a href="TheProblemsofNoiseandAliasing.html#x17-1320004.1.2">Sensor Aliasing</a></span></span><span class="subsectionToc"><span class="number">4.1.3</span><span class="title"><a href="TheProblemsofNoiseandAliasing.html#x17-1330004.1.3">Effector Noise</a></span></span><span class="subsectionToc"><span class="number">4.1.4</span><span class="title"><a href="TheProblemsofNoiseandAliasing.html#x17-1340004.1.4">An Error Model for
+Odometric Position Estimation</a></span></span><span class="sectionToc"><span class="number">4.2</span><span class="title"><a href="LocalisationTechniques.html#x18-1350004.2">Localisation Techniques</a></span></span><span class="sectionToc"><span class="number">4.3</span><span class="title"><a href="RepresentingBelief.html#x19-1360004.3">Representing Belief</a></span></span><span class="subsectionToc"><span class="number">4.3.1</span><span class="title"><a href="RepresentingBelief.html#x19-1370004.3.1">Single
+Hypothesis Belief</a></span></span><span class="subsectionToc"><span class="number">4.3.2</span><span class="title"><a href="RepresentingBelief.html#x19-1380004.3.2">Multiple Hypothesis Belief</a></span></span><span class="sectionToc"><span class="number">4.4</span><span class="title"><a href="RepresentingMaps.html#x20-1390004.4">Representing Maps</a></span></span><span class="subsectionToc"><span class="number">4.4.1</span><span class="title"><a href="RepresentingMaps.html#x20-1400004.4.1">Continuous
+Representation</a></span></span><span class="subsectionToc"><span class="number">4.4.2</span><span class="title"><a href="RepresentingMaps.html#x20-1410004.4.2">Decomposition Methods</a></span></span><span class="subsectionToc"><span class="number">4.4.3</span><span class="title"><a href="RepresentingMaps.html#x20-1420004.4.3">Current Challenges</a></span></span><span class="sectionToc"><span class="number">4.5</span><span class="title"><a href="ProbabilisticMapBasedLocalisation.html#x21-1430004.5">Probabilistic
+Map-Based Localisation</a></span></span><span class="subsectionToc"><span class="number">4.5.1</span><span class="title"><a href="ProbabilisticMapBasedLocalisation.html#x21-1440004.5.1">Problem Definition</a></span></span><span class="subsectionToc"><span class="number">4.5.2</span><span class="title"><a href="ProbabilisticMapBasedLocalisation.html#x21-1450004.5.2">Markov Localisation</a></span></span><span class="subsectionToc"><span class="number">4.5.3</span><span class="title"><a href="ProbabilisticMapBasedLocalisation.html#x21-1490004.5.3">Kalman
+Filter Localisation</a></span></span><span class="subsectionToc"><span class="number">4.5.4</span><span class="title"><a href="ProbabilisticMapBasedLocalisation.html#x21-1500004.5.4">An Implementation of Kalman Filter</a></span></span><span class="sectionToc"><span class="number">4.6</span><span class="title"><a href="OtherExamplesofLocalisationMethods.html#x22-1550004.6">Other Examples
+of Localisation Methods</a></span></span><span class="subsectionToc"><span class="number">4.6.1</span><span class="title"><a href="OtherExamplesofLocalisationMethods.html#x22-1560004.6.1">Landmark-based Navigation</a></span></span><span class="subsectionToc"><span class="number">4.6.2</span><span class="title"><a href="OtherExamplesofLocalisationMethods.html#x22-1570004.6.2">Globally Unique
+Localisation</a></span></span><span class="subsectionToc"><span class="number">4.6.3</span><span class="title"><a href="OtherExamplesofLocalisationMethods.html#x22-1580004.6.3">Positioning Beacon systems</a></span></span><span class="subsectionToc"><span class="number">4.6.4</span><span class="title"><a href="OtherExamplesofLocalisationMethods.html#x22-1590004.6.4">Route-Based Localisation</a></span></span><span class="sectionToc"><span class="number">4.7</span><span class="title"><a href="BuildingMaps.html#x23-1600004.7">Building
+Maps</a></span></span><span class="subsectionToc"><span class="number">4.7.1</span><span class="title"><a href="BuildingMaps.html#x23-1610004.7.1">Stochastic Map Technique</a></span></span><span class="subsectionToc"><span class="number">4.7.2</span><span class="title"><a href="BuildingMaps.html#x23-1620004.7.2">Other Mapping Techniques</a></span></span><span class="chapterToc"><span class="number">5</span><span class="title"><a href="WelcometoLinux.html#x24-1650005">Welcome to Linux</a></span></span><span class="sectionToc"><span class="number">5.1</span><span class="title"><a href="AHistoryofUNIXLinux.html#x25-1660005.1">A
+History of UNIX/Linux</a></span></span><span class="subsectionToc"><span class="number">5.1.1</span><span class="title"><a href="AHistoryofUNIXLinux.html#x25-1680005.1.1">A Short History on Computer Interfaces</a></span></span><span class="subsectionToc"><span class="number">5.1.2</span><span class="title"><a href="AHistoryofUNIXLinux.html#x25-1700005.1.2">Linux is a
+Nutshell</a></span></span><span class="subsectionToc"><span class="number">5.1.3</span><span class="title"><a href="AHistoryofUNIXLinux.html#x25-1730005.1.3">Linux Distributions</a></span></span><span class="sectionToc"><span class="number">5.2</span><span class="title"><a href="Installation.html#x26-1740005.2">Installation</a></span></span><span class="subsectionToc"><span class="number">5.2.1</span><span class="title"><a href="Installation.html#x26-1750005.2.1">Docker</a></span></span><span class="subsectionToc"><span class="number">5.2.2</span><span class="title"><a href="Installation.html#x26-1760005.2.2">Dockerfile</a></span></span><span class="subsectionToc"><span class="number">5.2.3</span><span class="title"><a href="Installation.html#x26-1770005.2.3">Running
+the Container</a></span></span><span class="chapterToc"><span class="number">6</span><span class="title"><a href="CommandLineFundamentals.html#x27-1780006">Command Line Fundamentals</a></span></span><span class="sectionToc"><span class="number">6.1</span><span class="title"><a href="ToCommandaComputer.html#x28-1790006.1">To Command a Computer</a></span></span><span class="subsectionToc"><span class="number">6.1.1</span><span class="title"><a href="ToCommandaComputer.html#x28-1800006.1.1">The
+Command Line Interface</a></span></span><span class="subsectionToc"><span class="number">6.1.2</span><span class="title"><a href="ToCommandaComputer.html#x28-1810006.1.2">The Structure of Commands</a></span></span><span class="subsectionToc"><span class="number">6.1.3</span><span class="title"><a href="ToCommandaComputer.html#x28-1820006.1.3">Some Rules Regarding
+the Syntax</a></span></span><span class="sectionToc"><span class="number">6.2</span><span class="title"><a href="WhenWeNeedHelpwithCommands.html#x29-1830006.2">When We Need Help with Commands</a></span></span><span class="subsectionToc"><span class="number">6.2.1</span><span class="title"><a href="WhenWeNeedHelpwithCommands.html#x29-1840006.2.1">Use Tab completion on
+the Shell</a></span></span><span class="subsectionToc"><span class="number">6.2.2</span><span class="title"><a href="WhenWeNeedHelpwithCommands.html#x29-1850006.2.2">The info command</a></span></span><span class="subsectionToc"><span class="number">6.2.3</span><span class="title"><a href="WhenWeNeedHelpwithCommands.html#x29-1860006.2.3">The whatis command</a></span></span><span class="chapterToc"><span class="number">7</span><span class="title"><a href="WorkingwithFilesandFolders.html#x30-1880007">Working with Files
+and Folders</a></span></span><span class="sectionToc"><span class="number">7.1</span><span class="title"><a href="FilesandFolders.html#x31-1890007.1">Files and Folders</a></span></span><span class="subsectionToc"><span class="number">7.1.1</span><span class="title"><a href="FilesandFolders.html#x31-1900007.1.1">A Detailed Look in ls Command</a></span></span><span class="subsectionToc"><span class="number">7.1.2</span><span class="title"><a href="FilesandFolders.html#x31-1910007.1.2">Creating
+and Removing Folders</a></span></span><span class="subsectionToc"><span class="number">7.1.3</span><span class="title"><a href="FilesandFolders.html#x31-1920007.1.3">Move, Copy and Delete Files and Folders</a></span></span><span class="sectionToc"><span class="number">7.2</span><span class="title"><a href="PermissionsandLinks.html#x32-1990007.2">Permissions
+and Links</a></span></span><span class="subsectionToc"><span class="number">7.2.1</span><span class="title"><a href="PermissionsandLinks.html#x32-2000007.2.1">Role to Users and sudo</a></span></span><span class="subsectionToc"><span class="number">7.2.2</span><span class="title"><a href="PermissionsandLinks.html#x32-2010007.2.2">File Permissions</a></span></span><span class="subsectionToc"><span class="number">7.2.3</span><span class="title"><a href="PermissionsandLinks.html#x32-2040007.2.3">Hard and Symbolic
+Links</a></span></span><span class="subsectionToc"><span class="number">7.2.4</span><span class="title"><a href="PermissionsandLinks.html#x32-2050007.2.4">Soft (Symbolic) Links</a></span></span><span class="subsectionToc"><span class="number">7.2.5</span><span class="title"><a href="PermissionsandLinks.html#x32-2070007.2.5">The Linux File System</a></span></span><span class="subsectionToc"><span class="number">7.2.6</span><span class="title"><a href="PermissionsandLinks.html#x32-2080007.2.6">The UNIX
+Philosophy</a></span></span><span class="sectionToc"><span class="number">7.3</span><span class="title"><a href="CommonCommandLineToolsandTasks.html#x33-2090007.3">Common Command-Line Tools and Tasks</a></span></span><span class="subsectionToc"><span class="number">7.3.1</span><span class="title"><a href="CommonCommandLineToolsandTasks.html#x33-2100007.3.1">Connecting Commands
+with Pipes</a></span></span><span class="subsectionToc"><span class="number">7.3.2</span><span class="title"><a href="CommonCommandLineToolsandTasks.html#x33-2110007.3.2">Viewing Text Files with cat, head, tail, and less</a></span></span><span class="subsectionToc"><span class="number">7.3.3</span><span class="title"><a href="CommonCommandLineToolsandTasks.html#x33-2120007.3.3">Finding
+Linux Distribution and Kernel Information</a></span></span><span class="subsectionToc"><span class="number">7.3.4</span><span class="title"><a href="CommonCommandLineToolsandTasks.html#x33-2140007.3.4">Find System Hardware and Disk
+Information</a></span></span><span class="chapterToc"><span class="number">8</span><span class="title"><a href="ROSConcepts.html#x34-2160008">ROS Concepts</a></span></span><span class="sectionToc"><span class="number">8.1</span><span class="title"><a href="PublisherandSubscriberArchitecture.html#x35-2170008.1">Publisher and Subscriber Architecture</a></span></span><span class="subsectionToc"><span class="number">8.1.1</span><span class="title"><a href="PublisherandSubscriberArchitecture.html#x35-2180008.1.1">ROS 2
+Architecture</a></span></span><span class="sectionToc"><span class="number">8.2</span><span class="title"><a href="BuildingBlocks.html#x36-2200008.2">Building Blocks</a></span></span><span class="subsectionToc"><span class="number">8.2.1</span><span class="title"><a href="BuildingBlocks.html#x36-2210008.2.1">Nodes</a></span></span><span class="subsectionToc"><span class="number">8.2.2</span><span class="title"><a href="BuildingBlocks.html#x36-2220008.2.2">The Discovery Process</a></span></span><span class="subsectionToc"><span class="number">8.2.3</span><span class="title"><a href="BuildingBlocks.html#x36-2230008.2.3">Communication
+Interface</a></span></span><span class="subsectionToc"><span class="number">8.2.4</span><span class="title"><a href="BuildingBlocks.html#x36-2320008.2.4">Topics</a></span></span><span class="subsectionToc"><span class="number">8.2.5</span><span class="title"><a href="BuildingBlocks.html#x36-2360008.2.5">Services</a></span></span><span class="subsectionToc"><span class="number">8.2.6</span><span class="title"><a href="BuildingBlocks.html#x36-2390008.2.6">Actions</a></span></span><span class="subsectionToc"><span class="number">8.2.7</span><span class="title"><a href="BuildingBlocks.html#x36-2420008.2.7">Parameters</a></span></span><span class="subsectionToc"><span class="number">8.2.8</span><span class="title"><a href="BuildingBlocks.html#x36-2510008.2.8">Working with
+Command Line</a></span></span><span class="subsectionToc"><span class="number">8.2.9</span><span class="title"><a href="BuildingBlocks.html#x36-2530008.2.9">Launch Files</a></span></span><span class="sectionToc"><span class="number">8.3</span><span class="title"><a href="AdvancedConcepts.html#x37-2540008.3">Advanced Concepts</a></span></span><span class="subsectionToc"><span class="number">8.3.1</span><span class="title"><a href="AdvancedConcepts.html#x37-2550008.3.1">ROS DOMAIN ID</a></span></span><span class="chapterToc"><span class="number">9</span><span class="title"><a href="CommandLineTools.html#x38-2570009">Command
+Line Tools</a></span></span><span class="sectionToc"><span class="number">9.1</span><span class="title"><a href="SettingtheEnvironment.html#x39-2580009.1">Setting the Environment</a></span></span><span class="sectionToc"><span class="number">9.2</span><span class="title"><a href="TurtlesandGraphs.html#x40-2630009.2">Turtles and Graphs</a></span></span><span class="sectionToc"><span class="number">9.3</span><span class="title"><a href="ADeeperLookintoNodes.html#x41-2710009.3">A Deeper Look into
+Nodes</a></span></span><span class="sectionToc"><span class="number">9.4</span><span class="title"><a href="WorkingwithTopics.html#x42-2760009.4">Working with Topics</a></span></span><span class="sectionToc"><span class="number">9.5</span><span class="title"><a href="WorkingwithServices.html#x43-2820009.5">Working with Services</a></span></span><span class="sectionToc"><span class="number">9.6</span><span class="title"><a href="WorkingwithParameters.html#x44-2890009.6">Working with Parameters</a></span></span><span class="sectionToc"><span class="number">9.7</span><span class="title"><a href="APracticalLookintoActions.html#x45-2960009.7">A
+Practical Look into Actions</a></span></span><span class="sectionToc"><span class="number">9.8</span><span class="title"><a href="LaunchingNodes.html#x46-3030009.8">Launching Nodes</a></span></span><span class="chapterToc"><span class="number">10</span><span class="title"><a href="ClientLibraries.html#x47-30500010">Client Libraries</a></span></span><span class="sectionToc"><span class="number">10.1</span><span class="title"><a href="#x48-30600010.1">Getting Started with
+Colcon</a></span></span><span class="subsectionToc"><span class="number">10.1.1</span><span class="title"><a href="#x48-30700010.1.1">The Structure of a Package</a></span></span><span class="subsectionToc"><span class="number">10.1.2</span><span class="title"><a href="#x48-30800010.1.2">Sourcing an Underlay</a></span></span><span class="subsectionToc"><span class="number">10.1.3</span><span class="title"><a href="#x48-30900010.1.3">Building the
+Workspace</a></span></span><span class="subsectionToc"><span class="number">10.1.4</span><span class="title"><a href="#x48-31000010.1.4">Sourcing the New Package</a></span></span><span class="subsectionToc"><span class="number">10.1.5</span><span class="title"><a href="#x48-31100010.1.5">Creating a Workspace</a></span></span><span class="subsectionToc"><span class="number">10.1.6</span><span class="title"><a href="#x48-31200010.1.6">Sourcing the
+Environment</a></span></span><span class="subsectionToc"><span class="number">10.1.7</span><span class="title"><a href="#x48-31300010.1.7">Creating a New Directory</a></span></span><span class="subsectionToc"><span class="number">10.1.8</span><span class="title"><a href="#x48-31400010.1.8">Cloning a Sample Repo</a></span></span><span class="subsectionToc"><span class="number">10.1.9</span><span class="title"><a href="#x48-31500010.1.9">Resolving
+Dependencies</a></span></span><span class="subsectionToc"><span class="number">10.1.10</span><span class="title"><a href="#x48-31600010.1.10">Building the Workspace</a></span></span><span class="subsectionToc"><span class="number">10.1.11</span><span class="title"><a href="#x48-31700010.1.11">Sourcing our Overlay</a></span></span><span class="subsectionToc"><span class="number">10.1.12</span><span class="title"><a href="#x48-31800010.1.12">Modifying
+the Overlay</a></span></span><span class="subsectionToc"><span class="number">10.1.13</span><span class="title"><a href="#x48-31900010.1.13">Creating a Package</a></span></span><span class="sectionToc"><span class="number">10.2</span><span class="title"><a href="WritingaSimplePublisherandSubscriber.html#x49-32200010.2">Writing a Simple Publisher and
+Subscriber</a></span></span><span class="subsectionToc"><span class="number">10.2.1</span><span class="title"><a href="WritingaSimplePublisherandSubscriber.html#x49-32300010.2.1">Creating a ROS Packages</a></span></span><span class="subsectionToc"><span class="number">10.2.2</span><span class="title"><a href="WritingaSimplePublisherandSubscriber.html#x49-32400010.2.2">Writing the Publisher Node</a></span></span><span class="subsectionToc"><span class="number">10.2.3</span><span class="title"><a href="WritingaSimplePublisherandSubscriber.html#x49-32900010.2.3">Writing
+the Subscriber Node</a></span></span><span class="subsectionToc"><span class="number">10.2.4</span><span class="title"><a href="WritingaSimplePublisherandSubscriber.html#x49-33200010.2.4">Building and Running</a></span></span><span class="sectionToc"><span class="number">10.3</span><span class="title"><a href="WritingaSimpleServiceandClient.html#x50-33300010.3">Writing a Simple Service and
+Client</a></span></span><span class="subsectionToc"><span class="number">10.3.1</span><span class="title"><a href="WritingaSimpleServiceandClient.html#x50-33400010.3.1">Creating a New Package</a></span></span><span class="subsectionToc"><span class="number">10.3.2</span><span class="title"><a href="WritingaSimpleServiceandClient.html#x50-33700010.3.2">Writing the Service Node</a></span></span><span class="subsectionToc"><span class="number">10.3.3</span><span class="title"><a href="WritingaSimpleServiceandClient.html#x50-34000010.3.3">Writing the Client
+Node</a></span></span><span class="sectionToc"><span class="number">10.4</span><span class="title"><a href="CreatingCustommsgandsrvFiles.html#x51-34300010.4">Creating Custom msg and srv Files</a></span></span><span class="subsectionToc"><span class="number">10.4.1</span><span class="title"><a href="CreatingCustommsgandsrvFiles.html#x51-34400010.4.1">Creating a New Package</a></span></span><span class="subsectionToc"><span class="number">10.4.2</span><span class="title"><a href="CreatingCustommsgandsrvFiles.html#x51-34500010.4.2">Creating
+Custom Definitions</a></span></span><span class="subsectionToc"><span class="number">10.4.3</span><span class="title"><a href="CreatingCustommsgandsrvFiles.html#x51-35200010.4.3">Testing the Newly Built Interfaces</a></span></span><span class="sectionToc"><span class="number">10.5</span><span class="title"><a href="UsingParametersinaClass.html#x52-35400010.5">Using Parameters in a
+Class</a></span></span><span class="subsectionToc"><span class="number">10.5.1</span><span class="title"><a href="UsingParametersinaClass.html#x52-35500010.5.1">Creating a Package</a></span></span><span class="subsectionToc"><span class="number">10.5.2</span><span class="title"><a href="UsingParametersinaClass.html#x52-35700010.5.2">Writing our Python Code</a></span></span><span class="subsectionToc"><span class="number">10.5.3</span><span class="title"><a href="UsingParametersinaClass.html#x52-36200010.5.3">Changing Output using
+the Console</a></span></span><span class="subsectionToc"><span class="number">10.5.4</span><span class="title"><a href="UsingParametersinaClass.html#x52-36300010.5.4">Changing using the Launch File</a></span></span><span class="sectionToc"><span class="number">10.6</span><span class="title"><a href="ManagingDependencies.html#x53-36400010.6">Managing Dependencies</a></span></span><span class="sectionToc"><span class="number">10.7</span><span class="title"><a href="CreatinganAction.html#x54-36600010.7">Creating
+an Action</a></span></span><span class="sectionToc"><span class="number">10.8</span><span class="title"><a href="WritinganActionServerandClient.html#x55-36900010.8">Writing an Action Server and Client</a></span></span><span class="sectionToc"><span class="number">10.9</span><span class="title"><a href="WritingaLaunchFile.html#x56-37100010.9">Writing a Launch File</a></span></span>
+<div class="nav-footer"><div class="nav-footer-left"><span class="nav-footer-lecture">D. T. McGuiness, PhD</span>
+<span class="nav-footer-webBook"><b>Last Updated:</b> 13.10.2026, at 8:16.</span></div></div><p class="nav-comments">The website you are viewing is auto-generated using lms-WebBook and therefore subject to slight errors in typography and formatting. When in doubt, please consult the LectureBook. </p></div></nav>
+<article class="chapter">
+<nav class="crosslinks-top"> <span class="nav-button"><i class="fa-solid fa-caret-right"></i><a class="nav-link" href="WritingaSimplePublisherandSubscriber.html">Writing a Simple Publisher and Subscriber</a></span><span class="nav-button"><i class="fa-solid fa-caret-left"></i><a class="nav-link" href="ClientLibraries.html">Chapter: Client
+Libraries</a></span><span class="nav-button"><i class="fa-solid fa-caret-up"></i><a class="nav-link" href="ClientLibraries.html#GettingStartedwithColcon.html">Chapter: Client
+Libraries</a></span><span class="nav-button">
+<a href="index.html" rel="index" title="Visit Entry Point">
+<i class="fa-solid fa-table-list">
+</i>
+<span class="nav-info">Visit Index Page</span>
+</a></span><span class="nav-button">
+<a href="Index.html" rel="index" title="Visit Material GitHub Repo">
+<i class="fa-brands fa-git-alt"></i>
+<span class="nav-info">Visit Material GitHub Repo</span>
+</a></span></nav>
+<div class="section-header"> <h3 id="header-section-10.1"> <a class="pdf-icon" href="AutonomousMobileRoboticsLectureBook.pdf#section.10.1"><svg class="bi bi-file-pdf" fill="currentColor" height="20" viewbox="0 0 16 16" width="20" xmlns="http://www.w3.org/2000/svg"><path d="M4 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H4zm0 1h8a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1z"></path><path d="M4.603 12.087a.81.81 0 0 1-.438-.42c-.195-.388-.13-.776.08-1.102.198-.307.526-.568.897-.787a7.68 7.68 0 0 1 1.482-.645 19.701 19.701 0 0 0 1.062-2.227 7.269 7.269 0 0 1-.43-1.295c-.086-.4-.119-.796-.046-1.136.075-.354.274-.672.65-.823.192-.077.4-.12.602-.077a.7.7 0 0 1 .477.365c.088.164.12.356.127.538.007.187-.012.395-.047.614-.084.51-.27 1.134-.52 1.794a10.954 10.954 0 0 0 .98 1.686 5.753 5.753 0 0 1 1.334.05c.364.065.734.195.96.465.12.144.193.32.2.518.007.192-.047.382-.138.563a1.04 1.04 0 0 1-.354.416.856.856 0 0 1-.51.138c-.331-.014-.654-.196-.933-.417a5.716 5.716 0 0 1-.911-.95 11.642 11.642 0 0 0-1.997.406 11.311 11.311 0 0 1-1.021 1.51c-.29.35-.608.655-.926.787a.793.793 0 0 1-.58.029zm1.379-1.901c-.166.076-.32.156-.459.238-.328.194-.541.383-.647.547-.094.145-.096.25-.04.361.01.022.02.036.026.044a.27.27 0 0 0 .035-.012c.137-.056.355-.235.635-.572a8.18 8.18 0 0 0 .45-.606zm1.64-1.33a12.647 12.647 0 0 1 1.01-.193 11.666 11.666 0 0 1-.51-.858 20.741 20.741 0 0 1-.5 1.05zm2.446.45c.15.162.296.3.435.41.24.19.407.253.498.256a.107.107 0 0 0 .07-.015.307.307 0 0 0 .094-.125.436.436 0 0 0 .059-.2.095.095 0 0 0-.026-.063c-.052-.062-.2-.152-.518-.209a3.881 3.881 0 0 0-.612-.053zM8.078 5.8a6.7 6.7 0 0 0 .2-.828c.031-.188.043-.343.038-.465a.613.613 0 0 0-.032-.198.517.517 0 0 0-.145.04c-.087.035-.158.106-.196.283-.04.192-.03.469.046.822.024.111.054.227.09.346z"></path></svg></a> <span class="number">10.1</span> <span class="title"> <a id="x48-30600010.1"></a>Getting Started with
+Colcon</span></h3></div>
+<p class="noindent">Now we have learned all the essential concepts, we can now begin to go deeper to understanding how
+packages are written and how all previously defined concepts and ideas can be implemented in
+code.
+</p><p class="noindent">In light of this, let us start with looking at the compiler for <span class="acronym"><span class="acronym-short"><a class="glossary" href="#glo:ros">ROS</a></span><span class="acronym-detail"><span class="acronym-long"><a class="glossary" href="#glo:ros">Robot Operating System 2</a></span><span class="acronym-desc"><a class="glossary" href="#glo:ros">Robot
+Operating System 2</a></span></span></span> called <code class="verb">colcon</code> .
+</p>
+<div class="quote"> a meta build tool to improve the workflow of building, testing and using multiple software
+packages <span class="cite"><a class="cite-show" href="#w3-20001">[†-1]</a><span class="cite-detail"> <a id="x48-306001"></a>Debian. python3-colcon-ros 2025</span></span>. Additional documentation can be found <a href="https://design.ros2.org/articles/build_tool.html">here</a> and its
+source code can be viewed <a href="https://github.com/colcon">here</a>. </div>
+<p class="noindent">The first thing to define is <code class="verb">colcon</code>  is an iteration on the <span class="acronym"><span class="acronym-short"><a class="glossary" href="#glo:ros">ROS</a></span><span class="acronym-detail"><span class="acronym-long"><a class="glossary" href="#glo:ros">Robot Operating System 2</a></span><span class="acronym-desc"><a class="glossary" href="#glo:ros">Robot Operating
+System 2</a></span></span></span> build tools: </p><div class="quote"> <code class="verb">catkin_make</code> , <code class="verb">catkin_make_isolated</code> , <code class="verb">catkin_tools</code>  and <code class="verb">ament_tools</code> . </div>
+<p class="noindent">We begin by installing <span class="margin-block">colcon: <span class="margin-comment"><a class="ellipsis" href="#m-ref-226">[226]</a>
+<span class="sidenote">Of course, if we have installed <span class="acronym"><span class="acronym-short"><a class="glossary" href="#glo:ros">ROS</a></span><span class="acronym-detail"><span class="acronym-long"><a class="glossary" href="#glo:ros">Robot Operating System 2</a></span><span class="acronym-desc"><a class="glossary" href="#glo:ros">Robot
+Operating System 2</a></span></span></span> with a Dockerfile and followed the lecture material, we don’t have to do this step.
+However, this step is nevertheless here in case the document is followed non-linearly or the user is
+confident.</span></span></span>
+</p>
+<pre><div class="code-header"> <span class="code-language">bash</span> </div> <code class="language-bash">
+<pre class="fancyvrb" id="fancyvrb261"><a id="x48-306003r66"></a>sudo apt install python3-colcon-common-extensions</pre>
+</code></pre>
+<pre><code class="language-text">
+<pre class="fancyvrb" id="fancyvrb262"><a id="x48-306005r71"></a>Reading package lists... 0% 
+<a id="x48-306007r72"></a>Reading package lists... 0% 
+<a id="x48-306009r73"></a>Reading package lists... 7% 
+<a id="x48-306011r74"></a>Reading package lists... Done 
+<a id="x48-306013r75"></a>Building dependency tree... 0% 
+<a id="x48-306015r76"></a>Building dependency tree... 0% 
+<a id="x48-306017r77"></a>Building dependency tree... 50% 
+<a id="x48-306019r78"></a>Building dependency tree... 50% 
+<a id="x48-306021r79"></a>Building dependency tree... Done 
+<a id="x48-306023r80"></a>Reading state information... 0% 
+<a id="x48-306025r81"></a>Reading state information... 0% 
+<a id="x48-306027r82"></a>Reading state information... Done 
+<a id="x48-306029r83"></a>python3-colcon-common-extensions is already the newest version (0.3.0-100). 
+<a id="x48-306031r84"></a>0 upgraded, 0 newly installed, 0 to remove and 0 not upgraded.</pre>
+</code></pre>
+<p class="noindent"><div class="subsection-header"> <h4 id="header-subsection-10.1.1"> <a class="pdf-icon" href="AutonomousMobileRoboticsLectureBook.pdf#subsection.10.1.1"><svg class="bi bi-file-pdf" fill="currentColor" height="20" viewbox="0 0 16 16" width="20" xmlns="http://www.w3.org/2000/svg"><path d="M4 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H4zm0 1h8a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1z"></path><path d="M4.603 12.087a.81.81 0 0 1-.438-.42c-.195-.388-.13-.776.08-1.102.198-.307.526-.568.897-.787a7.68 7.68 0 0 1 1.482-.645 19.701 19.701 0 0 0 1.062-2.227 7.269 7.269 0 0 1-.43-1.295c-.086-.4-.119-.796-.046-1.136.075-.354.274-.672.65-.823.192-.077.4-.12.602-.077a.7.7 0 0 1 .477.365c.088.164.12.356.127.538.007.187-.012.395-.047.614-.084.51-.27 1.134-.52 1.794a10.954 10.954 0 0 0 .98 1.686 5.753 5.753 0 0 1 1.334.05c.364.065.734.195.96.465.12.144.193.32.2.518.007.192-.047.382-.138.563a1.04 1.04 0 0 1-.354.416.856.856 0 0 1-.51.138c-.331-.014-.654-.196-.933-.417a5.716 5.716 0 0 1-.911-.95 11.642 11.642 0 0 0-1.997.406 11.311 11.311 0 0 1-1.021 1.51c-.29.35-.608.655-.926.787a.793.793 0 0 1-.58.029zm1.379-1.901c-.166.076-.32.156-.459.238-.328.194-.541.383-.647.547-.094.145-.096.25-.04.361.01.022.02.036.026.044a.27.27 0 0 0 .035-.012c.137-.056.355-.235.635-.572a8.18 8.18 0 0 0 .45-.606zm1.64-1.33a12.647 12.647 0 0 1 1.01-.193 11.666 11.666 0 0 1-.51-.858 20.741 20.741 0 0 1-.5 1.05zm2.446.45c.15.162.296.3.435.41.24.19.407.253.498.256a.107.107 0 0 0 .07-.015.307.307 0 0 0 .094-.125.436.436 0 0 0 .059-.2.095.095 0 0 0-.026-.063c-.052-.062-.2-.152-.518-.209a3.881 3.881 0 0 0-.612-.053zM8.078 5.8a6.7 6.7 0 0 0 .2-.828c.031-.188.043-.343.038-.465a.613.613 0 0 0-.032-.198.517.517 0 0 0-.145.04c-.087.035-.158.106-.196.283-.04.192-.03.469.046.822.024.111.054.227.09.346z"></path></svg></a><span class="number">10.1.1</span> <span class="title"> <a id="x48-30700010.1.1"></a>The Structure of a Package</span></h4></div>
+</p><p class="noindent">A <span class="acronym"><span class="acronym-short"><a class="glossary" href="#glo:ros">ROS</a></span><span class="acronym-detail"><span class="acronym-long"><a class="glossary" href="#glo:ros">Robot Operating System 2</a></span><span class="acronym-desc"><a class="glossary" href="#glo:ros">Robot Operating System 2</a></span></span></span> workspace is a directory with a <span class="alert">defined structure</span>.
+Commonly there is a <span class="code-directory"><code class="verb">src</code></span> <span class="margin-block">subdirectory. <span class="margin-comment"><a class="ellipsis" href="#m-ref-227">[227]</a>
+<span class="sidenote">This kind of directory usually exists for development of
+applications written in C or C++.</span></span></span> Within this subdirectory is where the source code of <span class="acronym"><span class="acronym-short"><a class="glossary" href="#glo:ros">ROS</a></span><span class="acronym-detail"><span class="acronym-long"><a class="glossary" href="#glo:ros">Robot
+Operating System 2</a></span><span class="acronym-desc"><a class="glossary" href="#glo:ros">Robot Operating System 2</a></span></span></span> packages will be located.
+</p>
+<div class="knowledge"><div class="knowledge-upper">Knowledge</div><div class="body">
+<p class="noindent">When this directory is created, it will be empty. </p></div></div>
+<p class="noindent">The primary job of <code class="verb">colcon</code>  is to create the structure for, compile and build these source files. By
+default it will create the following directories with the same hierarchy of the <span class="code-directory"><code class="verb">src</code></span> directory:
+</p>
+<dl class="description"><dt class="description"><a id="x48-307001x10.1.1"></a>
+<span style="color:#0A2A0A;">build</span>
+</dt><dd class="description">
+<p class="noindent"> Where intermediate files are stored. For each package a subfolder will be created in which
+e.g., <span class="margin-block">CMake <span class="margin-comment"><a class="ellipsis" href="#m-ref-228">[228]</a>
+<span class="sidenote">a free, cross-platform, software development tool for building applications via
+compiler-independent instructions and allows automate testing, packaging and installation.
+It runs on a variety of platforms and supports many programming languages.</span></span></span> is being
+invoked.
+</p>
+</dd>
+<dt class="description"><a id="x48-307002x10.1.1"></a>
+<span style="color:#0A2A0A;">install</span>
+</dt><dd class="description">
+<p class="noindent"> Where each package will be installed to. By default each package will be installed into a
+separate subdirectory.
+</p>
+</dd>
+<dt class="description"><a id="x48-307003x10.1.1"></a>
+<span style="color:#0A2A0A;">log</span>
+</dt><dd class="description">
+<p class="noindent"> Contains various logging information about each <code class="verb">colcon</code>  invocation, for use in error-checking
+and debugging purposes.</p></dd></dl>
+<div class="warning"><div class="warning-upper">Warning</div><div class="body">
+<p class="noindent">For anyone who’ve worked with ROS 1 and <code class="verb">catkin</code> , there is no <span class="code-directory"><code class="verb">devel</code></span> directory. </p></div></div>
+<p class="noindent">To get started, we first create a directory (<span class="code-directory"><code class="verb">ros2\_ws</code></span>) to store our <span class="margin-block">workspace: <span class="margin-comment"><a class="ellipsis" href="#m-ref-229">[229]</a>
+<span class="sidenote">The name of the directory
+is up to the user.</span></span></span>
+</p>
+<pre><div class="code-header"> <span class="code-language">bash</span> </div> <code class="language-bash">
+<pre class="fancyvrb" id="fancyvrb263"><a id="x48-307005r89"></a>mkdir -p ~/ros2_ws/src 
+<a id="x48-307007r90"></a><span style="color:#B03B03;">cd</span> ~/ros2_ws</pre>
+</code></pre>
+<p class="noindent">At this moment if we were to <code class="verb">ls</code>  into our directory we will only see one (<span class="alert">1</span>) folder which is <span class="code-directory"><code class="verb">src</code></span>, which is to
+be expected as it was created just a second ago.
+</p>
+<pre><div class="code-header"> <span class="code-language">bash</span> </div> <code class="language-bash">
+<pre class="fancyvrb" id="fancyvrb264"><a id="x48-307009r96"></a>ls</pre>
+</code></pre>
+<pre><code class="language-text">
+<pre class="fancyvrb" id="fancyvrb265"><a id="x48-307011r101"></a>src</pre>
+</code></pre>
+<p class="noindent">Now let’s populate our newly created environment with some tutorial files from the official <span class="acronym"><span class="acronym-short"><a class="glossary" href="#glo:ros">ROS</a></span><span class="acronym-detail"><span class="acronym-long"><a class="glossary" href="#glo:ros">Robot
+Operating System 2</a></span><span class="acronym-desc"><a class="glossary" href="#glo:ros">Robot Operating System 2</a></span></span></span> repo:
+</p>
+<pre><div class="code-header"> <span class="code-language">bash</span> </div> <code class="language-bash">
+<pre class="fancyvrb" id="fancyvrb266"><a id="x48-307013r106"></a>git clone https://github.com/ros2/examples src/examples -b humble</pre>
+</code></pre>
+<pre><code class="language-text">
+<pre class="fancyvrb" id="fancyvrb267"><a id="x48-307015r111"></a>Cloning into 'src/examples'... 
+<a id="x48-307017r112"></a>remote: Enumerating objects: 9987, done. 
+<a id="x48-307019r113"></a>remote: Counting objects: 100% (2546/2546), done. 
+<a id="x48-307021r114"></a>remote: Compressing objects: 100% (358/358), done. 
+<a id="x48-307023r115"></a>remote: Total 9987 (delta 2376), reused 2195 (delta 2188), pack-reused 7441 (from 3) 
+<a id="x48-307025r116"></a>Receiving objects: 100% (9987/9987), 1.56 MiB | 4.28 MiB/s, done. 
+<a id="x48-307027r117"></a>Resolving deltas: 100% (7250/7250), done.</pre>
+</code></pre>
+<p class="noindent"><div class="subsection-header"> <h4 id="header-subsection-10.1.2"> <a class="pdf-icon" href="AutonomousMobileRoboticsLectureBook.pdf#subsection.10.1.2"><svg class="bi bi-file-pdf" fill="currentColor" height="20" viewbox="0 0 16 16" width="20" xmlns="http://www.w3.org/2000/svg"><path d="M4 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H4zm0 1h8a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1z"></path><path d="M4.603 12.087a.81.81 0 0 1-.438-.42c-.195-.388-.13-.776.08-1.102.198-.307.526-.568.897-.787a7.68 7.68 0 0 1 1.482-.645 19.701 19.701 0 0 0 1.062-2.227 7.269 7.269 0 0 1-.43-1.295c-.086-.4-.119-.796-.046-1.136.075-.354.274-.672.65-.823.192-.077.4-.12.602-.077a.7.7 0 0 1 .477.365c.088.164.12.356.127.538.007.187-.012.395-.047.614-.084.51-.27 1.134-.52 1.794a10.954 10.954 0 0 0 .98 1.686 5.753 5.753 0 0 1 1.334.05c.364.065.734.195.96.465.12.144.193.32.2.518.007.192-.047.382-.138.563a1.04 1.04 0 0 1-.354.416.856.856 0 0 1-.51.138c-.331-.014-.654-.196-.933-.417a5.716 5.716 0 0 1-.911-.95 11.642 11.642 0 0 0-1.997.406 11.311 11.311 0 0 1-1.021 1.51c-.29.35-.608.655-.926.787a.793.793 0 0 1-.58.029zm1.379-1.901c-.166.076-.32.156-.459.238-.328.194-.541.383-.647.547-.094.145-.096.25-.04.361.01.022.02.036.026.044a.27.27 0 0 0 .035-.012c.137-.056.355-.235.635-.572a8.18 8.18 0 0 0 .45-.606zm1.64-1.33a12.647 12.647 0 0 1 1.01-.193 11.666 11.666 0 0 1-.51-.858 20.741 20.741 0 0 1-.5 1.05zm2.446.45c.15.162.296.3.435.41.24.19.407.253.498.256a.107.107 0 0 0 .07-.015.307.307 0 0 0 .094-.125.436.436 0 0 0 .059-.2.095.095 0 0 0-.026-.063c-.052-.062-.2-.152-.518-.209a3.881 3.881 0 0 0-.612-.053zM8.078 5.8a6.7 6.7 0 0 0 .2-.828c.031-.188.043-.343.038-.465a.613.613 0 0 0-.032-.198.517.517 0 0 0-.145.04c-.087.035-.158.106-.196.283-.04.192-.03.469.046.822.024.111.054.227.09.346z"></path></svg></a><span class="number">10.1.2</span> <span class="title"> <a id="x48-30800010.1.2"></a>Sourcing an Underlay</span></h4></div>
+</p><p class="noindent">It is important that we’ve sourced the environment for an existing <span class="acronym"><span class="acronym-short"><a class="glossary" href="#glo:ros">ROS</a></span><span class="acronym-detail"><span class="acronym-long"><a class="glossary" href="#glo:ros">Robot Operating System
+2</a></span><span class="acronym-desc"><a class="glossary" href="#glo:ros">Robot Operating System 2</a></span></span></span> installation which will provide our workspace with the necessary build
+dependencies for the example packages. This is achieved by <span class="alert">sourcing the setup script</span> provided by a binary installation or a
+source <span class="margin-block">installation. <span class="margin-comment"><a class="ellipsis" href="#m-ref-230">[230]</a>
+<span class="sidenote">i.e. another, colcon workspace.</span></span></span> </p><div class="quote">  We call this environment an <b>underlay</b>.
+</div>
+<p class="noindent">Our workspace, <span class="code-directory"><code class="verb">ros2\_ws</code></span>, will be an <b>overlay</b> on top of the existing <span class="acronym"><span class="acronym-short"><a class="glossary" href="#glo:ros">ROS</a></span><span class="acronym-detail"><span class="acronym-long"><a class="glossary" href="#glo:ros">Robot Operating System
+2</a></span><span class="acronym-desc"><a class="glossary" href="#glo:ros">Robot Operating System 2</a></span></span></span> installation.
+</p>
+<div class="knowledge"><div class="knowledge-upper">Knowledge</div><div class="body">
+<p class="noindent">In general, it is recommended to use an overlay when we plan to iterate on a small number of packages,
+rather than putting all of our packages into the same workspace. This allows easy debugging if things
+go bad. </p></div></div>
+<p class="noindent"><div class="subsection-header"> <h4 id="header-subsection-10.1.3"> <a class="pdf-icon" href="AutonomousMobileRoboticsLectureBook.pdf#subsection.10.1.3"><svg class="bi bi-file-pdf" fill="currentColor" height="20" viewbox="0 0 16 16" width="20" xmlns="http://www.w3.org/2000/svg"><path d="M4 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H4zm0 1h8a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1z"></path><path d="M4.603 12.087a.81.81 0 0 1-.438-.42c-.195-.388-.13-.776.08-1.102.198-.307.526-.568.897-.787a7.68 7.68 0 0 1 1.482-.645 19.701 19.701 0 0 0 1.062-2.227 7.269 7.269 0 0 1-.43-1.295c-.086-.4-.119-.796-.046-1.136.075-.354.274-.672.65-.823.192-.077.4-.12.602-.077a.7.7 0 0 1 .477.365c.088.164.12.356.127.538.007.187-.012.395-.047.614-.084.51-.27 1.134-.52 1.794a10.954 10.954 0 0 0 .98 1.686 5.753 5.753 0 0 1 1.334.05c.364.065.734.195.96.465.12.144.193.32.2.518.007.192-.047.382-.138.563a1.04 1.04 0 0 1-.354.416.856.856 0 0 1-.51.138c-.331-.014-.654-.196-.933-.417a5.716 5.716 0 0 1-.911-.95 11.642 11.642 0 0 0-1.997.406 11.311 11.311 0 0 1-1.021 1.51c-.29.35-.608.655-.926.787a.793.793 0 0 1-.58.029zm1.379-1.901c-.166.076-.32.156-.459.238-.328.194-.541.383-.647.547-.094.145-.096.25-.04.361.01.022.02.036.026.044a.27.27 0 0 0 .035-.012c.137-.056.355-.235.635-.572a8.18 8.18 0 0 0 .45-.606zm1.64-1.33a12.647 12.647 0 0 1 1.01-.193 11.666 11.666 0 0 1-.51-.858 20.741 20.741 0 0 1-.5 1.05zm2.446.45c.15.162.296.3.435.41.24.19.407.253.498.256a.107.107 0 0 0 .07-.015.307.307 0 0 0 .094-.125.436.436 0 0 0 .059-.2.095.095 0 0 0-.026-.063c-.052-.062-.2-.152-.518-.209a3.881 3.881 0 0 0-.612-.053zM8.078 5.8a6.7 6.7 0 0 0 .2-.828c.031-.188.043-.343.038-.465a.613.613 0 0 0-.032-.198.517.517 0 0 0-.145.04c-.087.035-.158.106-.196.283-.04.192-.03.469.046.822.024.111.054.227.09.346z"></path></svg></a><span class="number">10.1.3</span> <span class="title"> <a id="x48-30900010.1.3"></a>Building the Workspace</span></h4></div>
+</p><p class="noindent">In the root of the workspace, run <code class="verb">colcon build</code> . Since build types such as <code class="verb">ament_cmake</code>  do <b>NOT</b> support the concept of the
+<span class="code-directory"><code class="verb">devel</code></span> space and require the package to be installed, colcon supports the option <code class="verb">--symlink-install</code> . This allows the
+installed files to be changed by changing the files in the source <span class="margin-block">space <span class="margin-comment"><a class="ellipsis" href="#m-ref-231">[231]</a>
+<span class="sidenote">e.g., Python files or other
+non-compiled resources</span></span></span> for faster iteration.
+</p>
+<pre><div class="code-header"> <span class="code-language">bash</span> </div> <code class="language-bash">
+<pre class="fancyvrb" id="fancyvrb268"><a id="x48-309002r122"></a>colcon build --symlink-install --executor sequential</pre>
+</code></pre>
+<div class="info-block" id="info-block-10.40"> <a class="copiable-link" href="#info-block-10.40"> ¶</a> <span class="info-upper"> <span class="info-header"> <b>Information 10.<a id="x48-309003r40"></a>40: </b> </span> <span class="info-title"> Limitations of Virtualisation </span> </span> <div class="body">
+<p class="noindent">The way we are currently building is <b>NOT</b> the official way as we had to add <code class="verb">--executor sequential</code>  option. We are adding
+this as by default, the colcon processes/compiles packages parallel to speed up the compilation time. If
+we were to have <span class="acronym"><span class="acronym-short"><a class="glossary" href="#glo:ros">ROS</a></span><span class="acronym-detail"><span class="acronym-long"><a class="glossary" href="#glo:ros">Robot Operating System 2</a></span><span class="acronym-desc"><a class="glossary" href="#glo:ros">Robot Operating System 2</a></span></span></span> installed on native hardware
+rather than a docker container we may not have needed this additional option. For more additional
+arguments, have a look at <a href="https://colcon.readthedocs.io/en/released/reference/executor-arguments.html">here</a>.
+</p>
+</div></div>
+<p class="noindent">After the build is finished, we should see the <span class="code-directory"><code class="verb">build</code></span>, <span class="code-directory"><code class="verb">install</code></span>, and <span class="code-directory"><code class="verb">log</code></span> directories:
+</p>
+<pre><div class="code-header"> <span class="code-language">bash</span> </div> <code class="language-bash">
+<pre class="fancyvrb" id="fancyvrb269"><a id="x48-309005r127"></a>ls -l</pre>
+</code></pre>
+<pre><code class="language-text">
+<pre class="fancyvrb" id="fancyvrb270"><a id="x48-309007r132"></a>drwxr-xr-x 24 ubuntu ubuntu 4096 Jun  6 13:58 build 
+<a id="x48-309009r133"></a>drwxr-xr-x 24 ubuntu ubuntu 4096 Jun  6 13:58 install 
+<a id="x48-309011r134"></a>drwxr-xr-x  4 ubuntu ubuntu 4096 Jun  6 13:57 log 
+<a id="x48-309013r135"></a>drwxr-xr-x  3 ubuntu ubuntu 4096 Jun  6 13:54 src</pre>
+</code></pre>
+<div class="knowledge"><div class="knowledge-upper">Knowledge</div><div class="body">
+<p class="noindent">To run test on built packages we can run <code class="verb">colcon test</code> </p></div></div>
+<p class="noindent"><div class="subsection-header"> <h4 id="header-subsection-10.1.4"> <a class="pdf-icon" href="AutonomousMobileRoboticsLectureBook.pdf#subsection.10.1.4"><svg class="bi bi-file-pdf" fill="currentColor" height="20" viewbox="0 0 16 16" width="20" xmlns="http://www.w3.org/2000/svg"><path d="M4 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H4zm0 1h8a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1z"></path><path d="M4.603 12.087a.81.81 0 0 1-.438-.42c-.195-.388-.13-.776.08-1.102.198-.307.526-.568.897-.787a7.68 7.68 0 0 1 1.482-.645 19.701 19.701 0 0 0 1.062-2.227 7.269 7.269 0 0 1-.43-1.295c-.086-.4-.119-.796-.046-1.136.075-.354.274-.672.65-.823.192-.077.4-.12.602-.077a.7.7 0 0 1 .477.365c.088.164.12.356.127.538.007.187-.012.395-.047.614-.084.51-.27 1.134-.52 1.794a10.954 10.954 0 0 0 .98 1.686 5.753 5.753 0 0 1 1.334.05c.364.065.734.195.96.465.12.144.193.32.2.518.007.192-.047.382-.138.563a1.04 1.04 0 0 1-.354.416.856.856 0 0 1-.51.138c-.331-.014-.654-.196-.933-.417a5.716 5.716 0 0 1-.911-.95 11.642 11.642 0 0 0-1.997.406 11.311 11.311 0 0 1-1.021 1.51c-.29.35-.608.655-.926.787a.793.793 0 0 1-.58.029zm1.379-1.901c-.166.076-.32.156-.459.238-.328.194-.541.383-.647.547-.094.145-.096.25-.04.361.01.022.02.036.026.044a.27.27 0 0 0 .035-.012c.137-.056.355-.235.635-.572a8.18 8.18 0 0 0 .45-.606zm1.64-1.33a12.647 12.647 0 0 1 1.01-.193 11.666 11.666 0 0 1-.51-.858 20.741 20.741 0 0 1-.5 1.05zm2.446.45c.15.162.296.3.435.41.24.19.407.253.498.256a.107.107 0 0 0 .07-.015.307.307 0 0 0 .094-.125.436.436 0 0 0 .059-.2.095.095 0 0 0-.026-.063c-.052-.062-.2-.152-.518-.209a3.881 3.881 0 0 0-.612-.053zM8.078 5.8a6.7 6.7 0 0 0 .2-.828c.031-.188.043-.343.038-.465a.613.613 0 0 0-.032-.198.517.517 0 0 0-.145.04c-.087.035-.158.106-.196.283-.04.192-.03.469.046.822.024.111.054.227.09.346z"></path></svg></a><span class="number">10.1.4</span> <span class="title"> <a id="x48-31000010.1.4"></a>Sourcing the New Package</span></h4></div>
+</p><p class="noindent">When <code class="verb">colcon</code>  has completed building successfully, the output will be in the <span class="code-directory"><code class="verb">install</code></span> directory. Before we can
+use any of the installed executables or libraries, we will have to add them to our path and library paths.
+<code class="verb">colcon</code> will have generated bash files in the install directory to help set up the environment. These files will
+add all of the required elements to our path and library paths as well as provide any bash or shell
+commands exported by packages.
+</p>
+<pre><div class="code-header"> <span class="code-language">bash</span> </div> <code class="language-bash">
+<pre class="fancyvrb" id="fancyvrb271"><a id="x48-310002r140"></a><span style="color:#B03B03;">source</span> install/setup.bash</pre>
+</code></pre>
+<p class="noindent">It is time to test out what we have built. Let’s open up a new terminal window side by side and
+run the following two (<span class="alert">2</span>) <span class="margin-block">commands: <span class="margin-comment"><a class="ellipsis" href="#m-ref-232">[232]</a>
+<span class="sidenote">Make sure the underlay is sourced in the new shell
+window.</span></span></span>
+</p>
+<pre><div class="code-header"> <span class="code-language">bash</span> </div> <code class="language-bash">
+<pre class="fancyvrb" id="fancyvrb272"><a id="x48-310004r145"></a>ros2 run examples_rclcpp_minimal_subscriber subscriber_member_function</pre>
+</code></pre>
+<pre><div class="code-header"> <span class="code-language">bash</span> </div> <code class="language-bash">
+<pre class="fancyvrb" id="fancyvrb273"><a id="x48-310006r150"></a>ros2 run examples_rclcpp_minimal_publisher publisher_member_function</pre>
+</code></pre>
+<p class="noindent">If everything has worked well, we should see messages from the publisher and subscriber with numbers
+incrementing.
+</p>
+<div class="info-block" id="info-block-10.41"> <a class="copiable-link" href="#info-block-10.41"> ¶</a> <span class="info-upper"> <span class="info-header"> <b>Information 10.<a id="x48-310007r41"></a>41: </b> </span> <span class="info-title"> Overlay v. Underlay </span> </span> <div class="body">
+<p class="noindent">As a final clarification on these two (<span class="alert">2</span>) concepts, let’s look at them in a bit more detail:
+</p>
+<ul class="itemize1">
+<li class="itemize">
+<p class="noindent">An  <b>underlay</b> is  the  core  <span class="acronym"><span class="acronym-short"><a class="glossary" href="#glo:ros">ROS</a></span><span class="acronym-detail"><span class="acronym-long"><a class="glossary" href="#glo:ros">Robot  Operating  System  2</a></span><span class="acronym-desc"><a class="glossary" href="#glo:ros">Robot  Operating  System  2</a></span></span></span>
+installation that provides the foundational packages and environment for your <span class="acronym"><span class="acronym-short"><a class="glossary" href="#glo:ros">ROS</a></span><span class="acronym-detail"><span class="acronym-long"><a class="glossary" href="#glo:ros">Robot
+Operating System 2</a></span><span class="acronym-desc"><a class="glossary" href="#glo:ros">Robot Operating System 2</a></span></span></span> development. In our case it is Humble.
+</p>
+</li>
+<li class="itemize">
+<p class="noindent">An <b>overlay</b> is the secondary workspace where we can add new packages without interfering
+with the existing ROS 2 workspace that we’re extending.</p></li></ul>
+</div></div>
+<p class="noindent"><div class="subsection-header"> <h4 id="header-subsection-10.1.5"> <a class="pdf-icon" href="AutonomousMobileRoboticsLectureBook.pdf#subsection.10.1.5"><svg class="bi bi-file-pdf" fill="currentColor" height="20" viewbox="0 0 16 16" width="20" xmlns="http://www.w3.org/2000/svg"><path d="M4 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H4zm0 1h8a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1z"></path><path d="M4.603 12.087a.81.81 0 0 1-.438-.42c-.195-.388-.13-.776.08-1.102.198-.307.526-.568.897-.787a7.68 7.68 0 0 1 1.482-.645 19.701 19.701 0 0 0 1.062-2.227 7.269 7.269 0 0 1-.43-1.295c-.086-.4-.119-.796-.046-1.136.075-.354.274-.672.65-.823.192-.077.4-.12.602-.077a.7.7 0 0 1 .477.365c.088.164.12.356.127.538.007.187-.012.395-.047.614-.084.51-.27 1.134-.52 1.794a10.954 10.954 0 0 0 .98 1.686 5.753 5.753 0 0 1 1.334.05c.364.065.734.195.96.465.12.144.193.32.2.518.007.192-.047.382-.138.563a1.04 1.04 0 0 1-.354.416.856.856 0 0 1-.51.138c-.331-.014-.654-.196-.933-.417a5.716 5.716 0 0 1-.911-.95 11.642 11.642 0 0 0-1.997.406 11.311 11.311 0 0 1-1.021 1.51c-.29.35-.608.655-.926.787a.793.793 0 0 1-.58.029zm1.379-1.901c-.166.076-.32.156-.459.238-.328.194-.541.383-.647.547-.094.145-.096.25-.04.361.01.022.02.036.026.044a.27.27 0 0 0 .035-.012c.137-.056.355-.235.635-.572a8.18 8.18 0 0 0 .45-.606zm1.64-1.33a12.647 12.647 0 0 1 1.01-.193 11.666 11.666 0 0 1-.51-.858 20.741 20.741 0 0 1-.5 1.05zm2.446.45c.15.162.296.3.435.41.24.19.407.253.498.256a.107.107 0 0 0 .07-.015.307.307 0 0 0 .094-.125.436.436 0 0 0 .059-.2.095.095 0 0 0-.026-.063c-.052-.062-.2-.152-.518-.209a3.881 3.881 0 0 0-.612-.053zM8.078 5.8a6.7 6.7 0 0 0 .2-.828c.031-.188.043-.343.038-.465a.613.613 0 0 0-.032-.198.517.517 0 0 0-.145.04c-.087.035-.158.106-.196.283-.04.192-.03.469.046.822.024.111.054.227.09.346z"></path></svg></a><span class="number">10.1.5</span> <span class="title"> <a id="x48-31100010.1.5"></a>Creating a Workspace</span></h4></div>
+</p><p class="noindent">A workspace is a directory containing <span class="acronym"><span class="acronym-short"><a class="glossary" href="#glo:ros">ROS</a></span><span class="acronym-detail"><span class="acronym-long"><a class="glossary" href="#glo:ros">Robot Operating System 2</a></span><span class="acronym-desc"><a class="glossary" href="#glo:ros">Robot Operating System 2</a></span></span></span>
+packages. Before using <span class="acronym"><span class="acronym-short"><a class="glossary" href="#glo:ros">ROS</a></span><span class="acronym-detail"><span class="acronym-long"><a class="glossary" href="#glo:ros">Robot Operating System 2</a></span><span class="acronym-desc"><a class="glossary" href="#glo:ros">Robot Operating System 2</a></span></span></span>, it’s necessary to
+source our <span class="acronym"><span class="acronym-short"><a class="glossary" href="#glo:ros">ROS</a></span><span class="acronym-detail"><span class="acronym-long"><a class="glossary" href="#glo:ros">Robot Operating System 2</a></span><span class="acronym-desc"><a class="glossary" href="#glo:ros">Robot Operating System 2</a></span></span></span> installation workspace in the
+terminal we plan to work in. This makes <span class="acronym"><span class="acronym-short"><a class="glossary" href="#glo:ros">ROS</a></span><span class="acronym-detail"><span class="acronym-long"><a class="glossary" href="#glo:ros">Robot Operating System 2</a></span><span class="acronym-desc"><a class="glossary" href="#glo:ros">Robot Operating System 2</a></span></span></span>’s
+packages available for us to use in that terminal.
+We also have the option of sourcing an “overlay”, which is a secondary workspace where we can add
+new packages without interfering with the existing <span class="acronym"><span class="acronym-short"><a class="glossary" href="#glo:ros">ROS</a></span><span class="acronym-detail"><span class="acronym-long"><a class="glossary" href="#glo:ros">Robot Operating System 2</a></span><span class="acronym-desc"><a class="glossary" href="#glo:ros">Robot Operating
+System 2</a></span></span></span> workspace that we’re extending, or “underlay”.
+</p>
+<div class="warning"><div class="warning-upper">Warning</div><div class="body">
+<p class="noindent">Our underlay must contain the dependencies of all the packages in our overlay. </p></div></div>
+<p class="noindent">Packages in our overlay will override packages in the underlay.
+</p>
+<div class="knowledge"><div class="knowledge-upper">Knowledge</div><div class="body">
+<p class="noindent">It’s also possible to have several layers of underlays and overlays, with each successive overlay using the
+packages of its parent underlays. </p></div></div>
+<p class="noindent"><div class="subsection-header"> <h4 id="header-subsection-10.1.6"> <a class="pdf-icon" href="AutonomousMobileRoboticsLectureBook.pdf#subsection.10.1.6"><svg class="bi bi-file-pdf" fill="currentColor" height="20" viewbox="0 0 16 16" width="20" xmlns="http://www.w3.org/2000/svg"><path d="M4 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H4zm0 1h8a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1z"></path><path d="M4.603 12.087a.81.81 0 0 1-.438-.42c-.195-.388-.13-.776.08-1.102.198-.307.526-.568.897-.787a7.68 7.68 0 0 1 1.482-.645 19.701 19.701 0 0 0 1.062-2.227 7.269 7.269 0 0 1-.43-1.295c-.086-.4-.119-.796-.046-1.136.075-.354.274-.672.65-.823.192-.077.4-.12.602-.077a.7.7 0 0 1 .477.365c.088.164.12.356.127.538.007.187-.012.395-.047.614-.084.51-.27 1.134-.52 1.794a10.954 10.954 0 0 0 .98 1.686 5.753 5.753 0 0 1 1.334.05c.364.065.734.195.96.465.12.144.193.32.2.518.007.192-.047.382-.138.563a1.04 1.04 0 0 1-.354.416.856.856 0 0 1-.51.138c-.331-.014-.654-.196-.933-.417a5.716 5.716 0 0 1-.911-.95 11.642 11.642 0 0 0-1.997.406 11.311 11.311 0 0 1-1.021 1.51c-.29.35-.608.655-.926.787a.793.793 0 0 1-.58.029zm1.379-1.901c-.166.076-.32.156-.459.238-.328.194-.541.383-.647.547-.094.145-.096.25-.04.361.01.022.02.036.026.044a.27.27 0 0 0 .035-.012c.137-.056.355-.235.635-.572a8.18 8.18 0 0 0 .45-.606zm1.64-1.33a12.647 12.647 0 0 1 1.01-.193 11.666 11.666 0 0 1-.51-.858 20.741 20.741 0 0 1-.5 1.05zm2.446.45c.15.162.296.3.435.41.24.19.407.253.498.256a.107.107 0 0 0 .07-.015.307.307 0 0 0 .094-.125.436.436 0 0 0 .059-.2.095.095 0 0 0-.026-.063c-.052-.062-.2-.152-.518-.209a3.881 3.881 0 0 0-.612-.053zM8.078 5.8a6.7 6.7 0 0 0 .2-.828c.031-.188.043-.343.038-.465a.613.613 0 0 0-.032-.198.517.517 0 0 0-.145.04c-.087.035-.158.106-.196.283-.04.192-.03.469.046.822.024.111.054.227.09.346z"></path></svg></a><span class="number">10.1.6</span> <span class="title"> <a id="x48-31200010.1.6"></a>Sourcing the Environment</span></h4></div>
+</p><p class="noindent">Our main <span class="acronym"><span class="acronym-short"><a class="glossary" href="#glo:ros">ROS</a></span><span class="acronym-detail"><span class="acronym-long"><a class="glossary" href="#glo:ros">Robot Operating System 2</a></span><span class="acronym-desc"><a class="glossary" href="#glo:ros">Robot Operating System 2</a></span></span></span> installation will be our underlay
+for this <span class="margin-block">section. <span class="margin-comment"><a class="ellipsis" href="#m-ref-233">[233]</a>
+<span class="sidenote">Keep in mind that an underlay does <b>NOT</b> necessarily have to be the main <span class="acronym"><span class="acronym-short"><a class="glossary" href="#glo:ros">ROS</a></span><span class="acronym-detail"><span class="acronym-long"><a class="glossary" href="#glo:ros">Robot
+Operating System 2</a></span><span class="acronym-desc"><a class="glossary" href="#glo:ros">Robot Operating System 2</a></span></span></span> installation.</span></span></span>
+</p><p class="noindent">Depending on how we installed <span class="acronym"><span class="acronym-short"><a class="glossary" href="#glo:ros">ROS</a></span><span class="acronym-detail"><span class="acronym-long"><a class="glossary" href="#glo:ros">Robot Operating System 2</a></span><span class="acronym-desc"><a class="glossary" href="#glo:ros">Robot Operating System 2</a></span></span></span>,
+either from source or binaries, and which platform we’re on, our exact source command will
+vary:
+</p>
+<pre><div class="code-header"> <span class="code-language">bash</span> </div> <code class="language-bash">
+<pre class="fancyvrb" id="fancyvrb274"><a id="x48-312002r1494"></a><span style="color:#B03B03;">source</span> /opt/ros/humble/setup.bash</pre>
+</code></pre>
+<p class="noindent"><div class="subsection-header"> <h4 id="header-subsection-10.1.7"> <a class="pdf-icon" href="AutonomousMobileRoboticsLectureBook.pdf#subsection.10.1.7"><svg class="bi bi-file-pdf" fill="currentColor" height="20" viewbox="0 0 16 16" width="20" xmlns="http://www.w3.org/2000/svg"><path d="M4 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H4zm0 1h8a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1z"></path><path d="M4.603 12.087a.81.81 0 0 1-.438-.42c-.195-.388-.13-.776.08-1.102.198-.307.526-.568.897-.787a7.68 7.68 0 0 1 1.482-.645 19.701 19.701 0 0 0 1.062-2.227 7.269 7.269 0 0 1-.43-1.295c-.086-.4-.119-.796-.046-1.136.075-.354.274-.672.65-.823.192-.077.4-.12.602-.077a.7.7 0 0 1 .477.365c.088.164.12.356.127.538.007.187-.012.395-.047.614-.084.51-.27 1.134-.52 1.794a10.954 10.954 0 0 0 .98 1.686 5.753 5.753 0 0 1 1.334.05c.364.065.734.195.96.465.12.144.193.32.2.518.007.192-.047.382-.138.563a1.04 1.04 0 0 1-.354.416.856.856 0 0 1-.51.138c-.331-.014-.654-.196-.933-.417a5.716 5.716 0 0 1-.911-.95 11.642 11.642 0 0 0-1.997.406 11.311 11.311 0 0 1-1.021 1.51c-.29.35-.608.655-.926.787a.793.793 0 0 1-.58.029zm1.379-1.901c-.166.076-.32.156-.459.238-.328.194-.541.383-.647.547-.094.145-.096.25-.04.361.01.022.02.036.026.044a.27.27 0 0 0 .035-.012c.137-.056.355-.235.635-.572a8.18 8.18 0 0 0 .45-.606zm1.64-1.33a12.647 12.647 0 0 1 1.01-.193 11.666 11.666 0 0 1-.51-.858 20.741 20.741 0 0 1-.5 1.05zm2.446.45c.15.162.296.3.435.41.24.19.407.253.498.256a.107.107 0 0 0 .07-.015.307.307 0 0 0 .094-.125.436.436 0 0 0 .059-.2.095.095 0 0 0-.026-.063c-.052-.062-.2-.152-.518-.209a3.881 3.881 0 0 0-.612-.053zM8.078 5.8a6.7 6.7 0 0 0 .2-.828c.031-.188.043-.343.038-.465a.613.613 0 0 0-.032-.198.517.517 0 0 0-.145.04c-.087.035-.158.106-.196.283-.04.192-.03.469.046.822.024.111.054.227.09.346z"></path></svg></a><span class="number">10.1.7</span> <span class="title"> <a id="x48-31300010.1.7"></a>Creating a New Directory</span></h4></div>
+</p><p class="noindent">Best practice is to create a <span class="alert">new directory for every new workspace</span>. The name doesn’t matter, but it is helpful to have it indicate the
+purpose of the workspace. Let’s choose the directory name <span class="code-directory"><code class="verb">ros2\_ws</code></span>, for “development
+workspace”:
+</p>
+<pre><div class="code-header"> <span class="code-language">bash</span> </div> <code class="language-bash">
+<pre class="fancyvrb" id="fancyvrb275"><a id="x48-313002r1499"></a>mkdir -p ~/ros2_ws/src 
+<a id="x48-313004r1500"></a><span style="color:#B03B03;">cd</span> ~/ros2_ws/src</pre>
+</code></pre>
+<p class="noindent">Another best practice is to put any packages in our workspace into the <span class="code-directory"><code class="verb">src</code></span> directory. The above code
+creates a <span class="code-directory"><code class="verb">src</code></span> directory inside <span class="code-directory"><code class="verb">ros2\_ws</code></span> and then navigates into it.
+</p>
+<p class="noindent"><div class="subsection-header"> <h4 id="header-subsection-10.1.8"> <a class="pdf-icon" href="AutonomousMobileRoboticsLectureBook.pdf#subsection.10.1.8"><svg class="bi bi-file-pdf" fill="currentColor" height="20" viewbox="0 0 16 16" width="20" xmlns="http://www.w3.org/2000/svg"><path d="M4 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H4zm0 1h8a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1z"></path><path d="M4.603 12.087a.81.81 0 0 1-.438-.42c-.195-.388-.13-.776.08-1.102.198-.307.526-.568.897-.787a7.68 7.68 0 0 1 1.482-.645 19.701 19.701 0 0 0 1.062-2.227 7.269 7.269 0 0 1-.43-1.295c-.086-.4-.119-.796-.046-1.136.075-.354.274-.672.65-.823.192-.077.4-.12.602-.077a.7.7 0 0 1 .477.365c.088.164.12.356.127.538.007.187-.012.395-.047.614-.084.51-.27 1.134-.52 1.794a10.954 10.954 0 0 0 .98 1.686 5.753 5.753 0 0 1 1.334.05c.364.065.734.195.96.465.12.144.193.32.2.518.007.192-.047.382-.138.563a1.04 1.04 0 0 1-.354.416.856.856 0 0 1-.51.138c-.331-.014-.654-.196-.933-.417a5.716 5.716 0 0 1-.911-.95 11.642 11.642 0 0 0-1.997.406 11.311 11.311 0 0 1-1.021 1.51c-.29.35-.608.655-.926.787a.793.793 0 0 1-.58.029zm1.379-1.901c-.166.076-.32.156-.459.238-.328.194-.541.383-.647.547-.094.145-.096.25-.04.361.01.022.02.036.026.044a.27.27 0 0 0 .035-.012c.137-.056.355-.235.635-.572a8.18 8.18 0 0 0 .45-.606zm1.64-1.33a12.647 12.647 0 0 1 1.01-.193 11.666 11.666 0 0 1-.51-.858 20.741 20.741 0 0 1-.5 1.05zm2.446.45c.15.162.296.3.435.41.24.19.407.253.498.256a.107.107 0 0 0 .07-.015.307.307 0 0 0 .094-.125.436.436 0 0 0 .059-.2.095.095 0 0 0-.026-.063c-.052-.062-.2-.152-.518-.209a3.881 3.881 0 0 0-.612-.053zM8.078 5.8a6.7 6.7 0 0 0 .2-.828c.031-.188.043-.343.038-.465a.613.613 0 0 0-.032-.198.517.517 0 0 0-.145.04c-.087.035-.158.106-.196.283-.04.192-.03.469.046.822.024.111.054.227.09.346z"></path></svg></a><span class="number">10.1.8</span> <span class="title"> <a id="x48-31400010.1.8"></a>Cloning a Sample Repo</span></h4></div>
+</p><p class="noindent">Ensure we’re still in the <span class="code-directory"><code class="verb">ros2\_ws/src</code></span> directory before we clone.
+</p><p class="noindent">In the following sections, we will create our own packages, but for now we will practice
+putting a workspace together using existing packages. A repo can have multiple branches. We
+need to check out the one that targets our installed <span class="acronym"><span class="acronym-short"><a class="glossary" href="#glo:ros">ROS</a></span><span class="acronym-detail"><span class="acronym-long"><a class="glossary" href="#glo:ros">Robot Operating System 2</a></span><span class="acronym-desc"><a class="glossary" href="#glo:ros">Robot
+Operating System 2</a></span></span></span> distro. When we clone this repo, add the <code class="verb">-b</code>  argument followed by that
+branch.
+In the <span class="code-directory"><code class="verb">ros2\_ws/src</code></span> directory, run the following command:
+</p>
+<pre><div class="code-header"> <span class="code-language">bash</span> </div> <code class="language-bash">
+<pre class="fancyvrb" id="fancyvrb276"><a id="x48-314002r1505"></a>git clone https://github.com/ros/ros_tutorials.git -b humble</pre>
+</code></pre>
+<p class="noindent">Now <span class="code-directory"><code class="verb">ros\_tutorials</code></span> is cloned in our workspace. The <span class="code-directory"><code class="verb">ros\_tutorials</code></span> repository contains the
+turtlesim package, which we’ll use in this section. The other packages in this repository are <b>NOT</b> built
+because they contain a <code class="verb">COLCON_IGNORE</code>  file.
+</p><p class="noindent">So far we have populated our workspace with a sample package, but it isn’t a fully-functional
+workspace yet as we need to resolve the dependencies first and then build the workspace.
+</p>
+<p class="noindent"><div class="subsection-header"> <h4 id="header-subsection-10.1.9"> <a class="pdf-icon" href="AutonomousMobileRoboticsLectureBook.pdf#subsection.10.1.9"><svg class="bi bi-file-pdf" fill="currentColor" height="20" viewbox="0 0 16 16" width="20" xmlns="http://www.w3.org/2000/svg"><path d="M4 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H4zm0 1h8a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1z"></path><path d="M4.603 12.087a.81.81 0 0 1-.438-.42c-.195-.388-.13-.776.08-1.102.198-.307.526-.568.897-.787a7.68 7.68 0 0 1 1.482-.645 19.701 19.701 0 0 0 1.062-2.227 7.269 7.269 0 0 1-.43-1.295c-.086-.4-.119-.796-.046-1.136.075-.354.274-.672.65-.823.192-.077.4-.12.602-.077a.7.7 0 0 1 .477.365c.088.164.12.356.127.538.007.187-.012.395-.047.614-.084.51-.27 1.134-.52 1.794a10.954 10.954 0 0 0 .98 1.686 5.753 5.753 0 0 1 1.334.05c.364.065.734.195.96.465.12.144.193.32.2.518.007.192-.047.382-.138.563a1.04 1.04 0 0 1-.354.416.856.856 0 0 1-.51.138c-.331-.014-.654-.196-.933-.417a5.716 5.716 0 0 1-.911-.95 11.642 11.642 0 0 0-1.997.406 11.311 11.311 0 0 1-1.021 1.51c-.29.35-.608.655-.926.787a.793.793 0 0 1-.58.029zm1.379-1.901c-.166.076-.32.156-.459.238-.328.194-.541.383-.647.547-.094.145-.096.25-.04.361.01.022.02.036.026.044a.27.27 0 0 0 .035-.012c.137-.056.355-.235.635-.572a8.18 8.18 0 0 0 .45-.606zm1.64-1.33a12.647 12.647 0 0 1 1.01-.193 11.666 11.666 0 0 1-.51-.858 20.741 20.741 0 0 1-.5 1.05zm2.446.45c.15.162.296.3.435.41.24.19.407.253.498.256a.107.107 0 0 0 .07-.015.307.307 0 0 0 .094-.125.436.436 0 0 0 .059-.2.095.095 0 0 0-.026-.063c-.052-.062-.2-.152-.518-.209a3.881 3.881 0 0 0-.612-.053zM8.078 5.8a6.7 6.7 0 0 0 .2-.828c.031-.188.043-.343.038-.465a.613.613 0 0 0-.032-.198.517.517 0 0 0-.145.04c-.087.035-.158.106-.196.283-.04.192-.03.469.046.822.024.111.054.227.09.346z"></path></svg></a><span class="number">10.1.9</span> <span class="title"> <a id="x48-31500010.1.9"></a>Resolving Dependencies</span></h4></div>
+</p><p class="noindent">Before building the workspace, we need to resolve the package dependencies. It is possible we may have
+all the dependencies already, but best practice is to check for dependencies every time we clone.
+We wouldn’t want a build to fail after a long wait only to realize that we have missing
+dependencies.
+</p><p class="noindent">From the root of our workspace (<span class="code-directory"><code class="verb">ros2\_ws</code></span>), run the following command:
+</p>
+<div class="warning"><div class="warning-upper">Warning</div><div class="body">
+<p class="noindent">If we’re still in the <span class="code-directory"><code class="verb">src</code></span> directory with the <code class="verb">ros_tutorials</code>  clone, make sure to run <code class="verb">cd ..</code>  to move back up to the workspace
+(<span class="code-directory"><code class="verb">ros2\_ws</code></span>). </p></div></div>
+<pre><div class="code-header"> <span class="code-language">bash</span> </div> <code class="language-bash">
+<pre class="fancyvrb" id="fancyvrb277"><a id="x48-315002r1510"></a><span style="color:#B03B03;">cd</span> .. 
+<a id="x48-315004r1511"></a>rosdep install -i --from-path src --rosdistro humble -y</pre>
+</code></pre>
+<pre><code class="language-text">
+<pre class="fancyvrb" id="fancyvrb278"><a id="x48-315006r1516"></a>#All required rosdeps installed successfully</pre>
+</code></pre>
+<p class="noindent">If we already have all our dependencies, the console will return as shown above.
+</p><p class="noindent">Packages declare their dependencies in the <code class="verb">package.xml</code> <span class="margin-block">file. <span class="margin-comment"><a class="ellipsis" href="#m-ref-234">[234]</a>
+<span class="sidenote">We will learn more about packages in the following
+section.</span></span></span> This command walks through those declarations and installs the ones that are
+missing.
+</p>
+<p class="noindent"><div class="subsection-header"> <h4 id="header-subsection-10.1.10"> <a class="pdf-icon" href="AutonomousMobileRoboticsLectureBook.pdf#subsection.10.1.10"><svg class="bi bi-file-pdf" fill="currentColor" height="20" viewbox="0 0 16 16" width="20" xmlns="http://www.w3.org/2000/svg"><path d="M4 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H4zm0 1h8a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1z"></path><path d="M4.603 12.087a.81.81 0 0 1-.438-.42c-.195-.388-.13-.776.08-1.102.198-.307.526-.568.897-.787a7.68 7.68 0 0 1 1.482-.645 19.701 19.701 0 0 0 1.062-2.227 7.269 7.269 0 0 1-.43-1.295c-.086-.4-.119-.796-.046-1.136.075-.354.274-.672.65-.823.192-.077.4-.12.602-.077a.7.7 0 0 1 .477.365c.088.164.12.356.127.538.007.187-.012.395-.047.614-.084.51-.27 1.134-.52 1.794a10.954 10.954 0 0 0 .98 1.686 5.753 5.753 0 0 1 1.334.05c.364.065.734.195.96.465.12.144.193.32.2.518.007.192-.047.382-.138.563a1.04 1.04 0 0 1-.354.416.856.856 0 0 1-.51.138c-.331-.014-.654-.196-.933-.417a5.716 5.716 0 0 1-.911-.95 11.642 11.642 0 0 0-1.997.406 11.311 11.311 0 0 1-1.021 1.51c-.29.35-.608.655-.926.787a.793.793 0 0 1-.58.029zm1.379-1.901c-.166.076-.32.156-.459.238-.328.194-.541.383-.647.547-.094.145-.096.25-.04.361.01.022.02.036.026.044a.27.27 0 0 0 .035-.012c.137-.056.355-.235.635-.572a8.18 8.18 0 0 0 .45-.606zm1.64-1.33a12.647 12.647 0 0 1 1.01-.193 11.666 11.666 0 0 1-.51-.858 20.741 20.741 0 0 1-.5 1.05zm2.446.45c.15.162.296.3.435.41.24.19.407.253.498.256a.107.107 0 0 0 .07-.015.307.307 0 0 0 .094-.125.436.436 0 0 0 .059-.2.095.095 0 0 0-.026-.063c-.052-.062-.2-.152-.518-.209a3.881 3.881 0 0 0-.612-.053zM8.078 5.8a6.7 6.7 0 0 0 .2-.828c.031-.188.043-.343.038-.465a.613.613 0 0 0-.032-.198.517.517 0 0 0-.145.04c-.087.035-.158.106-.196.283-.04.192-.03.469.046.822.024.111.054.227.09.346z"></path></svg></a><span class="number">10.1.10</span> <span class="title"> <a id="x48-31600010.1.10"></a>Building the Workspace</span></h4></div>
+</p><p class="noindent">From the root of our workspace (<span class="code-directory"><code class="verb">ros2\_ws</code></span>), we can now build our packages using the command:
+</p>
+<pre><div class="code-header"> <span class="code-language">bash</span> </div> <code class="language-bash">
+<pre class="fancyvrb" id="fancyvrb279"><a id="x48-316002r1521"></a>colcon build</pre>
+</code></pre>
+<pre><code class="language-text">
+<pre class="fancyvrb" id="fancyvrb280"><a id="x48-316004r1526"></a>Starting »&gt; turtlesim 
+<a id="x48-316006r1527"></a>Finished «&lt; turtlesim [5.49s] 
+<a id="x48-316008r1528"></a> 
+<a id="x48-316010r1529"></a>Summary: 1 package finished [5.58s]</pre>
+</code></pre>
+<p class="noindent">There are some useful arguments for <code class="verb">colcon build</code>  which are as follows: </p>
+<dl class="description"><dt class="description"><a id="x48-316011x10.1.10"></a>
+<span style="color:#0A2A0A;"><code class="verb">--packages-up-to</code> </span>
+</dt><dd class="description">
+<p class="noindent"> builds the package we want, plus all its dependencies, but not the whole workspace, which
+saves time.
+</p>
+</dd>
+<dt class="description"><a id="x48-316012x10.1.10"></a>
+<span style="color:#0A2A0A;"><code class="verb">--symlink-install</code> </span>
+</dt><dd class="description">
+<p class="noindent"> saves us from having to rebuild every time we tweak python scripts.
+</p>
+</dd>
+<dt class="description"><a id="x48-316013x10.1.10"></a>
+<span style="color:#0A2A0A;"><code class="verb">--event-handlers console_direct+</code> </span>
+</dt><dd class="description">
+<p class="noindent"> shows console output while building, can otherwise be found in the <span class="code-directory"><code class="verb">log</code></span> directory.
+</p>
+</dd>
+<dt class="description"><a id="x48-316014x10.1.10"></a>
+<span style="color:#0A2A0A;"><code class="verb">--executor sequential</code> </span>
+</dt><dd class="description">
+<p class="noindent"> processes the packages one by one instead of using parallelism.</p></dd></dl>
+<p class="noindent">Once the build is finished, enter the command in the workspace root (<span class="code-directory"><code class="verb">~/ros2\_ws</code></span>). We will see that
+colcon has created new directories:
+</p>
+<pre><div class="code-header"> <span class="code-language">bash</span> </div> <code class="language-bash">
+<pre class="fancyvrb" id="fancyvrb281"><a id="x48-316016r1534"></a>ls</pre>
+</code></pre>
+<pre><code class="language-text">
+<pre class="fancyvrb" id="fancyvrb282"><a id="x48-316018r1539"></a>build  install  log  src</pre>
+</code></pre>
+<p class="noindent">The <span class="code-directory"><code class="verb">install</code></span> directory is where our workspace’s setup files are, which we can use to source our
+overlay.
+</p>
+<p class="noindent"><div class="subsection-header"> <h4 id="header-subsection-10.1.11"> <a class="pdf-icon" href="AutonomousMobileRoboticsLectureBook.pdf#subsection.10.1.11"><svg class="bi bi-file-pdf" fill="currentColor" height="20" viewbox="0 0 16 16" width="20" xmlns="http://www.w3.org/2000/svg"><path d="M4 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H4zm0 1h8a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1z"></path><path d="M4.603 12.087a.81.81 0 0 1-.438-.42c-.195-.388-.13-.776.08-1.102.198-.307.526-.568.897-.787a7.68 7.68 0 0 1 1.482-.645 19.701 19.701 0 0 0 1.062-2.227 7.269 7.269 0 0 1-.43-1.295c-.086-.4-.119-.796-.046-1.136.075-.354.274-.672.65-.823.192-.077.4-.12.602-.077a.7.7 0 0 1 .477.365c.088.164.12.356.127.538.007.187-.012.395-.047.614-.084.51-.27 1.134-.52 1.794a10.954 10.954 0 0 0 .98 1.686 5.753 5.753 0 0 1 1.334.05c.364.065.734.195.96.465.12.144.193.32.2.518.007.192-.047.382-.138.563a1.04 1.04 0 0 1-.354.416.856.856 0 0 1-.51.138c-.331-.014-.654-.196-.933-.417a5.716 5.716 0 0 1-.911-.95 11.642 11.642 0 0 0-1.997.406 11.311 11.311 0 0 1-1.021 1.51c-.29.35-.608.655-.926.787a.793.793 0 0 1-.58.029zm1.379-1.901c-.166.076-.32.156-.459.238-.328.194-.541.383-.647.547-.094.145-.096.25-.04.361.01.022.02.036.026.044a.27.27 0 0 0 .035-.012c.137-.056.355-.235.635-.572a8.18 8.18 0 0 0 .45-.606zm1.64-1.33a12.647 12.647 0 0 1 1.01-.193 11.666 11.666 0 0 1-.51-.858 20.741 20.741 0 0 1-.5 1.05zm2.446.45c.15.162.296.3.435.41.24.19.407.253.498.256a.107.107 0 0 0 .07-.015.307.307 0 0 0 .094-.125.436.436 0 0 0 .059-.2.095.095 0 0 0-.026-.063c-.052-.062-.2-.152-.518-.209a3.881 3.881 0 0 0-.612-.053zM8.078 5.8a6.7 6.7 0 0 0 .2-.828c.031-.188.043-.343.038-.465a.613.613 0 0 0-.032-.198.517.517 0 0 0-.145.04c-.087.035-.158.106-.196.283-.04.192-.03.469.046.822.024.111.054.227.09.346z"></path></svg></a><span class="number">10.1.11</span> <span class="title"> <a id="x48-31700010.1.11"></a>Sourcing our Overlay</span></h4></div>
+</p><p class="noindent">Before sourcing the overlay, it is very important we open a new terminal, separate from the one where
+we built the workspace. Sourcing an overlay in the same terminal where we built, or likewise building
+where an overlay is sourced, may create complex issues.
+</p><p class="noindent">In the new terminal, source our main <span class="acronym"><span class="acronym-short"><a class="glossary" href="#glo:ros">ROS</a></span><span class="acronym-detail"><span class="acronym-long"><a class="glossary" href="#glo:ros">Robot Operating System 2</a></span><span class="acronym-desc"><a class="glossary" href="#glo:ros">Robot Operating System 2</a></span></span></span>
+environment as the “underlay”, so we can build the overlay “on top of” it:
+</p>
+<pre><div class="code-header"> <span class="code-language">bash</span> </div> <code class="language-bash">
+<pre class="fancyvrb" id="fancyvrb283"><a id="x48-317002r1544"></a><span style="color:#B03B03;">source</span> /opt/ros/humble/setup.bash</pre>
+</code></pre>
+<p class="noindent">Time to go into the root of our workspace:
+</p>
+<pre><div class="code-header"> <span class="code-language">bash</span> </div> <code class="language-bash">
+<pre class="fancyvrb" id="fancyvrb284"><a id="x48-317004r1549"></a><span style="color:#B03B03;">cd</span> ~/ros2_ws</pre>
+</code></pre>
+<p class="noindent">In the root, source our overlay:
+</p>
+<pre><div class="code-header"> <span class="code-language">bash</span> </div> <code class="language-bash">
+<pre class="fancyvrb" id="fancyvrb285"><a id="x48-317006r1554"></a><span style="color:#B03B03;">source</span> install/local_setup.bash</pre>
+</code></pre>
+<div class="info-block" id="info-block-10.42"> <a class="copiable-link" href="#info-block-10.42"> ¶</a> <span class="info-upper"> <span class="info-header"> <b>Information 10.<a id="x48-317007r42"></a>42: </b> </span> <span class="info-title"> Peculiarities in Sourcing </span> </span> <div class="body">
+<p class="noindent">Sourcing the <code class="verb">local_setup</code>  of the overlay will only add the packages available in the overlay to our
+environment. <code class="verb">setup</code>  sources the overlay as well as the underlay it was created in, allowing us
+to utilise both workspaces. So, sourcing our main <span class="acronym"><span class="acronym-short"><a class="glossary" href="#glo:ros">ROS</a></span><span class="acronym-detail"><span class="acronym-long"><a class="glossary" href="#glo:ros">Robot Operating System 2</a></span><span class="acronym-desc"><a class="glossary" href="#glo:ros">Robot
+Operating System 2</a></span></span></span> installation’s setup and then the <span class="code-directory"><code class="verb">ros2\_ws</code></span> overlay’s <code class="verb">local_setup</code> , like we just did, is
+the same as just sourcing <span class="code-directory"><code class="verb">ros2\_ws</code></span>’s setup, because that includes the environment of its
+underlay.
+</p>
+</div></div>
+<p class="noindent">Now we can run the <code class="verb">turtlesim</code>  package from the overlay:
+</p>
+<pre><div class="code-header"> <span class="code-language">bash</span> </div> <code class="language-bash">
+<pre class="fancyvrb" id="fancyvrb286"><a id="x48-317009r1559"></a>ros2 run turtlesim turtlesim_node</pre>
+</code></pre>
+<div class="quote"> But how can you tell that this is the overlay turtlesim running, and not your main installation’s
+turtlesim? </div>
+<p class="noindent">Let’s modify turtlesim in the overlay so you can see the effects:
+</p>
+<ul class="itemize1">
+<li class="itemize">
+<p class="noindent">We can modify and rebuild packages in the overlay separately from the underlay.
+</p>
+</li>
+<li class="itemize">
+<p class="noindent">The overlay takes precedence over the underlay.</p></li></ul>
+<p class="noindent"><div class="subsection-header"> <h4 id="header-subsection-10.1.12"> <a class="pdf-icon" href="AutonomousMobileRoboticsLectureBook.pdf#subsection.10.1.12"><svg class="bi bi-file-pdf" fill="currentColor" height="20" viewbox="0 0 16 16" width="20" xmlns="http://www.w3.org/2000/svg"><path d="M4 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H4zm0 1h8a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1z"></path><path d="M4.603 12.087a.81.81 0 0 1-.438-.42c-.195-.388-.13-.776.08-1.102.198-.307.526-.568.897-.787a7.68 7.68 0 0 1 1.482-.645 19.701 19.701 0 0 0 1.062-2.227 7.269 7.269 0 0 1-.43-1.295c-.086-.4-.119-.796-.046-1.136.075-.354.274-.672.65-.823.192-.077.4-.12.602-.077a.7.7 0 0 1 .477.365c.088.164.12.356.127.538.007.187-.012.395-.047.614-.084.51-.27 1.134-.52 1.794a10.954 10.954 0 0 0 .98 1.686 5.753 5.753 0 0 1 1.334.05c.364.065.734.195.96.465.12.144.193.32.2.518.007.192-.047.382-.138.563a1.04 1.04 0 0 1-.354.416.856.856 0 0 1-.51.138c-.331-.014-.654-.196-.933-.417a5.716 5.716 0 0 1-.911-.95 11.642 11.642 0 0 0-1.997.406 11.311 11.311 0 0 1-1.021 1.51c-.29.35-.608.655-.926.787a.793.793 0 0 1-.58.029zm1.379-1.901c-.166.076-.32.156-.459.238-.328.194-.541.383-.647.547-.094.145-.096.25-.04.361.01.022.02.036.026.044a.27.27 0 0 0 .035-.012c.137-.056.355-.235.635-.572a8.18 8.18 0 0 0 .45-.606zm1.64-1.33a12.647 12.647 0 0 1 1.01-.193 11.666 11.666 0 0 1-.51-.858 20.741 20.741 0 0 1-.5 1.05zm2.446.45c.15.162.296.3.435.41.24.19.407.253.498.256a.107.107 0 0 0 .07-.015.307.307 0 0 0 .094-.125.436.436 0 0 0 .059-.2.095.095 0 0 0-.026-.063c-.052-.062-.2-.152-.518-.209a3.881 3.881 0 0 0-.612-.053zM8.078 5.8a6.7 6.7 0 0 0 .2-.828c.031-.188.043-.343.038-.465a.613.613 0 0 0-.032-.198.517.517 0 0 0-.145.04c-.087.035-.158.106-.196.283-.04.192-.03.469.046.822.024.111.054.227.09.346z"></path></svg></a><span class="number">10.1.12</span> <span class="title"> <a id="x48-31800010.1.12"></a>Modifying the Overlay</span></h4></div>
+</p><p class="noindent">You can modify turtlesim in our overlay by editing the <span class="alert">title bar</span> on the turtlesim window. To do this, let’s
+locate the <span class="code-directory"><code class="verb">turtle\_frame.cpp</code></span> file in <span class="code-directory"><code class="verb">[</code></span>/] /ros2_ws/src/ros_tutorials/turtlesim/src. Open
+<span class="code-directory"><code class="verb">turtle\_frame.cpp</code></span> with our preferred text <span class="margin-block">editor. <span class="margin-comment"><a class="ellipsis" href="#m-ref-235">[235]</a>
+<span class="sidenote">For example, Emacs or any other editor which try
+to be Emacs.</span></span></span>
+</p><p class="noindent">Find the function <code class="verb">setWindowTitle("TurtleSim");</code> , change the value “<code class="verb">TurtleSim</code> ” to “<code class="verb">MyTurtleSim</code> ”, and save the file.
+</p><p class="noindent">Return to the first terminal where we ran <code class="verb">colcon build</code>  earlier and run it again.
+</p>
+<pre><div class="code-header"> <span class="code-language">bash</span> </div> <code class="language-bash">
+<pre class="fancyvrb" id="fancyvrb287"><a id="x48-318002r1559"></a>ros2 run turtlesim turtlesim_node</pre>
+</code></pre>
+<p class="noindent">Return to the second <span class="margin-block">terminal <span class="margin-comment"><a class="ellipsis" href="#m-ref-236">[236]</a>
+<span class="sidenote">where the overlay is sourced.</span></span></span> and run turtlesim again and we should now
+see the title bar on the turtlesim window now says <span class="alert">MyTurtleSim</span>. Even though your main <span class="acronym"><span class="acronym-short"><a class="glossary" href="#glo:ros">ROS</a></span><span class="acronym-detail"><span class="acronym-long"><a class="glossary" href="#glo:ros">Robot
+Operating System 2</a></span><span class="acronym-desc"><a class="glossary" href="#glo:ros">Robot Operating System 2</a></span></span></span> environment was sourced in this terminal
+earlier, the overlay of our <span class="code-directory"><code class="verb">ros2\_ws</code></span> environment takes precedence over the contents of the
+underlay.
+</p><p class="noindent">To see that your underlay is still intact, open a brand new terminal and source only your <span class="acronym"><span class="acronym-short"><a class="glossary" href="#glo:ros">ROS</a></span><span class="acronym-detail"><span class="acronym-long"><a class="glossary" href="#glo:ros">Robot
+Operating System 2</a></span><span class="acronym-desc"><a class="glossary" href="#glo:ros">Robot Operating System 2</a></span></span></span> installation. Run turtlesim again:
+</p>
+<pre><div class="code-header"> <span class="code-language">bash</span> </div> <code class="language-bash">
+<pre class="fancyvrb" id="fancyvrb288"><a id="x48-318004r1559"></a>ros2 run turtlesim turtlesim_node</pre>
+</code></pre>
+<p class="noindent">We can see that modifications in the overlay did not actually affect anything in the underlay.
+</p>
+<p class="noindent"><div class="subsection-header"> <h4 id="header-subsection-10.1.13"> <a class="pdf-icon" href="AutonomousMobileRoboticsLectureBook.pdf#subsection.10.1.13"><svg class="bi bi-file-pdf" fill="currentColor" height="20" viewbox="0 0 16 16" width="20" xmlns="http://www.w3.org/2000/svg"><path d="M4 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H4zm0 1h8a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1z"></path><path d="M4.603 12.087a.81.81 0 0 1-.438-.42c-.195-.388-.13-.776.08-1.102.198-.307.526-.568.897-.787a7.68 7.68 0 0 1 1.482-.645 19.701 19.701 0 0 0 1.062-2.227 7.269 7.269 0 0 1-.43-1.295c-.086-.4-.119-.796-.046-1.136.075-.354.274-.672.65-.823.192-.077.4-.12.602-.077a.7.7 0 0 1 .477.365c.088.164.12.356.127.538.007.187-.012.395-.047.614-.084.51-.27 1.134-.52 1.794a10.954 10.954 0 0 0 .98 1.686 5.753 5.753 0 0 1 1.334.05c.364.065.734.195.96.465.12.144.193.32.2.518.007.192-.047.382-.138.563a1.04 1.04 0 0 1-.354.416.856.856 0 0 1-.51.138c-.331-.014-.654-.196-.933-.417a5.716 5.716 0 0 1-.911-.95 11.642 11.642 0 0 0-1.997.406 11.311 11.311 0 0 1-1.021 1.51c-.29.35-.608.655-.926.787a.793.793 0 0 1-.58.029zm1.379-1.901c-.166.076-.32.156-.459.238-.328.194-.541.383-.647.547-.094.145-.096.25-.04.361.01.022.02.036.026.044a.27.27 0 0 0 .035-.012c.137-.056.355-.235.635-.572a8.18 8.18 0 0 0 .45-.606zm1.64-1.33a12.647 12.647 0 0 1 1.01-.193 11.666 11.666 0 0 1-.51-.858 20.741 20.741 0 0 1-.5 1.05zm2.446.45c.15.162.296.3.435.41.24.19.407.253.498.256a.107.107 0 0 0 .07-.015.307.307 0 0 0 .094-.125.436.436 0 0 0 .059-.2.095.095 0 0 0-.026-.063c-.052-.062-.2-.152-.518-.209a3.881 3.881 0 0 0-.612-.053zM8.078 5.8a6.7 6.7 0 0 0 .2-.828c.031-.188.043-.343.038-.465a.613.613 0 0 0-.032-.198.517.517 0 0 0-.145.04c-.087.035-.158.106-.196.283-.04.192-.03.469.046.822.024.111.054.227.09.346z"></path></svg></a><span class="number">10.1.13</span> <span class="title"> <a id="x48-31900010.1.13"></a>Creating a Package</span></h4></div>
+</p><p class="noindent">A package is an organizational unit for our <span class="acronym"><span class="acronym-short"><a class="glossary" href="#glo:ros">ROS</a></span><span class="acronym-detail"><span class="acronym-long"><a class="glossary" href="#glo:ros">Robot Operating System 2</a></span><span class="acronym-desc"><a class="glossary" href="#glo:ros">Robot Operating System 2</a></span></span></span>
+code. If we want to be able to install our code or share it with others, then we’ll need it organized in a
+package. With packages, we can release our <span class="acronym"><span class="acronym-short"><a class="glossary" href="#glo:ros">ROS</a></span><span class="acronym-detail"><span class="acronym-long"><a class="glossary" href="#glo:ros">Robot Operating System 2</a></span><span class="acronym-desc"><a class="glossary" href="#glo:ros">Robot Operating System 2</a></span></span></span>
+work and allow others to build and use it easily.
+Package creation in <span class="acronym"><span class="acronym-short"><a class="glossary" href="#glo:ros">ROS</a></span><span class="acronym-detail"><span class="acronym-long"><a class="glossary" href="#glo:ros">Robot Operating System 2</a></span><span class="acronym-desc"><a class="glossary" href="#glo:ros">Robot Operating System 2</a></span></span></span> uses <code class="verb">ament</code>  as its build
+system and colcon as its build tool. We can create a package using either CMake or Python, which
+are officially supported, though other build types do exist which are not covered by the
+lecture.
+</p>
+<p class="noindent"><h5 class="subsubsectionHead" id="header-subsubsection-87"> <a id="x48-320000"></a>The Anatomy of a Package</h5>
+</p><p class="noindent"><span class="acronym"><span class="acronym-short"><a class="glossary" href="#glo:ros">ROS</a></span><span class="acronym-detail"><span class="acronym-long"><a class="glossary" href="#glo:ros">Robot Operating System 2</a></span><span class="acronym-desc"><a class="glossary" href="#glo:ros">Robot Operating System 2</a></span></span></span> Python has its minimum required contents
+which are as follows: </p>
+<dl class="description"><dt class="description"><a id="x48-320001x10.1.13.0"></a>
+<span style="color:#0A2A0A;"><code class="verb">package.xml</code> </span>
+</dt><dd class="description">
+<p class="noindent"> file containing meta information about the package
+</p>
+</dd>
+<dt class="description"><a id="x48-320002x10.1.13.0"></a>
+<span style="color:#0A2A0A;"><code class="verb">None</code> </span>
+</dt><dd class="description">
+<p class="noindent"> marker file for the package
+</p>
+</dd>
+<dt class="description"><a id="x48-320003x10.1.13.0"></a>
+<span style="color:#0A2A0A;"><code class="verb">setup.cfg</code> </span>
+</dt><dd class="description">
+<p class="noindent"> is required when a package has executables, so ros2 run can find them
+</p>
+</dd>
+<dt class="description"><a id="x48-320004x10.1.13.0"></a>
+<span style="color:#0A2A0A;"><code class="verb">setup.py</code> </span>
+</dt><dd class="description">
+<p class="noindent"> containing instructions for how to install the package
+</p>
+</dd>
+<dt class="description"><a id="x48-320005x10.1.13.0"></a>
+<span style="color:#0A2A0A;"><code class="verb">None</code> </span>
+</dt><dd class="description">
+<p class="noindent"> a directory with the same name as our package, used by <span class="acronym"><span class="acronym-short"><a class="glossary" href="#glo:ros">ROS</a></span><span class="acronym-detail"><span class="acronym-long"><a class="glossary" href="#glo:ros">Robot Operating System
+2</a></span><span class="acronym-desc"><a class="glossary" href="#glo:ros">Robot Operating System 2</a></span></span></span> tools to find our package, contains <code class="verb">__init__.py</code> </p></dd></dl>
+<p class="noindent"><h5 class="subsubsectionHead" id="header-subsubsection-88"> <a id="x48-321000"></a>Packages in a Workspace</h5>
+</p><p class="noindent">A single workspace can contain as many packages as we want, with each in their own folder. We can
+also have packages of different build types in one workspace.
+</p>
+<div class="warning"><div class="warning-upper">Warning</div><div class="body">
+<p class="noindent">However, we cannot have nested packages. </p></div></div>
+<p class="noindent">Best practice is to have a <span class="code-directory"><code class="verb">src</code></span> folder within your workspace, and to create our packages in there. This
+keeps the top level of the workspace <span class="alert">clean</span> so to say.z
+<div class="section-header">
+<h3 id="header-section-glossary">
+<span class="number">
+<i class="fa-regular fa-bookmark"></i>
+</span>
+<span class="title">
+<a id="page-glossary"></a>
+        Page Glossary Terms</span>
+</h3>
+</div>
+<div class="acronym-block">
+<dl class="acr-list">
+<a class="copiable-link" href="#glo:ros">¶</a>
+<dt class="acr-bottom" id="glo:ros"><span class="acr-short">ROS</span><span class="acr-long">Robot Operating System 2</span></dt>
+<dd class="acr-desc"><p>Robot
+Operating System 2</p></dd>
+</dl>
+</div>
+<div class="section-header">
+<h3 id="header-section-references">
+<span class="number">
+<i class="fa-solid fa-magnifying-glass"></i>
+</span>
+<span class="title">
+<a id="page-glossary"></a>
+            Page References</span>
+</h3>
+</div>
+<div class="cite-block">
+<dl class="enumerate-enumitem">
+<dt class="enumerate-enumitem" id="w3-20001"><span class="acr-short">1.</span><span class="acr-long"></span></dt>
+<dd class="enumerate-enumitem"> Debian. python3-colcon-ros 2025</dd>
+</dl></div>
+<div class="section-header">
+<h3 id="header-section-references">
+<span class="number">
+<i class="fa-regular fa-note-sticky"></i>
+</span>
+<span class="title">
+<a id="page-glossary"></a>
+                    Page Footnotes</span>
+</h3>
+</div>
+<div class="footnote-block">
+<dl class="enumerate-enumitem">
+<dt class="enumerate-enumitem" id="m-ref-226"><span class="acr-short">[226].</span></dt>
+<dd class="enumerate-enumitem"><span class="">Of course, if we have installed <span class="acronym"><span class="acronym-short"><a class="glossary" href="#glo:ros">ROS</a></span><span class="acronym-detail"><span class="acronym-long"><a class="glossary" href="#glo:ros">Robot Operating System 2</a></span><span class="acronym-desc"><a class="glossary" href="#glo:ros">Robot
+Operating System 2</a></span></span></span> with a Dockerfile and followed the lecture material, we don’t have to do this step.
+However, this step is nevertheless here in case the document is followed non-linearly or the user is
+confident.</span></dd>
+</dl>
+<dl class="enumerate-enumitem">
+<dt class="enumerate-enumitem" id="m-ref-227"><span class="acr-short">[227].</span></dt>
+<dd class="enumerate-enumitem"><span class="">This kind of directory usually exists for development of
+applications written in C or C++.</span></dd>
+</dl>
+<dl class="enumerate-enumitem">
+<dt class="enumerate-enumitem" id="m-ref-228"><span class="acr-short">[228].</span></dt>
+<dd class="enumerate-enumitem"><span class="">a free, cross-platform, software development tool for building applications via
+compiler-independent instructions and allows automate testing, packaging and installation.
+It runs on a variety of platforms and supports many programming languages.</span></dd>
+</dl>
+<dl class="enumerate-enumitem">
+<dt class="enumerate-enumitem" id="m-ref-229"><span class="acr-short">[229].</span></dt>
+<dd class="enumerate-enumitem"><span class="">The name of the directory
+is up to the user.</span></dd>
+</dl>
+<dl class="enumerate-enumitem">
+<dt class="enumerate-enumitem" id="m-ref-230"><span class="acr-short">[230].</span></dt>
+<dd class="enumerate-enumitem"><span class="">i.e. another, colcon workspace.</span></dd>
+</dl>
+<dl class="enumerate-enumitem">
+<dt class="enumerate-enumitem" id="m-ref-231"><span class="acr-short">[231].</span></dt>
+<dd class="enumerate-enumitem"><span class="">e.g., Python files or other
+non-compiled resources</span></dd>
+</dl>
+<dl class="enumerate-enumitem">
+<dt class="enumerate-enumitem" id="m-ref-232"><span class="acr-short">[232].</span></dt>
+<dd class="enumerate-enumitem"><span class="">Make sure the underlay is sourced in the new shell
+window.</span></dd>
+</dl>
+<dl class="enumerate-enumitem">
+<dt class="enumerate-enumitem" id="m-ref-233"><span class="acr-short">[233].</span></dt>
+<dd class="enumerate-enumitem"><span class="">Keep in mind that an underlay does <b>NOT</b> necessarily have to be the main <span class="acronym"><span class="acronym-short"><a class="glossary" href="#glo:ros">ROS</a></span><span class="acronym-detail"><span class="acronym-long"><a class="glossary" href="#glo:ros">Robot
+Operating System 2</a></span><span class="acronym-desc"><a class="glossary" href="#glo:ros">Robot Operating System 2</a></span></span></span> installation.</span></dd>
+</dl>
+<dl class="enumerate-enumitem">
+<dt class="enumerate-enumitem" id="m-ref-234"><span class="acr-short">[234].</span></dt>
+<dd class="enumerate-enumitem"><span class="">We will learn more about packages in the following
+section.</span></dd>
+</dl>
+<dl class="enumerate-enumitem">
+<dt class="enumerate-enumitem" id="m-ref-235"><span class="acr-short">[235].</span></dt>
+<dd class="enumerate-enumitem"><span class="">For example, Emacs or any other editor which try
+to be Emacs.</span></dd>
+</dl>
+<dl class="enumerate-enumitem">
+<dt class="enumerate-enumitem" id="m-ref-236"><span class="acr-short">[236].</span></dt>
+<dd class="enumerate-enumitem"><span class="">where the overlay is sourced.</span></dd>
+</dl></div><nav class="crosslinks-bottom"><div class="navigation"><span class="nav-button"><a href="WritingaSimplePublisherandSubscriber.html"><i class="fa-solid fa-caret-right"></i></a></span><span class="nav-button"><a href="ClientLibraries.html"><i class="fa-solid fa-caret-left"></i></a></span><span class="nav-button"><a href="ClientLibraries.html#GettingStartedwithColcon.html"><i class="fa-solid fa-caret-up"></i></a></span><span class="nav-button">
+<a href="index.html" rel="index" title="Index">
+<i class="fa-solid fa-table-list">
+</i>
+</a></span><span class="nav-button">
+<a href="Index.html" rel="index" title="Index">
+<i class="fa-brands fa-git-alt"></i>
+</a></span></div></nav> </p><div class="footer"> <div class="footer-left"><span class="footer-lecture">D. T. McGuiness, PhD</span>
+<span class="footer-webBook"><b>Last Updated:</b> 13.10.2026, at 8:16.</span></div></div><div class="author-notes">
+<span class="note">Authors Note </span>
+<span class="text">The website you are viewing is auto-generated using lms-WebBook and therefore subject to slight errors in typography and formatting. When in doubt, please consult the LectureBook. </span>
+</div>
+</article>
+<div class="mode-line">
+<div class="core-line"><div class="core-line-image"><img class="webbook-logo" src="logo/webbook-logo.svg"/></div>
+<div class="current-header">
+<span class="header-pretext">Viewing | </span>
+<span class="header-text">Section 10.1: Getting Started with Colcon</span>
+</div>
+<div class="button-group">
+</div>
+</div>
+<div class="supp-line"></div>
+</div>
+</page>
+</body>
+</html>

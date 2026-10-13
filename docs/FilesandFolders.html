@@ -1,0 +1,959 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><title>Files and Folders</title>
+<meta charset="utf-8"/>
+<meta content="lms-WebBook" name="generator"/>
+<meta content="width=device-width,initial-scale=1" name="viewport"/>
+<script async="async" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/mml-chtml.js" type="text/javascript"></script>
+<link href="logo/lms.ico" rel="icon" type="image/x-icon"/>
+<link href="./pagefind/pagefind-component-ui.css" rel="stylesheet"/>
+<script src="./pagefind/pagefind-component-ui.js" type="text/javascript"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<link href="https://cdn.jsdelivr.net/gh/sugina-dev/latin-modern-web@1.0.1/style/latinmodern-mono.css" rel="stylesheet"/>
+<link href="https://cdn.jsdelivr.net/gh/dTmC0945/Wb-LMS-WebBook-Infrastructure/flatweb.css" rel="stylesheet" type="text/css"/>
+<script async="true" crossorigin="anonymous" src="https://cdn.jsdelivr.net/gh/dTmC0945/Wb-LMS-WebBook-Infrastructure/flatweb.js"></script>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/styles/default.min.css" rel="stylesheet"/>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/highlight.min.js"></script>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/styles/base16/solarized-light.min.css" rel="stylesheet"/>
+<script src="https://unpkg.com/highlightjs-copy/dist/highlightjs-copy.min.js"></script>
+<link href="https://unpkg.com/highlightjs-copy/dist/highlightjs-copy.min.css" rel="stylesheet"/>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css?family=Roboto:400,100,100italic,300,300italic,400italic,500,500italic,700,700italic,900italic,900" rel="stylesheet"/>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/languages/cpp.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/languages/latex.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/languages/matlab.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/languages/dockerfile.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/languages/cmake.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/languages/makefile.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/languages/markdown.min.js"></script>
+ </head><body>
+<page>
+<nav class="wide"> <div class="header"><div class="header-left"><span class="header-lecture-grade">M.Sc</span>
+<span class="header-lecture-name">Autonomous Mobile Robotics</span>
+<span class="header-webBook">WebBook 2.1</span></div><div class="header-right"><span class="header-version">2026.WS</span>
+<span class="header-chapter">Working with Files and Folders</span></div></div><div class="toc"><pagefind-modal-trigger></pagefind-modal-trigger><pagefind-modal></pagefind-modal><div class="toc-links"><a href="https://github.com/dTmC0945" title="Lecturer GitHub Repo"><i class="fab fa-github" style="font-size:20px"></i></a><a href="https://scholar.google.com/citations?view_op=list_works\&amp;hl=en\&amp;user=lxQGADMAAAAJ" title="Lecturer Google Scholar Page"><i class="fa-brands fa-google-scholar" style="font-size:20px"></i></a><a href="https://www.researchgate.net/profile/Daniel-Mcguiness-2" title="Lecturer ResearchGate Account"><i class="fa-brands fa-researchgate" style="font-size:20px"></i></a><a href="https://dtmc0945.github.io/Th-MCI-Thesis-Topics/" title="Lecturer Thesis Ideas for B.Sc and M.Sc"><i class="fa-solid fa-book" style="font-size:20px"></i></a><a href="https://github.com/dTmC0945/C-MCI-LaTeX-Class-mcidoc/tree/main" title="mcidoc LaTeX Standard"><i class="fa-regular fa-file-lines" style="font-size:20px"></i></a></div><hr/><span class="chapterToc"><span class="number"></span><span class="title"><a href="index.html#x2-10000">Entry Point</a></span></span><span class="chapterToc"><span class="number">1</span><span class="title"><a href="Locomotion.html#x3-20001">Locomotion</a></span></span><span class="subsectionToc"><span class="number">1.0.1</span><span class="title"><a href="Locomotion.html#x3-30001.0.1">Key  Issues  for  Locomotion</a></span></span><span class="sectionToc"><span class="number">1.1</span><span class="title"><a href="LeggedMobileRobots.html#x4-40001.1">Legged  Mobile
+Robots</a></span></span><span class="subsectionToc"><span class="number">1.1.1</span><span class="title"><a href="LeggedMobileRobots.html#x4-60001.1.1">Examples  of  Legged  Robot  Locomotion</a></span></span><span class="sectionToc"><span class="number">1.2</span><span class="title"><a href="WheeledMobileRobots.html#x5-120001.2">Wheeled  Mobile
+Robots</a></span></span><span class="subsectionToc"><span class="number">1.2.1</span><span class="title"><a href="WheeledMobileRobots.html#x5-130001.2.1">Design</a></span></span><span class="subsectionToc"><span class="number">1.2.2</span><span class="title"><a href="WheeledMobileRobots.html#x5-160001.2.2">Stability</a></span></span><span class="subsectionToc"><span class="number">1.2.3</span><span class="title"><a href="WheeledMobileRobots.html#x5-170001.2.3">Manoeuvrability</a></span></span><span class="subsectionToc"><span class="number">1.2.4</span><span class="title"><a href="WheeledMobileRobots.html#x5-180001.2.4">Controllability</a></span></span><span class="subsectionToc"><span class="number">1.2.5</span><span class="title"><a href="WheeledMobileRobots.html#x5-190001.2.5">Case
+Studies for Wheeled Motion</a></span></span><span class="subsectionToc"><span class="number">1.2.6</span><span class="title"><a href="WheeledMobileRobots.html#x5-260001.2.6">Walking Wheels</a></span></span><span class="chapterToc"><span class="number">2</span><span class="title"><a href="MobileRobotKinematics.html#x6-270002">Mobile Robot Kinematics</a></span></span><span class="sectionToc"><span class="number">2.1</span><span class="title"><a href="KinematicModelsandConstraints.html#x7-280002.1">Kinematic
+Models and Constraints</a></span></span><span class="subsectionToc"><span class="number">2.1.1</span><span class="title"><a href="KinematicModelsandConstraints.html#x7-290002.1.1">Representing robot position</a></span></span><span class="subsectionToc"><span class="number">2.1.2</span><span class="title"><a href="KinematicModelsandConstraints.html#x7-300002.1.2">Forward kinematic
+models</a></span></span><span class="subsectionToc"><span class="number">2.1.3</span><span class="title"><a href="KinematicModelsandConstraints.html#x7-310002.1.3">Wheel kinematic constraints</a></span></span><span class="subsectionToc"><span class="number">2.1.4</span><span class="title"><a href="KinematicModelsandConstraints.html#x7-370002.1.4">Robot kinematic constraints</a></span></span><span class="subsectionToc"><span class="number">2.1.5</span><span class="title"><a href="KinematicModelsandConstraints.html#x7-380002.1.5">Examples:
+robot kinematic models and constraints</a></span></span><span class="sectionToc"><span class="number">2.2</span><span class="title"><a href="MobileRobotManeuverability.html#x8-410002.2">Mobile Robot Maneuverability</a></span></span><span class="subsectionToc"><span class="number">2.2.1</span><span class="title"><a href="MobileRobotManeuverability.html#x8-420002.2.1">Degree
+of Mobility</a></span></span><span class="subsectionToc"><span class="number">2.2.2</span><span class="title"><a href="MobileRobotManeuverability.html#x8-450002.2.2">Degree of steerability</a></span></span><span class="subsectionToc"><span class="number">2.2.3</span><span class="title"><a href="MobileRobotManeuverability.html#x8-470002.2.3">Robot maneuverability</a></span></span><span class="sectionToc"><span class="number">2.3</span><span class="title"><a href="MobileRobotWorkspace.html#x9-480002.3">Mobile Robot
+Workspace</a></span></span><span class="subsectionToc"><span class="number">2.3.1</span><span class="title"><a href="MobileRobotWorkspace.html#x9-490002.3.1">Degrees of freedom</a></span></span><span class="subsectionToc"><span class="number">2.3.2</span><span class="title"><a href="MobileRobotWorkspace.html#x9-500002.3.2">Holonomic robots</a></span></span><span class="subsectionToc"><span class="number">2.3.3</span><span class="title"><a href="MobileRobotWorkspace.html#x9-530002.3.3">Path and trajectory
+considerations</a></span></span><span class="subsectionToc"><span class="number">2.3.4</span><span class="title"><a href="MobileRobotWorkspace.html#x9-540002.3.4">Beyond Basic Kinematics</a></span></span><span class="sectionToc"><span class="number">2.4</span><span class="title"><a href="MotionControlKinematicControl.html#x10-550002.4">Motion Control (Kinematic
+Control)</a></span></span><span class="subsectionToc"><span class="number">2.4.1</span><span class="title"><a href="MotionControlKinematicControl.html#x10-560002.4.1">Open loop control</a></span></span><span class="subsectionToc"><span class="number">2.4.2</span><span class="title"><a href="MotionControlKinematicControl.html#x10-570002.4.2">Feedback control</a></span></span><span class="chapterToc"><span class="number">3</span><span class="title"><a href="Perception.html#x11-630003">Perception</a></span></span><span class="sectionToc"><span class="number">3.1</span><span class="title"><a href="SensorsforMobileRobotics.html#x12-640003.1">Sensors for Mobile
+Robotics</a></span></span><span class="subsectionToc"><span class="number">3.1.1</span><span class="title"><a href="SensorsforMobileRobotics.html#x12-650003.1.1">Sensor Classification</a></span></span><span class="subsectionToc"><span class="number">3.1.2</span><span class="title"><a href="SensorsforMobileRobotics.html#x12-660003.1.2">Characterisation of Sensor Performance</a></span></span><span class="subsectionToc"><span class="number">3.1.3</span><span class="title"><a href="SensorsforMobileRobotics.html#x12-720003.1.3">Wheel
+and Motor Sensors</a></span></span><span class="subsectionToc"><span class="number">3.1.4</span><span class="title"><a href="SensorsforMobileRobotics.html#x12-740003.1.4">Heading Sensors</a></span></span><span class="subsectionToc"><span class="number">3.1.5</span><span class="title"><a href="SensorsforMobileRobotics.html#x12-810003.1.5">Ground Based Beacons</a></span></span><span class="subsectionToc"><span class="number">3.1.6</span><span class="title"><a href="SensorsforMobileRobotics.html#x12-830003.1.6">Active
+Ranging</a></span></span><span class="subsectionToc"><span class="number">3.1.7</span><span class="title"><a href="SensorsforMobileRobotics.html#x12-850003.1.7">The Ultrasonic Sensor</a></span></span><span class="subsectionToc"><span class="number">3.1.8</span><span class="title"><a href="SensorsforMobileRobotics.html#x12-920003.1.8">Motion and Speed Sensors</a></span></span><span class="sectionToc"><span class="number">3.2</span><span class="title"><a href="VisionBasedSensors.html#x13-940003.2">Vision Based
+Sensors</a></span></span><span class="subsectionToc"><span class="number">3.2.1</span><span class="title"><a href="VisionBasedSensors.html#x13-950003.2.1">CCD Sensors</a></span></span><span class="subsectionToc"><span class="number">3.2.2</span><span class="title"><a href="VisionBasedSensors.html#x13-970003.2.2">CMOS Technology</a></span></span><span class="subsectionToc"><span class="number">3.2.3</span><span class="title"><a href="VisionBasedSensors.html#x13-980003.2.3">Visual Ranging Sensors</a></span></span><span class="subsectionToc"><span class="number">3.2.4</span><span class="title"><a href="VisionBasedSensors.html#x13-990003.2.4">Depth
+from Focus</a></span></span><span class="sectionToc"><span class="number">3.3</span><span class="title"><a href="RepresentingUncertainty.html#x14-1070003.3">Representing Uncertainty</a></span></span><span class="subsectionToc"><span class="number">3.3.1</span><span class="title"><a href="RepresentingUncertainty.html#x14-1080003.3.1">Statistical Representation</a></span></span><span class="subsectionToc"><span class="number">3.3.2</span><span class="title"><a href="RepresentingUncertainty.html#x14-1090003.3.2">Independence
+of random variables</a></span></span><span class="subsectionToc"><span class="number">3.3.3</span><span class="title"><a href="RepresentingUncertainty.html#x14-1110003.3.3">Propagation of Error</a></span></span><span class="sectionToc"><span class="number">3.4</span><span class="title"><a href="FeatureExtraction.html#x15-1120003.4">Feature Extraction</a></span></span><span class="subsectionToc"><span class="number">3.4.1</span><span class="title"><a href="FeatureExtraction.html#x15-1130003.4.1">Defining
+Feature</a></span></span><span class="subsectionToc"><span class="number">3.4.2</span><span class="title"><a href="FeatureExtraction.html#x15-1140003.4.2">Using Range Data</a></span></span><span class="chapterToc"><span class="number">4</span><span class="title"><a href="MobileRobotLocalisation.html#x16-1290004">Mobile Robot Localisation</a></span></span><span class="sectionToc"><span class="number">4.1</span><span class="title"><a href="TheProblemsofNoiseandAliasing.html#x17-1300004.1">The Problems of Noise and
+Aliasing</a></span></span><span class="subsectionToc"><span class="number">4.1.1</span><span class="title"><a href="TheProblemsofNoiseandAliasing.html#x17-1310004.1.1">Sensor Noise</a></span></span><span class="subsectionToc"><span class="number">4.1.2</span><span class="title"><a href="TheProblemsofNoiseandAliasing.html#x17-1320004.1.2">Sensor Aliasing</a></span></span><span class="subsectionToc"><span class="number">4.1.3</span><span class="title"><a href="TheProblemsofNoiseandAliasing.html#x17-1330004.1.3">Effector Noise</a></span></span><span class="subsectionToc"><span class="number">4.1.4</span><span class="title"><a href="TheProblemsofNoiseandAliasing.html#x17-1340004.1.4">An Error Model for
+Odometric Position Estimation</a></span></span><span class="sectionToc"><span class="number">4.2</span><span class="title"><a href="LocalisationTechniques.html#x18-1350004.2">Localisation Techniques</a></span></span><span class="sectionToc"><span class="number">4.3</span><span class="title"><a href="RepresentingBelief.html#x19-1360004.3">Representing Belief</a></span></span><span class="subsectionToc"><span class="number">4.3.1</span><span class="title"><a href="RepresentingBelief.html#x19-1370004.3.1">Single
+Hypothesis Belief</a></span></span><span class="subsectionToc"><span class="number">4.3.2</span><span class="title"><a href="RepresentingBelief.html#x19-1380004.3.2">Multiple Hypothesis Belief</a></span></span><span class="sectionToc"><span class="number">4.4</span><span class="title"><a href="RepresentingMaps.html#x20-1390004.4">Representing Maps</a></span></span><span class="subsectionToc"><span class="number">4.4.1</span><span class="title"><a href="RepresentingMaps.html#x20-1400004.4.1">Continuous
+Representation</a></span></span><span class="subsectionToc"><span class="number">4.4.2</span><span class="title"><a href="RepresentingMaps.html#x20-1410004.4.2">Decomposition Methods</a></span></span><span class="subsectionToc"><span class="number">4.4.3</span><span class="title"><a href="RepresentingMaps.html#x20-1420004.4.3">Current Challenges</a></span></span><span class="sectionToc"><span class="number">4.5</span><span class="title"><a href="ProbabilisticMapBasedLocalisation.html#x21-1430004.5">Probabilistic
+Map-Based Localisation</a></span></span><span class="subsectionToc"><span class="number">4.5.1</span><span class="title"><a href="ProbabilisticMapBasedLocalisation.html#x21-1440004.5.1">Problem Definition</a></span></span><span class="subsectionToc"><span class="number">4.5.2</span><span class="title"><a href="ProbabilisticMapBasedLocalisation.html#x21-1450004.5.2">Markov Localisation</a></span></span><span class="subsectionToc"><span class="number">4.5.3</span><span class="title"><a href="ProbabilisticMapBasedLocalisation.html#x21-1490004.5.3">Kalman
+Filter Localisation</a></span></span><span class="subsectionToc"><span class="number">4.5.4</span><span class="title"><a href="ProbabilisticMapBasedLocalisation.html#x21-1500004.5.4">An Implementation of Kalman Filter</a></span></span><span class="sectionToc"><span class="number">4.6</span><span class="title"><a href="OtherExamplesofLocalisationMethods.html#x22-1550004.6">Other Examples
+of Localisation Methods</a></span></span><span class="subsectionToc"><span class="number">4.6.1</span><span class="title"><a href="OtherExamplesofLocalisationMethods.html#x22-1560004.6.1">Landmark-based Navigation</a></span></span><span class="subsectionToc"><span class="number">4.6.2</span><span class="title"><a href="OtherExamplesofLocalisationMethods.html#x22-1570004.6.2">Globally Unique
+Localisation</a></span></span><span class="subsectionToc"><span class="number">4.6.3</span><span class="title"><a href="OtherExamplesofLocalisationMethods.html#x22-1580004.6.3">Positioning Beacon systems</a></span></span><span class="subsectionToc"><span class="number">4.6.4</span><span class="title"><a href="OtherExamplesofLocalisationMethods.html#x22-1590004.6.4">Route-Based Localisation</a></span></span><span class="sectionToc"><span class="number">4.7</span><span class="title"><a href="BuildingMaps.html#x23-1600004.7">Building
+Maps</a></span></span><span class="subsectionToc"><span class="number">4.7.1</span><span class="title"><a href="BuildingMaps.html#x23-1610004.7.1">Stochastic Map Technique</a></span></span><span class="subsectionToc"><span class="number">4.7.2</span><span class="title"><a href="BuildingMaps.html#x23-1620004.7.2">Other Mapping Techniques</a></span></span><span class="chapterToc"><span class="number">5</span><span class="title"><a href="WelcometoLinux.html#x24-1650005">Welcome to Linux</a></span></span><span class="sectionToc"><span class="number">5.1</span><span class="title"><a href="AHistoryofUNIXLinux.html#x25-1660005.1">A
+History of UNIX/Linux</a></span></span><span class="subsectionToc"><span class="number">5.1.1</span><span class="title"><a href="AHistoryofUNIXLinux.html#x25-1680005.1.1">A Short History on Computer Interfaces</a></span></span><span class="subsectionToc"><span class="number">5.1.2</span><span class="title"><a href="AHistoryofUNIXLinux.html#x25-1700005.1.2">Linux is a
+Nutshell</a></span></span><span class="subsectionToc"><span class="number">5.1.3</span><span class="title"><a href="AHistoryofUNIXLinux.html#x25-1730005.1.3">Linux Distributions</a></span></span><span class="sectionToc"><span class="number">5.2</span><span class="title"><a href="Installation.html#x26-1740005.2">Installation</a></span></span><span class="subsectionToc"><span class="number">5.2.1</span><span class="title"><a href="Installation.html#x26-1750005.2.1">Docker</a></span></span><span class="subsectionToc"><span class="number">5.2.2</span><span class="title"><a href="Installation.html#x26-1760005.2.2">Dockerfile</a></span></span><span class="subsectionToc"><span class="number">5.2.3</span><span class="title"><a href="Installation.html#x26-1770005.2.3">Running
+the Container</a></span></span><span class="chapterToc"><span class="number">6</span><span class="title"><a href="CommandLineFundamentals.html#x27-1780006">Command Line Fundamentals</a></span></span><span class="sectionToc"><span class="number">6.1</span><span class="title"><a href="ToCommandaComputer.html#x28-1790006.1">To Command a Computer</a></span></span><span class="subsectionToc"><span class="number">6.1.1</span><span class="title"><a href="ToCommandaComputer.html#x28-1800006.1.1">The
+Command Line Interface</a></span></span><span class="subsectionToc"><span class="number">6.1.2</span><span class="title"><a href="ToCommandaComputer.html#x28-1810006.1.2">The Structure of Commands</a></span></span><span class="subsectionToc"><span class="number">6.1.3</span><span class="title"><a href="ToCommandaComputer.html#x28-1820006.1.3">Some Rules Regarding
+the Syntax</a></span></span><span class="sectionToc"><span class="number">6.2</span><span class="title"><a href="WhenWeNeedHelpwithCommands.html#x29-1830006.2">When We Need Help with Commands</a></span></span><span class="subsectionToc"><span class="number">6.2.1</span><span class="title"><a href="WhenWeNeedHelpwithCommands.html#x29-1840006.2.1">Use Tab completion on
+the Shell</a></span></span><span class="subsectionToc"><span class="number">6.2.2</span><span class="title"><a href="WhenWeNeedHelpwithCommands.html#x29-1850006.2.2">The info command</a></span></span><span class="subsectionToc"><span class="number">6.2.3</span><span class="title"><a href="WhenWeNeedHelpwithCommands.html#x29-1860006.2.3">The whatis command</a></span></span><span class="chapterToc"><span class="number">7</span><span class="title"><a href="WorkingwithFilesandFolders.html#x30-1880007">Working with Files
+and Folders</a></span></span><span class="sectionToc"><span class="number">7.1</span><span class="title"><a href="#x31-1890007.1">Files and Folders</a></span></span><span class="subsectionToc"><span class="number">7.1.1</span><span class="title"><a href="#x31-1900007.1.1">A Detailed Look in ls Command</a></span></span><span class="subsectionToc"><span class="number">7.1.2</span><span class="title"><a href="#x31-1910007.1.2">Creating
+and Removing Folders</a></span></span><span class="subsectionToc"><span class="number">7.1.3</span><span class="title"><a href="#x31-1920007.1.3">Move, Copy and Delete Files and Folders</a></span></span><span class="sectionToc"><span class="number">7.2</span><span class="title"><a href="PermissionsandLinks.html#x32-1990007.2">Permissions
+and Links</a></span></span><span class="subsectionToc"><span class="number">7.2.1</span><span class="title"><a href="PermissionsandLinks.html#x32-2000007.2.1">Role to Users and sudo</a></span></span><span class="subsectionToc"><span class="number">7.2.2</span><span class="title"><a href="PermissionsandLinks.html#x32-2010007.2.2">File Permissions</a></span></span><span class="subsectionToc"><span class="number">7.2.3</span><span class="title"><a href="PermissionsandLinks.html#x32-2040007.2.3">Hard and Symbolic
+Links</a></span></span><span class="subsectionToc"><span class="number">7.2.4</span><span class="title"><a href="PermissionsandLinks.html#x32-2050007.2.4">Soft (Symbolic) Links</a></span></span><span class="subsectionToc"><span class="number">7.2.5</span><span class="title"><a href="PermissionsandLinks.html#x32-2070007.2.5">The Linux File System</a></span></span><span class="subsectionToc"><span class="number">7.2.6</span><span class="title"><a href="PermissionsandLinks.html#x32-2080007.2.6">The UNIX
+Philosophy</a></span></span><span class="sectionToc"><span class="number">7.3</span><span class="title"><a href="CommonCommandLineToolsandTasks.html#x33-2090007.3">Common Command-Line Tools and Tasks</a></span></span><span class="subsectionToc"><span class="number">7.3.1</span><span class="title"><a href="CommonCommandLineToolsandTasks.html#x33-2100007.3.1">Connecting Commands
+with Pipes</a></span></span><span class="subsectionToc"><span class="number">7.3.2</span><span class="title"><a href="CommonCommandLineToolsandTasks.html#x33-2110007.3.2">Viewing Text Files with cat, head, tail, and less</a></span></span><span class="subsectionToc"><span class="number">7.3.3</span><span class="title"><a href="CommonCommandLineToolsandTasks.html#x33-2120007.3.3">Finding
+Linux Distribution and Kernel Information</a></span></span><span class="subsectionToc"><span class="number">7.3.4</span><span class="title"><a href="CommonCommandLineToolsandTasks.html#x33-2140007.3.4">Find System Hardware and Disk
+Information</a></span></span><span class="chapterToc"><span class="number">8</span><span class="title"><a href="ROSConcepts.html#x34-2160008">ROS Concepts</a></span></span><span class="sectionToc"><span class="number">8.1</span><span class="title"><a href="PublisherandSubscriberArchitecture.html#x35-2170008.1">Publisher and Subscriber Architecture</a></span></span><span class="subsectionToc"><span class="number">8.1.1</span><span class="title"><a href="PublisherandSubscriberArchitecture.html#x35-2180008.1.1">ROS 2
+Architecture</a></span></span><span class="sectionToc"><span class="number">8.2</span><span class="title"><a href="BuildingBlocks.html#x36-2200008.2">Building Blocks</a></span></span><span class="subsectionToc"><span class="number">8.2.1</span><span class="title"><a href="BuildingBlocks.html#x36-2210008.2.1">Nodes</a></span></span><span class="subsectionToc"><span class="number">8.2.2</span><span class="title"><a href="BuildingBlocks.html#x36-2220008.2.2">The Discovery Process</a></span></span><span class="subsectionToc"><span class="number">8.2.3</span><span class="title"><a href="BuildingBlocks.html#x36-2230008.2.3">Communication
+Interface</a></span></span><span class="subsectionToc"><span class="number">8.2.4</span><span class="title"><a href="BuildingBlocks.html#x36-2320008.2.4">Topics</a></span></span><span class="subsectionToc"><span class="number">8.2.5</span><span class="title"><a href="BuildingBlocks.html#x36-2360008.2.5">Services</a></span></span><span class="subsectionToc"><span class="number">8.2.6</span><span class="title"><a href="BuildingBlocks.html#x36-2390008.2.6">Actions</a></span></span><span class="subsectionToc"><span class="number">8.2.7</span><span class="title"><a href="BuildingBlocks.html#x36-2420008.2.7">Parameters</a></span></span><span class="subsectionToc"><span class="number">8.2.8</span><span class="title"><a href="BuildingBlocks.html#x36-2510008.2.8">Working with
+Command Line</a></span></span><span class="subsectionToc"><span class="number">8.2.9</span><span class="title"><a href="BuildingBlocks.html#x36-2530008.2.9">Launch Files</a></span></span><span class="sectionToc"><span class="number">8.3</span><span class="title"><a href="AdvancedConcepts.html#x37-2540008.3">Advanced Concepts</a></span></span><span class="subsectionToc"><span class="number">8.3.1</span><span class="title"><a href="AdvancedConcepts.html#x37-2550008.3.1">ROS DOMAIN ID</a></span></span><span class="chapterToc"><span class="number">9</span><span class="title"><a href="CommandLineTools.html#x38-2570009">Command
+Line Tools</a></span></span><span class="sectionToc"><span class="number">9.1</span><span class="title"><a href="SettingtheEnvironment.html#x39-2580009.1">Setting the Environment</a></span></span><span class="sectionToc"><span class="number">9.2</span><span class="title"><a href="TurtlesandGraphs.html#x40-2630009.2">Turtles and Graphs</a></span></span><span class="sectionToc"><span class="number">9.3</span><span class="title"><a href="ADeeperLookintoNodes.html#x41-2710009.3">A Deeper Look into
+Nodes</a></span></span><span class="sectionToc"><span class="number">9.4</span><span class="title"><a href="WorkingwithTopics.html#x42-2760009.4">Working with Topics</a></span></span><span class="sectionToc"><span class="number">9.5</span><span class="title"><a href="WorkingwithServices.html#x43-2820009.5">Working with Services</a></span></span><span class="sectionToc"><span class="number">9.6</span><span class="title"><a href="WorkingwithParameters.html#x44-2890009.6">Working with Parameters</a></span></span><span class="sectionToc"><span class="number">9.7</span><span class="title"><a href="APracticalLookintoActions.html#x45-2960009.7">A
+Practical Look into Actions</a></span></span><span class="sectionToc"><span class="number">9.8</span><span class="title"><a href="LaunchingNodes.html#x46-3030009.8">Launching Nodes</a></span></span><span class="chapterToc"><span class="number">10</span><span class="title"><a href="ClientLibraries.html#x47-30500010">Client Libraries</a></span></span><span class="sectionToc"><span class="number">10.1</span><span class="title"><a href="GettingStartedwithColcon.html#x48-30600010.1">Getting Started with
+Colcon</a></span></span><span class="subsectionToc"><span class="number">10.1.1</span><span class="title"><a href="GettingStartedwithColcon.html#x48-30700010.1.1">The Structure of a Package</a></span></span><span class="subsectionToc"><span class="number">10.1.2</span><span class="title"><a href="GettingStartedwithColcon.html#x48-30800010.1.2">Sourcing an Underlay</a></span></span><span class="subsectionToc"><span class="number">10.1.3</span><span class="title"><a href="GettingStartedwithColcon.html#x48-30900010.1.3">Building the
+Workspace</a></span></span><span class="subsectionToc"><span class="number">10.1.4</span><span class="title"><a href="GettingStartedwithColcon.html#x48-31000010.1.4">Sourcing the New Package</a></span></span><span class="subsectionToc"><span class="number">10.1.5</span><span class="title"><a href="GettingStartedwithColcon.html#x48-31100010.1.5">Creating a Workspace</a></span></span><span class="subsectionToc"><span class="number">10.1.6</span><span class="title"><a href="GettingStartedwithColcon.html#x48-31200010.1.6">Sourcing the
+Environment</a></span></span><span class="subsectionToc"><span class="number">10.1.7</span><span class="title"><a href="GettingStartedwithColcon.html#x48-31300010.1.7">Creating a New Directory</a></span></span><span class="subsectionToc"><span class="number">10.1.8</span><span class="title"><a href="GettingStartedwithColcon.html#x48-31400010.1.8">Cloning a Sample Repo</a></span></span><span class="subsectionToc"><span class="number">10.1.9</span><span class="title"><a href="GettingStartedwithColcon.html#x48-31500010.1.9">Resolving
+Dependencies</a></span></span><span class="subsectionToc"><span class="number">10.1.10</span><span class="title"><a href="GettingStartedwithColcon.html#x48-31600010.1.10">Building the Workspace</a></span></span><span class="subsectionToc"><span class="number">10.1.11</span><span class="title"><a href="GettingStartedwithColcon.html#x48-31700010.1.11">Sourcing our Overlay</a></span></span><span class="subsectionToc"><span class="number">10.1.12</span><span class="title"><a href="GettingStartedwithColcon.html#x48-31800010.1.12">Modifying
+the Overlay</a></span></span><span class="subsectionToc"><span class="number">10.1.13</span><span class="title"><a href="GettingStartedwithColcon.html#x48-31900010.1.13">Creating a Package</a></span></span><span class="sectionToc"><span class="number">10.2</span><span class="title"><a href="WritingaSimplePublisherandSubscriber.html#x49-32200010.2">Writing a Simple Publisher and
+Subscriber</a></span></span><span class="subsectionToc"><span class="number">10.2.1</span><span class="title"><a href="WritingaSimplePublisherandSubscriber.html#x49-32300010.2.1">Creating a ROS Packages</a></span></span><span class="subsectionToc"><span class="number">10.2.2</span><span class="title"><a href="WritingaSimplePublisherandSubscriber.html#x49-32400010.2.2">Writing the Publisher Node</a></span></span><span class="subsectionToc"><span class="number">10.2.3</span><span class="title"><a href="WritingaSimplePublisherandSubscriber.html#x49-32900010.2.3">Writing
+the Subscriber Node</a></span></span><span class="subsectionToc"><span class="number">10.2.4</span><span class="title"><a href="WritingaSimplePublisherandSubscriber.html#x49-33200010.2.4">Building and Running</a></span></span><span class="sectionToc"><span class="number">10.3</span><span class="title"><a href="WritingaSimpleServiceandClient.html#x50-33300010.3">Writing a Simple Service and
+Client</a></span></span><span class="subsectionToc"><span class="number">10.3.1</span><span class="title"><a href="WritingaSimpleServiceandClient.html#x50-33400010.3.1">Creating a New Package</a></span></span><span class="subsectionToc"><span class="number">10.3.2</span><span class="title"><a href="WritingaSimpleServiceandClient.html#x50-33700010.3.2">Writing the Service Node</a></span></span><span class="subsectionToc"><span class="number">10.3.3</span><span class="title"><a href="WritingaSimpleServiceandClient.html#x50-34000010.3.3">Writing the Client
+Node</a></span></span><span class="sectionToc"><span class="number">10.4</span><span class="title"><a href="CreatingCustommsgandsrvFiles.html#x51-34300010.4">Creating Custom msg and srv Files</a></span></span><span class="subsectionToc"><span class="number">10.4.1</span><span class="title"><a href="CreatingCustommsgandsrvFiles.html#x51-34400010.4.1">Creating a New Package</a></span></span><span class="subsectionToc"><span class="number">10.4.2</span><span class="title"><a href="CreatingCustommsgandsrvFiles.html#x51-34500010.4.2">Creating
+Custom Definitions</a></span></span><span class="subsectionToc"><span class="number">10.4.3</span><span class="title"><a href="CreatingCustommsgandsrvFiles.html#x51-35200010.4.3">Testing the Newly Built Interfaces</a></span></span><span class="sectionToc"><span class="number">10.5</span><span class="title"><a href="UsingParametersinaClass.html#x52-35400010.5">Using Parameters in a
+Class</a></span></span><span class="subsectionToc"><span class="number">10.5.1</span><span class="title"><a href="UsingParametersinaClass.html#x52-35500010.5.1">Creating a Package</a></span></span><span class="subsectionToc"><span class="number">10.5.2</span><span class="title"><a href="UsingParametersinaClass.html#x52-35700010.5.2">Writing our Python Code</a></span></span><span class="subsectionToc"><span class="number">10.5.3</span><span class="title"><a href="UsingParametersinaClass.html#x52-36200010.5.3">Changing Output using
+the Console</a></span></span><span class="subsectionToc"><span class="number">10.5.4</span><span class="title"><a href="UsingParametersinaClass.html#x52-36300010.5.4">Changing using the Launch File</a></span></span><span class="sectionToc"><span class="number">10.6</span><span class="title"><a href="ManagingDependencies.html#x53-36400010.6">Managing Dependencies</a></span></span><span class="sectionToc"><span class="number">10.7</span><span class="title"><a href="CreatinganAction.html#x54-36600010.7">Creating
+an Action</a></span></span><span class="sectionToc"><span class="number">10.8</span><span class="title"><a href="WritinganActionServerandClient.html#x55-36900010.8">Writing an Action Server and Client</a></span></span><span class="sectionToc"><span class="number">10.9</span><span class="title"><a href="WritingaLaunchFile.html#x56-37100010.9">Writing a Launch File</a></span></span>
+<div class="nav-footer"><div class="nav-footer-left"><span class="nav-footer-lecture">D. T. McGuiness, PhD</span>
+<span class="nav-footer-webBook"><b>Last Updated:</b> 13.10.2026, at 8:16.</span></div></div><p class="nav-comments">The website you are viewing is auto-generated using lms-WebBook and therefore subject to slight errors in typography and formatting. When in doubt, please consult the LectureBook. </p></div></nav>
+<article class="chapter">
+<nav class="crosslinks-top"> <span class="nav-button"><i class="fa-solid fa-caret-right"></i><a class="nav-link" href="PermissionsandLinks.html">Permissions and Links</a></span><span class="nav-button"><i class="fa-solid fa-caret-left"></i><a class="nav-link" href="WorkingwithFilesandFolders.html">Chapter: Working with
+Files and Folders</a></span><span class="nav-button"><i class="fa-solid fa-caret-up"></i><a class="nav-link" href="WorkingwithFilesandFolders.html#FilesandFolders.html">Chapter: Working with
+Files and Folders</a></span><span class="nav-button">
+<a href="index.html" rel="index" title="Visit Entry Point">
+<i class="fa-solid fa-table-list">
+</i>
+<span class="nav-info">Visit Index Page</span>
+</a></span><span class="nav-button">
+<a href="Index.html" rel="index" title="Visit Material GitHub Repo">
+<i class="fa-brands fa-git-alt"></i>
+<span class="nav-info">Visit Material GitHub Repo</span>
+</a></span></nav>
+<div class="section-header"> <h3 id="header-section-7.1"> <a class="pdf-icon" href="AutonomousMobileRoboticsLectureBook.pdf#section.7.1"><svg class="bi bi-file-pdf" fill="currentColor" height="20" viewbox="0 0 16 16" width="20" xmlns="http://www.w3.org/2000/svg"><path d="M4 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H4zm0 1h8a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1z"></path><path d="M4.603 12.087a.81.81 0 0 1-.438-.42c-.195-.388-.13-.776.08-1.102.198-.307.526-.568.897-.787a7.68 7.68 0 0 1 1.482-.645 19.701 19.701 0 0 0 1.062-2.227 7.269 7.269 0 0 1-.43-1.295c-.086-.4-.119-.796-.046-1.136.075-.354.274-.672.65-.823.192-.077.4-.12.602-.077a.7.7 0 0 1 .477.365c.088.164.12.356.127.538.007.187-.012.395-.047.614-.084.51-.27 1.134-.52 1.794a10.954 10.954 0 0 0 .98 1.686 5.753 5.753 0 0 1 1.334.05c.364.065.734.195.96.465.12.144.193.32.2.518.007.192-.047.382-.138.563a1.04 1.04 0 0 1-.354.416.856.856 0 0 1-.51.138c-.331-.014-.654-.196-.933-.417a5.716 5.716 0 0 1-.911-.95 11.642 11.642 0 0 0-1.997.406 11.311 11.311 0 0 1-1.021 1.51c-.29.35-.608.655-.926.787a.793.793 0 0 1-.58.029zm1.379-1.901c-.166.076-.32.156-.459.238-.328.194-.541.383-.647.547-.094.145-.096.25-.04.361.01.022.02.036.026.044a.27.27 0 0 0 .035-.012c.137-.056.355-.235.635-.572a8.18 8.18 0 0 0 .45-.606zm1.64-1.33a12.647 12.647 0 0 1 1.01-.193 11.666 11.666 0 0 1-.51-.858 20.741 20.741 0 0 1-.5 1.05zm2.446.45c.15.162.296.3.435.41.24.19.407.253.498.256a.107.107 0 0 0 .07-.015.307.307 0 0 0 .094-.125.436.436 0 0 0 .059-.2.095.095 0 0 0-.026-.063c-.052-.062-.2-.152-.518-.209a3.881 3.881 0 0 0-.612-.053zM8.078 5.8a6.7 6.7 0 0 0 .2-.828c.031-.188.043-.343.038-.465a.613.613 0 0 0-.032-.198.517.517 0 0 0-.145.04c-.087.035-.158.106-.196.283-.04.192-.03.469.046.822.024.111.054.227.09.346z"></path></svg></a> <span class="number">7.1</span> <span class="title"> <a id="x31-1890007.1"></a>Files and Folders</span></h3></div>
+<p class="noindent">Both files and folders can be thought as the fundamental unit of data storage when we work with either
+a <span class="acronym"><span class="acronym-short"><a class="glossary" href="#glo:gui">GUI</a></span><span class="acronym-detail"><span class="acronym-long"><a class="glossary" href="#glo:gui">Graphical User Interface</a></span><span class="acronym-desc"><a class="glossary" href="#glo:gui">Graphical User Interface</a></span></span></span> or <span class="acronym"><span class="acronym-short"><a class="glossary" href="#glo:cli">CLI</a></span><span class="acronym-detail"><span class="acronym-long"><a class="glossary" href="#glo:cli">Command-Line Interface</a></span><span class="acronym-desc"><a class="glossary" href="#glo:cli">A software
+mechanism you use to interact with your operating system using your keyboard</a></span></span></span>. There are two
+(<span class="alert">2</span>) commands that needs explaining. These are called <code class="verb">file</code>  and <code class="verb">stat</code> . Both these commands can look at a file
+and learn some things about it.
+</p>
+<p class="noindent"></p><figure class="float">
+<p class="noindent"><dl class="first-deffn first-defun-alias-first-deffn def-block"><a class="copiable-link" href="#command-block-7.8"> ¶</a><dt class="deffn defun-alias-deffn def-line" id="command-block-7.8"><a id="x31-189001r8"></a><span class="category-def"><b>command:</b> </span><strong class="def-name">file</strong><var class="def-var-arguments"> -options</var><span class="active-manual"><a href="https://man7.org/linux/man-pages/man1/file.1.html"><i class="fa-solid fa-globe"></i></a></span></dt><dd><p> Determines the type of a file. It identifies file types by examining their content rather than their
+file extensions. </p></dd></dl></p> <dl class="first-deffn first-defun-alias-first-deffn def-block"><a class="copiable-link" href="#command-block-7.9"> ¶</a><dt class="deffn defun-alias-deffn def-line" id="command-block-7.9"><a id="x31-189002r9"></a><span class="category-def"><b>command:</b> </span><strong class="def-name">stat</strong><var class="def-var-arguments"> -options</var><span class="active-manual"><a href="https://man7.org/linux/man-pages/man1/stat.1.html"><i class="fa-solid fa-globe"></i></a></span></dt><dd><p> Provide detailed statistics about files and file systems. It displays crucial
+information such as file size, permissions, ownership, and timestamps. </p></dd></dl> <dl class="first-deffn first-defun-alias-first-deffn def-block"><a class="copiable-link" href="#command-block-7.10"> ¶</a><dt class="deffn defun-alias-deffn def-line" id="command-block-7.10"><a id="x31-189003r10"></a><span class="category-def"><b>command:</b> </span><strong class="def-name">cp</strong><var class="def-var-arguments"> -options</var><span class="active-manual"><a href="https://man7.org/linux/man-pages/man1/cp.1.html"><i class="fa-solid fa-globe"></i></a></span></dt><dd><p> Copy files and directories.
+</p></dd></dl>
+</figure>
+<p class="noindent">To have a quick test, lets have a file called <code class="verb">sample.txt</code>  with the contents of the following:
+</p>
+<pre><div class="code-header"> <span class="code-language">text</span> </div> <code class="language-text">
+<pre class="fancyvrb" id="fancyvrb37"><a id="x31-189005r47"></a>It was the best of times, it was the worst of times, it was the age of wisdom, 
+<a id="x31-189007r48"></a>it was the age of foolishness, it was the epoch of belief, it was the epoch of 
+<a id="x31-189009r49"></a>incredulity, it was the season of light, it was the season of darkness, it was 
+<a id="x31-189011r50"></a>the spring of hope, it was the winter of despair.</pre>
+</code></pre>
+<p class="noindent">Now while we now what it contains, let’s assume we don’t. To see what kind of formatting this file
+contains we run the <code class="verb">file</code>  command:
+</p>
+<pre><div class="code-header"> <span class="code-language">bash</span> </div> <code class="language-bash">
+<pre class="fancyvrb" id="fancyvrb38"><a id="x31-189013r55"></a>file sample.txt</pre>
+</code></pre>
+<pre><code class="language-text">
+<pre class="fancyvrb" id="fancyvrb39"><a id="x31-189015r60"></a>sample.txt: ASCII text</pre>
+</code></pre>
+<p class="noindent">As we can see this command tells us the file has an <a href="https://en.wikipedia.org/wiki/ASCII">ASCII</a> formatting which means it is generally
+supported by almost all computers without the need of additional text <span class="margin-block">encoding. <span class="margin-comment"><a class="ellipsis" href="#m-ref-173">[173]</a>
+<span class="sidenote">an acronym for
+American Standard Code for Information Interchange, is a character encoding standard
+for representing a particular set of 95 (English language focused) printable and 33 control
+characters - a total of 128 code points. The set of available punctuation had significant
+impact on the syntax of computer languages and text markup. ASCII hugely influenced the
+design of character sets used by modern computers; for example, the first 128 code points of
+Unicode are the same as ASCII.</span></span></span> To get more information about the file we invoke the <code class="verb">stat</code>
+command:
+</p>
+<pre><div class="code-header"> <span class="code-language">bash</span> </div> <code class="language-bash">
+<pre class="fancyvrb" id="fancyvrb40"><a id="x31-189017r66"></a>stat sample.txt </pre>
+</code></pre>
+<pre><code class="language-text">
+<pre class="fancyvrb" id="fancyvrb41"><a id="x31-189019r71"></a>  File: sample.txt 
+<a id="x31-189021r72"></a>  Size: 286               Blocks: 8          IO Block: 4096   regular file 
+<a id="x31-189023r73"></a>Device: 3eh/62d        Inode: 1265215     Links: 1 
+<a id="x31-189025r74"></a>Access: (0644/-rw-r--r--)  Uid: ( 1000/  ubuntu)   Gid: ( 1000/  ubuntu) 
+<a id="x31-189027r75"></a>Access: 2026-04-07 05:14:58.174719007 +0000 
+<a id="x31-189029r76"></a>Modify: 2026-04-07 05:13:36.346498000 +0000 
+<a id="x31-189031r77"></a>Change: 2026-04-07 05:14:34.897282010 +0000 
+<a id="x31-189033r78"></a> Birth: 2026-04-07 05:14:34.891282010 +0000</pre>
+</code></pre>
+<p class="noindent">As we can see, we have a bit more information about the file, regarding its <b>user</b>, the <b>date</b> in which it
+was modified, the <b>size</b> and more. As we’ll see when we look at the <code class="verb">ls</code>  command, some of
+this is also available there. These commands can be helpful to know about if you come
+across an <i>unknown file</i>. In a graphical <span class="margin-block">environment <span class="margin-comment"><a class="ellipsis" href="#m-ref-174">[174]</a>
+<span class="sidenote">i.e., GUI</span></span></span>, we can navigate around these
+files and folders with the mouse, seeing how they’re organized and finding out information
+about them. We can do the same thing in a <span class="margin-block">CLI <span class="margin-comment"><a class="ellipsis" href="#m-ref-175">[175]</a>
+<span class="sidenote">In a much faster, but more unforgiving
+way.</span></span></span>.
+</p><p class="noindent">In the file browser, we can navigate to the <code class="verb">Linux Tutorials</code>  file. From <span class="code-directory"><code class="verb">Home</code></span>, we can click on <span class="code-directory"><code class="verb">Desktop</code></span>. There’s the file.
+In a <span class="acronym"><span class="acronym-short"><a class="glossary" href="#glo:gui">GUI</a></span><span class="acronym-detail"><span class="acronym-long"><a class="glossary" href="#glo:gui">Graphical User Interface</a></span><span class="acronym-desc"><a class="glossary" href="#glo:gui">Graphical User Interface</a></span></span></span>, we can see pretty easily what folder you are
+working in. However in a <span class="acronym"><span class="acronym-short"><a class="glossary" href="#glo:cli">CLI</a></span><span class="acronym-detail"><span class="acronym-long"><a class="glossary" href="#glo:cli">Command-Line Interface</a></span><span class="acronym-desc"><a class="glossary" href="#glo:cli">A software mechanism you use to interact with
+your operating system using your keyboard</a></span></span></span>, we get a clue about what folder we’re working in on the
+<b>prompt</b>.
+</p>
+<div class="knowledge"><div class="knowledge-upper">Knowledge</div><div class="body">
+<p class="noindent">The tilde (~) the character, right here, means your <span class="code-directory"><code class="verb">home</code></span> folder. </p></div></div>
+<pre><div class="code-header"> <span class="code-language">bash</span> </div> <code class="language-bash">
+<pre class="fancyvrb" id="fancyvrb42"><a id="x31-189035r85"></a>ubuntu@ubuntu:~$</pre>
+</code></pre>
+<p class="noindent">To match up with where the file browser is, the <span class="code-directory"><code class="verb">Linux Tutorials</code></span> folder, you’ll need to navigate into
+the <span class="code-directory"><code class="verb">Desktop</code></span> and then into <span class="code-directory"><code class="verb">Linux Tutorials</code></span>.
+</p>
+<pre><div class="code-header"> <span class="code-language">bash</span> </div> <code class="language-bash">
+<pre class="fancyvrb" id="fancyvrb43"><a id="x31-189037r90"></a>ubuntu@ubuntu:~$ <span style="color:#B03B03;">cd</span> Desktop/ 
+<a id="x31-189039r91"></a>ubuntu@ubuntu:~/Desktop$  <span style="color:#B03B03;">cd</span> Linux<span style="color:#B03B03;">\ </span>Tutorials/ 
+<a id="x31-189041r92"></a>ubuntu@ubuntu:~/Desktop/Linux Tutorials$</pre>
+</code></pre>
+<p class="noindent">To do that, use the <code class="verb">cd</code>  command which stands for <b>change directory</b>. Start by typing the path that we
+want to go to. Type <code class="verb">De</code>  and then press <kbd>Tab</kbd> to auto complete, since Bash knows what’s available. Right
+now, nothing else in you <span class="code-directory"><code class="verb">Home</code></span> folder should start with <code class="verb">De</code>  except <span class="code-directory"><code class="verb">Desktop</code></span>. Then press <kbd>Return</kbd> to run that
+command. Since we’ve navigated to a different folder, the prompt on your terminal window should
+change.
+</p><p class="noindent">Now, it says tilde slash Desktop (<span class="code-directory"><code class="verb">~/Desktop</code></span>), indicating that the present working directory is the
+documents residing inside of <span class="code-directory"><code class="verb">/home</code></span>. You can also find that out by typing <code class="verb">pwd</code>  no your terminal window, for
+print working directory.
+</p>
+<p class="noindent"></p><figure class="float">
+<p class="noindent"><dl class="first-deffn first-defun-alias-first-deffn def-block"><a class="copiable-link" href="#command-block-7.11"> ¶</a><dt class="deffn defun-alias-deffn def-line" id="command-block-7.11"><a id="x31-189042r11"></a><span class="category-def"><b>command:</b> </span><strong class="def-name">pwd</strong><var class="def-var-arguments"> -options</var><span class="active-manual"><a href="https://man7.org/linux/man-pages/man1/pwd.1.html"><i class="fa-solid fa-globe"></i></a></span></dt><dd><p> Prints the current working directory </p></dd></dl></p>
+</figure>
+<p class="noindent">The <code class="verb">pwd</code>  shows the <span class="margin-block">full path, <span class="margin-comment"><a class="ellipsis" href="#m-ref-176">[176]</a>
+<span class="sidenote">This is also known as the <b>absolute</b> path.</span></span></span> of a folder where you are currently
+working. An absolute path starts from the root of the file system, the highest level of the structure
+where files are stored. Inside of the root, the home folders for users are stored in the <code class="verb">/home</code>  folder, and then
+my user’s home folder is represented by your user name.
+</p><p class="noindent">Inside this folder are documents but we need to go one folder deeper to get inside the <code class="verb">Linux Tutorials</code>  folder. Write <code class="verb">cd Linux Tutorials</code>
+and press <kbd>Return</kbd>, but we get an error. You can see here that Bash thinks that we’re trying to get into
+the folder called just Linux.
+</p>
+<div class="warning"><div class="warning-upper">Warning</div><div class="body">
+<p class="noindent">That’s because <code class="verb">cd</code>  has interpreted Linux Tutorials, as two separate words, or arguments, given there’s a
+space in between the words. </p></div></div>
+<p class="noindent">You have to tell Bash the <b>space is part of the name</b>, and <b>NOT</b> a separator between arguments or
+commands.
+</p><p class="noindent">There are two ways to do this. The first way is to put the string of text inside quotes (<code class="verb">" "</code> ), but the more
+common thing you’ll see is to just escape a special characters. In this case the space between Linux and
+Tutorials. To let Bash know that the space is part of the folder name, not a break in the command, we
+type a back slash (\) in front of it. Escaping a character means that it’s treated literally instead of
+having any other special meaning.
+</p><p class="noindent">That works for one character at a time. If we had two spaces in there, we need to escape each space
+character individually. So, again type <code class="verb">cd space Linux\relax \protect \unhbox \voidb@x \special {t4ht@+&amp;{35}x00A0{59}}xTutorial</code>  and press <kbd>Enter</kbd>. Now when we type <code class="verb">pwd</code> , we can see where we
+are.
+</p>
+<pre><div class="code-header"> <span class="code-language">bash</span> </div> <code class="language-bash">
+<pre class="fancyvrb" id="fancyvrb44"><a id="x31-189044r98"></a><span style="color:#B03B03;">pwd</span></pre>
+</code></pre>
+<pre><code class="language-text">
+<pre class="fancyvrb" id="fancyvrb45"><a id="x31-189046r103"></a>/home/ubuntu/Desktop/Linux Tutorials</pre>
+</code></pre>
+<p class="noindent">Now that we’re inside the tutorial files folder, Type <code class="verb">ls</code>  again to see what we’ve got.
+</p>
+<pre><div class="code-header"> <span class="code-language">bash</span> </div> <code class="language-bash">
+<pre class="fancyvrb" id="fancyvrb46"><a id="x31-189048r120"></a>ls</pre>
+</code></pre>
+<pre><code class="language-text">
+<pre class="fancyvrb" id="fancyvrb47"><a id="x31-189050r125"></a>Books  Data.txt  Folder  Poem.txt</pre>
+</code></pre>
+<p class="noindent">Let’s take a look inside the <code class="verb">Books</code>  folder. Write <code class="verb">ls</code>  and this time I’ll use the <code class="verb">-R</code>  option to list folders recursively
+and add <code class="verb">Books/</code>  here on the end.
+</p>
+<pre><div class="code-header"> <span class="code-language">bash</span> </div> <code class="language-bash">
+<pre class="fancyvrb" id="fancyvrb48"><a id="x31-189052r140"></a>ls -R Books/</pre>
+</code></pre>
+<pre><code class="language-text">
+<pre class="fancyvrb" id="fancyvrb49"><a id="x31-189054r145"></a>Books/: 
+<a id="x31-189056r146"></a>Classics  Fantasy  Literature  Music  Poetry  Sci-Fi  Science 
+<a id="x31-189058r147"></a> 
+<a id="x31-189060r148"></a>Books/Classics: 
+<a id="x31-189062r149"></a>'Charles Dickens'  'Herman Mellvile'  'Jane Austen' 
+<a id="x31-189064r150"></a> 
+<a id="x31-189066r151"></a>'Books/Classics/Charles Dickens': 
+<a id="x31-189068r152"></a> 
+<a id="x31-189070r153"></a>'Books/Classics/Herman Mellvile': 
+<a id="x31-189072r154"></a> 
+<a id="x31-189074r155"></a>'Books/Classics/Jane Austen': 
+<a id="x31-189076r156"></a> 
+<a id="x31-189078r157"></a>Books/Fantasy: 
+<a id="x31-189080r158"></a>'Brandon Sanderson'  'G. R. R. Martin'        'J.R.R. Tolkien'  'Robert Jordan' 
+<a id="x31-189082r159"></a> 
+<a id="x31-189084r160"></a>'Books/Fantasy/Brandon Sanderson': 
+<a id="x31-189086r161"></a> 
+<a id="x31-189088r162"></a>'Books/Fantasy/G. R. R. Martin': 
+<a id="x31-189090r163"></a> 
+<a id="x31-189092r164"></a>'Books/Fantasy/J.R.R. Tolkien': 
+<a id="x31-189094r165"></a>Unfinished_LotR_Sequel.txt 
+<a id="x31-189096r166"></a> 
+<a id="x31-189098r167"></a>'Books/Fantasy/Robert Jordan': 
+<a id="x31-189100r168"></a> 
+<a id="x31-189102r169"></a>Books/Literature: 
+<a id="x31-189104r170"></a>American  English  Greek  Turkish 
+<a id="x31-189106r171"></a> 
+<a id="x31-189108r172"></a>Books/Literature/American: 
+<a id="x31-189110r173"></a> 
+<a id="x31-189112r174"></a>Books/Literature/English: 
+<a id="x31-189114r175"></a> 
+<a id="x31-189116r176"></a>Books/Literature/Greek: 
+<a id="x31-189118r177"></a> 
+<a id="x31-189120r178"></a>Books/Literature/Turkish: 
+<a id="x31-189122r179"></a> 
+<a id="x31-189124r180"></a>Books/Music: 
+<a id="x31-189126r181"></a> 
+<a id="x31-189128r182"></a>Books/Poetry: 
+<a id="x31-189130r183"></a> 
+<a id="x31-189132r184"></a>Books/Sci-Fi: 
+<a id="x31-189134r185"></a>'Arthur C. Clarke'  'Frank Herbert'  'Isaac Asimov' 
+<a id="x31-189136r186"></a> 
+<a id="x31-189138r187"></a>'Books/Sci-Fi/Arthur C. Clarke': 
+<a id="x31-189140r188"></a> 
+<a id="x31-189142r189"></a>'Books/Sci-Fi/Frank Herbert': 
+<a id="x31-189144r190"></a> 
+<a id="x31-189146r191"></a>'Books/Sci-Fi/Isaac Asimov': 
+<a id="x31-189148r192"></a> 
+<a id="x31-189150r193"></a>Books/Science: 
+<a id="x31-189152r194"></a>Biology  Chemistry  Physics 
+<a id="x31-189154r195"></a> 
+<a id="x31-189156r196"></a>Books/Science/Biology: 
+<a id="x31-189158r197"></a> 
+<a id="x31-189160r198"></a>Books/Science/Chemistry: 
+<a id="x31-189162r199"></a> 
+<a id="x31-189164r200"></a>Books/Science/Physics:</pre>
+</code></pre>
+<p class="noindent">Now we can see what’s inside all of the folders inside <code class="verb">/Books</code> . The recursive option means when <code class="verb">ls</code>  comes across
+a folder, it steps inside and looks around, listing anything inside the folder. If it comes across another
+folder inside that folder, it does the same thing, steps inside, looks around and reports back. This is a
+helpful way of exploring a whole structure of folders.
+</p>
+<p class="noindent"><div class="subsection-header"> <h4 id="header-subsection-7.1.1"> <a class="pdf-icon" href="AutonomousMobileRoboticsLectureBook.pdf#subsection.7.1.1"><svg class="bi bi-file-pdf" fill="currentColor" height="20" viewbox="0 0 16 16" width="20" xmlns="http://www.w3.org/2000/svg"><path d="M4 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H4zm0 1h8a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1z"></path><path d="M4.603 12.087a.81.81 0 0 1-.438-.42c-.195-.388-.13-.776.08-1.102.198-.307.526-.568.897-.787a7.68 7.68 0 0 1 1.482-.645 19.701 19.701 0 0 0 1.062-2.227 7.269 7.269 0 0 1-.43-1.295c-.086-.4-.119-.796-.046-1.136.075-.354.274-.672.65-.823.192-.077.4-.12.602-.077a.7.7 0 0 1 .477.365c.088.164.12.356.127.538.007.187-.012.395-.047.614-.084.51-.27 1.134-.52 1.794a10.954 10.954 0 0 0 .98 1.686 5.753 5.753 0 0 1 1.334.05c.364.065.734.195.96.465.12.144.193.32.2.518.007.192-.047.382-.138.563a1.04 1.04 0 0 1-.354.416.856.856 0 0 1-.51.138c-.331-.014-.654-.196-.933-.417a5.716 5.716 0 0 1-.911-.95 11.642 11.642 0 0 0-1.997.406 11.311 11.311 0 0 1-1.021 1.51c-.29.35-.608.655-.926.787a.793.793 0 0 1-.58.029zm1.379-1.901c-.166.076-.32.156-.459.238-.328.194-.541.383-.647.547-.094.145-.096.25-.04.361.01.022.02.036.026.044a.27.27 0 0 0 .035-.012c.137-.056.355-.235.635-.572a8.18 8.18 0 0 0 .45-.606zm1.64-1.33a12.647 12.647 0 0 1 1.01-.193 11.666 11.666 0 0 1-.51-.858 20.741 20.741 0 0 1-.5 1.05zm2.446.45c.15.162.296.3.435.41.24.19.407.253.498.256a.107.107 0 0 0 .07-.015.307.307 0 0 0 .094-.125.436.436 0 0 0 .059-.2.095.095 0 0 0-.026-.063c-.052-.062-.2-.152-.518-.209a3.881 3.881 0 0 0-.612-.053zM8.078 5.8a6.7 6.7 0 0 0 .2-.828c.031-.188.043-.343.038-.465a.613.613 0 0 0-.032-.198.517.517 0 0 0-.145.04c-.087.035-.158.106-.196.283-.04.192-.03.469.046.822.024.111.054.227.09.346z"></path></svg></a><span class="number">7.1.1</span> <span class="title"> <a id="x31-1900007.1.1"></a>A Detailed Look in ls Command</span></h4></div>
+</p><p class="noindent">As the <code class="verb">ls</code>  command is one of the more useful commands, it is worth looking into it in a bit more detail.
+As discussed, <code class="verb">ls</code>  is a command in the <span class="acronym"><span class="acronym-short"><a class="glossary" href="#glo:cli">CLI</a></span><span class="acronym-detail"><span class="acronym-long"><a class="glossary" href="#glo:cli">Command-Line Interface</a></span><span class="acronym-desc"><a class="glossary" href="#glo:cli">A software mechanism you use to
+interact with your operating system using your keyboard</a></span></span></span> which allows us to lists the contents of a
+directory.
+</p>
+<p class="noindent"></p><figure class="float">
+<p class="noindent"><dl class="first-deffn first-defun-alias-first-deffn def-block"><a class="copiable-link" href="#command-block-7.12"> ¶</a><dt class="deffn defun-alias-deffn def-line" id="command-block-7.12"><a id="x31-190001r12"></a><span class="category-def"><b>command:</b> </span><strong class="def-name">ls</strong><var class="def-var-arguments"> -options</var><span class="active-manual"><a href="https://man7.org/linux/man-pages/man1/ls.1.html"><i class="fa-solid fa-globe"></i></a></span></dt><dd><p> list directory contents </p></dd></dl></p>
+</figure>
+<pre><div class="code-header"> <span class="code-language">bash</span> </div> <code class="language-bash">
+<pre class="fancyvrb" id="fancyvrb50"><a id="x31-190003r207"></a><span style="color:#B03B03;">cd</span> <span style="color:#78730D;">"home/ubuntu/Desktop/Linux Tutorials"</span> &amp;&amp; ls</pre>
+</code></pre>
+<pre><code class="language-text">
+<pre class="fancyvrb" id="fancyvrb51"><a id="x31-190005r212"></a>Books  Data.txt  Folder  Poem.txt</pre>
+</code></pre>
+<p class="noindent">This command is very useful as it’s <span class="alert">short</span> and has an <span class="alert">easily changeable output</span>. The output itself is pretty useful, and therefore it’s
+worth taking some time to understand what it shows.
+</p>
+<div class="info-block" id="info-block-7.27"> <a class="copiable-link" href="#info-block-7.27"> ¶</a> <span class="info-upper"> <span class="info-header"> <b>Information 7.<a id="x31-190006r27"></a>27: </b> </span> <span class="info-title"> Everything is Better with Colour </span> </span> <div class="body">
+<p class="noindent"><code class="verb">ls</code> , just by itself gives a list, and depending on the environment, the items might have some colour or
+they might not. The colouration is helpful but it’s not critical to use in <code class="verb">ls</code> . If it is not visible, try running
+<code class="verb">ls</code> with the dash dash colour equals always option (<code class="verb">--color=always</code> ).  </p></div></div>
+<p class="noindent">Let’s go to the file <span class="code-directory"><code class="verb">Linux Tutorials</code></span> and look around. As we have changed the path in our previous
+code, and as long as we are using the same terminal window, our path should still be in <code class="verb">Linux Tutorials</code> . However if it
+is not the case, let’s write <code class="verb">cd Desktop/Linux\relax \protect \unhbox \voidb@x \special {t4ht@+&amp;{35}x00A0{59}}xTutorials/</code> .
+</p><p class="noindent">Once we are in the directory, write the following:
+</p>
+<pre><div class="code-header"> <span class="code-language">bash</span> </div> <code class="language-bash">
+<pre class="fancyvrb" id="fancyvrb52"><a id="x31-190008r222"></a>ls -l</pre>
+</code></pre>
+<pre><code class="language-text">
+<pre class="fancyvrb" id="fancyvrb53"><a id="x31-190010r227"></a>total 20 
+<a id="x31-190012r228"></a>drwxrwxr-x 1 ubuntu ubuntu 4096 Nov 22  2020 Books 
+<a id="x31-190014r229"></a>-rw-rw-r-- 1 ubuntu ubuntu  102 Nov 20  2020 Data.txt 
+<a id="x31-190016r230"></a>drwxrwxr-x 1 ubuntu ubuntu 4096 Nov 20  2020 Folder 
+<a id="x31-190018r231"></a>-rw-rw-r-- 1 ubuntu ubuntu  592 Nov 18  2020 Poem.txt</pre>
+</code></pre>
+<p class="noindent">Here, the <code class="verb">-l</code>  argument is used to see more information about the files within the directory. The first
+column on the left shows whether an item is: </p>
+<ul class="itemize1">
+<li class="itemize">
+<p class="noindent">A folder or a directory which will be shown with a <code class="verb">d</code> ,
+</p>
+</li>
+<li class="itemize">
+<p class="noindent">A link which will be shown with a <code class="verb">l</code> ,
+</p>
+</li>
+<li class="itemize">
+<p class="noindent">A file, which is a dash (<code class="verb">-</code> ). This means that the attribute is missing or offset.</p></li></ul>
+<p class="noindent">If the output shows colours, folders will generally be blue text. Links will generally be light blue text
+and files will generally be grey or they’ll be black or white depending on the background colour of your
+terminal.
+</p><p class="noindent">The next set of columns show a representation of the permissions on the file. What different kinds of
+users are allowed to do with the file. Further to the right, we see the owner of the file, and the group
+setting of the file. Then we see the size of the file in bytes, which can be a little bit easier to read with a
+<code class="verb">-h</code> option.
+</p><p class="noindent">Clear the screen and use <code class="verb">ls -lh</code> .
+</p>
+<pre><div class="code-header"> <span class="code-language">bash</span> </div> <code class="language-bash">
+<pre class="fancyvrb" id="fancyvrb54"><a id="x31-190020r236"></a>ls -lh</pre>
+</code></pre>
+<pre><code class="language-text">
+<pre class="fancyvrb" id="fancyvrb55"><a id="x31-190022r241"></a>total 20K 
+<a id="x31-190024r242"></a>drwxrwxr-x 1 ubuntu ubuntu 4.0K Nov 22  2020 Books 
+<a id="x31-190026r243"></a>-rw-rw-r-- 1 ubuntu ubuntu  102 Nov 20  2020 Data.txt 
+<a id="x31-190028r244"></a>drwxrwxr-x 1 ubuntu ubuntu 4.0K Nov 20  2020 Folder 
+<a id="x31-190030r245"></a>-rw-rw-r-- 1 ubuntu ubuntu  592 Nov 18  2020 Poem.txt</pre>
+</code></pre>
+<p class="noindent">This calls out the size post fixes. </p><div class="quote"> <code class="verb">k</code>  for kilo, <code class="verb">m</code>  for mega, <code class="verb">g</code>  for giga, and <code class="verb">t</code>  for terabytes.
+</div>
+<p class="noindent">Then there’s the date and time that the file was modified. Finally the file name, or in the
+case of a link, which we’ll explore a bit later. <code class="verb">ls</code>  with is wide variety of options, gives you a
+whole lot of helpful information about folders and files, so it’s a good command to know
+about.
+</p>
+<p class="noindent"><div class="subsection-header"> <h4 id="header-subsection-7.1.2"> <a class="pdf-icon" href="AutonomousMobileRoboticsLectureBook.pdf#subsection.7.1.2"><svg class="bi bi-file-pdf" fill="currentColor" height="20" viewbox="0 0 16 16" width="20" xmlns="http://www.w3.org/2000/svg"><path d="M4 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H4zm0 1h8a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1z"></path><path d="M4.603 12.087a.81.81 0 0 1-.438-.42c-.195-.388-.13-.776.08-1.102.198-.307.526-.568.897-.787a7.68 7.68 0 0 1 1.482-.645 19.701 19.701 0 0 0 1.062-2.227 7.269 7.269 0 0 1-.43-1.295c-.086-.4-.119-.796-.046-1.136.075-.354.274-.672.65-.823.192-.077.4-.12.602-.077a.7.7 0 0 1 .477.365c.088.164.12.356.127.538.007.187-.012.395-.047.614-.084.51-.27 1.134-.52 1.794a10.954 10.954 0 0 0 .98 1.686 5.753 5.753 0 0 1 1.334.05c.364.065.734.195.96.465.12.144.193.32.2.518.007.192-.047.382-.138.563a1.04 1.04 0 0 1-.354.416.856.856 0 0 1-.51.138c-.331-.014-.654-.196-.933-.417a5.716 5.716 0 0 1-.911-.95 11.642 11.642 0 0 0-1.997.406 11.311 11.311 0 0 1-1.021 1.51c-.29.35-.608.655-.926.787a.793.793 0 0 1-.58.029zm1.379-1.901c-.166.076-.32.156-.459.238-.328.194-.541.383-.647.547-.094.145-.096.25-.04.361.01.022.02.036.026.044a.27.27 0 0 0 .035-.012c.137-.056.355-.235.635-.572a8.18 8.18 0 0 0 .45-.606zm1.64-1.33a12.647 12.647 0 0 1 1.01-.193 11.666 11.666 0 0 1-.51-.858 20.741 20.741 0 0 1-.5 1.05zm2.446.45c.15.162.296.3.435.41.24.19.407.253.498.256a.107.107 0 0 0 .07-.015.307.307 0 0 0 .094-.125.436.436 0 0 0 .059-.2.095.095 0 0 0-.026-.063c-.052-.062-.2-.152-.518-.209a3.881 3.881 0 0 0-.612-.053zM8.078 5.8a6.7 6.7 0 0 0 .2-.828c.031-.188.043-.343.038-.465a.613.613 0 0 0-.032-.198.517.517 0 0 0-.145.04c-.087.035-.158.106-.196.283-.04.192-.03.469.046.822.024.111.054.227.09.346z"></path></svg></a><span class="number">7.1.2</span> <span class="title"> <a id="x31-1910007.1.2"></a>Creating and Removing Folders</span></h4></div>
+</p><p class="noindent">Sometimes, we’ll need to create folders to organise our files, and sometimes we’ll need to remove
+folders as well. Sometimes it is good to know how to do it using the <span class="acronym"><span class="acronym-short"><a class="glossary" href="#glo:cli">CLI</a></span><span class="acronym-detail"><span class="acronym-long"><a class="glossary" href="#glo:cli">Command-Line
+Interface</a></span><span class="acronym-desc"><a class="glossary" href="#glo:cli">A software mechanism you use to interact with your operating system using your
+keyboard</a></span></span></span>. Currently within content of <span class="code-directory"><code class="verb">Linux Tutorials</code></span>, there is a single folder and two text
+files.
+</p><p class="noindent">First, create a new folder or directory here in <code class="verb">Linux Tutorials</code>  folder with <code class="verb">mkdir</code>  which stands for make directory, and give
+it a name. Let’s call it <span class="code-directory"><code class="verb">Folder</code></span>, to keep it simple.
+</p>
+<pre><div class="code-header"> <span class="code-language">bash</span> </div> <code class="language-bash">
+<pre class="fancyvrb" id="fancyvrb56"><a id="x31-191002r252"></a>mkdir Folder</pre>
+</code></pre>
+<p class="noindent">If we observe the file content, we can see the folder has appeared. We can also see the content of this
+directory with the command <code class="verb">ls -l</code> . There is the <span class="code-directory"><code class="verb">Folder</code></span> we have just created.
+</p>
+<pre><div class="code-header"> <span class="code-language">bash</span> </div> <code class="language-bash">
+<pre class="fancyvrb" id="fancyvrb57"><a id="x31-191004r257"></a>ls -l</pre>
+</code></pre>
+<pre><code class="language-text">
+<pre class="fancyvrb" id="fancyvrb58"><a id="x31-191006r262"></a>total 20 
+<a id="x31-191008r263"></a>drwxrwxr-x 1 ubuntu ubuntu 4096 Nov 22  2020 Books 
+<a id="x31-191010r264"></a>-rw-rw-r-- 1 ubuntu ubuntu  102 Nov 20  2020 Data.txt 
+<a id="x31-191012r265"></a>drwxrwxr-x 1 ubuntu ubuntu 4096 Nov 20  2020 Folder 
+<a id="x31-191014r266"></a>-rw-rw-r-- 1 ubuntu ubuntu  592 Nov 18  2020 Poem.txt</pre>
+</code></pre>
+<p class="noindent">If we put a name after <code class="verb">mkdir</code> , it assumes we want to create a folder inside of the current working directory.
+In this case, this would be <span class="code-directory"><code class="verb">Linux Tutorials</code></span>. We can also specify a path outside the current folder or a
+folder deeper inside the working folder.
+</p>
+<div class="quote"> For example, Add a new folder inside our <span class="code-directory"><code class="verb">Books</code></span> for <span class="code-directory"><code class="verb">Poetry</code></span>. For that we have to write <code class="verb">mkdir Books/Lyrics</code> .
+</div>
+<pre><div class="code-header"> <span class="code-language">bash</span> </div> <code class="language-bash">
+<pre class="fancyvrb" id="fancyvrb59"><a id="x31-191016r271"></a>mkdir Books/Lyrics</pre>
+</code></pre>
+<p class="noindent">What if we wanted to create a subfolder within a new folder?
+</p><p class="noindent">For example, let’s say we want to make a <span class="code-directory"><code class="verb">Beethoven</code></span> inside <span class="code-directory"><code class="verb">Music</code></span>. Instead of creating <span class="code-directory"><code class="verb">Music</code></span> and then
+creating a <span class="code-directory"><code class="verb">Beethoven</code></span> inside of it, we can do it all at once using the <code class="verb">-p</code>  option for <code class="verb">mkdir</code> . This option creates
+any parent folders that are needed, so in this case, it’ll create the <span class="code-directory"><code class="verb">Music</code></span> for us and then create the
+Beethoven folder after that. Write <code class="verb">mkdir -p Books/Music/Beethoven</code> .
+</p>
+<pre><div class="code-header"> <span class="code-language">bash</span> </div> <code class="language-bash">
+<pre class="fancyvrb" id="fancyvrb60"><a id="x31-191018r276"></a>mkdir -p Books/Music/Beethoven</pre>
+</code></pre>
+<p class="noindent"></p><figure class="float">
+<p class="noindent"><dl class="first-deffn first-defun-alias-first-deffn def-block"><a class="copiable-link" href="#command-block-7.13"> ¶</a><dt class="deffn defun-alias-deffn def-line" id="command-block-7.13"><a id="x31-191019r13"></a><span class="category-def"><b>command:</b> </span><strong class="def-name">rmdir</strong><var class="def-var-arguments"> [OPTION]... DIRECTORY...</var><span class="active-manual"><a href="https://man7.org/linux/man-pages/man1/rmdir.1.html"><i class="fa-solid fa-globe"></i></a></span></dt><dd><p> Remove empty directories. </p></dd></dl></p>
+</figure>
+<p class="noindent">This is a versatile command. We can also remove empty directories using the <code class="verb">rmdir</code>  command for remove
+directory. Let’s go remove the Beethoven folder that we just created. For that, we have to
+write write <code class="verb">rmdir Books/Music/Beethoven</code>  and now if we take a look inside the <span class="code-directory"><code class="verb">Music</code></span> folder, it’s empty. One thing to
+keep in mind about removing folders this way is that in order to remove a folder, it has to
+be empty. That means it’s a little more tedious to remove a large folder structure with <code class="verb">rmdir</code>
+.
+</p>
+<p class="noindent"><div class="subsection-header"> <h4 id="header-subsection-7.1.3"> <a class="pdf-icon" href="AutonomousMobileRoboticsLectureBook.pdf#subsection.7.1.3"><svg class="bi bi-file-pdf" fill="currentColor" height="20" viewbox="0 0 16 16" width="20" xmlns="http://www.w3.org/2000/svg"><path d="M4 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H4zm0 1h8a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1z"></path><path d="M4.603 12.087a.81.81 0 0 1-.438-.42c-.195-.388-.13-.776.08-1.102.198-.307.526-.568.897-.787a7.68 7.68 0 0 1 1.482-.645 19.701 19.701 0 0 0 1.062-2.227 7.269 7.269 0 0 1-.43-1.295c-.086-.4-.119-.796-.046-1.136.075-.354.274-.672.65-.823.192-.077.4-.12.602-.077a.7.7 0 0 1 .477.365c.088.164.12.356.127.538.007.187-.012.395-.047.614-.084.51-.27 1.134-.52 1.794a10.954 10.954 0 0 0 .98 1.686 5.753 5.753 0 0 1 1.334.05c.364.065.734.195.96.465.12.144.193.32.2.518.007.192-.047.382-.138.563a1.04 1.04 0 0 1-.354.416.856.856 0 0 1-.51.138c-.331-.014-.654-.196-.933-.417a5.716 5.716 0 0 1-.911-.95 11.642 11.642 0 0 0-1.997.406 11.311 11.311 0 0 1-1.021 1.51c-.29.35-.608.655-.926.787a.793.793 0 0 1-.58.029zm1.379-1.901c-.166.076-.32.156-.459.238-.328.194-.541.383-.647.547-.094.145-.096.25-.04.361.01.022.02.036.026.044a.27.27 0 0 0 .035-.012c.137-.056.355-.235.635-.572a8.18 8.18 0 0 0 .45-.606zm1.64-1.33a12.647 12.647 0 0 1 1.01-.193 11.666 11.666 0 0 1-.51-.858 20.741 20.741 0 0 1-.5 1.05zm2.446.45c.15.162.296.3.435.41.24.19.407.253.498.256a.107.107 0 0 0 .07-.015.307.307 0 0 0 .094-.125.436.436 0 0 0 .059-.2.095.095 0 0 0-.026-.063c-.052-.062-.2-.152-.518-.209a3.881 3.881 0 0 0-.612-.053zM8.078 5.8a6.7 6.7 0 0 0 .2-.828c.031-.188.043-.343.038-.465a.613.613 0 0 0-.032-.198.517.517 0 0 0-.145.04c-.087.035-.158.106-.196.283-.04.192-.03.469.046.822.024.111.054.227.09.346z"></path></svg></a><span class="number">7.1.3</span> <span class="title"> <a id="x31-1920007.1.3"></a>Move, Copy and Delete Files and Folders</span></h4></div>
+</p><p class="noindent">It’s pretty common to need to move, copy, and delete files in our day to day <span class="acronym"><span class="acronym-short"><a class="glossary" href="#glo:gui">GUI</a></span><span class="acronym-detail"><span class="acronym-long"><a class="glossary" href="#glo:gui">Graphical User
+Interface</a></span><span class="acronym-desc"><a class="glossary" href="#glo:gui">Graphical User Interface</a></span></span></span> activities, and this is also true when you are working using a
+<span class="acronym"><span class="acronym-short"><a class="glossary" href="#glo:cli">CLI</a></span><span class="acronym-detail"><span class="acronym-long"><a class="glossary" href="#glo:cli">Command-Line Interface</a></span><span class="acronym-desc"><a class="glossary" href="#glo:cli">A software mechanism you use to interact with your operating system
+using your keyboard</a></span></span></span>. Some experienced command line users would even argue that it is more efficient
+and effective to do file management using <span class="acronym"><span class="acronym-short"><a class="glossary" href="#glo:cli">CLI</a></span><span class="acronym-detail"><span class="acronym-long"><a class="glossary" href="#glo:cli">Command-Line Interface</a></span><span class="acronym-desc"><a class="glossary" href="#glo:cli">A software mechanism you
+use to interact with your operating system using your keyboard</a></span></span></span> than <span class="acronym"><span class="acronym-short"><a class="glossary" href="#glo:gui">GUI</a></span><span class="acronym-detail"><span class="acronym-long"><a class="glossary" href="#glo:gui">Graphical User
+Interface</a></span><span class="acronym-desc"><a class="glossary" href="#glo:gui">Graphical User Interface</a></span></span></span> as <span class="acronym"><span class="acronym-short"><a class="glossary" href="#glo:gui">GUI</a></span><span class="acronym-detail"><span class="acronym-long"><a class="glossary" href="#glo:gui">Graphical User Interface</a></span><span class="acronym-desc"><a class="glossary" href="#glo:gui">Graphical User Interface</a></span></span></span>
+might take more time with mouse <span class="margin-block">movements. <span class="margin-comment"><a class="ellipsis" href="#m-ref-177">[177]</a>
+<span class="sidenote">Which the author of this LectureBook also
+agrees.</span></span></span>
+</p>
+<p class="noindent"><h5 class="subsubsectionHead" id="header-subsubsection-63"> <a id="x31-193000"></a>Copying Files</h5>
+</p><p class="noindent">In light of this, the first command for you to learn using in <span class="acronym"><span class="acronym-short"><a class="glossary" href="#glo:cli">CLI</a></span><span class="acronym-detail"><span class="acronym-long"><a class="glossary" href="#glo:cli">Command-Line Interface</a></span><span class="acronym-desc"><a class="glossary" href="#glo:cli">A software
+mechanism you use to interact with your operating system using your keyboard</a></span></span></span> file management to you
+here is <code class="verb">cp</code>  which stands for <b>copy</b><span class="margin-block">. <span class="margin-comment"><a class="ellipsis" href="#m-ref-178">[178]</a>
+<span class="sidenote">Remember if we don’t remember or know how a command options
+work use the <code class="verb">man</code>  command followed by the command you want to know more about (i.e., <code class="verb">man cp</code>
+).)</span></span></span>
+</p>
+<p class="noindent"></p><figure class="float">
+<p class="noindent"><dl class="first-deffn first-defun-alias-first-deffn def-block"><a class="copiable-link" href="#command-block-7.14"> ¶</a><dt class="deffn defun-alias-deffn def-line" id="command-block-7.14"><a id="x31-193001r14"></a><span class="category-def"><b>command:</b> </span><strong class="def-name">cp</strong><var class="def-var-arguments"> [OPTION]... [-T] SOURCE DEST]</var><span class="active-manual"><a href="https://man7.org/linux/man-pages/man1/cp.1.html"><i class="fa-solid fa-globe"></i></a></span></dt><dd><p> Copy files and directories. </p></dd></dl></p>
+</figure>
+<p class="noindent">Let’s make a duplicate copy of our <code class="verb">Poem.txt</code>  file. As we can see, we are at the right directory to do any
+duplication.
+</p>
+<pre><div class="code-header"> <span class="code-language">bash</span> </div> <code class="language-bash">
+<pre class="fancyvrb" id="fancyvrb61"><a id="x31-193003r283"></a>ls -l</pre>
+</code></pre>
+<pre><code class="language-text">
+<pre class="fancyvrb" id="fancyvrb62"><a id="x31-193005r288"></a>total 20 
+<a id="x31-193007r289"></a>drwxrwxr-x 1 ubuntu ubuntu 4096 May 19 06:07 Books 
+<a id="x31-193009r290"></a>-rw-rw-r-- 1 ubuntu ubuntu  102 Nov 20  2020 Data.txt 
+<a id="x31-193011r291"></a>drwxrwxr-x 1 ubuntu ubuntu 4096 Nov 20  2020 Folder 
+<a id="x31-193013r292"></a>-rw-rw-r-- 1 ubuntu ubuntu  592 Nov 18  2020 Poem.txt</pre>
+</code></pre>
+<p class="noindent">Let’s write to the <span class="margin-block">terminal, <span class="margin-comment"><a class="ellipsis" href="#m-ref-179">[179]</a>
+<span class="sidenote">if you don’t have a terminal window open you can open one using <kbd>Ctrl</kbd> +
+<kbd>Alt</kbd> + <kbd>T</kbd></span></span></span> <code class="verb">cp Poem.txt poem_Copy.txt</code> . The first file name is the file you want to copy (<code class="verb">Poem.txt</code> ), and the second file name is where you
+want to copy it to (<code class="verb">Poem_Copy.txt</code> ).
+</p>
+<pre><div class="code-header"> <span class="code-language">bash</span> </div> <code class="language-bash">
+<pre class="fancyvrb" id="fancyvrb63"><a id="x31-193015r297"></a>cp Poem.txt Poem_Copy.txt</pre>
+</code></pre>
+<p class="noindent">Press <kbd>Return</kbd>, and then take a look at the contents of this folder again with <code class="verb">ls -h</code> . Here we can see, there’s
+the original <code class="verb">Poem.txt</code>  file, and here’s <code class="verb">Poem_Copy.txt</code> . We can also copy a file to a different path. For example, we can copy our
+<code class="verb">Poem.txt</code> file into our <span class="code-directory"><code class="verb">Poetry</code></span> inside the <span class="code-directory"><code class="verb">Books</code></span> To do that, write <code class="verb">cp Poem.txt</code> , and then use <kbd>Tab</kbd> completion to get to
+<span class="code-directory"><code class="verb">[</code></span>/]Books/Poetry.
+</p>
+<pre><div class="code-header"> <span class="code-language">bash</span> </div> <code class="language-bash">
+<pre class="fancyvrb" id="fancyvrb64"><a id="x31-193017r302"></a>cp Poem.txt Books/Poetry</pre>
+</code></pre>
+<p class="noindent">If we list the folder, we can see that the file’s been copied there.
+</p>
+<pre><div class="code-header"> <span class="code-language">bash</span> </div> <code class="language-bash">
+<pre class="fancyvrb" id="fancyvrb65"><a id="x31-193019r307"></a><span style="color:#B03B03;">cd</span> Books/Poetry &amp;&amp; ls -h</pre>
+</code></pre>
+<pre><code class="language-text">
+<pre class="fancyvrb" id="fancyvrb66"><a id="x31-193021r312"></a>Poem.txt</pre>
+</code></pre>
+<p class="noindent"><h5 class="subsubsectionHead" id="header-subsubsection-64"> <a id="x31-194000"></a>Moving Files</h5>
+</p>
+<p class="noindent"></p><figure class="float">
+<p class="noindent"><dl class="first-deffn first-defun-alias-first-deffn def-block"><a class="copiable-link" href="#command-block-7.15"> ¶</a><dt class="deffn defun-alias-deffn def-line" id="command-block-7.15"><a id="x31-194001r15"></a><span class="category-def"><b>command:</b> </span><strong class="def-name">mv</strong><var class="def-var-arguments"> [OPTION]... [-T] SOURCE DEST]</var><span class="active-manual"><a href="https://man7.org/linux/man-pages/man1/mv.1.html"><i class="fa-solid fa-globe"></i></a></span></dt><dd><p> Move (rename) files. </p></dd></dl></p>
+</figure>
+<p class="noindent">Let’s now look at moving a file rather than copying. In principle, the move command has two
+(<span class="alert">2</span>) uses:
+</p>
+<dl class="enumerate-enumitem"><dt class="enumerate-enumitem">
+1. 
+</dt><dd class="enumerate-enumitem">You can use it to move files between folders,
+</dd>
+<dt class="enumerate-enumitem">
+2. 
+</dt><dd class="enumerate-enumitem">You can also use it to rename files.</dd></dl>
+<p class="noindent">The command for move is <code class="verb">mv</code> , so using this command let’s move the <code class="verb">Poem_Copy.txt</code>  to the <code class="verb">/Books</code>  subfolder inside the <code class="verb">/Linux Tutorial</code>
+folder.
+</p>
+<pre><div class="code-header"> <span class="code-language">bash</span> </div> <code class="language-bash">
+<pre class="fancyvrb" id="fancyvrb67"><a id="x31-194005r317"></a><span style="color:#B03B03;">cd</span> - &amp;&amp; mv Poem_Copy.txt Books/ </pre>
+</code></pre>
+<p class="noindent">And we can check that the file’s in that folder. And then we can see that it’s no longer in the original
+folder by using <code class="verb">ls</code>  here. It is also possible, as we mentioned before, to rename files with the <code class="verb">mv</code>
+command.
+</p><p class="noindent">Let’s try it. Let’s rename the <code class="verb">Poem_Copy.txt</code>  to <code class="verb">Poem_Duplicate.txt</code>  using the <code class="verb">mv</code>  command.
+</p>
+<pre><div class="code-header"> <span class="code-language">bash</span> </div> <code class="language-bash">
+<pre class="fancyvrb" id="fancyvrb68"><a id="x31-194007r336"></a><span style="color:#B03B03;">cd</span> Books &amp;&amp; mv Poem_Copy.txt Poem_Duplicate.txt</pre>
+</code></pre>
+<p class="noindent">We can see that the file has been renamed.
+</p>
+<pre><div class="code-header"> <span class="code-language">bash</span> </div> <code class="language-bash">
+<pre class="fancyvrb" id="fancyvrb69"><a id="x31-194009r341"></a>ls -lh</pre>
+</code></pre>
+<pre><code class="language-text">
+<pre class="fancyvrb" id="fancyvrb70"><a id="x31-194011r346"></a>total 56K 
+<a id="x31-194013r347"></a>drwxrwxr-x 1 ubuntu ubuntu 4.0K Nov 18  2020 Classics 
+<a id="x31-194015r348"></a>drwxrwxr-x 1 ubuntu ubuntu 4.0K Nov 18  2020 Fantasy 
+<a id="x31-194017r349"></a>drwxrwxr-x 1 ubuntu ubuntu 4.0K Nov 18  2020 Literature 
+<a id="x31-194019r350"></a>drwxr-xr-x 2 root   root   4.0K May 19 06:07 Lyrics 
+<a id="x31-194021r351"></a>drwxrwxr-x 1 ubuntu ubuntu 4.0K May 19 06:08 Music 
+<a id="x31-194023r352"></a>-rw-r--r-- 1 root   root    592 May 19 06:10 Poem_Duplicate.txt 
+<a id="x31-194025r353"></a>drwxrwxr-x 1 ubuntu ubuntu 4.0K May 19 06:10 Poetry 
+<a id="x31-194027r354"></a>drwxrwxr-x 1 ubuntu ubuntu 4.0K Nov 18  2020 Sci-Fi 
+<a id="x31-194029r355"></a>drwxrwxr-x 1 ubuntu ubuntu 4.0K Nov 18  2020 Science</pre>
+</code></pre>
+<p class="noindent">If we want to jump up a hierarchy in the file system we write <code class="verb">cd ..</code>
+</p>
+<pre><div class="code-header"> <span class="code-language">bash</span> </div> <code class="language-bash">
+<pre class="fancyvrb" id="fancyvrb71"><a id="x31-194031r360"></a><span style="color:#B03B03;">cd</span> .. &amp;&amp; <span style="color:#B03B03;">pwd</span></pre>
+</code></pre>
+<pre><code class="language-text">
+<pre class="fancyvrb" id="fancyvrb72"><a id="x31-194033r365"></a>/home/ubuntu/Desktop/Linux Tutorials</pre>
+</code></pre>
+<p class="noindent">There’s another shortcut you should know about, which is the single dot (<code class="verb">.</code> ) .This represents the current
+folder you are working in. We can use that when working with files. Let’s use that to move our <code class="verb">Poem_Duplicate.txt</code>
+back from the <code class="verb">/Books</code> , to the <code class="verb">/Linux Tutorials</code>  folder, which is the current working folder. Write the following
+code;
+</p>
+<pre><div class="code-header"> <span class="code-language">bash</span> </div> <code class="language-bash">
+<pre class="fancyvrb" id="fancyvrb73"><a id="x31-194035r370"></a>mv Books/Poem_Duplicate.txt .</pre>
+</code></pre>
+<p class="noindent">Take a look at this folder. There is our <code class="verb">Poem_Duplicate.txt</code> . To remove this entry we should clear the screen. To do that
+simply write in your terminal:
+</p>
+<pre><div class="code-header"> <span class="code-language">bash</span> </div> <code class="language-bash">
+<pre class="fancyvrb" id="fancyvrb74"><a id="x31-194037r375"></a>clear</pre>
+</code></pre>
+<p class="noindent">Of course, you can move, copy, and delete more than one thing at a time, and one of the ways we do
+that is with what are called <b>wildcards</b>. Wildcards are characters that stand for patterns. We’ll see
+more about patterns later, so here we will have a look at the two most common wildcards:
+</p>
+<dl class="description"><dt class="description"><a id="x31-194038x7.1.3.0"></a>
+<span style="color:#0A2A0A;">Asterisk (<code class="verb">*</code> )</span>
+</dt><dd class="description">
+<p class="noindent"> Any number of character(s)
+</p>
+</dd>
+<dt class="description"><a id="x31-194039x7.1.3.0"></a>
+<span style="color:#0A2A0A;">Question mark (<code class="verb">?</code> )</span>
+</dt><dd class="description">
+<p class="noindent"> A single character</p></dd></dl>
+<p class="noindent">Take a look at how these work with the move (<code class="verb">mv</code> ) command. Imagine a scenario where we want to move
+all of the <code class="verb">.txt</code>  files to the <code class="verb">/Poetry</code>  folder which is inside the <code class="verb">/Books</code>  folder. Instead of typing out all the names
+individually, we can write:
+</p>
+<pre><div class="code-header"> <span class="code-language">bash</span> </div> <code class="language-bash">
+<pre class="fancyvrb" id="fancyvrb75"><a id="x31-194041r380"></a>mv *.txt Books/Poetry</pre>
+</code></pre>
+<p class="noindent">Seeing the <span class="code-directory"><code class="verb">Linux Tutorials</code></span> again, we can see that the text files have disappeared and taking a look at
+<span class="code-directory"><code class="verb">Poetry</code></span>, we can see that those files have been moved. reverse our last action and move them back. We
+know the only thing in the <code class="verb">/Poetry</code>  folder are my text files, so let’s use the wildcard a little bit differently and
+more interesting. If we don’t specify a file extension or any other part of a name, and use only
+asterisk (<code class="verb">*</code> ) by itself, it represents all of the files in the given folder. Let’s write the following
+code.
+</p>
+<pre><div class="code-header"> <span class="code-language">bash</span> </div> <code class="language-bash">
+<pre class="fancyvrb" id="fancyvrb76"><a id="x31-194043r385"></a>mv Books/Poetry/* .</pre>
+</code></pre>
+<p class="noindent"><h5 class="subsubsectionHead" id="header-subsubsection-65"> <a id="x31-195000"></a>Removing Files</h5>
+</p><p class="noindent">So we’ll move everything in <span class="code-directory"><code class="verb">Poetry</code></span> to the current folder. Let’s list the folder, and we can see that the
+files are back. Finally, to delete or remove files, we use the <code class="verb">rm</code>  command.
+</p><p class="noindent">First, let’s get rid of this <code class="verb">Poem_Duplicate.txt</code>  file since it’s the duplicate of the <code class="verb">Poem.txt</code>  file. To do that, let’s write;
+</p>
+<pre><div class="code-header"> <span class="code-language">bash</span> </div> <code class="language-bash">
+<pre class="fancyvrb" id="fancyvrb77"><a id="x31-195002r390"></a>rm Poem_Duplicate.txt</pre>
+</code></pre>
+<p class="noindent">And if we list the folder again, we can see that the <code class="verb">Poem_Duplicate.txt</code>  has been deleted. It’s important to keep
+in mind that, unlike in most graphical file browsers, there’s not a trashcan or a recycle
+bin for deleted files when working with the command line. That file is gone and became
+just a collection of 1s and 0s in the memory with no meaning. As a last example let’s use
+the question mark (<code class="verb">?</code> ) wildcard. So, before we begin, let’s make a few more copies of the <code class="verb">Poem.txt</code>
+.
+</p>
+<pre><div class="code-header"> <span class="code-language">bash</span> </div> <code class="language-bash">
+<pre class="fancyvrb" id="fancyvrb78"><a id="x31-195004r395"></a>cp Poem.txt Poem2.txt &amp;&amp; cp Poem.txt Poem3.txt &amp;&amp; cp Poem.txt Poem4.txt</pre>
+</code></pre>
+<p class="noindent">Let’s list the current folder, and here they are.
+</p>
+<pre><div class="code-header"> <span class="code-language">bash</span> </div> <code class="language-bash">
+<pre class="fancyvrb" id="fancyvrb79"><a id="x31-195006r400"></a>ls -lh</pre>
+</code></pre>
+<pre><code class="language-text">
+<pre class="fancyvrb" id="fancyvrb80"><a id="x31-195008r405"></a>total 32K 
+<a id="x31-195010r406"></a>drwxrwxr-x 1 ubuntu ubuntu 4.0K May 19 06:15 Books 
+<a id="x31-195012r407"></a>-rw-rw-r-- 1 ubuntu ubuntu  102 Nov 20  2020 Data.txt 
+<a id="x31-195014r408"></a>drwxrwxr-x 1 ubuntu ubuntu 4.0K Nov 20  2020 Folder 
+<a id="x31-195016r409"></a>-rw-rw-r-- 1 ubuntu ubuntu  592 Nov 18  2020 Poem.txt 
+<a id="x31-195018r410"></a>-rw-r--r-- 1 root   root    592 May 19 06:18 Poem2.txt 
+<a id="x31-195020r411"></a>-rw-r--r-- 1 root   root    592 May 19 06:18 Poem3.txt 
+<a id="x31-195022r412"></a>-rw-r--r-- 1 root   root    592 May 19 06:18 Poem4.txt</pre>
+</code></pre>
+<p class="noindent">Now we’ll use a question mark wildcard (<code class="verb">?</code> ) to delete them. To do that, let’s write
+</p>
+<pre><div class="code-header"> <span class="code-language">bash</span> </div> <code class="language-bash">
+<pre class="fancyvrb" id="fancyvrb81"><a id="x31-195024r417"></a>rm Poem?.txt</pre>
+</code></pre>
+<p class="noindent">This doesn’t mean delete <code class="verb">Poem.txt</code> , but it means delete files called <code class="verb">Poem.txt</code>  with only one character afterward, which,
+in our case, is <code class="verb">Poem2.txt</code> , <code class="verb">Poem3.txt</code>  and <code class="verb">Poem4.txt</code> . Let’s list the folder again, and see that we’ve deleted two files with just one
+command.
+</p>
+<pre><div class="code-header"> <span class="code-language">bash</span> </div> <code class="language-bash">
+<pre class="fancyvrb" id="fancyvrb82"><a id="x31-195026r422"></a>ls -lh</pre>
+</code></pre>
+<pre><code class="language-text">
+<pre class="fancyvrb" id="fancyvrb83"><a id="x31-195028r427"></a>total 20K 
+<a id="x31-195030r428"></a>drwxrwxr-x 1 ubuntu ubuntu 4.0K May 19 06:15 Books 
+<a id="x31-195032r429"></a>-rw-rw-r-- 1 ubuntu ubuntu  102 Nov 20  2020 Data.txt 
+<a id="x31-195034r430"></a>drwxrwxr-x 1 ubuntu ubuntu 4.0K Nov 20  2020 Folder 
+<a id="x31-195036r431"></a>-rw-rw-r-- 1 ubuntu ubuntu  592 Nov 18  2020 Poem.txt</pre>
+</code></pre>
+<p class="noindent">Let’s clear the screen again. <code class="verb">rm</code>  has some options, too, and one of them makes it act <b>recursively</b>. This
+options allows <code class="verb">rm</code>  to go into a structure of folders and walks through it, performing an action on each
+folder before it moves up the tree. Let’s try to delete the <code class="verb">/J.R.R. Tolkien</code>  folder from our <code class="verb">/Books</code>  folder. If we write <code class="verb">rmdir Books/Fantasy/J.R.R.\relax \protect \unhbox \voidb@x \special {t4ht@+&amp;{35}x00A0{59}}xTolkien</code> , we get
+an error about the directory not being empty.
+</p>
+<pre><div class="code-header"> <span class="code-language">bash</span> </div> <code class="language-bash">
+<pre class="fancyvrb" id="fancyvrb84"><a id="x31-195038r441"></a>rmdir Books/Fantasy/J.R.R.<span style="color:#B03B03;">\ </span>Tolkien</pre>
+</code></pre>
+<pre><code class="language-text">
+<pre class="fancyvrb" id="fancyvrb85"><a id="x31-195040r446"></a>rmdir: failed to remove 'Books/Fantasy/J.R.R. Tolkien': Directory not empty</pre>
+</code></pre>
+<p class="noindent">Trying <code class="verb">rm</code>  we get a different error, complaining that the directory is a directory.
+</p>
+<pre><div class="code-header"> <span class="code-language">bash</span> </div> <code class="language-bash">
+<pre class="fancyvrb" id="fancyvrb86"><a id="x31-195042r451"></a>rm Books/Fantasy/J.R.R.<span style="color:#B03B03;">\ </span>Tolkien</pre>
+</code></pre>
+<pre><code class="language-text">
+<pre class="fancyvrb" id="fancyvrb87"><a id="x31-195044r456"></a>rm: cannot remove 'Books/Fantasy/J.R.R. Tolkien': Is a directory</pre>
+</code></pre>
+<p class="noindent">So let’s delete this folder by deleting everything inside of it first. To do that, Write <code class="verb">rm -r</code> , for recursion, <code class="verb">Books/Fantasy/J.R.R.\relax \protect \unhbox \voidb@x \special {t4ht@+&amp;{35}x00A0{59}}xTolkien</code> ,
+and then remove command takes care of everything.
+</p>
+<pre><div class="code-header"> <span class="code-language">bash</span> </div> <code class="language-bash">
+<pre class="fancyvrb" id="fancyvrb88"><a id="x31-195046r461"></a>rm -r Books/Fantasy/J.R.R.<span style="color:#B03B03;">\ </span>Tolkien</pre>
+</code></pre>
+<p class="noindent">Continue exploring and practising with these commands, but remember to be careful. There’s no safety
+net for removing files. So keep your exploration inside the Linux Tutorials folder or another safe place
+for now.
+</p>
+<div class="info-block" id="info-block-7.28"> <a class="copiable-link" href="#info-block-7.28"> ¶</a> <span class="info-upper"> <span class="info-header"> <b>Information 7.<a id="x31-195047r28"></a>28: </b> </span> <span class="info-title"> Full Power to the User </span> </span> <div class="body">
+<p class="noindent">One of the <span class="margin-block">interesting <span class="margin-comment"><a class="ellipsis" href="#m-ref-180">[180]</a>
+<span class="sidenote">or terrifying, if you were to ask a system administrator.</span></span></span> aspect of Linux/Unix is
+its total trust of the users intention. Most modern systems have some sort of a fail-safe mechanism,
+whereas in Linux it is very much possible to destroy your computer using just eight characters.
+i.e.,
+</p>
+<pre><div class="code-header"> <span class="code-language">bash</span> </div> <code class="language-bash">
+<pre class="fancyvrb" id="fancyvrb89"><a id="x31-195049r492"></a>rm -rf ./</pre>
+</code></pre>
+<p class="noindent">Of course, modern distros have implemented security measures to prevent users from doing something
+stupid, which, as it is Linux, can be avoided by using:
+</p>
+<pre><div class="code-header"> <span class="code-language">bash</span> </div> <code class="language-bash">
+<pre class="fancyvrb" id="fancyvrb90"><a id="x31-195051r499"></a>rm -rf ./ --no-preserve-root</pre>
+</code></pre>
+</div></div>
+<p class="noindent"><h5 class="subsubsectionHead" id="header-subsubsection-66"> <a id="x31-196000"></a>Finding Files</h5>
+</p><p class="noindent">Sometimes you’ll need to look for a file but you don’t exactly know where it is. For that, we have the <code class="verb">find</code>
+command.
+</p>
+<p class="noindent"></p><figure class="float">
+<p class="noindent"><dl class="first-deffn first-defun-alias-first-deffn def-block"><a class="copiable-link" href="#command-block-7.16"> ¶</a><dt class="deffn defun-alias-deffn def-line" id="command-block-7.16"><a id="x31-196001r16"></a><span class="category-def"><b>command:</b> </span><strong class="def-name">find</strong><var class="def-var-arguments"> [-H|-L] path... [expression]</var><span class="active-manual"><a href="https://man7.org/linux/man-pages/man1/find.1.html"><i class="fa-solid fa-globe"></i></a></span></dt><dd><p> Search for files in a directory hierarchy. </p></dd></dl></p>
+</figure>
+<p class="noindent"><code class="verb">find</code> has a lot of options and therefore is quite versatile, which are worth exploring as it will be a useful
+tool in your arsenal. For now, we’ll take a look at a simple usage.
+</p><p class="noindent">To use <code class="verb">find</code> , let’s type <code class="verb">find</code>  and then the <b>scope</b> of where we want to search. For that we’ll use the dot
+character for the <b>current working directory</b>, which now is our <span class="code-directory"><code class="verb">Linux Tutorials</code></span>.
+</p><p class="noindent">Then as an option we’ll type <code class="verb">-name</code> , which is the expression that we are using to match files.
+With this expression what we are saying to the shell is we want to match based on the file
+name.
+</p><p class="noindent">Then we need to put a matching pattern for what we are looking for. Let’s put <code class="verb">Poe*</code>  in double quotes (<code class="verb">"Poe*"</code> )<span class="margin-block">.
+<span class="margin-comment"><a class="ellipsis" href="#m-ref-181">[181]</a>
+<span class="sidenote">Remember that the star or asterisk <b>wildcard</b> will match any number of characters.</span></span></span>
+</p><p class="noindent">This should find our <span class="code-directory"><code class="verb">Poem.txt</code></span> file. Sure enough, it did along with anything that starts with the letters <code class="verb">P</code>
+-<code class="verb">o</code> -<code class="verb">e</code> .
+</p>
+<pre><div class="code-header"> <span class="code-language">bash</span> </div> <code class="language-bash">
+<pre class="fancyvrb" id="fancyvrb91"><a id="x31-196003r466"></a>find -name <span style="color:#78730D;">"Poe*"</span></pre>
+</code></pre>
+<pre><code class="language-text">
+<pre class="fancyvrb" id="fancyvrb92"><a id="x31-196005r472"></a>./Poem.txt 
+<a id="x31-196007r473"></a>./Books/Poem_Duplicate.txt 
+<a id="x31-196009r474"></a>./Books/Poetry 
+<a id="x31-196011r475"></a>./Books/Poetry/Poem.txt</pre>
+</code></pre>
+<p class="noindent"><code class="verb">find</code> is a really helpful command to know about as you explore your system.
+</p>
+<p class="noindent"><span class="paragraphHead"> <a id="x31-197000"></a>Expressions</span>
+As mentioned, <code class="verb">find</code>  is a very versatile command which can execute numerous operations within the search
+directory and this is mainly done using expressions. The expression specifies the behaviour of the
+command including what files to <span class="margin-block">select <span class="margin-comment"><a class="ellipsis" href="#m-ref-182">[182]</a>
+<span class="sidenote">This is sometimes known as <b>predicate</b>.</span></span></span> and what to do with
+each matching <span class="margin-block">file. <span class="margin-comment"><a class="ellipsis" href="#m-ref-183">[183]</a>
+<span class="sidenote">Sometimes known as <b>action</b>.</span></span></span> The elements of an expression commonly
+include:
+</p>
+<dl class="description"><dt class="description"><a id="x31-197001x7.1.3.0.0"></a>
+<span style="color:#0A2A0A;"><code class="verb">-name</code> pattern</span>
+</dt><dd class="description">
+<p class="noindent"> Selects files with a name that matches a shell-glob pattern.
+</p>
+</dd>
+<dt class="description"><a id="x31-197002x7.1.3.0.0"></a>
+<span style="color:#0A2A0A;"><code class="verb">-type</code> type</span>
+</dt><dd class="description">
+<p class="noindent"> Selects files that are a specific Unix file type.
+</p>
+<p class="noindent"><code class="verb">b</code>  block device (buffered), <code class="verb">c</code>  character device (unbuffered), <code class="verb">d</code>  directory, <code class="verb">f</code>  regular file, <code class="verb">l</code>  symbolic link, <code class="verb">p</code>  named
+pipe, <code class="verb">s</code>  socket, and <code class="verb">D</code>  door.
+</p>
+</dd>
+<dt class="description"><a id="x31-197003x7.1.3.0.0"></a>
+<span style="color:#0A2A0A;"><code class="verb">-print</code> </span>
+</dt><dd class="description">
+<p class="noindent"> Prints the name of the found file plus a newline to the standard output. If the expression does <b>NOT</b> contain
+an action option (such as -print0, -exec, or -ok) the action of <code class="verb">-print</code>  is performed.
+</p>
+</dd>
+<dt class="description"><a id="x31-197004x7.1.3.0.0"></a>
+<span style="color:#0A2A0A;"><code class="verb">-print0</code> </span>
+</dt><dd class="description">
+<p class="noindent"> Prints the name of the found file plus a null character to the standard output. This is <b>NOT</b> required by
+POSIX.
+</p>
+</dd>
+<dt class="description"><a id="x31-197005x7.1.3.0.0"></a>
+<span style="color:#0A2A0A;"><code class="verb">-exec program [argument...] ;</code> </span>
+</dt><dd class="description">
+<p class="noindent"> Runs a program with arguments for each candidate file, selecting files for which the program results in
+exit status <code class="verb">0</code> . If program or an argument is <code class="verb">{}</code> , it is replaced with the candidate path. POSIX doesn’t specify
+what happens if multiple <code class="verb">{}</code>  are specified. Most implementations replace each <code class="verb">{}</code>  with the candidate path.
+</p>
+</dd>
+<dt class="description"><a id="x31-197006x7.1.3.0.0"></a>
+<span style="color:#0A2A0A;"><code class="verb">-exec program [argument...] {} +</code> </span>
+</dt><dd class="description">
+<p class="noindent"> Runs a program with arguments followed by as many candidate paths as possible. Multiple commands are
+run if the maximum command-line size is exceeded, like for <code class="verb">xargs</code> ).
+</p>
+</dd>
+<dt class="description"><a id="x31-197007x7.1.3.0.0"></a>
+<span style="color:#0A2A0A;"><code class="verb">-ok program [argument...] ;</code> </span>
+</dt><dd class="description">
+<p class="noindent"> For each candidate path, prompts the user for confirmation. If the user confirms, it behaves like <code class="verb">-exec program [arguments...] ;</code> , otherwise
+the command is <b>NOT</b> run for the candidate path and the file is not selected.
+</p>
+</dd>
+<dt class="description"><a id="x31-197008x7.1.3.0.0"></a>
+<span style="color:#0A2A0A;"><code class="verb">-maxdepth</code> </span>
+</dt><dd class="description">
+<p class="noindent"> Limits the directory depth to search.
+</p>
+</dd>
+<dt class="description"><a id="x31-197009x7.1.3.0.0"></a>
+<span style="color:#0A2A0A;"><code class="verb">-mtime, -ctime, -atime</code> </span>
+</dt><dd class="description">
+<p class="noindent"> Modification time, inode change time and access time, respectively. Selects files with time metadata
+matching a number of days ago. With a <code class="verb">+</code>  prefix, the number specifies at least and with a <code class="verb">-</code>  prefix, the
+number specifies less than.
+</p>
+</dd>
+<dt class="description"><a id="x31-197010x7.1.3.0.0"></a>
+<span style="color:#0A2A0A;"><code class="verb">-daystart</code> </span>
+</dt><dd class="description">
+<p class="noindent"> Measure time from the beginning of a day rather than the last 24 hours.
+</p>
+</dd>
+<dt class="description"><a id="x31-197011x7.1.3.0.0"></a>
+<span style="color:#0A2A0A;"><code class="verb">-newer, -cnewer, -anewer [file]</code> </span>
+</dt><dd class="description">
+<p class="noindent"> Selects files more recently modified than a file. These support a <code class="verb">-not</code>  prefix for inverse results or range.
+</p>
+</dd>
+<dt class="description"><a id="x31-197012x7.1.3.0.0"></a>
+<span style="color:#0A2A0A;"><code class="verb">-newermt YYYY-MM-DD</code> </span>
+</dt><dd class="description">
+<p class="noindent"> Selects files with last modified after date. Also supports a <code class="verb">-not</code>  prefix for modified before date.</p></dd></dl>
+<p class="noindent"><p>
+</p>
+<p class="noindent"><span class="paragraphHead"> <a id="x31-198000"></a>Operators</span>
+Operators are used to combine expression elements. Operators are listed in order of decreasing
+precedence:
+</p>
+<dl class="description"><dt class="description"><a id="x31-198001x7.1.3.0.0"></a>
+<span style="color:#0A2A0A;">Precedence</span>
+</dt><dd class="description">
+<p class="noindent"> <code class="verb">( expr )</code>  Selects evaluation order of subexpression.
+</p>
+</dd>
+<dt class="description"><a id="x31-198002x7.1.3.0.0"></a>
+<span style="color:#0A2A0A;">Negation</span>
+</dt><dd class="description">
+<p class="noindent"> <code class="verb">! expr</code>  true if expr is false.
+</p>
+</dd>
+<dt class="description"><a id="x31-198003x7.1.3.0.0"></a>
+<span style="color:#0A2A0A;">Logical and</span>
+</dt><dd class="description">
+<p class="noindent"> <code class="verb">expr1 expr2 or expr1 -a expr2</code>  where <code class="verb">expr2</code>  is not evaluated if <code class="verb">expr1</code>  is false.
+</p>
+</dd>
+<dt class="description"><a id="x31-198004x7.1.3.0.0"></a>
+<span style="color:#0A2A0A;">Logical or</span>
+</dt><dd class="description">
+<p class="noindent"> <code class="verb">expr1 -o expr2</code>  where <code class="verb">expr2</code>  is not evaluated if <code class="verb">expr1</code>  is true.</p></dd></dl>
+<p class="noindent"><p>
+<div class="section-header">
+<h3 id="header-section-glossary">
+<span class="number">
+<i class="fa-regular fa-bookmark"></i>
+</span>
+<span class="title">
+<a id="page-glossary"></a>
+        Page Glossary Terms</span>
+</h3>
+</div>
+<div class="acronym-block">
+<dl class="acr-list">
+<a class="copiable-link" href="#glo:cli">¶</a>
+<dt class="acr-bottom" id="glo:cli"><span class="acr-short">CLI</span><span class="acr-long">Command-Line Interface</span></dt>
+<dd class="acr-desc"><p>A software
+mechanism you use to interact with your operating system using your keyboard</p></dd>
+</dl>
+<dl class="acr-list">
+<a class="copiable-link" href="#glo:gui">¶</a>
+<dt class="acr-bottom" id="glo:gui"><span class="acr-short">GUI</span><span class="acr-long">Graphical User Interface</span></dt>
+<dd class="acr-desc"><p>Graphical User Interface</p></dd>
+</dl>
+</div>
+<div class="section-header">
+<h3 id="header-section-references">
+<span class="number">
+<i class="fa-regular fa-note-sticky"></i>
+</span>
+<span class="title">
+<a id="page-glossary"></a>
+                    Page Footnotes</span>
+</h3>
+</div>
+<div class="footnote-block">
+<dl class="enumerate-enumitem">
+<dt class="enumerate-enumitem" id="m-ref-173"><span class="acr-short">[173].</span></dt>
+<dd class="enumerate-enumitem"><span class="">an acronym for
+American Standard Code for Information Interchange, is a character encoding standard
+for representing a particular set of 95 (English language focused) printable and 33 control
+characters - a total of 128 code points. The set of available punctuation had significant
+impact on the syntax of computer languages and text markup. ASCII hugely influenced the
+design of character sets used by modern computers; for example, the first 128 code points of
+Unicode are the same as ASCII.</span></dd>
+</dl>
+<dl class="enumerate-enumitem">
+<dt class="enumerate-enumitem" id="m-ref-174"><span class="acr-short">[174].</span></dt>
+<dd class="enumerate-enumitem"><span class="">i.e., GUI</span></dd>
+</dl>
+<dl class="enumerate-enumitem">
+<dt class="enumerate-enumitem" id="m-ref-175"><span class="acr-short">[175].</span></dt>
+<dd class="enumerate-enumitem"><span class="">In a much faster, but more unforgiving
+way.</span></dd>
+</dl>
+<dl class="enumerate-enumitem">
+<dt class="enumerate-enumitem" id="m-ref-176"><span class="acr-short">[176].</span></dt>
+<dd class="enumerate-enumitem"><span class="">This is also known as the <b>absolute</b> path.</span></dd>
+</dl>
+<dl class="enumerate-enumitem">
+<dt class="enumerate-enumitem" id="m-ref-177"><span class="acr-short">[177].</span></dt>
+<dd class="enumerate-enumitem"><span class="">Which the author of this LectureBook also
+agrees.</span></dd>
+</dl>
+<dl class="enumerate-enumitem">
+<dt class="enumerate-enumitem" id="m-ref-178"><span class="acr-short">[178].</span></dt>
+<dd class="enumerate-enumitem"><span class="">Remember if we don’t remember or know how a command options
+work use the <code class="verb">man</code>  command followed by the command you want to know more about (i.e., <code class="verb">man cp</code>
+).)</span></dd>
+</dl>
+<dl class="enumerate-enumitem">
+<dt class="enumerate-enumitem" id="m-ref-179"><span class="acr-short">[179].</span></dt>
+<dd class="enumerate-enumitem"><span class="">if you don’t have a terminal window open you can open one using <kbd>Ctrl</kbd> +
+<kbd>Alt</kbd> + <kbd>T</kbd></span></dd>
+</dl>
+<dl class="enumerate-enumitem">
+<dt class="enumerate-enumitem" id="m-ref-180"><span class="acr-short">[180].</span></dt>
+<dd class="enumerate-enumitem"><span class="">or terrifying, if you were to ask a system administrator.</span></dd>
+</dl>
+<dl class="enumerate-enumitem">
+<dt class="enumerate-enumitem" id="m-ref-181"><span class="acr-short">[181].</span></dt>
+<dd class="enumerate-enumitem"><span class="">Remember that the star or asterisk <b>wildcard</b> will match any number of characters.</span></dd>
+</dl>
+<dl class="enumerate-enumitem">
+<dt class="enumerate-enumitem" id="m-ref-182"><span class="acr-short">[182].</span></dt>
+<dd class="enumerate-enumitem"><span class="">This is sometimes known as <b>predicate</b>.</span></dd>
+</dl>
+<dl class="enumerate-enumitem">
+<dt class="enumerate-enumitem" id="m-ref-183"><span class="acr-short">[183].</span></dt>
+<dd class="enumerate-enumitem"><span class="">Sometimes known as <b>action</b>.</span></dd>
+</dl></div><nav class="crosslinks-bottom"><div class="navigation"><span class="nav-button"><a href="PermissionsandLinks.html"><i class="fa-solid fa-caret-right"></i></a></span><span class="nav-button"><a href="WorkingwithFilesandFolders.html"><i class="fa-solid fa-caret-left"></i></a></span><span class="nav-button"><a href="WorkingwithFilesandFolders.html#FilesandFolders.html"><i class="fa-solid fa-caret-up"></i></a></span><span class="nav-button">
+<a href="index.html" rel="index" title="Index">
+<i class="fa-solid fa-table-list">
+</i>
+</a></span><span class="nav-button">
+<a href="Index.html" rel="index" title="Index">
+<i class="fa-brands fa-git-alt"></i>
+</a></span></div></nav> </p><div class="footer"> <div class="footer-left"><span class="footer-lecture">D. T. McGuiness, PhD</span>
+<span class="footer-webBook"><b>Last Updated:</b> 13.10.2026, at 8:16.</span></div></div><div class="author-notes">
+<span class="note">Authors Note </span>
+<span class="text">The website you are viewing is auto-generated using lms-WebBook and therefore subject to slight errors in typography and formatting. When in doubt, please consult the LectureBook. </span>
+</div>
+</p></p></article>
+<div class="mode-line">
+<div class="core-line"><div class="core-line-image"><img class="webbook-logo" src="logo/webbook-logo.svg"/></div>
+<div class="current-header">
+<span class="header-pretext">Viewing | </span>
+<span class="header-text">Section 7.1: Files and Folders</span>
+</div>
+<div class="button-group">
+</div>
+</div>
+<div class="supp-line"></div>
+</div>
+</page>
+</body>
+</html>

@@ -1,0 +1,1132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><title>Feature Extraction</title>
+<meta charset="utf-8"/>
+<meta content="lms-WebBook" name="generator"/>
+<meta content="width=device-width,initial-scale=1" name="viewport"/>
+<script async="async" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/mml-chtml.js" type="text/javascript"></script>
+<link href="logo/lms.ico" rel="icon" type="image/x-icon"/>
+<link href="./pagefind/pagefind-component-ui.css" rel="stylesheet"/>
+<script src="./pagefind/pagefind-component-ui.js" type="text/javascript"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<link href="https://cdn.jsdelivr.net/gh/sugina-dev/latin-modern-web@1.0.1/style/latinmodern-mono.css" rel="stylesheet"/>
+<link href="https://cdn.jsdelivr.net/gh/dTmC0945/Wb-LMS-WebBook-Infrastructure/flatweb.css" rel="stylesheet" type="text/css"/>
+<script async="true" crossorigin="anonymous" src="https://cdn.jsdelivr.net/gh/dTmC0945/Wb-LMS-WebBook-Infrastructure/flatweb.js"></script>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/styles/default.min.css" rel="stylesheet"/>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/highlight.min.js"></script>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/styles/base16/solarized-light.min.css" rel="stylesheet"/>
+<script src="https://unpkg.com/highlightjs-copy/dist/highlightjs-copy.min.js"></script>
+<link href="https://unpkg.com/highlightjs-copy/dist/highlightjs-copy.min.css" rel="stylesheet"/>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css?family=Roboto:400,100,100italic,300,300italic,400italic,500,500italic,700,700italic,900italic,900" rel="stylesheet"/>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/languages/cpp.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/languages/latex.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/languages/matlab.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/languages/dockerfile.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/languages/cmake.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/languages/makefile.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/languages/markdown.min.js"></script>
+ </head><body>
+<page>
+<nav class="wide"> <div class="header"><div class="header-left"><span class="header-lecture-grade">M.Sc</span>
+<span class="header-lecture-name">Autonomous Mobile Robotics</span>
+<span class="header-webBook">WebBook 2.1</span></div><div class="header-right"><span class="header-version">2026.WS</span>
+<span class="header-chapter">Perception</span></div></div><div class="toc"><pagefind-modal-trigger></pagefind-modal-trigger><pagefind-modal></pagefind-modal><div class="toc-links"><a href="https://github.com/dTmC0945" title="Lecturer GitHub Repo"><i class="fab fa-github" style="font-size:20px"></i></a><a href="https://scholar.google.com/citations?view_op=list_works\&amp;hl=en\&amp;user=lxQGADMAAAAJ" title="Lecturer Google Scholar Page"><i class="fa-brands fa-google-scholar" style="font-size:20px"></i></a><a href="https://www.researchgate.net/profile/Daniel-Mcguiness-2" title="Lecturer ResearchGate Account"><i class="fa-brands fa-researchgate" style="font-size:20px"></i></a><a href="https://dtmc0945.github.io/Th-MCI-Thesis-Topics/" title="Lecturer Thesis Ideas for B.Sc and M.Sc"><i class="fa-solid fa-book" style="font-size:20px"></i></a><a href="https://github.com/dTmC0945/C-MCI-LaTeX-Class-mcidoc/tree/main" title="mcidoc LaTeX Standard"><i class="fa-regular fa-file-lines" style="font-size:20px"></i></a></div><hr/><span class="chapterToc"><span class="number"></span><span class="title"><a href="index.html#x2-10000">Entry Point</a></span></span><span class="chapterToc"><span class="number">1</span><span class="title"><a href="Locomotion.html#x3-20001">Locomotion</a></span></span><span class="subsectionToc"><span class="number">1.0.1</span><span class="title"><a href="Locomotion.html#x3-30001.0.1">Key  Issues  for  Locomotion</a></span></span><span class="sectionToc"><span class="number">1.1</span><span class="title"><a href="LeggedMobileRobots.html#x4-40001.1">Legged  Mobile
+Robots</a></span></span><span class="subsectionToc"><span class="number">1.1.1</span><span class="title"><a href="LeggedMobileRobots.html#x4-60001.1.1">Examples  of  Legged  Robot  Locomotion</a></span></span><span class="sectionToc"><span class="number">1.2</span><span class="title"><a href="WheeledMobileRobots.html#x5-120001.2">Wheeled  Mobile
+Robots</a></span></span><span class="subsectionToc"><span class="number">1.2.1</span><span class="title"><a href="WheeledMobileRobots.html#x5-130001.2.1">Design</a></span></span><span class="subsectionToc"><span class="number">1.2.2</span><span class="title"><a href="WheeledMobileRobots.html#x5-160001.2.2">Stability</a></span></span><span class="subsectionToc"><span class="number">1.2.3</span><span class="title"><a href="WheeledMobileRobots.html#x5-170001.2.3">Manoeuvrability</a></span></span><span class="subsectionToc"><span class="number">1.2.4</span><span class="title"><a href="WheeledMobileRobots.html#x5-180001.2.4">Controllability</a></span></span><span class="subsectionToc"><span class="number">1.2.5</span><span class="title"><a href="WheeledMobileRobots.html#x5-190001.2.5">Case
+Studies for Wheeled Motion</a></span></span><span class="subsectionToc"><span class="number">1.2.6</span><span class="title"><a href="WheeledMobileRobots.html#x5-260001.2.6">Walking Wheels</a></span></span><span class="chapterToc"><span class="number">2</span><span class="title"><a href="MobileRobotKinematics.html#x6-270002">Mobile Robot Kinematics</a></span></span><span class="sectionToc"><span class="number">2.1</span><span class="title"><a href="KinematicModelsandConstraints.html#x7-280002.1">Kinematic
+Models and Constraints</a></span></span><span class="subsectionToc"><span class="number">2.1.1</span><span class="title"><a href="KinematicModelsandConstraints.html#x7-290002.1.1">Representing robot position</a></span></span><span class="subsectionToc"><span class="number">2.1.2</span><span class="title"><a href="KinematicModelsandConstraints.html#x7-300002.1.2">Forward kinematic
+models</a></span></span><span class="subsectionToc"><span class="number">2.1.3</span><span class="title"><a href="KinematicModelsandConstraints.html#x7-310002.1.3">Wheel kinematic constraints</a></span></span><span class="subsectionToc"><span class="number">2.1.4</span><span class="title"><a href="KinematicModelsandConstraints.html#x7-370002.1.4">Robot kinematic constraints</a></span></span><span class="subsectionToc"><span class="number">2.1.5</span><span class="title"><a href="KinematicModelsandConstraints.html#x7-380002.1.5">Examples:
+robot kinematic models and constraints</a></span></span><span class="sectionToc"><span class="number">2.2</span><span class="title"><a href="MobileRobotManeuverability.html#x8-410002.2">Mobile Robot Maneuverability</a></span></span><span class="subsectionToc"><span class="number">2.2.1</span><span class="title"><a href="MobileRobotManeuverability.html#x8-420002.2.1">Degree
+of Mobility</a></span></span><span class="subsectionToc"><span class="number">2.2.2</span><span class="title"><a href="MobileRobotManeuverability.html#x8-450002.2.2">Degree of steerability</a></span></span><span class="subsectionToc"><span class="number">2.2.3</span><span class="title"><a href="MobileRobotManeuverability.html#x8-470002.2.3">Robot maneuverability</a></span></span><span class="sectionToc"><span class="number">2.3</span><span class="title"><a href="MobileRobotWorkspace.html#x9-480002.3">Mobile Robot
+Workspace</a></span></span><span class="subsectionToc"><span class="number">2.3.1</span><span class="title"><a href="MobileRobotWorkspace.html#x9-490002.3.1">Degrees of freedom</a></span></span><span class="subsectionToc"><span class="number">2.3.2</span><span class="title"><a href="MobileRobotWorkspace.html#x9-500002.3.2">Holonomic robots</a></span></span><span class="subsectionToc"><span class="number">2.3.3</span><span class="title"><a href="MobileRobotWorkspace.html#x9-530002.3.3">Path and trajectory
+considerations</a></span></span><span class="subsectionToc"><span class="number">2.3.4</span><span class="title"><a href="MobileRobotWorkspace.html#x9-540002.3.4">Beyond Basic Kinematics</a></span></span><span class="sectionToc"><span class="number">2.4</span><span class="title"><a href="MotionControlKinematicControl.html#x10-550002.4">Motion Control (Kinematic
+Control)</a></span></span><span class="subsectionToc"><span class="number">2.4.1</span><span class="title"><a href="MotionControlKinematicControl.html#x10-560002.4.1">Open loop control</a></span></span><span class="subsectionToc"><span class="number">2.4.2</span><span class="title"><a href="MotionControlKinematicControl.html#x10-570002.4.2">Feedback control</a></span></span><span class="chapterToc"><span class="number">3</span><span class="title"><a href="Perception.html#x11-630003">Perception</a></span></span><span class="sectionToc"><span class="number">3.1</span><span class="title"><a href="SensorsforMobileRobotics.html#x12-640003.1">Sensors for Mobile
+Robotics</a></span></span><span class="subsectionToc"><span class="number">3.1.1</span><span class="title"><a href="SensorsforMobileRobotics.html#x12-650003.1.1">Sensor Classification</a></span></span><span class="subsectionToc"><span class="number">3.1.2</span><span class="title"><a href="SensorsforMobileRobotics.html#x12-660003.1.2">Characterisation of Sensor Performance</a></span></span><span class="subsectionToc"><span class="number">3.1.3</span><span class="title"><a href="SensorsforMobileRobotics.html#x12-720003.1.3">Wheel
+and Motor Sensors</a></span></span><span class="subsectionToc"><span class="number">3.1.4</span><span class="title"><a href="SensorsforMobileRobotics.html#x12-740003.1.4">Heading Sensors</a></span></span><span class="subsectionToc"><span class="number">3.1.5</span><span class="title"><a href="SensorsforMobileRobotics.html#x12-810003.1.5">Ground Based Beacons</a></span></span><span class="subsectionToc"><span class="number">3.1.6</span><span class="title"><a href="SensorsforMobileRobotics.html#x12-830003.1.6">Active
+Ranging</a></span></span><span class="subsectionToc"><span class="number">3.1.7</span><span class="title"><a href="SensorsforMobileRobotics.html#x12-850003.1.7">The Ultrasonic Sensor</a></span></span><span class="subsectionToc"><span class="number">3.1.8</span><span class="title"><a href="SensorsforMobileRobotics.html#x12-920003.1.8">Motion and Speed Sensors</a></span></span><span class="sectionToc"><span class="number">3.2</span><span class="title"><a href="VisionBasedSensors.html#x13-940003.2">Vision Based
+Sensors</a></span></span><span class="subsectionToc"><span class="number">3.2.1</span><span class="title"><a href="VisionBasedSensors.html#x13-950003.2.1">CCD Sensors</a></span></span><span class="subsectionToc"><span class="number">3.2.2</span><span class="title"><a href="VisionBasedSensors.html#x13-970003.2.2">CMOS Technology</a></span></span><span class="subsectionToc"><span class="number">3.2.3</span><span class="title"><a href="VisionBasedSensors.html#x13-980003.2.3">Visual Ranging Sensors</a></span></span><span class="subsectionToc"><span class="number">3.2.4</span><span class="title"><a href="VisionBasedSensors.html#x13-990003.2.4">Depth
+from Focus</a></span></span><span class="sectionToc"><span class="number">3.3</span><span class="title"><a href="RepresentingUncertainty.html#x14-1070003.3">Representing Uncertainty</a></span></span><span class="subsectionToc"><span class="number">3.3.1</span><span class="title"><a href="RepresentingUncertainty.html#x14-1080003.3.1">Statistical Representation</a></span></span><span class="subsectionToc"><span class="number">3.3.2</span><span class="title"><a href="RepresentingUncertainty.html#x14-1090003.3.2">Independence
+of random variables</a></span></span><span class="subsectionToc"><span class="number">3.3.3</span><span class="title"><a href="RepresentingUncertainty.html#x14-1110003.3.3">Propagation of Error</a></span></span><span class="sectionToc"><span class="number">3.4</span><span class="title"><a href="#x15-1120003.4">Feature Extraction</a></span></span><span class="subsectionToc"><span class="number">3.4.1</span><span class="title"><a href="#x15-1130003.4.1">Defining
+Feature</a></span></span><span class="subsectionToc"><span class="number">3.4.2</span><span class="title"><a href="#x15-1140003.4.2">Using Range Data</a></span></span><span class="chapterToc"><span class="number">4</span><span class="title"><a href="MobileRobotLocalisation.html#x16-1290004">Mobile Robot Localisation</a></span></span><span class="sectionToc"><span class="number">4.1</span><span class="title"><a href="TheProblemsofNoiseandAliasing.html#x17-1300004.1">The Problems of Noise and
+Aliasing</a></span></span><span class="subsectionToc"><span class="number">4.1.1</span><span class="title"><a href="TheProblemsofNoiseandAliasing.html#x17-1310004.1.1">Sensor Noise</a></span></span><span class="subsectionToc"><span class="number">4.1.2</span><span class="title"><a href="TheProblemsofNoiseandAliasing.html#x17-1320004.1.2">Sensor Aliasing</a></span></span><span class="subsectionToc"><span class="number">4.1.3</span><span class="title"><a href="TheProblemsofNoiseandAliasing.html#x17-1330004.1.3">Effector Noise</a></span></span><span class="subsectionToc"><span class="number">4.1.4</span><span class="title"><a href="TheProblemsofNoiseandAliasing.html#x17-1340004.1.4">An Error Model for
+Odometric Position Estimation</a></span></span><span class="sectionToc"><span class="number">4.2</span><span class="title"><a href="LocalisationTechniques.html#x18-1350004.2">Localisation Techniques</a></span></span><span class="sectionToc"><span class="number">4.3</span><span class="title"><a href="RepresentingBelief.html#x19-1360004.3">Representing Belief</a></span></span><span class="subsectionToc"><span class="number">4.3.1</span><span class="title"><a href="RepresentingBelief.html#x19-1370004.3.1">Single
+Hypothesis Belief</a></span></span><span class="subsectionToc"><span class="number">4.3.2</span><span class="title"><a href="RepresentingBelief.html#x19-1380004.3.2">Multiple Hypothesis Belief</a></span></span><span class="sectionToc"><span class="number">4.4</span><span class="title"><a href="RepresentingMaps.html#x20-1390004.4">Representing Maps</a></span></span><span class="subsectionToc"><span class="number">4.4.1</span><span class="title"><a href="RepresentingMaps.html#x20-1400004.4.1">Continuous
+Representation</a></span></span><span class="subsectionToc"><span class="number">4.4.2</span><span class="title"><a href="RepresentingMaps.html#x20-1410004.4.2">Decomposition Methods</a></span></span><span class="subsectionToc"><span class="number">4.4.3</span><span class="title"><a href="RepresentingMaps.html#x20-1420004.4.3">Current Challenges</a></span></span><span class="sectionToc"><span class="number">4.5</span><span class="title"><a href="ProbabilisticMapBasedLocalisation.html#x21-1430004.5">Probabilistic
+Map-Based Localisation</a></span></span><span class="subsectionToc"><span class="number">4.5.1</span><span class="title"><a href="ProbabilisticMapBasedLocalisation.html#x21-1440004.5.1">Problem Definition</a></span></span><span class="subsectionToc"><span class="number">4.5.2</span><span class="title"><a href="ProbabilisticMapBasedLocalisation.html#x21-1450004.5.2">Markov Localisation</a></span></span><span class="subsectionToc"><span class="number">4.5.3</span><span class="title"><a href="ProbabilisticMapBasedLocalisation.html#x21-1490004.5.3">Kalman
+Filter Localisation</a></span></span><span class="subsectionToc"><span class="number">4.5.4</span><span class="title"><a href="ProbabilisticMapBasedLocalisation.html#x21-1500004.5.4">An Implementation of Kalman Filter</a></span></span><span class="sectionToc"><span class="number">4.6</span><span class="title"><a href="OtherExamplesofLocalisationMethods.html#x22-1550004.6">Other Examples
+of Localisation Methods</a></span></span><span class="subsectionToc"><span class="number">4.6.1</span><span class="title"><a href="OtherExamplesofLocalisationMethods.html#x22-1560004.6.1">Landmark-based Navigation</a></span></span><span class="subsectionToc"><span class="number">4.6.2</span><span class="title"><a href="OtherExamplesofLocalisationMethods.html#x22-1570004.6.2">Globally Unique
+Localisation</a></span></span><span class="subsectionToc"><span class="number">4.6.3</span><span class="title"><a href="OtherExamplesofLocalisationMethods.html#x22-1580004.6.3">Positioning Beacon systems</a></span></span><span class="subsectionToc"><span class="number">4.6.4</span><span class="title"><a href="OtherExamplesofLocalisationMethods.html#x22-1590004.6.4">Route-Based Localisation</a></span></span><span class="sectionToc"><span class="number">4.7</span><span class="title"><a href="BuildingMaps.html#x23-1600004.7">Building
+Maps</a></span></span><span class="subsectionToc"><span class="number">4.7.1</span><span class="title"><a href="BuildingMaps.html#x23-1610004.7.1">Stochastic Map Technique</a></span></span><span class="subsectionToc"><span class="number">4.7.2</span><span class="title"><a href="BuildingMaps.html#x23-1620004.7.2">Other Mapping Techniques</a></span></span><span class="chapterToc"><span class="number">5</span><span class="title"><a href="WelcometoLinux.html#x24-1650005">Welcome to Linux</a></span></span><span class="sectionToc"><span class="number">5.1</span><span class="title"><a href="AHistoryofUNIXLinux.html#x25-1660005.1">A
+History of UNIX/Linux</a></span></span><span class="subsectionToc"><span class="number">5.1.1</span><span class="title"><a href="AHistoryofUNIXLinux.html#x25-1680005.1.1">A Short History on Computer Interfaces</a></span></span><span class="subsectionToc"><span class="number">5.1.2</span><span class="title"><a href="AHistoryofUNIXLinux.html#x25-1700005.1.2">Linux is a
+Nutshell</a></span></span><span class="subsectionToc"><span class="number">5.1.3</span><span class="title"><a href="AHistoryofUNIXLinux.html#x25-1730005.1.3">Linux Distributions</a></span></span><span class="sectionToc"><span class="number">5.2</span><span class="title"><a href="Installation.html#x26-1740005.2">Installation</a></span></span><span class="subsectionToc"><span class="number">5.2.1</span><span class="title"><a href="Installation.html#x26-1750005.2.1">Docker</a></span></span><span class="subsectionToc"><span class="number">5.2.2</span><span class="title"><a href="Installation.html#x26-1760005.2.2">Dockerfile</a></span></span><span class="subsectionToc"><span class="number">5.2.3</span><span class="title"><a href="Installation.html#x26-1770005.2.3">Running
+the Container</a></span></span><span class="chapterToc"><span class="number">6</span><span class="title"><a href="CommandLineFundamentals.html#x27-1780006">Command Line Fundamentals</a></span></span><span class="sectionToc"><span class="number">6.1</span><span class="title"><a href="ToCommandaComputer.html#x28-1790006.1">To Command a Computer</a></span></span><span class="subsectionToc"><span class="number">6.1.1</span><span class="title"><a href="ToCommandaComputer.html#x28-1800006.1.1">The
+Command Line Interface</a></span></span><span class="subsectionToc"><span class="number">6.1.2</span><span class="title"><a href="ToCommandaComputer.html#x28-1810006.1.2">The Structure of Commands</a></span></span><span class="subsectionToc"><span class="number">6.1.3</span><span class="title"><a href="ToCommandaComputer.html#x28-1820006.1.3">Some Rules Regarding
+the Syntax</a></span></span><span class="sectionToc"><span class="number">6.2</span><span class="title"><a href="WhenWeNeedHelpwithCommands.html#x29-1830006.2">When We Need Help with Commands</a></span></span><span class="subsectionToc"><span class="number">6.2.1</span><span class="title"><a href="WhenWeNeedHelpwithCommands.html#x29-1840006.2.1">Use Tab completion on
+the Shell</a></span></span><span class="subsectionToc"><span class="number">6.2.2</span><span class="title"><a href="WhenWeNeedHelpwithCommands.html#x29-1850006.2.2">The info command</a></span></span><span class="subsectionToc"><span class="number">6.2.3</span><span class="title"><a href="WhenWeNeedHelpwithCommands.html#x29-1860006.2.3">The whatis command</a></span></span><span class="chapterToc"><span class="number">7</span><span class="title"><a href="WorkingwithFilesandFolders.html#x30-1880007">Working with Files
+and Folders</a></span></span><span class="sectionToc"><span class="number">7.1</span><span class="title"><a href="FilesandFolders.html#x31-1890007.1">Files and Folders</a></span></span><span class="subsectionToc"><span class="number">7.1.1</span><span class="title"><a href="FilesandFolders.html#x31-1900007.1.1">A Detailed Look in ls Command</a></span></span><span class="subsectionToc"><span class="number">7.1.2</span><span class="title"><a href="FilesandFolders.html#x31-1910007.1.2">Creating
+and Removing Folders</a></span></span><span class="subsectionToc"><span class="number">7.1.3</span><span class="title"><a href="FilesandFolders.html#x31-1920007.1.3">Move, Copy and Delete Files and Folders</a></span></span><span class="sectionToc"><span class="number">7.2</span><span class="title"><a href="PermissionsandLinks.html#x32-1990007.2">Permissions
+and Links</a></span></span><span class="subsectionToc"><span class="number">7.2.1</span><span class="title"><a href="PermissionsandLinks.html#x32-2000007.2.1">Role to Users and sudo</a></span></span><span class="subsectionToc"><span class="number">7.2.2</span><span class="title"><a href="PermissionsandLinks.html#x32-2010007.2.2">File Permissions</a></span></span><span class="subsectionToc"><span class="number">7.2.3</span><span class="title"><a href="PermissionsandLinks.html#x32-2040007.2.3">Hard and Symbolic
+Links</a></span></span><span class="subsectionToc"><span class="number">7.2.4</span><span class="title"><a href="PermissionsandLinks.html#x32-2050007.2.4">Soft (Symbolic) Links</a></span></span><span class="subsectionToc"><span class="number">7.2.5</span><span class="title"><a href="PermissionsandLinks.html#x32-2070007.2.5">The Linux File System</a></span></span><span class="subsectionToc"><span class="number">7.2.6</span><span class="title"><a href="PermissionsandLinks.html#x32-2080007.2.6">The UNIX
+Philosophy</a></span></span><span class="sectionToc"><span class="number">7.3</span><span class="title"><a href="CommonCommandLineToolsandTasks.html#x33-2090007.3">Common Command-Line Tools and Tasks</a></span></span><span class="subsectionToc"><span class="number">7.3.1</span><span class="title"><a href="CommonCommandLineToolsandTasks.html#x33-2100007.3.1">Connecting Commands
+with Pipes</a></span></span><span class="subsectionToc"><span class="number">7.3.2</span><span class="title"><a href="CommonCommandLineToolsandTasks.html#x33-2110007.3.2">Viewing Text Files with cat, head, tail, and less</a></span></span><span class="subsectionToc"><span class="number">7.3.3</span><span class="title"><a href="CommonCommandLineToolsandTasks.html#x33-2120007.3.3">Finding
+Linux Distribution and Kernel Information</a></span></span><span class="subsectionToc"><span class="number">7.3.4</span><span class="title"><a href="CommonCommandLineToolsandTasks.html#x33-2140007.3.4">Find System Hardware and Disk
+Information</a></span></span><span class="chapterToc"><span class="number">8</span><span class="title"><a href="ROSConcepts.html#x34-2160008">ROS Concepts</a></span></span><span class="sectionToc"><span class="number">8.1</span><span class="title"><a href="PublisherandSubscriberArchitecture.html#x35-2170008.1">Publisher and Subscriber Architecture</a></span></span><span class="subsectionToc"><span class="number">8.1.1</span><span class="title"><a href="PublisherandSubscriberArchitecture.html#x35-2180008.1.1">ROS 2
+Architecture</a></span></span><span class="sectionToc"><span class="number">8.2</span><span class="title"><a href="BuildingBlocks.html#x36-2200008.2">Building Blocks</a></span></span><span class="subsectionToc"><span class="number">8.2.1</span><span class="title"><a href="BuildingBlocks.html#x36-2210008.2.1">Nodes</a></span></span><span class="subsectionToc"><span class="number">8.2.2</span><span class="title"><a href="BuildingBlocks.html#x36-2220008.2.2">The Discovery Process</a></span></span><span class="subsectionToc"><span class="number">8.2.3</span><span class="title"><a href="BuildingBlocks.html#x36-2230008.2.3">Communication
+Interface</a></span></span><span class="subsectionToc"><span class="number">8.2.4</span><span class="title"><a href="BuildingBlocks.html#x36-2320008.2.4">Topics</a></span></span><span class="subsectionToc"><span class="number">8.2.5</span><span class="title"><a href="BuildingBlocks.html#x36-2360008.2.5">Services</a></span></span><span class="subsectionToc"><span class="number">8.2.6</span><span class="title"><a href="BuildingBlocks.html#x36-2390008.2.6">Actions</a></span></span><span class="subsectionToc"><span class="number">8.2.7</span><span class="title"><a href="BuildingBlocks.html#x36-2420008.2.7">Parameters</a></span></span><span class="subsectionToc"><span class="number">8.2.8</span><span class="title"><a href="BuildingBlocks.html#x36-2510008.2.8">Working with
+Command Line</a></span></span><span class="subsectionToc"><span class="number">8.2.9</span><span class="title"><a href="BuildingBlocks.html#x36-2530008.2.9">Launch Files</a></span></span><span class="sectionToc"><span class="number">8.3</span><span class="title"><a href="AdvancedConcepts.html#x37-2540008.3">Advanced Concepts</a></span></span><span class="subsectionToc"><span class="number">8.3.1</span><span class="title"><a href="AdvancedConcepts.html#x37-2550008.3.1">ROS DOMAIN ID</a></span></span><span class="chapterToc"><span class="number">9</span><span class="title"><a href="CommandLineTools.html#x38-2570009">Command
+Line Tools</a></span></span><span class="sectionToc"><span class="number">9.1</span><span class="title"><a href="SettingtheEnvironment.html#x39-2580009.1">Setting the Environment</a></span></span><span class="sectionToc"><span class="number">9.2</span><span class="title"><a href="TurtlesandGraphs.html#x40-2630009.2">Turtles and Graphs</a></span></span><span class="sectionToc"><span class="number">9.3</span><span class="title"><a href="ADeeperLookintoNodes.html#x41-2710009.3">A Deeper Look into
+Nodes</a></span></span><span class="sectionToc"><span class="number">9.4</span><span class="title"><a href="WorkingwithTopics.html#x42-2760009.4">Working with Topics</a></span></span><span class="sectionToc"><span class="number">9.5</span><span class="title"><a href="WorkingwithServices.html#x43-2820009.5">Working with Services</a></span></span><span class="sectionToc"><span class="number">9.6</span><span class="title"><a href="WorkingwithParameters.html#x44-2890009.6">Working with Parameters</a></span></span><span class="sectionToc"><span class="number">9.7</span><span class="title"><a href="APracticalLookintoActions.html#x45-2960009.7">A
+Practical Look into Actions</a></span></span><span class="sectionToc"><span class="number">9.8</span><span class="title"><a href="LaunchingNodes.html#x46-3030009.8">Launching Nodes</a></span></span><span class="chapterToc"><span class="number">10</span><span class="title"><a href="ClientLibraries.html#x47-30500010">Client Libraries</a></span></span><span class="sectionToc"><span class="number">10.1</span><span class="title"><a href="GettingStartedwithColcon.html#x48-30600010.1">Getting Started with
+Colcon</a></span></span><span class="subsectionToc"><span class="number">10.1.1</span><span class="title"><a href="GettingStartedwithColcon.html#x48-30700010.1.1">The Structure of a Package</a></span></span><span class="subsectionToc"><span class="number">10.1.2</span><span class="title"><a href="GettingStartedwithColcon.html#x48-30800010.1.2">Sourcing an Underlay</a></span></span><span class="subsectionToc"><span class="number">10.1.3</span><span class="title"><a href="GettingStartedwithColcon.html#x48-30900010.1.3">Building the
+Workspace</a></span></span><span class="subsectionToc"><span class="number">10.1.4</span><span class="title"><a href="GettingStartedwithColcon.html#x48-31000010.1.4">Sourcing the New Package</a></span></span><span class="subsectionToc"><span class="number">10.1.5</span><span class="title"><a href="GettingStartedwithColcon.html#x48-31100010.1.5">Creating a Workspace</a></span></span><span class="subsectionToc"><span class="number">10.1.6</span><span class="title"><a href="GettingStartedwithColcon.html#x48-31200010.1.6">Sourcing the
+Environment</a></span></span><span class="subsectionToc"><span class="number">10.1.7</span><span class="title"><a href="GettingStartedwithColcon.html#x48-31300010.1.7">Creating a New Directory</a></span></span><span class="subsectionToc"><span class="number">10.1.8</span><span class="title"><a href="GettingStartedwithColcon.html#x48-31400010.1.8">Cloning a Sample Repo</a></span></span><span class="subsectionToc"><span class="number">10.1.9</span><span class="title"><a href="GettingStartedwithColcon.html#x48-31500010.1.9">Resolving
+Dependencies</a></span></span><span class="subsectionToc"><span class="number">10.1.10</span><span class="title"><a href="GettingStartedwithColcon.html#x48-31600010.1.10">Building the Workspace</a></span></span><span class="subsectionToc"><span class="number">10.1.11</span><span class="title"><a href="GettingStartedwithColcon.html#x48-31700010.1.11">Sourcing our Overlay</a></span></span><span class="subsectionToc"><span class="number">10.1.12</span><span class="title"><a href="GettingStartedwithColcon.html#x48-31800010.1.12">Modifying
+the Overlay</a></span></span><span class="subsectionToc"><span class="number">10.1.13</span><span class="title"><a href="GettingStartedwithColcon.html#x48-31900010.1.13">Creating a Package</a></span></span><span class="sectionToc"><span class="number">10.2</span><span class="title"><a href="WritingaSimplePublisherandSubscriber.html#x49-32200010.2">Writing a Simple Publisher and
+Subscriber</a></span></span><span class="subsectionToc"><span class="number">10.2.1</span><span class="title"><a href="WritingaSimplePublisherandSubscriber.html#x49-32300010.2.1">Creating a ROS Packages</a></span></span><span class="subsectionToc"><span class="number">10.2.2</span><span class="title"><a href="WritingaSimplePublisherandSubscriber.html#x49-32400010.2.2">Writing the Publisher Node</a></span></span><span class="subsectionToc"><span class="number">10.2.3</span><span class="title"><a href="WritingaSimplePublisherandSubscriber.html#x49-32900010.2.3">Writing
+the Subscriber Node</a></span></span><span class="subsectionToc"><span class="number">10.2.4</span><span class="title"><a href="WritingaSimplePublisherandSubscriber.html#x49-33200010.2.4">Building and Running</a></span></span><span class="sectionToc"><span class="number">10.3</span><span class="title"><a href="WritingaSimpleServiceandClient.html#x50-33300010.3">Writing a Simple Service and
+Client</a></span></span><span class="subsectionToc"><span class="number">10.3.1</span><span class="title"><a href="WritingaSimpleServiceandClient.html#x50-33400010.3.1">Creating a New Package</a></span></span><span class="subsectionToc"><span class="number">10.3.2</span><span class="title"><a href="WritingaSimpleServiceandClient.html#x50-33700010.3.2">Writing the Service Node</a></span></span><span class="subsectionToc"><span class="number">10.3.3</span><span class="title"><a href="WritingaSimpleServiceandClient.html#x50-34000010.3.3">Writing the Client
+Node</a></span></span><span class="sectionToc"><span class="number">10.4</span><span class="title"><a href="CreatingCustommsgandsrvFiles.html#x51-34300010.4">Creating Custom msg and srv Files</a></span></span><span class="subsectionToc"><span class="number">10.4.1</span><span class="title"><a href="CreatingCustommsgandsrvFiles.html#x51-34400010.4.1">Creating a New Package</a></span></span><span class="subsectionToc"><span class="number">10.4.2</span><span class="title"><a href="CreatingCustommsgandsrvFiles.html#x51-34500010.4.2">Creating
+Custom Definitions</a></span></span><span class="subsectionToc"><span class="number">10.4.3</span><span class="title"><a href="CreatingCustommsgandsrvFiles.html#x51-35200010.4.3">Testing the Newly Built Interfaces</a></span></span><span class="sectionToc"><span class="number">10.5</span><span class="title"><a href="UsingParametersinaClass.html#x52-35400010.5">Using Parameters in a
+Class</a></span></span><span class="subsectionToc"><span class="number">10.5.1</span><span class="title"><a href="UsingParametersinaClass.html#x52-35500010.5.1">Creating a Package</a></span></span><span class="subsectionToc"><span class="number">10.5.2</span><span class="title"><a href="UsingParametersinaClass.html#x52-35700010.5.2">Writing our Python Code</a></span></span><span class="subsectionToc"><span class="number">10.5.3</span><span class="title"><a href="UsingParametersinaClass.html#x52-36200010.5.3">Changing Output using
+the Console</a></span></span><span class="subsectionToc"><span class="number">10.5.4</span><span class="title"><a href="UsingParametersinaClass.html#x52-36300010.5.4">Changing using the Launch File</a></span></span><span class="sectionToc"><span class="number">10.6</span><span class="title"><a href="ManagingDependencies.html#x53-36400010.6">Managing Dependencies</a></span></span><span class="sectionToc"><span class="number">10.7</span><span class="title"><a href="CreatinganAction.html#x54-36600010.7">Creating
+an Action</a></span></span><span class="sectionToc"><span class="number">10.8</span><span class="title"><a href="WritinganActionServerandClient.html#x55-36900010.8">Writing an Action Server and Client</a></span></span><span class="sectionToc"><span class="number">10.9</span><span class="title"><a href="WritingaLaunchFile.html#x56-37100010.9">Writing a Launch File</a></span></span>
+<div class="nav-footer"><div class="nav-footer-left"><span class="nav-footer-lecture">D. T. McGuiness, PhD</span>
+<span class="nav-footer-webBook"><b>Last Updated:</b> 13.10.2026, at 8:16.</span></div></div><p class="nav-comments">The website you are viewing is auto-generated using lms-WebBook and therefore subject to slight errors in typography and formatting. When in doubt, please consult the LectureBook. </p></div></nav>
+<article class="chapter">
+<nav class="crosslinks-top"> <span class="nav-button"><i class="fa-solid fa-caret-right"></i><a class="nav-link" href="MobileRobotLocalisation.html">Chapter: Mobile Robot
+Localisation</a></span><span class="nav-button"><i class="fa-solid fa-caret-left"></i><a class="nav-link" href="RepresentingUncertainty.html">Representing Uncertainty</a></span><span class="nav-button"><i class="fa-solid fa-caret-up"></i><a class="nav-link" href="Perception.html#FeatureExtraction.html">Chapter: Perception</a></span><span class="nav-button">
+<a href="index.html" rel="index" title="Visit Entry Point">
+<i class="fa-solid fa-table-list">
+</i>
+<span class="nav-info">Visit Index Page</span>
+</a></span><span class="nav-button">
+<a href="Index.html" rel="index" title="Visit Material GitHub Repo">
+<i class="fa-brands fa-git-alt"></i>
+<span class="nav-info">Visit Material GitHub Repo</span>
+</a></span></nav>
+<div class="section-header"> <h3 id="header-section-3.4"> <a class="pdf-icon" href="AutonomousMobileRoboticsLectureBook.pdf#section.3.4"><svg class="bi bi-file-pdf" fill="currentColor" height="20" viewbox="0 0 16 16" width="20" xmlns="http://www.w3.org/2000/svg"><path d="M4 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H4zm0 1h8a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1z"></path><path d="M4.603 12.087a.81.81 0 0 1-.438-.42c-.195-.388-.13-.776.08-1.102.198-.307.526-.568.897-.787a7.68 7.68 0 0 1 1.482-.645 19.701 19.701 0 0 0 1.062-2.227 7.269 7.269 0 0 1-.43-1.295c-.086-.4-.119-.796-.046-1.136.075-.354.274-.672.65-.823.192-.077.4-.12.602-.077a.7.7 0 0 1 .477.365c.088.164.12.356.127.538.007.187-.012.395-.047.614-.084.51-.27 1.134-.52 1.794a10.954 10.954 0 0 0 .98 1.686 5.753 5.753 0 0 1 1.334.05c.364.065.734.195.96.465.12.144.193.32.2.518.007.192-.047.382-.138.563a1.04 1.04 0 0 1-.354.416.856.856 0 0 1-.51.138c-.331-.014-.654-.196-.933-.417a5.716 5.716 0 0 1-.911-.95 11.642 11.642 0 0 0-1.997.406 11.311 11.311 0 0 1-1.021 1.51c-.29.35-.608.655-.926.787a.793.793 0 0 1-.58.029zm1.379-1.901c-.166.076-.32.156-.459.238-.328.194-.541.383-.647.547-.094.145-.096.25-.04.361.01.022.02.036.026.044a.27.27 0 0 0 .035-.012c.137-.056.355-.235.635-.572a8.18 8.18 0 0 0 .45-.606zm1.64-1.33a12.647 12.647 0 0 1 1.01-.193 11.666 11.666 0 0 1-.51-.858 20.741 20.741 0 0 1-.5 1.05zm2.446.45c.15.162.296.3.435.41.24.19.407.253.498.256a.107.107 0 0 0 .07-.015.307.307 0 0 0 .094-.125.436.436 0 0 0 .059-.2.095.095 0 0 0-.026-.063c-.052-.062-.2-.152-.518-.209a3.881 3.881 0 0 0-.612-.053zM8.078 5.8a6.7 6.7 0 0 0 .2-.828c.031-.188.043-.343.038-.465a.613.613 0 0 0-.032-.198.517.517 0 0 0-.145.04c-.087.035-.158.106-.196.283-.04.192-.03.469.046.822.024.111.054.227.09.346z"></path></svg></a> <span class="number">3.4</span> <span class="title"> <a id="x15-1120003.4"></a>Feature Extraction</span></h3></div>
+<p class="noindent"></p><figure class="float">
+<a id="x15-112001r24"></a>
+<figcaption class="caption"><span class="id">Figure 3.24: </span><span class="content">The Perceptual Pipeline: From sensor readings to knowledge models.                        </span></figcaption>
+<img alt="PIC" src="figures/Perception/figures-5.png" style=""/>
+</figure>
+<p class="noindent">An <span class="acronym"><span class="acronym-short"><a class="glossary" href="#glo:amr">AMR</a></span><span class="acronym-detail"><span class="acronym-long"><a class="glossary" href="#glo:amr">Autonomous Mobile Robotics</a></span><span class="acronym-desc"><a class="glossary" href="#glo:amr">Self-navigating machines moving materials and goods
+independently without fixed tracks or wires. They use smart software, cameras, and sensors to map
+spaces and safely steer around people or obstacles in real time.</a></span></span></span> must be able to <span class="alert">determine its relationship</span> to the
+environment by <span class="alert">making measurements with its sensors</span> and then using those measured signals. A wide variety of sensing technologies are
+available, as we discussed in this chapter. But every sensor we have presented is fundamentally
+<b>imperfect</b>:
+</p>
+<div class="quote"> measurements always have error and, therefore, <span class="alert">uncertainty</span> associated with them. </div>
+<p class="noindent">Therefore, sensor inputs must be used in a way that enables the robot to interact with its environment
+successfully in spite of measurement uncertainty. There are two (<span class="alert">2</span>) strategies for using uncertain sensor
+input to guide the robot’s behavior:
+</p>
+<dl class="enumerate-enumitem"><dt class="enumerate-enumitem">
+i. 
+</dt><dd class="enumerate-enumitem">To use each sensor measurement as a raw and individual value. Such raw sensor values
+could for example be tied directly to robot behavior, whereby the robot’s actions are a
+function of its sensor inputs. Alternatively, the raw sensors values could be used to update
+an intermediate model, with the robot’s actions being triggered as a function of this model
+rather than the individual sensor measurements.
+</dd>
+<dt class="enumerate-enumitem">
+ii. 
+</dt><dd class="enumerate-enumitem">To extract information from one or more sensor readings first, generating a higher-level
+percept that can then be used to inform the robot’s model and perhaps the robot’s actions
+directly. We call this process feature extraction, and it is this next, optional step in the
+perceptual interpretation pipeline, shown in <b>Fig.</b> <a href="#x15-112001r24">3.24</a> that we will now discuss.</dd></dl>
+<p class="noindent">In practical terms, <span class="acronym"><span class="acronym-short"><a class="glossary" href="#glo:amr">AMR</a></span><span class="acronym-detail"><span class="acronym-long"><a class="glossary" href="#glo:amr">Autonomous Mobile Robotics</a></span><span class="acronym-desc"><a class="glossary" href="#glo:amr">Self-navigating machines moving materials and
+goods independently without fixed tracks or wires. They use smart software, cameras, and sensors to
+map spaces and safely steer around people or obstacles in real time.</a></span></span></span> do <b>NOT</b> necessarily use feature
+extraction and scene inter- pretation for every activity. Instead, robots will interpret sensors to varying
+degrees depend- ing on each specific functionality.
+</p>
+<div class="quote"> For example, to guarantee emergency stops in the face of immediate obstacles, the robot may make
+direct use of raw forward-facing range readings to stop its drive motors. </div>
+<p class="noindent">For local obstacle avoidance, raw ranging sensor strikes may be combined in an occupancy grid model,
+enabling smooth avoidance of obstacles meters away. For map-building and precise navigation, the
+range sensor values and even vision sensor measurements may pass through the complete perceptual
+pipeline, being sub- jected to feature extraction followed by scene interpretation to minimize the impact
+of indi- vidual sensor uncertainty on the robustness of the robot’s map-making and navigation skills.
+The pattern that thus emerges is that, as one moves into more sophisticated, long-term per- ceptual
+tasks, the feature extraction and scene interpretation aspects of the perceptual pipe- line become
+essential.
+</p>
+<p class="noindent"><div class="subsection-header"> <h4 id="header-subsection-3.4.1"> <a class="pdf-icon" href="AutonomousMobileRoboticsLectureBook.pdf#subsection.3.4.1"><svg class="bi bi-file-pdf" fill="currentColor" height="20" viewbox="0 0 16 16" width="20" xmlns="http://www.w3.org/2000/svg"><path d="M4 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H4zm0 1h8a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1z"></path><path d="M4.603 12.087a.81.81 0 0 1-.438-.42c-.195-.388-.13-.776.08-1.102.198-.307.526-.568.897-.787a7.68 7.68 0 0 1 1.482-.645 19.701 19.701 0 0 0 1.062-2.227 7.269 7.269 0 0 1-.43-1.295c-.086-.4-.119-.796-.046-1.136.075-.354.274-.672.65-.823.192-.077.4-.12.602-.077a.7.7 0 0 1 .477.365c.088.164.12.356.127.538.007.187-.012.395-.047.614-.084.51-.27 1.134-.52 1.794a10.954 10.954 0 0 0 .98 1.686 5.753 5.753 0 0 1 1.334.05c.364.065.734.195.96.465.12.144.193.32.2.518.007.192-.047.382-.138.563a1.04 1.04 0 0 1-.354.416.856.856 0 0 1-.51.138c-.331-.014-.654-.196-.933-.417a5.716 5.716 0 0 1-.911-.95 11.642 11.642 0 0 0-1.997.406 11.311 11.311 0 0 1-1.021 1.51c-.29.35-.608.655-.926.787a.793.793 0 0 1-.58.029zm1.379-1.901c-.166.076-.32.156-.459.238-.328.194-.541.383-.647.547-.094.145-.096.25-.04.361.01.022.02.036.026.044a.27.27 0 0 0 .035-.012c.137-.056.355-.235.635-.572a8.18 8.18 0 0 0 .45-.606zm1.64-1.33a12.647 12.647 0 0 1 1.01-.193 11.666 11.666 0 0 1-.51-.858 20.741 20.741 0 0 1-.5 1.05zm2.446.45c.15.162.296.3.435.41.24.19.407.253.498.256a.107.107 0 0 0 .07-.015.307.307 0 0 0 .094-.125.436.436 0 0 0 .059-.2.095.095 0 0 0-.026-.063c-.052-.062-.2-.152-.518-.209a3.881 3.881 0 0 0-.612-.053zM8.078 5.8a6.7 6.7 0 0 0 .2-.828c.031-.188.043-.343.038-.465a.613.613 0 0 0-.032-.198.517.517 0 0 0-.145.04c-.087.035-.158.106-.196.283-.04.192-.03.469.046.822.024.111.054.227.09.346z"></path></svg></a><span class="number">3.4.1</span> <span class="title"> <a id="x15-1130003.4.1"></a>Defining Feature</span></h4></div>
+</p><p class="noindent">Features are recognizable structures of elements in the environment. They usually can be extracted
+from measurements and mathematically described. Good features are always perceivable and easily
+detectable from the environment. We distinguish between low-level <span class="margin-block">features <span class="margin-comment"><a class="ellipsis" href="#m-ref-90">[90]</a>
+<span class="sidenote">geometric primitives.</span></span></span> like
+lines, circles or polygons and high-level features (i.e., objects) such as edges, doors, tables or a
+trash can. At one extreme, raw sensor data provides a large volume of data, but with low
+distinctiveness of each individual quantum of data. Making use of raw data has the potential
+advantage that every bit of information is fully used, and therefore has a high conservation of
+information.
+</p><p class="noindent">Low level features are abstractions of raw data, and as such provide a lower volume of data while
+increasing the distinctiveness of each feature. The hope, when one incorporates low level features, is
+that the features are filtering out poor or useless data, but of course it is also likely that some valid
+information will be lost as a result of the feature extraction process. High level features provide
+maximum abstraction from the raw data, thereby reducing the volume of data as much as possible
+while providing highly distinctive resulting features.
+</p>
+<div class="warning"><div class="warning-upper">Warning</div><div class="body">
+<p class="noindent">The abstraction process has the risk of filtering away important information, potentially lowering data
+utilization. </p></div></div>
+<p class="noindent">Although features must have some spatial locality, their geometric extent can range widely. For
+example, a corner feature inhabits a specific coordinate location in the geometric world. In contract, a
+visual <i>fingerprint</i> identifying a specific room in an office building applies to the entire room, but has a
+location that is spatially limited to the one, particular room. In mobile robotics, features play
+an especially important role in the creation of environmental models. They enable more
+compact and robust descriptions of the environment, helping a mobile robot during both
+map-building and localization. When designing a mobile robot, a critical decision revolves around
+choosing the appropriate features for the robot to use. A number of factors are essential to this
+decision:
+</p>
+<dl class="description"><dt class="description"><a id="x15-113001x3.4.1"></a>
+<span style="color:#0A2A0A;">Target Environment</span>
+</dt><dd class="description">
+<p class="noindent"> For geometric features to be useful, the target geometries must be readily detected in
+the actual environment. For example, line features are extremely useful in office building
+environments due to the abundance of straight walls segments while the same feature is
+virtually useless when navigating Mars.
+</p>
+</dd>
+<dt class="description"><a id="x15-113002x3.4.1"></a>
+<span style="color:#0A2A0A;">Available Sensors</span>
+</dt><dd class="description">
+<p class="noindent"> Obviously  the  specific  sensors  and  sensor  uncertainty  of  the  robot  im-  pacts  the
+appropriateness of various features. Armed with a laser rangefinder, a robot is well qualified
+to use geometrically detailed features such as corner features due to the high qual- ity
+angular and depth resolution of the laser scanner. In contrast, a sonar-equipped robot may
+not have the appropriate tools for corner feature extraction.
+</p>
+</dd>
+<dt class="description"><a id="x15-113003x3.4.1"></a>
+<span style="color:#0A2A0A;">Computational Power</span>
+</dt><dd class="description">
+<p class="noindent"> Vision-based feature extraction can effect a significant computa- tional cost, particularly
+in  robots  where  the  vision  sensor  processing  is  performed  by  one  of  the  robot’s  main
+processors.
+</p>
+</dd>
+<dt class="description"><a id="x15-113004x3.4.1"></a>
+<span style="color:#0A2A0A;">Environment representation</span>
+</dt><dd class="description">
+<p class="noindent"> Feature extraction is an important step toward scene inter- pretation, and by this token
+the features extracted must provide information that is consonant with the representation
+used for the environment model. For example, non-geometric vi- sion-based features are
+of  little  value  in  purely  geometric  environment  models  but  can  be  of  great  value  in
+topological models of the environment. Figure 4.35 shows the application of two different
+representations to the task of modeling an office building hallway. Each ap- proach has
+advantages and disadvantages, but extraction of line and corner features has much more
+relevance to the representation on the left. Refer to Chapter 5, Section 5.5 for a close look
+at map representations and their relative tradeoffs. In the following two sections, we present
+specific feature extraction techniques based on the two most popular sensing modalitites
+of mobile robotics: range sensing and visual appear- ance-based sensing.</p></dd></dl>
+<p class="noindent"><div class="subsection-header"> <h4 id="header-subsection-3.4.2"> <a class="pdf-icon" href="AutonomousMobileRoboticsLectureBook.pdf#subsection.3.4.2"><svg class="bi bi-file-pdf" fill="currentColor" height="20" viewbox="0 0 16 16" width="20" xmlns="http://www.w3.org/2000/svg"><path d="M4 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H4zm0 1h8a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1z"></path><path d="M4.603 12.087a.81.81 0 0 1-.438-.42c-.195-.388-.13-.776.08-1.102.198-.307.526-.568.897-.787a7.68 7.68 0 0 1 1.482-.645 19.701 19.701 0 0 0 1.062-2.227 7.269 7.269 0 0 1-.43-1.295c-.086-.4-.119-.796-.046-1.136.075-.354.274-.672.65-.823.192-.077.4-.12.602-.077a.7.7 0 0 1 .477.365c.088.164.12.356.127.538.007.187-.012.395-.047.614-.084.51-.27 1.134-.52 1.794a10.954 10.954 0 0 0 .98 1.686 5.753 5.753 0 0 1 1.334.05c.364.065.734.195.96.465.12.144.193.32.2.518.007.192-.047.382-.138.563a1.04 1.04 0 0 1-.354.416.856.856 0 0 1-.51.138c-.331-.014-.654-.196-.933-.417a5.716 5.716 0 0 1-.911-.95 11.642 11.642 0 0 0-1.997.406 11.311 11.311 0 0 1-1.021 1.51c-.29.35-.608.655-.926.787a.793.793 0 0 1-.58.029zm1.379-1.901c-.166.076-.32.156-.459.238-.328.194-.541.383-.647.547-.094.145-.096.25-.04.361.01.022.02.036.026.044a.27.27 0 0 0 .035-.012c.137-.056.355-.235.635-.572a8.18 8.18 0 0 0 .45-.606zm1.64-1.33a12.647 12.647 0 0 1 1.01-.193 11.666 11.666 0 0 1-.51-.858 20.741 20.741 0 0 1-.5 1.05zm2.446.45c.15.162.296.3.435.41.24.19.407.253.498.256a.107.107 0 0 0 .07-.015.307.307 0 0 0 .094-.125.436.436 0 0 0 .059-.2.095.095 0 0 0-.026-.063c-.052-.062-.2-.152-.518-.209a3.881 3.881 0 0 0-.612-.053zM8.078 5.8a6.7 6.7 0 0 0 .2-.828c.031-.188.043-.343.038-.465a.613.613 0 0 0-.032-.198.517.517 0 0 0-.145.04c-.087.035-.158.106-.196.283-.04.192-.03.469.046.822.024.111.054.227.09.346z"></path></svg></a><span class="number">3.4.2</span> <span class="title"> <a id="x15-1140003.4.2"></a>Using Range Data</span></h4></div>
+</p><p class="noindent">Most of today’s features extracted from ranging sensors are geometric primitives such as line
+segments or circles. The main reason for this is that for most other geometric primitives the
+parametric description of the features becomes too complex and no closed form solution
+exists. Here we will describe line extraction in detail, demonstrating how the uncertainty
+models presented above can be applied to the problem of combining multiple sensor mea-
+surements. Afterwards, we briefly present another very successful feature for indoor mobile
+robots, the corner feature, and demonstrate how these features can be combined in a single
+representation.
+</p>
+<p class="noindent"><h5 class="subsubsectionHead" id="header-subsubsection-45"> <a id="x15-115000"></a>Line Extraction</h5>
+</p><p class="noindent">Geometric feature extraction is usually the process of <b>comparing</b> and <b>matching</b> measured sensor data
+against a predefined description, or template, of the expect feature. Usually, the system is
+overdetermined in that the number of sensor measurements exceeds the number of feature parameters
+to be estimated.
+</p><p class="noindent">As the sensor measurements all have some error, there is no perfectly consistent solution and,
+instead, the problem is one of optimization. </p><div class="quote">  For example, we can extract the feature that
+minimizes the discrepancy with all sensor measurements <span class="margin-block">used. <span class="margin-comment"><a class="ellipsis" href="#m-ref-91">[91]</a>
+<span class="sidenote">e.g. least squares estimation.</span></span></span>
+</div>
+<p class="noindent">Here we will have a look at an optimization-based solution to the problem of extracting a line feature
+from a set of <span class="alert">uncertain sensor measurements</span>.
+</p>
+<p class="noindent"><h5 class="subsubsectionHead" id="header-subsubsection-46"> <a id="x15-116000"></a>Probabilistic Line Extraction</h5>
+</p><p class="noindent">Our goal is to <b>extract a line feature</b> based on a set of sensor measurements as shown in Figure 4.36.
+There is <i>uncertainty</i> associated with each of the noisy range sensor measurements, and so there is no
+single line that passes through the set. Instead, we wish to select the best possible match, given some
+optimization criterion.
+</p><p class="noindent">Formally speaking, suppose <math display="inline"><mi>n</mi></math> ranging
+measurement points in polar coordinates <math display="inline"><msub><mrow><mi>x</mi></mrow><mrow><mi>i</mi></mrow></msub> <mo class="MathClass-rel" stretchy="false">=</mo> <mo class="MathClass-open" stretchy="false">(</mo><msub><mrow><mi>ρ</mi></mrow><mrow><mi>i</mi></mrow></msub><mo class="MathClass-punc" stretchy="false">,</mo><msub><mrow><mi>𝜃</mi></mrow><mrow><mi>i</mi></mrow></msub><mo class="MathClass-close" stretchy="false">)</mo></math>
+are produced by the robot’s sensors. We know that there is uncertainty associated with
+each measurement, and so we can model each measurement using two random variables
+<math display="inline"><msub><mrow><mi>X</mi></mrow><mrow><mi>i</mi></mrow></msub> <mo class="MathClass-rel" stretchy="false">=</mo> <mo class="MathClass-open" stretchy="false">(</mo><msub><mrow><mi>P</mi></mrow><mrow><mi>i</mi></mrow></msub><mo class="MathClass-punc" stretchy="false">,</mo><msub><mrow><mi>Q</mi></mrow><mrow><mi>i</mi></mrow></msub><mo class="MathClass-close" stretchy="false">)</mo></math>.
+</p><p class="noindent">In this analysis we assume that uncertainty with respect to the actual value iii of
+<math display="inline"><mi>P</mi></math> and
+<math display="inline"><mi>Q</mi></math> are
+<b>independent</b>. Based on Equation (4.56) we can state this formally: </p><table class="equation"><tr><td>
+<math class="equation" display="block">
+<mstyle class="label" id="x15-116001r24"></mstyle><mtable class="aligned" displaystyle="true"><mtr><mtd columnalign="right"><mi>E</mi> <mrow><mo fence="true" form="prefix">[</mo><mrow><msub><mrow><mi>P</mi></mrow><mrow><mi>i</mi></mrow></msub> <mi>·</mi> <msub><mrow><mi>P</mi></mrow><mrow><mi>j</mi></mrow></msub></mrow><mo fence="true" form="postfix">]</mo></mrow> <mstyle class="text"><mtext></mtext></mstyle></mtd>
+<mtd columnalign="left"> <mo class="MathClass-rel" stretchy="false">=</mo> <mi>E</mi> <mrow><mo fence="true" form="prefix">[</mo><mrow><msub><mrow><mi>P</mi></mrow><mrow><mi>i</mi></mrow></msub></mrow><mo fence="true" form="postfix">]</mo></mrow> <mstyle class="text"><mtext></mtext></mstyle><mi>E</mi> <mrow><mo fence="true" form="prefix">[</mo><mrow><msub><mrow><mi>P</mi></mrow><mrow><mi>j</mi></mrow></msub></mrow><mo fence="true" form="postfix">]</mo></mrow> <mstyle class="text"><mtext></mtext></mstyle><mspace class="qquad" width="2em"></mspace><mi>i</mi><mo class="MathClass-punc" stretchy="false">,</mo><mspace class="thinspace" width="0.17em"></mspace><mi>j</mi> <mo class="MathClass-rel" stretchy="false">=</mo> <mn>1</mn><mo class="MathClass-punc" stretchy="false">,</mo><mo>…</mo><mo class="MathClass-punc" stretchy="false">,</mo><mi>n</mi></mtd>
+<mtd columnalign="right"></mtd>
+</mtr><mtr><mtd columnalign="right"><mi>E</mi> <mrow><mo fence="true" form="prefix">[</mo><mrow><msub><mrow><mi>Q</mi></mrow><mrow><mi>i</mi></mrow></msub> <mi>·</mi> <msub><mrow><mi>Q</mi></mrow><mrow><mi>j</mi></mrow></msub></mrow><mo fence="true" form="postfix">]</mo></mrow> <mstyle class="text"><mtext></mtext></mstyle></mtd>
+<mtd columnalign="left"> <mo class="MathClass-rel" stretchy="false">=</mo> <mi>E</mi> <mrow><mo fence="true" form="prefix">[</mo><mrow><msub><mrow><mi>Q</mi></mrow><mrow><mi>i</mi></mrow></msub></mrow><mo fence="true" form="postfix">]</mo></mrow> <mstyle class="text"><mtext></mtext></mstyle><mi>E</mi> <mrow><mo fence="true" form="prefix">[</mo><mrow><msub><mrow><mi>Q</mi></mrow><mrow><mi>j</mi></mrow></msub></mrow><mo fence="true" form="postfix">]</mo></mrow> <mstyle class="text"><mtext></mtext></mstyle><mspace class="qquad" width="2em"></mspace><mi>i</mi><mo class="MathClass-punc" stretchy="false">,</mo><mspace class="thinspace" width="0.17em"></mspace><mi>j</mi> <mo class="MathClass-rel" stretchy="false">=</mo> <mn>1</mn><mo class="MathClass-punc" stretchy="false">,</mo><mo>…</mo><mo class="MathClass-punc" stretchy="false">,</mo><mi>n</mi></mtd>
+</mtr><mtr><mtd columnalign="right"><mi>E</mi> <mrow><mo fence="true" form="prefix">[</mo><mrow><msub><mrow><mi>P</mi></mrow><mrow><mi>i</mi></mrow></msub> <mi>·</mi> <msub><mrow><mi>Q</mi></mrow><mrow><mi>j</mi></mrow></msub></mrow><mo fence="true" form="postfix">]</mo></mrow> <mstyle class="text"><mtext></mtext></mstyle></mtd><mtd columnalign="left"> <mo class="MathClass-rel" stretchy="false">=</mo> <mi>E</mi> <mrow><mo fence="true" form="prefix">[</mo><mrow><msub><mrow><mi>P</mi></mrow><mrow><mi>i</mi></mrow></msub></mrow><mo fence="true" form="postfix">]</mo></mrow> <mstyle class="text"><mtext></mtext></mstyle><mi>E</mi> <mrow><mo fence="true" form="prefix">[</mo><mrow><msub><mrow><mi>Q</mi></mrow><mrow><mi>j</mi></mrow></msub></mrow><mo fence="true" form="postfix">]</mo></mrow> <mstyle class="text"><mtext></mtext></mstyle><mspace class="qquad" width="2em"></mspace><mi>i</mi><mo class="MathClass-punc" stretchy="false">,</mo><mspace class="thinspace" width="0.17em"></mspace><mi>j</mi> <mo class="MathClass-rel" stretchy="false">=</mo> <mn>1</mn><mo class="MathClass-punc" stretchy="false">,</mo><mo>…</mo><mo class="MathClass-punc" stretchy="false">,</mo><mi>n</mi></mtd>
+</mtr><mtr><mtd columnalign="right"></mtd>
+</mtr> </mtable>
+</math></td><td class="eq-no">(3.24)</td></tr></table>
+<p class="noindent"></p>
+<p class="noindent">Furthermore, we will assume each random variable is subject to a Gaussian probability density curve,
+with a mean at the true value and with some specified variance: </p><table class="equation"><tr><td>
+<math class="equation" display="block">
+<mstyle class="label" id="x15-116002r25"></mstyle>
+<msub><mrow><mi>P</mi></mrow><mrow><mi>i</mi></mrow></msub> <mi>∼</mi> <mi>N</mi><mo class="MathClass-open" stretchy="false">(</mo><msub><mrow><mi>ρ</mi></mrow><mrow><mi>i</mi></mrow></msub><mo class="MathClass-punc" stretchy="false">,</mo><msubsup><mrow><mi>σ</mi></mrow><mrow><msub><mrow><mi>ρ</mi></mrow><mrow><mi>i</mi></mrow></msub></mrow><mrow><mn>2</mn></mrow></msubsup><mo class="MathClass-close" stretchy="false">)</mo><mspace class="qquad" width="2em"></mspace><mstyle class="text"><mtext>and</mtext></mstyle><mspace class="qquad" width="2em"></mspace><msub><mrow><mi>Q</mi></mrow><mrow>
+<mi>i</mi></mrow></msub> <mi>∼</mi> <mi>N</mi><mo class="MathClass-open" stretchy="false">(</mo><msub><mrow><mi>ρ</mi></mrow><mrow><mi>i</mi></mrow></msub><mo class="MathClass-punc" stretchy="false">,</mo><msubsup><mrow><mi>𝜃</mi></mrow><mrow><msub><mrow><mi>𝜃</mi></mrow><mrow><mi>i</mi></mrow></msub></mrow><mrow><mn>2</mn></mrow></msubsup><mo class="MathClass-close" stretchy="false">)</mo>
+</math></td><td class="eq-no">(3.25)</td></tr></table>
+<p class="noindent"></p>
+<p class="noindent">Given some measurement point, say <math display="inline"><mo class="MathClass-open" stretchy="false">(</mo><mi>ρ</mi><mo class="MathClass-punc" stretchy="false">,</mo><mi>𝜃</mi><mo class="MathClass-close" stretchy="false">)</mo></math>
+, we can calculate the corresponding Euclidean coordinates as
+<math display="inline"><mi>x</mi> <mo class="MathClass-rel" stretchy="false">=</mo> <mi>ρ</mi><mi class="loglike">cos</mi><mo>⁡</mo><mi>𝜃</mi></math> and
+<math display="inline"><mi>y</mi> <mo class="MathClass-rel" stretchy="false">=</mo> <mi>ρ</mi><mi class="loglike">sin</mi><mo>⁡</mo><mi>𝜃</mi></math>. If
+there were no error,we would want to find a line for which all measurements lie on that line:
+</p><table class="equation"><tr><td>
+<math class="equation" display="block">
+<mstyle class="label" id="x15-116003r26"></mstyle>
+<mi>ρ</mi><mi class="loglike">cos</mi><mo>⁡</mo><mi>𝜃</mi><mo><mi class="loglike">cos</mi><mo>⁡</mo></mo><mi>α</mi> <mo class="MathClass-bin" stretchy="false">+</mo> <mi>ρ</mi><mo><mi class="loglike">sin</mi><mo>⁡</mo></mo><mi>𝜃</mi><mo><mi class="loglike">sin</mi><mo>⁡</mo></mo><mi>α</mi> <mo class="MathClass-bin" stretchy="false">−</mo> <mi>r</mi> <mo class="MathClass-rel" stretchy="false">=</mo> <mi>ρ</mi><mo><mi class="loglike">cos</mi><mo>⁡</mo></mo><mo class="MathClass-open" stretchy="false">(</mo><mi>𝜃</mi> <mo class="MathClass-bin" stretchy="false">−</mo> <mi>α</mi><mo class="MathClass-close" stretchy="false">)</mo> <mo class="MathClass-bin" stretchy="false">−</mo> <mi>r</mi> <mo class="MathClass-rel" stretchy="false">=</mo> <mn>0</mn>
+</math></td><td class="eq-no">(3.26)</td></tr></table>
+<p class="noindent"></p>
+<p class="noindent">Of course there is <b>measurement error</b>, and so this quantity will not be zero.
+When it is non-zero, this is a measure of the error between the measurement point
+<math display="inline"><mo class="MathClass-open" stretchy="false">(</mo><mi>ρ</mi><mo class="MathClass-punc" stretchy="false">,</mo><mi>𝜃</mi><mo class="MathClass-close" stretchy="false">)</mo></math> and
+the line, specifically in terms of the minimum orthogonal distance between the point and the
+line.
+</p>
+<div class="warning"><div class="warning-upper">Warning</div><div class="body">
+<p class="noindent">It is always important to understand how the error that shall be minimized is being measured.
+</p></div></div>
+<p class="noindent">For example a number of line extraction techniques do not minimize this orthogonal point-line
+distance, but instead the distance parallel to the <i>y</i>-axis between the point and the line. A
+good illustration of the variety of optimization criteria is available in [18] where several
+algorithms for fitting circles and ellipses are presented which minimize algebraic and geometric
+distances.
+</p><p class="noindent">For each specific <math display="inline"><mo class="MathClass-open" stretchy="false">(</mo><msub><mrow><mi>ρ</mi></mrow><mrow><mi>i</mi></mrow></msub><mo class="MathClass-punc" stretchy="false">,</mo><msub><mrow><mi>𝜃</mi></mrow><mrow><mi>i</mi></mrow></msub><mo class="MathClass-close" stretchy="false">)</mo></math>, we can
+write the orthogonal distance <math display="inline"><msub><mrow><mi>d</mi></mrow><mrow><mi>i</mi></mrow></msub></math>
+between <math display="inline"><mo class="MathClass-open" stretchy="false">(</mo><msub><mrow><mi>ρ</mi></mrow><mrow><mi>i</mi></mrow></msub><mo class="MathClass-punc" stretchy="false">,</mo><msub><mrow><mi>𝜃</mi></mrow><mrow><mi>i</mi></mrow></msub><mo class="MathClass-close" stretchy="false">)</mo></math>
+and the line as: </p><table class="equation"><tr><td>
+<math class="equation" display="block">
+<mstyle class="label" id="x15-116004r27"></mstyle>
+<msub><mrow><mi>ρ</mi></mrow><mrow><mi>i</mi></mrow></msub> <mi class="loglike">cos</mi><mo>⁡</mo><mo class="MathClass-open" stretchy="false">(</mo><msub><mrow><mi>𝜃</mi></mrow><mrow><mi>i</mi></mrow></msub> <mo class="MathClass-bin" stretchy="false">−</mo> <mi>α</mi><mo class="MathClass-close" stretchy="false">)</mo> <mo class="MathClass-bin" stretchy="false">−</mo> <mi>r</mi> <mo class="MathClass-rel" stretchy="false">=</mo> <msub><mrow><mi>d</mi></mrow><mrow><mi>i</mi></mrow></msub>
+</math></td><td class="eq-no">(3.27)</td></tr></table>
+<p class="noindent"></p>
+<p class="noindent">If we consider each measurement to be <b>equally uncertain</b>, we can sum the square of all errors
+together, for all measurement points, to quantify an overall fit between the line and all of the
+measurements:
+</p>
+<table class="equation"><tr><td>
+<math class="equation" display="block">
+<mstyle class="label" id="x15-116005r28"></mstyle>
+<mi>S</mi> <mo class="MathClass-rel" stretchy="false">=</mo><munder class="msub"><mrow><mo> ∑</mo>
+</mrow><mrow><mi>i</mi></mrow></munder><msubsup><mrow><mi>d</mi></mrow><mrow><mi>i</mi></mrow><mrow><mn>2</mn></mrow></msubsup> <mo class="MathClass-rel" stretchy="false">=</mo><munder class="msub"><mrow><mo> ∑</mo>
+</mrow><mrow><mi>i</mi></mrow></munder><msup><mrow> <mrow><mo fence="true" form="prefix">(</mo><mrow><msub><mrow><mi>ρ</mi></mrow><mrow><mi>i</mi></mrow></msub><mo> <mi class="loglike">cos</mi><mo>⁡</mo></mo><mo class="MathClass-open" stretchy="false">(</mo><msub><mrow><mi>𝜃</mi></mrow><mrow><mi>i</mi></mrow></msub> <mo class="MathClass-bin" stretchy="false">−</mo> <mi>α</mi><mo class="MathClass-close" stretchy="false">)</mo> <mo class="MathClass-bin" stretchy="false">−</mo> <mi>r</mi></mrow><mo fence="true" form="postfix">)</mo></mrow></mrow><mrow><mn>2</mn></mrow></msup>
+</math></td><td class="eq-no">(3.28)</td></tr></table>
+<p class="noindent"></p>
+<p class="noindent">Our goal is to minimize <math display="inline"><mi>S</mi></math> when
+selecting the line parameters <math display="inline"><mo class="MathClass-open" stretchy="false">(</mo><mi>α</mi><mo class="MathClass-punc" stretchy="false">,</mo><mi>r</mi><mo class="MathClass-close" stretchy="false">)</mo></math>
+. We can do so by solving the non-linear equation system: </p><table class="equation"><tr><td>
+<math class="equation" display="block">
+<mstyle class="label" id="x15-116006r29"></mstyle>
+<mstyle displaystyle="true"><mfrac><mrow><msup><mrow><mi>∂</mi></mrow><mrow></mrow></msup><mi>S</mi>
+</mrow><mrow><mi>∂</mi><msup><mrow><mi>α</mi></mrow><mrow></mrow></msup></mrow></mfrac></mstyle>
+<mo class="MathClass-rel" stretchy="false">=</mo> <mn>0</mn><mspace class="qquad" width="2em"></mspace><mstyle class="text"><mtext>and</mtext></mstyle><mspace class="qquad" width="2em"></mspace><mstyle displaystyle="true"><mfrac><mrow><msup><mrow><mi>∂</mi></mrow><mrow></mrow></msup><mi>S</mi>
+</mrow><mrow><mi>∂</mi><msup><mrow><mi>r</mi></mrow><mrow></mrow></msup> </mrow></mfrac></mstyle><mo class="MathClass-punc" stretchy="false">.</mo>
+</math></td><td class="eq-no">(3.29)</td></tr></table>
+<p class="noindent"></p>
+<p class="noindent">The above formalism is considered an <b>unweighted least squares solution</b> because no distinction is
+made from among the measurements. In reality, each sensor measurement may have its own, unique
+uncertainty based on the geometry of the robot and environment when the measurement was recorded. </p><div class="quote">
+For example, we know with regards to vision-based stereo ranging that uncertainty and,
+therefore, variance increases as a <b>square of the distance</b> between the robot and the object.
+</div>
+<p class="noindent">To make use of the variance <math display="inline"><msubsup><mrow><mi>σ</mi></mrow><mrow><mi>i</mi></mrow><mrow><mn>2</mn></mrow></msubsup></math> that models
+the uncertainty regarding distance <math display="inline"><msub><mrow><mi>ρ</mi></mrow><mrow><mi>i</mi></mrow></msub></math>
+of a particular sensor measurement, we compute an individual weight
+<math display="inline"><msub><mrow><mi>w</mi></mrow><mrow><mi>i</mi></mrow></msub></math> for
+each measurement using the <span class="margin-block">formula: <span class="margin-comment"><a class="ellipsis" href="#m-ref-92">[92]</a>
+<span class="sidenote">The issue of determining an adequate weight when
+<math display="inline"><msub><mrow><mi>σ</mi></mrow><mrow><mi>i</mi></mrow></msub></math> is given
+(and perhaps some additional information) is complex.</span></span></span> </p><table class="equation"><tr><td>
+<math class="equation" display="block">
+<mstyle class="label" id="x15-116007r30"></mstyle>
+<msub><mrow><mi>w</mi></mrow><mrow><mi>i</mi></mrow></msub> <mo class="MathClass-rel" stretchy="false">=</mo> <mi>f</mi><mi>r</mi><mi>a</mi><mi>c</mi><mn>1</mn><msubsup><mrow><mi>σ</mi></mrow><mrow><mi>i</mi></mrow><mrow><mn>2</mn></mrow></msubsup>
+</math></td><td class="eq-no">(3.30)</td></tr></table>
+<p class="noindent"></p>
+<p class="noindent">Then Eq. (<a href="#x15-116005r28">3.28</a>) becomes: </p><table class="equation"><tr><td>
+<math class="equation" display="block">
+<mstyle class="label" id="x15-116008r31"></mstyle>
+<mi>S</mi> <mo class="MathClass-rel" stretchy="false">=</mo><mo> ∑</mo>
+<msub><mrow><mi>w</mi></mrow><mrow><mi>i</mi></mrow></msub><msubsup><mrow><mi>d</mi></mrow><mrow><mi>i</mi></mrow><mrow><mn>2</mn></mrow></msubsup> <mo class="MathClass-rel" stretchy="false">=</mo><mo> ∑</mo>
+<msub><mrow><mi>w</mi></mrow><mrow><mi>i</mi></mrow></msub><msup><mrow> <mrow><mo fence="true" form="prefix">(</mo><mrow><msub><mrow><mi>ρ</mi></mrow><mrow><mi>i</mi></mrow></msub><mo> <mi class="loglike">cos</mi><mo>⁡</mo></mo><mo class="MathClass-open" stretchy="false">(</mo><msub><mrow><mi>𝜃</mi></mrow><mrow><mi>i</mi></mrow></msub> <mo class="MathClass-bin" stretchy="false">−</mo> <mi>α</mi><mo class="MathClass-close" stretchy="false">)</mo> <mo class="MathClass-bin" stretchy="false">−</mo> <mi>r</mi></mrow><mo fence="true" form="postfix">)</mo></mrow></mrow><mrow><mn>2</mn></mrow></msup>
+</math></td><td class="eq-no">(3.31)</td></tr></table>
+<p class="noindent"></p>
+<p class="noindent">It can be shown that the solution of (4.70) in the weighted least square sense is: </p><table class="equation"><tr><td>
+<math class="equation" display="block">
+<mstyle class="label" id="x15-116009r32"></mstyle>
+<mi>α</mi> <mo class="MathClass-rel" stretchy="false">=</mo> <mfrac><mrow><mn>1</mn></mrow>
+<mrow>
+<mn>2</mn></mrow></mfrac><mi class="loglike">arctan</mi><mo>⁡</mo><msup><mrow> <mrow><mo fence="true" form="prefix">(</mo><mrow><mstyle displaystyle="true"><mfrac><mrow><mo>∑</mo>
+<msub><mrow><mi>w</mi></mrow><mrow><mi>i</mi></mrow></msub><msubsup><mrow><mi>ρ</mi></mrow><mrow><mi>i</mi></mrow><mrow><mn>2</mn></mrow></msubsup><mo> <mi class="loglike">sin</mi><mo>⁡</mo></mo><mn>2</mn><msub><mrow><mi>𝜃</mi></mrow><mrow><mi>i</mi></mrow></msub> <mo class="MathClass-bin" stretchy="false">−</mo> <mstyle displaystyle="true"><mfrac><mrow> <mn>2</mn>
+</mrow><mrow><mo>∑</mo>
+<msub><mrow><mi>w</mi></mrow><mrow><mi>i</mi></mrow></msub></mrow></mfrac></mstyle><mo> ∑</mo>
+<mo>∑</mo>
+<msub><mrow><mi>w</mi></mrow><mrow><mi>i</mi></mrow></msub><msub><mrow><mi>w</mi></mrow><mrow><mi>j</mi></mrow></msub><msub><mrow><mi>ρ</mi></mrow><mrow><mi>i</mi></mrow></msub><msub><mrow><mi>ρ</mi></mrow><mrow><mi>j</mi></mrow></msub><mo> <mi class="loglike">cos</mi><mo>⁡</mo></mo><msub><mrow><mi>𝜃</mi></mrow><mrow><mi>i</mi></mrow></msub><mo> <mi class="loglike">sin</mi><mo>⁡</mo></mo><msub><mrow><mi>𝜃</mi></mrow><mrow><mi>j</mi></mrow></msub>
+</mrow><mrow><mo>∑</mo>
+<msub><mrow><mi>w</mi></mrow><mrow><mi>i</mi></mrow></msub><munderover accent="false" accentunder="false"><mrow><mi>ρ</mi></mrow><mrow><mi>i</mi></mrow><mrow><mn>2</mn></mrow></munderover><mo> <mi class="loglike">cos</mi><mo>⁡</mo></mo><mn>2</mn><msub><mrow><mi>𝜃</mi></mrow><mrow><mi>i</mi></mrow></msub> <mo class="MathClass-bin" stretchy="false">−</mo> <mstyle displaystyle="true"><mfrac><mrow> <mn>2</mn>
+</mrow><mrow><mo>∑</mo>
+<msub><mrow><mi>w</mi></mrow><mrow><mi>i</mi></mrow></msub></mrow></mfrac></mstyle><mo> ∑</mo>
+<mo>∑</mo>
+<msub><mrow><mi>w</mi></mrow><mrow><mi>i</mi></mrow></msub><msub><mrow><mi>w</mi></mrow><mrow><mi>j</mi></mrow></msub><msub><mrow><mi>ρ</mi></mrow><mrow><mi>i</mi></mrow></msub><msub><mrow><mi>ρ</mi></mrow><mrow><mi>j</mi></mrow></msub><mo> <mi class="loglike">cos</mi><mo>⁡</mo></mo><msub><mrow><mi>𝜃</mi></mrow><mrow><mi>i</mi></mrow></msub><mo> <mi class="loglike">sin</mi><mo>⁡</mo></mo><msub><mrow><mi>𝜃</mi></mrow><mrow><mi>j</mi></mrow></msub></mrow></mfrac></mstyle></mrow><mo fence="true" form="postfix">)</mo></mrow> </mrow><mrow></mrow></msup>
+</math></td><td class="eq-no">(3.32)</td></tr></table>
+<p class="noindent"></p>
+<p class="noindent">where, </p><table class="equation-star"><tr><td>
+<math class="equation" display="block">
+<mi>r</mi> <mo class="MathClass-rel" stretchy="false">=</mo> <mo class="MathClass-bin" stretchy="false">−</mo><mfrac><mrow><mo> ∑</mo>
+<msub><mrow><mi>w</mi></mrow><mrow><mi>i</mi></mrow></msub><msub><mrow><mi>ρ</mi></mrow><mrow><mi>i</mi></mrow></msub><mo> <mi class="loglike">cos</mi><mo>⁡</mo></mo><mo class="MathClass-open" stretchy="false">(</mo><msub><mrow><mi>𝜃</mi></mrow><mrow><mi>i</mi></mrow></msub> <mo class="MathClass-bin" stretchy="false">−</mo> <mi>α</mi><mo class="MathClass-close" stretchy="false">)</mo></mrow>
+<mrow>
+<mo> ∑</mo>
+<msub><mrow><mi>w</mi></mrow><mrow><mi>i</mi></mrow></msub></mrow></mfrac>
+</math></td></tr></table>
+<p class="noindent">In practice equation (4.73) uses the four-quadrant arc tangent
+(<math display="inline"><mi class="loglike">arctan</mi><mo>⁡</mo><mn>2</mn></math>)
+</p>
+<p class="noindent"><h5 class="subsubsectionHead" id="header-subsubsection-47"> <a id="x15-117000"></a>Propagation of Uncertainty during Line Extraction</h5>
+</p><p class="noindent">Returning to the subject of Section (4.2.3), we would like understand how the uncertainties of specific
+range sensor measurements propagate to govern the uncertainty of the extracted line. In other words,
+how does uncertainty in  and  propagate in Equations (4.73) and ii (4.74) to affect the uncertainty of
+and r? This requires direct application of Equation 4.60 with A and R representing the random out-
+puts variables of  and r respectively. The goal is to derive the 2 Œ 2 output covariance ma-
+trix
+</p>
+<table class="equation"><tr><td>
+<math class="equation" display="block">
+<mstyle class="label" id="x15-117001r33"></mstyle><msubsup><mrow><mover accent="true"><mrow><mi>C</mi></mrow><mo accent="true">→</mo></mover>
+</mrow><mrow><mi>A</mi><mi>R</mi></mrow><mrow></mrow></msubsup> <mo class="MathClass-rel" stretchy="false">=</mo> <mrow><mo fence="true" form="prefix">[</mo><mrow><mtable align="axis" class="array" columnlines="none none none none none none none none none" displaystyle="true" equalcolumns="false" equalrows="false" style=""> <mtr class="array-row"><mtd class="array-td" columnalign="center"> <msubsup><mrow><mi>σ</mi></mrow><mrow><mi>A</mi></mrow><mrow><mn>2</mn></mrow></msubsup> </mtd><mtd class="array-td" columnalign="center"> <msubsup><mrow><mi>σ</mi></mrow><mrow><mi>A</mi><mi>R</mi></mrow><mrow></mrow></msubsup> </mtd>
+</mtr>
+<mtr class="array-row"><mtd class="array-td" columnalign="center"> <msubsup><mrow><mi>σ</mi></mrow><mrow><mi>A</mi><mi>R</mi></mrow><mrow></mrow></msubsup> </mtd>
+<mtd class="array-td" columnalign="center"> <msubsup><mrow><mi>σ</mi></mrow><mrow><mi>R</mi></mrow><mrow><mn>2</mn></mrow></msubsup> </mtd>
+</mtr>
+</mtable> </mrow><mo fence="true" form="postfix">]</mo></mrow>
+</math></td><td class="eq-no">(3.33)</td></tr></table>
+<p class="noindent"></p>
+<p class="noindent">given the
+</p>
+<p class="noindent"><span class="paragraphHead"> <a id="x15-118000"></a>Image Pre-Processing</span>
+Many image processing algorithms <b>make use of the second derivative</b> of the image intensity. </p><div class="quote">  For
+example, the <span class="acronym"><span class="acronym-short"><a class="glossary" href="#glo:log">LoG</a></span><span class="acronym-detail"><span class="acronym-long"><a class="glossary" href="#glo:log">Laplacian of Gaussian</a></span><span class="acronym-desc"><a class="glossary" href="#glo:log">An image processing filter that combines Gaussian smoothing
+with the Laplacian second-derivative operator. It first blurs an image to remove noise, then highlights
+regions of rapid intensity change to detect edges accurately via zero-crossings. It is also known as the
+Marr-Hildreth-Operator.</a></span></span></span> method we studied in Section 4.1.8.2 for stereo ranging is such an example.
+</div>
+<p class="noindent">Because of the susceptibility of such high-order derivative algorithms to changes in illumination in the
+basic signal, it is important to smooth the signal so changes in intensity are due to real changes in the
+luminosity of objects in the scene rather than random variations due to imaging noise. A standard
+approach is convolution with a Gaussian distribution function, as we described earlier in Section
+4.1.8.2: </p><table class="equation"><tr><td>
+<math class="equation" display="block">
+<mstyle class="label" id="x15-118001r34"></mstyle>
+<mi>Î</mi>
+<mo class="MathClass-rel" stretchy="false">=</mo> <mi>G</mi> <mi>⊗</mi> <mi>I</mi>
+</math></td><td class="eq-no">(3.34)</td></tr></table>
+<p class="noindent"></p>
+<p class="noindent">Of course, when approximated by a discrete <span class="margin-block">kernel, <span class="margin-comment"><a class="ellipsis" href="#m-ref-93">[93]</a>
+<span class="sidenote">in this context, and to reiterate,
+a kernel is a matrix which is used to change the properties of an image.</span></span></span> such as a
+<math display="inline"><mn>3</mn> <mi>×</mi> <mn>3</mn></math> matrix,
+the result is essentially local, weighted averaging: </p><table class="equation"><tr><td>
+<math class="equation" display="block">
+<mstyle class="label" id="x15-118002r35"></mstyle><mi>G</mi> <mo class="MathClass-rel" stretchy="false">=</mo> <mfrac><mrow><mn>1</mn></mrow>
+<mrow>
+<mn>1</mn><mn>6</mn></mrow></mfrac> <mrow><mo fence="true" form="prefix">[</mo><mrow><mtable align="axis" class="array" columnlines="none none none none none none none none none" displaystyle="true" equalcolumns="false" equalrows="false" style=""><mtr class="array-row"><mtd class="array-td" columnalign="center"> <mn>1</mn> </mtd><mtd class="array-td" columnalign="center"> <mn>2</mn> </mtd><mtd class="array-td" columnalign="center"> <mn>1</mn> </mtd></mtr> <mtr class="array-row"><mtd class="array-td" columnalign="center"> <mn>2</mn> </mtd> <mtd class="array-td" columnalign="center"> <mn>4</mn> </mtd> <mtd class="array-td" columnalign="center"> <mn>2</mn></mtd>
+</mtr> <mtr class="array-row"><mtd class="array-td" columnalign="center"> <mn>1</mn> </mtd><mtd class="array-td" columnalign="center"> <mn>2</mn> </mtd><mtd class="array-td" columnalign="center"> <mn>1</mn> </mtd></mtr></mtable> </mrow><mo fence="true" form="postfix">]</mo></mrow>
+</math></td><td class="eq-no">(3.35)</td></tr></table>
+<p class="noindent"></p>
+<p class="noindent">Such a <b>low pass filter</b> effectively removes <span class="alert">high-frequency noise</span>, and this in turn causes the first derivative and especially
+the second derivative of intensity to be far more stable.
+</p>
+<div class="warning"><div class="warning-upper">Warning</div><div class="body">
+<p class="noindent">Because of the important of gradients and derivatives to image processing, such <i>Gaussian</i>
+smoothing pre-processing is a popular first step of virtually all computer vision algorithms.
+</p></div></div>
+<p class="noindent"><h5 class="subsubsectionHead" id="header-subsubsection-48"> <a id="x15-119000"></a>Spatially Localised Features</h5>
+</p><p class="noindent">In computer vision, many algorithms assume the object of interest occupies only a <span class="margin-block">sub-region <span class="margin-comment"><a class="ellipsis" href="#m-ref-94">[94]</a>
+<span class="sidenote">i.e., a
+part of the image.</span></span></span> of the image, and therefore the features being sought are <b>localized spatially
+within images of the scene</b>. Local image processing techniques find features that are
+local to a subset of pixels, and such local features map to specific locations in the physical
+world.
+</p>
+<div class="knowledge"><div class="knowledge-upper">Knowledge</div><div class="body">
+<p class="noindent">This makes them particularly applicable to geometric models of the robot’s environment.
+</p></div></div>
+<p class="noindent">The most popular local feature extractor used in <span class="acronym"><span class="acronym-short"><a class="glossary" href="#glo:amr">AMR</a></span><span class="acronym-detail"><span class="acronym-long"><a class="glossary" href="#glo:amr">Autonomous Mobile Robotics</a></span><span class="acronym-desc"><a class="glossary" href="#glo:amr">Self-navigating
+machines moving materials and goods independently without fixed tracks or wires. They use smart
+software, cameras, and sensors to map spaces and safely steer around people or obstacles in real time.</a></span></span></span> is
+the <span class="alert">edge detector</span>, and so we begin with a discussion of this classical topic in computer vision. However,
+<span class="acronym"><span class="acronym-short"><a class="glossary" href="#glo:amr">AMR</a></span><span class="acronym-detail"><span class="acronym-long"><a class="glossary" href="#glo:amr">Autonomous Mobile Robotics</a></span><span class="acronym-desc"><a class="glossary" href="#glo:amr">Self-navigating machines moving materials and goods independently
+without fixed tracks or wires. They use smart software, cameras, and sensors to map spaces and
+safely steer around people or obstacles in real time.</a></span></span></span> face the specific mobility challenges
+of obstacle avoidance and localization. In view of obstacle avoidance, we will look at the
+vision-based extraction of the floor plane, enabling a robot to detect all areas that can be safely
+traversed.
+Finally, in view of the need for localization we discuss the role of vision-based feature extraction in the
+detection of robot navigation landmarks.
+</p>
+<p class="noindent"><h5 class="subsubsectionHead" id="header-subsubsection-49"> <a id="x15-120000"></a>Edge Detection</h5>
+</p><p class="noindent">Figure 4.42 shows an image of a scene containing a part of a ceiling lamp as well as the edges extracted
+from this image. Edges define regions in the image plane where a significant change in the image
+brightness takes place.
+</p><p class="noindent">As shown in this example, edge detection significantly reduces the amount of information in an image,
+and is therefore a useful potential feature during image interpretation. The hypothesis is that edge
+contours in an image correspond to important scene contours. As the Figure 4.42(b) shows, this is not
+entirely true. There is a difference between the output of an edge detector and an ideal line drawing.
+Typically, there are missing contours, as well as noise contours that do not correspond to anything of
+significance in the scene.
+</p><p class="noindent">The fundamental challenge of edge detection is visualized in Figure 4.23. Figure 4.23(top left) shows the
+1-D section of an ideal edge. But the signal produced by a camera will look more like figure 4.23(top
+right). The location of the edge is still at the same x value, but a significant level of high-frequency
+noise affects the signal quality.
+</p><p class="noindent">A naive edge detector would simply <span class="alert">differentiate</span>, since an edge by definition is located where there are large
+transitions in intensity. As shown in figure 4.23(bottom right), differentiation of the noisy camera signal
+results in subsidiary peaks that can make edge detection very challenging. A far more stable derivative
+signal can be generated simply by pre-processing the camera signal using the Gaussian smoothing
+function described above.
+</p><p class="noindent">Below, we will have a look at the popular edge detection algorithms, all of which operate on this same
+basic principle: </p><div class="quote">  the derivative(s) of intensity, following some form of smoothing, comprise the basic
+signal from which to extract edge features. </div>
+<p class="noindent"></p><figure class="float">
+<a id="x15-120001r25"></a>
+<figcaption class="caption"><span class="id">Figure 3.25: </span><span class="content">A comparison of the (a) Gaussian (b) The first derivative of the Gaussian.                    </span></figcaption>
+<img alt="PIC" src="figures/Perception/figures-7.png" style=""/>
+</figure>
+<p class="noindent"><span class="paragraphHead"> <a id="x15-121000"></a>Optimal Edge Detection: Canny</span>
+The current reference edge detector throughout machine vision community was invented by <span class="margin-block">John Canny <span class="margin-comment"><a class="ellipsis" href="#m-ref-95">[95]</a>
+<span class="sidenote"><b>John F. Canny</b>
+<i>(1958  - )</i>
+is an Australian computer scientist, and Paul E Jacobs and Stacy Jacobs Distinguished
+Professor of Engineering in the Computer Science Department of the University of California,
+Berkeley. He has made significant contributions in various areas of computer science and
+mathematics, including artificial intelligence, robotics, computer graphics, human-computer
+interaction, computer security, computational algebra, and computational geometry.</span></span></span> in
+1983 [16]. This edge detector was born out of a formal approach in which Canny treated
+edge detection as a signal processing problem in which there are three (<span class="alert">3</span>) explicit goals:
+</p>
+<ul class="itemize1">
+<li class="itemize">
+<p class="noindent">Maximize the signal-to-noise ratio,
+</p>
+</li>
+<li class="itemize">
+<p class="noindent">Achieve the highest precision possible on the location of edges, and
+</p>
+</li>
+<li class="itemize">
+<p class="noindent">Minimize the number of edge responses associated with each edge.</p></li></ul>
+<p class="noindent">The <i>Canny</i> edge extractor smooths a given image
+<math display="inline"><mi>I</mi></math> using
+<i>Gaussian convolution</i> and then looks for maxima in the rectified derivative. In practice the smoothing
+and differentiation are combined into one operation because: </p><table class="equation"><tr><td>
+<math class="equation" display="block">
+<mstyle class="label" id="x15-121001r36"></mstyle><msup><mrow>
+<mrow><mo fence="true" form="prefix">(</mo><mrow><mi>G</mi> <mi>⊗</mi> <mi>I</mi>
+</mrow><mo fence="true" form="postfix">)</mo></mrow></mrow><mrow><mi>′</mi></mrow></msup> <mo class="MathClass-rel" stretchy="false">=</mo> <msup><mrow><mi>G</mi></mrow><mrow><mi>′</mi></mrow></msup> <mi>⊗</mi> <mi>I</mi>
+</math></td><td class="eq-no">(3.36)</td></tr></table>
+<p class="noindent"></p>
+<p class="noindent">This gives us the following property: </p><div class="quote">  Smoothing the image by convolving with a Gaussian
+<math display="inline"><msub><mrow><mi>G</mi></mrow><mrow><mi>σ</mi></mrow></msub></math>
+and then differentiating is equivalent to convolving the image with
+<math display="inline"><msubsup><mrow><mi>G</mi></mrow><mrow><mi>σ</mi></mrow><mrow><mi>′</mi></mrow></msubsup></math>, the
+first derivative of a Gaussian as shown in <b>Fig.</b> <a href="#x15-120001r25">3.25</a>. </div>
+<p class="noindent">We wish to detect edges in any direction. Since given
+<math display="inline"><msup><mrow><mi>G</mi></mrow><mrow><mi>′</mi></mrow></msup></math> is
+<b>directional</b>, this requires application of two (<span class="alert">2</span>) perpendicular filters, just as we did for the <i>Laplacian</i> in
+Eq. 
+(<a href="VisionBasedSensors.html#x13-103002r12">3.12</a>)
+. We define the two filters as: </p><table class="equation-star"><tr><td>
+<math class="equation" display="block">
+<msub><mrow><mi>f</mi></mrow><mrow><mi>V</mi> </mrow></msub><mo class="MathClass-open" stretchy="false">(</mo><mi>x</mi><mo class="MathClass-punc" stretchy="false">,</mo><mi>y</mi><mo class="MathClass-close" stretchy="false">)</mo> <mo class="MathClass-rel" stretchy="false">=</mo> <msubsup><mrow><mi>G</mi></mrow><mrow><mi>σ</mi></mrow><mrow><mi>′</mi></mrow></msubsup><mo class="MathClass-open" stretchy="false">(</mo><mi>x</mi><mo class="MathClass-close" stretchy="false">)</mo><msubsup><mrow><mi>G</mi></mrow><mrow>
+<mi>σ</mi></mrow><mrow><mi>′</mi></mrow></msubsup><mo class="MathClass-open" stretchy="false">(</mo><mi>y</mi><mo class="MathClass-close" stretchy="false">)</mo><mspace class="qquad" width="2em"></mspace><mstyle class="text"><mtext>and</mtext></mstyle><mspace class="qquad" width="2em"></mspace><msub><mrow><mi>f</mi></mrow><mrow>
+<mi>H</mi></mrow></msub><mo class="MathClass-open" stretchy="false">(</mo><mi>x</mi><mo class="MathClass-punc" stretchy="false">,</mo><mi>y</mi><mo class="MathClass-close" stretchy="false">)</mo> <mo class="MathClass-rel" stretchy="false">=</mo> <msubsup><mrow><mi>G</mi></mrow><mrow><mi>σ</mi></mrow><mrow><mi>′</mi></mrow></msubsup><mo class="MathClass-open" stretchy="false">(</mo><mi>y</mi><mo class="MathClass-close" stretchy="false">)</mo><msubsup><mrow><mi>G</mi></mrow><mrow>
+<mi>σ</mi></mrow><mrow><mi>′</mi></mrow></msubsup><mo class="MathClass-open" stretchy="false">(</mo><mi>x</mi><mo class="MathClass-close" stretchy="false">)</mo><mo class="MathClass-punc" stretchy="false">.</mo>
+</math></td></tr></table>
+<p class="noindent">The result is a basic algorithm for detecting edges at arbitrary orientations: The algorithm for detecting
+edge pixels at an arbitrary orientation is:
+</p><p class="noindent">
+</p>
+<dl class="enumerate-enumitem"><dt class="enumerate-enumitem">   
+i. 
+</dt><dd class="enumerate-enumitem">Convolve the image <math display="inline"><mi>I</mi><mo class="MathClass-open" stretchy="false">(</mo><mi>x</mi><mo class="MathClass-punc" stretchy="false">,</mo><mi>y</mi><mo class="MathClass-close" stretchy="false">)</mo></math>
+with <math display="inline"><msub><mrow><mi>f</mi></mrow><mrow><mi>V</mi> </mrow></msub><mo class="MathClass-open" stretchy="false">(</mo><mi>x</mi><mo class="MathClass-punc" stretchy="false">,</mo><mi>y</mi><mo class="MathClass-close" stretchy="false">)</mo></math>
+and <math display="inline"><msub><mrow><mi>f</mi></mrow><mrow><mi>H</mi></mrow></msub><mo class="MathClass-open" stretchy="false">(</mo><mi>x</mi><mo class="MathClass-punc" stretchy="false">,</mo><mi>y</mi><mo class="MathClass-close" stretchy="false">)</mo></math>
+to obtain the gradient components <math display="inline"><msub><mrow><mi>R</mi></mrow><mrow><mi>V</mi> </mrow></msub><mo class="MathClass-open" stretchy="false">(</mo><mi>x</mi><mo class="MathClass-punc" stretchy="false">,</mo><mi>y</mi><mo class="MathClass-close" stretchy="false">)</mo></math>
+and <math display="inline"><msub><mrow><mi>R</mi></mrow><mrow><mi>H</mi></mrow></msub><mo class="MathClass-open" stretchy="false">(</mo><mi>x</mi><mo class="MathClass-punc" stretchy="false">,</mo><mi>y</mi><mo class="MathClass-close" stretchy="false">)</mo></math>,
+respectively.
+</dd>
+<dt class="enumerate-enumitem">
+ii. 
+</dt><dd class="enumerate-enumitem">Define the square of the gradient magnitude: <table class="equation-star"><tr><td>
+<math class="equation" display="block">
+<mi>R</mi><mo class="MathClass-open" stretchy="false">(</mo><mi>x</mi><mo class="MathClass-punc" stretchy="false">,</mo><mi>y</mi><mo class="MathClass-close" stretchy="false">)</mo> <mo class="MathClass-rel" stretchy="false">=</mo> <msubsup><mrow><mi>R</mi></mrow><mrow><mi>V</mi> </mrow><mrow><mn>2</mn></mrow></msubsup><mo class="MathClass-open" stretchy="false">(</mo><mi>x</mi><mo class="MathClass-punc" stretchy="false">,</mo><mi>y</mi><mo class="MathClass-close" stretchy="false">)</mo> <mo class="MathClass-bin" stretchy="false">+</mo> <msubsup><mrow><mi>R</mi></mrow><mrow>
+<mi>H</mi></mrow><mrow><mn>2</mn></mrow></msubsup><mo class="MathClass-open" stretchy="false">(</mo><mi>x</mi><mo class="MathClass-punc" stretchy="false">,</mo><mi>y</mi><mo class="MathClass-close" stretchy="false">)</mo><mo class="MathClass-punc" stretchy="false">.</mo>
+</math></td></tr></table>
+</dd>
+<dt class="enumerate-enumitem">
+iii. 
+</dt><dd class="enumerate-enumitem">Mark those peaks in <math display="inline"><mi>R</mi><mo class="MathClass-open" stretchy="false">(</mo><mi>x</mi><mo class="MathClass-punc" stretchy="false">,</mo><mi>y</mi><mo class="MathClass-close" stretchy="false">)</mo></math>
+that are above some predefined threshold T.</dd></dl>
+<p class="noindent">Once edge pixels are extracted, the next step is to construct complete edges. A popular next step in
+this process is <i>non-maxima suppression</i>.
+</p>
+<div class="info-block" id="info-block-3.15"> <a class="copiable-link" href="#info-block-3.15"> ¶</a> <span class="info-upper"> <span class="info-header"> <b>Information 3.<a id="x15-121005r15"></a>15: </b> </span> <span class="info-title"> Non-Maxima Suppression </span> </span> <div class="body">
+<p class="noindent">Using edge direction information, the process involves <span class="alert">revisiting the gradient value</span> and determining whether or not it is at a local
+maximum. If not, then the value is set to zero. </p>
+<hr/>
+<p class="noindent"> 
+This causes only the maxima to be preserved, and thus
+reduce the thickness of all edges to a single pixel (Figure 4.45).
+</p>
+</div></div>
+<p class="noindent">Finally, we are ready to go from edge pixels to complete edges.
+</p>
+<dl class="enumerate-enumitem"><dt class="enumerate-enumitem">
+i. 
+</dt><dd class="enumerate-enumitem">First, find adjacent, or connected, sets of edges and group them into ordered lists.
+</dd>
+<dt class="enumerate-enumitem">
+ii. 
+</dt><dd class="enumerate-enumitem">Second, use thresholding to eliminate the weakest edges.</dd></dl>
+<p class="noindent"></p><figure class="float">
+<a id="x15-121008r26"></a>
+<figcaption class="caption"><span class="id">Figure 3.26: </span><span class="content">(a) Two dimensional Gaussian function; (b) Vertical filter; (c) Horizontal filter.                 </span></figcaption>
+<img alt="PIC" src="figures/Perception/figures-8.png" style=""/>
+</figure>
+<p class="noindent"><span class="paragraphHead"> <a id="x15-122000"></a>Gradient Edge Detectors</span>
+On an <span class="acronym"><span class="acronym-short"><a class="glossary" href="#glo:amr">AMR</a></span><span class="acronym-detail"><span class="acronym-long"><a class="glossary" href="#glo:amr">Autonomous Mobile Robotics</a></span><span class="acronym-desc"><a class="glossary" href="#glo:amr">Self-navigating machines moving materials and
+goods independently without fixed tracks or wires. They use smart software, cameras, and
+sensors to map spaces and safely steer around people or obstacles in real time.</a></span></span></span>, computation
+time must be minimised to retain the real-time behavior of the robot. Therefore simpler,
+discrete kernel operators are commonly used to approximate the behaviour of the Canny edge
+detector.
+One such early operators was developed by <i>Roberts</i> in 1965 [22]. He used two
+(<span class="alert">2</span>) <math display="inline"><mn>2</mn> <mi>×</mi> <mn>2</mn></math>
+masks to calculate the gradient across the edge in two (<span class="alert">2</span>) diagonal directions. Let
+<math display="inline"><msub><mrow><mi>r</mi></mrow><mrow><mn>1</mn></mrow></msub></math> be the value calculated
+from the first mask and <math display="inline"><msub><mrow><mi>r</mi></mrow><mrow><mn>2</mn></mrow></msub></math>
+from the second mask. Roberts obtained the gradient magnitude
+<math display="inline"><mrow class="mathinner"><mspace class="negthinspace" width="-0.17em"></mspace> <mrow><mo fence="true" form="prefix">|</mo><mrow><mi>G</mi></mrow><mo fence="true" form="postfix">|</mo></mrow></mrow></math> with
+the equation:
+</p>
+<div class="highlight-eq-block"><table class="equation"><tr><td>
+<math class="equation" display="block">
+<mstyle class="label" id="x15-122001r37"></mstyle><mtable class="aligned" displaystyle="true"><mtr><mtd columnalign="right"><mrow class="mathinner"><mspace class="negthinspace" width="-0.17em"></mspace> <mrow><mo fence="true" form="prefix">|</mo><mrow><mi>G</mi></mrow><mo fence="true" form="postfix">|</mo></mrow></mrow> <mo class="MathClass-rel" stretchy="false">=</mo> <msqrt><mrow><msubsup><mrow>
+<mi>r</mi></mrow><mrow><mn>1</mn></mrow><mrow><mn>2</mn></mrow></msubsup> <mo class="MathClass-bin" stretchy="false">+</mo> <msubsup><mrow><mi>r</mi></mrow><mrow><mn>2</mn></mrow><mrow><mn>2</mn></mrow></msubsup></mrow></msqrt><mspace class="qquad" width="2em"></mspace><mstyle class="text"><mtext>where</mtext></mstyle><mspace class="qquad" width="2em"></mspace><msub><mrow><mi>r</mi></mrow><mrow><mn>1</mn></mrow></msub> <mo class="MathClass-rel" stretchy="false">=</mo> <mrow><mo fence="true" form="prefix">[</mo><mrow><mtable align="axis" class="array" columnlines="none none none none none none none none none" displaystyle="true" equalcolumns="false" equalrows="false" style=""> <mtr class="array-row"><mtd class="array-td" columnalign="center"> <mo class="MathClass-bin" stretchy="false">−</mo><mn>1</mn> </mtd><mtd class="array-td" columnalign="center"> <mn>0</mn> </mtd></mtr> <mtr class="array-row"><mtd class="array-td" columnalign="center"> <mn>0</mn> </mtd> <mtd class="array-td" columnalign="center"> <mn>1</mn></mtd></mtr></mtable> </mrow><mo fence="true" form="postfix">]</mo></mrow><mspace class="qquad" width="2em"></mspace><mstyle class="text"><mtext>and</mtext></mstyle><mspace class="qquad" width="2em"></mspace> <mrow><mo fence="true" form="prefix">[</mo><mrow><mtable align="axis" class="array" columnlines="none none none none none none none none none" displaystyle="true" equalcolumns="false" equalrows="false" style=""><mtr class="array-row"><mtd class="array-td" columnalign="center"> <mn>0</mn> </mtd><mtd class="array-td" columnalign="center"> <mo class="MathClass-bin" stretchy="false">−</mo><mn>1</mn> </mtd></mtr> <mtr class="array-row"><mtd class="array-td" columnalign="center"> <mn>1</mn> </mtd> <mtd class="array-td" columnalign="center"> <mn>0</mn></mtd></mtr></mtable> </mrow><mo fence="true" form="postfix">]</mo></mrow></mtd>
+</mtr> </mtable>
+</math></td><td class="eq-no">(3.37)</td></tr></table>
+<p class="noindent"></p>
+<p class="noindent"></p></div>
+<p class="noindent"><i>Prewitt</i> (1970) [22] used two <math display="inline"><mn>3</mn> <mi>×</mi> <mn>3</mn></math>
+masks oriented in the row and column directions. Let p 1 bethevaluecalculatedfromthefirstmaskandp
+thevaluecalculatedfromthesecondmask. 2 Prewitt obtained the gradient magnitude G and the gradient
+direction  taken in a clock- wise angle with respect to the column axis shown in the following equation.
+</p><table class="equation"><tr><td>
+<math class="equation" display="block">
+<mstyle class="label" id="x15-122002r38"></mstyle><mrow class="mathinner"><mspace class="negthinspace" width="-0.17em"></mspace>
+<mrow><mo fence="true" form="prefix">|</mo><mrow><mi>G</mi>
+</mrow><mo fence="true" form="postfix">|</mo></mrow></mrow> <mi>≃</mi> <msqrt><mrow><msubsup><mrow>
+<mi>p</mi></mrow><mrow><mn>1</mn></mrow><mrow><mn>2</mn></mrow></msubsup> <mo class="MathClass-bin" stretchy="false">+</mo> <msubsup><mrow><mi>p</mi></mrow><mrow><mn>2</mn></mrow><mrow><mn>2</mn></mrow></msubsup></mrow></msqrt><mspace class="quad" width="1em"></mspace><mstyle class="text"><mtext>and</mtext></mstyle><mspace class="quad" width="1em"></mspace><mi>𝜃</mi> <mi>≃</mi> <mi class="loglike">arctan</mi><mo>⁡</mo><msup><mrow> <mrow><mo fence="true" form="prefix">(</mo><mrow><mfrac><mrow><msub><mrow><mi>p</mi></mrow><mrow><mn>1</mn></mrow></msub></mrow>
+<mrow><msub><mrow>
+<mi>p</mi></mrow><mrow><mn>2</mn></mrow></msub></mrow></mfrac> </mrow><mo fence="true" form="postfix">)</mo></mrow> </mrow><mrow></mrow></msup><mspace class="quad" width="1em"></mspace><mstyle class="text"><mtext>where</mtext></mstyle><mspace class="quad" width="1em"></mspace> <mrow><mo fence="true" form="prefix">[</mo><mrow><mtable align="axis" class="array" columnlines="none none none none none none none none none" displaystyle="true" equalcolumns="false" equalrows="false" style=""><mtr class="array-row"><mtd class="array-td" columnalign="center"> <mo class="MathClass-bin" stretchy="false">−</mo><mn>1</mn> </mtd><mtd class="array-td" columnalign="center"> <mo class="MathClass-bin" stretchy="false">−</mo><mn>1</mn> </mtd><mtd class="array-td" columnalign="center"> <mo class="MathClass-bin" stretchy="false">−</mo><mn>1</mn> </mtd></mtr> <mtr class="array-row"><mtd class="array-td" columnalign="center"> <mn>0</mn> </mtd> <mtd class="array-td" columnalign="center"> <mn>0</mn> </mtd> <mtd class="array-td" columnalign="center"> <mn>0</mn></mtd>
+</mtr>
+<mtr class="array-row"><mtd class="array-td" columnalign="center"> <mn>1</mn> </mtd>
+<mtd class="array-td" columnalign="center"> <mn>1</mn> </mtd>
+<mtd class="array-td" columnalign="center"> <mn>1</mn> </mtd>
+</mtr>
+</mtable> </mrow><mo fence="true" form="postfix">]</mo></mrow><mspace class="quad" width="1em"></mspace><mstyle class="text"><mtext>and</mtext></mstyle><mspace class="quad" width="1em"></mspace> <mrow><mo fence="true" form="prefix">[</mo><mrow><mtable align="axis" class="array" columnlines="none none none none none none none none none" displaystyle="true" equalcolumns="false" equalrows="false" style=""><mtr class="array-row"><mtd class="array-td" columnalign="center"> <mo class="MathClass-bin" stretchy="false">−</mo><mn>1</mn> </mtd><mtd class="array-td" columnalign="center"> <mn>0</mn> </mtd><mtd class="array-td" columnalign="center"> <mn>1</mn> </mtd></mtr> <mtr class="array-row"><mtd class="array-td" columnalign="center"> <mo class="MathClass-bin" stretchy="false">−</mo><mn>1</mn> </mtd> <mtd class="array-td" columnalign="center"> <mn>0</mn> </mtd> <mtd class="array-td" columnalign="center"> <mn>1</mn></mtd>
+</mtr>
+<mtr class="array-row"><mtd class="array-td" columnalign="center"> <mo class="MathClass-bin" stretchy="false">−</mo><mn>1</mn> </mtd>
+<mtd class="array-td" columnalign="center"> <mn>0</mn> </mtd>
+<mtd class="array-td" columnalign="center"> <mn>1</mn> </mtd>
+</mtr>
+</mtable> </mrow><mo fence="true" form="postfix">]</mo></mrow>
+</math></td><td class="eq-no">(3.38)</td></tr></table>
+<p class="noindent"></p>
+<p class="noindent">In the same year Sobel [22] used, like Prewitt, two
+<math display="inline"><mn>3</mn> <mi>×</mi> <mn>3</mn></math> masks
+oriented in the row and column direction. Let s be the value calculated from the first mask and s
+the value calculated 12 from the second mask, he obtained the same results as Prewitt
+for the gradient magnitude G and the gradient direction  taken in a clockwise angle with
+respect to the column axis. Figure 4.46 shows application of the Sobel filter to a visual scene.
+</p><table class="equation"><tr><td>
+<math class="equation" display="block">
+<mstyle class="label" id="x15-122003r39"></mstyle><mrow class="mathinner"><mspace class="negthinspace" width="-0.17em"></mspace>
+<mrow><mo fence="true" form="prefix">|</mo><mrow><mi>G</mi>
+</mrow><mo fence="true" form="postfix">|</mo></mrow></mrow> <mi>≃</mi> <msqrt><mrow><msubsup><mrow>
+<mi>s</mi></mrow><mrow><mn>1</mn></mrow><mrow><mn>2</mn></mrow></msubsup> <mo class="MathClass-bin" stretchy="false">+</mo> <msubsup><mrow><mi>s</mi></mrow><mrow><mn>2</mn></mrow><mrow><mn>2</mn></mrow></msubsup></mrow></msqrt><mspace class="quad" width="1em"></mspace><mstyle class="text"><mtext>and</mtext></mstyle><mspace class="quad" width="1em"></mspace><mi>𝜃</mi> <mi>≃</mi> <mi class="loglike">arctan</mi><mo>⁡</mo><msup><mrow> <mrow><mo fence="true" form="prefix">(</mo><mrow><mfrac><mrow><msub><mrow><mi>s</mi></mrow><mrow><mn>1</mn></mrow></msub></mrow>
+<mrow><msub><mrow>
+<mi>s</mi></mrow><mrow><mn>2</mn></mrow></msub></mrow></mfrac> </mrow><mo fence="true" form="postfix">)</mo></mrow> </mrow><mrow></mrow></msup><mspace class="quad" width="1em"></mspace><mstyle class="text"><mtext>where</mtext></mstyle><mspace class="quad" width="1em"></mspace> <mrow><mo fence="true" form="prefix">[</mo><mrow><mtable align="axis" class="array" columnlines="none none none none none none none none none" displaystyle="true" equalcolumns="false" equalrows="false" style=""><mtr class="array-row"><mtd class="array-td" columnalign="center"> <mo class="MathClass-bin" stretchy="false">−</mo><mn>1</mn> </mtd><mtd class="array-td" columnalign="center"> <mo class="MathClass-bin" stretchy="false">−</mo><mn>2</mn> </mtd><mtd class="array-td" columnalign="center"> <mo class="MathClass-bin" stretchy="false">−</mo><mn>1</mn> </mtd></mtr> <mtr class="array-row"><mtd class="array-td" columnalign="center"> <mn>0</mn> </mtd> <mtd class="array-td" columnalign="center"> <mn>0</mn> </mtd> <mtd class="array-td" columnalign="center"> <mn>0</mn></mtd>
+</mtr>
+<mtr class="array-row"><mtd class="array-td" columnalign="center"> <mn>1</mn> </mtd>
+<mtd class="array-td" columnalign="center"> <mn>2</mn> </mtd>
+<mtd class="array-td" columnalign="center"> <mn>1</mn> </mtd>
+</mtr>
+</mtable> </mrow><mo fence="true" form="postfix">]</mo></mrow><mspace class="quad" width="1em"></mspace><mstyle class="text"><mtext>and</mtext></mstyle><mspace class="quad" width="1em"></mspace> <mrow><mo fence="true" form="prefix">[</mo><mrow><mtable align="axis" class="array" columnlines="none none none none none none none none none" displaystyle="true" equalcolumns="false" equalrows="false" style=""><mtr class="array-row"><mtd class="array-td" columnalign="center"> <mo class="MathClass-bin" stretchy="false">−</mo><mn>1</mn> </mtd><mtd class="array-td" columnalign="center"> <mn>0</mn> </mtd><mtd class="array-td" columnalign="center"> <mn>1</mn> </mtd></mtr> <mtr class="array-row"><mtd class="array-td" columnalign="center"> <mo class="MathClass-bin" stretchy="false">−</mo><mn>2</mn> </mtd> <mtd class="array-td" columnalign="center"> <mn>0</mn> </mtd> <mtd class="array-td" columnalign="center"> <mn>2</mn></mtd>
+</mtr>
+<mtr class="array-row"><mtd class="array-td" columnalign="center"> <mo class="MathClass-bin" stretchy="false">−</mo><mn>1</mn> </mtd>
+<mtd class="array-td" columnalign="center"> <mn>0</mn> </mtd>
+<mtd class="array-td" columnalign="center"> <mn>1</mn> </mtd>
+</mtr>
+</mtable> </mrow><mo fence="true" form="postfix">]</mo></mrow>
+</math></td><td class="eq-no">(3.39)</td></tr></table>
+<p class="noindent"></p>
+<p class="noindent"><span class="paragraphHead"> <a id="x15-123000"></a>Dynamic Thresholding</span>
+Most image processing algorithms have generally been tested in laboratory conditions or using static
+image databases. However, <span class="acronym"><span class="acronym-short"><a class="glossary" href="#glo:amr">AMR</a></span><span class="acronym-detail"><span class="acronym-long"><a class="glossary" href="#glo:amr">Autonomous Mobile Robotics</a></span><span class="acronym-desc"><a class="glossary" href="#glo:amr">Self-navigating machines moving
+materials and goods independently without fixed tracks or wires. They use smart software, cameras,
+and sensors to map spaces and safely steer around people or obstacles in real time.</a></span></span></span> operate in
+dynamic real-world settings where there is no guarantee regarding optimal or even stable
+illumination. A machine vision system for <span class="acronym"><span class="acronym-short"><a class="glossary" href="#glo:amr">AMR</a></span><span class="acronym-detail"><span class="acronym-long"><a class="glossary" href="#glo:amr">Autonomous Mobile Robotics</a></span><span class="acronym-desc"><a class="glossary" href="#glo:amr">Self-navigating
+machines moving materials and goods independently without fixed tracks or wires. They
+use smart software, cameras, and sensors to map spaces and safely steer around people
+or obstacles in real time.</a></span></span></span> has to adapt to the changing illumination. Therefore a constant
+threshold level for edge detection is <b>NOT</b> practical. The same scene with different illumination
+will results in edge images with considerable differences. To dynamically adapt the edge
+detector to the ambient light, a more adaptive threshold is required, and one approach
+involves calculating that threshold based on a statistical analysis of the image about to be
+processed.
+To do this, a histogram of the gradient magnitudes of the processed image is
+calculated (fig- ure 4.47). With this simple histogram it is easy to consider only the
+<math display="inline"><mi>n</mi></math> pixels
+with the highest gradient magnitude for further calculation steps. The pixels are counted
+backward starting at the highest magnitude. The gradient magnitude of the point where
+<math display="inline"><mi>n</mi></math> is
+reached will be used as the temporary threshold value.
+</p><p class="noindent">The motivation for this technique is that the <math display="inline"><mi>n</mi></math>
+pixels with the highest gradient are expected to be the most relevant ones for the
+processed image. Furthermore, for each image, the same number of relevant edge pixels is
+considered, independent of illumination. It is important to pay attention to the fact
+that the number of pixels in the edge image delivered by the edge detector is not
+<math display="inline"><mi>n</mi></math>.
+</p>
+<div class="warning"><div class="warning-upper">Warning</div><div class="body">
+<p class="noindent">As most detector uses <span class="alert">non-maxima suppression</span>, the number of edge pixels will be further reduced. </p></div></div>
+<p class="noindent"><h5 class="subsubsectionHead" id="header-subsubsection-50"> <a id="x15-124000"></a>Straight edge extraction: Hough transforms</h5>
+</p><p class="noindent">In <span class="acronym"><span class="acronym-short"><a class="glossary" href="#glo:amr">AMR</a></span><span class="acronym-detail"><span class="acronym-long"><a class="glossary" href="#glo:amr">Autonomous Mobile Robotics</a></span><span class="acronym-desc"><a class="glossary" href="#glo:amr">Self-navigating machines moving materials and goods
+independently without fixed tracks or wires. They use smart software, cameras, and sensors to map
+spaces and safely steer around people or obstacles in real time.</a></span></span></span> the straight edge is often extracted as a
+<span class="alert">specific feature</span>. </p><div class="quote">  For example, straight edges can be used as clues to the <b>location of doorways</b> and hallway
+intersections. </div>
+<p class="noindent">The <i>Hough Transform</i> is a simple tool for extracting edges of a particular shape[15, 26]. Here we
+explain its application to the problem of extracting straight edges.
+</p><p class="noindent">Suppose a pixel <math display="inline"><mo class="MathClass-open" stretchy="false">(</mo><msub><mrow><mi>x</mi></mrow><mrow><mi>p</mi></mrow></msub><mo class="MathClass-punc" stretchy="false">,</mo><msub><mrow><mi>y</mi></mrow><mrow><mi>p</mi></mrow></msub><mo class="MathClass-close" stretchy="false">)</mo></math>
+in the Image <math display="inline"><mi>I</mi></math>
+is part of an edge. Any straight line edge including pp point
+<math display="inline"><mo class="MathClass-open" stretchy="false">(</mo><msub><mrow><mi>x</mi></mrow><mrow><mi>p</mi></mrow></msub><mo class="MathClass-punc" stretchy="false">,</mo><msub><mrow><mi>y</mi></mrow><mrow><mi>p</mi></mrow></msub><mo class="MathClass-close" stretchy="false">)</mo></math> must
+satisfy the equation: </p><table class="equation-star"><tr><td>
+<math class="equation" display="block">
+<msub><mrow><mi>y</mi></mrow><mrow><mi>p</mi></mrow></msub> <mo class="MathClass-rel" stretchy="false">=</mo> <msub><mrow><mi>m</mi></mrow><mrow><mn>1</mn></mrow></msub><msub><mrow><mi>x</mi></mrow><mrow><mi>p</mi></mrow></msub> <mo class="MathClass-bin" stretchy="false">+</mo> <msub><mrow><mi>b</mi></mrow><mrow><mn>1</mn></mrow></msub>
+</math></td></tr></table>
+<p class="noindent">This equation can only be satisfied with a constrained set of possible values for
+<math display="inline"><msub><mrow><mi>m</mi></mrow><mrow><mn>1</mn></mrow></msub></math> and
+<math display="inline"><msub><mrow><mi>b</mi></mrow><mrow><mn>1</mn></mrow></msub></math>.
+In other words, this equation is satisfied only by lines through
+<math display="inline"><mi>I</mi></math> that pass
+through <math display="inline"><mo class="MathClass-open" stretchy="false">(</mo><msub><mrow><mi>x</mi></mrow><mrow><mi>p</mi></mrow></msub><mo class="MathClass-punc" stretchy="false">,</mo><msub><mrow><mi>y</mi></mrow><mrow><mi>p</mi></mrow></msub><mo class="MathClass-close" stretchy="false">)</mo></math>.
+</p><p class="noindent">Now consider a second pixel, <math display="inline"><mo class="MathClass-open" stretchy="false">(</mo><msub><mrow><mi>x</mi></mrow><mrow><mi>q</mi></mrow></msub><mo class="MathClass-punc" stretchy="false">,</mo><msub><mrow><mi>y</mi></mrow><mrow><mi>q</mi></mrow></msub><mo class="MathClass-close" stretchy="false">)</mo></math>
+in <math display="inline"><mi>I</mi></math>. Any
+line passing through this second pixel must satisfy the equation: </p><table class="equation-star"><tr><td>
+<math class="equation" display="block">
+<msub><mrow><mi>y</mi></mrow><mrow><mi>q</mi></mrow></msub> <mo class="MathClass-rel" stretchy="false">=</mo> <msub><mrow><mi>m</mi></mrow><mrow><mn>2</mn></mrow></msub><msub><mrow><mi>x</mi></mrow><mrow><mi>q</mi></mrow></msub> <mo class="MathClass-bin" stretchy="false">+</mo> <msub><mrow><mi>b</mi></mrow><mrow><mn>2</mn></mrow></msub>
+</math></td></tr></table>
+<p class="noindent">What if <math display="inline"><msub><mrow><mi>m</mi></mrow><mrow><mn>1</mn></mrow></msub> <mo class="MathClass-rel" stretchy="false">=</mo> <msub><mrow><mi>m</mi></mrow><mrow><mn>2</mn></mrow></msub></math>
+and <math display="inline"><msub><mrow><mi>b</mi></mrow><mrow><mn>1</mn></mrow></msub> <mo class="MathClass-rel" stretchy="false">=</mo> <msub><mrow><mi>b</mi></mrow><mrow><mn>2</mn></mrow></msub></math>
+?
+</p><p class="noindent">Then the line defined by both equations is one and the same as it is the line that passes through both
+<math display="inline"><mo class="MathClass-open" stretchy="false">(</mo><msub><mrow><mi>x</mi></mrow><mrow><mi>p</mi></mrow></msub><mo class="MathClass-punc" stretchy="false">,</mo><msub><mrow><mi>y</mi></mrow><mrow><mi>p</mi></mrow></msub><mo class="MathClass-close" stretchy="false">)</mo></math> and
+<math display="inline"><mo class="MathClass-open" stretchy="false">(</mo><msub><mrow><mi>x</mi></mrow><mrow><mi>q</mi></mrow></msub><mo class="MathClass-punc" stretchy="false">,</mo><msub><mrow><mi>y</mi></mrow><mrow><mi>q</mi></mrow></msub><mo class="MathClass-close" stretchy="false">)</mo></math>.
+</p><p class="noindent">More generally, for all pixels which are part of a single straight line through
+<math display="inline"><mi>I</mi></math>, they must all lie on a line
+defined by the same values for <math display="inline"><mi>m</mi></math>
+and <math display="inline"><mi>b</mi></math>.
+The general definition of this line is, of course, the simple linear equation,
+<math display="inline"><mi>y</mi> <mo class="MathClass-rel" stretchy="false">=</mo> <mi>m</mi><mi>x</mi> <mo class="MathClass-bin" stretchy="false">+</mo> <mi>b</mi></math>. The <i>Hough
+Transform</i> uses this basic property, creating a mechanism so each edge pixel can “vote” for various values of
+the (<math display="inline"><mi>m</mi></math>,
+<math display="inline"><mi>b</mi></math>)
+parameters. The lines with the most votes at the end are straight edge features:
+</p><p class="noindent">
+</p>
+<dl class="enumerate-enumitem"><dt class="enumerate-enumitem">  
+1. 
+</dt><dd class="enumerate-enumitem">Create a two-dimensional array (<math display="inline"><mstyle mathvariant="bold"><mi>A</mi></mstyle></math>)
+with axes that tessellate the values of <math display="inline"><mi>m</mi></math>
+and <math display="inline"><mi>b</mi></math>.
+</dd>
+<dt class="enumerate-enumitem">
+2. 
+</dt><dd class="enumerate-enumitem">Initialize the array to zero: <math display="inline"><mi>A</mi><mo class="MathClass-open" stretchy="false">[</mo><mi>m</mi><mo class="MathClass-punc" stretchy="false">,</mo><mi>b</mi><mo class="MathClass-close" stretchy="false">]</mo> <mo class="MathClass-rel" stretchy="false">=</mo> <mn>0</mn></math>
+for all values of <math display="inline"><mi>m</mi></math>
+and <math display="inline"><mi>b</mi></math>.
+</dd>
+<dt class="enumerate-enumitem">
+3. 
+</dt><dd class="enumerate-enumitem">For each edge pixel <math display="inline"><mo class="MathClass-open" stretchy="false">(</mo><msub><mrow><mi>x</mi></mrow><mrow><mi>p</mi></mrow></msub><mo class="MathClass-punc" stretchy="false">,</mo><msub><mrow><mi>y</mi></mrow><mrow><mi>p</mi></mrow></msub><mo class="MathClass-close" stretchy="false">)</mo></math>
+in <math display="inline"><mi>I</mi></math>, loop over
+all values of <math display="inline"><mi>m</mi></math>
+and <math display="inline"><mi>b</mi></math>:
+<div class="center">
+<p class="noindent">
+</p><p class="noindent">if
+<math display="inline"><msub><mrow><mi>y</mi></mrow><mrow><mi>p</mi></mrow></msub> <mo class="MathClass-rel" stretchy="false">=</mo> <mi>m</mi><msub><mrow><mi>x</mi></mrow><mrow><mi>p</mi></mrow></msub> <mo class="MathClass-bin" stretchy="false">+</mo> <mi>b</mi></math>
+then
+<math display="inline"><mi>A</mi><mo class="MathClass-open" stretchy="false">[</mo><mi>m</mi><mo class="MathClass-punc" stretchy="false">,</mo><mi>b</mi><mo class="MathClass-close" stretchy="false">]</mo><mo class="MathClass-bin" stretchy="false">+</mo> <mo class="MathClass-rel" stretchy="false">=</mo> <mn>1</mn></math>.</p></div>
+</dd>
+<dt class="enumerate-enumitem">
+4. 
+</dt><dd class="enumerate-enumitem">Search the cells in <math display="inline"><mstyle mathvariant="bold"><mi>A</mi></mstyle></math>
+to identify those with the largest value. Each such cell’s indices
+<math display="inline"><mo class="MathClass-open" stretchy="false">(</mo><mi>m</mi><mo class="MathClass-punc" stretchy="false">,</mo><mi>b</mi><mo class="MathClass-close" stretchy="false">)</mo></math> corresponds to an extracted
+straight line edge in <math display="inline"><mi>I</mi></math>.</dd></dl>
+<p class="noindent"><h5 class="subsubsectionHead" id="header-subsubsection-51"> <a id="x15-125000"></a>Floor Plane Extraction</h5>
+</p><p class="noindent">Obstacle avoidance is one of the important tasks required of most <span class="acronym"><span class="acronym-short"><a class="glossary" href="#glo:amr">AMR</a></span><span class="acronym-detail"><span class="acronym-long"><a class="glossary" href="#glo:amr">Autonomous Mobile
+Robotics</a></span><span class="acronym-desc"><a class="glossary" href="#glo:amr">Self-navigating machines moving materials and goods independently without fixed tracks or
+wires. They use smart software, cameras, and sensors to map spaces and safely steer around people or
+obstacles in real time.</a></span></span></span>. Range-based sensors provide effective means for identifying most types of
+obstacles facing an <span class="acronym"><span class="acronym-short"><a class="glossary" href="#glo:amr">AMR</a></span><span class="acronym-detail"><span class="acronym-long"><a class="glossary" href="#glo:amr">Autonomous Mobile Robotics</a></span><span class="acronym-desc"><a class="glossary" href="#glo:amr">Self-navigating machines moving materials and
+goods independently without fixed tracks or wires. They use smart software, cameras, and sensors to
+map spaces and safely steer around people or obstacles in real time.</a></span></span></span>. In fact, because they
+directly measure range to objects in the world, range-based sensors such as ultrasonic and
+laser rangefinders are inherently well-suited for the task of obstacle detection. However,
+each ranging sensor has their limitations: </p><div class="quote">  For example, ultrasonics have <span class="alert">poor angular resolution</span> and suffer from
+coherent reflection at shallow angles. Most laser rangefinders are 2D, only detect obstacles
+penetrating a specific sensed plane. Stereo vision and depth from focus require the obstacles and
+floor plane to have texture in order to enable correspondence and blurring respectively.
+</div>
+<p class="noindent">In addition to each individual shortcoming, range-based obstacle detection systems will have
+difficulty detecting small or flat objects that are on the ground. For example, a vacuum cleaner
+may need to avoid large, flat objects, such as paper or money left on the floor. In addition,
+different types of floor surfaces cannot easily be discriminated by ranging. For ex- ample, a
+sidewalk-following robot will have difficulty discriminating grass from pavement using range sensing
+alone.
+</p><p class="noindent">Floor plane extraction is a vision-based approach for identifying the traversable portions of the
+ground. Because it makes use of edges and color in a variety of implementations, such obstacle
+detection systems can easily detect obstacles in cases that are difficult for tradition- al ranging
+devices.
+</p><p class="noindent">As is the case with all vision-based algorithms, floor plane extraction succeeds only in en- vironments
+that satisfy several important assumptions:
+</p>
+<ul class="itemize1">
+<li class="itemize">
+<p class="noindent">Obstacles differ in appearance from the ground.
+</p>
+</li>
+<li class="itemize">
+<p class="noindent">The ground is flat and its angle to the camera is known.
+</p>
+</li>
+<li class="itemize">
+<p class="noindent">There are no overhanging obstacles.</p></li></ul>
+<p class="noindent">The first assumption is a requirement in order to discriminate the ground from obstacles us- ing its
+appearance. The second and third assumptions allow floor plane extraction algo- rithms to estimate the
+robot’s distance to obstacles detected.
+</p><p class="noindent">Floor plane extraction in artificial environments
+</p><p class="noindent">In a controlled environment, the floor, walls and obstacles can be designed so that the walls and
+obstacle appear significantly differently than the floor in a camera image. Shakey, the first autonomous
+robot developed from 1966 through 1972 at SRI, used vision-based floor plane extraction in a
+manufactured environment for obstacle detection [104]. Shakey’s ar- tificial environment used
+textureless, homogeneously white floor tiles. Furthermore, the base of each wall was painted with a
+high-contrast strip of black paint and the edges of all simple polygonal obstacles were also painted
+black.
+</p><p class="noindent">In Shakey’s environment, edges corresponded to non-floor objects, and so the floor plane extraction
+algorithm simply consisted of the application of an edge detector to the mono- chrome camera image.
+The lowest edges detected in an image corresponded to the closest obstacles, and the direction of
+straight line edges extracted from the image provided clues regarding not only the position but also the
+orientation of walls and polygonal obstacles.
+</p><p class="noindent">Although this very simple appearance-based obstacle detection system was successful, it should be
+noted that special care had to be taken at the time in order to create indirect light- ing in the
+laboratory such that shadows were not cast, as the system would falsely interpret the edges of shadows
+as obstacles.
+</p><p class="noindent">Adaptive floor plane extraction Floor plane extraction has succeeded, not only in artificial
+environments, but in real-world mobile robot demonstrations in which a robot avoids both static
+obstacles such as walls and dynamic obstacles such as passers-by based on segmentation of the floor
+plane at a rate of several Hz. Such floor plane extraction algorithms tend to use edge detection and
+color de- tection jointly while making certain assumptions regarding the floor, for example the floor’s
+maximum texture or approximate color range [98]
+</p><p class="noindent">Each system based on fixed assumptions regarding the floor’s appearance is limited to only those
+environments satisfying its constraints. A more recent approach is that of adaptive floor plane
+extraction, whereby the parameters defining the expected appearance of the floor are allowed to
+vary over time. In the simplest instance, one can assume that the pixels at the bottom of
+the image (i.e. closest to the robot) are part of the floor and contain no obstacles. Then,
+statistics computed on these "floor sample" pixels can be used to classify the remain- ing image
+pixels.
+</p><p class="noindent">The key challenge in adaptive systems is the choice of what statistics to compute using the "floor
+sample" pixels. The most popular solution is to construct one or more histograms based on the
+floor sample pixel values. In Edge Detection above, we found histograms to be useful in
+determining the best cut point in edge detection thresholding algorithms. His- tograms are also
+useful as discrete representations of distributions. Unlike the Gaussian rep- resentation, a
+histogram can capture multi-modal distributions. Histograms can also be updated very
+quickly and use very little processor memory. An intensity histogram of the "floor sample"
+subregion I of image I is constructed as follows: 1. As pre-processing, smooth If using a
+Gaussian smoothing operator 2. Initialize a histogram array H with n intensity values: H[i] =
+0 for i = 1, ..., n 3. For every pixel (x,y) in I increment the histogram: H[I (x, y)] += 1
+ff
+</p><p class="noindent">The histogram array H serves as a characterization of the appearance of the floor plane. Of- ten, several
+1D histograms are constructed, corresponding to intensity, hue and saturation for example.
+Classification of each pixel in I as floor plane or obstacle is performed by look- ing at the appropriate
+histogram counts for the qualities of the target pixel. For example, if the target pixel has a hue that
+never occurred in the "floor sample," then the corresponding hue histogram will have a count of zero.
+When a pixel references a histogram value below a pre-defined threshold, that pixel is classified as an
+obstacle.
+</p><p class="noindent">Figure 4.48 shows an appearance-based floor plane extraction algorithm operating on both indoor and
+outdoor images [99]. Note that, unlike the static floor extraction algorithm, the adaptive
+algorithm is able to successfully classify a human shadow due to the adaptive his- togram
+representation. An interesting extension of the work has been to not use the static floor sample
+assumption, but rather to record visual history and to use, as the floor sample, only the
+portion of prior visual images that has successfully rolled under the robot during mobile robot
+motion.
+</p><p class="noindent">Appearance-based extraction of the floor plane have been demonstrated on both indoor and
+outdoor robots for real-time obstacle avoidance with a bandwidth of up to 10 Hz. Applica-
+tions include robotics lawn mowing, social indoor robots and automated electric wheel-
+chairs.
+</p>
+<p class="noindent"><h5 class="subsubsectionHead" id="header-subsubsection-52"> <a id="x15-126000"></a>Whole-Image Features</h5>
+</p><p class="noindent">A single visual image provides so much information regarding a robot’s immediate sur- roundings that
+an alternative to searching the image for spatially localized features is to make use of the
+information captured by the entire image to extract a whole-image feature. Whole-image features
+are not designed to identify specific spatial structures such as obsta- cles or the position
+of specific landmarks. Rather, they serve as compact representations of the entire local
+region. From the perspective of robot localization, the goal is to extract one or more features
+from the image that are correlated well with the robot’s position. In other words, small
+changes in robot position should cause only small changes to whole-image fea- tures, while
+large changes in robot position should cause correspondingly large changes to whole-image
+features.
+</p><p class="noindent">We present two techniques for whole-image feature extraction below. The first technique is another
+popular application of the image histogramming approach. The resulting image histogram comprises a
+set of whole-image features derived directly from the pixel informa- tion of an image. The second
+technique, tiered extraction, covers approaches in which a whole-image feature is built by first
+extracting spatially localized features, then composing these features together to form a single
+meta-feature.
+</p>
+<p class="noindent"><span class="paragraphHead"> <a id="x15-127000"></a>Direct Extraction Image Histograms</span>
+Recall that we wish to design whole-image features that are insensitive to small amount of robot
+motion while registering significant changes for large-scale robot motion. A logical first step in
+designing a vision-based sensor for this purpose is to maximize the field of view of the camera. As the
+field of view increases, small-scale structure in the robot’s environ- ment occupies a smaller proportion
+of the image, thereby mitigating the impact of individual scene objects on image characteristics. The
+catadioptric camera system, now very popular in mobile robotics, offers an extremely wide field of view
+[100]. This imaging system con- sists of a high-quality CCD camera mounted, together
+with customized optics, towards a parabolic mirror. The image provides a 360ř view of
+the robot’s environment, as shown in Figure 4.49. The catadioptric image is a 360ř image
+warped onto a two-dimensional image surface. Be- cause of this, it offers another critical
+advantage in terms of sensitivity to small-scale robot motion. If the camera is mounted vertically
+on the robot so that the image represents the environment surrounding the robot (i.e. its
+horizon), then rotation of the camera and robot simply results in image rotation. In short,
+the catadioptric camera can be rotationally invari- ant to field of view. Of course, mobile
+robot rotation will still change the image; that is, pixel positions will change, although
+the new image will simply be a rotation of the original image. But we in- tend to extract
+image features via histogramming. Because histogramming is a function of the set of pixel
+values and not the position of each pixel, the process is pixel position-invari- ant. When
+combined with the Catadioptric camera’s field of view invariance, we can create a system
+that is invariant to robot rotation and insensitive to small-scale robot translation. A color
+camera’s output image generally contains useful information along multiple bands: r, g and
+b values as well as hue, saturation and luminance values. The simplest histogram- based
+extraction strategy is to build separate 1D histograms characterizing each band. Giv- en a color
+camera image, G, the first step is to create mappings from G to each of the n avail- able
+bands. We use G to refer to an array storing the values in band i for all pixels in G. i Each
+band-specific histogram H is calculated as before: i 1. As pre-processing, smooth Gi using a
+Gaussian smoothing operator 2. Initialize H with n levels: H[j] = 0 for = 1, ..., n i 3. For
+every pixel (x,y) in G increment the histogram: [G [x, y]]+= 1 iii Given the image shown in
+Figure 4.49, the image histogram technique extracts six histo- grams (for each of r, g, b, hue,
+saturation and luminance) as shown in Figure 4.50In order to make use of such histograms as
+whole-image features, we need ways to compare to histo- grams to quantify the likelihood that the
+histograms map to nearby robot positions. The problem of defining useful histogram distance
+metrics is itself an important subfield within the image retrieval field. For an overview refer to
+[101].
+</p><p class="noindent">One of the most successful distance metrics encountered in <span class="acronym"><span class="acronym-short"><a class="glossary" href="#glo:amr">AMR</a></span><span class="acronym-detail"><span class="acronym-long"><a class="glossary" href="#glo:amr">Autonomous Mobile
+Robotics</a></span><span class="acronym-desc"><a class="glossary" href="#glo:amr">Self-navigating machines moving materials and goods independently without fixed tracks or
+wires. They use smart software, cameras, and sensors to map spaces and safely steer around people or
+obstacles in real time.</a></span></span></span> localization is the <i>Jeffrey Divergence</i> <span class="cite"><a class="cite-show" href="#w3-20001">[†-1]</a><span class="cite-detail"> <a id="x15-127001"></a>Deselaers, T., Keysers, D. &amp; Ney, H.
+Features for image retrieval: an experimental comparison. Information retrieval <b>11</b><b>,</b> 77–107 (2008),
+<a id="x15-127002"></a>Boros, E. Targeting a Practical Approach for Robot Vision with Ensembles of Visual Features in 2012
+Imperial College Computing Student Workshop (2012), 22–28</span></span>. Given two (<span class="alert">2</span>) histograms,
+<math display="inline"><mi>H</mi></math> and
+<math display="inline"><mi>K</mi></math>, with
+<math display="inline"><msubsup><mrow><mi>h</mi></mrow><mrow><mi>i</mi></mrow><mrow></mrow></msubsup></math> and
+<math display="inline"><msubsup><mrow><mi>k</mi></mrow><mrow><mi>i</mi></mrow><mrow></mrow></msubsup></math> denoting the histogram
+entries, the Jeffrey divergence <math display="inline"><mi>d</mi><msup><mrow><mrow><mo fence="true" form="prefix">(</mo><mrow><mi>H</mi><mo class="MathClass-punc" stretchy="false">,</mo><mspace class="thinspace" width="0.17em"></mspace><mi>K</mi></mrow><mo fence="true" form="postfix">)</mo></mrow></mrow><mrow></mrow></msup></math>
+is defined as:
+</p>
+<table class="equation"><tr><td>
+<math class="equation" display="block">
+<mstyle class="label" id="x15-127003r40"></mstyle>
+<mi>d</mi><msup><mrow><mrow><mo fence="true" form="prefix">(</mo><mrow><mi>H</mi><mo class="MathClass-punc" stretchy="false">,</mo><mspace class="thinspace" width="0.17em"></mspace><mi>K</mi></mrow><mo fence="true" form="postfix">)</mo></mrow></mrow><mrow></mrow></msup> <mo class="MathClass-rel" stretchy="false">=</mo><munder class="msub"><mrow><mo> ∑</mo>
+</mrow><mrow><mi>i</mi></mrow></munder><msup><mrow> <mrow><mo fence="true" form="prefix">(</mo><mrow><msubsup><mrow><mi>h</mi></mrow><mrow><mi>i</mi></mrow><mrow></mrow></msubsup><mo> <mi class="loglike">log</mi><mo>⁡</mo></mo><msup><mrow> <mrow><mo fence="true" form="prefix">(</mo><mrow> <mfrac><mrow><mn>2</mn><msubsup><mrow><mi>h</mi></mrow><mrow><mi>i</mi></mrow><mrow></mrow></msubsup></mrow>
+<mrow><msubsup><mrow>
+<mi>h</mi></mrow><mrow><mi>i</mi></mrow><mrow></mrow></msubsup> <mo class="MathClass-bin" stretchy="false">+</mo> <msubsup><mrow><mi>k</mi></mrow><mrow><mi>i</mi></mrow><mrow></mrow></msubsup></mrow></mfrac> </mrow><mo fence="true" form="postfix">)</mo></mrow> </mrow><mrow></mrow></msup> <mo class="MathClass-bin" stretchy="false">+</mo> <msubsup><mrow><mi>k</mi></mrow><mrow><mi>i</mi></mrow><mrow></mrow></msubsup><mo> <mi class="loglike">log</mi><mo>⁡</mo></mo><msup><mrow> <mrow><mo fence="true" form="prefix">(</mo><mrow> <mfrac><mrow><mn>2</mn><msubsup><mrow><mi>k</mi></mrow><mrow><mi>i</mi></mrow><mrow></mrow></msubsup></mrow>
+<mrow><msubsup><mrow>
+<mi>h</mi></mrow><mrow><mi>i</mi></mrow><mrow></mrow></msubsup> <mo class="MathClass-bin" stretchy="false">+</mo> <msubsup><mrow><mi>k</mi></mrow><mrow><mi>i</mi></mrow><mrow></mrow></msubsup></mrow></mfrac> </mrow><mo fence="true" form="postfix">)</mo></mrow> </mrow><mrow></mrow></msup></mrow><mo fence="true" form="postfix">)</mo></mrow> </mrow><mrow></mrow></msup>
+</math></td><td class="eq-no">(3.40)</td></tr></table>
+<p class="noindent"></p>
+<p class="noindent">Using measures such as the <i>Jeffrey divergence</i>, <span class="acronym"><span class="acronym-short"><a class="glossary" href="#glo:amr">AMR</a></span><span class="acronym-detail"><span class="acronym-long"><a class="glossary" href="#glo:amr">Autonomous Mobile Robotics</a></span><span class="acronym-desc"><a class="glossary" href="#glo:amr">Self-navigating
+machines moving materials and goods independently without fixed tracks or wires. They use smart
+software, cameras, and sensors to map spaces and safely steer around people or obstacles in real time.</a></span></span></span>
+have used whole-image histogram features to identify their position in real time against a database of
+previously recorded images of locations in their environment.
+</p>
+<div class="knowledge"><div class="knowledge-upper">Knowledge</div><div class="body">
+<p class="noindent">Using this whole-image extraction approach, a robot can readily recover the particular hallway or
+particular room in which it is located [102]. </p></div></div>
+<p class="noindent"><h5 class="subsubsectionHead" id="header-subsubsection-53"> <a id="x15-128000"></a>Tiered Extraction: Image Fingerprint Extraction</h5>
+</p><p class="noindent">An alternative to extracting a whole-image feature directly from pixel values is to use a tiered
+approach: </p><div class="quote">  first identify spatially localized features in the image, then translate from this set of local
+features to a single meta-feature for the whole image. </div>
+<p class="noindent">We describe one particular implementation of this approach, in which the resulting whole-image
+feature is called the image fingerprint [103]. As with other whole-image extraction techniques,
+because low sensitivity to small robot motions is desired, the system makes use of a 360ř
+panoramic im- age, here constructed as a mosaic of images captured with a standard CMOS-chip
+camera.
+</p><p class="noindent">The first extraction tier searches the panoramic image for spatially localized features: verti- cal edges
+and 16 discrete hues of color. The vertical edge detector is a straightforward gra- dient approach
+implementing a horizontal difference operator. Vertical edges are "voted upon" by each edge pixel just
+as in a vertical edge Hough transform. As described in Section (4.3.2.1), an adaptive threshold is
+used to reduce the number of edges. Suppose the Hough table’s tallies for each candidate
+vertical line have a mean  and a standard deviation . The chosen threshold is simply  +
+.
+</p><p class="noindent">Vertical color bands are identified in largely the same way, identifying statistics over the oc- currence of
+each color, then filtering out all candidate color patches except those with tallies greater than  +  .
+Figure 4.51 shows two sample panoramic images and their associated fingerprints. Note that each
+fingerprint is converted to an ASCII string representation.
+</p><p class="noindent">Just as with histogram distance metrics in the case of image histogramming, we need a quan- tifiable
+measure of the distance between two fingerprints strings. String matching algo- rithms are yet another
+large field of study, with particularly interesting applications today in the areas of genetics [96]. Note
+that we may have strings that differ not just in a single ele- ment value, but even in their overall length.
+For example, Figure 4.52 depicts three actual sequences generated using the above algorithm. The top
+string should match Place 1, but note that there are deletions and insertions between the two
+strings.
+</p><p class="noindent">The technique used in the fingerprinting approach for string differencing is known as a Min- imum
+Energy Algorithm. Taken from the stereo vision community, this optimization-based algorithm will find
+the minimum energy required to "transform" one sequence into another sequence. The result is a
+distance metric that is relatively insensitive to the addition or sub- traction of individual
+local features while still able to robustly identify the correct matching string in a variety of
+circumstances.
+</p><p class="noindent">It should be clear from the previous two subsections that whole-image feature extraction is
+straightforward with vision-based perception and can be applicable for mobile robot local- ization. But
+it is spatially localized features that continue to play a dominant role because of their immediate
+application to the more urgent need for real-time obstacle avoidance.
+<div class="section-header">
+<h3 id="header-section-glossary">
+<span class="number">
+<i class="fa-regular fa-bookmark"></i>
+</span>
+<span class="title">
+<a id="page-glossary"></a>
+        Page Glossary Terms</span>
+</h3>
+</div>
+<div class="acronym-block">
+<dl class="acr-list">
+<a class="copiable-link" href="#glo:log">¶</a>
+<dt class="acr-bottom" id="glo:log"><span class="acr-short">LoG</span><span class="acr-long">Laplacian of Gaussian</span></dt>
+<dd class="acr-desc"><p>An image processing filter that combines Gaussian smoothing
+with the Laplacian second-derivative operator. It first blurs an image to remove noise, then highlights
+regions of rapid intensity change to detect edges accurately via zero-crossings. It is also known as the
+Marr-Hildreth-Operator.</p></dd>
+</dl>
+<dl class="acr-list">
+<a class="copiable-link" href="#glo:amr">¶</a>
+<dt class="acr-bottom" id="glo:amr"><span class="acr-short">AMR</span><span class="acr-long">Autonomous Mobile Robotics</span></dt>
+<dd class="acr-desc"><p>Self-navigating machines moving materials and goods
+independently without fixed tracks or wires. They use smart software, cameras, and sensors to map
+spaces and safely steer around people or obstacles in real time.</p></dd>
+</dl>
+</div>
+<div class="section-header">
+<h3 id="header-section-references">
+<span class="number">
+<i class="fa-solid fa-magnifying-glass"></i>
+</span>
+<span class="title">
+<a id="page-glossary"></a>
+            Page References</span>
+</h3>
+</div>
+<div class="cite-block">
+<dl class="enumerate-enumitem">
+<dt class="enumerate-enumitem" id="w3-20001"><span class="acr-short">1.</span><span class="acr-long"></span></dt>
+<dd class="enumerate-enumitem"> Deselaers, T., Keysers, D. &amp; Ney, H. Features for image retrieval: an experimental comparison. Information retrieval 11, 77–107 (2008), Boros, E. Targeting a Practical Approach for Robot Vision with Ensembles of Visual Features in 2012 Imperial College Computing Student Workshop (2012), 22–28</dd>
+</dl></div>
+<div class="section-header">
+<h3 id="header-section-references">
+<span class="number">
+<i class="fa-regular fa-note-sticky"></i>
+</span>
+<span class="title">
+<a id="page-glossary"></a>
+                    Page Footnotes</span>
+</h3>
+</div>
+<div class="footnote-block">
+<dl class="enumerate-enumitem">
+<dt class="enumerate-enumitem" id="m-ref-90"><span class="acr-short">[90].</span></dt>
+<dd class="enumerate-enumitem"><span class="">geometric primitives.</span></dd>
+</dl>
+<dl class="enumerate-enumitem">
+<dt class="enumerate-enumitem" id="m-ref-91"><span class="acr-short">[91].</span></dt>
+<dd class="enumerate-enumitem"><span class="">e.g. least squares estimation.</span></dd>
+</dl>
+<dl class="enumerate-enumitem">
+<dt class="enumerate-enumitem" id="m-ref-92"><span class="acr-short">[92].</span></dt>
+<dd class="enumerate-enumitem"><span class="">The issue of determining an adequate weight when
+<math display="inline"><msub><mrow><mi>σ</mi></mrow><mrow><mi>i</mi></mrow></msub></math> is given
+(and perhaps some additional information) is complex.</span></dd>
+</dl>
+<dl class="enumerate-enumitem">
+<dt class="enumerate-enumitem" id="m-ref-93"><span class="acr-short">[93].</span></dt>
+<dd class="enumerate-enumitem"><span class="">in this context, and to reiterate,
+a kernel is a matrix which is used to change the properties of an image.</span></dd>
+</dl>
+<dl class="enumerate-enumitem">
+<dt class="enumerate-enumitem" id="m-ref-94"><span class="acr-short">[94].</span></dt>
+<dd class="enumerate-enumitem"><span class="">i.e., a
+part of the image.</span></dd>
+</dl>
+<dl class="enumerate-enumitem">
+<dt class="enumerate-enumitem" id="m-ref-95"><span class="acr-short">[95].</span></dt>
+<dd class="enumerate-enumitem"><span class=""><b>John F. Canny</b>
+<i>(1958  - )</i>
+is an Australian computer scientist, and Paul E Jacobs and Stacy Jacobs Distinguished
+Professor of Engineering in the Computer Science Department of the University of California,
+Berkeley. He has made significant contributions in various areas of computer science and
+mathematics, including artificial intelligence, robotics, computer graphics, human-computer
+interaction, computer security, computational algebra, and computational geometry.</span></dd>
+</dl></div><nav class="crosslinks-bottom"><div class="navigation"><span class="nav-button"><a href="MobileRobotLocalisation.html"><i class="fa-solid fa-caret-right"></i></a></span><span class="nav-button"><a href="RepresentingUncertainty.html"><i class="fa-solid fa-caret-left"></i></a></span><span class="nav-button"><a href="Perception.html#FeatureExtraction.html"><i class="fa-solid fa-caret-up"></i></a></span><span class="nav-button">
+<a href="index.html" rel="index" title="Index">
+<i class="fa-solid fa-table-list">
+</i>
+</a></span><span class="nav-button">
+<a href="Index.html" rel="index" title="Index">
+<i class="fa-brands fa-git-alt"></i>
+</a></span></div></nav> </p><div class="footer"> <div class="footer-left"><span class="footer-lecture">D. T. McGuiness, PhD</span>
+<span class="footer-webBook"><b>Last Updated:</b> 13.10.2026, at 8:16.</span></div></div><div class="author-notes">
+<span class="note">Authors Note </span>
+<span class="text">The website you are viewing is auto-generated using lms-WebBook and therefore subject to slight errors in typography and formatting. When in doubt, please consult the LectureBook. </span>
+</div>
+</article>
+<div class="mode-line">
+<div class="core-line"><div class="core-line-image"><img class="webbook-logo" src="logo/webbook-logo.svg"/></div>
+<div class="current-header">
+<span class="header-pretext">Viewing | </span>
+<span class="header-text">Section 3.4: Feature Extraction</span>
+</div>
+<div class="button-group">
+</div>
+</div>
+<div class="supp-line"></div>
+</div>
+</page>
+</body>
+</html>

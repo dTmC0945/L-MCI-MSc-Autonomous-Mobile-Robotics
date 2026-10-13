@@ -1,567 +1,463 @@
-<!DOCTYPE html> 
-<html lang="en">  
-<head><title>Wheeled Mobile Robots</title> 
-<meta  charset="utf-8" /> 
-<meta name="generator" content="TeX4ht (https://tug.org/tex4ht/)" /> 
-<meta name="viewport" content="width=device-width,initial-scale=1" /> 
-<link rel="stylesheet" type="text/css" href="\aa:CssFile " /> 
-<meta name="src" content="AutonomousMobileRoboticsLectureBook.tex" /> 
- <script type="text/javascript" id="MathJax-script" async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/mml-chtml.js"></script>  
-<title>Autonomous Mobile Robotics</title> 
-<link href="/pagefind/pagefind-component-ui.css" rel="stylesheet"> 
-<script src="/pagefind/pagefind-component-ui.js"></script> 
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script> 
-<link rel="stylesheet" type="text/css" href="flatweb.css"> 
-<script type="text/javascript" src="flatweb.js"></script> 
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/styles/default.min.css"> 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/highlight.min.js"></script> 
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/styles/base16/solarized-light.min.css"/> 
-<script src="https://unpkg.com/highlightjs-copy/dist/highlightjs-copy.min.js"></script> 
-<link rel="stylesheet" href="https://unpkg.com/highlightjs-copy/dist/highlightjs-copy.min.css"/> 
-<link href='http://fonts.googleapis.com/css?family=Roboto:400,100,100italic,300,300italic,400italic,500,500italic,700,700italic,900italic,900' rel='stylesheet'> 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/languages/cpp.min.js"></script> 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/languages/latex.min.js"></script> 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/languages/matlab.min.js"></script> 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/languages/dockerfile.min.js"></script> 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/languages/cmake.min.js"></script> 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/languages/makefile.min.js"></script> 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/languages/markdown.min.js"></script> 
- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/> <style> 
- </style> 
- <header> 
- <pagefind-modal></pagefind-modal> 
- </header> 
-</head><body 
->
-<page> 
-<div class="keyboard-help-menu"><div style="overflow-x:auto"> <table> <thead> <tr> <th>Key</th> <th>Description</th> </tr> </thead> <tbody> <tr> <td><kbd>t</kbd></td> <td>Enable/Disable Table of Contents</td> </tr> <tr> <td><kbd>n</kbd></td> <td>Visit Next Chapter</td> </tr> <tr> <td><kbd>p</kbd></td> <td>Visit Previous Chapter</td> </tr> <tr> <td><kbd>u</kbd></td> <td>Go to Top of Page</td> </tr> <tr> <td><kbd>b</kbd></td> <td>Go to Bottom of Page</td> </tr> <tr> <td><kbd>i</kbd></td> <td>Visit the Introduction Page</td> </tr> </tbody> </table> </div> </div> <nav class="wide"><img class="webbook-logo" src="logo/webbook-logo.svg"></img> <div class="header"> <div class="header-left"><span class="header-lecture-grade">M.Sc</span> 
-<span class="header-lecture-name">Autonomous Mobile Robotics</span> 
-<span class="header-webBook">WebBook 2.1</span> </div> <div class="header-right"> <span class="header-version">2026.WS</span> 
- <span class="header-chapter">Locomotion</span></div></div> <div class="toc"><pagefind-modal-trigger></pagefind-modal-trigger><div class="toc-links"><a href="https://github.com/dTmC0945" title="Lecturer GitHub Repo"><i class="fab fa-github" style='font-size:20px'></i></a><a href="https://scholar.google.com/citations?view_op=list_works\&hl=en\&user=lxQGADMAAAAJ" title="Lecturer Google Scholar Page"><i class="fa-brands fa-google-scholar" style='font-size:20px'></i></a><a href="https://www.researchgate.net/profile/Daniel-Mcguiness-2" title="Lecturer ResearchGate Account"><i class="fa-brands fa-researchgate" style='font-size:20px'></i></a><a href="https://dtmc0945.github.io/Th-MCI-Thesis-Topics/" title="Lecturer Thesis Ideas for B.Sc and M.Sc"><i class="fa-solid fa-book" style='font-size:20px'></i></a><a href="https://github.com/dTmC0945/C-MCI-LaTeX-Class-mcidoc/tree/main" title="mcidoc LaTeX Standard"><i class="fa-regular fa-file-lines" style='font-size:20px'></i></a></div><hr><span class="chapterToc"><span class="number">0</span><span class="title"><a 
-href="index.html#x2-10000">index</a></span></span><span class="chapterToc"><span class="number">1</span><span class="title"><a 
-href="Locomotion.html#x3-20001">Locomotion</a></span></span><span class="subsectionToc"><span class="number">1.0.1</span><span class="title"><a 
-href="Locomotion.html#x3-30001.0.1">Key Issues for Locomotion</a></span></span><span class="sectionToc"><span class="number">1.1</span><span class="title"><a 
-href="LeggedMobileRobots.html#x4-40001.1">Legged Mobile
-Robots</a></span></span><span class="subsectionToc"><span class="number">1.1.1</span><span class="title"><a 
-href="LeggedMobileRobots.html#x4-60001.1.1">Examples  of  Legged  Robot  Locomotion</a></span></span><span class="sectionToc"><span class="number">1.2</span><span class="title"><a 
-href="#x5-120001.2">Wheeled  Mobile
-Robots</a></span></span><span class="subsectionToc"><span class="number">1.2.1</span><span class="title"><a 
-href="#x5-130001.2.1">Design</a></span></span><span class="subsectionToc"><span class="number">1.2.2</span><span class="title"><a 
-href="#x5-160001.2.2">Stability</a></span></span><span class="subsectionToc"><span class="number">1.2.3</span><span class="title"><a 
-href="#x5-170001.2.3">Manoeuvrability</a></span></span><span class="subsectionToc"><span class="number">1.2.4</span><span class="title"><a 
-href="#x5-180001.2.4">Controllability</a></span></span><span class="subsectionToc"><span class="number">1.2.5</span><span class="title"><a 
-href="#x5-190001.2.5">Case
-Studies for Wheeled Motion</a></span></span><span class="subsectionToc"><span class="number">1.2.6</span><span class="title"><a 
-href="#x5-260001.2.6">Walking Wheels</a></span></span>
-<!--l. 567--><p class="noindent" ><div class="nav-footer"><div class="nav-footer-left"><span class="nav-footer-lecture">D. T. McGuiness, PhD</span> 
-<span class="nav-footer-webBook"><span id="bold" style="font-weight:bold;">Last Updated:</span> 5.8.2026, at 16:39.</span></div></div><span class="nav-comments">The website you are viewing is auto-generated using ParSnip and therefore subject to slight errors in typography and formatting. When in doubt, please consult the LectureBook. </span></div></div></nav> 
-
-</p>
-<article class="chapter"> 
-<nav class="crosslinks-top"> <a 
-href="References.html" ><span class="nav-next">NEXT</span></a><a 
-href="LeggedMobileRobots.html" ><span class="nav-prev">PREV</span></a><a 
-href="LeggedMobileRobots.html#tailLeggedMobileRobots.html" ><span class="nav-prev-tail">PREV-TAIL</span></a><a 
-href="#tailWheeledMobileRobots.html"><span class="nav-tail">TAIL</span></a><a 
-href="Locomotion.html#WheeledMobileRobots.html" ><span class="nav-up">UP</span></a></nav> 
-<div class="section-header"> <h3 id="header-section-1.2"> <a class="pdf-icon" href="AutonomousMobileRoboticsLectureBook.pdf#section.1.2"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-file-pdf" viewBox="0 0 16 16"><path d="M4 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H4zm0 1h8a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1z"></path><path d="M4.603 12.087a.81.81 0 0 1-.438-.42c-.195-.388-.13-.776.08-1.102.198-.307.526-.568.897-.787a7.68 7.68 0 0 1 1.482-.645 19.701 19.701 0 0 0 1.062-2.227 7.269 7.269 0 0 1-.43-1.295c-.086-.4-.119-.796-.046-1.136.075-.354.274-.672.65-.823.192-.077.4-.12.602-.077a.7.7 0 0 1 .477.365c.088.164.12.356.127.538.007.187-.012.395-.047.614-.084.51-.27 1.134-.52 1.794a10.954 10.954 0 0 0 .98 1.686 5.753 5.753 0 0 1 1.334.05c.364.065.734.195.96.465.12.144.193.32.2.518.007.192-.047.382-.138.563a1.04 1.04 0 0 1-.354.416.856.856 0 0 1-.51.138c-.331-.014-.654-.196-.933-.417a5.716 5.716 0 0 1-.911-.95 11.642 11.642 0 0 0-1.997.406 11.311 11.311 0 0 1-1.021 1.51c-.29.35-.608.655-.926.787a.793.793 0 0 1-.58.029zm1.379-1.901c-.166.076-.32.156-.459.238-.328.194-.541.383-.647.547-.094.145-.096.25-.04.361.01.022.02.036.026.044a.27.27 0 0 0 .035-.012c.137-.056.355-.235.635-.572a8.18 8.18 0 0 0 .45-.606zm1.64-1.33a12.647 12.647 0 0 1 1.01-.193 11.666 11.666 0 0 1-.51-.858 20.741 20.741 0 0 1-.5 1.05zm2.446.45c.15.162.296.3.435.41.24.19.407.253.498.256a.107.107 0 0 0 .07-.015.307.307 0 0 0 .094-.125.436.436 0 0 0 .059-.2.095.095 0 0 0-.026-.063c-.052-.062-.2-.152-.518-.209a3.881 3.881 0 0 0-.612-.053zM8.078 5.8a6.7 6.7 0 0 0 .2-.828c.031-.188.043-.343.038-.465a.613.613 0 0 0-.032-.198.517.517 0 0 0-.145.04c-.087.035-.158.106-.196.283-.04.192-.03.469.046.822.024.111.054.227.09.346z"></path></svg></a> <span class="number">1.2</span> <span class="title">  <a 
- id="x5-120001.2"></a>Wheeled Mobile Robots</span></h3></div><p>
-<!--l. 569--><p class="noindent" >The wheel has been by far the most popular locomotion mechanism in <span class="acronym"><span class="acronym-short"><a 
-href="#glo:amr" class="glossary" >AMR</a></span><span class="acronym-detail"><span class="acronym-long"><a 
-href="#glo:amr" class="glossary" >Autonomous Mobile
-Robotics</a></span><span class="acronym-desc"><a 
-href="#glo:amr" class="glossary" >Autonomous Mobile Robotics</a></span></span></span> and in man-made vehicles in <span class="margin-block">general. <span class="margin-comment"><span class="ellipsis">[15]</span> 
-<span class="sidenote">This should be clear as
-wheel motion is one of the most efficient method of converting energy to motion.</span></span></span> It can achieve high
+<!DOCTYPE html>
+<html lang="en">
+<head><title>Wheeled Mobile Robots</title>
+<meta charset="utf-8"/>
+<meta content="lms-WebBook" name="generator"/>
+<meta content="width=device-width,initial-scale=1" name="viewport"/>
+<script async="async" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/mml-chtml.js" type="text/javascript"></script>
+<link href="logo/lms.ico" rel="icon" type="image/x-icon"/>
+<link href="./pagefind/pagefind-component-ui.css" rel="stylesheet"/>
+<script src="./pagefind/pagefind-component-ui.js" type="text/javascript"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<link href="https://cdn.jsdelivr.net/gh/sugina-dev/latin-modern-web@1.0.1/style/latinmodern-mono.css" rel="stylesheet"/>
+<link href="https://cdn.jsdelivr.net/gh/dTmC0945/Wb-LMS-WebBook-Infrastructure/flatweb.css" rel="stylesheet" type="text/css"/>
+<script async="true" crossorigin="anonymous" src="https://cdn.jsdelivr.net/gh/dTmC0945/Wb-LMS-WebBook-Infrastructure/flatweb.js"></script>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/styles/default.min.css" rel="stylesheet"/>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/highlight.min.js"></script>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/styles/base16/solarized-light.min.css" rel="stylesheet"/>
+<script src="https://unpkg.com/highlightjs-copy/dist/highlightjs-copy.min.js"></script>
+<link href="https://unpkg.com/highlightjs-copy/dist/highlightjs-copy.min.css" rel="stylesheet"/>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css?family=Roboto:400,100,100italic,300,300italic,400italic,500,500italic,700,700italic,900italic,900" rel="stylesheet"/>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/languages/cpp.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/languages/latex.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/languages/matlab.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/languages/dockerfile.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/languages/cmake.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/languages/makefile.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/languages/markdown.min.js"></script>
+ </head><body>
+<page>
+<nav class="wide"> <div class="header"><div class="header-left"><span class="header-lecture-grade">M.Sc</span>
+<span class="header-lecture-name">Autonomous Mobile Robotics</span>
+<span class="header-webBook">WebBook 2.1</span></div><div class="header-right"><span class="header-version">2026.WS</span>
+<span class="header-chapter">Locomotion</span></div></div><div class="toc"><pagefind-modal-trigger></pagefind-modal-trigger><pagefind-modal></pagefind-modal><div class="toc-links"><a href="https://github.com/dTmC0945" title="Lecturer GitHub Repo"><i class="fab fa-github" style="font-size:20px"></i></a><a href="https://scholar.google.com/citations?view_op=list_works\&amp;hl=en\&amp;user=lxQGADMAAAAJ" title="Lecturer Google Scholar Page"><i class="fa-brands fa-google-scholar" style="font-size:20px"></i></a><a href="https://www.researchgate.net/profile/Daniel-Mcguiness-2" title="Lecturer ResearchGate Account"><i class="fa-brands fa-researchgate" style="font-size:20px"></i></a><a href="https://dtmc0945.github.io/Th-MCI-Thesis-Topics/" title="Lecturer Thesis Ideas for B.Sc and M.Sc"><i class="fa-solid fa-book" style="font-size:20px"></i></a><a href="https://github.com/dTmC0945/C-MCI-LaTeX-Class-mcidoc/tree/main" title="mcidoc LaTeX Standard"><i class="fa-regular fa-file-lines" style="font-size:20px"></i></a></div><hr/><span class="chapterToc"><span class="number"></span><span class="title"><a href="index.html#x2-10000">Entry Point</a></span></span><span class="chapterToc"><span class="number">1</span><span class="title"><a href="Locomotion.html#x3-20001">Locomotion</a></span></span><span class="subsectionToc"><span class="number">1.0.1</span><span class="title"><a href="Locomotion.html#x3-30001.0.1">Key  Issues  for  Locomotion</a></span></span><span class="sectionToc"><span class="number">1.1</span><span class="title"><a href="LeggedMobileRobots.html#x4-40001.1">Legged  Mobile
+Robots</a></span></span><span class="subsectionToc"><span class="number">1.1.1</span><span class="title"><a href="LeggedMobileRobots.html#x4-60001.1.1">Examples  of  Legged  Robot  Locomotion</a></span></span><span class="sectionToc"><span class="number">1.2</span><span class="title"><a href="#x5-120001.2">Wheeled  Mobile
+Robots</a></span></span><span class="subsectionToc"><span class="number">1.2.1</span><span class="title"><a href="#x5-130001.2.1">Design</a></span></span><span class="subsectionToc"><span class="number">1.2.2</span><span class="title"><a href="#x5-160001.2.2">Stability</a></span></span><span class="subsectionToc"><span class="number">1.2.3</span><span class="title"><a href="#x5-170001.2.3">Manoeuvrability</a></span></span><span class="subsectionToc"><span class="number">1.2.4</span><span class="title"><a href="#x5-180001.2.4">Controllability</a></span></span><span class="subsectionToc"><span class="number">1.2.5</span><span class="title"><a href="#x5-190001.2.5">Case
+Studies for Wheeled Motion</a></span></span><span class="subsectionToc"><span class="number">1.2.6</span><span class="title"><a href="#x5-260001.2.6">Walking Wheels</a></span></span><span class="chapterToc"><span class="number">2</span><span class="title"><a href="MobileRobotKinematics.html#x6-270002">Mobile Robot Kinematics</a></span></span><span class="sectionToc"><span class="number">2.1</span><span class="title"><a href="KinematicModelsandConstraints.html#x7-280002.1">Kinematic
+Models and Constraints</a></span></span><span class="subsectionToc"><span class="number">2.1.1</span><span class="title"><a href="KinematicModelsandConstraints.html#x7-290002.1.1">Representing robot position</a></span></span><span class="subsectionToc"><span class="number">2.1.2</span><span class="title"><a href="KinematicModelsandConstraints.html#x7-300002.1.2">Forward kinematic
+models</a></span></span><span class="subsectionToc"><span class="number">2.1.3</span><span class="title"><a href="KinematicModelsandConstraints.html#x7-310002.1.3">Wheel kinematic constraints</a></span></span><span class="subsectionToc"><span class="number">2.1.4</span><span class="title"><a href="KinematicModelsandConstraints.html#x7-370002.1.4">Robot kinematic constraints</a></span></span><span class="subsectionToc"><span class="number">2.1.5</span><span class="title"><a href="KinematicModelsandConstraints.html#x7-380002.1.5">Examples:
+robot kinematic models and constraints</a></span></span><span class="sectionToc"><span class="number">2.2</span><span class="title"><a href="MobileRobotManeuverability.html#x8-410002.2">Mobile Robot Maneuverability</a></span></span><span class="subsectionToc"><span class="number">2.2.1</span><span class="title"><a href="MobileRobotManeuverability.html#x8-420002.2.1">Degree
+of Mobility</a></span></span><span class="subsectionToc"><span class="number">2.2.2</span><span class="title"><a href="MobileRobotManeuverability.html#x8-450002.2.2">Degree of steerability</a></span></span><span class="subsectionToc"><span class="number">2.2.3</span><span class="title"><a href="MobileRobotManeuverability.html#x8-470002.2.3">Robot maneuverability</a></span></span><span class="sectionToc"><span class="number">2.3</span><span class="title"><a href="MobileRobotWorkspace.html#x9-480002.3">Mobile Robot
+Workspace</a></span></span><span class="subsectionToc"><span class="number">2.3.1</span><span class="title"><a href="MobileRobotWorkspace.html#x9-490002.3.1">Degrees of freedom</a></span></span><span class="subsectionToc"><span class="number">2.3.2</span><span class="title"><a href="MobileRobotWorkspace.html#x9-500002.3.2">Holonomic robots</a></span></span><span class="subsectionToc"><span class="number">2.3.3</span><span class="title"><a href="MobileRobotWorkspace.html#x9-530002.3.3">Path and trajectory
+considerations</a></span></span><span class="subsectionToc"><span class="number">2.3.4</span><span class="title"><a href="MobileRobotWorkspace.html#x9-540002.3.4">Beyond Basic Kinematics</a></span></span><span class="sectionToc"><span class="number">2.4</span><span class="title"><a href="MotionControlKinematicControl.html#x10-550002.4">Motion Control (Kinematic
+Control)</a></span></span><span class="subsectionToc"><span class="number">2.4.1</span><span class="title"><a href="MotionControlKinematicControl.html#x10-560002.4.1">Open loop control</a></span></span><span class="subsectionToc"><span class="number">2.4.2</span><span class="title"><a href="MotionControlKinematicControl.html#x10-570002.4.2">Feedback control</a></span></span><span class="chapterToc"><span class="number">3</span><span class="title"><a href="Perception.html#x11-630003">Perception</a></span></span><span class="sectionToc"><span class="number">3.1</span><span class="title"><a href="SensorsforMobileRobotics.html#x12-640003.1">Sensors for Mobile
+Robotics</a></span></span><span class="subsectionToc"><span class="number">3.1.1</span><span class="title"><a href="SensorsforMobileRobotics.html#x12-650003.1.1">Sensor Classification</a></span></span><span class="subsectionToc"><span class="number">3.1.2</span><span class="title"><a href="SensorsforMobileRobotics.html#x12-660003.1.2">Characterisation of Sensor Performance</a></span></span><span class="subsectionToc"><span class="number">3.1.3</span><span class="title"><a href="SensorsforMobileRobotics.html#x12-720003.1.3">Wheel
+and Motor Sensors</a></span></span><span class="subsectionToc"><span class="number">3.1.4</span><span class="title"><a href="SensorsforMobileRobotics.html#x12-740003.1.4">Heading Sensors</a></span></span><span class="subsectionToc"><span class="number">3.1.5</span><span class="title"><a href="SensorsforMobileRobotics.html#x12-810003.1.5">Ground Based Beacons</a></span></span><span class="subsectionToc"><span class="number">3.1.6</span><span class="title"><a href="SensorsforMobileRobotics.html#x12-830003.1.6">Active
+Ranging</a></span></span><span class="subsectionToc"><span class="number">3.1.7</span><span class="title"><a href="SensorsforMobileRobotics.html#x12-850003.1.7">The Ultrasonic Sensor</a></span></span><span class="subsectionToc"><span class="number">3.1.8</span><span class="title"><a href="SensorsforMobileRobotics.html#x12-920003.1.8">Motion and Speed Sensors</a></span></span><span class="sectionToc"><span class="number">3.2</span><span class="title"><a href="VisionBasedSensors.html#x13-940003.2">Vision Based
+Sensors</a></span></span><span class="subsectionToc"><span class="number">3.2.1</span><span class="title"><a href="VisionBasedSensors.html#x13-950003.2.1">CCD Sensors</a></span></span><span class="subsectionToc"><span class="number">3.2.2</span><span class="title"><a href="VisionBasedSensors.html#x13-970003.2.2">CMOS Technology</a></span></span><span class="subsectionToc"><span class="number">3.2.3</span><span class="title"><a href="VisionBasedSensors.html#x13-980003.2.3">Visual Ranging Sensors</a></span></span><span class="subsectionToc"><span class="number">3.2.4</span><span class="title"><a href="VisionBasedSensors.html#x13-990003.2.4">Depth
+from Focus</a></span></span><span class="sectionToc"><span class="number">3.3</span><span class="title"><a href="RepresentingUncertainty.html#x14-1070003.3">Representing Uncertainty</a></span></span><span class="subsectionToc"><span class="number">3.3.1</span><span class="title"><a href="RepresentingUncertainty.html#x14-1080003.3.1">Statistical Representation</a></span></span><span class="subsectionToc"><span class="number">3.3.2</span><span class="title"><a href="RepresentingUncertainty.html#x14-1090003.3.2">Independence
+of random variables</a></span></span><span class="subsectionToc"><span class="number">3.3.3</span><span class="title"><a href="RepresentingUncertainty.html#x14-1110003.3.3">Propagation of Error</a></span></span><span class="sectionToc"><span class="number">3.4</span><span class="title"><a href="FeatureExtraction.html#x15-1120003.4">Feature Extraction</a></span></span><span class="subsectionToc"><span class="number">3.4.1</span><span class="title"><a href="FeatureExtraction.html#x15-1130003.4.1">Defining
+Feature</a></span></span><span class="subsectionToc"><span class="number">3.4.2</span><span class="title"><a href="FeatureExtraction.html#x15-1140003.4.2">Using Range Data</a></span></span><span class="chapterToc"><span class="number">4</span><span class="title"><a href="MobileRobotLocalisation.html#x16-1290004">Mobile Robot Localisation</a></span></span><span class="sectionToc"><span class="number">4.1</span><span class="title"><a href="TheProblemsofNoiseandAliasing.html#x17-1300004.1">The Problems of Noise and
+Aliasing</a></span></span><span class="subsectionToc"><span class="number">4.1.1</span><span class="title"><a href="TheProblemsofNoiseandAliasing.html#x17-1310004.1.1">Sensor Noise</a></span></span><span class="subsectionToc"><span class="number">4.1.2</span><span class="title"><a href="TheProblemsofNoiseandAliasing.html#x17-1320004.1.2">Sensor Aliasing</a></span></span><span class="subsectionToc"><span class="number">4.1.3</span><span class="title"><a href="TheProblemsofNoiseandAliasing.html#x17-1330004.1.3">Effector Noise</a></span></span><span class="subsectionToc"><span class="number">4.1.4</span><span class="title"><a href="TheProblemsofNoiseandAliasing.html#x17-1340004.1.4">An Error Model for
+Odometric Position Estimation</a></span></span><span class="sectionToc"><span class="number">4.2</span><span class="title"><a href="LocalisationTechniques.html#x18-1350004.2">Localisation Techniques</a></span></span><span class="sectionToc"><span class="number">4.3</span><span class="title"><a href="RepresentingBelief.html#x19-1360004.3">Representing Belief</a></span></span><span class="subsectionToc"><span class="number">4.3.1</span><span class="title"><a href="RepresentingBelief.html#x19-1370004.3.1">Single
+Hypothesis Belief</a></span></span><span class="subsectionToc"><span class="number">4.3.2</span><span class="title"><a href="RepresentingBelief.html#x19-1380004.3.2">Multiple Hypothesis Belief</a></span></span><span class="sectionToc"><span class="number">4.4</span><span class="title"><a href="RepresentingMaps.html#x20-1390004.4">Representing Maps</a></span></span><span class="subsectionToc"><span class="number">4.4.1</span><span class="title"><a href="RepresentingMaps.html#x20-1400004.4.1">Continuous
+Representation</a></span></span><span class="subsectionToc"><span class="number">4.4.2</span><span class="title"><a href="RepresentingMaps.html#x20-1410004.4.2">Decomposition Methods</a></span></span><span class="subsectionToc"><span class="number">4.4.3</span><span class="title"><a href="RepresentingMaps.html#x20-1420004.4.3">Current Challenges</a></span></span><span class="sectionToc"><span class="number">4.5</span><span class="title"><a href="ProbabilisticMapBasedLocalisation.html#x21-1430004.5">Probabilistic
+Map-Based Localisation</a></span></span><span class="subsectionToc"><span class="number">4.5.1</span><span class="title"><a href="ProbabilisticMapBasedLocalisation.html#x21-1440004.5.1">Problem Definition</a></span></span><span class="subsectionToc"><span class="number">4.5.2</span><span class="title"><a href="ProbabilisticMapBasedLocalisation.html#x21-1450004.5.2">Markov Localisation</a></span></span><span class="subsectionToc"><span class="number">4.5.3</span><span class="title"><a href="ProbabilisticMapBasedLocalisation.html#x21-1490004.5.3">Kalman
+Filter Localisation</a></span></span><span class="subsectionToc"><span class="number">4.5.4</span><span class="title"><a href="ProbabilisticMapBasedLocalisation.html#x21-1500004.5.4">An Implementation of Kalman Filter</a></span></span><span class="sectionToc"><span class="number">4.6</span><span class="title"><a href="OtherExamplesofLocalisationMethods.html#x22-1550004.6">Other Examples
+of Localisation Methods</a></span></span><span class="subsectionToc"><span class="number">4.6.1</span><span class="title"><a href="OtherExamplesofLocalisationMethods.html#x22-1560004.6.1">Landmark-based Navigation</a></span></span><span class="subsectionToc"><span class="number">4.6.2</span><span class="title"><a href="OtherExamplesofLocalisationMethods.html#x22-1570004.6.2">Globally Unique
+Localisation</a></span></span><span class="subsectionToc"><span class="number">4.6.3</span><span class="title"><a href="OtherExamplesofLocalisationMethods.html#x22-1580004.6.3">Positioning Beacon systems</a></span></span><span class="subsectionToc"><span class="number">4.6.4</span><span class="title"><a href="OtherExamplesofLocalisationMethods.html#x22-1590004.6.4">Route-Based Localisation</a></span></span><span class="sectionToc"><span class="number">4.7</span><span class="title"><a href="BuildingMaps.html#x23-1600004.7">Building
+Maps</a></span></span><span class="subsectionToc"><span class="number">4.7.1</span><span class="title"><a href="BuildingMaps.html#x23-1610004.7.1">Stochastic Map Technique</a></span></span><span class="subsectionToc"><span class="number">4.7.2</span><span class="title"><a href="BuildingMaps.html#x23-1620004.7.2">Other Mapping Techniques</a></span></span><span class="chapterToc"><span class="number">5</span><span class="title"><a href="WelcometoLinux.html#x24-1650005">Welcome to Linux</a></span></span><span class="sectionToc"><span class="number">5.1</span><span class="title"><a href="AHistoryofUNIXLinux.html#x25-1660005.1">A
+History of UNIX/Linux</a></span></span><span class="subsectionToc"><span class="number">5.1.1</span><span class="title"><a href="AHistoryofUNIXLinux.html#x25-1680005.1.1">A Short History on Computer Interfaces</a></span></span><span class="subsectionToc"><span class="number">5.1.2</span><span class="title"><a href="AHistoryofUNIXLinux.html#x25-1700005.1.2">Linux is a
+Nutshell</a></span></span><span class="subsectionToc"><span class="number">5.1.3</span><span class="title"><a href="AHistoryofUNIXLinux.html#x25-1730005.1.3">Linux Distributions</a></span></span><span class="sectionToc"><span class="number">5.2</span><span class="title"><a href="Installation.html#x26-1740005.2">Installation</a></span></span><span class="subsectionToc"><span class="number">5.2.1</span><span class="title"><a href="Installation.html#x26-1750005.2.1">Docker</a></span></span><span class="subsectionToc"><span class="number">5.2.2</span><span class="title"><a href="Installation.html#x26-1760005.2.2">Dockerfile</a></span></span><span class="subsectionToc"><span class="number">5.2.3</span><span class="title"><a href="Installation.html#x26-1770005.2.3">Running
+the Container</a></span></span><span class="chapterToc"><span class="number">6</span><span class="title"><a href="CommandLineFundamentals.html#x27-1780006">Command Line Fundamentals</a></span></span><span class="sectionToc"><span class="number">6.1</span><span class="title"><a href="ToCommandaComputer.html#x28-1790006.1">To Command a Computer</a></span></span><span class="subsectionToc"><span class="number">6.1.1</span><span class="title"><a href="ToCommandaComputer.html#x28-1800006.1.1">The
+Command Line Interface</a></span></span><span class="subsectionToc"><span class="number">6.1.2</span><span class="title"><a href="ToCommandaComputer.html#x28-1810006.1.2">The Structure of Commands</a></span></span><span class="subsectionToc"><span class="number">6.1.3</span><span class="title"><a href="ToCommandaComputer.html#x28-1820006.1.3">Some Rules Regarding
+the Syntax</a></span></span><span class="sectionToc"><span class="number">6.2</span><span class="title"><a href="WhenWeNeedHelpwithCommands.html#x29-1830006.2">When We Need Help with Commands</a></span></span><span class="subsectionToc"><span class="number">6.2.1</span><span class="title"><a href="WhenWeNeedHelpwithCommands.html#x29-1840006.2.1">Use Tab completion on
+the Shell</a></span></span><span class="subsectionToc"><span class="number">6.2.2</span><span class="title"><a href="WhenWeNeedHelpwithCommands.html#x29-1850006.2.2">The info command</a></span></span><span class="subsectionToc"><span class="number">6.2.3</span><span class="title"><a href="WhenWeNeedHelpwithCommands.html#x29-1860006.2.3">The whatis command</a></span></span><span class="chapterToc"><span class="number">7</span><span class="title"><a href="WorkingwithFilesandFolders.html#x30-1880007">Working with Files
+and Folders</a></span></span><span class="sectionToc"><span class="number">7.1</span><span class="title"><a href="FilesandFolders.html#x31-1890007.1">Files and Folders</a></span></span><span class="subsectionToc"><span class="number">7.1.1</span><span class="title"><a href="FilesandFolders.html#x31-1900007.1.1">A Detailed Look in ls Command</a></span></span><span class="subsectionToc"><span class="number">7.1.2</span><span class="title"><a href="FilesandFolders.html#x31-1910007.1.2">Creating
+and Removing Folders</a></span></span><span class="subsectionToc"><span class="number">7.1.3</span><span class="title"><a href="FilesandFolders.html#x31-1920007.1.3">Move, Copy and Delete Files and Folders</a></span></span><span class="sectionToc"><span class="number">7.2</span><span class="title"><a href="PermissionsandLinks.html#x32-1990007.2">Permissions
+and Links</a></span></span><span class="subsectionToc"><span class="number">7.2.1</span><span class="title"><a href="PermissionsandLinks.html#x32-2000007.2.1">Role to Users and sudo</a></span></span><span class="subsectionToc"><span class="number">7.2.2</span><span class="title"><a href="PermissionsandLinks.html#x32-2010007.2.2">File Permissions</a></span></span><span class="subsectionToc"><span class="number">7.2.3</span><span class="title"><a href="PermissionsandLinks.html#x32-2040007.2.3">Hard and Symbolic
+Links</a></span></span><span class="subsectionToc"><span class="number">7.2.4</span><span class="title"><a href="PermissionsandLinks.html#x32-2050007.2.4">Soft (Symbolic) Links</a></span></span><span class="subsectionToc"><span class="number">7.2.5</span><span class="title"><a href="PermissionsandLinks.html#x32-2070007.2.5">The Linux File System</a></span></span><span class="subsectionToc"><span class="number">7.2.6</span><span class="title"><a href="PermissionsandLinks.html#x32-2080007.2.6">The UNIX
+Philosophy</a></span></span><span class="sectionToc"><span class="number">7.3</span><span class="title"><a href="CommonCommandLineToolsandTasks.html#x33-2090007.3">Common Command-Line Tools and Tasks</a></span></span><span class="subsectionToc"><span class="number">7.3.1</span><span class="title"><a href="CommonCommandLineToolsandTasks.html#x33-2100007.3.1">Connecting Commands
+with Pipes</a></span></span><span class="subsectionToc"><span class="number">7.3.2</span><span class="title"><a href="CommonCommandLineToolsandTasks.html#x33-2110007.3.2">Viewing Text Files with cat, head, tail, and less</a></span></span><span class="subsectionToc"><span class="number">7.3.3</span><span class="title"><a href="CommonCommandLineToolsandTasks.html#x33-2120007.3.3">Finding
+Linux Distribution and Kernel Information</a></span></span><span class="subsectionToc"><span class="number">7.3.4</span><span class="title"><a href="CommonCommandLineToolsandTasks.html#x33-2140007.3.4">Find System Hardware and Disk
+Information</a></span></span><span class="chapterToc"><span class="number">8</span><span class="title"><a href="ROSConcepts.html#x34-2160008">ROS Concepts</a></span></span><span class="sectionToc"><span class="number">8.1</span><span class="title"><a href="PublisherandSubscriberArchitecture.html#x35-2170008.1">Publisher and Subscriber Architecture</a></span></span><span class="subsectionToc"><span class="number">8.1.1</span><span class="title"><a href="PublisherandSubscriberArchitecture.html#x35-2180008.1.1">ROS 2
+Architecture</a></span></span><span class="sectionToc"><span class="number">8.2</span><span class="title"><a href="BuildingBlocks.html#x36-2200008.2">Building Blocks</a></span></span><span class="subsectionToc"><span class="number">8.2.1</span><span class="title"><a href="BuildingBlocks.html#x36-2210008.2.1">Nodes</a></span></span><span class="subsectionToc"><span class="number">8.2.2</span><span class="title"><a href="BuildingBlocks.html#x36-2220008.2.2">The Discovery Process</a></span></span><span class="subsectionToc"><span class="number">8.2.3</span><span class="title"><a href="BuildingBlocks.html#x36-2230008.2.3">Communication
+Interface</a></span></span><span class="subsectionToc"><span class="number">8.2.4</span><span class="title"><a href="BuildingBlocks.html#x36-2320008.2.4">Topics</a></span></span><span class="subsectionToc"><span class="number">8.2.5</span><span class="title"><a href="BuildingBlocks.html#x36-2360008.2.5">Services</a></span></span><span class="subsectionToc"><span class="number">8.2.6</span><span class="title"><a href="BuildingBlocks.html#x36-2390008.2.6">Actions</a></span></span><span class="subsectionToc"><span class="number">8.2.7</span><span class="title"><a href="BuildingBlocks.html#x36-2420008.2.7">Parameters</a></span></span><span class="subsectionToc"><span class="number">8.2.8</span><span class="title"><a href="BuildingBlocks.html#x36-2510008.2.8">Working with
+Command Line</a></span></span><span class="subsectionToc"><span class="number">8.2.9</span><span class="title"><a href="BuildingBlocks.html#x36-2530008.2.9">Launch Files</a></span></span><span class="sectionToc"><span class="number">8.3</span><span class="title"><a href="AdvancedConcepts.html#x37-2540008.3">Advanced Concepts</a></span></span><span class="subsectionToc"><span class="number">8.3.1</span><span class="title"><a href="AdvancedConcepts.html#x37-2550008.3.1">ROS DOMAIN ID</a></span></span><span class="chapterToc"><span class="number">9</span><span class="title"><a href="CommandLineTools.html#x38-2570009">Command
+Line Tools</a></span></span><span class="sectionToc"><span class="number">9.1</span><span class="title"><a href="SettingtheEnvironment.html#x39-2580009.1">Setting the Environment</a></span></span><span class="sectionToc"><span class="number">9.2</span><span class="title"><a href="TurtlesandGraphs.html#x40-2630009.2">Turtles and Graphs</a></span></span><span class="sectionToc"><span class="number">9.3</span><span class="title"><a href="ADeeperLookintoNodes.html#x41-2710009.3">A Deeper Look into
+Nodes</a></span></span><span class="sectionToc"><span class="number">9.4</span><span class="title"><a href="WorkingwithTopics.html#x42-2760009.4">Working with Topics</a></span></span><span class="sectionToc"><span class="number">9.5</span><span class="title"><a href="WorkingwithServices.html#x43-2820009.5">Working with Services</a></span></span><span class="sectionToc"><span class="number">9.6</span><span class="title"><a href="WorkingwithParameters.html#x44-2890009.6">Working with Parameters</a></span></span><span class="sectionToc"><span class="number">9.7</span><span class="title"><a href="APracticalLookintoActions.html#x45-2960009.7">A
+Practical Look into Actions</a></span></span><span class="sectionToc"><span class="number">9.8</span><span class="title"><a href="LaunchingNodes.html#x46-3030009.8">Launching Nodes</a></span></span><span class="chapterToc"><span class="number">10</span><span class="title"><a href="ClientLibraries.html#x47-30500010">Client Libraries</a></span></span><span class="sectionToc"><span class="number">10.1</span><span class="title"><a href="GettingStartedwithColcon.html#x48-30600010.1">Getting Started with
+Colcon</a></span></span><span class="subsectionToc"><span class="number">10.1.1</span><span class="title"><a href="GettingStartedwithColcon.html#x48-30700010.1.1">The Structure of a Package</a></span></span><span class="subsectionToc"><span class="number">10.1.2</span><span class="title"><a href="GettingStartedwithColcon.html#x48-30800010.1.2">Sourcing an Underlay</a></span></span><span class="subsectionToc"><span class="number">10.1.3</span><span class="title"><a href="GettingStartedwithColcon.html#x48-30900010.1.3">Building the
+Workspace</a></span></span><span class="subsectionToc"><span class="number">10.1.4</span><span class="title"><a href="GettingStartedwithColcon.html#x48-31000010.1.4">Sourcing the New Package</a></span></span><span class="subsectionToc"><span class="number">10.1.5</span><span class="title"><a href="GettingStartedwithColcon.html#x48-31100010.1.5">Creating a Workspace</a></span></span><span class="subsectionToc"><span class="number">10.1.6</span><span class="title"><a href="GettingStartedwithColcon.html#x48-31200010.1.6">Sourcing the
+Environment</a></span></span><span class="subsectionToc"><span class="number">10.1.7</span><span class="title"><a href="GettingStartedwithColcon.html#x48-31300010.1.7">Creating a New Directory</a></span></span><span class="subsectionToc"><span class="number">10.1.8</span><span class="title"><a href="GettingStartedwithColcon.html#x48-31400010.1.8">Cloning a Sample Repo</a></span></span><span class="subsectionToc"><span class="number">10.1.9</span><span class="title"><a href="GettingStartedwithColcon.html#x48-31500010.1.9">Resolving
+Dependencies</a></span></span><span class="subsectionToc"><span class="number">10.1.10</span><span class="title"><a href="GettingStartedwithColcon.html#x48-31600010.1.10">Building the Workspace</a></span></span><span class="subsectionToc"><span class="number">10.1.11</span><span class="title"><a href="GettingStartedwithColcon.html#x48-31700010.1.11">Sourcing our Overlay</a></span></span><span class="subsectionToc"><span class="number">10.1.12</span><span class="title"><a href="GettingStartedwithColcon.html#x48-31800010.1.12">Modifying
+the Overlay</a></span></span><span class="subsectionToc"><span class="number">10.1.13</span><span class="title"><a href="GettingStartedwithColcon.html#x48-31900010.1.13">Creating a Package</a></span></span><span class="sectionToc"><span class="number">10.2</span><span class="title"><a href="WritingaSimplePublisherandSubscriber.html#x49-32200010.2">Writing a Simple Publisher and
+Subscriber</a></span></span><span class="subsectionToc"><span class="number">10.2.1</span><span class="title"><a href="WritingaSimplePublisherandSubscriber.html#x49-32300010.2.1">Creating a ROS Packages</a></span></span><span class="subsectionToc"><span class="number">10.2.2</span><span class="title"><a href="WritingaSimplePublisherandSubscriber.html#x49-32400010.2.2">Writing the Publisher Node</a></span></span><span class="subsectionToc"><span class="number">10.2.3</span><span class="title"><a href="WritingaSimplePublisherandSubscriber.html#x49-32900010.2.3">Writing
+the Subscriber Node</a></span></span><span class="subsectionToc"><span class="number">10.2.4</span><span class="title"><a href="WritingaSimplePublisherandSubscriber.html#x49-33200010.2.4">Building and Running</a></span></span><span class="sectionToc"><span class="number">10.3</span><span class="title"><a href="WritingaSimpleServiceandClient.html#x50-33300010.3">Writing a Simple Service and
+Client</a></span></span><span class="subsectionToc"><span class="number">10.3.1</span><span class="title"><a href="WritingaSimpleServiceandClient.html#x50-33400010.3.1">Creating a New Package</a></span></span><span class="subsectionToc"><span class="number">10.3.2</span><span class="title"><a href="WritingaSimpleServiceandClient.html#x50-33700010.3.2">Writing the Service Node</a></span></span><span class="subsectionToc"><span class="number">10.3.3</span><span class="title"><a href="WritingaSimpleServiceandClient.html#x50-34000010.3.3">Writing the Client
+Node</a></span></span><span class="sectionToc"><span class="number">10.4</span><span class="title"><a href="CreatingCustommsgandsrvFiles.html#x51-34300010.4">Creating Custom msg and srv Files</a></span></span><span class="subsectionToc"><span class="number">10.4.1</span><span class="title"><a href="CreatingCustommsgandsrvFiles.html#x51-34400010.4.1">Creating a New Package</a></span></span><span class="subsectionToc"><span class="number">10.4.2</span><span class="title"><a href="CreatingCustommsgandsrvFiles.html#x51-34500010.4.2">Creating
+Custom Definitions</a></span></span><span class="subsectionToc"><span class="number">10.4.3</span><span class="title"><a href="CreatingCustommsgandsrvFiles.html#x51-35200010.4.3">Testing the Newly Built Interfaces</a></span></span><span class="sectionToc"><span class="number">10.5</span><span class="title"><a href="UsingParametersinaClass.html#x52-35400010.5">Using Parameters in a
+Class</a></span></span><span class="subsectionToc"><span class="number">10.5.1</span><span class="title"><a href="UsingParametersinaClass.html#x52-35500010.5.1">Creating a Package</a></span></span><span class="subsectionToc"><span class="number">10.5.2</span><span class="title"><a href="UsingParametersinaClass.html#x52-35700010.5.2">Writing our Python Code</a></span></span><span class="subsectionToc"><span class="number">10.5.3</span><span class="title"><a href="UsingParametersinaClass.html#x52-36200010.5.3">Changing Output using
+the Console</a></span></span><span class="subsectionToc"><span class="number">10.5.4</span><span class="title"><a href="UsingParametersinaClass.html#x52-36300010.5.4">Changing using the Launch File</a></span></span><span class="sectionToc"><span class="number">10.6</span><span class="title"><a href="ManagingDependencies.html#x53-36400010.6">Managing Dependencies</a></span></span><span class="sectionToc"><span class="number">10.7</span><span class="title"><a href="CreatinganAction.html#x54-36600010.7">Creating
+an Action</a></span></span><span class="sectionToc"><span class="number">10.8</span><span class="title"><a href="WritinganActionServerandClient.html#x55-36900010.8">Writing an Action Server and Client</a></span></span><span class="sectionToc"><span class="number">10.9</span><span class="title"><a href="WritingaLaunchFile.html#x56-37100010.9">Writing a Launch File</a></span></span>
+<div class="nav-footer"><div class="nav-footer-left"><span class="nav-footer-lecture">D. T. McGuiness, PhD</span>
+<span class="nav-footer-webBook"><b>Last Updated:</b> 13.10.2026, at 8:16.</span></div></div><p class="nav-comments">The website you are viewing is auto-generated using lms-WebBook and therefore subject to slight errors in typography and formatting. When in doubt, please consult the LectureBook. </p></div></nav>
+<article class="chapter">
+<nav class="crosslinks-top"> <span class="nav-button"><i class="fa-solid fa-caret-right"></i><a class="nav-link" href="MobileRobotKinematics.html">Chapter: Mobile Robot
+Kinematics</a></span><span class="nav-button"><i class="fa-solid fa-caret-left"></i><a class="nav-link" href="LeggedMobileRobots.html">Legged Mobile Robots</a></span><span class="nav-button"><i class="fa-solid fa-caret-up"></i><a class="nav-link" href="Locomotion.html#WheeledMobileRobots.html">Chapter: Locomotion</a></span><span class="nav-button">
+<a href="index.html" rel="index" title="Visit Entry Point">
+<i class="fa-solid fa-table-list">
+</i>
+<span class="nav-info">Visit Index Page</span>
+</a></span><span class="nav-button">
+<a href="Index.html" rel="index" title="Visit Material GitHub Repo">
+<i class="fa-brands fa-git-alt"></i>
+<span class="nav-info">Visit Material GitHub Repo</span>
+</a></span></nav>
+<div class="section-header"> <h3 id="header-section-1.2"> <a class="pdf-icon" href="AutonomousMobileRoboticsLectureBook.pdf#section.1.2"><svg class="bi bi-file-pdf" fill="currentColor" height="20" viewbox="0 0 16 16" width="20" xmlns="http://www.w3.org/2000/svg"><path d="M4 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H4zm0 1h8a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1z"></path><path d="M4.603 12.087a.81.81 0 0 1-.438-.42c-.195-.388-.13-.776.08-1.102.198-.307.526-.568.897-.787a7.68 7.68 0 0 1 1.482-.645 19.701 19.701 0 0 0 1.062-2.227 7.269 7.269 0 0 1-.43-1.295c-.086-.4-.119-.796-.046-1.136.075-.354.274-.672.65-.823.192-.077.4-.12.602-.077a.7.7 0 0 1 .477.365c.088.164.12.356.127.538.007.187-.012.395-.047.614-.084.51-.27 1.134-.52 1.794a10.954 10.954 0 0 0 .98 1.686 5.753 5.753 0 0 1 1.334.05c.364.065.734.195.96.465.12.144.193.32.2.518.007.192-.047.382-.138.563a1.04 1.04 0 0 1-.354.416.856.856 0 0 1-.51.138c-.331-.014-.654-.196-.933-.417a5.716 5.716 0 0 1-.911-.95 11.642 11.642 0 0 0-1.997.406 11.311 11.311 0 0 1-1.021 1.51c-.29.35-.608.655-.926.787a.793.793 0 0 1-.58.029zm1.379-1.901c-.166.076-.32.156-.459.238-.328.194-.541.383-.647.547-.094.145-.096.25-.04.361.01.022.02.036.026.044a.27.27 0 0 0 .035-.012c.137-.056.355-.235.635-.572a8.18 8.18 0 0 0 .45-.606zm1.64-1.33a12.647 12.647 0 0 1 1.01-.193 11.666 11.666 0 0 1-.51-.858 20.741 20.741 0 0 1-.5 1.05zm2.446.45c.15.162.296.3.435.41.24.19.407.253.498.256a.107.107 0 0 0 .07-.015.307.307 0 0 0 .094-.125.436.436 0 0 0 .059-.2.095.095 0 0 0-.026-.063c-.052-.062-.2-.152-.518-.209a3.881 3.881 0 0 0-.612-.053zM8.078 5.8a6.7 6.7 0 0 0 .2-.828c.031-.188.043-.343.038-.465a.613.613 0 0 0-.032-.198.517.517 0 0 0-.145.04c-.087.035-.158.106-.196.283-.04.192-.03.469.046.822.024.111.054.227.09.346z"></path></svg></a> <span class="number">1.2</span> <span class="title"> <a id="x5-120001.2"></a>Wheeled Mobile
+Robots</span></h3></div>
+<p class="noindent">The wheel has been by far the most popular locomotion mechanism in <span class="acronym"><span class="acronym-short"><a class="glossary" href="#glo:amr">AMR</a></span><span class="acronym-detail"><span class="acronym-long"><a class="glossary" href="#glo:amr">Autonomous Mobile
+Robotics</a></span><span class="acronym-desc"><a class="glossary" href="#glo:amr">Self-navigating machines moving materials and goods independently without fixed tracks or
+wires. They use smart software, cameras, and sensors to map spaces and safely steer around people or
+obstacles in real time.</a></span></span></span> and in man-made vehicles in <span class="margin-block">general. <span class="margin-comment"><a class="ellipsis" href="#m-ref-15">[15]</a>
+<span class="sidenote">This should be clear as wheel motion
+is one of the most efficient method of converting energy to motion.</span></span></span> It can achieve high
 efficiencies, as demonstrated in figure 2.3, and does so with a relatively simple mechanical
 implementation.
 </p>
-<div class="knowledge">
-<!--l. 577--><p class="noindent" >Balance is <span id="bold" style="font-weight:bold;">NOT</span> usually a research problem in<span class="alert"><alert style="color: #821131;"> wheeled robot designs</alert></span>, as wheeled robots are
-almost always designed so that all wheels are in ground contact at all times.
-</p>
-</div><p class="noindent">
-<!--l. 579--><p class="noindent" >Therefore, <span class="alert"><alert style="color: #821131;">three wheels are sufficient to guarantee stable balance</alert></span>, although as we will see
-below, two-wheeled robots can also be stable. When more than three wheels are used, a <span class="alert"><alert style="color: #821131;">suspension
-system</alert></span> is required in order to allow all wheels to maintain ground contact when the robot encounters
-uneven terrain. Instead of worrying about balance, researchers in wheeled robots tends to focus on the
-problems of <span class="alert"><alert style="color: #821131;">traction</alert></span> and <span class="alert"><alert style="color: #821131;">stability</alert></span>, maneuverability and control: <div class="quote"><p>  can the robot wheels provide
+<div class="knowledge"><div class="knowledge-upper">Knowledge</div><div class="body">
+<p class="noindent">Balance is <b>NOT</b> usually a research problem in<span class="alert"> wheeled robot designs</span>, as wheeled robots are almost always designed so that
+all wheels are in ground contact at all times. </p></div></div>
+<p class="noindent">Therefore, <span class="alert">three wheels are sufficient to guarantee stable balance</span>, although as we will see below, two-wheeled robots can also be stable. When more than
+three wheels are used, a <span class="alert">suspension system</span> is required in order to allow all wheels to maintain ground contact when the
+robot encounters uneven terrain. Instead of worrying about balance, researchers in wheeled robots
+tends to focus on the problems of <span class="alert">traction</span> and <span class="alert">stability</span>, maneuverability and control: </p><div class="quote">  can the robot wheels provide
 sufficient traction and stability for the robot to cover all of the desired terrain, and does
 the robot’s wheeled configuration enable sufficient control over the velocity of the robot?
-</p></p></div><p>
-
-<!--l. 592--><p class="noindent" ><div class="subsection-header"> <h4 id="header-subsection-1.2.1"> <a class="pdf-icon" href="AutonomousMobileRoboticsLectureBook.pdf#subsection.1.2.1"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-file-pdf" viewBox="0 0 16 16"><path d="M4 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H4zm0 1h8a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1z"></path><path d="M4.603 12.087a.81.81 0 0 1-.438-.42c-.195-.388-.13-.776.08-1.102.198-.307.526-.568.897-.787a7.68 7.68 0 0 1 1.482-.645 19.701 19.701 0 0 0 1.062-2.227 7.269 7.269 0 0 1-.43-1.295c-.086-.4-.119-.796-.046-1.136.075-.354.274-.672.65-.823.192-.077.4-.12.602-.077a.7.7 0 0 1 .477.365c.088.164.12.356.127.538.007.187-.012.395-.047.614-.084.51-.27 1.134-.52 1.794a10.954 10.954 0 0 0 .98 1.686 5.753 5.753 0 0 1 1.334.05c.364.065.734.195.96.465.12.144.193.32.2.518.007.192-.047.382-.138.563a1.04 1.04 0 0 1-.354.416.856.856 0 0 1-.51.138c-.331-.014-.654-.196-.933-.417a5.716 5.716 0 0 1-.911-.95 11.642 11.642 0 0 0-1.997.406 11.311 11.311 0 0 1-1.021 1.51c-.29.35-.608.655-.926.787a.793.793 0 0 1-.58.029zm1.379-1.901c-.166.076-.32.156-.459.238-.328.194-.541.383-.647.547-.094.145-.096.25-.04.361.01.022.02.036.026.044a.27.27 0 0 0 .035-.012c.137-.056.355-.235.635-.572a8.18 8.18 0 0 0 .45-.606zm1.64-1.33a12.647 12.647 0 0 1 1.01-.193 11.666 11.666 0 0 1-.51-.858 20.741 20.741 0 0 1-.5 1.05zm2.446.45c.15.162.296.3.435.41.24.19.407.253.498.256a.107.107 0 0 0 .07-.015.307.307 0 0 0 .094-.125.436.436 0 0 0 .059-.2.095.095 0 0 0-.026-.063c-.052-.062-.2-.152-.518-.209a3.881 3.881 0 0 0-.612-.053zM8.078 5.8a6.7 6.7 0 0 0 .2-.828c.031-.188.043-.343.038-.465a.613.613 0 0 0-.032-.198.517.517 0 0 0-.145.04c-.087.035-.158.106-.196.283-.04.192-.03.469.046.822.024.111.054.227.09.346z"></path></svg></a><span class="number">1.2.1</span> <span class="title">  <a 
- id="x5-130001.2.1"></a>Design</span></h4></div><p>
-</p><!--l. 594--><p class="noindent" >As we will see, there is a very large space of possible wheel configurations when we considers possible
+</div>
+<p class="noindent"><div class="subsection-header"> <h4 id="header-subsection-1.2.1"> <a class="pdf-icon" href="AutonomousMobileRoboticsLectureBook.pdf#subsection.1.2.1"><svg class="bi bi-file-pdf" fill="currentColor" height="20" viewbox="0 0 16 16" width="20" xmlns="http://www.w3.org/2000/svg"><path d="M4 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H4zm0 1h8a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1z"></path><path d="M4.603 12.087a.81.81 0 0 1-.438-.42c-.195-.388-.13-.776.08-1.102.198-.307.526-.568.897-.787a7.68 7.68 0 0 1 1.482-.645 19.701 19.701 0 0 0 1.062-2.227 7.269 7.269 0 0 1-.43-1.295c-.086-.4-.119-.796-.046-1.136.075-.354.274-.672.65-.823.192-.077.4-.12.602-.077a.7.7 0 0 1 .477.365c.088.164.12.356.127.538.007.187-.012.395-.047.614-.084.51-.27 1.134-.52 1.794a10.954 10.954 0 0 0 .98 1.686 5.753 5.753 0 0 1 1.334.05c.364.065.734.195.96.465.12.144.193.32.2.518.007.192-.047.382-.138.563a1.04 1.04 0 0 1-.354.416.856.856 0 0 1-.51.138c-.331-.014-.654-.196-.933-.417a5.716 5.716 0 0 1-.911-.95 11.642 11.642 0 0 0-1.997.406 11.311 11.311 0 0 1-1.021 1.51c-.29.35-.608.655-.926.787a.793.793 0 0 1-.58.029zm1.379-1.901c-.166.076-.32.156-.459.238-.328.194-.541.383-.647.547-.094.145-.096.25-.04.361.01.022.02.036.026.044a.27.27 0 0 0 .035-.012c.137-.056.355-.235.635-.572a8.18 8.18 0 0 0 .45-.606zm1.64-1.33a12.647 12.647 0 0 1 1.01-.193 11.666 11.666 0 0 1-.51-.858 20.741 20.741 0 0 1-.5 1.05zm2.446.45c.15.162.296.3.435.41.24.19.407.253.498.256a.107.107 0 0 0 .07-.015.307.307 0 0 0 .094-.125.436.436 0 0 0 .059-.2.095.095 0 0 0-.026-.063c-.052-.062-.2-.152-.518-.209a3.881 3.881 0 0 0-.612-.053zM8.078 5.8a6.7 6.7 0 0 0 .2-.828c.031-.188.043-.343.038-.465a.613.613 0 0 0-.032-.198.517.517 0 0 0-.145.04c-.087.035-.158.106-.196.283-.04.192-.03.469.046.822.024.111.054.227.09.346z"></path></svg></a><span class="number">1.2.1</span> <span class="title"> <a id="x5-130001.2.1"></a>Design</span></h4></div>
+</p><p class="noindent">As we will see, there is a very large space of possible wheel configurations when we considers possible
 techniques for mobile robot locomotion. We will begin by discussing the wheel in detail, as there are a
 number of different wheel types with specific strengths and weaknesses.
-</p><!--l. 599--><p class="noindent" >Then, we will examine complete wheel configurations that deliver particular forms of locomotion for a
+</p><p class="noindent">Then, we will examine complete wheel configurations that deliver particular forms of locomotion for a
 mobile robot.
-
-                                                                                
-                                                                                
 </p>
-<h5 class="likesubsubsectionHead"> <a 
- id="x5-14000"></a>Wheel Design</h5>
-<figure class="figure"> 
-
-                                                                                
-                                                                                
-                                                                                
-                                                                                
-<a 
- id="x5-14001r11"></a>
-<figcaption class="caption" ><span class="id">Figure 1.11: 
-          </span><span  
-class="content">The four basic wheel types a)Standard wheel: Two degrees of freedom; rotation around the (motorized)
+<h5 class="likesubsubsectionHead"> <a id="x5-14000"></a>Wheel Design</h5>
+<p class="noindent"></p><figure class="float">
+<a id="x5-14001r11"></a>
+<figcaption class="caption"><span class="id">Figure 1.11: 
+          </span><span class="content">The four basic wheel types a)Standard wheel: Two degrees of freedom; rotation around the (motorized)
           wheel axle and the contact point b)castor wheel: Two degrees of freedom; rotation around an offset
           steering joint c)Swedish wheel: Three degrees of freedom; rotation around the (motorized) wheel axle,
-          around the rollers and around the contact point.                                     </span></figcaption><!--tex4ht:label?: x5-14001r11 -->
- <img 
- 
-src="figures/Locomotion/figures-2.png" alt="PIC"  
-style="" />
-                                                                                
-                                                                                
+          around the rollers and around the contact point.                                     </span></figcaption>
+<img alt="PIC" src="figures/Locomotion/figures-2.png" style=""/>
 </figure>
-<!--l. 614--><p class="noindent" >There are four (<span class="alert"><alert style="color: #821131;">4</alert></span>) major wheel classes, as shown in <span id="bold" style="font-weight:bold;">Fig.</span> <a 
-href="#x5-14001r11">1.11<!--tex4ht:ref: fig:wheel-types --></a>. They differ widely in their kinematics,
+<p class="noindent">There are four (<span class="alert">4</span>) major wheel classes, as shown in <b>Fig.</b> <a href="#x5-14001r11">1.11</a>. They differ widely in their kinematics,
 and therefore the choice of wheel type has a large effect on the overall kinematics of the
-<span class="acronym"><span class="acronym-short"><a 
-href="#glo:amr" class="glossary" >AMR</a></span><span class="acronym-detail"><span class="acronym-long"><a 
-href="#glo:amr" class="glossary" >Autonomous Mobile Robotics</a></span><span class="acronym-desc"><a 
-href="#glo:amr" class="glossary" >Autonomous Mobile Robotics</a></span></span></span><span class="margin-block">. <span class="margin-comment"><span class="ellipsis">[16]</span> 
-<span class="sidenote">A topic which we will discuss in
-Chapter ??.</span></span></span>
-</p><!--l. 619--><p class="noindent" >The standard wheel and the castor wheel have a <span class="alert"><alert style="color: #821131;">primary axis of rotation</alert></span> and therefore are highly
-directional. To move in a different direction, the wheel must be steered first along a vertical axis. The
-key difference between these two (<span class="alert"><alert style="color: #821131;">2</alert></span>) wheels is that the standard wheel can accomplish this steering
-motion with no side effects, as the centre of rotation passes through the contact patch with the ground,
-while the castor wheel rotates around an offset axis, causing a force to be imparted to the robot chassis
-during steering.
-The mecanum <span class="margin-block">wheel <span class="margin-comment"><span class="ellipsis">[17]</span> 
-<span class="sidenote">Sometimes known as <italic>Swedish wheel</italic> or <italic>Ilon wheel</italic> after its inventor Bengt Erland
-Ilon <span class="cite"><span class="cite-show">[†]</span><span class="cite-detail"><a 
- id="x5-14002"></a>Erland, I. B. Rad fuer ein laufstabiles, selbstfahrendes fahrzeug. German Patent No.
+<span class="acronym"><span class="acronym-short"><a class="glossary" href="#glo:amr">AMR</a></span><span class="acronym-detail"><span class="acronym-long"><a class="glossary" href="#glo:amr">Autonomous Mobile Robotics</a></span><span class="acronym-desc"><a class="glossary" href="#glo:amr">Self-navigating machines moving materials and goods independently
+without fixed tracks or wires. They use smart software, cameras, and sensors to map spaces and safely
+steer around people or obstacles in real time.</a></span></span></span><span class="margin-block">. <span class="margin-comment"><a class="ellipsis" href="#m-ref-16">[16]</a>
+<span class="sidenote">A topic which we will discuss in <span class="refclass-ref"><a href="MobileRobotKinematics.html#x6-270002">Mobile Robot
+Kinematics</a></span>.</span></span></span>
+</p><p class="noindent">The standard wheel and the castor wheel have a <span class="alert">primary axis of rotation</span> and therefore are highly directional. To move in a
+different direction, the wheel must be steered first along a vertical axis. The key difference between
+these two (<span class="alert">2</span>) wheels is that the standard wheel can accomplish this steering motion with no side effects,
+as the centre of rotation passes through the contact patch with the ground, while the castor wheel
+rotates around an offset axis, causing a force to be imparted to the robot chassis during
+steering.
+</p><p class="noindent">The mecanum <span class="margin-block">wheel <span class="margin-comment"><a class="ellipsis" href="#m-ref-17">[17]</a>
+<span class="sidenote">Sometimes known as <i>Swedish wheel</i> or <i>Ilon wheel</i> after its inventor Bengt Erland
+Ilon <span class="cite"><a class="cite-show" href="#w3-20001">[†-1]</a><span class="cite-detail"> <a id="x5-14002"></a>Erland, I. B. Rad fuer ein laufstabiles, selbstfahrendes fahrzeug. German Patent No.
 DE2354404A1 (1974)</span></span>.</span></span></span> and the spherical wheel are both designs that are less constrained by
-directionality than the conventional standard wheel. The <italic>Swedish wheel</italic> functions as a normal wheel,
-but provides low resistance in another direction as well, sometimes perpendicular to the conventional
-direction as in the <span class="alert"><alert style="color: #821131;">Swedish 90</alert></span> and sometimes at an intermediate angle as in the <span id="bold" style="font-weight:bold;">Swedish
-45</span>.
-The small rollers attached around the circumference of the wheel are passive and the wheel’s primary
+directionality than the conventional standard wheel. The <i>Swedish wheel</i> functions as a normal wheel,
+but provides low resistance in another direction as well, sometimes perpendicular to the
+conventional direction as in the <span class="alert">Swedish 90</span> and sometimes at an intermediate angle as in the <b>Swedish
+45</b>.
+</p><p class="noindent">The small rollers attached around the circumference of the wheel are passive and the wheel’s primary
 axis serves as the only actively powered joint. The key advantage of this design is that, although the
-wheel rotation is powered only along the one principal <span class="margin-block">axis, <span class="margin-comment"><span class="ellipsis">[18]</span> 
+wheel rotation is powered only along the one principal <span class="margin-block">axis, <span class="margin-comment"><a class="ellipsis" href="#m-ref-18">[18]</a>
 <span class="sidenote">through the axle.</span></span></span> the wheel can
 kinematically move with very little friction along many possible trajectories, not just forward and
 backward.
-</p><!--l. 639--><p class="noindent" >The spherical wheel is a truly <span id="bold" style="font-weight:bold;">omnidirectional wheel</span>, often designed so that it may be actively
+</p><p class="noindent">The spherical wheel is a truly <b>omnidirectional wheel</b>, often designed so that it may be actively
 powered to spin along any direction. One mechanism for implementing this spherical design imitates
 the computer mouse, providing actively powered rollers that rest against the top surface of the sphere
 and impart rotational force.
-</p><!--l. 644--><p class="noindent" >Regardless of what wheel is used, in robots designed for all-terrain environments and in robots with
-more than three (<span class="alert"><alert style="color: #821131;">3</alert></span>) wheels, a <span class="margin-block"><span class="margin"><span>suspension [19]</span><span class="sidenote"><span class="sidenote-image"><img 
- 
-src="figures/Locomotion/raster/suspension.jpg" alt="PIC"  
-style="" /></span><span class="sidenote-text"><span class="ellipsis">[19]</span>Suspension is the system of tires, tire air, springs,
-shock absorbers and linkages that connects a vehicle to its wheels and allows relative motion between
-the two.</span></span></span></span> system is normally required to maintain wheel contact with the ground. One of the simplest
+</p><p class="noindent">Regardless of what wheel is used, in robots designed for all-terrain environments and in robots with
+more than three (<span class="alert">3</span>) wheels, a <span class="margin-block"><span class="margin"><span>suspension <a class="ellipsis" href="#m-ref-19">[19]</a></span><span class="sidenote"><a class="copiable-link" href="#m-ref-19" id="m-ref-19"> ¶</a><span class="sidenote-image"><img alt="PIC" src="figures/Locomotion/raster/suspension.jpg" style=""/></span><span class="sidenote-text"><span class="ellipsis">[19]</span>Suspension is the system of tires, tire air, springs, shock
+absorbers and linkages that connects a vehicle to its wheels and allows relative motion between the two.</span></span></span></span>
+system is normally required to maintain wheel contact with the ground. One of the simplest
 approaches to suspension is to design flexibility into the wheel itself. For instance, in the case
 of some four-wheeled indoor robots that use castor wheels, manufacturers have applied a
 deformeable tire of soft rubber to the wheel in order to create a primitive suspension. Of
 course, this limited solution cannot compete with a sophisticated suspension system in
 applications where the robot needs a more dynamic suspension for significantly non-flat
 terrain.
-
 </p>
-<!--l. 656--><p class="noindent" ><h5 id="header-subsubsection-6" class="subsubsectionHead"> <a 
- id="x5-15000"></a>Wheel Geometry</h5>
-</p><!--l. 658--><p class="noindent" >The choice of wheel types for an <span class="acronym"><span class="acronym-short"><a 
-href="#glo:amr" class="glossary" >AMR</a></span><span class="acronym-detail"><span class="acronym-long"><a 
-href="#glo:amr" class="glossary" >Autonomous Mobile Robotics</a></span><span class="acronym-desc"><a 
-href="#glo:amr" class="glossary" >Autonomous Mobile
-Robotics</a></span></span></span> is strongly linked to the choice of wheel arrangement, or wheel geometry. When
-designing a mobile robot locomotion we must consider these two (<span class="alert"><alert style="color: #821131;">2</alert></span>) issues simultaneously.
-                                                                                
-                                                                                
+<p class="noindent"><h5 class="subsubsectionHead" id="header-subsubsection-6"> <a id="x5-15000"></a>Wheel Geometry</h5>
+</p><p class="noindent">The choice of wheel types for an <span class="acronym"><span class="acronym-short"><a class="glossary" href="#glo:amr">AMR</a></span><span class="acronym-detail"><span class="acronym-long"><a class="glossary" href="#glo:amr">Autonomous Mobile Robotics</a></span><span class="acronym-desc"><a class="glossary" href="#glo:amr">Self-navigating machines
+moving materials and goods independently without fixed tracks or wires. They use smart
+software, cameras, and sensors to map spaces and safely steer around people or obstacles in
+real time.</a></span></span></span> is strongly linked to the choice of wheel arrangement, or wheel geometry. When
+designing a mobile robot locomotion we must consider these two (<span class="alert">2</span>) issues simultaneously.
 </p>
-<div class="center" 
->
-<!--l. 662--><p class="noindent" >
-</p><!--l. 663--><p class="noindent" >Why does wheel type and wheel geometry matter?</p></div>
-<!--l. 666--><p class="noindent" >Three fundamental characteristics of a robot are governed by these choices: </p>
-<ul class="itemize1">     
+<div class="center">
+<p class="noindent">
+</p><p class="noindent">Why does wheel type and wheel geometry matter?</p></div>
+<p class="noindent">Three fundamental characteristics of a robot are governed by these choices: </p>
+<ul class="itemize1">
 <li class="itemize">
-<!--l. 669--><p class="noindent" >maneuverability,
-</p>     
+<p class="noindent">maneuverability,
+</p>
 </li>
-<li class="itemize">     
-<!--l. 670--><p class="noindent" >controllability
-</p>     
+<li class="itemize">
+<p class="noindent">controllability
+</p>
 </li>
-<li class="itemize">     
-<!--l. 671--><p class="noindent" >stability.</p></li></ul>
-<!--l. 674--><p class="noindent" >Unlike automobiles, which are largely designed for a highly standardised <span class="margin-block">environment <span class="margin-comment"><span class="ellipsis">[20]</span> 
+<li class="itemize">
+<p class="noindent">stability.</p></li></ul>
+<p class="noindent">Unlike automobiles, which are largely designed for a highly standardised <span class="margin-block">environment <span class="margin-comment"><a class="ellipsis" href="#m-ref-20">[20]</a>
 <span class="sidenote">such as the road
 network</span></span></span>, mobile robots are designed for applications in a wide variety of situations. Automobiles all
 share similar wheel configurations as there is one region in the design space that maximises
-maneuverability, controllability and stability for their standard environment: <div class="quote"><p>  the paved road.  </p></p></div><p>
-However, there is no single wheel configuration that maximises these qualities for the variety of
-environments faced by different <span class="acronym"><span class="acronym-short"><a 
-href="#glo:amr" class="glossary" >AMR</a></span><span class="acronym-detail"><span class="acronym-long"><a 
-href="#glo:amr" class="glossary" >Autonomous Mobile Robotics</a></span><span class="acronym-desc"><a 
-href="#glo:amr" class="glossary" >Autonomous Mobile Robotics</a></span></span></span>. So,
-we will see great variety in the wheel configurations of mobile robots. In fact, few robots use
-the <italic>Ackerman wheel configuration</italic> of the automobile because of its poor maneuverability,
-with the exception of mobile robots designed for the road system, such as the one seen in
-<span id="bold" style="font-weight:bold;">Fig.</span> <a 
-href="#x5-15001r12">1.12<!--tex4ht:ref: fig:navlab --></a>.
-<div class="sidenote"> <span class="figure" 
->
-                                                                                
-                                                                                
-                                                                                
-                                                                                
-<a 
- id="x5-15001r12"></a>
-<figcaption class="caption" ><span class="id">Figure 1.12: </span><span  
-class="content">NAVLAB I, the first autonomous highway vehicle that steers and controls the throttle using vision and
-radar sensors <span class="cite"><span class="cite-show">[†]</span><span class="cite-detail">Dowling, K. et al. NAVLAB An Autonomous Navigation Testbed in Vision and Navigation: The
-Carnegie Mellon Navlab 259–282 (Springer, 1990)</span></span>.                                              </span></figcaption><!--tex4ht:label?: x5-15001r12 -->
-<img 
- 
-src="figures/Locomotion/raster/navlab.jpg" alt="PIC"  
-style="" />
-                                                                                
-                                                                                
+maneuverability, controllability and stability for their standard environment: </p><div class="quote">  the paved road.
 </div>
-<!--l. 696--><p class="noindent" ></div> </p><p>
-Table 2.1 gives an overview of wheel configurations ordered by the number of wheels. This table shows
+<p class="noindent">However, there is no single wheel configuration that maximises these qualities for the variety of
+environments faced by different <span class="acronym"><span class="acronym-short"><a class="glossary" href="#glo:amr">AMR</a></span><span class="acronym-detail"><span class="acronym-long"><a class="glossary" href="#glo:amr">Autonomous Mobile Robotics</a></span><span class="acronym-desc"><a class="glossary" href="#glo:amr">Self-navigating machines moving
+materials and goods independently without fixed tracks or wires. They use smart software, cameras,
+and sensors to map spaces and safely steer around people or obstacles in real time.</a></span></span></span>. So, we
+will see great variety in the wheel configurations of mobile robots. In fact, few robots use
+the <i>Ackerman wheel configuration</i> of the automobile because of its poor maneuverability,
+with the exception of mobile robots designed for the road system, such as the one seen in
+<b>Fig.</b> <a href="#x5-15001r12">1.12</a>.
+</p>
+<div class="sidenote"> <span class="figure">
+<a id="x5-15001r12"></a>
+<figcaption class="caption"><span class="id">Figure 1.12: </span><span class="content">NAVLAB I, the first autonomous highway vehicle that steers and controls the throttle using vision and
+radar sensors <span class="cite"><a class="cite-show" href="#w3-20001">[†-2]</a><span class="cite-detail"> Dowling, K. et al. NAVLAB An Autonomous Navigation Testbed in Vision and Navigation: The
+Carnegie Mellon Navlab 259–282 (Springer, 1990)</span></span>.                                              </span></figcaption>
+<img alt="PIC" src="figures/Locomotion/raster/navlab.jpg" style=""/>
+</span>
+<p class="noindent"></p></div>
+<p class="noindent">Table 2.1 gives an overview of wheel configurations ordered by the number of wheels. This table shows
 both the selection of particular wheel types and their geometric configuration on the robot chassis.
 Note that some of the configurations shown are of little use in mobile robot applications. For instance,
 the 2-wheeled bicycle arrangement has moderate maneu- verability and poor controllability. Like a
 single-leg hopping machine, it can never stand still. Nevertheless, this table provides an
 indication of the large variety of wheel configura- tions that are possible in mobile robot
 design.
-
-<!--l. 706--><p class="noindent" ><div class="subsection-header"> <h4 id="header-subsection-1.2.2"> <a class="pdf-icon" href="AutonomousMobileRoboticsLectureBook.pdf#subsection.1.2.2"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-file-pdf" viewBox="0 0 16 16"><path d="M4 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H4zm0 1h8a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1z"></path><path d="M4.603 12.087a.81.81 0 0 1-.438-.42c-.195-.388-.13-.776.08-1.102.198-.307.526-.568.897-.787a7.68 7.68 0 0 1 1.482-.645 19.701 19.701 0 0 0 1.062-2.227 7.269 7.269 0 0 1-.43-1.295c-.086-.4-.119-.796-.046-1.136.075-.354.274-.672.65-.823.192-.077.4-.12.602-.077a.7.7 0 0 1 .477.365c.088.164.12.356.127.538.007.187-.012.395-.047.614-.084.51-.27 1.134-.52 1.794a10.954 10.954 0 0 0 .98 1.686 5.753 5.753 0 0 1 1.334.05c.364.065.734.195.96.465.12.144.193.32.2.518.007.192-.047.382-.138.563a1.04 1.04 0 0 1-.354.416.856.856 0 0 1-.51.138c-.331-.014-.654-.196-.933-.417a5.716 5.716 0 0 1-.911-.95 11.642 11.642 0 0 0-1.997.406 11.311 11.311 0 0 1-1.021 1.51c-.29.35-.608.655-.926.787a.793.793 0 0 1-.58.029zm1.379-1.901c-.166.076-.32.156-.459.238-.328.194-.541.383-.647.547-.094.145-.096.25-.04.361.01.022.02.036.026.044a.27.27 0 0 0 .035-.012c.137-.056.355-.235.635-.572a8.18 8.18 0 0 0 .45-.606zm1.64-1.33a12.647 12.647 0 0 1 1.01-.193 11.666 11.666 0 0 1-.51-.858 20.741 20.741 0 0 1-.5 1.05zm2.446.45c.15.162.296.3.435.41.24.19.407.253.498.256a.107.107 0 0 0 .07-.015.307.307 0 0 0 .094-.125.436.436 0 0 0 .059-.2.095.095 0 0 0-.026-.063c-.052-.062-.2-.152-.518-.209a3.881 3.881 0 0 0-.612-.053zM8.078 5.8a6.7 6.7 0 0 0 .2-.828c.031-.188.043-.343.038-.465a.613.613 0 0 0-.032-.198.517.517 0 0 0-.145.04c-.087.035-.158.106-.196.283-.04.192-.03.469.046.822.024.111.054.227.09.346z"></path></svg></a><span class="number">1.2.2</span> <span class="title">  <a 
- id="x5-160001.2.2"></a>Stability</span></h4></div><p>
-</p><!--l. 708--><p class="noindent" >Surprisingly, the minimum number of wheels required for static stability is two (<span class="alert"><alert style="color: #821131;">2</alert></span>). As can be deduced,
-a two-wheel differential drive robot can achieve <span id="bold" style="font-weight:bold;">static stability</span> if the center of mass is below the
-wheel axle.
-However, under ordinary circumstances such a solution requires wheel diameters that are <italic>impractically
-large</italic>. Dynamics can also cause a two-wheeled robot to strike the floor with a third point of
+</p>
+<p class="noindent"><div class="subsection-header"> <h4 id="header-subsection-1.2.2"> <a class="pdf-icon" href="AutonomousMobileRoboticsLectureBook.pdf#subsection.1.2.2"><svg class="bi bi-file-pdf" fill="currentColor" height="20" viewbox="0 0 16 16" width="20" xmlns="http://www.w3.org/2000/svg"><path d="M4 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H4zm0 1h8a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1z"></path><path d="M4.603 12.087a.81.81 0 0 1-.438-.42c-.195-.388-.13-.776.08-1.102.198-.307.526-.568.897-.787a7.68 7.68 0 0 1 1.482-.645 19.701 19.701 0 0 0 1.062-2.227 7.269 7.269 0 0 1-.43-1.295c-.086-.4-.119-.796-.046-1.136.075-.354.274-.672.65-.823.192-.077.4-.12.602-.077a.7.7 0 0 1 .477.365c.088.164.12.356.127.538.007.187-.012.395-.047.614-.084.51-.27 1.134-.52 1.794a10.954 10.954 0 0 0 .98 1.686 5.753 5.753 0 0 1 1.334.05c.364.065.734.195.96.465.12.144.193.32.2.518.007.192-.047.382-.138.563a1.04 1.04 0 0 1-.354.416.856.856 0 0 1-.51.138c-.331-.014-.654-.196-.933-.417a5.716 5.716 0 0 1-.911-.95 11.642 11.642 0 0 0-1.997.406 11.311 11.311 0 0 1-1.021 1.51c-.29.35-.608.655-.926.787a.793.793 0 0 1-.58.029zm1.379-1.901c-.166.076-.32.156-.459.238-.328.194-.541.383-.647.547-.094.145-.096.25-.04.361.01.022.02.036.026.044a.27.27 0 0 0 .035-.012c.137-.056.355-.235.635-.572a8.18 8.18 0 0 0 .45-.606zm1.64-1.33a12.647 12.647 0 0 1 1.01-.193 11.666 11.666 0 0 1-.51-.858 20.741 20.741 0 0 1-.5 1.05zm2.446.45c.15.162.296.3.435.41.24.19.407.253.498.256a.107.107 0 0 0 .07-.015.307.307 0 0 0 .094-.125.436.436 0 0 0 .059-.2.095.095 0 0 0-.026-.063c-.052-.062-.2-.152-.518-.209a3.881 3.881 0 0 0-.612-.053zM8.078 5.8a6.7 6.7 0 0 0 .2-.828c.031-.188.043-.343.038-.465a.613.613 0 0 0-.032-.198.517.517 0 0 0-.145.04c-.087.035-.158.106-.196.283-.04.192-.03.469.046.822.024.111.054.227.09.346z"></path></svg></a><span class="number">1.2.2</span> <span class="title"> <a id="x5-160001.2.2"></a>Stability</span></h4></div>
+</p><p class="noindent">Surprisingly, the minimum number of wheels required for static stability is two (<span class="alert">2</span>). As can be deduced, a
+two-wheel differential drive robot can achieve <b>static stability</b> if the center of mass is below the wheel
+axle.
+</p><p class="noindent">However, under ordinary circumstances such a solution requires wheel diameters that are <i>impractically
+large</i>. Dynamics can also cause a two-wheeled robot to strike the floor with a third point of
 contact, for instance with sufficiently high motor torques from standstill. Conventionally, static
-stability requires a minimum of three (<span class="alert"><alert style="color: #821131;">3</alert></span>) wheels, with the additional caveat that the center of
-gravity must be contained within the <span id="bold" style="font-weight:bold;">triangle</span> formed by the ground contact points of the
+stability requires a minimum of three (<span class="alert">3</span>) wheels, with the additional caveat that the center of
+gravity must be contained within the <b>triangle</b> formed by the ground contact points of the
 wheels.
-Stability can be further improved by adding more wheels, although once the number of contact points
+</p><p class="noindent">Stability can be further improved by adding more wheels, although once the number of contact points
 exceeds three, the hyperstatic nature of the geometry will require some form of flexible suspension on
 uneven terrain.
 </p>
-<div class="desc-block"> <span class="desc-upper"> <span class="desc-header"><span id="bold" style="font-weight:bold;">Description: </span></span><span class="desc-title">Hyperstatic</span> </span> <div class="body"><p>
-<!--l. 725--><p class="noindent" >Hyperstatic means a structural system is <span class="alert"><alert style="color: #821131;">statically indeterminate</alert></span>, meaning it has
-more support reactions or internal unknowns than basic static equilibrium equations can
-solve.
-</div> </p></div><p class="noindent">
-
-<!--l. 731--><p class="noindent" ><div class="subsection-header"> <h4 id="header-subsection-1.2.3"> <a class="pdf-icon" href="AutonomousMobileRoboticsLectureBook.pdf#subsection.1.2.3"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-file-pdf" viewBox="0 0 16 16"><path d="M4 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H4zm0 1h8a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1z"></path><path d="M4.603 12.087a.81.81 0 0 1-.438-.42c-.195-.388-.13-.776.08-1.102.198-.307.526-.568.897-.787a7.68 7.68 0 0 1 1.482-.645 19.701 19.701 0 0 0 1.062-2.227 7.269 7.269 0 0 1-.43-1.295c-.086-.4-.119-.796-.046-1.136.075-.354.274-.672.65-.823.192-.077.4-.12.602-.077a.7.7 0 0 1 .477.365c.088.164.12.356.127.538.007.187-.012.395-.047.614-.084.51-.27 1.134-.52 1.794a10.954 10.954 0 0 0 .98 1.686 5.753 5.753 0 0 1 1.334.05c.364.065.734.195.96.465.12.144.193.32.2.518.007.192-.047.382-.138.563a1.04 1.04 0 0 1-.354.416.856.856 0 0 1-.51.138c-.331-.014-.654-.196-.933-.417a5.716 5.716 0 0 1-.911-.95 11.642 11.642 0 0 0-1.997.406 11.311 11.311 0 0 1-1.021 1.51c-.29.35-.608.655-.926.787a.793.793 0 0 1-.58.029zm1.379-1.901c-.166.076-.32.156-.459.238-.328.194-.541.383-.647.547-.094.145-.096.25-.04.361.01.022.02.036.026.044a.27.27 0 0 0 .035-.012c.137-.056.355-.235.635-.572a8.18 8.18 0 0 0 .45-.606zm1.64-1.33a12.647 12.647 0 0 1 1.01-.193 11.666 11.666 0 0 1-.51-.858 20.741 20.741 0 0 1-.5 1.05zm2.446.45c.15.162.296.3.435.41.24.19.407.253.498.256a.107.107 0 0 0 .07-.015.307.307 0 0 0 .094-.125.436.436 0 0 0 .059-.2.095.095 0 0 0-.026-.063c-.052-.062-.2-.152-.518-.209a3.881 3.881 0 0 0-.612-.053zM8.078 5.8a6.7 6.7 0 0 0 .2-.828c.031-.188.043-.343.038-.465a.613.613 0 0 0-.032-.198.517.517 0 0 0-.145.04c-.087.035-.158.106-.196.283-.04.192-.03.469.046.822.024.111.054.227.09.346z"></path></svg></a><span class="number">1.2.3</span> <span class="title">  <a 
- id="x5-170001.2.3"></a>Manoeuvrability</span></h4></div><p>
-</p><!--l. 733--><p class="noindent" >Some robots are <span id="bold" style="font-weight:bold;">omnidirectional</span>, meaning that they can move at any time in any direction along the
-ground plane <!--l. 734--><math 
- 
-display="inline" ><msup><mrow 
-> <mrow><mo fence="true" form="prefix">(</mo><mrow><mi 
->X</mi><mo 
-class="MathClass-punc" stretchy="false">,</mo><mi 
->Y</mi> </mrow><mo fence="true" form="postfix">)</mo></mrow></mrow><mrow 
-></mrow></msup 
-></math>
+<div class="desc-block" id="desc-block-1.1"> <a class="copiable-link" href="#desc-block-1.1"> ¶</a> <span class="desc-upper"> <span class="desc-header"> <b>Description: 1.<a id="x5-16001r1"></a>1: </b> </span> <span class="desc-title"> Hyperstatic </span> </span> <div class="body">
+<p class="noindent">Hyperstatic means a structural system is <span class="alert">statically indeterminate</span>, meaning it has more support reactions or internal unknowns
+than basic static equilibrium equations can solve.
+</p>
+</div> </div>
+<p class="noindent"><div class="subsection-header"> <h4 id="header-subsection-1.2.3"> <a class="pdf-icon" href="AutonomousMobileRoboticsLectureBook.pdf#subsection.1.2.3"><svg class="bi bi-file-pdf" fill="currentColor" height="20" viewbox="0 0 16 16" width="20" xmlns="http://www.w3.org/2000/svg"><path d="M4 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H4zm0 1h8a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1z"></path><path d="M4.603 12.087a.81.81 0 0 1-.438-.42c-.195-.388-.13-.776.08-1.102.198-.307.526-.568.897-.787a7.68 7.68 0 0 1 1.482-.645 19.701 19.701 0 0 0 1.062-2.227 7.269 7.269 0 0 1-.43-1.295c-.086-.4-.119-.796-.046-1.136.075-.354.274-.672.65-.823.192-.077.4-.12.602-.077a.7.7 0 0 1 .477.365c.088.164.12.356.127.538.007.187-.012.395-.047.614-.084.51-.27 1.134-.52 1.794a10.954 10.954 0 0 0 .98 1.686 5.753 5.753 0 0 1 1.334.05c.364.065.734.195.96.465.12.144.193.32.2.518.007.192-.047.382-.138.563a1.04 1.04 0 0 1-.354.416.856.856 0 0 1-.51.138c-.331-.014-.654-.196-.933-.417a5.716 5.716 0 0 1-.911-.95 11.642 11.642 0 0 0-1.997.406 11.311 11.311 0 0 1-1.021 1.51c-.29.35-.608.655-.926.787a.793.793 0 0 1-.58.029zm1.379-1.901c-.166.076-.32.156-.459.238-.328.194-.541.383-.647.547-.094.145-.096.25-.04.361.01.022.02.036.026.044a.27.27 0 0 0 .035-.012c.137-.056.355-.235.635-.572a8.18 8.18 0 0 0 .45-.606zm1.64-1.33a12.647 12.647 0 0 1 1.01-.193 11.666 11.666 0 0 1-.51-.858 20.741 20.741 0 0 1-.5 1.05zm2.446.45c.15.162.296.3.435.41.24.19.407.253.498.256a.107.107 0 0 0 .07-.015.307.307 0 0 0 .094-.125.436.436 0 0 0 .059-.2.095.095 0 0 0-.026-.063c-.052-.062-.2-.152-.518-.209a3.881 3.881 0 0 0-.612-.053zM8.078 5.8a6.7 6.7 0 0 0 .2-.828c.031-.188.043-.343.038-.465a.613.613 0 0 0-.032-.198.517.517 0 0 0-.145.04c-.087.035-.158.106-.196.283-.04.192-.03.469.046.822.024.111.054.227.09.346z"></path></svg></a><span class="number">1.2.3</span> <span class="title"> <a id="x5-170001.2.3"></a>Manoeuvrability</span></h4></div>
+</p><p class="noindent">Some robots are <b>omnidirectional</b>, meaning that they can move at any time in any direction along the
+ground plane <math display="inline"><msup><mrow> <mrow><mo fence="true" form="prefix">(</mo><mrow><mi>X</mi><mo class="MathClass-punc" stretchy="false">,</mo><mi>Y</mi> </mrow><mo fence="true" form="postfix">)</mo></mrow></mrow><mrow></mrow></msup></math>
 regardless of the orientation of the robot around its vertical axis. This level of maneuverability requires
 wheels that can move in more than just a single direction, and so omnidirectional robots usually employ
-<span id="bold" style="font-weight:bold;">swedish</span> or <span id="bold" style="font-weight:bold;">spherical</span> wheels that are powered.
-</p><!--l. 739--><p class="noindent" >A good example is <italic>Uranus</italic>, shown in <span id="bold" style="font-weight:bold;">Fig.</span> <a 
-href="#x5-23001r14">1.14<!--tex4ht:ref: fig:uranus --></a>. This robot uses four (<span class="alert"><alert style="color: #821131;">4</alert></span>) swedish wheels to
+<b>swedish</b> or <b>spherical</b> wheels that are powered.
+</p><p class="noindent">A good example is <i>Uranus</i>, shown in <b>Fig.</b> <a href="#x5-23001r14">1.14</a>. This robot uses four (<span class="alert">4</span>) swedish wheels to
 rotate and translate independently and without constraints. In general, the ground clearance
 of robots with swedish and spherical wheels is somewhat limited, due to the mechanical
 constraints of constructing omnidirectional wheels. An interesting recent solution to the
-                                                                                
-                                                                                
 problem of omnidirectional navigation while solving this ground clearance problem is the four
 castor-wheeled configuration in which each castor wheel is actively steered and actively
 translated.
-In this configuration, the robot is truly omnidirectional as, even if the castor wheels are facing a
+</p><p class="noindent">In this configuration, the robot is truly omnidirectional as, even if the castor wheels are facing a
 direction perpendicular to the desired direction of travel, the robot can still move in the desired
 direction by steering these wheels.
 </p>
-<div class="knowledge">
-<!--l. 754--><p class="noindent" >Because the vertical axis is offset from the ground contact path, the result of this steering motion is
-robot motion.
-</p>
-</div><p class="noindent">
-<!--l. 756--><p class="noindent" >In the research community, another classes of <span class="acronym"><span class="acronym-short"><a 
-href="#glo:amr" class="glossary" >AMR</a></span><span class="acronym-detail"><span class="acronym-long"><a 
-href="#glo:amr" class="glossary" >Autonomous Mobile Robotics</a></span><span class="acronym-desc"><a 
-href="#glo:amr" class="glossary" >Autonomous Mobile
-Robotics</a></span></span></span> are popular which achieve high maneuverability, only slightly inferior to that of the
-omnidirectional configurations. In such robots, motion in a particular direction may initially require a
-rotational motion. With a circular chassis and an axis of rotation at the center of the robot, such a
-robot can spin without changing its ground footprint.
+<div class="knowledge"><div class="knowledge-upper">Knowledge</div><div class="body">
+<p class="noindent">Because the vertical axis is offset from the ground contact path, the result of this steering motion is
+robot motion. </p></div></div>
+<p class="noindent">In the research community, another classes of <span class="acronym"><span class="acronym-short"><a class="glossary" href="#glo:amr">AMR</a></span><span class="acronym-detail"><span class="acronym-long"><a class="glossary" href="#glo:amr">Autonomous Mobile Robotics</a></span><span class="acronym-desc"><a class="glossary" href="#glo:amr">Self-navigating
+machines moving materials and goods independently without fixed tracks or wires. They use smart
+software, cameras, and sensors to map spaces and safely steer around people or obstacles in real time.</a></span></span></span>
+are popular which achieve high maneuverability, only slightly inferior to that of the omnidirectional
+configurations. In such robots, motion in a particular direction may initially require a rotational
+motion. With a circular chassis and an axis of rotation at the center of the robot, such a robot can spin
+without changing its ground footprint.
 The most popular such robot is the two-wheel differential drive robot where the two wheels rotate
 around the center point of the robot. One or two additional ground contact points may be used for
 stability, based on the application specifics.
-</p><!--l. 766--><p class="noindent" >In contrast to the above configurations, consider the Ackerman steering configuration common in
+</p><p class="noindent">In contrast to the above configurations, consider the Ackerman steering configuration common in
 automobiles. Such a vehicle typically has a turning diameter that is larger than the car. Furthermore,
 for such a vehicle to move sideways requires a parking maneuver consisting of repeated changes in
-direction forward and <span class="margin-block">backward. <span class="margin-comment"><span class="ellipsis">[21]</span> 
+direction forward and <span class="margin-block">backward. <span class="margin-comment"><a class="ellipsis" href="#m-ref-21">[21]</a>
 <span class="sidenote">Ackerman steering geometries have been especially popular in the
 hobby robotics market, where a robot can be built by starting with a remote-control race car kit and
 adding sensing and autonomy to the existing mechanism.</span></span></span> However, the limited maneuverability of
 Ackerman steering has an important advantage:
 </p>
-<div class="knowledge">
-<!--l. 778--><p class="noindent" >its directionality and steering geometry provide it with <span class="alert"><alert style="color: #821131;">very good lateral stability</alert></span> in high speed
-turns.
+<div class="knowledge"><div class="knowledge-upper">Knowledge</div><div class="body">
+<p class="noindent">its directionality and steering geometry provide it with <span class="alert">very good lateral stability</span> in high speed turns. </p></div></div>
+<p class="noindent"><div class="subsection-header"> <h4 id="header-subsection-1.2.4"> <a class="pdf-icon" href="AutonomousMobileRoboticsLectureBook.pdf#subsection.1.2.4"><svg class="bi bi-file-pdf" fill="currentColor" height="20" viewbox="0 0 16 16" width="20" xmlns="http://www.w3.org/2000/svg"><path d="M4 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H4zm0 1h8a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1z"></path><path d="M4.603 12.087a.81.81 0 0 1-.438-.42c-.195-.388-.13-.776.08-1.102.198-.307.526-.568.897-.787a7.68 7.68 0 0 1 1.482-.645 19.701 19.701 0 0 0 1.062-2.227 7.269 7.269 0 0 1-.43-1.295c-.086-.4-.119-.796-.046-1.136.075-.354.274-.672.65-.823.192-.077.4-.12.602-.077a.7.7 0 0 1 .477.365c.088.164.12.356.127.538.007.187-.012.395-.047.614-.084.51-.27 1.134-.52 1.794a10.954 10.954 0 0 0 .98 1.686 5.753 5.753 0 0 1 1.334.05c.364.065.734.195.96.465.12.144.193.32.2.518.007.192-.047.382-.138.563a1.04 1.04 0 0 1-.354.416.856.856 0 0 1-.51.138c-.331-.014-.654-.196-.933-.417a5.716 5.716 0 0 1-.911-.95 11.642 11.642 0 0 0-1.997.406 11.311 11.311 0 0 1-1.021 1.51c-.29.35-.608.655-.926.787a.793.793 0 0 1-.58.029zm1.379-1.901c-.166.076-.32.156-.459.238-.328.194-.541.383-.647.547-.094.145-.096.25-.04.361.01.022.02.036.026.044a.27.27 0 0 0 .035-.012c.137-.056.355-.235.635-.572a8.18 8.18 0 0 0 .45-.606zm1.64-1.33a12.647 12.647 0 0 1 1.01-.193 11.666 11.666 0 0 1-.51-.858 20.741 20.741 0 0 1-.5 1.05zm2.446.45c.15.162.296.3.435.41.24.19.407.253.498.256a.107.107 0 0 0 .07-.015.307.307 0 0 0 .094-.125.436.436 0 0 0 .059-.2.095.095 0 0 0-.026-.063c-.052-.062-.2-.152-.518-.209a3.881 3.881 0 0 0-.612-.053zM8.078 5.8a6.7 6.7 0 0 0 .2-.828c.031-.188.043-.343.038-.465a.613.613 0 0 0-.032-.198.517.517 0 0 0-.145.04c-.087.035-.158.106-.196.283-.04.192-.03.469.046.822.024.111.054.227.09.346z"></path></svg></a><span class="number">1.2.4</span> <span class="title"> <a id="x5-180001.2.4"></a>Controllability</span></h4></div>
 </p>
-</div><p class="noindent">
-
-<!--l. 780--><p class="noindent" ><div class="subsection-header"> <h4 id="header-subsection-1.2.4"> <a class="pdf-icon" href="AutonomousMobileRoboticsLectureBook.pdf#subsection.1.2.4"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-file-pdf" viewBox="0 0 16 16"><path d="M4 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H4zm0 1h8a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1z"></path><path d="M4.603 12.087a.81.81 0 0 1-.438-.42c-.195-.388-.13-.776.08-1.102.198-.307.526-.568.897-.787a7.68 7.68 0 0 1 1.482-.645 19.701 19.701 0 0 0 1.062-2.227 7.269 7.269 0 0 1-.43-1.295c-.086-.4-.119-.796-.046-1.136.075-.354.274-.672.65-.823.192-.077.4-.12.602-.077a.7.7 0 0 1 .477.365c.088.164.12.356.127.538.007.187-.012.395-.047.614-.084.51-.27 1.134-.52 1.794a10.954 10.954 0 0 0 .98 1.686 5.753 5.753 0 0 1 1.334.05c.364.065.734.195.96.465.12.144.193.32.2.518.007.192-.047.382-.138.563a1.04 1.04 0 0 1-.354.416.856.856 0 0 1-.51.138c-.331-.014-.654-.196-.933-.417a5.716 5.716 0 0 1-.911-.95 11.642 11.642 0 0 0-1.997.406 11.311 11.311 0 0 1-1.021 1.51c-.29.35-.608.655-.926.787a.793.793 0 0 1-.58.029zm1.379-1.901c-.166.076-.32.156-.459.238-.328.194-.541.383-.647.547-.094.145-.096.25-.04.361.01.022.02.036.026.044a.27.27 0 0 0 .035-.012c.137-.056.355-.235.635-.572a8.18 8.18 0 0 0 .45-.606zm1.64-1.33a12.647 12.647 0 0 1 1.01-.193 11.666 11.666 0 0 1-.51-.858 20.741 20.741 0 0 1-.5 1.05zm2.446.45c.15.162.296.3.435.41.24.19.407.253.498.256a.107.107 0 0 0 .07-.015.307.307 0 0 0 .094-.125.436.436 0 0 0 .059-.2.095.095 0 0 0-.026-.063c-.052-.062-.2-.152-.518-.209a3.881 3.881 0 0 0-.612-.053zM8.078 5.8a6.7 6.7 0 0 0 .2-.828c.031-.188.043-.343.038-.465a.613.613 0 0 0-.032-.198.517.517 0 0 0-.145.04c-.087.035-.158.106-.196.283-.04.192-.03.469.046.822.024.111.054.227.09.346z"></path></svg></a><span class="number">1.2.4</span> <span class="title">  <a 
- id="x5-180001.2.4"></a>Controllability</span></h4></div><p>
-</p>
-<figure class="figure"> 
-
-                                                                                
-                                                                                
-                                                                                
-                                                                                
-<a 
- id="x5-18001r13"></a>
-<figcaption class="caption" ><span class="id">Figure 1.13: 
-          </span><span  
-class="content">Example of an Ackerman drive used mostly in automotive industry <span class="cite"><span class="cite-show">[†]</span><span class="cite-detail">ackerman. Ackerman Steering
-          Mechanism 2025</span></span>.                                                          </span></figcaption><!--tex4ht:label?: x5-18001r13 -->
-<img 
- 
-src="figures/Locomotion/raster/ackermann-drive.jpg" alt="PIC"  
-style="" />
-                                                                                
-                                                                                
+<p class="noindent"></p><figure class="float">
+<a id="x5-18001r13"></a>
+<figcaption class="caption"><span class="id">Figure 1.13: 
+          </span><span class="content">Example of an Ackerman drive used mostly in automotive industry <span class="cite"><a class="cite-show" href="#w3-20001">[†-3]</a><span class="cite-detail"> ackerman. Ackerman Steering
+          Mechanism 2025</span></span>.                                                          </span></figcaption>
+<img alt="PIC" src="figures/Locomotion/raster/ackermann-drive.jpg" style=""/>
 </figure>
-<!--l. 789--><p class="noindent" >There is generally an <span id="bold" style="font-weight:bold;">inverse correlation</span> between controllability and maneuverability. <div class="quote"><p>
-For example, the omni-directional designs such as the four castor-wheeled configuration
-require significant processing to convert desired rotational and translational velocities to
-individual wheel commands. Furthermore, such omni-directional designs often have greater
-degrees of freedom at the wheel.  </p></p></div><p>  For instance, the swedish wheel has a set of free rollers
-along the wheel perimeter. These <span class="acronym"><span class="acronym-short"><a 
-href="#glo:dof" class="glossary" >DoF</a></span><span class="acronym-detail"><span class="acronym-long"><a 
-href="#glo:dof" class="glossary" >Degrees of Freedom</a></span><span class="acronym-desc"><a 
-href="#glo:dof" class="glossary" >Degrees of Freedom</a></span></span></span> cause an
-<span class="alert"><alert style="color: #821131;">accumulation of slippage</alert></span>, tend to reduce <span id="bold" style="font-weight:bold;">dead-reckoning</span> accuracy and increase the design
-complexity.
-Controlling an omnidirectional robot for a specific direction of travel is also more difficult
-and often less accurate when compared to less manoeuvrable designs. <div class="quote"><p>  For example, an
-<italic>Ackerman steering</italic> vehicle can go straight simply by locking the steerable wheels and driving
-the drive wheels, which can be seen in <span id="bold" style="font-weight:bold;">Fig.</span> <a 
-href="#x5-18001r13">1.13<!--tex4ht:ref: fig:ackermann-drive --></a>.  </p></div><p>  In a differential drive vehicle, the two
-(<span class="alert"><alert style="color: #821131;">2</alert></span>) motors attached to the two wheels must be driven along exactly the same velocity profile,
-which can be challenging considering variations between wheels, motors and environmental
-differences. With four-wheel omnidrive, the problem is even harder because all four wheels
-must be driven at exactly the same speed for the robot to travel in a perfectly straight
+<p class="noindent">There is generally an <b>inverse correlation</b> between controllability and maneuverability. </p><div class="quote">  For example,
+the omni-directional designs such as the four castor-wheeled configuration require significant processing
+to convert desired rotational and translational velocities to individual wheel commands.
+Furthermore, such omni-directional designs often have greater degrees of freedom at the wheel.
+</div>
+<p class="noindent">For instance, the swedish wheel has a set of free rollers along the wheel perimeter. These <span class="acronym"><span class="acronym-short"><a class="glossary" href="#glo:dof">DoF</a></span><span class="acronym-detail"><span class="acronym-long"><a class="glossary" href="#glo:dof">Degrees of
+Freedom</a></span><span class="acronym-desc"><a class="glossary" href="#glo:dof">Degrees of Freedom</a></span></span></span> cause an <span class="alert">accumulation of slippage</span>, tend to reduce <b>dead-reckoning</b> accuracy and increase the
+design complexity.
+Controlling an omnidirectional robot for a specific direction of travel is also more difficult and often less
+accurate when compared to less manoeuvrable designs. </p><div class="quote">  For example, an <i>Ackerman steering</i> vehicle
+can go straight simply by locking the steerable wheels and driving the drive wheels, which can be seen
+in <b>Fig.</b> <a href="#x5-18001r13">1.13</a>. </div>
+<p class="noindent">In a differential drive vehicle, the two (<span class="alert">2</span>) motors attached to the two wheels must be driven along
+exactly the same velocity profile, which can be challenging considering variations between wheels,
+motors and environmental differences. With four-wheel omnidrive, the problem is even harder because
+all four wheels must be driven at exactly the same speed for the robot to travel in a perfectly straight
 line.
-In summary, there is no “ideal” drive configuration that simultaneously maximizes stability,
+</p><p class="noindent">In summary, there is no “ideal” drive configuration that simultaneously maximizes stability,
 manoeuvrability and controllability. Each mobile robot application places unique constraints on the
 robot design problem, and the designer’s task is to choose the most appropriate drive configuration
 possible from among this space of compromises.
-
-<!--l. 822--><p class="noindent" ><div class="subsection-header"> <h4 id="header-subsection-1.2.5"> <a class="pdf-icon" href="AutonomousMobileRoboticsLectureBook.pdf#subsection.1.2.5"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-file-pdf" viewBox="0 0 16 16"><path d="M4 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H4zm0 1h8a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1z"></path><path d="M4.603 12.087a.81.81 0 0 1-.438-.42c-.195-.388-.13-.776.08-1.102.198-.307.526-.568.897-.787a7.68 7.68 0 0 1 1.482-.645 19.701 19.701 0 0 0 1.062-2.227 7.269 7.269 0 0 1-.43-1.295c-.086-.4-.119-.796-.046-1.136.075-.354.274-.672.65-.823.192-.077.4-.12.602-.077a.7.7 0 0 1 .477.365c.088.164.12.356.127.538.007.187-.012.395-.047.614-.084.51-.27 1.134-.52 1.794a10.954 10.954 0 0 0 .98 1.686 5.753 5.753 0 0 1 1.334.05c.364.065.734.195.96.465.12.144.193.32.2.518.007.192-.047.382-.138.563a1.04 1.04 0 0 1-.354.416.856.856 0 0 1-.51.138c-.331-.014-.654-.196-.933-.417a5.716 5.716 0 0 1-.911-.95 11.642 11.642 0 0 0-1.997.406 11.311 11.311 0 0 1-1.021 1.51c-.29.35-.608.655-.926.787a.793.793 0 0 1-.58.029zm1.379-1.901c-.166.076-.32.156-.459.238-.328.194-.541.383-.647.547-.094.145-.096.25-.04.361.01.022.02.036.026.044a.27.27 0 0 0 .035-.012c.137-.056.355-.235.635-.572a8.18 8.18 0 0 0 .45-.606zm1.64-1.33a12.647 12.647 0 0 1 1.01-.193 11.666 11.666 0 0 1-.51-.858 20.741 20.741 0 0 1-.5 1.05zm2.446.45c.15.162.296.3.435.41.24.19.407.253.498.256a.107.107 0 0 0 .07-.015.307.307 0 0 0 .094-.125.436.436 0 0 0 .059-.2.095.095 0 0 0-.026-.063c-.052-.062-.2-.152-.518-.209a3.881 3.881 0 0 0-.612-.053zM8.078 5.8a6.7 6.7 0 0 0 .2-.828c.031-.188.043-.343.038-.465a.613.613 0 0 0-.032-.198.517.517 0 0 0-.145.04c-.087.035-.158.106-.196.283-.04.192-.03.469.046.822.024.111.054.227.09.346z"></path></svg></a><span class="number">1.2.5</span> <span class="title">  <a 
- id="x5-190001.2.5"></a>Case Studies for Wheeled Motion</span></h4></div><p>
-</p><!--l. 824--><p class="noindent" >Now let’s describe four (<span class="alert"><alert style="color: #821131;">4</alert></span>) specific wheel configurations, to demonstrate concrete applications of the
-concepts above to <span class="acronym"><span class="acronym-short"><a 
-href="#glo:amr" class="glossary" >AMR</a></span><span class="acronym-detail"><span class="acronym-long"><a 
-href="#glo:amr" class="glossary" >Autonomous Mobile Robotics</a></span><span class="acronym-desc"><a 
-href="#glo:amr" class="glossary" >Autonomous Mobile Robotics</a></span></span></span> built for real-world
+</p>
+<p class="noindent"><div class="subsection-header"> <h4 id="header-subsection-1.2.5"> <a class="pdf-icon" href="AutonomousMobileRoboticsLectureBook.pdf#subsection.1.2.5"><svg class="bi bi-file-pdf" fill="currentColor" height="20" viewbox="0 0 16 16" width="20" xmlns="http://www.w3.org/2000/svg"><path d="M4 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H4zm0 1h8a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1z"></path><path d="M4.603 12.087a.81.81 0 0 1-.438-.42c-.195-.388-.13-.776.08-1.102.198-.307.526-.568.897-.787a7.68 7.68 0 0 1 1.482-.645 19.701 19.701 0 0 0 1.062-2.227 7.269 7.269 0 0 1-.43-1.295c-.086-.4-.119-.796-.046-1.136.075-.354.274-.672.65-.823.192-.077.4-.12.602-.077a.7.7 0 0 1 .477.365c.088.164.12.356.127.538.007.187-.012.395-.047.614-.084.51-.27 1.134-.52 1.794a10.954 10.954 0 0 0 .98 1.686 5.753 5.753 0 0 1 1.334.05c.364.065.734.195.96.465.12.144.193.32.2.518.007.192-.047.382-.138.563a1.04 1.04 0 0 1-.354.416.856.856 0 0 1-.51.138c-.331-.014-.654-.196-.933-.417a5.716 5.716 0 0 1-.911-.95 11.642 11.642 0 0 0-1.997.406 11.311 11.311 0 0 1-1.021 1.51c-.29.35-.608.655-.926.787a.793.793 0 0 1-.58.029zm1.379-1.901c-.166.076-.32.156-.459.238-.328.194-.541.383-.647.547-.094.145-.096.25-.04.361.01.022.02.036.026.044a.27.27 0 0 0 .035-.012c.137-.056.355-.235.635-.572a8.18 8.18 0 0 0 .45-.606zm1.64-1.33a12.647 12.647 0 0 1 1.01-.193 11.666 11.666 0 0 1-.51-.858 20.741 20.741 0 0 1-.5 1.05zm2.446.45c.15.162.296.3.435.41.24.19.407.253.498.256a.107.107 0 0 0 .07-.015.307.307 0 0 0 .094-.125.436.436 0 0 0 .059-.2.095.095 0 0 0-.026-.063c-.052-.062-.2-.152-.518-.209a3.881 3.881 0 0 0-.612-.053zM8.078 5.8a6.7 6.7 0 0 0 .2-.828c.031-.188.043-.343.038-.465a.613.613 0 0 0-.032-.198.517.517 0 0 0-.145.04c-.087.035-.158.106-.196.283-.04.192-.03.469.046.822.024.111.054.227.09.346z"></path></svg></a><span class="number">1.2.5</span> <span class="title"> <a id="x5-190001.2.5"></a>Case Studies for Wheeled Motion</span></h4></div>
+</p><p class="noindent">Now let’s describe four (<span class="alert">4</span>) specific wheel configurations, to demonstrate concrete applications of the
+concepts above to <span class="acronym"><span class="acronym-short"><a class="glossary" href="#glo:amr">AMR</a></span><span class="acronym-detail"><span class="acronym-long"><a class="glossary" href="#glo:amr">Autonomous Mobile Robotics</a></span><span class="acronym-desc"><a class="glossary" href="#glo:amr">Self-navigating machines moving materials and
+goods independently without fixed tracks or wires. They use smart software, cameras, and sensors to
+map spaces and safely steer around people or obstacles in real time.</a></span></span></span> built for real-world
 activities.
-
 </p>
-<!--l. 827--><p class="noindent" ><h5 id="header-subsubsection-7" class="subsubsectionHead"> <a 
- id="x5-20000"></a>Synchro Drive</h5>
-</p><!--l. 829--><p class="noindent" >The synchro drive configuration (figure 2.22) is a popular arrangement of wheels in indoor
-<span class="acronym"><span class="acronym-short"><a 
-href="#glo:amr" class="glossary" >AMR</a></span><span class="acronym-detail"><span class="acronym-long"><a 
-href="#glo:amr" class="glossary" >Autonomous Mobile Robotics</a></span><span class="acronym-desc"><a 
-href="#glo:amr" class="glossary" >Autonomous Mobile Robotics</a></span></span></span> applications. It is an interesting
-configuration as, although there are three driven and steered wheels, only two (<span class="alert"><alert style="color: #821131;">2</alert></span>) motors are used in
-total. The one translation motor sets the speed of all three wheels together, and the one steering motor
-spins all the wheels together about each of their individual vertical steering axes. But note that the
-wheels are being steered with respect to the robot chassis, and therefore there is no direct way of
-re-orienting the robot chassis.
+<p class="noindent"><h5 class="subsubsectionHead" id="header-subsubsection-7"> <a id="x5-20000"></a>Synchro Drive</h5>
+</p><p class="noindent">The synchro drive configuration (figure 2.22) is a popular arrangement of wheels in indoor
+<span class="acronym"><span class="acronym-short"><a class="glossary" href="#glo:amr">AMR</a></span><span class="acronym-detail"><span class="acronym-long"><a class="glossary" href="#glo:amr">Autonomous Mobile Robotics</a></span><span class="acronym-desc"><a class="glossary" href="#glo:amr">Self-navigating machines moving materials and goods independently
+without fixed tracks or wires. They use smart software, cameras, and sensors to map spaces and safely
+steer around people or obstacles in real time.</a></span></span></span> applications. It is an interesting configuration as, although
+there are three driven and steered wheels, only two (<span class="alert">2</span>) motors are used in total. The one translation
+motor sets the speed of all three wheels together, and the one steering motor spins all the wheels
+together about each of their individual vertical steering axes. But note that the wheels are being
+steered with respect to the robot chassis, and therefore there is no direct way of re-orienting the robot
+chassis.
 </p>
-<div class="warning">
-<!--l. 840--><p class="noindent" >Chassis orientation causes drift due to uneven <span class="alert"><alert style="color: #821131;">tire slippage</alert></span>, causing rotational dead-reckoning
-error.
-                                                                                
-                                                                                
-</p>
-</div>
-<!--l. 842--><p class="noindent" >Synchro drive is particularly advantageous in cases where omnidirectionality is needed. So long as each
+<div class="warning"><div class="warning-upper">Warning</div><div class="body">
+<p class="noindent">Chassis orientation causes drift due to uneven <span class="alert">tire slippage</span>, causing rotational dead-reckoning error.
+</p></div></div>
+<p class="noindent">Synchro drive is particularly advantageous in cases where omnidirectionality is needed. So long as each
 vertical steering axis is aligned with the contact path of each tire, the robot can always re-orient its
 wheels and move along a new trajectory without changing its footprint.
-</p><!--l. 846--><p class="noindent" >Of course, if the robot chassis has directionality and the designers intend to re-orient the chassis
+</p><p class="noindent">Of course, if the robot chassis has directionality and the designers intend to re-orient the chassis
 purposefully, then synchro drive is only appropriate when combined with an independently rotating
 turret that attaches to the wheel chassis.
-</p><!--l. 850--><p class="noindent" >In terms of dead-reckoning, synchro drive systems are generally superior to true omni-directional
-configurations but inferior to differential drive and <italic>Ackerman steering</italic> systems. There are two main
+</p><p class="noindent">In terms of dead-reckoning, synchro drive systems are generally superior to true omni-directional
+configurations but inferior to differential drive and <i>Ackerman steering</i> systems. There are two main
 reasons for this. </p>
-<ul class="itemize1">     
+<ul class="itemize1">
 <li class="itemize">
-<!--l. 855--><p class="noindent" >The translation motor generally drives the three wheels using a single belt. Due to slop
+<p class="noindent">The translation motor generally drives the three wheels using a single belt. Due to slop
 and backlash in the drivetrain, whenever the drive motor engages, the closest wheel begins
 spinning before the furthest wheel, causing a small change in the orientation of the chassis.
 With additional changes in motor speed, these small angular shifts accumulate to create a
 large error in orientation during dead-reckoning.
-</p>     
+</p>
 </li>
-<li class="itemize">     
-<!--l. 860--><p class="noindent" >The mobile robot has no direct control over the orientation of the chassis. Depending on the
+<li class="itemize">
+<p class="noindent">The mobile robot has no direct control over the orientation of the chassis. Depending on the
 orientation of the chassis, the wheel thrust can be highly asymmetric, with two wheels on
 one side and the third wheel alone, or symmetric, with one wheel on each side and one wheel
 straight ahead or behind, as shown in (2.22). The asymmetric cases results in a variety of
 errors when tire-ground slippage can occur, again causing errors in dead-reckoning of robot
 orientation.</p></li></ul>
-
-<!--l. 868--><p class="noindent" ><h5 id="header-subsubsection-8" class="subsubsectionHead"> <a 
- id="x5-21000"></a>Omnidirectional Drive</h5>
-</p><!--l. 870--><p class="noindent" >As we will see later, omni-directional movement is of great interest for complete
+<p class="noindent"><h5 class="subsubsectionHead" id="header-subsubsection-8"> <a id="x5-21000"></a>Omnidirectional Drive</h5>
+</p><p class="noindent">As we will see later, omni-directional movement is of great interest for complete
 manoeuvrability. Omnidirectional robots which are able to move in any direction
-(<!--l. 871--><math 
- 
-display="inline" ><mi 
->x</mi><mo 
-class="MathClass-punc" stretchy="false">,</mo><mi 
->y</mi><mo 
-class="MathClass-punc" stretchy="false">,</mo><mi 
->𝜃</mi></math>) at
-any time are also <span id="bold" style="font-weight:bold;">holonomic</span>.
-</p><!--l. 874--><p class="noindent" >They can be realized by either using spheric, castor or <italic>swedish</italic> wheels.
-</p><!--l. 876--><p class="noindent" >Let’s look at these three examples:
-
+(<math display="inline"><mi>x</mi><mo class="MathClass-punc" stretchy="false">,</mo><mi>y</mi><mo class="MathClass-punc" stretchy="false">,</mo><mi>𝜃</mi></math>) at
+any time are also <b>holonomic</b>.
+</p><p class="noindent">They can be realized by either using spheric, castor or <i>swedish</i> wheels.
+</p><p class="noindent">Let’s look at these three examples:
 </p>
-<!--l. 878--><p class="noindent" ><span class="paragraphHead"> <a 
- id="x5-22000"></a>Omnidirectional locomotion with three spheric wheels</span>
+<p class="noindent"><span class="paragraphHead"> <a id="x5-22000"></a>Omnidirectional locomotion with three spheric wheels</span>
 The omnidirectional robot depicted in figure 2.23 is based on three spheric wheels, each
 actuated by one motor. In this design, the spheric wheels are suspended by three contact
 points, two given by spherical bearings and one by the a wheel connected to the motor
-                                                                                
-                                                                                
 axle.
-</p><!--l. 885--><p class="noindent" >This concept provides excellent maneuverability and is simple in design. However, it is limited to flat
+</p><p class="noindent">This concept provides excellent maneuverability and is simple in design. However, it is limited to flat
 surfaces and small loads, and it is quite difficult to find round wheels with high friction
 coefficients
-
 </p>
-<!--l. 889--><p class="noindent" ><span class="paragraphHead"> <a 
- id="x5-23000"></a>Omnidirectional locomotion with four swedish wheels</span>
-The omnidirectional arrangement depicted in <span id="bold" style="font-weight:bold;">Fig.</span> <a 
-href="#x5-23001r14">1.14<!--tex4ht:ref: fig:uranus --></a> has been used successfully on several research
+<p class="noindent"><span class="paragraphHead"> <a id="x5-23000"></a>Omnidirectional locomotion with four swedish wheels</span>
+The omnidirectional arrangement depicted in <b>Fig.</b> <a href="#x5-23001r14">1.14</a> has been used successfully on several research
 robots.
 </p>
-<div class="sidenote"> <span class="figure" 
->
-                                                                                
-                                                                                
-                                                                                
-                                                                                
-<a 
- id="x5-23001r14"></a>
-<figcaption class="caption" ><span class="id">Figure 1.14: </span><span  
-class="content">The Carnegie Mellon Uranus robot, an omnidirectional robot with four powered-swedish 45 wheels.   </span></figcaption><!--tex4ht:label?: x5-23001r14 -->
-<img 
- 
-src="figures/Locomotion/raster/uranus.jpg" alt="PIC"  
-style="" />
-                                                                                
-                                                                                
-</div>
-<!--l. 899--><p class="noindent" ></div> </p><p>
-<!--l. 901--><p class="noindent" >This configuration consists of four <italic>swedish 45</italic> degree wheels, each driven by a separate motor. By
+<div class="sidenote"> <span class="figure">
+<a id="x5-23001r14"></a>
+<figcaption class="caption"><span class="id">Figure 1.14: </span><span class="content">The Carnegie Mellon Uranus robot, an omnidirectional robot with four powered-swedish 45 wheels.   </span></figcaption>
+<img alt="PIC" src="figures/Locomotion/raster/uranus.jpg" style=""/>
+</span>
+<p class="noindent"></p></div>
+<p class="noindent">This configuration consists of four <i>swedish 45</i> degree wheels, each driven by a separate motor. By
 varying the direction of rotation and relative speeds of the four wheels, the robot can be moved along
 any trajectory in the plane and, even more impressively, can simultaneously spin around its vertical
 axis.
-</p><!--l. 906--><p class="noindent" >For example, when all four wheels spin “forward” or “backward”, the robot as a whole moves in a
+</p><p class="noindent">For example, when all four wheels spin “forward” or “backward”, the robot as a whole moves in a
 straight line forward and backward, respectively. However, when one diagonal pair of wheels is spun in
 the same direction and the other diagonal pair is spun in the opposite direction, the robot moves
 laterally.
-</p><!--l. 911--><p class="noindent" >This four-wheel arrangement of <italic>swedish wheels</italic> is not minimal in terms of control motors. AS there are
-only 3 <span class="acronym"><span class="acronym-short"><a 
-href="#glo:dof" class="glossary" >DoF</a></span><span class="acronym-detail"><span class="acronym-long"><a 
-href="#glo:dof" class="glossary" >Degrees of Freedom</a></span><span class="acronym-desc"><a 
-href="#glo:dof" class="glossary" >Degrees of Freedom</a></span></span></span> in the plane, one can build a three-wheeled
-omnidirectional robot chassis using three <italic>swedish 90</italic> degree wheels as shown in Table 2.1. However,
+</p><p class="noindent">This four-wheel arrangement of <i>swedish wheels</i> is not minimal in terms of control motors. AS there are
+only 3 <span class="acronym"><span class="acronym-short"><a class="glossary" href="#glo:dof">DoF</a></span><span class="acronym-detail"><span class="acronym-long"><a class="glossary" href="#glo:dof">Degrees of Freedom</a></span><span class="acronym-desc"><a class="glossary" href="#glo:dof">Degrees of Freedom</a></span></span></span> in the plane, one can build a three-wheeled
+omnidirectional robot chassis using three <i>swedish 90</i> degree wheels as shown in Table 2.1. However,
 existing examples such as Uranus have been designed with four wheels due to capacity and stability
 considerations.
-One application for which such omnidirectional designs are particular amenable is mobile manipulation.
-In this case, it is desirable to reduce the <span class="acronym"><span class="acronym-short"><a 
-href="#glo:dof" class="glossary" >DoF</a></span><span class="acronym-detail"><span class="acronym-long"><a 
-href="#glo:dof" class="glossary" >Degrees of Freedom</a></span><span class="acronym-desc"><a 
-href="#glo:dof" class="glossary" >Degrees of Freedom</a></span></span></span> of the manipulator
-arm to save arm mass by using the <span class="acronym"><span class="acronym-short"><a 
-href="#glo:amr" class="glossary" >AMR</a></span><span class="acronym-detail"><span class="acronym-long"><a 
-href="#glo:amr" class="glossary" >Autonomous Mobile Robotics</a></span><span class="acronym-desc"><a 
-href="#glo:amr" class="glossary" >Autonomous Mobile Robotics</a></span></span></span>
-chassis motion for gross motion. As with humans, it would be ideal if the base could move
-omnidirectionally without greatly impacting the position of the manipulator tip, and a base such as
-Uranus can afford precisely such capabilities.
-
+One application for which such omnidirectional designs are particular amenable is mobile
+manipulation. In this case, it is desirable to reduce the <span class="acronym"><span class="acronym-short"><a class="glossary" href="#glo:dof">DoF</a></span><span class="acronym-detail"><span class="acronym-long"><a class="glossary" href="#glo:dof">Degrees of Freedom</a></span><span class="acronym-desc"><a class="glossary" href="#glo:dof">Degrees of
+Freedom</a></span></span></span> of the manipulator arm to save arm mass by using the <span class="acronym"><span class="acronym-short"><a class="glossary" href="#glo:amr">AMR</a></span><span class="acronym-detail"><span class="acronym-long"><a class="glossary" href="#glo:amr">Autonomous Mobile
+Robotics</a></span><span class="acronym-desc"><a class="glossary" href="#glo:amr">Self-navigating machines moving materials and goods independently without fixed
+tracks or wires. They use smart software, cameras, and sensors to map spaces and safely
+steer around people or obstacles in real time.</a></span></span></span> chassis motion for gross motion. As with
+humans, it would be ideal if the base could move omnidirectionally without greatly impacting
+the position of the manipulator tip, and a base such as Uranus can afford precisely such
+capabilities.
 </p>
-<!--l. 923--><p class="noindent" ><span class="paragraphHead"> <a 
- id="x5-24000"></a>Omnidirectional locomotion with four castor wheels and eight motors</span>
+<p class="noindent"><span class="paragraphHead"> <a id="x5-24000"></a>Omnidirectional locomotion with four castor wheels and eight motors</span>
 Another solution for omnidirectionality is to use castor wheels. This is done for the Nomad XR4000
 form Nomadics (fig. 2.25) giving it an excellent maneuverability. Unfortunately Nomadics Technology
 has ceased the production of mobile robots.
-</p><!--l. 929--><p class="noindent" >The above two examples are drawn from Table 2.1, but this is not an exhaustive list of all wheeled
+</p><p class="noindent">The above two examples are drawn from Table 2.1, but this is not an exhaustive list of all wheeled
 locomotion techniques. Hybrid approaches that combine legged and wheeled loco- motion, or tracked
 and wheeled locomotion, can also offer particular advantages. Below are two unique designs created for
 specialized applications.
-
 </p>
-<!--l. 934--><p class="noindent" ><h5 id="header-subsubsection-9" class="subsubsectionHead"> <a 
- id="x5-25000"></a>Tracked Slip/Skid Locomotion</h5>
+<p class="noindent"><h5 class="subsubsectionHead" id="header-subsubsection-9"> <a id="x5-25000"></a>Tracked Slip/Skid Locomotion</h5>
 </p>
-<figure class="figure"> 
-
-                                                                                
-                                                                                
-                                                                                
-                                                                                
-<a 
- id="x5-25001r15"></a>
-<figcaption class="caption" ><span class="id">Figure 1.15: 
-          </span><span  
-class="content">The microrover Nanokhod, developed by von Hoerner &#x0026; Sulger GmbH and the Max Planck Institute,
-          Mainz, for the European Space Agency (ESA) <span class="cite"><span class="cite-show">[†]</span><span class="cite-detail">Steinmetz, B. et al. Autonomous vision-based navigation
-          of the nanokhod rover. CD i-SAIRAS 2001 (2001)</span></span>,                                    </span></figcaption><!--tex4ht:label?: x5-25001r15 -->
-<img 
- 
-src="figures/Locomotion/raster/nanokhod.jpg" alt="PIC"  
-style="" />
-                                                                                
-                                                                                
+<p class="noindent"></p><figure class="float">
+<a id="x5-25001r15"></a>
+<figcaption class="caption"><span class="id">Figure 1.15: 
+          </span><span class="content">The microrover Nanokhod, developed by von Hoerner &amp; Sulger GmbH and the Max Planck Institute,
+          Mainz,  for  the  European  Space  Agency  (ESA) <span class="cite"><a class="cite-show" href="#w3-20001">[†-4]</a><span class="cite-detail">  Steinmetz,  B.  et  al.  Autonomous  vision-based
+          navigation of the nanokhod rover. CD i-SAIRAS 2001 (2001)</span></span>,                            </span></figcaption>
+<img alt="PIC" src="figures/Locomotion/raster/nanokhod.jpg" style=""/>
 </figure>
-<!--l. 944--><p class="noindent" >In the wheel configurations discussed above, we have made the assumption that wheels are not allowed
+<p class="noindent">In the wheel configurations discussed above, we have made the assumption that wheels are not allowed
 to skid against the surface. An alternative form of steering, termed slip/skid, may be used to re-orient
 the robot by spinning wheels that are facing the same direction at different speeds or in opposite
-directions. The army tank operates this way, and Nanokhod, shown in <span id="bold" style="font-weight:bold;">Fig.</span> <a 
-href="#x5-25001r15">1.15<!--tex4ht:ref: fig:nanokhod --></a>, is an example of
-an <span class="acronym"><span class="acronym-short"><a 
-href="#glo:amr" class="glossary" >AMR</a></span><span class="acronym-detail"><span class="acronym-long"><a 
-href="#glo:amr" class="glossary" >Autonomous Mobile Robotics</a></span><span class="acronym-desc"><a 
-href="#glo:amr" class="glossary" >Autonomous Mobile Robotics</a></span></span></span> based on the same
+directions. The army tank operates this way, and Nanokhod, shown in <b>Fig.</b> <a href="#x5-25001r15">1.15</a>, is an example of an
+<span class="acronym"><span class="acronym-short"><a class="glossary" href="#glo:amr">AMR</a></span><span class="acronym-detail"><span class="acronym-long"><a class="glossary" href="#glo:amr">Autonomous Mobile Robotics</a></span><span class="acronym-desc"><a class="glossary" href="#glo:amr">Self-navigating machines moving materials and goods
+independently without fixed tracks or wires. They use smart software, cameras, and sensors to
+map spaces and safely steer around people or obstacles in real time.</a></span></span></span> based on the same
 concept.
 Robots that make use of tread have much larger ground contact patches, and this can significantly
 improve their maneuverability in loose terrain compared to conventional wheeled designs.
 However, due to this large ground contact patch, changing the orientation of the robot
 usually requires a skidding turn, wherein a large portion of the track must slide against the
 terrain.
-</p><!--l. 956--><p class="noindent" >The disadvantage of such configurations is coupled to the slip/skid steering. Because of the large
+</p><p class="noindent">The disadvantage of such configurations is coupled to the slip/skid steering. Because of the large
 amount of skidding during a turn, the exact center of rotation of the robot is hard to predict
 and the exact change in position and orientation is also subject to variations depending on
 the ground friction. Therefore, dead-reckoning on such robots is highly inaccurate. This
@@ -570,50 +466,31 @@ over rough and loose terrain. Furthermore, a slip/skid approach on a high-fricti
 can quickly overcome the torque capabilities of the motors being used. In terms of power
 efficiency, this approach is reasonably efficient on loose terrain but extremely inefficient
 otherwise.
-
 </p>
-<!--l. 966--><p class="noindent" ><div class="subsection-header"> <h4 id="header-subsection-1.2.6"> <a class="pdf-icon" href="AutonomousMobileRoboticsLectureBook.pdf#subsection.1.2.6"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-file-pdf" viewBox="0 0 16 16"><path d="M4 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H4zm0 1h8a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1z"></path><path d="M4.603 12.087a.81.81 0 0 1-.438-.42c-.195-.388-.13-.776.08-1.102.198-.307.526-.568.897-.787a7.68 7.68 0 0 1 1.482-.645 19.701 19.701 0 0 0 1.062-2.227 7.269 7.269 0 0 1-.43-1.295c-.086-.4-.119-.796-.046-1.136.075-.354.274-.672.65-.823.192-.077.4-.12.602-.077a.7.7 0 0 1 .477.365c.088.164.12.356.127.538.007.187-.012.395-.047.614-.084.51-.27 1.134-.52 1.794a10.954 10.954 0 0 0 .98 1.686 5.753 5.753 0 0 1 1.334.05c.364.065.734.195.96.465.12.144.193.32.2.518.007.192-.047.382-.138.563a1.04 1.04 0 0 1-.354.416.856.856 0 0 1-.51.138c-.331-.014-.654-.196-.933-.417a5.716 5.716 0 0 1-.911-.95 11.642 11.642 0 0 0-1.997.406 11.311 11.311 0 0 1-1.021 1.51c-.29.35-.608.655-.926.787a.793.793 0 0 1-.58.029zm1.379-1.901c-.166.076-.32.156-.459.238-.328.194-.541.383-.647.547-.094.145-.096.25-.04.361.01.022.02.036.026.044a.27.27 0 0 0 .035-.012c.137-.056.355-.235.635-.572a8.18 8.18 0 0 0 .45-.606zm1.64-1.33a12.647 12.647 0 0 1 1.01-.193 11.666 11.666 0 0 1-.51-.858 20.741 20.741 0 0 1-.5 1.05zm2.446.45c.15.162.296.3.435.41.24.19.407.253.498.256a.107.107 0 0 0 .07-.015.307.307 0 0 0 .094-.125.436.436 0 0 0 .059-.2.095.095 0 0 0-.026-.063c-.052-.062-.2-.152-.518-.209a3.881 3.881 0 0 0-.612-.053zM8.078 5.8a6.7 6.7 0 0 0 .2-.828c.031-.188.043-.343.038-.465a.613.613 0 0 0-.032-.198.517.517 0 0 0-.145.04c-.087.035-.158.106-.196.283-.04.192-.03.469.046.822.024.111.054.227.09.346z"></path></svg></a><span class="number">1.2.6</span> <span class="title">  <a 
- id="x5-260001.2.6"></a>Walking Wheels</span></h4></div><p>
-</p><!--l. 968--><p class="noindent" >Walking robots might offer the best maneuverability in rough terrain.
-</p><!--l. 970--><p class="noindent" >However, they are inefficient on flat ground and require <span id="bold" style="font-weight:bold;">sophisticated control</span>. Hybrid solutions,
+<p class="noindent"><div class="subsection-header"> <h4 id="header-subsection-1.2.6"> <a class="pdf-icon" href="AutonomousMobileRoboticsLectureBook.pdf#subsection.1.2.6"><svg class="bi bi-file-pdf" fill="currentColor" height="20" viewbox="0 0 16 16" width="20" xmlns="http://www.w3.org/2000/svg"><path d="M4 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H4zm0 1h8a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1z"></path><path d="M4.603 12.087a.81.81 0 0 1-.438-.42c-.195-.388-.13-.776.08-1.102.198-.307.526-.568.897-.787a7.68 7.68 0 0 1 1.482-.645 19.701 19.701 0 0 0 1.062-2.227 7.269 7.269 0 0 1-.43-1.295c-.086-.4-.119-.796-.046-1.136.075-.354.274-.672.65-.823.192-.077.4-.12.602-.077a.7.7 0 0 1 .477.365c.088.164.12.356.127.538.007.187-.012.395-.047.614-.084.51-.27 1.134-.52 1.794a10.954 10.954 0 0 0 .98 1.686 5.753 5.753 0 0 1 1.334.05c.364.065.734.195.96.465.12.144.193.32.2.518.007.192-.047.382-.138.563a1.04 1.04 0 0 1-.354.416.856.856 0 0 1-.51.138c-.331-.014-.654-.196-.933-.417a5.716 5.716 0 0 1-.911-.95 11.642 11.642 0 0 0-1.997.406 11.311 11.311 0 0 1-1.021 1.51c-.29.35-.608.655-.926.787a.793.793 0 0 1-.58.029zm1.379-1.901c-.166.076-.32.156-.459.238-.328.194-.541.383-.647.547-.094.145-.096.25-.04.361.01.022.02.036.026.044a.27.27 0 0 0 .035-.012c.137-.056.355-.235.635-.572a8.18 8.18 0 0 0 .45-.606zm1.64-1.33a12.647 12.647 0 0 1 1.01-.193 11.666 11.666 0 0 1-.51-.858 20.741 20.741 0 0 1-.5 1.05zm2.446.45c.15.162.296.3.435.41.24.19.407.253.498.256a.107.107 0 0 0 .07-.015.307.307 0 0 0 .094-.125.436.436 0 0 0 .059-.2.095.095 0 0 0-.026-.063c-.052-.062-.2-.152-.518-.209a3.881 3.881 0 0 0-.612-.053zM8.078 5.8a6.7 6.7 0 0 0 .2-.828c.031-.188.043-.343.038-.465a.613.613 0 0 0-.032-.198.517.517 0 0 0-.145.04c-.087.035-.158.106-.196.283-.04.192-.03.469.046.822.024.111.054.227.09.346z"></path></svg></a><span class="number">1.2.6</span> <span class="title"> <a id="x5-260001.2.6"></a>Walking Wheels</span></h4></div>
+</p><p class="noindent">Walking robots might offer the best maneuverability in rough terrain.
+</p><p class="noindent">However, they are inefficient on flat ground and require <b>sophisticated control</b>. Hybrid solutions,
 combining the adaptability of legs with the efficiency of wheels offer an interesting compromise.
 Solutions that passively adapt to the terrain are of particular interest for field and space robotics. The
-<italic>Sojourner robot</italic> of NASA/JPL, shown in <span id="bold" style="font-weight:bold;">Fig.</span> <a 
-href="#x5-26001r16">1.16<!--tex4ht:ref: fig:sojourner --></a> represents such a hybrid solution, able to overcome
+<i>Sojourner robot</i> of NASA/JPL, shown in <b>Fig.</b> <a href="#x5-26001r16">1.16</a> represents such a hybrid solution, able to overcome
 objects up to the size of the wheels.
 </p>
-<figure class="figure"> 
-
-                                                                                
-                                                                                
-                                                                                
-                                                                                
-<a 
- id="x5-26001r16"></a>
-<figcaption class="caption" ><span class="id">Figure 1.16: 
-          </span><span  
-class="content">Sojourner at JPL, an example of a mobile robot with the ability to articulate its wheel to overcome
-          significant height differences.                                                  </span></figcaption><!--tex4ht:label?: x5-26001r16 -->
-<img 
- 
-src="figures/Locomotion/raster/sojourner.jpg" alt="PIC"  
-style="" />
-                                                                                
-                                                                                
+<p class="noindent"></p><figure class="float">
+<a id="x5-26001r16"></a>
+<figcaption class="caption"><span class="id">Figure 1.16: 
+          </span><span class="content">Sojourner at JPL, an example of a mobile robot with the ability to articulate its wheel to overcome
+          significant height differences.                                                  </span></figcaption>
+<img alt="PIC" src="figures/Locomotion/raster/sojourner.jpg" style=""/>
 </figure>
-<!--l. 984--><p class="noindent" >A more advanced mobile robot design for similar applications has recently been produced by
-EPFL<span class="margin-block"><span class="margin"><span>. [22]</span><span class="sidenote"><span class="sidenote-image"><img 
- 
-src="figures/Locomotion/raster/shrimp.jpg" alt="PIC"  
-style="" /></span><span class="sidenote-text"><span class="ellipsis">[22]</span>Shrimp is a famous six-wheeled, all-terrain mobile robot designed at EPFL’s
+<p class="noindent">A more advanced mobile robot design for similar applications has recently been produced by
+EPFL<span class="margin-block"><span class="margin"><span>. <a class="ellipsis" href="#m-ref-22">[22]</a></span><span class="sidenote"><a class="copiable-link" href="#m-ref-22" id="m-ref-22"> ¶</a><span class="sidenote-image"><img alt="PIC" src="figures/Locomotion/raster/shrimp.jpg" style=""/></span><span class="sidenote-text"><span class="ellipsis">[22]</span>Shrimp is a famous six-wheeled, all-terrain mobile robot designed at EPFL’s
 Autonomous Systems Lab (ASL) that uses a passive mechanical suspension system to climb
 over major obstacles.</span></span></span></span> This robot, called Shrimp, has 6 motorized wheels and is capable of
-climbing objects up to two times its wheel diameter <span class="cite"><span class="cite-show">[†]</span><span class="cite-detail"><a 
- id="x5-26002"></a>Siegwart, R. et al. Innovative design
-for wheeled locomotion in rough terrain. Robotics and Autonomous systems <span id="bold" style="font-weight:bold;">40</span><span id="bold" style="font-weight:bold;">,</span> 151–162
+climbing objects up to two times its wheel diameter <span class="cite"><a class="cite-show" href="#w3-20001">[†-5]</a><span class="cite-detail"> <a id="x5-26002"></a>Siegwart, R. et al. Innovative design
+for wheeled locomotion in rough terrain. Robotics and Autonomous systems <b>40</b><b>,</b> 151–162
 (2002)</span></span>. This enables it to climb regular stairs though the robot is even smaller than the
-<italic>Sojourner</italic>.
-</p><!--l. 992--><p class="noindent" >Using a <span id="bold" style="font-weight:bold;">rhombus configuration</span>, the Shrimp has a steering wheel in the front and the rear, and two
+<i>Sojourner</i>.
+</p><p class="noindent">Using a <b>rhombus configuration</b>, the Shrimp has a steering wheel in the front and the rear, and two
 wheels arranged on a bogy on each side. The front wheel has a spring suspension to guarantee optimal
 ground contact of all wheels at any time. The steering of the rover is realized by synchronizing the
 steering of the front and rear wheels and the speed difference of the bogy wheels. This allows for high
@@ -621,45 +498,141 @@ precision maneuvers and turning on the spot with minimum slip/skid of the four c
 of parallel articulations for the front wheel and the bogies creates a virtual center of rotation at the
 level of the wheel axis.
 </p>
-<div class="knowledge">
-<!--l. 1003--><p class="noindent" >This ensures maximum stability and climbing abilities even for very low friction coefficients between the
-wheel and the ground.
-</p>
-</div><p class="noindent">
-<!--l. 1005--><p class="noindent" >As mobile robotics research matures we find ourselves able to design more intricate mechanical systems.
+<div class="knowledge"><div class="knowledge-upper">Knowledge</div><div class="body">
+<p class="noindent">This ensures maximum stability and climbing abilities even for very low friction coefficients between the
+wheel and the ground. </p></div></div>
+<p class="noindent">As mobile robotics research matures we find ourselves able to design more intricate mechanical systems.
 At the same time, the control problems of inverse kinematics and dynamics are now so readily
 conquered that these complex mechanics can in general be controlled.
-</p><!--l. 1009--><p class="noindent" >So, in the near future, we should expect to see a great number of unique, hybrid <span class="acronym"><span class="acronym-short"><a 
-href="#glo:amr" class="glossary" >AMR</a></span><span class="acronym-detail"><span class="acronym-long"><a 
-href="#glo:amr" class="glossary" >Autonomous
-Mobile Robotics</a></span><span class="acronym-desc"><a 
-href="#glo:amr" class="glossary" >Autonomous Mobile Robotics</a></span></span></span> that draw together advantages from several of the
-underlying locomotion mechanisms that we have discussed in this chapter. They will each be
-technologically impressive, and each will be designed as the expert robot for its particular
-environmental niche.
-                                                                                
-                                                                                
-</p>
-<div class="crosslinks-bottom"><a 
-href="References.html" ><span class="nav-next">NEXT</span></a><a 
-href="LeggedMobileRobots.html" ><span class="nav-prev">PREV</span></a><a 
-href="LeggedMobileRobots.html#tailLeggedMobileRobots.html" ><span class="nav-prev-tail">PREV-TAIL</span></a><a 
-href="WheeledMobileRobots.html" ><span class="nav-front">FRONT</span></a><a 
-href="Locomotion.html#WheeledMobileRobots.html" ><span class="nav-up">UP</span></a></nav><a 
- id="tailWheeledMobileRobots.html"></a>   </div> <div class="footer"> <div class="footer-left"><span class="footer-lecture">D. T. McGuiness, PhD</span> 
-<span class="footer-webBook"><span id="bold" style="font-weight:bold;">Last Updated:</span> 5.8.2026, at 16:39.</span> </div> </div> </div> <div class="author-notes"> 
-<span class="note">Authors Note </span> 
-<span class="text">The website you are viewing is auto-generated using ParSnip and therefore subject to slight errors in typography and formatting. When in doubt, please consult the LectureBook. </span> 
-</div> 
-</article> 
-<div class="mode-line"> 
-<div class="core-line"> 
-<div class="button-group"> 
-</div> 
-</div> 
-<div class="supp-line"></div> 
-</div> 
-</page> 
- 
-</body> 
+</p><p class="noindent">So, in the near future, we should expect to see a great number of unique, hybrid <span class="acronym"><span class="acronym-short"><a class="glossary" href="#glo:amr">AMR</a></span><span class="acronym-detail"><span class="acronym-long"><a class="glossary" href="#glo:amr">Autonomous
+Mobile Robotics</a></span><span class="acronym-desc"><a class="glossary" href="#glo:amr">Self-navigating machines moving materials and goods independently without fixed
+tracks or wires. They use smart software, cameras, and sensors to map spaces and safely steer around
+people or obstacles in real time.</a></span></span></span> that draw together advantages from several of the underlying
+locomotion mechanisms that we have discussed in this chapter. They will each be technologically
+impressive, and each will be designed as the expert robot for its particular environmental
+niche.
+<div class="section-header">
+<h3 id="header-section-glossary">
+<span class="number">
+<i class="fa-regular fa-bookmark"></i>
+</span>
+<span class="title">
+<a id="page-glossary"></a>
+        Page Glossary Terms</span>
+</h3>
+</div>
+<div class="acronym-block">
+<dl class="acr-list">
+<a class="copiable-link" href="#glo:dof">¶</a>
+<dt class="acr-bottom" id="glo:dof"><span class="acr-short">DoF</span><span class="acr-long">Degrees of
+Freedom</span></dt>
+<dd class="acr-desc"><p>Degrees of Freedom</p></dd>
+</dl>
+<dl class="acr-list">
+<a class="copiable-link" href="#glo:amr">¶</a>
+<dt class="acr-bottom" id="glo:amr"><span class="acr-short">AMR</span><span class="acr-long">Autonomous Mobile
+Robotics</span></dt>
+<dd class="acr-desc"><p>Self-navigating machines moving materials and goods independently without fixed tracks or
+wires. They use smart software, cameras, and sensors to map spaces and safely steer around people or
+obstacles in real time.</p></dd>
+</dl>
+</div>
+<div class="section-header">
+<h3 id="header-section-references">
+<span class="number">
+<i class="fa-solid fa-magnifying-glass"></i>
+</span>
+<span class="title">
+<a id="page-glossary"></a>
+            Page References</span>
+</h3>
+</div>
+<div class="cite-block">
+<dl class="enumerate-enumitem">
+<dt class="enumerate-enumitem" id="w3-20001"><span class="acr-short">1.</span><span class="acr-long"></span></dt>
+<dd class="enumerate-enumitem"> Erland, I. B. Rad fuer ein laufstabiles, selbstfahrendes fahrzeug. German Patent No. DE2354404A1 (1974)</dd>
+</dl>
+<dl class="enumerate-enumitem">
+<dt class="enumerate-enumitem" id="w3-20001"><span class="acr-short">2.</span><span class="acr-long"></span></dt>
+<dd class="enumerate-enumitem"> Dowling, K. et al. NAVLAB An Autonomous Navigation Testbed in Vision and Navigation: The Carnegie Mellon Navlab 259–282 (Springer, 1990)</dd>
+</dl>
+<dl class="enumerate-enumitem">
+<dt class="enumerate-enumitem" id="w3-20001"><span class="acr-short">3.</span><span class="acr-long"></span></dt>
+<dd class="enumerate-enumitem"> ackerman. Ackerman Steering Mechanism 2025</dd>
+</dl>
+<dl class="enumerate-enumitem">
+<dt class="enumerate-enumitem" id="w3-20001"><span class="acr-short">4.</span><span class="acr-long"></span></dt>
+<dd class="enumerate-enumitem"> Steinmetz, B. et al. Autonomous vision-based navigation of the nanokhod rover. CD i-SAIRAS 2001 (2001)</dd>
+</dl>
+<dl class="enumerate-enumitem">
+<dt class="enumerate-enumitem" id="w3-20001"><span class="acr-short">5.</span><span class="acr-long"></span></dt>
+<dd class="enumerate-enumitem"> Siegwart, R. et al. Innovative design for wheeled locomotion in rough terrain. Robotics and Autonomous systems 40, 151–162 (2002)</dd>
+</dl></div>
+<div class="section-header">
+<h3 id="header-section-references">
+<span class="number">
+<i class="fa-regular fa-note-sticky"></i>
+</span>
+<span class="title">
+<a id="page-glossary"></a>
+                    Page Footnotes</span>
+</h3>
+</div>
+<div class="footnote-block">
+<dl class="enumerate-enumitem">
+<dt class="enumerate-enumitem" id="m-ref-15"><span class="acr-short">[15].</span></dt>
+<dd class="enumerate-enumitem"><span class="">This should be clear as wheel motion
+is one of the most efficient method of converting energy to motion.</span></dd>
+</dl>
+<dl class="enumerate-enumitem">
+<dt class="enumerate-enumitem" id="m-ref-16"><span class="acr-short">[16].</span></dt>
+<dd class="enumerate-enumitem"><span class="">A topic which we will discuss in <span class="refclass-ref"><a href="MobileRobotKinematics.html#x6-270002">Mobile Robot
+Kinematics</a></span>.</span></dd>
+</dl>
+<dl class="enumerate-enumitem">
+<dt class="enumerate-enumitem" id="m-ref-17"><span class="acr-short">[17].</span></dt>
+<dd class="enumerate-enumitem"><span class="">Sometimes known as <i>Swedish wheel</i> or <i>Ilon wheel</i> after its inventor Bengt Erland
+Ilon <span class="cite"><a class="cite-show" href="#w3-20001">[†-1]</a><span class="cite-detail"> <a id="x5-14002"></a>Erland, I. B. Rad fuer ein laufstabiles, selbstfahrendes fahrzeug. German Patent No.
+DE2354404A1 (1974)</span></span>.</span></dd>
+</dl>
+<dl class="enumerate-enumitem">
+<dt class="enumerate-enumitem" id="m-ref-18"><span class="acr-short">[18].</span></dt>
+<dd class="enumerate-enumitem"><span class="">through the axle.</span></dd>
+</dl>
+<dl class="enumerate-enumitem">
+<dt class="enumerate-enumitem" id="m-ref-20"><span class="acr-short">[20].</span></dt>
+<dd class="enumerate-enumitem"><span class="">such as the road
+network</span></dd>
+</dl>
+<dl class="enumerate-enumitem">
+<dt class="enumerate-enumitem" id="m-ref-21"><span class="acr-short">[21].</span></dt>
+<dd class="enumerate-enumitem"><span class="">Ackerman steering geometries have been especially popular in the
+hobby robotics market, where a robot can be built by starting with a remote-control race car kit and
+adding sensing and autonomy to the existing mechanism.</span></dd>
+</dl></div><nav class="crosslinks-bottom"><div class="navigation"><span class="nav-button"><a href="MobileRobotKinematics.html"><i class="fa-solid fa-caret-right"></i></a></span><span class="nav-button"><a href="LeggedMobileRobots.html"><i class="fa-solid fa-caret-left"></i></a></span><span class="nav-button"><a href="Locomotion.html#WheeledMobileRobots.html"><i class="fa-solid fa-caret-up"></i></a></span><span class="nav-button">
+<a href="index.html" rel="index" title="Index">
+<i class="fa-solid fa-table-list">
+</i>
+</a></span><span class="nav-button">
+<a href="Index.html" rel="index" title="Index">
+<i class="fa-brands fa-git-alt"></i>
+</a></span></div></nav> </p><div class="footer"> <div class="footer-left"><span class="footer-lecture">D. T. McGuiness, PhD</span>
+<span class="footer-webBook"><b>Last Updated:</b> 13.10.2026, at 8:16.</span></div></div><div class="author-notes">
+<span class="note">Authors Note </span>
+<span class="text">The website you are viewing is auto-generated using lms-WebBook and therefore subject to slight errors in typography and formatting. When in doubt, please consult the LectureBook. </span>
+</div>
+</article>
+<div class="mode-line">
+<div class="core-line"><div class="core-line-image"><img class="webbook-logo" src="logo/webbook-logo.svg"/></div>
+<div class="current-header">
+<span class="header-pretext">Viewing | </span>
+<span class="header-text">Section 1.2: Wheeled Mobile Robots</span>
+</div>
+<div class="button-group">
+</div>
+</div>
+<div class="supp-line"></div>
+</div>
+</page>
+</body>
 </html>

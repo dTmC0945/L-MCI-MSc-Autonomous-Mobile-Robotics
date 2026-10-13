@@ -1,0 +1,1167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><title>Vision Based Sensors</title>
+<meta charset="utf-8"/>
+<meta content="lms-WebBook" name="generator"/>
+<meta content="width=device-width,initial-scale=1" name="viewport"/>
+<script async="async" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/mml-chtml.js" type="text/javascript"></script>
+<link href="logo/lms.ico" rel="icon" type="image/x-icon"/>
+<link href="./pagefind/pagefind-component-ui.css" rel="stylesheet"/>
+<script src="./pagefind/pagefind-component-ui.js" type="text/javascript"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<link href="https://cdn.jsdelivr.net/gh/sugina-dev/latin-modern-web@1.0.1/style/latinmodern-mono.css" rel="stylesheet"/>
+<link href="https://cdn.jsdelivr.net/gh/dTmC0945/Wb-LMS-WebBook-Infrastructure/flatweb.css" rel="stylesheet" type="text/css"/>
+<script async="true" crossorigin="anonymous" src="https://cdn.jsdelivr.net/gh/dTmC0945/Wb-LMS-WebBook-Infrastructure/flatweb.js"></script>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/styles/default.min.css" rel="stylesheet"/>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/highlight.min.js"></script>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/styles/base16/solarized-light.min.css" rel="stylesheet"/>
+<script src="https://unpkg.com/highlightjs-copy/dist/highlightjs-copy.min.js"></script>
+<link href="https://unpkg.com/highlightjs-copy/dist/highlightjs-copy.min.css" rel="stylesheet"/>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css?family=Roboto:400,100,100italic,300,300italic,400italic,500,500italic,700,700italic,900italic,900" rel="stylesheet"/>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/languages/cpp.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/languages/latex.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/languages/matlab.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/languages/dockerfile.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/languages/cmake.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/languages/makefile.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/languages/markdown.min.js"></script>
+ </head><body>
+<page>
+<nav class="wide"> <div class="header"><div class="header-left"><span class="header-lecture-grade">M.Sc</span>
+<span class="header-lecture-name">Autonomous Mobile Robotics</span>
+<span class="header-webBook">WebBook 2.1</span></div><div class="header-right"><span class="header-version">2026.WS</span>
+<span class="header-chapter">Perception</span></div></div><div class="toc"><pagefind-modal-trigger></pagefind-modal-trigger><pagefind-modal></pagefind-modal><div class="toc-links"><a href="https://github.com/dTmC0945" title="Lecturer GitHub Repo"><i class="fab fa-github" style="font-size:20px"></i></a><a href="https://scholar.google.com/citations?view_op=list_works\&amp;hl=en\&amp;user=lxQGADMAAAAJ" title="Lecturer Google Scholar Page"><i class="fa-brands fa-google-scholar" style="font-size:20px"></i></a><a href="https://www.researchgate.net/profile/Daniel-Mcguiness-2" title="Lecturer ResearchGate Account"><i class="fa-brands fa-researchgate" style="font-size:20px"></i></a><a href="https://dtmc0945.github.io/Th-MCI-Thesis-Topics/" title="Lecturer Thesis Ideas for B.Sc and M.Sc"><i class="fa-solid fa-book" style="font-size:20px"></i></a><a href="https://github.com/dTmC0945/C-MCI-LaTeX-Class-mcidoc/tree/main" title="mcidoc LaTeX Standard"><i class="fa-regular fa-file-lines" style="font-size:20px"></i></a></div><hr/><span class="chapterToc"><span class="number"></span><span class="title"><a href="index.html#x2-10000">Entry Point</a></span></span><span class="chapterToc"><span class="number">1</span><span class="title"><a href="Locomotion.html#x3-20001">Locomotion</a></span></span><span class="subsectionToc"><span class="number">1.0.1</span><span class="title"><a href="Locomotion.html#x3-30001.0.1">Key  Issues  for  Locomotion</a></span></span><span class="sectionToc"><span class="number">1.1</span><span class="title"><a href="LeggedMobileRobots.html#x4-40001.1">Legged  Mobile
+Robots</a></span></span><span class="subsectionToc"><span class="number">1.1.1</span><span class="title"><a href="LeggedMobileRobots.html#x4-60001.1.1">Examples  of  Legged  Robot  Locomotion</a></span></span><span class="sectionToc"><span class="number">1.2</span><span class="title"><a href="WheeledMobileRobots.html#x5-120001.2">Wheeled  Mobile
+Robots</a></span></span><span class="subsectionToc"><span class="number">1.2.1</span><span class="title"><a href="WheeledMobileRobots.html#x5-130001.2.1">Design</a></span></span><span class="subsectionToc"><span class="number">1.2.2</span><span class="title"><a href="WheeledMobileRobots.html#x5-160001.2.2">Stability</a></span></span><span class="subsectionToc"><span class="number">1.2.3</span><span class="title"><a href="WheeledMobileRobots.html#x5-170001.2.3">Manoeuvrability</a></span></span><span class="subsectionToc"><span class="number">1.2.4</span><span class="title"><a href="WheeledMobileRobots.html#x5-180001.2.4">Controllability</a></span></span><span class="subsectionToc"><span class="number">1.2.5</span><span class="title"><a href="WheeledMobileRobots.html#x5-190001.2.5">Case
+Studies for Wheeled Motion</a></span></span><span class="subsectionToc"><span class="number">1.2.6</span><span class="title"><a href="WheeledMobileRobots.html#x5-260001.2.6">Walking Wheels</a></span></span><span class="chapterToc"><span class="number">2</span><span class="title"><a href="MobileRobotKinematics.html#x6-270002">Mobile Robot Kinematics</a></span></span><span class="sectionToc"><span class="number">2.1</span><span class="title"><a href="KinematicModelsandConstraints.html#x7-280002.1">Kinematic
+Models and Constraints</a></span></span><span class="subsectionToc"><span class="number">2.1.1</span><span class="title"><a href="KinematicModelsandConstraints.html#x7-290002.1.1">Representing robot position</a></span></span><span class="subsectionToc"><span class="number">2.1.2</span><span class="title"><a href="KinematicModelsandConstraints.html#x7-300002.1.2">Forward kinematic
+models</a></span></span><span class="subsectionToc"><span class="number">2.1.3</span><span class="title"><a href="KinematicModelsandConstraints.html#x7-310002.1.3">Wheel kinematic constraints</a></span></span><span class="subsectionToc"><span class="number">2.1.4</span><span class="title"><a href="KinematicModelsandConstraints.html#x7-370002.1.4">Robot kinematic constraints</a></span></span><span class="subsectionToc"><span class="number">2.1.5</span><span class="title"><a href="KinematicModelsandConstraints.html#x7-380002.1.5">Examples:
+robot kinematic models and constraints</a></span></span><span class="sectionToc"><span class="number">2.2</span><span class="title"><a href="MobileRobotManeuverability.html#x8-410002.2">Mobile Robot Maneuverability</a></span></span><span class="subsectionToc"><span class="number">2.2.1</span><span class="title"><a href="MobileRobotManeuverability.html#x8-420002.2.1">Degree
+of Mobility</a></span></span><span class="subsectionToc"><span class="number">2.2.2</span><span class="title"><a href="MobileRobotManeuverability.html#x8-450002.2.2">Degree of steerability</a></span></span><span class="subsectionToc"><span class="number">2.2.3</span><span class="title"><a href="MobileRobotManeuverability.html#x8-470002.2.3">Robot maneuverability</a></span></span><span class="sectionToc"><span class="number">2.3</span><span class="title"><a href="MobileRobotWorkspace.html#x9-480002.3">Mobile Robot
+Workspace</a></span></span><span class="subsectionToc"><span class="number">2.3.1</span><span class="title"><a href="MobileRobotWorkspace.html#x9-490002.3.1">Degrees of freedom</a></span></span><span class="subsectionToc"><span class="number">2.3.2</span><span class="title"><a href="MobileRobotWorkspace.html#x9-500002.3.2">Holonomic robots</a></span></span><span class="subsectionToc"><span class="number">2.3.3</span><span class="title"><a href="MobileRobotWorkspace.html#x9-530002.3.3">Path and trajectory
+considerations</a></span></span><span class="subsectionToc"><span class="number">2.3.4</span><span class="title"><a href="MobileRobotWorkspace.html#x9-540002.3.4">Beyond Basic Kinematics</a></span></span><span class="sectionToc"><span class="number">2.4</span><span class="title"><a href="MotionControlKinematicControl.html#x10-550002.4">Motion Control (Kinematic
+Control)</a></span></span><span class="subsectionToc"><span class="number">2.4.1</span><span class="title"><a href="MotionControlKinematicControl.html#x10-560002.4.1">Open loop control</a></span></span><span class="subsectionToc"><span class="number">2.4.2</span><span class="title"><a href="MotionControlKinematicControl.html#x10-570002.4.2">Feedback control</a></span></span><span class="chapterToc"><span class="number">3</span><span class="title"><a href="Perception.html#x11-630003">Perception</a></span></span><span class="sectionToc"><span class="number">3.1</span><span class="title"><a href="SensorsforMobileRobotics.html#x12-640003.1">Sensors for Mobile
+Robotics</a></span></span><span class="subsectionToc"><span class="number">3.1.1</span><span class="title"><a href="SensorsforMobileRobotics.html#x12-650003.1.1">Sensor Classification</a></span></span><span class="subsectionToc"><span class="number">3.1.2</span><span class="title"><a href="SensorsforMobileRobotics.html#x12-660003.1.2">Characterisation of Sensor Performance</a></span></span><span class="subsectionToc"><span class="number">3.1.3</span><span class="title"><a href="SensorsforMobileRobotics.html#x12-720003.1.3">Wheel
+and Motor Sensors</a></span></span><span class="subsectionToc"><span class="number">3.1.4</span><span class="title"><a href="SensorsforMobileRobotics.html#x12-740003.1.4">Heading Sensors</a></span></span><span class="subsectionToc"><span class="number">3.1.5</span><span class="title"><a href="SensorsforMobileRobotics.html#x12-810003.1.5">Ground Based Beacons</a></span></span><span class="subsectionToc"><span class="number">3.1.6</span><span class="title"><a href="SensorsforMobileRobotics.html#x12-830003.1.6">Active
+Ranging</a></span></span><span class="subsectionToc"><span class="number">3.1.7</span><span class="title"><a href="SensorsforMobileRobotics.html#x12-850003.1.7">The Ultrasonic Sensor</a></span></span><span class="subsectionToc"><span class="number">3.1.8</span><span class="title"><a href="SensorsforMobileRobotics.html#x12-920003.1.8">Motion and Speed Sensors</a></span></span><span class="sectionToc"><span class="number">3.2</span><span class="title"><a href="#x13-940003.2">Vision Based
+Sensors</a></span></span><span class="subsectionToc"><span class="number">3.2.1</span><span class="title"><a href="#x13-950003.2.1">CCD Sensors</a></span></span><span class="subsectionToc"><span class="number">3.2.2</span><span class="title"><a href="#x13-970003.2.2">CMOS Technology</a></span></span><span class="subsectionToc"><span class="number">3.2.3</span><span class="title"><a href="#x13-980003.2.3">Visual Ranging Sensors</a></span></span><span class="subsectionToc"><span class="number">3.2.4</span><span class="title"><a href="#x13-990003.2.4">Depth
+from Focus</a></span></span><span class="sectionToc"><span class="number">3.3</span><span class="title"><a href="RepresentingUncertainty.html#x14-1070003.3">Representing Uncertainty</a></span></span><span class="subsectionToc"><span class="number">3.3.1</span><span class="title"><a href="RepresentingUncertainty.html#x14-1080003.3.1">Statistical Representation</a></span></span><span class="subsectionToc"><span class="number">3.3.2</span><span class="title"><a href="RepresentingUncertainty.html#x14-1090003.3.2">Independence
+of random variables</a></span></span><span class="subsectionToc"><span class="number">3.3.3</span><span class="title"><a href="RepresentingUncertainty.html#x14-1110003.3.3">Propagation of Error</a></span></span><span class="sectionToc"><span class="number">3.4</span><span class="title"><a href="FeatureExtraction.html#x15-1120003.4">Feature Extraction</a></span></span><span class="subsectionToc"><span class="number">3.4.1</span><span class="title"><a href="FeatureExtraction.html#x15-1130003.4.1">Defining
+Feature</a></span></span><span class="subsectionToc"><span class="number">3.4.2</span><span class="title"><a href="FeatureExtraction.html#x15-1140003.4.2">Using Range Data</a></span></span><span class="chapterToc"><span class="number">4</span><span class="title"><a href="MobileRobotLocalisation.html#x16-1290004">Mobile Robot Localisation</a></span></span><span class="sectionToc"><span class="number">4.1</span><span class="title"><a href="TheProblemsofNoiseandAliasing.html#x17-1300004.1">The Problems of Noise and
+Aliasing</a></span></span><span class="subsectionToc"><span class="number">4.1.1</span><span class="title"><a href="TheProblemsofNoiseandAliasing.html#x17-1310004.1.1">Sensor Noise</a></span></span><span class="subsectionToc"><span class="number">4.1.2</span><span class="title"><a href="TheProblemsofNoiseandAliasing.html#x17-1320004.1.2">Sensor Aliasing</a></span></span><span class="subsectionToc"><span class="number">4.1.3</span><span class="title"><a href="TheProblemsofNoiseandAliasing.html#x17-1330004.1.3">Effector Noise</a></span></span><span class="subsectionToc"><span class="number">4.1.4</span><span class="title"><a href="TheProblemsofNoiseandAliasing.html#x17-1340004.1.4">An Error Model for
+Odometric Position Estimation</a></span></span><span class="sectionToc"><span class="number">4.2</span><span class="title"><a href="LocalisationTechniques.html#x18-1350004.2">Localisation Techniques</a></span></span><span class="sectionToc"><span class="number">4.3</span><span class="title"><a href="RepresentingBelief.html#x19-1360004.3">Representing Belief</a></span></span><span class="subsectionToc"><span class="number">4.3.1</span><span class="title"><a href="RepresentingBelief.html#x19-1370004.3.1">Single
+Hypothesis Belief</a></span></span><span class="subsectionToc"><span class="number">4.3.2</span><span class="title"><a href="RepresentingBelief.html#x19-1380004.3.2">Multiple Hypothesis Belief</a></span></span><span class="sectionToc"><span class="number">4.4</span><span class="title"><a href="RepresentingMaps.html#x20-1390004.4">Representing Maps</a></span></span><span class="subsectionToc"><span class="number">4.4.1</span><span class="title"><a href="RepresentingMaps.html#x20-1400004.4.1">Continuous
+Representation</a></span></span><span class="subsectionToc"><span class="number">4.4.2</span><span class="title"><a href="RepresentingMaps.html#x20-1410004.4.2">Decomposition Methods</a></span></span><span class="subsectionToc"><span class="number">4.4.3</span><span class="title"><a href="RepresentingMaps.html#x20-1420004.4.3">Current Challenges</a></span></span><span class="sectionToc"><span class="number">4.5</span><span class="title"><a href="ProbabilisticMapBasedLocalisation.html#x21-1430004.5">Probabilistic
+Map-Based Localisation</a></span></span><span class="subsectionToc"><span class="number">4.5.1</span><span class="title"><a href="ProbabilisticMapBasedLocalisation.html#x21-1440004.5.1">Problem Definition</a></span></span><span class="subsectionToc"><span class="number">4.5.2</span><span class="title"><a href="ProbabilisticMapBasedLocalisation.html#x21-1450004.5.2">Markov Localisation</a></span></span><span class="subsectionToc"><span class="number">4.5.3</span><span class="title"><a href="ProbabilisticMapBasedLocalisation.html#x21-1490004.5.3">Kalman
+Filter Localisation</a></span></span><span class="subsectionToc"><span class="number">4.5.4</span><span class="title"><a href="ProbabilisticMapBasedLocalisation.html#x21-1500004.5.4">An Implementation of Kalman Filter</a></span></span><span class="sectionToc"><span class="number">4.6</span><span class="title"><a href="OtherExamplesofLocalisationMethods.html#x22-1550004.6">Other Examples
+of Localisation Methods</a></span></span><span class="subsectionToc"><span class="number">4.6.1</span><span class="title"><a href="OtherExamplesofLocalisationMethods.html#x22-1560004.6.1">Landmark-based Navigation</a></span></span><span class="subsectionToc"><span class="number">4.6.2</span><span class="title"><a href="OtherExamplesofLocalisationMethods.html#x22-1570004.6.2">Globally Unique
+Localisation</a></span></span><span class="subsectionToc"><span class="number">4.6.3</span><span class="title"><a href="OtherExamplesofLocalisationMethods.html#x22-1580004.6.3">Positioning Beacon systems</a></span></span><span class="subsectionToc"><span class="number">4.6.4</span><span class="title"><a href="OtherExamplesofLocalisationMethods.html#x22-1590004.6.4">Route-Based Localisation</a></span></span><span class="sectionToc"><span class="number">4.7</span><span class="title"><a href="BuildingMaps.html#x23-1600004.7">Building
+Maps</a></span></span><span class="subsectionToc"><span class="number">4.7.1</span><span class="title"><a href="BuildingMaps.html#x23-1610004.7.1">Stochastic Map Technique</a></span></span><span class="subsectionToc"><span class="number">4.7.2</span><span class="title"><a href="BuildingMaps.html#x23-1620004.7.2">Other Mapping Techniques</a></span></span><span class="chapterToc"><span class="number">5</span><span class="title"><a href="WelcometoLinux.html#x24-1650005">Welcome to Linux</a></span></span><span class="sectionToc"><span class="number">5.1</span><span class="title"><a href="AHistoryofUNIXLinux.html#x25-1660005.1">A
+History of UNIX/Linux</a></span></span><span class="subsectionToc"><span class="number">5.1.1</span><span class="title"><a href="AHistoryofUNIXLinux.html#x25-1680005.1.1">A Short History on Computer Interfaces</a></span></span><span class="subsectionToc"><span class="number">5.1.2</span><span class="title"><a href="AHistoryofUNIXLinux.html#x25-1700005.1.2">Linux is a
+Nutshell</a></span></span><span class="subsectionToc"><span class="number">5.1.3</span><span class="title"><a href="AHistoryofUNIXLinux.html#x25-1730005.1.3">Linux Distributions</a></span></span><span class="sectionToc"><span class="number">5.2</span><span class="title"><a href="Installation.html#x26-1740005.2">Installation</a></span></span><span class="subsectionToc"><span class="number">5.2.1</span><span class="title"><a href="Installation.html#x26-1750005.2.1">Docker</a></span></span><span class="subsectionToc"><span class="number">5.2.2</span><span class="title"><a href="Installation.html#x26-1760005.2.2">Dockerfile</a></span></span><span class="subsectionToc"><span class="number">5.2.3</span><span class="title"><a href="Installation.html#x26-1770005.2.3">Running
+the Container</a></span></span><span class="chapterToc"><span class="number">6</span><span class="title"><a href="CommandLineFundamentals.html#x27-1780006">Command Line Fundamentals</a></span></span><span class="sectionToc"><span class="number">6.1</span><span class="title"><a href="ToCommandaComputer.html#x28-1790006.1">To Command a Computer</a></span></span><span class="subsectionToc"><span class="number">6.1.1</span><span class="title"><a href="ToCommandaComputer.html#x28-1800006.1.1">The
+Command Line Interface</a></span></span><span class="subsectionToc"><span class="number">6.1.2</span><span class="title"><a href="ToCommandaComputer.html#x28-1810006.1.2">The Structure of Commands</a></span></span><span class="subsectionToc"><span class="number">6.1.3</span><span class="title"><a href="ToCommandaComputer.html#x28-1820006.1.3">Some Rules Regarding
+the Syntax</a></span></span><span class="sectionToc"><span class="number">6.2</span><span class="title"><a href="WhenWeNeedHelpwithCommands.html#x29-1830006.2">When We Need Help with Commands</a></span></span><span class="subsectionToc"><span class="number">6.2.1</span><span class="title"><a href="WhenWeNeedHelpwithCommands.html#x29-1840006.2.1">Use Tab completion on
+the Shell</a></span></span><span class="subsectionToc"><span class="number">6.2.2</span><span class="title"><a href="WhenWeNeedHelpwithCommands.html#x29-1850006.2.2">The info command</a></span></span><span class="subsectionToc"><span class="number">6.2.3</span><span class="title"><a href="WhenWeNeedHelpwithCommands.html#x29-1860006.2.3">The whatis command</a></span></span><span class="chapterToc"><span class="number">7</span><span class="title"><a href="WorkingwithFilesandFolders.html#x30-1880007">Working with Files
+and Folders</a></span></span><span class="sectionToc"><span class="number">7.1</span><span class="title"><a href="FilesandFolders.html#x31-1890007.1">Files and Folders</a></span></span><span class="subsectionToc"><span class="number">7.1.1</span><span class="title"><a href="FilesandFolders.html#x31-1900007.1.1">A Detailed Look in ls Command</a></span></span><span class="subsectionToc"><span class="number">7.1.2</span><span class="title"><a href="FilesandFolders.html#x31-1910007.1.2">Creating
+and Removing Folders</a></span></span><span class="subsectionToc"><span class="number">7.1.3</span><span class="title"><a href="FilesandFolders.html#x31-1920007.1.3">Move, Copy and Delete Files and Folders</a></span></span><span class="sectionToc"><span class="number">7.2</span><span class="title"><a href="PermissionsandLinks.html#x32-1990007.2">Permissions
+and Links</a></span></span><span class="subsectionToc"><span class="number">7.2.1</span><span class="title"><a href="PermissionsandLinks.html#x32-2000007.2.1">Role to Users and sudo</a></span></span><span class="subsectionToc"><span class="number">7.2.2</span><span class="title"><a href="PermissionsandLinks.html#x32-2010007.2.2">File Permissions</a></span></span><span class="subsectionToc"><span class="number">7.2.3</span><span class="title"><a href="PermissionsandLinks.html#x32-2040007.2.3">Hard and Symbolic
+Links</a></span></span><span class="subsectionToc"><span class="number">7.2.4</span><span class="title"><a href="PermissionsandLinks.html#x32-2050007.2.4">Soft (Symbolic) Links</a></span></span><span class="subsectionToc"><span class="number">7.2.5</span><span class="title"><a href="PermissionsandLinks.html#x32-2070007.2.5">The Linux File System</a></span></span><span class="subsectionToc"><span class="number">7.2.6</span><span class="title"><a href="PermissionsandLinks.html#x32-2080007.2.6">The UNIX
+Philosophy</a></span></span><span class="sectionToc"><span class="number">7.3</span><span class="title"><a href="CommonCommandLineToolsandTasks.html#x33-2090007.3">Common Command-Line Tools and Tasks</a></span></span><span class="subsectionToc"><span class="number">7.3.1</span><span class="title"><a href="CommonCommandLineToolsandTasks.html#x33-2100007.3.1">Connecting Commands
+with Pipes</a></span></span><span class="subsectionToc"><span class="number">7.3.2</span><span class="title"><a href="CommonCommandLineToolsandTasks.html#x33-2110007.3.2">Viewing Text Files with cat, head, tail, and less</a></span></span><span class="subsectionToc"><span class="number">7.3.3</span><span class="title"><a href="CommonCommandLineToolsandTasks.html#x33-2120007.3.3">Finding
+Linux Distribution and Kernel Information</a></span></span><span class="subsectionToc"><span class="number">7.3.4</span><span class="title"><a href="CommonCommandLineToolsandTasks.html#x33-2140007.3.4">Find System Hardware and Disk
+Information</a></span></span><span class="chapterToc"><span class="number">8</span><span class="title"><a href="ROSConcepts.html#x34-2160008">ROS Concepts</a></span></span><span class="sectionToc"><span class="number">8.1</span><span class="title"><a href="PublisherandSubscriberArchitecture.html#x35-2170008.1">Publisher and Subscriber Architecture</a></span></span><span class="subsectionToc"><span class="number">8.1.1</span><span class="title"><a href="PublisherandSubscriberArchitecture.html#x35-2180008.1.1">ROS 2
+Architecture</a></span></span><span class="sectionToc"><span class="number">8.2</span><span class="title"><a href="BuildingBlocks.html#x36-2200008.2">Building Blocks</a></span></span><span class="subsectionToc"><span class="number">8.2.1</span><span class="title"><a href="BuildingBlocks.html#x36-2210008.2.1">Nodes</a></span></span><span class="subsectionToc"><span class="number">8.2.2</span><span class="title"><a href="BuildingBlocks.html#x36-2220008.2.2">The Discovery Process</a></span></span><span class="subsectionToc"><span class="number">8.2.3</span><span class="title"><a href="BuildingBlocks.html#x36-2230008.2.3">Communication
+Interface</a></span></span><span class="subsectionToc"><span class="number">8.2.4</span><span class="title"><a href="BuildingBlocks.html#x36-2320008.2.4">Topics</a></span></span><span class="subsectionToc"><span class="number">8.2.5</span><span class="title"><a href="BuildingBlocks.html#x36-2360008.2.5">Services</a></span></span><span class="subsectionToc"><span class="number">8.2.6</span><span class="title"><a href="BuildingBlocks.html#x36-2390008.2.6">Actions</a></span></span><span class="subsectionToc"><span class="number">8.2.7</span><span class="title"><a href="BuildingBlocks.html#x36-2420008.2.7">Parameters</a></span></span><span class="subsectionToc"><span class="number">8.2.8</span><span class="title"><a href="BuildingBlocks.html#x36-2510008.2.8">Working with
+Command Line</a></span></span><span class="subsectionToc"><span class="number">8.2.9</span><span class="title"><a href="BuildingBlocks.html#x36-2530008.2.9">Launch Files</a></span></span><span class="sectionToc"><span class="number">8.3</span><span class="title"><a href="AdvancedConcepts.html#x37-2540008.3">Advanced Concepts</a></span></span><span class="subsectionToc"><span class="number">8.3.1</span><span class="title"><a href="AdvancedConcepts.html#x37-2550008.3.1">ROS DOMAIN ID</a></span></span><span class="chapterToc"><span class="number">9</span><span class="title"><a href="CommandLineTools.html#x38-2570009">Command
+Line Tools</a></span></span><span class="sectionToc"><span class="number">9.1</span><span class="title"><a href="SettingtheEnvironment.html#x39-2580009.1">Setting the Environment</a></span></span><span class="sectionToc"><span class="number">9.2</span><span class="title"><a href="TurtlesandGraphs.html#x40-2630009.2">Turtles and Graphs</a></span></span><span class="sectionToc"><span class="number">9.3</span><span class="title"><a href="ADeeperLookintoNodes.html#x41-2710009.3">A Deeper Look into
+Nodes</a></span></span><span class="sectionToc"><span class="number">9.4</span><span class="title"><a href="WorkingwithTopics.html#x42-2760009.4">Working with Topics</a></span></span><span class="sectionToc"><span class="number">9.5</span><span class="title"><a href="WorkingwithServices.html#x43-2820009.5">Working with Services</a></span></span><span class="sectionToc"><span class="number">9.6</span><span class="title"><a href="WorkingwithParameters.html#x44-2890009.6">Working with Parameters</a></span></span><span class="sectionToc"><span class="number">9.7</span><span class="title"><a href="APracticalLookintoActions.html#x45-2960009.7">A
+Practical Look into Actions</a></span></span><span class="sectionToc"><span class="number">9.8</span><span class="title"><a href="LaunchingNodes.html#x46-3030009.8">Launching Nodes</a></span></span><span class="chapterToc"><span class="number">10</span><span class="title"><a href="ClientLibraries.html#x47-30500010">Client Libraries</a></span></span><span class="sectionToc"><span class="number">10.1</span><span class="title"><a href="GettingStartedwithColcon.html#x48-30600010.1">Getting Started with
+Colcon</a></span></span><span class="subsectionToc"><span class="number">10.1.1</span><span class="title"><a href="GettingStartedwithColcon.html#x48-30700010.1.1">The Structure of a Package</a></span></span><span class="subsectionToc"><span class="number">10.1.2</span><span class="title"><a href="GettingStartedwithColcon.html#x48-30800010.1.2">Sourcing an Underlay</a></span></span><span class="subsectionToc"><span class="number">10.1.3</span><span class="title"><a href="GettingStartedwithColcon.html#x48-30900010.1.3">Building the
+Workspace</a></span></span><span class="subsectionToc"><span class="number">10.1.4</span><span class="title"><a href="GettingStartedwithColcon.html#x48-31000010.1.4">Sourcing the New Package</a></span></span><span class="subsectionToc"><span class="number">10.1.5</span><span class="title"><a href="GettingStartedwithColcon.html#x48-31100010.1.5">Creating a Workspace</a></span></span><span class="subsectionToc"><span class="number">10.1.6</span><span class="title"><a href="GettingStartedwithColcon.html#x48-31200010.1.6">Sourcing the
+Environment</a></span></span><span class="subsectionToc"><span class="number">10.1.7</span><span class="title"><a href="GettingStartedwithColcon.html#x48-31300010.1.7">Creating a New Directory</a></span></span><span class="subsectionToc"><span class="number">10.1.8</span><span class="title"><a href="GettingStartedwithColcon.html#x48-31400010.1.8">Cloning a Sample Repo</a></span></span><span class="subsectionToc"><span class="number">10.1.9</span><span class="title"><a href="GettingStartedwithColcon.html#x48-31500010.1.9">Resolving
+Dependencies</a></span></span><span class="subsectionToc"><span class="number">10.1.10</span><span class="title"><a href="GettingStartedwithColcon.html#x48-31600010.1.10">Building the Workspace</a></span></span><span class="subsectionToc"><span class="number">10.1.11</span><span class="title"><a href="GettingStartedwithColcon.html#x48-31700010.1.11">Sourcing our Overlay</a></span></span><span class="subsectionToc"><span class="number">10.1.12</span><span class="title"><a href="GettingStartedwithColcon.html#x48-31800010.1.12">Modifying
+the Overlay</a></span></span><span class="subsectionToc"><span class="number">10.1.13</span><span class="title"><a href="GettingStartedwithColcon.html#x48-31900010.1.13">Creating a Package</a></span></span><span class="sectionToc"><span class="number">10.2</span><span class="title"><a href="WritingaSimplePublisherandSubscriber.html#x49-32200010.2">Writing a Simple Publisher and
+Subscriber</a></span></span><span class="subsectionToc"><span class="number">10.2.1</span><span class="title"><a href="WritingaSimplePublisherandSubscriber.html#x49-32300010.2.1">Creating a ROS Packages</a></span></span><span class="subsectionToc"><span class="number">10.2.2</span><span class="title"><a href="WritingaSimplePublisherandSubscriber.html#x49-32400010.2.2">Writing the Publisher Node</a></span></span><span class="subsectionToc"><span class="number">10.2.3</span><span class="title"><a href="WritingaSimplePublisherandSubscriber.html#x49-32900010.2.3">Writing
+the Subscriber Node</a></span></span><span class="subsectionToc"><span class="number">10.2.4</span><span class="title"><a href="WritingaSimplePublisherandSubscriber.html#x49-33200010.2.4">Building and Running</a></span></span><span class="sectionToc"><span class="number">10.3</span><span class="title"><a href="WritingaSimpleServiceandClient.html#x50-33300010.3">Writing a Simple Service and
+Client</a></span></span><span class="subsectionToc"><span class="number">10.3.1</span><span class="title"><a href="WritingaSimpleServiceandClient.html#x50-33400010.3.1">Creating a New Package</a></span></span><span class="subsectionToc"><span class="number">10.3.2</span><span class="title"><a href="WritingaSimpleServiceandClient.html#x50-33700010.3.2">Writing the Service Node</a></span></span><span class="subsectionToc"><span class="number">10.3.3</span><span class="title"><a href="WritingaSimpleServiceandClient.html#x50-34000010.3.3">Writing the Client
+Node</a></span></span><span class="sectionToc"><span class="number">10.4</span><span class="title"><a href="CreatingCustommsgandsrvFiles.html#x51-34300010.4">Creating Custom msg and srv Files</a></span></span><span class="subsectionToc"><span class="number">10.4.1</span><span class="title"><a href="CreatingCustommsgandsrvFiles.html#x51-34400010.4.1">Creating a New Package</a></span></span><span class="subsectionToc"><span class="number">10.4.2</span><span class="title"><a href="CreatingCustommsgandsrvFiles.html#x51-34500010.4.2">Creating
+Custom Definitions</a></span></span><span class="subsectionToc"><span class="number">10.4.3</span><span class="title"><a href="CreatingCustommsgandsrvFiles.html#x51-35200010.4.3">Testing the Newly Built Interfaces</a></span></span><span class="sectionToc"><span class="number">10.5</span><span class="title"><a href="UsingParametersinaClass.html#x52-35400010.5">Using Parameters in a
+Class</a></span></span><span class="subsectionToc"><span class="number">10.5.1</span><span class="title"><a href="UsingParametersinaClass.html#x52-35500010.5.1">Creating a Package</a></span></span><span class="subsectionToc"><span class="number">10.5.2</span><span class="title"><a href="UsingParametersinaClass.html#x52-35700010.5.2">Writing our Python Code</a></span></span><span class="subsectionToc"><span class="number">10.5.3</span><span class="title"><a href="UsingParametersinaClass.html#x52-36200010.5.3">Changing Output using
+the Console</a></span></span><span class="subsectionToc"><span class="number">10.5.4</span><span class="title"><a href="UsingParametersinaClass.html#x52-36300010.5.4">Changing using the Launch File</a></span></span><span class="sectionToc"><span class="number">10.6</span><span class="title"><a href="ManagingDependencies.html#x53-36400010.6">Managing Dependencies</a></span></span><span class="sectionToc"><span class="number">10.7</span><span class="title"><a href="CreatinganAction.html#x54-36600010.7">Creating
+an Action</a></span></span><span class="sectionToc"><span class="number">10.8</span><span class="title"><a href="WritinganActionServerandClient.html#x55-36900010.8">Writing an Action Server and Client</a></span></span><span class="sectionToc"><span class="number">10.9</span><span class="title"><a href="WritingaLaunchFile.html#x56-37100010.9">Writing a Launch File</a></span></span>
+<div class="nav-footer"><div class="nav-footer-left"><span class="nav-footer-lecture">D. T. McGuiness, PhD</span>
+<span class="nav-footer-webBook"><b>Last Updated:</b> 13.10.2026, at 8:16.</span></div></div><p class="nav-comments">The website you are viewing is auto-generated using lms-WebBook and therefore subject to slight errors in typography and formatting. When in doubt, please consult the LectureBook. </p></div></nav>
+<article class="chapter">
+<nav class="crosslinks-top"> <span class="nav-button"><i class="fa-solid fa-caret-right"></i><a class="nav-link" href="RepresentingUncertainty.html">Representing Uncertainty</a></span><span class="nav-button"><i class="fa-solid fa-caret-left"></i><a class="nav-link" href="SensorsforMobileRobotics.html">Sensors for Mobile Robotics</a></span><span class="nav-button"><i class="fa-solid fa-caret-up"></i><a class="nav-link" href="Perception.html#VisionBasedSensors.html">Chapter: Perception</a></span><span class="nav-button">
+<a href="index.html" rel="index" title="Visit Entry Point">
+<i class="fa-solid fa-table-list">
+</i>
+<span class="nav-info">Visit Index Page</span>
+</a></span><span class="nav-button">
+<a href="Index.html" rel="index" title="Visit Material GitHub Repo">
+<i class="fa-brands fa-git-alt"></i>
+<span class="nav-info">Visit Material GitHub Repo</span>
+</a></span></nav>
+<div class="section-header"> <h3 id="header-section-3.2"> <a class="pdf-icon" href="AutonomousMobileRoboticsLectureBook.pdf#section.3.2"><svg class="bi bi-file-pdf" fill="currentColor" height="20" viewbox="0 0 16 16" width="20" xmlns="http://www.w3.org/2000/svg"><path d="M4 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H4zm0 1h8a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1z"></path><path d="M4.603 12.087a.81.81 0 0 1-.438-.42c-.195-.388-.13-.776.08-1.102.198-.307.526-.568.897-.787a7.68 7.68 0 0 1 1.482-.645 19.701 19.701 0 0 0 1.062-2.227 7.269 7.269 0 0 1-.43-1.295c-.086-.4-.119-.796-.046-1.136.075-.354.274-.672.65-.823.192-.077.4-.12.602-.077a.7.7 0 0 1 .477.365c.088.164.12.356.127.538.007.187-.012.395-.047.614-.084.51-.27 1.134-.52 1.794a10.954 10.954 0 0 0 .98 1.686 5.753 5.753 0 0 1 1.334.05c.364.065.734.195.96.465.12.144.193.32.2.518.007.192-.047.382-.138.563a1.04 1.04 0 0 1-.354.416.856.856 0 0 1-.51.138c-.331-.014-.654-.196-.933-.417a5.716 5.716 0 0 1-.911-.95 11.642 11.642 0 0 0-1.997.406 11.311 11.311 0 0 1-1.021 1.51c-.29.35-.608.655-.926.787a.793.793 0 0 1-.58.029zm1.379-1.901c-.166.076-.32.156-.459.238-.328.194-.541.383-.647.547-.094.145-.096.25-.04.361.01.022.02.036.026.044a.27.27 0 0 0 .035-.012c.137-.056.355-.235.635-.572a8.18 8.18 0 0 0 .45-.606zm1.64-1.33a12.647 12.647 0 0 1 1.01-.193 11.666 11.666 0 0 1-.51-.858 20.741 20.741 0 0 1-.5 1.05zm2.446.45c.15.162.296.3.435.41.24.19.407.253.498.256a.107.107 0 0 0 .07-.015.307.307 0 0 0 .094-.125.436.436 0 0 0 .059-.2.095.095 0 0 0-.026-.063c-.052-.062-.2-.152-.518-.209a3.881 3.881 0 0 0-.612-.053zM8.078 5.8a6.7 6.7 0 0 0 .2-.828c.031-.188.043-.343.038-.465a.613.613 0 0 0-.032-.198.517.517 0 0 0-.145.04c-.087.035-.158.106-.196.283-.04.192-.03.469.046.822.024.111.054.227.09.346z"></path></svg></a> <span class="number">3.2</span> <span class="title"> <a id="x13-940003.2"></a>Vision Based
+Sensors</span></h3></div>
+<p class="noindent">Vision is our most powerful sense. It provides us with an enormous amount of information about the
+environment and enables rich, intelligent interaction in dynamic <span class="margin-block"><span class="margin"><span>environments. <a class="ellipsis" href="#m-ref-63">[63]</a></span><span class="sidenote"><a class="copiable-link" href="#m-ref-63" id="m-ref-63"> ¶</a><span class="sidenote-image"><img alt="PIC" src="figures/Perception/raster/ccd-chip.jpg" style=""/></span><span class="sidenote-text"><span class="ellipsis">[63]</span>Sony ICX493AQA
+10.14-megapixel APS-C (23.4x15.6 mm) <span class="acronym"><span class="acronym-short"><a class="glossary" href="#glo:ccd">CCD</a></span><span class="acronym-detail"><span class="acronym-long"><a class="glossary" href="#glo:ccd">Charge Coupled Device</a></span><span class="acronym-desc"><a class="glossary" href="#glo:ccd">Charge Coupled Device</a></span></span></span> from
+digital camera Sony  DSLR-A200 or DSLR-A300, sensor side <span class="cite"><a class="cite-show" href="#w3-20001">[†-1]</a><span class="cite-detail"> <a id="x13-94001"></a>Andrzej. CCD image sensor SONY
+ICX493AQA 10,14 (Gross 10,75) M pixels APS-C 1.8" 28.328mm (23.4 x 15.6 mm) from
+module IS-026 from digital camera SONY DSLR-A200 or DSLR-A300 sensor side 2014</span></span>.</span></span></span></span> It is
+therefore not at all surprising that a great deal of effort has been devoted to providing
+machines with sensors which can at least try to mimic the capabilities of the human vision
+system.
+</p><p class="noindent">The first step in this process is the creation of sensing devices that capture the same raw information
+which is the light the human vision system uses. The main topics which will be described are the two
+(<span class="alert">2</span>) current technologies for creating vision sensors:
+</p>
+<dl class="enumerate-enumitem"><dt class="enumerate-enumitem">
+1. 
+</dt><dd class="enumerate-enumitem"><span class="acronym"><span class="acronym-short"><a class="glossary" href="#glo:ccd">CCD</a></span><span class="acronym-detail"><span class="acronym-long"><a class="glossary" href="#glo:ccd">Charge Coupled Device</a></span><span class="acronym-desc"><a class="glossary" href="#glo:ccd">Charge Coupled Device</a></span></span></span>,
+</dd>
+<dt class="enumerate-enumitem">
+2. 
+</dt><dd class="enumerate-enumitem"><span class="acronym"><span class="acronym-short"><a class="glossary" href="#glo:cmos">CMOS</a></span><span class="acronym-detail"><span class="acronym-long"><a class="glossary" href="#glo:cmos">Complimentary MOS</a></span><span class="acronym-desc"><a class="glossary" href="#glo:cmos">Complimentary MOS</a></span></span></span>.</dd></dl>
+<p class="noindent">Of course, these sensors have specific limitations in performance compared to the human eye, and it is
+important to understand these limitations.
+</p><p class="noindent">Later sections describe vision-based sensors which are commercially available, similar to the sensors
+discussed previously, along with their disadvantages and most popular applications.
+</p>
+<p class="noindent"><div class="subsection-header"> <h4 id="header-subsection-3.2.1"> <a class="pdf-icon" href="AutonomousMobileRoboticsLectureBook.pdf#subsection.3.2.1"><svg class="bi bi-file-pdf" fill="currentColor" height="20" viewbox="0 0 16 16" width="20" xmlns="http://www.w3.org/2000/svg"><path d="M4 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H4zm0 1h8a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1z"></path><path d="M4.603 12.087a.81.81 0 0 1-.438-.42c-.195-.388-.13-.776.08-1.102.198-.307.526-.568.897-.787a7.68 7.68 0 0 1 1.482-.645 19.701 19.701 0 0 0 1.062-2.227 7.269 7.269 0 0 1-.43-1.295c-.086-.4-.119-.796-.046-1.136.075-.354.274-.672.65-.823.192-.077.4-.12.602-.077a.7.7 0 0 1 .477.365c.088.164.12.356.127.538.007.187-.012.395-.047.614-.084.51-.27 1.134-.52 1.794a10.954 10.954 0 0 0 .98 1.686 5.753 5.753 0 0 1 1.334.05c.364.065.734.195.96.465.12.144.193.32.2.518.007.192-.047.382-.138.563a1.04 1.04 0 0 1-.354.416.856.856 0 0 1-.51.138c-.331-.014-.654-.196-.933-.417a5.716 5.716 0 0 1-.911-.95 11.642 11.642 0 0 0-1.997.406 11.311 11.311 0 0 1-1.021 1.51c-.29.35-.608.655-.926.787a.793.793 0 0 1-.58.029zm1.379-1.901c-.166.076-.32.156-.459.238-.328.194-.541.383-.647.547-.094.145-.096.25-.04.361.01.022.02.036.026.044a.27.27 0 0 0 .035-.012c.137-.056.355-.235.635-.572a8.18 8.18 0 0 0 .45-.606zm1.64-1.33a12.647 12.647 0 0 1 1.01-.193 11.666 11.666 0 0 1-.51-.858 20.741 20.741 0 0 1-.5 1.05zm2.446.45c.15.162.296.3.435.41.24.19.407.253.498.256a.107.107 0 0 0 .07-.015.307.307 0 0 0 .094-.125.436.436 0 0 0 .059-.2.095.095 0 0 0-.026-.063c-.052-.062-.2-.152-.518-.209a3.881 3.881 0 0 0-.612-.053zM8.078 5.8a6.7 6.7 0 0 0 .2-.828c.031-.188.043-.343.038-.465a.613.613 0 0 0-.032-.198.517.517 0 0 0-.145.04c-.087.035-.158.106-.196.283-.04.192-.03.469.046.822.024.111.054.227.09.346z"></path></svg></a><span class="number">3.2.1</span> <span class="title"> <a id="x13-950003.2.1"></a>CCD Sensors</span></h4></div>
+</p><p class="noindent">When it comes to the marketplace, <span class="acronym"><span class="acronym-short"><a class="glossary" href="#glo:ccd">CCD</a></span><span class="acronym-detail"><span class="acronym-long"><a class="glossary" href="#glo:ccd">Charge Coupled Device</a></span><span class="acronym-desc"><a class="glossary" href="#glo:ccd">Charge Coupled Device</a></span></span></span> is the most
+popular fundamental ingredient for robotic vision <span class="margin-block">systems. <span class="margin-comment"><a class="ellipsis" href="#m-ref-64">[64]</a>
+<span class="sidenote">Willard Boyle and George E. Smith invented
+the <span class="acronym"><span class="acronym-short"><a class="glossary" href="#glo:ccd">CCD</a></span><span class="acronym-detail"><span class="acronym-long"><a class="glossary" href="#glo:ccd">Charge Coupled Device</a></span><span class="acronym-desc"><a class="glossary" href="#glo:ccd">Charge Coupled Device</a></span></span></span> in 1969 at AT&amp;T Bell Labs. Their original idea
+was to create a memory device. However, with its publication in 1970, other scientists began
+experimenting with the technology on a range of applications. Astronomers discovered that they could
+produce high-resolution images of distant objects, because CCDs offered a photo-sensitivity one
+hundred times greater than film <span class="cite"><a class="cite-show" href="#w3-20001">[†-2]</a><span class="cite-detail"> <a id="x13-95001"></a>TeledyneCCD. How a Charge Coupled Device (CCD) Image Sensor
+Works 2020</span></span>.</span></span></span> The <span class="acronym"><span class="acronym-short"><a class="glossary" href="#glo:ccd">CCD</a></span><span class="acronym-detail"><span class="acronym-long"><a class="glossary" href="#glo:ccd">Charge Coupled Device</a></span><span class="acronym-desc"><a class="glossary" href="#glo:ccd">Charge Coupled Device</a></span></span></span> chip, is an array of
+light-sensitive picture elements, or pixels, usually with between 20000 and 2 million pixels
+total.
+Each  pixel  can  be  thought  of  as  a  <span class="alert">light-sensitive, discharging capacitor</span>  that  is
+<math display="inline"><mn>5</mn></math> <math display="inline"><mstyle mathvariant="normal"><mi>μ</mi><mi>m</mi></mstyle></math>
+to 
+<math display="inline"><mn>2</mn><mn>5</mn></math> <math display="inline"><mstyle mathvariant="normal"><mi>μ</mi><mi>m</mi></mstyle></math>
+in size. First, the capacitors of all pixels are fully charged, then the integration period begins. As
+photons of light strike each pixel, the electrons are liberated, which are captured by electric fields and
+retained at the pixel. Over time, each pixel accumulates a varying level of charge based on the total
+number of photons that have struck it. After the integration period is complete, the relative charges of
+all pixels need to be <span class="alert">frozen and read</span>.
+</p><p class="noindent">In a <span class="acronym"><span class="acronym-short"><a class="glossary" href="#glo:ccd">CCD</a></span><span class="acronym-detail"><span class="acronym-long"><a class="glossary" href="#glo:ccd">Charge Coupled Device</a></span><span class="acronym-desc"><a class="glossary" href="#glo:ccd">Charge Coupled Device</a></span></span></span>, the reading process is performed
+at one corner of the <span class="acronym"><span class="acronym-short"><a class="glossary" href="#glo:ccd">CCD</a></span><span class="acronym-detail"><span class="acronym-long"><a class="glossary" href="#glo:ccd">Charge Coupled Device</a></span><span class="acronym-desc"><a class="glossary" href="#glo:ccd">Charge Coupled Device</a></span></span></span> <span class="margin-block">chip. <span class="margin-comment"><a class="ellipsis" href="#m-ref-65">[65]</a>
+<span class="sidenote">Because
+the entire array is read through a single amplifier the output can be highly optimised
+to give very low noise and extremely high dynamic range. CCDs can have over
+<math display="inline"><mn>1</mn><mn>0</mn><mn>0</mn></math> <math display="inline"><mstyle mathvariant="normal"><mi>d</mi><mi>B</mi></mstyle></math>
+dynamic range with less than 2e of noise <span class="cite"><a class="cite-show" href="#w3-20001">[†-2]</a><span class="cite-detail"> TeledyneCCD. How a Charge Coupled Device (CCD)
+Image Sensor Works 2020</span></span>.</span></span></span> The bottom row of pixel charges are transported to this corner and read,
+then the rows above shift down and the process repeats. This means that each charge <span class="alert">must be transported across the chip</span>, and it is critical
+the value be preserved.
+</p>
+<div class="warning"><div class="warning-upper">Warning</div><div class="body">
+<p class="noindent">This requires specialised control circuitry and custom fabrication techniques to ensure the stability of
+transported charges. </p></div></div>
+<p class="noindent">The photo-diodes used in <span class="acronym"><span class="acronym-short"><a class="glossary" href="#glo:ccd">CCD</a></span><span class="acronym-detail"><span class="acronym-long"><a class="glossary" href="#glo:ccd">Charge Coupled Device</a></span><span class="acronym-desc"><a class="glossary" href="#glo:ccd">Charge Coupled Device</a></span></span></span> <span class="margin-block">chips <span class="margin-comment"><a class="ellipsis" href="#m-ref-66">[66]</a>
+<span class="sidenote">This also includes
+<span class="acronym"><span class="acronym-short"><a class="glossary" href="#glo:cmos">CMOS</a></span><span class="acronym-detail"><span class="acronym-long"><a class="glossary" href="#glo:cmos">Complimentary MOS</a></span><span class="acronym-desc"><a class="glossary" href="#glo:cmos">Complimentary MOS</a></span></span></span> as well.</span></span></span> are <b>NOT</b> <span class="alert">equally sensitive to all frequencies of light</span>. They are sensitive to light between 400
+<math display="inline"><mstyle mathvariant="normal"><mi>n</mi><mi>m</mi></mstyle></math> and 1000
+<math display="inline"><mstyle mathvariant="normal"><mi>n</mi><mi>m</mi></mstyle></math> <span class="margin-block">wavelength.
+<span class="margin-comment"><a class="ellipsis" href="#m-ref-67">[67]</a>
+<span class="sidenote">This number range is usually given for easier numbers as both <span class="acronym"><span class="acronym-short"><a class="glossary" href="#glo:ccd">CCD</a></span><span class="acronym-detail"><span class="acronym-long"><a class="glossary" href="#glo:ccd">Charge Coupled Device</a></span><span class="acronym-desc"><a class="glossary" href="#glo:ccd">Charge Coupled
+Device</a></span></span></span> and <span class="acronym"><span class="acronym-short"><a class="glossary" href="#glo:cmos">CMOS</a></span><span class="acronym-detail"><span class="acronym-long"><a class="glossary" href="#glo:cmos">Complimentary MOS</a></span><span class="acronym-desc"><a class="glossary" href="#glo:cmos">Complimentary MOS</a></span></span></span> have sensitivity values at approximately 350 -
+1050 <math display="inline"><mstyle mathvariant="normal"><mi>n</mi><mi>m</mi></mstyle></math>.</span></span></span>
+</p>
+<p class="noindent"></p><figure class="float">
+<a id="x13-95002r16"></a>
+<figcaption class="caption"><span class="id">Figure 3.16: </span><span class="content">Quantum efficiency of a Typical Monochrome CCD.                                   </span></figcaption>
+<img alt="PIC" src="figures/Perception/figures-13.png" style=""/>
+</figure>
+<p class="noindent">It is important to remember photodiodes are <b>less sensitive to the ultraviolet</b> part of the spectrum
+and are overly <b>sensitive to the infrared</b> portion (e.g. heat) which we see in <b>Fig.</b> <a href="#x13-95002r16">3.16</a>. You can see
+that the basic light-measuring process is <span class="margin-block">colourless. <span class="margin-comment"><a class="ellipsis" href="#m-ref-68">[68]</a>
+<span class="sidenote">It is just measuring the total number of photons
+that strike each pixel in the integration period regardless whether the light hitting it is blue, red or
+green.</span></span></span>
+</p>
+<p class="noindent"><span class="paragraphHead"> <a id="x13-96000"></a>Capturing Colour</span>
+There are two (<span class="alert">2</span>) common approaches for creating color images. If the pixels on the <span class="acronym"><span class="acronym-short"><a class="glossary" href="#glo:ccd">CCD</a></span><span class="acronym-detail"><span class="acronym-long"><a class="glossary" href="#glo:ccd">Charge
+Coupled Device</a></span><span class="acronym-desc"><a class="glossary" href="#glo:ccd">Charge Coupled Device</a></span></span></span> chip are grouped into 2-by-2 sets of four (<span class="alert">4</span>), then red, green and
+blue dyes can be applied to a colour filter so each individual pixel receives only light of just one color.
+Normally, two (<span class="alert">2</span>) pixels measure green while one pixel each measures red and blue light intensity. Of
+course, this 1-chip color <span class="acronym"><span class="acronym-short"><a class="glossary" href="#glo:ccd">CCD</a></span><span class="acronym-detail"><span class="acronym-long"><a class="glossary" href="#glo:ccd">Charge Coupled Device</a></span><span class="acronym-desc"><a class="glossary" href="#glo:ccd">Charge Coupled Device</a></span></span></span> has a geometric resolution
+disadvantage.
+</p>
+<p class="noindent"></p><figure class="float">
+<a id="x13-96001r17"></a>
+<figcaption class="caption"><span class="id">Figure 3.17: 
+          </span><span class="content">Types of colour filter used in commercial and industrial applications (a) Bayer (b) CYGM (c) CYYM (d)
+          RCCB (e) RCCC (f) RGBE (g) RGBW (h) RYYB.                                   </span></figcaption>
+<img alt="PIC" src="figures/Perception/figures-4.png" style=""/>
+</figure>
+<div class="warning"><div class="warning-upper">Warning</div><div class="body">
+<p class="noindent">The number of pixels in the system has been effectively cut by a factor of 4, and therefore the image
+resolution output by the <span class="acronym"><span class="acronym-short"><a class="glossary" href="#glo:ccd">CCD</a></span><span class="acronym-detail"><span class="acronym-long"><a class="glossary" href="#glo:ccd">Charge Coupled Device</a></span><span class="acronym-desc"><a class="glossary" href="#glo:ccd">Charge Coupled Device</a></span></span></span> camera will be sacrificed.
+</p></div></div>
+<p class="noindent">The 3-chip color camera avoids these problems by splitting the incoming light into three (<span class="alert">3</span>) <span class="margin-block">complete
+<span class="margin-comment"><a class="ellipsis" href="#m-ref-69">[69]</a>
+<span class="sidenote">Albeit, with lower resolution.</span></span></span> copies. Three separate <span class="acronym"><span class="acronym-short"><a class="glossary" href="#glo:ccd">CCD</a></span><span class="acronym-detail"><span class="acronym-long"><a class="glossary" href="#glo:ccd">Charge Coupled Device</a></span><span class="acronym-desc"><a class="glossary" href="#glo:ccd">Charge Coupled
+Device</a></span></span></span> chips receive the light, with one red, green or blue filter over each entire chip. Thus, in parallel,
+each chip measures light intensity for just one color, and the camera must combine the
+<span class="acronym"><span class="acronym-short"><a class="glossary" href="#glo:ccd">CCD</a></span><span class="acronym-detail"><span class="acronym-long"><a class="glossary" href="#glo:ccd">Charge Coupled Device</a></span><span class="acronym-desc"><a class="glossary" href="#glo:ccd">Charge Coupled Device</a></span></span></span> chips’ outputs to create a joint color
+image.
+</p>
+<div class="knowledge"><div class="knowledge-upper">Knowledge</div><div class="body">
+<p class="noindent">Resolution is preserved in this solution, although the 3-chip color cameras are, as one would
+expect, significantly more expensive and therefore more rarely used in mobile robotics.
+</p></div></div>
+<p class="noindent">Both 3-chip and single chip color <span class="acronym"><span class="acronym-short"><a class="glossary" href="#glo:ccd">CCD</a></span><span class="acronym-detail"><span class="acronym-long"><a class="glossary" href="#glo:ccd">Charge Coupled Device</a></span><span class="acronym-desc"><a class="glossary" href="#glo:ccd">Charge Coupled Device</a></span></span></span> cameras suffer
+from the fact that photo-diodes are much more sensitive to the near-infrared end of the spectrum. This
+means that the overall system detects blue light much more poorly than red and green. To
+compensate, the gain must be increased on the blue channel, and this introduces greater
+absolute noise on <span class="margin-block">blue <span class="margin-comment"><a class="ellipsis" href="#m-ref-70">[70]</a>
+<span class="sidenote">This is generally defined as the <b>amplifier noise</b>.</span></span></span> than on red and
+green. It is not uncommon to assume at least 1 - 2 bits of additional noise on the blue
+channel.
+</p><p class="noindent">The <span class="acronym"><span class="acronym-short"><a class="glossary" href="#glo:ccd">CCD</a></span><span class="acronym-detail"><span class="acronym-long"><a class="glossary" href="#glo:ccd">Charge Coupled Device</a></span><span class="acronym-desc"><a class="glossary" href="#glo:ccd">Charge Coupled Device</a></span></span></span> camera has several camera parameters which
+affect its behavior. In some cameras, these parameter values are fixed. In others, the values are
+constantly changing based on built-in feedback loops. In higher-end cameras, the user can modify the
+values of these parameters via software embedded into the device. The iris position and
+<span class="margin-block">shutter speed <span class="margin-comment"><a class="ellipsis" href="#m-ref-71">[71]</a>
+<span class="sidenote">It’s the speed at which the shutter of the camera closes. A fast shutter speed
+creates a shorter exposure, the amount of light the camera takes in, and a slow shutter
+speed gives a longer exposure.</span></span></span> regulate the amount of light being measured by the camera.
+The iris is simply a mechanical aperture that constricts incoming light, just as in standard
+<math display="inline"><mn>3</mn><mn>5</mn></math> <math display="inline"><mstyle mathvariant="normal"><mi>m</mi><mi>m</mi></mstyle></math>
+cameras. Shutter speed regulates the integration period of the chip. </p><div class="quote">  In higher-end cameras, the
+effective shutter speed can be as brief at 1/30,000s and as long as 2s. </div>
+<p class="noindent">Camera gain controls the overall amplification of the analog signal, prior to A/D conversion.
+However, it is very important to understand that, even though the image may appear brighter
+after setting high gain, the shutter speed and iris may not have changed at all. Thus gain
+merely amplifies the signal, and amplifies along with the signal all of the associated noise and
+error.
+</p>
+<div class="knowledge"><div class="knowledge-upper">Knowledge</div><div class="body">
+<p class="noindent">Although useful in applications where imaging is done for human <span class="margin-block">consumption, <span class="margin-comment"><a class="ellipsis" href="#m-ref-72">[72]</a>
+<span class="sidenote">e.g. photography,
+television.</span></span></span> gain is of little value to a mobile roboticist. </p></div></div>
+<p class="noindent">In colour cameras, an additional control exists for white balance. Depending on the source of
+illumination in a <span class="margin-block">scene <span class="margin-comment"><a class="ellipsis" href="#m-ref-73">[73]</a>
+<span class="sidenote">For example this could be fluorescent lamps, incandescent lamps, sunlight,
+underwater filtered light, etc.</span></span></span> the relative measurements of red, green and blue light which combine
+to define pure white light will change dramatically which can be seen in <b>Fig.</b> <a href="#x13-96003r18">3.18</a> which
+can also be adjusted with algorithms <span class="cite"><a class="cite-show" href="#w3-20001">[†-3]</a><span class="cite-detail"> <a id="x13-96002"></a>Hirakawa, K. &amp; Parks, T. Chromatic adaptation
+and white-balance problem in IEEE International Conference on Image Processing 2005
+<b>3</b> (2005), III–984</span></span>. The human eyes compensate for all such effects in ways that are not
+fully understood, however, the camera can demonstrate glaring inconsistencies in which the
+same table looks blue in one image, taken during the night, and yellow in another image,
+taken during the day. White balance controls enable the user to change the relative gain
+for red, green and blue in order to maintain more consistent color definitions in varying
+contexts.
+</p>
+<p class="noindent"></p><figure class="float">
+<a id="x13-96003r18"></a>
+<figcaption class="caption"><span class="id">Figure 3.18: 
+          </span><span class="content">Example of white balance. Here the same scene is emulated to be shot under different light conditions <span class="cite"><a class="cite-show" href="#w3-20001">[†-4]</a><span class="cite-detail">
+          Fstoppers. Is There a Difference Between Color Temperature and White Balance? 2022</span></span>.         </span></figcaption>
+<img alt="PIC" src="figures/Perception/raster/white-balance.jpg" style=""/>
+</figure>
+<p class="noindent">The key disadvantages of <span class="acronym"><span class="acronym-short"><a class="glossary" href="#glo:ccd">CCD</a></span><span class="acronym-detail"><span class="acronym-long"><a class="glossary" href="#glo:ccd">Charge Coupled Device</a></span><span class="acronym-desc"><a class="glossary" href="#glo:ccd">Charge Coupled Device</a></span></span></span> cameras are primarily in
+the areas of inconstancy and <b>dynamic range</b>.
+</p>
+<div class="info-block" id="info-block-3.11"> <a class="copiable-link" href="#info-block-3.11"> ¶</a> <span class="info-upper"> <span class="info-header"> <b>Information 3.<a id="x13-96005r11"></a>11: </b> </span> <span class="info-title"> Dynamic Range (in Photography) </span> </span> <div class="body">
+<p class="noindent">Dynamic range in photography describes the ratio between the maximum and minimum measurable
+light intensities (white and black, respectively). In the real world, one never encounters true white or
+black - only varying degrees of light source intensity and subject reflectivity. Therefore the concept of
+dynamic range becomes more complicated, and depends on whether you are describing a capture device
+(such as a camera or scanner), a display device (such as a print or computer display), or the subject
+itself.
+</p>
+</div></div>
+<p class="noindent">As mentioned above, a number of parameters can change the brightness and colours with which a
+camera creates its image.
+</p>
+<div class="knowledge"><div class="knowledge-upper">Knowledge</div><div class="body">
+<p class="noindent">Manipulating these parameters in a way to provide consistency over time and over environments, for
+example ensuring a green shirt always looks green, and something dark grey is always dark grey,
+remains an open problem <span class="cite"><a class="cite-show" href="#w3-20001">[†-5]</a><span class="cite-detail"> <a id="x13-96006"></a>Ilie, A. &amp; Welch, G. Ensuring color consistency across multiple cameras in
+Tenth IEEE International Conference on Computer Vision (ICCV’05) Volume 1 <b>2</b> (2005), 1268–1275</span></span>.
+</p></div></div>
+<p class="noindent">The second type of disadvantages relates to the behavior of a <span class="acronym"><span class="acronym-short"><a class="glossary" href="#glo:ccd">CCD</a></span><span class="acronym-detail"><span class="acronym-long"><a class="glossary" href="#glo:ccd">Charge Coupled Device</a></span><span class="acronym-desc"><a class="glossary" href="#glo:ccd">Charge
+Coupled Device</a></span></span></span> chip in environments with <span class="alert">extreme illumination</span>. In cases of very low illumination, each pixel will receive
+only a small number of photons. The longest possible shutter speed and camera <span class="margin-block">optics <span class="margin-comment"><a class="ellipsis" href="#m-ref-74">[74]</a>
+<span class="sidenote">i.e. pixel size,
+chip size, lens focal length and diameter.</span></span></span> will determine the minimum level of light for which the signal
+is stronger than random error noise. In cases of very high illumination, a pixel fills its well with free
+electrons and, as the well reaches its limit, the probability of trapping additional electrons falls and
+therefore the linearity between incoming light and electrons in the well degrades. This is termed
+<span class="margin-block"><span class="margin"><span>saturation <a class="ellipsis" href="#m-ref-75">[75]</a></span><span class="sidenote"><a class="copiable-link" href="#m-ref-75" id="m-ref-75"> ¶</a><span class="sidenote-image"><img alt="PIC" src="figures/Perception/raster/ccd-saturation.png" style=""/></span><span class="sidenote-text"><span class="ellipsis">[75]</span>Example of blooming caused by saturation of a sensor pixel. The sun is so bright in the
+image that there is blooming on the sun itself, leaking into the surrounding pixels, and a
+vertical smear across the whole image <span class="cite"><a class="cite-show" href="#w3-20001">[†-6]</a><span class="cite-detail"> <a id="x13-96007"></a>Teledyne. Saturation and Blooming 2025</span></span>.</span></span></span></span> and
+can indicate the existence of a further problem related to cross-sensitivity <span class="cite"><a class="cite-show" href="#w3-20001">[†-7]</a><span class="cite-detail"> <a id="x13-96008"></a>Zhang, Z.
+et al. Analysis and simulation to excessive saturation effect of CCD in 2nd International
+Symposium on Laser Interaction with Matter (LIMIS 2012) <b>8796</b> (2013), 96–102</span></span>. When a
+well has reached its limit, then additional light within the remainder of the integration
+period may cause further charge to leak into neighbouring pixels, causing them to report
+incorrect values or even reach secondary saturation. This effect, called blooming, means that
+individual pixel values are <b>NOT</b> truly <span class="alert">independent</span>. The camera parameters may be adjusted for an
+environment with a particular light level, but the problem remains that the dynamic range of
+a camera is limited by the well capacity of the individual pixels. </p><div class="quote">  For example, a high
+quality <span class="acronym"><span class="acronym-short"><a class="glossary" href="#glo:ccd">CCD</a></span><span class="acronym-detail"><span class="acronym-long"><a class="glossary" href="#glo:ccd">Charge Coupled Device</a></span><span class="acronym-desc"><a class="glossary" href="#glo:ccd">Charge Coupled Device</a></span></span></span> may have pixels that can hold
+<math display="inline"><mn>4</mn><mi>,</mi><mn>0</mn><mn>0</mn><mn>0</mn><mn>0</mn> <mi>×</mi> <mn>1</mn><msup><mrow><mn>0</mn></mrow><mrow><mn>4</mn></mrow></msup></math> electrons. The
+noise level for reading the well may be 11 electrons, and therefore the dynamic range will be 40,000:11, or 3,600:1,
+which is 35 <math display="inline"><mstyle mathvariant="normal"><mi>d</mi><mi>B</mi></mstyle></math>.
+</div>
+<div class="info-block" id="info-block-3.12"> <a class="copiable-link" href="#info-block-3.12"> ¶</a> <span class="info-upper"> <span class="info-header"> <b>Information 3.<a id="x13-96009r12"></a>12: </b> </span> <span class="info-title"> Quantum Efficiency </span> </span> <div class="body">
+<p class="noindent">Quantum efficiency (QE) is the measure of the effectiveness of an imaging device to convert incident
+photons into electrons. For example, if a sensor had a QE of 100% and was exposed to 100 photons, it
+would produce 100 electrons of signal.
+</p><p class="noindent">In practice, sensors are never 100% efficient, and different sensor technologies have different QE values.
+The highest-end scientific cameras can achieve up to 95% QE but this is dependent on the wavelength
+of light being detected, as seen in Figure 1.
+</p>
+</div></div>
+<p class="noindent"><div class="subsection-header"> <h4 id="header-subsection-3.2.2"> <a class="pdf-icon" href="AutonomousMobileRoboticsLectureBook.pdf#subsection.3.2.2"><svg class="bi bi-file-pdf" fill="currentColor" height="20" viewbox="0 0 16 16" width="20" xmlns="http://www.w3.org/2000/svg"><path d="M4 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H4zm0 1h8a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1z"></path><path d="M4.603 12.087a.81.81 0 0 1-.438-.42c-.195-.388-.13-.776.08-1.102.198-.307.526-.568.897-.787a7.68 7.68 0 0 1 1.482-.645 19.701 19.701 0 0 0 1.062-2.227 7.269 7.269 0 0 1-.43-1.295c-.086-.4-.119-.796-.046-1.136.075-.354.274-.672.65-.823.192-.077.4-.12.602-.077a.7.7 0 0 1 .477.365c.088.164.12.356.127.538.007.187-.012.395-.047.614-.084.51-.27 1.134-.52 1.794a10.954 10.954 0 0 0 .98 1.686 5.753 5.753 0 0 1 1.334.05c.364.065.734.195.96.465.12.144.193.32.2.518.007.192-.047.382-.138.563a1.04 1.04 0 0 1-.354.416.856.856 0 0 1-.51.138c-.331-.014-.654-.196-.933-.417a5.716 5.716 0 0 1-.911-.95 11.642 11.642 0 0 0-1.997.406 11.311 11.311 0 0 1-1.021 1.51c-.29.35-.608.655-.926.787a.793.793 0 0 1-.58.029zm1.379-1.901c-.166.076-.32.156-.459.238-.328.194-.541.383-.647.547-.094.145-.096.25-.04.361.01.022.02.036.026.044a.27.27 0 0 0 .035-.012c.137-.056.355-.235.635-.572a8.18 8.18 0 0 0 .45-.606zm1.64-1.33a12.647 12.647 0 0 1 1.01-.193 11.666 11.666 0 0 1-.51-.858 20.741 20.741 0 0 1-.5 1.05zm2.446.45c.15.162.296.3.435.41.24.19.407.253.498.256a.107.107 0 0 0 .07-.015.307.307 0 0 0 .094-.125.436.436 0 0 0 .059-.2.095.095 0 0 0-.026-.063c-.052-.062-.2-.152-.518-.209a3.881 3.881 0 0 0-.612-.053zM8.078 5.8a6.7 6.7 0 0 0 .2-.828c.031-.188.043-.343.038-.465a.613.613 0 0 0-.032-.198.517.517 0 0 0-.145.04c-.087.035-.158.106-.196.283-.04.192-.03.469.046.822.024.111.054.227.09.346z"></path></svg></a><span class="number">3.2.2</span> <span class="title"> <a id="x13-970003.2.2"></a>CMOS Technology</span></h4></div>
+</p>
+<p class="noindent"></p><figure class="float">
+<a id="x13-97001r19"></a>
+<figcaption class="caption"><span class="id">Figure 3.19: 
+          </span><span class="content">A close-up view of a <span class="acronym"><span class="acronym-short"><a class="glossary" href="#glo:cmos">CMOS</a></span><span class="acronym-detail"><span class="acronym-long"><a class="glossary" href="#glo:cmos">Complimentary MOS</a></span><span class="acronym-desc"><a class="glossary" href="#glo:cmos">Complimentary MOS</a></span></span></span> sensor and its circuitry <span class="cite"><a class="cite-show" href="#w3-20001">[†-8]</a><span class="cite-detail"> Baumer.
+          Operating principle and features of CMOS sensors 2025</span></span>.                               </span></figcaption>
+<img alt="PIC" src="figures/Perception/raster/cmos-sensor.jpg" style=""/>
+</figure>
+<p class="noindent">The Complementary Metal Oxide Semiconductor (<span class="acronym"><span class="acronym-short"><a class="glossary" href="#glo:cmos">CMOS</a></span><span class="acronym-detail"><span class="acronym-long"><a class="glossary" href="#glo:cmos">Complimentary MOS</a></span><span class="acronym-desc"><a class="glossary" href="#glo:cmos">Complimentary MOS</a></span></span></span>)
+chip is a significant departure from the <span class="acronym"><span class="acronym-short"><a class="glossary" href="#glo:ccd">CCD</a></span><span class="acronym-detail"><span class="acronym-long"><a class="glossary" href="#glo:ccd">Charge Coupled Device</a></span><span class="acronym-desc"><a class="glossary" href="#glo:ccd">Charge Coupled Device</a></span></span></span>. Similar
+to <span class="acronym"><span class="acronym-short"><a class="glossary" href="#glo:ccd">CCD</a></span><span class="acronym-detail"><span class="acronym-long"><a class="glossary" href="#glo:ccd">Charge Coupled Device</a></span><span class="acronym-desc"><a class="glossary" href="#glo:ccd">Charge Coupled Device</a></span></span></span>, it too has an array of pixels, but
+located alongside each pixel are <span class="alert">several transistors specific to that pixel</span>. Just as in <span class="acronym"><span class="acronym-short"><a class="glossary" href="#glo:ccd">CCD</a></span><span class="acronym-detail"><span class="acronym-long"><a class="glossary" href="#glo:ccd">Charge Coupled Device</a></span><span class="acronym-desc"><a class="glossary" href="#glo:ccd">Charge Coupled
+Device</a></span></span></span> chips, all of the pixels accumulate charge during the integration period. During the
+data collection step, the <span class="acronym"><span class="acronym-short"><a class="glossary" href="#glo:cmos">CMOS</a></span><span class="acronym-detail"><span class="acronym-long"><a class="glossary" href="#glo:cmos">Complimentary MOS</a></span><span class="acronym-desc"><a class="glossary" href="#glo:cmos">Complimentary MOS</a></span></span></span> takes a new
+approach:
+</p>
+<div class="quote"> The pixel-specific circuitry next to every pixel measures and amplifies the pixel’s signal, all in parallel
+for every pixel in the array. </div>
+<p class="noindent">Using more traditional traces from general semiconductor chips, the resulting pixel values are
+all carried to their destinations. <span class="acronym"><span class="acronym-short"><a class="glossary" href="#glo:cmos">CMOS</a></span><span class="acronym-detail"><span class="acronym-long"><a class="glossary" href="#glo:cmos">Complimentary MOS</a></span><span class="acronym-desc"><a class="glossary" href="#glo:cmos">Complimentary MOS</a></span></span></span> has a
+number of advantages over <span class="acronym"><span class="acronym-short"><a class="glossary" href="#glo:ccd">CCD</a></span><span class="acronym-detail"><span class="acronym-long"><a class="glossary" href="#glo:ccd">Charge Coupled Device</a></span><span class="acronym-desc"><a class="glossary" href="#glo:ccd">Charge Coupled Device</a></span></span></span> technologies.
+First and foremost, there is no need for the specialized clock drivers and circuitry required
+in the <span class="acronym"><span class="acronym-short"><a class="glossary" href="#glo:ccd">CCD</a></span><span class="acronym-detail"><span class="acronym-long"><a class="glossary" href="#glo:ccd">Charge Coupled Device</a></span><span class="acronym-desc"><a class="glossary" href="#glo:ccd">Charge Coupled Device</a></span></span></span> to transfer each pixel’s clock
+down all of the array columns and across all of its <span class="margin-block"><span class="margin"><span>rows. <a class="ellipsis" href="#m-ref-76">[76]</a></span><span class="sidenote"><a class="copiable-link" href="#m-ref-76" id="m-ref-76"> ¶</a><span class="sidenote-image"><img alt="PIC" src="figures/Perception/raster/cmos-camera-sensor.jpg" style=""/></span><span class="sidenote-text"><span class="ellipsis">[76]</span>-CAM80CUNX is an 8MP
+Ultra-lowlight MIPI CSI-2 camera capable of streaming 4K @ 44 fps. This 8MP camera is based on
+SONY STARVIS IMX415 CMOS image sensor <span class="cite"><a class="cite-show" href="#w3-20001">[†-9]</a><span class="cite-detail"> <a id="x13-97003"></a>econ Systems. CMOS camera module
+2025</span></span></span></span></span></span>
+</p>
+<div class="warning"><div class="warning-upper">Warning</div><div class="body">
+<p class="noindent">This also means that specialized semiconductor manufacturing processes are <b>NOT</b> required to create
+<span class="acronym"><span class="acronym-short"><a class="glossary" href="#glo:cmos">CMOS</a></span><span class="acronym-detail"><span class="acronym-long"><a class="glossary" href="#glo:cmos">Complimentary MOS</a></span><span class="acronym-desc"><a class="glossary" href="#glo:cmos">Complimentary MOS</a></span></span></span> chips. </p></div></div>
+<p class="noindent">Therefore, the same production lines creating microchips can create inexpensive <span class="acronym"><span class="acronym-short"><a class="glossary" href="#glo:cmos">CMOS</a></span><span class="acronym-detail"><span class="acronym-long"><a class="glossary" href="#glo:cmos">Complimentary
+MOS</a></span><span class="acronym-desc"><a class="glossary" href="#glo:cmos">Complimentary MOS</a></span></span></span> chips as well. The <span class="acronym"><span class="acronym-short"><a class="glossary" href="#glo:cmos">CMOS</a></span><span class="acronym-detail"><span class="acronym-long"><a class="glossary" href="#glo:cmos">Complimentary MOS</a></span><span class="acronym-desc"><a class="glossary" href="#glo:cmos">Complimentary
+MOS</a></span></span></span> chip is so much simpler that it consumes significantly less power, it operates with a
+power consumption a tenth the power consumption of a <span class="acronym"><span class="acronym-short"><a class="glossary" href="#glo:ccd">CCD</a></span><span class="acronym-detail"><span class="acronym-long"><a class="glossary" href="#glo:ccd">Charge Coupled Device</a></span><span class="acronym-desc"><a class="glossary" href="#glo:ccd">Charge
+Coupled Device</a></span></span></span> chip <span class="cite"><a class="cite-show" href="#w3-20001">[†-10]</a><span class="cite-detail"> <a id="x13-97004"></a>Holst, T. &amp; Lomheim, G. CMOS/CCD Sensors (JCD publishing,
+2007)</span></span>.
+</p>
+<div class="knowledge"><div class="knowledge-upper">Knowledge</div><div class="body">
+<p class="noindent">In a <span class="acronym"><span class="acronym-short"><a class="glossary" href="#glo:amr">AMR</a></span><span class="acronym-detail"><span class="acronym-long"><a class="glossary" href="#glo:amr">Autonomous Mobile Robotics</a></span><span class="acronym-desc"><a class="glossary" href="#glo:amr">Self-navigating machines moving materials and goods
+independently without fixed tracks or wires. They use smart software, cameras, and sensors to map
+spaces and safely steer around people or obstacles in real time.</a></span></span></span>, power is a scarce resource and therefore
+this is an important advantage. </p></div></div>
+<p class="noindent">On the other hand, the <span class="acronym"><span class="acronym-short"><a class="glossary" href="#glo:cmos">CMOS</a></span><span class="acronym-detail"><span class="acronym-long"><a class="glossary" href="#glo:cmos">Complimentary MOS</a></span><span class="acronym-desc"><a class="glossary" href="#glo:cmos">Complimentary MOS</a></span></span></span> chip also faces several
+disadvantages. </p>
+<ul class="itemize1">
+<li class="itemize">
+<p class="noindent">Most importantly, the circuitry next to each pixel consumes valuable real estate on the face
+of the light-detecting array. Many photons hit the transistors rather than the photodiode,
+making  the  <span class="acronym"><span class="acronym-short"><a class="glossary" href="#glo:cmos">CMOS</a></span><span class="acronym-detail"><span class="acronym-long"><a class="glossary" href="#glo:cmos">Complimentary  MOS</a></span><span class="acronym-desc"><a class="glossary" href="#glo:cmos">Complimentary  MOS</a></span></span></span>  chip  significantly  less
+sensitive than an equivalent <span class="acronym"><span class="acronym-short"><a class="glossary" href="#glo:ccd">CCD</a></span><span class="acronym-detail"><span class="acronym-long"><a class="glossary" href="#glo:ccd">Charge Coupled Device</a></span><span class="acronym-desc"><a class="glossary" href="#glo:ccd">Charge Coupled Device</a></span></span></span> chip.
+</p>
+</li>
+<li class="itemize">
+<p class="noindent"><span class="acronym"><span class="acronym-short"><a class="glossary" href="#glo:cmos">CMOS</a></span><span class="acronym-detail"><span class="acronym-long"><a class="glossary" href="#glo:cmos">Complimentary  MOS</a></span><span class="acronym-desc"><a class="glossary" href="#glo:cmos">Complimentary  MOS</a></span></span></span>,  compared  to  <span class="acronym"><span class="acronym-short"><a class="glossary" href="#glo:ccd">CCD</a></span><span class="acronym-detail"><span class="acronym-long"><a class="glossary" href="#glo:ccd">Charge  Coupled
+Device</a></span><span class="acronym-desc"><a class="glossary" href="#glo:ccd">Charge Coupled Device</a></span></span></span> is still finding ground in the marketplace, and as a result,
+the best resolution that one can purchase in <span class="acronym"><span class="acronym-short"><a class="glossary" href="#glo:cmos">CMOS</a></span><span class="acronym-detail"><span class="acronym-long"><a class="glossary" href="#glo:cmos">Complimentary MOS</a></span><span class="acronym-desc"><a class="glossary" href="#glo:cmos">Complimentary
+MOS</a></span></span></span> format continues to be far inferior to the best <span class="acronym"><span class="acronym-short"><a class="glossary" href="#glo:ccd">CCD</a></span><span class="acronym-detail"><span class="acronym-long"><a class="glossary" href="#glo:ccd">Charge Coupled Device</a></span><span class="acronym-desc"><a class="glossary" href="#glo:ccd">Charge
+Coupled Device</a></span></span></span> chips available.
+</p>
+</li>
+<li class="itemize">
+<p class="noindent"><span class="acronym"><span class="acronym-short"><a class="glossary" href="#glo:cmos">CMOS</a></span><span class="acronym-detail"><span class="acronym-long"><a class="glossary" href="#glo:cmos">Complimentary MOS</a></span><span class="acronym-desc"><a class="glossary" href="#glo:cmos">Complimentary MOS</a></span></span></span> sensors have a lower dynamic range,
+</p>
+</li>
+<li class="itemize">
+<p class="noindent"><span class="acronym"><span class="acronym-short"><a class="glossary" href="#glo:cmos">CMOS</a></span><span class="acronym-detail"><span class="acronym-long"><a class="glossary" href="#glo:cmos">Complimentary MOS</a></span><span class="acronym-desc"><a class="glossary" href="#glo:cmos">Complimentary MOS</a></span></span></span> sensors have higher levels of noise.</p></li></ul>
+<p class="noindent">Compared to the human eye, these chips all have worse performance, cross-sensitivity and a limited
+dynamic range. As a result, vision sensors today continue to be fragile. Only over time, as the
+underlying performance of imaging chips improves, will significantly more robust vision-based
+sensors for <span class="acronym"><span class="acronym-short"><a class="glossary" href="#glo:amr">AMR</a></span><span class="acronym-detail"><span class="acronym-long"><a class="glossary" href="#glo:amr">Autonomous Mobile Robotics</a></span><span class="acronym-desc"><a class="glossary" href="#glo:amr">Self-navigating machines moving materials
+and goods independently without fixed tracks or wires. They use smart software, cameras,
+and sensors to map spaces and safely steer around people or obstacles in real time.</a></span></span></span>s be
+available.
+</p>
+<div class="info-block" id="info-block-3.13"> <a class="copiable-link" href="#info-block-3.13"> ¶</a> <span class="info-upper"> <span class="info-header"> <b>Information 3.<a id="x13-97005r13"></a>13: </b> </span> <span class="info-title"> Shot Noise </span> </span> <div class="body">
+<p class="noindent">Also known as <span class="alert">Poisson noise</span>, it is a <span class="margin-block"><span class="margin"><span>type <a class="ellipsis" href="#m-ref-77">[77]</a></span><span class="sidenote"><a class="copiable-link" href="#m-ref-77" id="m-ref-77"> ¶</a><span class="sidenote-image"><img alt="PIC" src="figures/Perception/raster/shot-noise.jpg" style=""/></span><span class="sidenote-text"><span class="ellipsis">[77]</span>Photon noise simulation. Number of photons per pixel increases from
+left to right and from upper row to bottom row <span class="cite"><a class="cite-show" href="#w3-20001">[†-11]</a><span class="cite-detail"> <a id="x13-97006"></a>Mdf. A photon noise simulation 2010</span></span>.</span></span></span></span> of noise
+which can be modeled by a <i>Poisson process</i>.
+</p><p class="noindent">In electronics shot noise originates from the discrete nature of electric charge. Shot noise also occurs in
+photon counting in optical devices, where shot noise is associated with the particle nature of
+light.
+</p>
+</div></div>
+<p class="noindent"><div class="subsection-header"> <h4 id="header-subsection-3.2.3"> <a class="pdf-icon" href="AutonomousMobileRoboticsLectureBook.pdf#subsection.3.2.3"><svg class="bi bi-file-pdf" fill="currentColor" height="20" viewbox="0 0 16 16" width="20" xmlns="http://www.w3.org/2000/svg"><path d="M4 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H4zm0 1h8a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1z"></path><path d="M4.603 12.087a.81.81 0 0 1-.438-.42c-.195-.388-.13-.776.08-1.102.198-.307.526-.568.897-.787a7.68 7.68 0 0 1 1.482-.645 19.701 19.701 0 0 0 1.062-2.227 7.269 7.269 0 0 1-.43-1.295c-.086-.4-.119-.796-.046-1.136.075-.354.274-.672.65-.823.192-.077.4-.12.602-.077a.7.7 0 0 1 .477.365c.088.164.12.356.127.538.007.187-.012.395-.047.614-.084.51-.27 1.134-.52 1.794a10.954 10.954 0 0 0 .98 1.686 5.753 5.753 0 0 1 1.334.05c.364.065.734.195.96.465.12.144.193.32.2.518.007.192-.047.382-.138.563a1.04 1.04 0 0 1-.354.416.856.856 0 0 1-.51.138c-.331-.014-.654-.196-.933-.417a5.716 5.716 0 0 1-.911-.95 11.642 11.642 0 0 0-1.997.406 11.311 11.311 0 0 1-1.021 1.51c-.29.35-.608.655-.926.787a.793.793 0 0 1-.58.029zm1.379-1.901c-.166.076-.32.156-.459.238-.328.194-.541.383-.647.547-.094.145-.096.25-.04.361.01.022.02.036.026.044a.27.27 0 0 0 .035-.012c.137-.056.355-.235.635-.572a8.18 8.18 0 0 0 .45-.606zm1.64-1.33a12.647 12.647 0 0 1 1.01-.193 11.666 11.666 0 0 1-.51-.858 20.741 20.741 0 0 1-.5 1.05zm2.446.45c.15.162.296.3.435.41.24.19.407.253.498.256a.107.107 0 0 0 .07-.015.307.307 0 0 0 .094-.125.436.436 0 0 0 .059-.2.095.095 0 0 0-.026-.063c-.052-.062-.2-.152-.518-.209a3.881 3.881 0 0 0-.612-.053zM8.078 5.8a6.7 6.7 0 0 0 .2-.828c.031-.188.043-.343.038-.465a.613.613 0 0 0-.032-.198.517.517 0 0 0-.145.04c-.087.035-.158.106-.196.283-.04.192-.03.469.046.822.024.111.054.227.09.346z"></path></svg></a><span class="number">3.2.3</span> <span class="title"> <a id="x13-980003.2.3"></a>Visual Ranging Sensors</span></h4></div>
+</p><p class="noindent">Range sensing is extremely important in <span class="acronym"><span class="acronym-short"><a class="glossary" href="#glo:amr">AMR</a></span><span class="acronym-detail"><span class="acronym-long"><a class="glossary" href="#glo:amr">Autonomous Mobile Robotics</a></span><span class="acronym-desc"><a class="glossary" href="#glo:amr">Self-navigating machines
+moving materials and goods independently without fixed tracks or wires. They use smart software,
+cameras, and sensors to map spaces and safely steer around people or obstacles in real time.</a></span></span></span> as it is a
+basic input for successful obstacle avoidance. As we have seen earlier, a number of sensors are popular
+in <span class="acronym"><span class="acronym-short"><a class="glossary" href="#glo:amr">AMR</a></span><span class="acronym-detail"><span class="acronym-long"><a class="glossary" href="#glo:amr">Autonomous Mobile Robotics</a></span><span class="acronym-desc"><a class="glossary" href="#glo:amr">Self-navigating machines moving materials and goods
+independently without fixed tracks or wires. They use smart software, cameras, and sensors to
+map spaces and safely steer around people or obstacles in real time.</a></span></span></span>, specifically for their
+ability to recover depth estimates: </p><div class="quote">  ultrasonic, laser rangefinder, optical rangefinder, etc.
+</div>
+<p class="noindent">It is natural to attempt to implement ranging functionality using vision chips as well. However, a
+fundamental problem with visual images makes rangefinding relatively difficult.
+</p><p class="noindent">Any vision chip collapses the three-dimensional world into a two-dimensional image plane, thereby <span class="alert">losing depth information</span>. If
+one can make strong assumptions regarding the size of objects in the world, or their particular colour
+and reflectance, then one can directly interpret the appearance of the two-dimensional image to recover
+depth. But such assumptions are rarely possible in real-world <span class="acronym"><span class="acronym-short"><a class="glossary" href="#glo:amr">AMR</a></span><span class="acronym-detail"><span class="acronym-long"><a class="glossary" href="#glo:amr">Autonomous Mobile
+Robotics</a></span><span class="acronym-desc"><a class="glossary" href="#glo:amr">Self-navigating machines moving materials and goods independently without fixed tracks or
+wires. They use smart software, cameras, and sensors to map spaces and safely steer around people or
+obstacles in real time.</a></span></span></span> applications.
+</p>
+<div class="warning"><div class="warning-upper">Warning</div><div class="body">
+<p class="noindent">Without such assumptions, a single picture does <b>NOT</b> provide enough information to recover spatial
+information. </p></div></div>
+<p class="noindent">The general solution is to recover depth by looking at several images of the scene to gain more
+information, which will be hopefully enough to at least partially recover depth. The images used <span class="alert">must be different</span>, so
+that taken together they provide additional information. They could differ in viewpoint, which would
+allow the use of stereo or motion algorithms.
+</p><p class="noindent">An alternative is to create different images, <b>NOT</b> by changing the viewpoint, but by changing the
+camera geometry, such as the focus position or lens iris.
+</p>
+<div class="knowledge"><div class="knowledge-upper">Knowledge</div><div class="body">
+<p class="noindent">This is the fundamental idea behind depth from focus and depth from defocus techniques.
+</p></div></div>
+<p class="noindent">We will now look into the general approach to the depth from focus techniques as it presents a
+straightforward and efficient way to create a vision-based range sensor.
+</p>
+<p class="noindent"><div class="subsection-header"> <h4 id="header-subsection-3.2.4"> <a class="pdf-icon" href="AutonomousMobileRoboticsLectureBook.pdf#subsection.3.2.4"><svg class="bi bi-file-pdf" fill="currentColor" height="20" viewbox="0 0 16 16" width="20" xmlns="http://www.w3.org/2000/svg"><path d="M4 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H4zm0 1h8a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1z"></path><path d="M4.603 12.087a.81.81 0 0 1-.438-.42c-.195-.388-.13-.776.08-1.102.198-.307.526-.568.897-.787a7.68 7.68 0 0 1 1.482-.645 19.701 19.701 0 0 0 1.062-2.227 7.269 7.269 0 0 1-.43-1.295c-.086-.4-.119-.796-.046-1.136.075-.354.274-.672.65-.823.192-.077.4-.12.602-.077a.7.7 0 0 1 .477.365c.088.164.12.356.127.538.007.187-.012.395-.047.614-.084.51-.27 1.134-.52 1.794a10.954 10.954 0 0 0 .98 1.686 5.753 5.753 0 0 1 1.334.05c.364.065.734.195.96.465.12.144.193.32.2.518.007.192-.047.382-.138.563a1.04 1.04 0 0 1-.354.416.856.856 0 0 1-.51.138c-.331-.014-.654-.196-.933-.417a5.716 5.716 0 0 1-.911-.95 11.642 11.642 0 0 0-1.997.406 11.311 11.311 0 0 1-1.021 1.51c-.29.35-.608.655-.926.787a.793.793 0 0 1-.58.029zm1.379-1.901c-.166.076-.32.156-.459.238-.328.194-.541.383-.647.547-.094.145-.096.25-.04.361.01.022.02.036.026.044a.27.27 0 0 0 .035-.012c.137-.056.355-.235.635-.572a8.18 8.18 0 0 0 .45-.606zm1.64-1.33a12.647 12.647 0 0 1 1.01-.193 11.666 11.666 0 0 1-.51-.858 20.741 20.741 0 0 1-.5 1.05zm2.446.45c.15.162.296.3.435.41.24.19.407.253.498.256a.107.107 0 0 0 .07-.015.307.307 0 0 0 .094-.125.436.436 0 0 0 .059-.2.095.095 0 0 0-.026-.063c-.052-.062-.2-.152-.518-.209a3.881 3.881 0 0 0-.612-.053zM8.078 5.8a6.7 6.7 0 0 0 .2-.828c.031-.188.043-.343.038-.465a.613.613 0 0 0-.032-.198.517.517 0 0 0-.145.04c-.087.035-.158.106-.196.283-.04.192-.03.469.046.822.024.111.054.227.09.346z"></path></svg></a><span class="number">3.2.4</span> <span class="title"> <a id="x13-990003.2.4"></a>Depth from Focus</span></h4></div>
+</p>
+<p class="noindent"></p><figure class="float">
+<a id="x13-99001r20"></a>
+<figcaption class="caption"><span class="id">Figure 3.20: 
+          </span><span class="content">Depiction   of   the   camera   optics   and   its   impact   on   the   image.   To   get   a   sharp   image,
+          the   image   plane   must   coincide   with   the   focal   plane.   Otherwise   the   image   of   the   point
+          <math display="inline"><msup><mrow> <mrow><mo fence="true" form="prefix">(</mo><mrow><mi>x</mi><mo class="MathClass-punc" stretchy="false">,</mo><mspace class="thinspace" width="0.17em"></mspace><mi>y</mi><mo class="MathClass-punc" stretchy="false">,</mo><mspace class="thinspace" width="0.17em"></mspace><mi>z</mi></mrow><mo fence="true" form="postfix">)</mo></mrow></mrow><mrow></mrow></msup></math>
+          will be blurred in the image as can be seen in the drawing above.                          </span></figcaption>
+<img alt="PIC" src="figures/Perception/raster/camera-optics.png" style=""/>
+</figure>
+<p class="noindent">The depth from focus class of techniques relies on the fact that image properties <b>NOT</b> only
+change as a function of the <span class="alert">scene</span>, but also as a function of the <span class="alert">camera parameters</span>. The relationship between
+camera parameters and image properties is depicted in <b>Fig.</b> <a href="#x13-99001r20">3.20</a>. The fundamental
+equation governing image formation relates the distance of the object from the lens
+(<math display="inline"><mi>d</mi></math>) in <b>Fig.</b> <a href="#x13-99001r20">3.20</a>, to
+the distance (<math display="inline"><mi>e</mi></math>)
+from the lens to the focal point, based on the focal length
+(<math display="inline"><mi>f</mi></math>) of
+the lens:
+</p>
+<div class="highlight-eq-block"><table class="equation"><tr><td>
+<math class="equation" display="block">
+<mstyle class="label" id="x13-99002r7"></mstyle>
+<mfrac>
+<mrow>
+<mn>1</mn></mrow>
+<mrow>
+<mi>f</mi></mrow></mfrac>
+<mo class="MathClass-rel" stretchy="false">=</mo> <mfrac><mrow><mn>1</mn></mrow>
+<mrow>
+<mi>d</mi></mrow></mfrac> <mo class="MathClass-bin" stretchy="false">+</mo> <mfrac><mrow><mn>1</mn></mrow>
+<mrow>
+<mi>e</mi></mrow></mfrac>
+</math></td><td class="eq-no">(3.7)</td></tr></table>
+<p class="noindent"></p>
+<p class="noindent"></p></div>
+<p class="noindent">If the image plane is located at distance <math display="inline"><mi>e</mi></math>
+from the lens, then for the specific object <span class="margin-block">voxel <span class="margin-comment"><a class="ellipsis" href="#m-ref-78">[78]</a>
+<span class="sidenote">A three-dimensional counterpart
+to a pixel.</span></span></span> depicted, all light will be focused at a single point on the image plane
+and the object voxel will be focused. However, when the image plane is <b>NOT</b> at
+<math display="inline"><mi>e</mi></math>, as is
+seen in <b>Fig.</b> <a href="#x13-99001r20">3.20</a>, then the light from the object voxel will be cast on the image plane as a <span class="alert">blur circle</span>. To a first
+approximation, the light is homogeneously distributed throughout this blur circle, and the radius
+<math display="inline"><mi>R</mi></math> of the
+circle can be characterized according to the equation: </p><table class="equation"><tr><td>
+<math class="equation" display="block">
+<mstyle class="label" id="x13-99003r8"></mstyle>
+<mi>R</mi> <mo class="MathClass-rel" stretchy="false">=</mo> <mfrac><mrow><mi>L</mi><mi>δ</mi></mrow>
+<mrow>
+<mn>2</mn><mi>e</mi></mrow></mfrac>
+</math></td><td class="eq-no">(3.8)</td></tr></table>
+<p class="noindent"></p>
+<p class="noindent">where <math display="inline"><mi>L</mi></math> is the diameter of
+the lens or aperture and <math display="inline"><mi>δ</mi></math>
+is the displacement of the image plan from the focal point.
+</p>
+<p class="noindent"></p><figure class="float">
+<a id="x13-99004r21"></a>
+<figcaption class="caption"><span class="id">Figure 3.21: 
+          </span><span class="content">Three images of the same scene taken with a camera at three different focusing positions. Note the
+          significant change in texture sharpness between the near surface and far surface <span class="cite"><a class="cite-show" href="#w3-20001">[†-12]</a><span class="cite-detail"> Mark-j. Open Camera
+          Blog 2018</span></span>.                                                              </span></figcaption>
+<img alt="PIC" src="figures/Perception/raster/camera-focus.jpg" style=""/>
+</figure>
+<p class="noindent">Given these formulae, several basic optical effects are clear.
+</p>
+<div class="quote"> For example, if the <span class="margin-block">aperture <span class="margin-comment"><a class="ellipsis" href="#m-ref-79">[79]</a>
+<span class="sidenote">The aperture is the opening in the lens that allows light to enter the
+camera and onto the sensor or film.</span></span></span> or lens is reduced to a point, as in a pin-hole camera, then the
+radius of the blur circle approaches zero. </div>
+<p class="noindent">This is consistent with the fact that decreasing the iris aperture opening causes the depth of field to
+increase until all objects are in focus. Of course, the disadvantage of doing so is that we are
+allowing less light to form the image on the image plane and so this is practical only in bright
+circumstances.
+</p><p class="noindent">The second property to be deduced from these optics equations relates to the sensitivity of blurring as a
+function of the distance from the lens to the object.
+</p>
+<div class="quote">  Let’s assume the image plane is at a fixed distance of
+<math display="inline"><mn>1</mn><mi>,</mi><mn>2</mn></math> <math display="inline"><mstyle mathvariant="normal"><mi>m</mi></mstyle></math>
+from a lens with diameter <math display="inline"><mi>L</mi></math> =
+<math display="inline"><mn>2</mn><mn>0</mn></math> <math display="inline"><mstyle mathvariant="normal"><mi>c</mi><mi>m</mi></mstyle></math>
+and focal length <math display="inline"><mi>f</mi></math>
+= 0.5. We can see from <span> Eq. (<a href="#x13-99003r8">3.8</a>)</span>   the size of the blur circle
+(<math display="inline"><mi>R</mi></math>)
+changes proportionally with the image plane displacement. If the object is at distance
+<math display="inline"><mi>d</mi></math> =
+<math display="inline"><mn>1</mn></math> <math display="inline"><mstyle mathvariant="normal"><mi>m</mi></mstyle></math>,
+then from <span> Eq. (<a href="#x13-99002r7">3.7</a>)</span> we can compute <math display="inline"><mi>e</mi></math> =
+<math display="inline"><mn>1</mn></math> <math display="inline"><mstyle mathvariant="normal"><mi>m</mi></mstyle></math>
+and therefore <math display="inline"><mi>δ</mi> <mo class="MathClass-rel" stretchy="false">=</mo> <mn>0</mn><mo class="MathClass-punc" stretchy="false">.</mo><mn>2</mn></math>.
+</div>
+<p class="noindent">Increase the object distance to d = 2 and as a result = 0.533. Using Equation (4.20) in each case
+we can compute R = 0.02 R = 0.08 respectively. This demonstrates high sensitivity for
+defocusing when the object is close to the lens. In contrast suppose the object is at d = 10.
+In this case we compute e = 0.526. But if the object is again moved one unit, to d = 11,
+then we compute e = 0.524. Then resulting blur circles are R = 0.117 and R = 0.129, far
+less than the quadrupling in R when the obstacle is 1/10 the distance from the lens. This
+analysis demonstrates the fundamental limitation of depth from focus techniques: they
+lose sensitivity as objects move further away (given a fixed focal length). Interestingly, this
+limitation will turn out to apply to virtually all visual ranging techniques, including depth
+from stereo and depth from motion. Nevertheless, camera optics can be customised for the
+depth range of the intended application. For example, a "zoom" lens with a very large focal
+length f will enable range resolution at significant distances, of course at the expense of
+field of view. Similarly, a large lens diameter, coupled with a very fast shutter speed, will
+lead to larger, more detectable blur circles. Given the physical effects summarised by the
+above equations, one can imagine a visual ranging sensor that makes use of multiple images
+in which camera optics are varied (e.g. image plane displacement ) and the same scene is
+captured (see Fig. 4.20). In fact this approach is not a new invention. The human visual
+system uses an abundance of cues and techniques, and one system demonstrated in humans
+is depth from focus. Humans vary the focal length of their lens continuously at a rate of
+about 2 Hz. Such approaches, in which the lens optics are actively searched in order to
+maximise focus, are technically called depth from focus. In contrast, depth from defocus means
+that depth is recovered using a series of images that have been taken with different camera
+geometries.
+</p><p class="noindent">Depth from focus methods are one of the simplest visual ranging techniques. To determine the range to
+an object, the sensor simply moves the image plane, by focusing, until maximizing the sharpness of the
+object. When the sharpness is maximised, the corresponding position of the image plane directly
+reports range. Some autofocus cameras and virtually all autofocus video cameras use this technique. Of
+course, a method is required for measuring the sharpness of an image or an object within the image.
+T
+</p><p class="noindent">he most common techniques are approximate measurements of the sub-image gradient:
+</p><table class="equation"><tr><td>
+<math class="equation" display="block">
+<mstyle class="label" id="x13-99006r9"></mstyle><mtable class="aligned" displaystyle="true"><mtr><mtd columnalign="right"><msub><mrow><mstyle class="text"><mtext>sharpness</mtext></mstyle></mrow><mrow><mn>1</mn></mrow></msub></mtd>
+<mtd columnalign="left"> <mo class="MathClass-rel" stretchy="false">=</mo><munder class="msub"><mrow><mo> ∑</mo>
+</mrow><mrow><mi>x</mi><mo class="MathClass-punc" stretchy="false">,</mo><mspace class="thinspace" width="0.17em"></mspace><mi>y</mi></mrow></munder><mrow class="mathinner"><mspace class="negthinspace" width="-0.17em"></mspace> <mrow><mo fence="true" form="prefix">|</mo><mrow><mi>I</mi><msup><mrow> <mrow><mo fence="true" form="prefix">(</mo><mrow><mi>x</mi><mo class="MathClass-punc" stretchy="false">,</mo><mspace class="thinspace" width="0.17em"></mspace><mi>y</mi></mrow><mo fence="true" form="postfix">)</mo></mrow></mrow><mrow></mrow></msup> <mo class="MathClass-bin" stretchy="false">−</mo> <mi>I</mi><msup><mrow> <mrow><mo fence="true" form="prefix">(</mo><mrow><mi>x</mi> <mo class="MathClass-bin" stretchy="false">−</mo> <mn>1</mn><mo class="MathClass-punc" stretchy="false">,</mo><mspace class="thinspace" width="0.17em"></mspace><mi>y</mi></mrow><mo fence="true" form="postfix">)</mo></mrow></mrow><mrow></mrow></msup></mrow><mo fence="true" form="postfix">|</mo></mrow></mrow></mtd>
+<mtd columnalign="right"></mtd>
+</mtr><mtr><mtd columnalign="right"><msub><mrow><mstyle class="text"><mtext>sharpness</mtext></mstyle></mrow><mrow><mn>2</mn></mrow></msub></mtd><mtd columnalign="left"> <mo class="MathClass-rel" stretchy="false">=</mo><munder class="msub"><mrow><mo> ∑</mo>
+</mrow><mrow><mi>x</mi><mo class="MathClass-punc" stretchy="false">,</mo><mspace class="thinspace" width="0.17em"></mspace><mi>y</mi></mrow></munder><msup><mrow> <mrow><mo fence="true" form="prefix">(</mo><mrow><mi>I</mi><msup><mrow> <mrow><mo fence="true" form="prefix">(</mo><mrow><mi>x</mi><mo class="MathClass-punc" stretchy="false">,</mo><mspace class="thinspace" width="0.17em"></mspace><mi>y</mi></mrow><mo fence="true" form="postfix">)</mo></mrow></mrow><mrow></mrow></msup> <mo class="MathClass-bin" stretchy="false">−</mo> <mi>I</mi><msup><mrow> <mrow><mo fence="true" form="prefix">(</mo><mrow><mi>x</mi> <mo class="MathClass-bin" stretchy="false">−</mo> <mn>2</mn><mo class="MathClass-punc" stretchy="false">,</mo><mspace class="thinspace" width="0.17em"></mspace><mi>y</mi> <mo class="MathClass-bin" stretchy="false">−</mo> <mn>2</mn></mrow><mo fence="true" form="postfix">)</mo></mrow></mrow><mrow></mrow></msup></mrow><mo fence="true" form="postfix">)</mo></mrow></mrow><mrow><mn>2</mn></mrow></msup></mtd>
+</mtr> </mtable>
+</math></td><td class="eq-no">(3.9)</td></tr></table>
+<p class="noindent"></p>
+<p class="noindent">A significant advantage of the horizontal sum of differences technique given in <span> Eq. (<a href="#x13-99006r9">3.9</a>)</span>  is that the
+calculation can be implemented in analog circuitry using just a rectifier, a low-pass filter and a
+high-pass <span class="margin-block">filter. <span class="margin-comment"><a class="ellipsis" href="#m-ref-80">[80]</a>
+<span class="sidenote">This is a common approach in commercial cameras and video recorders.</span></span></span> Such systems
+will be sensitive to contrast along one particular axis, although in practical terms this is rarely an
+issue.
+</p><p class="noindent">However depth from focus is an active search method and will be slow as it takes time to
+change the focusing parameters of the camera, using for example a servo-controlled focusing
+ring.
+</p>
+<div class="warning"><div class="warning-upper">Warning</div><div class="body">
+<p class="noindent">For this reason this method has not been applied to <span class="acronym"><span class="acronym-short"><a class="glossary" href="#glo:amr">AMR</a></span><span class="acronym-detail"><span class="acronym-long"><a class="glossary" href="#glo:amr">Autonomous Mobile Robotics</a></span><span class="acronym-desc"><a class="glossary" href="#glo:amr">Self-navigating
+machines moving materials and goods independently without fixed tracks or wires. They use smart
+software, cameras, and sensors to map spaces and safely steer around people or obstacles in real time.</a></span></span></span>s.
+</p></div></div>
+<p class="noindent"><h5 class="subsubsectionHead" id="header-subsubsection-40"> <a id="x13-100000"></a>Case Study</h5>
+</p><p class="noindent">A variation of the depth from focus technique has been applied to a <span class="acronym"><span class="acronym-short"><a class="glossary" href="#glo:amr">AMR</a></span><span class="acronym-detail"><span class="acronym-long"><a class="glossary" href="#glo:amr">Autonomous Mobile
+Robotics</a></span><span class="acronym-desc"><a class="glossary" href="#glo:amr">Self-navigating machines moving materials and goods independently without fixed tracks or
+wires. They use smart software, cameras, and sensors to map spaces and safely steer around people or
+obstacles in real time.</a></span></span></span>, demonstrating obstacle avoidance in a variety of environments as well as
+avoidance of concave obstacles such as steps and ledges <span class="cite"><a class="cite-show" href="#w3-20001">[†-13]</a><span class="cite-detail"> <a id="x13-100001"></a>Nourbakhsh, I. R. et al. Mobile robot
+obstacle avoidance via depth from focus. Robotics and Autonomous Systems <b>22</b><b>,</b> 151–158 (1997)</span></span>. This
+robot uses three (<span class="alert">3</span>) monochrome cameras placed as close together as possible with different, fixed lens
+focus positions.
+Several times each second, all three frame-synchronised cameras simultaneously capture three images of
+the same scene. The images are each divided into five columns and three rows, or 15 subregions. The
+approximate sharpness of each region is computed using a variation of <span> Eq. (<a href="#x13-99006r9">3.9</a>)</span> , leading to a total of
+45 sharpness values. Note that Equation 22 calculates sharpness along diagonals but skips one
+row.
+</p><p class="noindent">This is due to a subtle but important issue. Many cameras produce images in <span class="alert">interlaced</span> mode. This means that
+the odd rows are captured first, then afterwards the even rows are captured. When such a camera is
+used in dynamic environments, for example on a moving robot, then adjacent rows show the dynamic
+scene at two different time points, differing by up to 1/30 seconds. The result is an artificial blurring
+due to motion and not optical defocus.
+</p>
+<div class="knowledge"><div class="knowledge-upper">Knowledge</div><div class="body">
+<p class="noindent">By comparing only even-number rows we avoid this interlacing side effect. </p></div></div>
+<p class="noindent">Recall that the three images are each taken with a camera using a different focus position. Based on
+the focusing position, we call each image close, medium or far. A 5x3 coarse depth map of
+the scene is constructed quickly by simply comparing the sharpness values of each three
+corresponding regions. Thus, the depth map assigns only two bits of depth information to
+each region using the values close, medium and far. The critical step is to adjust the focus
+positions of all three cameras so that flat ground in front of the obstacle results in medium
+readings in one row of the depth map. Then, unexpected readings of either close or far will
+indicate convex and concave obstacles respectively, enabling basic obstacle avoidance in the
+vicinity of objects on the ground as well as drop-offs into the ground. Although sufficient for
+obstacle avoidance, the above depth from focus algorithm presents unsatisfyingly coarse range
+information. The alternative is depth from defocus, the most desirable of the focus-based vision
+techniques. Depth from defocus methods take as input two or more images of the same
+scene, taken with different, known camera geometry. Given the images and the camera
+geometry settings, the goal is to recover the depth information of the three-dimensional
+scene represented by the images. We begin by deriving the relationship between the actual
+scene properties (irradiance and depth), camera geometry settings and the image g that is
+formed at the image plane. The focused image f(x,y) of a scene is defined as follows. Consider
+a pinhole aperture (L=0) in lieu of the lens. For every point p at position (x,y) on the
+image plane, draw a line through the pinhole aperture to the corresponding, visible point P
+in the actual scene. We define f(x,y) as the irradiance (or light intensity) at p due to the
+light from P. Intuitively, f(x,y) rep- resents the intensity image of the scene perfectly in
+focus
+</p><p class="noindent">The point spread function h(x , y , x , y , R ) is defined as the amount of irradiance g g f f x,y from
+point P in the scene (corresponding to (x , y ) in the focused image f that contributes ff to point (x , y )
+in the observed, defocused image g. Note that the point spread function gg depends not only upon the
+source, (x , y ), and the target, (x , y ), but also on R, the blur ff gg circle radius. R, in turn, depends
+upon the distance from point P to the lens, as can be seen by studying Equations (4.19) and (4.20).
+Given the assumption that the blur circle is homogeneous in intensity, we can define h as
+follows:
+</p>
+<table class="equation"><tr><td>
+<math class="equation" display="block">
+<mstyle class="label" id="x13-100002r10"></mstyle>
+<mi>h</mi><msup><mrow> <mrow><mo fence="true" form="prefix">(</mo><mrow><msubsup><mrow><mi>x</mi></mrow><mrow><mi>g</mi></mrow><mrow></mrow></msubsup><mo class="MathClass-punc" stretchy="false">,</mo><mspace class="thinspace" width="0.17em"></mspace><msubsup><mrow><mi>y</mi></mrow><mrow><mi>g</mi></mrow><mrow></mrow></msubsup><msubsup><mrow><mi>x</mi></mrow><mrow><mi>f</mi></mrow><mrow></mrow></msubsup><msubsup><mrow><mi>y</mi></mrow><mrow><mi>f</mi></mrow><mrow></mrow></msubsup><msubsup><mrow><mi>R</mi></mrow><mrow><mi>x</mi><mo class="MathClass-punc" stretchy="false">,</mo><mspace class="thinspace" width="0.17em"></mspace><mi>y</mi></mrow><mrow></mrow></msubsup></mrow><mo fence="true" form="postfix">)</mo></mrow> </mrow><mrow></mrow></msup>
+</math></td><td class="eq-no">(3.10)</td></tr></table>
+<p class="noindent"></p>
+<p class="noindent">Intuitively, point P contributes to the image pixel ( x , y ) only when the blur circle of point gg
+P contains the point (x , y ). Now we can write the general formula that computes the
+value gg ofeachpixelintheimage, (x, y),asafunctionofthepointspreadfunctionandthefocused
+image:
+</p><p class="noindent">This equation relates the depth of scene points via R to the observed image g. Solving for R would
+provide us with the depth map. However, this function has another unknown, and that is f, the focused
+image. Therefore, one image alone is insufficient to solve the depth recovery problem, assuming we do
+not know how the fully focused image would look. Given two images of the same scene, taken with
+varying camera geometry, in theory it will be possible to solve for g as well as R because f stays
+constant. There are a number of algo- rithms for implementing such a solution accurately
+and quickly. The classical approach is known as inverse filtering because it attempts to
+directly solve for R, then extract depth in- formation from this solution. One special case of
+the inverse filtering solution has been demonstrated with a real sensor. Suppose that the
+incoming light is split and sent to two cameras, one with a large aperture and the other
+with a pinhole aperture [94]. The pinhole aperture results in a fully focused image, directly
+providing the value of f. With this ap- proach, there remains a single equation with a single
+unknown, and so the solution is straightforward. Pentland has demonstrated such a sensor, with
+several meters of range and better than 97% accuracy. Note, however, that the pinhole
+aperture necessitates a large amount of incoming light, and that furthermore the actual image
+intensities must be normal- ized so that the pinhole and large-diameter images have equivalent
+total radiosity. More re- cent depth from defocus methods use statistical techniques and
+characterization of the problem as a set of linear equations [93]. These matrix-based methods have
+recently achieved significant improvements in accuracy over all previous work. In summary,
+the basic advantage of the depth from defocus method is its extremely fast speed. The
+equations above do not require search algorithms to find the solution, as would the correlation
+problem faced by depth from stereo methods. Perhaps more importantly, the depth from
+defocus methods also need not capture the scene at different perspectives, and are therefore
+unaffected by occlusions and the disappearance of objects in a second view. As with all visual
+methods for ranging, accuracy decreases with distance. Indeed, the accu- racy can be extreme;
+these methods have been used in microscopy to demonstrate ranging at the micrometer
+level.
+</p>
+<p class="noindent"><h5 class="subsubsectionHead" id="header-subsubsection-41"> <a id="x13-101000"></a>Stereo Vision</h5>
+</p><p class="noindent">Stereo vision is one of several techniques in which we <b>recover depth information</b> from two (<span class="alert">2</span>) images
+depicting the scene from <span class="alert">different perspectives</span>.
+</p>
+<div class="knowledge"><div class="knowledge-upper">Knowledge</div><div class="body">
+<p class="noindent">The theory of depth from stereo <span class="alert">has been well understood for years</span>, while the <span class="alert">engineering challenge of creating a practical stereo</span> sensor has been formidable [15, 16, 22]. </p></div></div>
+<p class="noindent">Recent times have seen the first successes on this front, and so after presenting a basic formalism of
+stereo ranging, we describe the state of the art algorithmic approach and one of the recent,
+commercially available stereo sensors.
+</p>
+<p class="noindent"><span class="paragraphHead"> <a id="x13-102000"></a>Geometry of a Stereo</span>
+First, we consider a simplified case in which two (<span class="alert">2</span>) cameras are placed with their optical axes parallel,
+at a <span class="margin-block">separation <span class="margin-comment"><a class="ellipsis" href="#m-ref-81">[81]</a>
+<span class="sidenote">This is also known as the <i>baseline</i>.</span></span></span> of <i>b</i>, shown in Figure 4.22.
+</p><p class="noindent">In this figure, a point on the object is described as being at coordinate
+<math display="inline"><mo class="MathClass-open" stretchy="false">(</mo><mi>x</mi><mo class="MathClass-punc" stretchy="false">,</mo><mi>y</mi><mo class="MathClass-punc" stretchy="false">,</mo><mi>z</mi><mo class="MathClass-close" stretchy="false">)</mo></math> with
+respect to a central origin located between the two (<span class="alert">2</span>) camera lenses. The position of this point’s light
+rays on each camera’s image is depicted in camera-specific local coordinates.
+</p><p class="noindent">Therefore, the origin for the coordinate frame referenced by points of the form
+<math display="inline"><mo class="MathClass-open" stretchy="false">(</mo><msub><mrow><mi>x</mi></mrow><mrow><mi>l</mi></mrow></msub><mo class="MathClass-punc" stretchy="false">,</mo><msub><mrow><mi>y</mi></mrow><mrow><mi>l</mi></mrow></msub><mo class="MathClass-close" stretchy="false">)</mo></math> is located at the
+center of lens <math display="inline"><mi>l</mi></math>.
+</p><p class="noindent">From the figure 4.22, it can be seen that </p><table class="equation"><tr><td>
+<math class="equation" display="block">
+<mstyle class="label" id="x13-102001r11"></mstyle>
+<mfrac>
+<mrow>
+<msub><mrow><mi>x</mi></mrow><mrow><mi>l</mi></mrow></msub></mrow>
+<mrow>
+<mi>f</mi></mrow></mfrac>
+<mo class="MathClass-rel" stretchy="false">=</mo> <mfrac><mrow><mi>x</mi> <mo class="MathClass-bin" stretchy="false">+</mo> <mi>b</mi><mo class="MathClass-bin" stretchy="false">/</mo><mn>2</mn></mrow>
+<mrow>
+<mi>z</mi></mrow></mfrac> <mspace class="qquad" width="2em"></mspace><mstyle class="text"><mtext>and</mtext></mstyle><mspace class="qquad" width="2em"></mspace><mfrac><mrow><msub><mrow><mi>x</mi></mrow><mrow><mi>r</mi></mrow></msub></mrow>
+<mrow>
+<mi>f</mi></mrow></mfrac> <mo class="MathClass-rel" stretchy="false">=</mo> <mfrac><mrow><mi>x</mi> <mo class="MathClass-bin" stretchy="false">−</mo> <mi>b</mi><mo class="MathClass-bin" stretchy="false">/</mo><mn>2</mn></mrow>
+<mrow>
+<mi>z</mi></mrow></mfrac>
+</math></td><td class="eq-no">(3.11)</td></tr></table>
+<p class="noindent"></p>
+<p class="noindent">and (out of the plane of the page)
+</p>
+<p class="noindent"><span class="paragraphHead"> <a id="x13-103000"></a>Zero crossings of Laplacian of Gaussian</span>
+</p>
+<p class="noindent"></p><figure class="float">
+<p class="noindent"> <img alt="PIC" src="figures/Perception/figures-9.png" style=""/> <a id="x13-103001r22"></a>
+</p>
+<figcaption class="caption"><span class="id">Figure 3.22: </span><span class="content"> </span></figcaption>
+</figure>
+<p class="noindent">The zero crossings of Laplacian of Gaussian (ZLoG) is a strategy for identifying features in the left and
+right camera images that are stable and will match well, giving high-quality stereo depth
+recovery.
+</p><p class="noindent">This approach has seen tremendous success in the field of <b>stereo vision</b>, having been implemented
+commercially in both software and hardware with good results. It has led to several commercial stereo
+vision systems and yet it is extremely simple.
+</p><p class="noindent">Here we aim to summarize the approach and explain some of its advantages.
+</p><p class="noindent">The core idea of ZLoG is the <i>Laplacian</i> transformation of an image. Intuitively, this is nothing more than the
+<math display="inline"><msup><mrow><mstyle class="text"><mtext>2</mtext></mstyle></mrow><mrow><mstyle class="text"><mtext>nd</mtext></mstyle></mrow></msup></math> derivative. Formally,
+the Laplacian <math display="inline"><mstyle mathvariant="script"><mi>L</mi></mstyle><mo class="MathClass-open" stretchy="false">(</mo><mi>x</mi><mo class="MathClass-punc" stretchy="false">,</mo><mi>y</mi><mo class="MathClass-close" stretchy="false">)</mo></math> of an
+image with intensities <math display="inline"><mi>I</mi><mo class="MathClass-open" stretchy="false">(</mo><mi>x</mi><mo class="MathClass-punc" stretchy="false">,</mo><mi>y</mi><mo class="MathClass-close" stretchy="false">)</mo></math>
+is defined as: </p><table class="equation"><tr><td>
+<math class="equation" display="block">
+<mstyle class="label" id="x13-103002r12"></mstyle>
+<mstyle mathvariant="script"><mi>L</mi></mstyle>
+<mo class="MathClass-open" stretchy="false">(</mo><mi>x</mi><mo class="MathClass-punc" stretchy="false">,</mo><mi>y</mi><mo class="MathClass-close" stretchy="false">)</mo> <mo class="MathClass-rel" stretchy="false">=</mo> <mstyle displaystyle="true"><mfrac><mrow><msup><mrow><mi>∂</mi></mrow><mrow><mn>2</mn></mrow></msup><mi>I</mi>
+</mrow><mrow><mi>∂</mi><msup><mrow><mi>x</mi></mrow><mrow><mn>2</mn></mrow></msup></mrow></mfrac></mstyle> <mo class="MathClass-bin" stretchy="false">+</mo> <mstyle displaystyle="true"><mfrac><mrow><msup><mrow><mi>∂</mi></mrow><mrow><mn>2</mn></mrow></msup><mi>I</mi>
+</mrow><mrow><mi>∂</mi><msup><mrow><mi>y</mi></mrow><mrow><mn>2</mn></mrow></msup></mrow></mfrac></mstyle>
+</math></td><td class="eq-no">(3.12)</td></tr></table>
+<p class="noindent"></p>
+<p class="noindent">So the Laplacian represents the second derivative of the image, and is computed along both axes. Such
+a transformation, called a <b>convolution</b>, must be computed over the discrete space of image pixel
+values, and therefore an approximation of Equation (4.35) is required for ap- plication:
+</p><table class="equation"><tr><td>
+<math class="equation" display="block">
+<mstyle class="label" id="x13-103003r13"></mstyle>
+<mstyle mathvariant="script"><mi>L</mi></mstyle>
+<mo class="MathClass-rel" stretchy="false">=</mo> <mi>P</mi> <mi>⊗</mi> <mi>I</mi>
+</math></td><td class="eq-no">(3.13)</td></tr></table>
+<p class="noindent"></p>
+<p class="noindent">We depict a discrete operator <math display="inline"><mi>P</mi></math>,
+called a <b>kernel</b>, that approximates the second derivative operation along both axes as a 3 x 3 table:
+</p><table class="equation"><tr><td>
+<math class="equation" display="block">
+<mstyle class="label" id="x13-103004r14"></mstyle>
+<mrow><mo fence="true" form="prefix">[</mo><mrow><mtable align="axis" class="array" columnlines="none none none none none none none none none" displaystyle="true" equalcolumns="false" equalrows="false" style=""><mtr class="array-row"><mtd class="array-td" columnalign="center"> <mn>0</mn> </mtd><mtd class="array-td" columnalign="center"> <mn>1</mn> </mtd><mtd class="array-td" columnalign="center"> <mn>0</mn> </mtd></mtr> <mtr class="array-row"><mtd class="array-td" columnalign="center"> <mn>1</mn> </mtd> <mtd class="array-td" columnalign="center"> <mo class="MathClass-bin" stretchy="false">−</mo><mn>4</mn> </mtd> <mtd class="array-td" columnalign="center"> <mn>1</mn></mtd>
+</mtr>
+<mtr class="array-row"><mtd class="array-td" columnalign="center"> <mn>0</mn> </mtd>
+<mtd class="array-td" columnalign="center"> <mn>1</mn> </mtd>
+<mtd class="array-td" columnalign="center"> <mn>0</mn> </mtd>
+</mtr>
+</mtable>
+</mrow><mo fence="true" form="postfix">]</mo></mrow>
+</math></td><td class="eq-no">(3.14)</td></tr></table>
+<p class="noindent"></p>
+<p class="noindent">Application of the kernel <math display="inline"><mi>P</mi></math>
+to convolve an image is straightforward. The kernel defines the contribution of each pixel in the image
+to the corresponding pixel in the target as well as its neighbors. </p><div class="quote">  For example, if a pixel
+<math display="inline"><mo class="MathClass-open" stretchy="false">(</mo><mn>5</mn><mo class="MathClass-punc" stretchy="false">,</mo><mn>5</mn><mo class="MathClass-close" stretchy="false">)</mo></math> in the
+image <math display="inline"><mi>I</mi></math> has
+value <math display="inline"><mi>I</mi><mo class="MathClass-open" stretchy="false">(</mo><mn>5</mn><mo class="MathClass-punc" stretchy="false">,</mo><mn>5</mn><mo class="MathClass-close" stretchy="false">)</mo> <mo class="MathClass-rel" stretchy="false">=</mo> <mn>1</mn><mn>0</mn></math>,
+then application of the kernel depicted by Eq. (<a href="#x13-103004r14">3.14</a>) causes pixel
+<math display="inline"><mi>I</mi><mo class="MathClass-open" stretchy="false">(</mo><mn>5</mn><mo class="MathClass-punc" stretchy="false">,</mo><mn>5</mn><mo class="MathClass-close" stretchy="false">)</mo></math> to make the following
+contributions to the target image <math display="inline"><mstyle mathvariant="script"><mi>L</mi></mstyle></math>:
+<table class="equation-star"><tr><td>
+<math class="equation" display="block">
+<mtable class="aligned" displaystyle="true"><mtr><mtd columnalign="right"><mi>L</mi><mo class="MathClass-open" stretchy="false">(</mo><mn>4</mn><mo class="MathClass-punc" stretchy="false">,</mo><mn>5</mn><mo class="MathClass-close" stretchy="false">)</mo><mo class="MathClass-bin" stretchy="false">+</mo> <mo class="MathClass-rel" stretchy="false">=</mo> <mn>1</mn><mn>0</mn><mo class="MathClass-punc" stretchy="false">;</mo></mtd>
+<mtd columnalign="left"></mtd>
+<mtd columnalign="right"><mi>L</mi><mo class="MathClass-open" stretchy="false">(</mo><mn>5</mn><mo class="MathClass-punc" stretchy="false">,</mo><mn>5</mn><mo class="MathClass-close" stretchy="false">)</mo><mo class="MathClass-bin" stretchy="false">+</mo> <mo class="MathClass-rel" stretchy="false">=</mo> <mo class="MathClass-bin" stretchy="false">−</mo><mn>4</mn><mn>0</mn><mo class="MathClass-punc" stretchy="false">;</mo></mtd>
+<mtd columnalign="left"><mi>L</mi><mo class="MathClass-open" stretchy="false">(</mo><mn>6</mn><mo class="MathClass-punc" stretchy="false">,</mo><mn>5</mn><mo class="MathClass-close" stretchy="false">)</mo><mo class="MathClass-bin" stretchy="false">+</mo> <mo class="MathClass-rel" stretchy="false">=</mo> <mn>1</mn><mn>0</mn><mo class="MathClass-punc" stretchy="false">;</mo></mtd>
+<mtd columnalign="right"></mtd>
+</mtr><mtr><mtd columnalign="right"><mi>L</mi><mo class="MathClass-open" stretchy="false">(</mo><mn>5</mn><mo class="MathClass-punc" stretchy="false">,</mo><mn>4</mn><mo class="MathClass-close" stretchy="false">)</mo><mo class="MathClass-bin" stretchy="false">+</mo> <mo class="MathClass-rel" stretchy="false">=</mo> <mn>1</mn><mn>0</mn><mo class="MathClass-punc" stretchy="false">;</mo></mtd><mtd columnalign="left"></mtd><mtd columnalign="right"></mtd> <mtd columnalign="left"><mi>L</mi><mo class="MathClass-open" stretchy="false">(</mo><mn>5</mn><mo class="MathClass-punc" stretchy="false">,</mo><mn>6</mn><mo class="MathClass-close" stretchy="false">)</mo><mo class="MathClass-bin" stretchy="false">+</mo> <mo class="MathClass-rel" stretchy="false">=</mo> <mn>1</mn><mn>0</mn><mo class="MathClass-punc" stretchy="false">;</mo></mtd>
+</mtr> </mtable>
+</math></td></tr></table>
+</div>
+<p class="noindent">Now consider the graphical example of a <b>step function</b>, representing a pixel row in which the
+intensities are dark, then suddenly there is a jump to very bright intensities. The second derivative
+will have a sharp positive peak followed by a sharp negative peak, as depicted in Figure
+(4.23).
+</p><p class="noindent">The Laplacian is used because of this extreme sensitivity to changes in the image. But the second
+derivative is in fact over-sensitive. We would like the <i>Laplacian</i> to trigger large peaks due to real
+changes in the scenes intensities, but we would like to keep signal noise from triggering false
+peaks.
+</p><p class="noindent">For the purpose of removing noise due to sensor error, the ZLoG algorithm applies Gaussian smoothing
+first, then executes the Laplacian convolution. Such smoothing can be effected via convolution with a
+<math display="inline"><mn>3</mn> <mi>×</mi> <mn>3</mn></math> table
+that approximates Gaussian smoothing: </p><table class="equation"><tr><td>
+<math class="equation" display="block">
+<mstyle class="label" id="x13-103005r15"></mstyle>
+<mrow><mo fence="true" form="prefix">[</mo><mrow><mtable align="axis" class="array" columnlines="none none none none none none none none none" displaystyle="true" equalcolumns="false" equalrows="false" style=""><mtr class="array-row"><mtd class="array-td" columnalign="center"> <mfrac><mrow><mn>1</mn></mrow>
+<mrow>
+<mn>1</mn><mn>6</mn></mrow></mfrac> </mtd>
+<mtd class="array-td" columnalign="center"> <mfrac><mrow><mn>2</mn></mrow>
+<mrow>
+<mn>1</mn><mn>6</mn></mrow></mfrac> </mtd>
+<mtd class="array-td" columnalign="center"> <mfrac><mrow><mn>1</mn></mrow>
+<mrow>
+<mn>1</mn><mn>6</mn></mrow></mfrac> </mtd>
+</mtr> <mtr class="array-row"><mtd class="array-td" columnalign="center"> <mfrac><mrow><mn>2</mn></mrow>
+<mrow>
+<mn>1</mn><mn>6</mn></mrow></mfrac> </mtd><mtd class="array-td" columnalign="center"> <mfrac><mrow><mn>4</mn></mrow>
+<mrow>
+<mn>1</mn><mn>6</mn></mrow></mfrac> </mtd><mtd class="array-td" columnalign="center"> <mfrac><mrow><mn>2</mn></mrow>
+<mrow>
+<mn>1</mn><mn>6</mn></mrow></mfrac> </mtd>
+</mtr>
+<mtr class="array-row"><mtd class="array-td" columnalign="center"> <mfrac><mrow><mn>1</mn></mrow>
+<mrow>
+<mn>1</mn><mn>6</mn></mrow></mfrac> </mtd>
+<mtd class="array-td" columnalign="center"> <mfrac><mrow><mn>2</mn></mrow>
+<mrow>
+<mn>1</mn><mn>6</mn></mrow></mfrac> </mtd>
+<mtd class="array-td" columnalign="center"> <mfrac><mrow><mn>1</mn></mrow>
+<mrow>
+<mn>1</mn><mn>6</mn></mrow></mfrac> </mtd>
+</mtr>
+</mtable>
+</mrow><mo fence="true" form="postfix">]</mo></mrow>
+</math></td><td class="eq-no">(3.15)</td></tr></table>
+<p class="noindent"></p>
+<p class="noindent">Gaussian smoothing does <b>NOT</b> really remove error, it merely distributes image variations over larger
+areas. This should seem familiar.
+</p>
+<div class="knowledge"><div class="knowledge-upper">Knowledge</div><div class="body">
+<p class="noindent">In fact, Gaussian smoothing is almost identical to the <span class="alert">blurring caused by defocused optics</span>. </p></div></div>
+<p class="noindent">It is, nonetheless, very <b>effective at removing high frequency noise</b>, just as blurring removes
+fine-grained detail. Note that, like defocusing, this kernel does not change the total illumination but
+merely redistributes <span class="margin-block">it. <span class="margin-comment"><a class="ellipsis" href="#m-ref-82">[82]</a>
+<span class="sidenote">This effect is accomplished by the divisor 16.</span></span></span>
+</p><p class="noindent">The result of Laplacian of Gaussian (LoG) image filtering is a target array with sharp positive and
+negative spikes identifying boundaries of change in the original image. </p><div class="quote">  For example, a sharp edge in
+the image will result in both a positive spike and a negative spike, located on either side of the edge.
+</div>
+<p class="noindent">To solve the correspondence problem, we would like to identify specific features in LoG that are
+amenable to matching between the left camera and right camera filtered images. A very effective
+feature has been to identify each zero crossing of the LoG as such a feature.
+</p><p class="noindent">Many zero crossings do lie at edges in images, but their occurrence is somewhat broader than
+that. An interesting characteristic of zero crossings is that they are very sharply defined,
+covering just one “pixel” width in the filtered image. The accuracy can even be further
+enhanced by using interpolation to establish the position of the zero crossing with sub-pixel
+accuracy.
+</p><p class="noindent">All told, the accuracy of the zero crossing features in ZLoG have made them the preferred features in
+state-of-the-art stereo depth recovery algorithms.
+</p>
+<p class="noindent"><h5 class="subsubsectionHead" id="header-subsubsection-42"> <a id="x13-104000"></a>Motion and Optical Flow</h5>
+</p><p class="noindent">A great deal of information can be recovered by recording time varying images from a <span class="margin-block">fixed <span class="margin-comment"><a class="ellipsis" href="#m-ref-83">[83]</a>
+<span class="sidenote">or moving.</span></span></span>
+camera.
+</p><p class="noindent">Firstly we distinguish between the motion field and optical flow: </p>
+<dl class="description"><dt class="description"><a id="x13-104001x3.2.4.0"></a>
+<span style="color:#0A2A0A;">Motion field</span>
+</dt><dd class="description">
+<p class="noindent"> this assigns a velocity vector to every point in an image. If a point in the environment moves
+with velocity <math display="inline"><msubsup><mrow><mi>v</mi></mrow><mrow><mi>o</mi></mrow><mrow></mrow></msubsup></math>
+, then this induces a velocity <math display="inline"><msubsup><mrow><mi>v</mi></mrow><mrow><mi>i</mi></mrow><mrow></mrow></msubsup></math>
+in the image plane. It is possible to determine mathematically the relationship between
+<math display="inline"><msubsup><mrow><mi>v</mi></mrow><mrow><mi>i</mi></mrow><mrow></mrow></msubsup></math>
+and <math display="inline"><msubsup><mrow><mi>v</mi></mrow><mrow><mi>o</mi></mrow><mrow></mrow></msubsup></math>.
+</p>
+</dd>
+<dt class="description"><a id="x13-104002x3.2.4.0"></a>
+<span style="color:#0A2A0A;">Optical Flow</span>
+</dt><dd class="description">
+<p class="noindent"> :it can also be true that brightness patterns in the image move as the object that causes
+them moves (light source). Optical flow is the apparent motion of these brightness patterns.</p></dd></dl>
+<p class="noindent">In our analysis here we assume that the optical flow pattern will correspond to the motion field,
+although this is not always true in practice. This is illustrated in figure 4.26a where a sphere exhibits
+spatial variation of brightness, or shading, in the image of the sphere since its surface is curved. If the
+surface moves however, this shading pattern will not move - hence the optical flow is zero everywhere
+even though the motion field is not zero. In figure 4.26a, the opposite occurs. Here we have
+a fixed sphere with a moving light source. The shading in the image will change as the
+source moves. In this case the optical flow is nonzero but the motion field is zero. If the only
+information accessible to us is the optical flow and we depend on this, we will get false
+results.
+</p>
+<p class="noindent"><span class="paragraphHead"> <a id="x13-105000"></a>Optical Flow</span>
+Let E (x, y, t) be the image irradiance at time t at the image point (x, y). If u (x, y) and v (x, y) are
+the x and y components of the optical flow vector at that point, we need to search a new image for a
+point where the irradiance will be the same at time t+t, i.e.: at point (x+x, y+y), where x = ut and x
+= ut. i.e:
+</p>
+<table class="equation"><tr><td>
+<math class="equation" display="block">
+<mstyle class="label" id="x13-105001r16"></mstyle>
+<mi>E</mi><msup><mrow> <mrow><mo fence="true" form="prefix">(</mo><mrow><mi>x</mi> <mo class="MathClass-bin" stretchy="false">+</mo> <mi>δ</mi><mi>t</mi><mo class="MathClass-punc" stretchy="false">,</mo><mspace class="thinspace" width="0.17em"></mspace><mi>y</mi> <mo class="MathClass-bin" stretchy="false">+</mo> <mi>v</mi><mi>δ</mi><mi>t</mi><mo class="MathClass-punc" stretchy="false">,</mo><mspace class="thinspace" width="0.17em"></mspace><mi>t</mi> <mo class="MathClass-bin" stretchy="false">+</mo> <mi>δ</mi><mi>t</mi></mrow><mo fence="true" form="postfix">)</mo></mrow></mrow><mrow></mrow></msup> <mo class="MathClass-rel" stretchy="false">=</mo> <mi>E</mi><msup><mrow> <mrow><mo fence="true" form="prefix">(</mo><mrow><mi>x</mi><mo class="MathClass-punc" stretchy="false">,</mo><mspace class="thinspace" width="0.17em"></mspace><mi>y</mi><mo class="MathClass-punc" stretchy="false">,</mo><mspace class="thinspace" width="0.17em"></mspace><mi>t</mi></mrow><mo fence="true" form="postfix">)</mo></mrow></mrow><mrow></mrow></msup>
+</math></td><td class="eq-no">(3.16)</td></tr></table>
+<p class="noindent"></p>
+<p class="noindent">for a small time interval <math display="inline"><mi>δ</mi><mi>t</mi></math>.
+From this single constraint u and v cannot be determined unique- ly. We therefore use the fact that the
+optical flow field should be continuous almost every- where. Hence if brightness varies smoothly with x,
+y and t we can expand the left hand side
+</p>
+<p class="noindent"><h5 class="subsubsectionHead" id="header-subsubsection-43"> <a id="x13-106000"></a>Colour Tracking Sensors</h5>
+</p><p class="noindent">While depth from stereo will definitely prove to be a popular application of vision-based methods to
+<span class="acronym"><span class="acronym-short"><a class="glossary" href="#glo:amr">AMR</a></span><span class="acronym-detail"><span class="acronym-long"><a class="glossary" href="#glo:amr">Autonomous Mobile Robotics</a></span><span class="acronym-desc"><a class="glossary" href="#glo:amr">Self-navigating machines moving materials and goods independently
+without fixed tracks or wires. They use smart software, cameras, and sensors to map spaces and safely
+steer around people or obstacles in real time.</a></span></span></span>, it mimics the functionality of existing sensors, including
+ultrasonic, laser and optical rangefinders.
+An important aspect of vision-based sensing is that the vision chip can provide sensing modalities and
+cues that no other mobile robot sensor provides. One such novel sensing modality is detecting and
+tracking color in the environment. Color represents an environmental characteristic that is
+orthogonal to range, and it represents both a natural cue and an artificial cue that can provide
+new information to an <span class="acronym"><span class="acronym-short"><a class="glossary" href="#glo:amr">AMR</a></span><span class="acronym-detail"><span class="acronym-long"><a class="glossary" href="#glo:amr">Autonomous Mobile Robotics</a></span><span class="acronym-desc"><a class="glossary" href="#glo:amr">Self-navigating machines moving
+materials and goods independently without fixed tracks or wires. They use smart software,
+cameras, and sensors to map spaces and safely steer around people or obstacles in real
+time.</a></span></span></span>.
+Color sensing has two important advantages.
+</p>
+<dl class="enumerate-enumitem"><dt class="enumerate-enumitem">
+1. 
+</dt><dd class="enumerate-enumitem">First,  detection  of  color  is  a  straightforward  function  of  a  single  image,  therefore  no
+correspondence problem need be solved in such algorithms.
+</dd>
+<dt class="enumerate-enumitem">
+2. 
+</dt><dd class="enumerate-enumitem">Second,  because  color  sensing  provides  a  new,  independent  environmental  cue,  if  it  is
+<span class="margin-block">combined <span class="margin-comment"><a class="ellipsis" href="#m-ref-84">[84]</a>
+<span class="sidenote">i.e. sensor fusion.</span></span></span> with existing cues, such as data from stereo vision or laser
+rangefinding we can expect significant information gains.</dd></dl>
+<div class="section-header">
+<h3 id="header-section-glossary">
+<span class="number">
+<i class="fa-regular fa-bookmark"></i>
+</span>
+<span class="title">
+<a id="page-glossary"></a>
+        Page Glossary Terms</span>
+</h3>
+</div>
+<div class="acronym-block">
+<dl class="acr-list">
+<a class="copiable-link" href="#glo:amr">¶</a>
+<dt class="acr-bottom" id="glo:amr"><span class="acr-short">AMR</span><span class="acr-long">Autonomous Mobile Robotics</span></dt>
+<dd class="acr-desc"><p>Self-navigating machines moving materials and goods
+independently without fixed tracks or wires. They use smart software, cameras, and sensors to map
+spaces and safely steer around people or obstacles in real time.</p></dd>
+</dl>
+<dl class="acr-list">
+<a class="copiable-link" href="#glo:cmos">¶</a>
+<dt class="acr-bottom" id="glo:cmos"><span class="acr-short">CMOS</span><span class="acr-long">Complimentary MOS</span></dt>
+<dd class="acr-desc"><p>Complimentary MOS</p></dd>
+</dl>
+<dl class="acr-list">
+<a class="copiable-link" href="#glo:ccd">¶</a>
+<dt class="acr-bottom" id="glo:ccd"><span class="acr-short">CCD</span><span class="acr-long">Charge Coupled Device</span></dt>
+<dd class="acr-desc"><p>Charge Coupled Device</p></dd>
+</dl>
+</div>
+<div class="section-header">
+<h3 id="header-section-references">
+<span class="number">
+<i class="fa-solid fa-magnifying-glass"></i>
+</span>
+<span class="title">
+<a id="page-glossary"></a>
+            Page References</span>
+</h3>
+</div>
+<div class="cite-block">
+<dl class="enumerate-enumitem">
+<dt class="enumerate-enumitem" id="w3-20001"><span class="acr-short">1.</span><span class="acr-long"></span></dt>
+<dd class="enumerate-enumitem"> Andrzej. CCD image sensor SONY ICX493AQA 10,14 (Gross 10,75) M pixels APS-C 1.8" 28.328mm (23.4 x 15.6 mm) from module IS-026 from digital camera SONY DSLR-A200 or DSLR-A300 sensor side 2014</dd>
+</dl>
+<dl class="enumerate-enumitem">
+<dt class="enumerate-enumitem" id="w3-20001"><span class="acr-short">2.</span><span class="acr-long"></span></dt>
+<dd class="enumerate-enumitem"> TeledyneCCD. How a Charge Coupled Device (CCD) Image Sensor Works 2020</dd>
+</dl>
+<dl class="enumerate-enumitem">
+<dt class="enumerate-enumitem" id="w3-20001"><span class="acr-short">3.</span><span class="acr-long"></span></dt>
+<dd class="enumerate-enumitem"> Hirakawa, K. &amp; Parks, T. Chromatic adaptation and white-balance problem in IEEE International Conference on Image Processing 2005 3 (2005), III–984</dd>
+</dl>
+<dl class="enumerate-enumitem">
+<dt class="enumerate-enumitem" id="w3-20001"><span class="acr-short">4.</span><span class="acr-long"></span></dt>
+<dd class="enumerate-enumitem"> Fstoppers. Is There a Difference Between Color Temperature and White Balance? 2022</dd>
+</dl>
+<dl class="enumerate-enumitem">
+<dt class="enumerate-enumitem" id="w3-20001"><span class="acr-short">5.</span><span class="acr-long"></span></dt>
+<dd class="enumerate-enumitem"> Ilie, A. &amp; Welch, G. Ensuring color consistency across multiple cameras in Tenth IEEE International Conference on Computer Vision (ICCV’05) Volume 1 2 (2005), 1268–1275</dd>
+</dl>
+<dl class="enumerate-enumitem">
+<dt class="enumerate-enumitem" id="w3-20001"><span class="acr-short">6.</span><span class="acr-long"></span></dt>
+<dd class="enumerate-enumitem"> Teledyne. Saturation and Blooming 2025</dd>
+</dl>
+<dl class="enumerate-enumitem">
+<dt class="enumerate-enumitem" id="w3-20001"><span class="acr-short">7.</span><span class="acr-long"></span></dt>
+<dd class="enumerate-enumitem"> Zhang, Z. et al. Analysis and simulation to excessive saturation effect of CCD in 2nd International Symposium on Laser Interaction with Matter (LIMIS 2012) 8796 (2013), 96–102</dd>
+</dl>
+<dl class="enumerate-enumitem">
+<dt class="enumerate-enumitem" id="w3-20001"><span class="acr-short">8.</span><span class="acr-long"></span></dt>
+<dd class="enumerate-enumitem"> Baumer. Operating principle and features of CMOS sensors 2025</dd>
+</dl>
+<dl class="enumerate-enumitem">
+<dt class="enumerate-enumitem" id="w3-20001"><span class="acr-short">9.</span><span class="acr-long"></span></dt>
+<dd class="enumerate-enumitem"> econ Systems. CMOS camera module 2025</dd>
+</dl>
+<dl class="enumerate-enumitem">
+<dt class="enumerate-enumitem" id="w3-20001"><span class="acr-short">10.</span><span class="acr-long"></span></dt>
+<dd class="enumerate-enumitem"> Holst, T. &amp; Lomheim, G. CMOS/CCD Sensors (JCD publishing, 2007)</dd>
+</dl>
+<dl class="enumerate-enumitem">
+<dt class="enumerate-enumitem" id="w3-20001"><span class="acr-short">11.</span><span class="acr-long"></span></dt>
+<dd class="enumerate-enumitem"> Mdf. A photon noise simulation 2010</dd>
+</dl>
+<dl class="enumerate-enumitem">
+<dt class="enumerate-enumitem" id="w3-20001"><span class="acr-short">12.</span><span class="acr-long"></span></dt>
+<dd class="enumerate-enumitem"> Mark-j. Open Camera Blog 2018</dd>
+</dl>
+<dl class="enumerate-enumitem">
+<dt class="enumerate-enumitem" id="w3-20001"><span class="acr-short">13.</span><span class="acr-long"></span></dt>
+<dd class="enumerate-enumitem"> Nourbakhsh, I. R. et al. Mobile robot obstacle avoidance via depth from focus. Robotics and Autonomous Systems 22, 151–158 (1997)</dd>
+</dl></div>
+<div class="section-header">
+<h3 id="header-section-references">
+<span class="number">
+<i class="fa-regular fa-note-sticky"></i>
+</span>
+<span class="title">
+<a id="page-glossary"></a>
+                    Page Footnotes</span>
+</h3>
+</div>
+<div class="footnote-block">
+<dl class="enumerate-enumitem">
+<dt class="enumerate-enumitem" id="m-ref-64"><span class="acr-short">[64].</span></dt>
+<dd class="enumerate-enumitem"><span class="">Willard Boyle and George E. Smith invented
+the <span class="acronym"><span class="acronym-short"><a class="glossary" href="#glo:ccd">CCD</a></span><span class="acronym-detail"><span class="acronym-long"><a class="glossary" href="#glo:ccd">Charge Coupled Device</a></span><span class="acronym-desc"><a class="glossary" href="#glo:ccd">Charge Coupled Device</a></span></span></span> in 1969 at AT&amp;T Bell Labs. Their original idea
+was to create a memory device. However, with its publication in 1970, other scientists began
+experimenting with the technology on a range of applications. Astronomers discovered that they could
+produce high-resolution images of distant objects, because CCDs offered a photo-sensitivity one
+hundred times greater than film <span class="cite"><a class="cite-show" href="#w3-20001">[†-2]</a><span class="cite-detail"> <a id="x13-95001"></a>TeledyneCCD. How a Charge Coupled Device (CCD) Image Sensor
+Works 2020</span></span>.</span></dd>
+</dl>
+<dl class="enumerate-enumitem">
+<dt class="enumerate-enumitem" id="m-ref-65"><span class="acr-short">[65].</span></dt>
+<dd class="enumerate-enumitem"><span class="">Because
+the entire array is read through a single amplifier the output can be highly optimised
+to give very low noise and extremely high dynamic range. CCDs can have over
+<math display="inline"><mn>1</mn><mn>0</mn><mn>0</mn></math> <math display="inline"><mstyle mathvariant="normal"><mi>d</mi><mi>B</mi></mstyle></math>
+dynamic range with less than 2e of noise <span class="cite"><a class="cite-show" href="#w3-20001">[†-2]</a><span class="cite-detail"> TeledyneCCD. How a Charge Coupled Device (CCD)
+Image Sensor Works 2020</span></span>.</span></dd>
+</dl>
+<dl class="enumerate-enumitem">
+<dt class="enumerate-enumitem" id="m-ref-66"><span class="acr-short">[66].</span></dt>
+<dd class="enumerate-enumitem"><span class="">This also includes
+<span class="acronym"><span class="acronym-short"><a class="glossary" href="#glo:cmos">CMOS</a></span><span class="acronym-detail"><span class="acronym-long"><a class="glossary" href="#glo:cmos">Complimentary MOS</a></span><span class="acronym-desc"><a class="glossary" href="#glo:cmos">Complimentary MOS</a></span></span></span> as well.</span></dd>
+</dl>
+<dl class="enumerate-enumitem">
+<dt class="enumerate-enumitem" id="m-ref-67"><span class="acr-short">[67].</span></dt>
+<dd class="enumerate-enumitem"><span class="">This number range is usually given for easier numbers as both <span class="acronym"><span class="acronym-short"><a class="glossary" href="#glo:ccd">CCD</a></span><span class="acronym-detail"><span class="acronym-long"><a class="glossary" href="#glo:ccd">Charge Coupled Device</a></span><span class="acronym-desc"><a class="glossary" href="#glo:ccd">Charge Coupled
+Device</a></span></span></span> and <span class="acronym"><span class="acronym-short"><a class="glossary" href="#glo:cmos">CMOS</a></span><span class="acronym-detail"><span class="acronym-long"><a class="glossary" href="#glo:cmos">Complimentary MOS</a></span><span class="acronym-desc"><a class="glossary" href="#glo:cmos">Complimentary MOS</a></span></span></span> have sensitivity values at approximately 350 -
+1050 <math display="inline"><mstyle mathvariant="normal"><mi>n</mi><mi>m</mi></mstyle></math>.</span></dd>
+</dl>
+<dl class="enumerate-enumitem">
+<dt class="enumerate-enumitem" id="m-ref-68"><span class="acr-short">[68].</span></dt>
+<dd class="enumerate-enumitem"><span class="">It is just measuring the total number of photons
+that strike each pixel in the integration period regardless whether the light hitting it is blue, red or
+green.</span></dd>
+</dl>
+<dl class="enumerate-enumitem">
+<dt class="enumerate-enumitem" id="m-ref-69"><span class="acr-short">[69].</span></dt>
+<dd class="enumerate-enumitem"><span class="">Albeit, with lower resolution.</span></dd>
+</dl>
+<dl class="enumerate-enumitem">
+<dt class="enumerate-enumitem" id="m-ref-70"><span class="acr-short">[70].</span></dt>
+<dd class="enumerate-enumitem"><span class="">This is generally defined as the <b>amplifier noise</b>.</span></dd>
+</dl>
+<dl class="enumerate-enumitem">
+<dt class="enumerate-enumitem" id="m-ref-71"><span class="acr-short">[71].</span></dt>
+<dd class="enumerate-enumitem"><span class="">It’s the speed at which the shutter of the camera closes. A fast shutter speed
+creates a shorter exposure, the amount of light the camera takes in, and a slow shutter
+speed gives a longer exposure.</span></dd>
+</dl>
+<dl class="enumerate-enumitem">
+<dt class="enumerate-enumitem" id="m-ref-72"><span class="acr-short">[72].</span></dt>
+<dd class="enumerate-enumitem"><span class="">e.g. photography,
+television.</span></dd>
+</dl>
+<dl class="enumerate-enumitem">
+<dt class="enumerate-enumitem" id="m-ref-73"><span class="acr-short">[73].</span></dt>
+<dd class="enumerate-enumitem"><span class="">For example this could be fluorescent lamps, incandescent lamps, sunlight,
+underwater filtered light, etc.</span></dd>
+</dl>
+<dl class="enumerate-enumitem">
+<dt class="enumerate-enumitem" id="m-ref-74"><span class="acr-short">[74].</span></dt>
+<dd class="enumerate-enumitem"><span class="">i.e. pixel size,
+chip size, lens focal length and diameter.</span></dd>
+</dl>
+<dl class="enumerate-enumitem">
+<dt class="enumerate-enumitem" id="m-ref-78"><span class="acr-short">[78].</span></dt>
+<dd class="enumerate-enumitem"><span class="">A three-dimensional counterpart
+to a pixel.</span></dd>
+</dl>
+<dl class="enumerate-enumitem">
+<dt class="enumerate-enumitem" id="m-ref-79"><span class="acr-short">[79].</span></dt>
+<dd class="enumerate-enumitem"><span class="">The aperture is the opening in the lens that allows light to enter the
+camera and onto the sensor or film.</span></dd>
+</dl>
+<dl class="enumerate-enumitem">
+<dt class="enumerate-enumitem" id="m-ref-80"><span class="acr-short">[80].</span></dt>
+<dd class="enumerate-enumitem"><span class="">This is a common approach in commercial cameras and video recorders.</span></dd>
+</dl>
+<dl class="enumerate-enumitem">
+<dt class="enumerate-enumitem" id="m-ref-81"><span class="acr-short">[81].</span></dt>
+<dd class="enumerate-enumitem"><span class="">This is also known as the <i>baseline</i>.</span></dd>
+</dl>
+<dl class="enumerate-enumitem">
+<dt class="enumerate-enumitem" id="m-ref-82"><span class="acr-short">[82].</span></dt>
+<dd class="enumerate-enumitem"><span class="">This effect is accomplished by the divisor 16.</span></dd>
+</dl>
+<dl class="enumerate-enumitem">
+<dt class="enumerate-enumitem" id="m-ref-83"><span class="acr-short">[83].</span></dt>
+<dd class="enumerate-enumitem"><span class="">or moving.</span></dd>
+</dl>
+<dl class="enumerate-enumitem">
+<dt class="enumerate-enumitem" id="m-ref-84"><span class="acr-short">[84].</span></dt>
+<dd class="enumerate-enumitem"><span class="">i.e. sensor fusion.</span></dd>
+</dl></div><nav class="crosslinks-bottom"><div class="navigation"><span class="nav-button"><a href="RepresentingUncertainty.html"><i class="fa-solid fa-caret-right"></i></a></span><span class="nav-button"><a href="SensorsforMobileRobotics.html"><i class="fa-solid fa-caret-left"></i></a></span><span class="nav-button"><a href="Perception.html#VisionBasedSensors.html"><i class="fa-solid fa-caret-up"></i></a></span><span class="nav-button">
+<a href="index.html" rel="index" title="Index">
+<i class="fa-solid fa-table-list">
+</i>
+</a></span><span class="nav-button">
+<a href="Index.html" rel="index" title="Index">
+<i class="fa-brands fa-git-alt"></i>
+</a></span></div></nav> <div class="footer"> <div class="footer-left"><span class="footer-lecture">D. T. McGuiness, PhD</span>
+<span class="footer-webBook"><b>Last Updated:</b> 13.10.2026, at 8:16.</span></div></div><div class="author-notes">
+<span class="note">Authors Note </span>
+<span class="text">The website you are viewing is auto-generated using lms-WebBook and therefore subject to slight errors in typography and formatting. When in doubt, please consult the LectureBook. </span>
+</div>
+</article>
+<div class="mode-line">
+<div class="core-line"><div class="core-line-image"><img class="webbook-logo" src="logo/webbook-logo.svg"/></div>
+<div class="current-header">
+<span class="header-pretext">Viewing | </span>
+<span class="header-text">Section 3.2: Vision Based Sensors</span>
+</div>
+<div class="button-group">
+</div>
+</div>
+<div class="supp-line"></div>
+</div>
+</page>
+</body>
+</html>

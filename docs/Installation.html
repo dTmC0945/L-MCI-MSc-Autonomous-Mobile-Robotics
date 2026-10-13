@@ -1,0 +1,639 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><title>Installation</title>
+<meta charset="utf-8"/>
+<meta content="lms-WebBook" name="generator"/>
+<meta content="width=device-width,initial-scale=1" name="viewport"/>
+<script async="async" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/mml-chtml.js" type="text/javascript"></script>
+<link href="logo/lms.ico" rel="icon" type="image/x-icon"/>
+<link href="./pagefind/pagefind-component-ui.css" rel="stylesheet"/>
+<script src="./pagefind/pagefind-component-ui.js" type="text/javascript"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<link href="https://cdn.jsdelivr.net/gh/sugina-dev/latin-modern-web@1.0.1/style/latinmodern-mono.css" rel="stylesheet"/>
+<link href="https://cdn.jsdelivr.net/gh/dTmC0945/Wb-LMS-WebBook-Infrastructure/flatweb.css" rel="stylesheet" type="text/css"/>
+<script async="true" crossorigin="anonymous" src="https://cdn.jsdelivr.net/gh/dTmC0945/Wb-LMS-WebBook-Infrastructure/flatweb.js"></script>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/styles/default.min.css" rel="stylesheet"/>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/highlight.min.js"></script>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/styles/base16/solarized-light.min.css" rel="stylesheet"/>
+<script src="https://unpkg.com/highlightjs-copy/dist/highlightjs-copy.min.js"></script>
+<link href="https://unpkg.com/highlightjs-copy/dist/highlightjs-copy.min.css" rel="stylesheet"/>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css?family=Roboto:400,100,100italic,300,300italic,400italic,500,500italic,700,700italic,900italic,900" rel="stylesheet"/>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/languages/cpp.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/languages/latex.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/languages/matlab.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/languages/dockerfile.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/languages/cmake.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/languages/makefile.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/languages/markdown.min.js"></script>
+ </head><body>
+<page>
+<nav class="wide"> <div class="header"><div class="header-left"><span class="header-lecture-grade">M.Sc</span>
+<span class="header-lecture-name">Autonomous Mobile Robotics</span>
+<span class="header-webBook">WebBook 2.1</span></div><div class="header-right"><span class="header-version">2026.WS</span>
+<span class="header-chapter">Welcome to Linux</span></div></div><div class="toc"><pagefind-modal-trigger></pagefind-modal-trigger><pagefind-modal></pagefind-modal><div class="toc-links"><a href="https://github.com/dTmC0945" title="Lecturer GitHub Repo"><i class="fab fa-github" style="font-size:20px"></i></a><a href="https://scholar.google.com/citations?view_op=list_works\&amp;hl=en\&amp;user=lxQGADMAAAAJ" title="Lecturer Google Scholar Page"><i class="fa-brands fa-google-scholar" style="font-size:20px"></i></a><a href="https://www.researchgate.net/profile/Daniel-Mcguiness-2" title="Lecturer ResearchGate Account"><i class="fa-brands fa-researchgate" style="font-size:20px"></i></a><a href="https://dtmc0945.github.io/Th-MCI-Thesis-Topics/" title="Lecturer Thesis Ideas for B.Sc and M.Sc"><i class="fa-solid fa-book" style="font-size:20px"></i></a><a href="https://github.com/dTmC0945/C-MCI-LaTeX-Class-mcidoc/tree/main" title="mcidoc LaTeX Standard"><i class="fa-regular fa-file-lines" style="font-size:20px"></i></a></div><hr/><span class="chapterToc"><span class="number"></span><span class="title"><a href="index.html#x2-10000">Entry Point</a></span></span><span class="chapterToc"><span class="number">1</span><span class="title"><a href="Locomotion.html#x3-20001">Locomotion</a></span></span><span class="subsectionToc"><span class="number">1.0.1</span><span class="title"><a href="Locomotion.html#x3-30001.0.1">Key  Issues  for  Locomotion</a></span></span><span class="sectionToc"><span class="number">1.1</span><span class="title"><a href="LeggedMobileRobots.html#x4-40001.1">Legged  Mobile
+Robots</a></span></span><span class="subsectionToc"><span class="number">1.1.1</span><span class="title"><a href="LeggedMobileRobots.html#x4-60001.1.1">Examples  of  Legged  Robot  Locomotion</a></span></span><span class="sectionToc"><span class="number">1.2</span><span class="title"><a href="WheeledMobileRobots.html#x5-120001.2">Wheeled  Mobile
+Robots</a></span></span><span class="subsectionToc"><span class="number">1.2.1</span><span class="title"><a href="WheeledMobileRobots.html#x5-130001.2.1">Design</a></span></span><span class="subsectionToc"><span class="number">1.2.2</span><span class="title"><a href="WheeledMobileRobots.html#x5-160001.2.2">Stability</a></span></span><span class="subsectionToc"><span class="number">1.2.3</span><span class="title"><a href="WheeledMobileRobots.html#x5-170001.2.3">Manoeuvrability</a></span></span><span class="subsectionToc"><span class="number">1.2.4</span><span class="title"><a href="WheeledMobileRobots.html#x5-180001.2.4">Controllability</a></span></span><span class="subsectionToc"><span class="number">1.2.5</span><span class="title"><a href="WheeledMobileRobots.html#x5-190001.2.5">Case
+Studies for Wheeled Motion</a></span></span><span class="subsectionToc"><span class="number">1.2.6</span><span class="title"><a href="WheeledMobileRobots.html#x5-260001.2.6">Walking Wheels</a></span></span><span class="chapterToc"><span class="number">2</span><span class="title"><a href="MobileRobotKinematics.html#x6-270002">Mobile Robot Kinematics</a></span></span><span class="sectionToc"><span class="number">2.1</span><span class="title"><a href="KinematicModelsandConstraints.html#x7-280002.1">Kinematic
+Models and Constraints</a></span></span><span class="subsectionToc"><span class="number">2.1.1</span><span class="title"><a href="KinematicModelsandConstraints.html#x7-290002.1.1">Representing robot position</a></span></span><span class="subsectionToc"><span class="number">2.1.2</span><span class="title"><a href="KinematicModelsandConstraints.html#x7-300002.1.2">Forward kinematic
+models</a></span></span><span class="subsectionToc"><span class="number">2.1.3</span><span class="title"><a href="KinematicModelsandConstraints.html#x7-310002.1.3">Wheel kinematic constraints</a></span></span><span class="subsectionToc"><span class="number">2.1.4</span><span class="title"><a href="KinematicModelsandConstraints.html#x7-370002.1.4">Robot kinematic constraints</a></span></span><span class="subsectionToc"><span class="number">2.1.5</span><span class="title"><a href="KinematicModelsandConstraints.html#x7-380002.1.5">Examples:
+robot kinematic models and constraints</a></span></span><span class="sectionToc"><span class="number">2.2</span><span class="title"><a href="MobileRobotManeuverability.html#x8-410002.2">Mobile Robot Maneuverability</a></span></span><span class="subsectionToc"><span class="number">2.2.1</span><span class="title"><a href="MobileRobotManeuverability.html#x8-420002.2.1">Degree
+of Mobility</a></span></span><span class="subsectionToc"><span class="number">2.2.2</span><span class="title"><a href="MobileRobotManeuverability.html#x8-450002.2.2">Degree of steerability</a></span></span><span class="subsectionToc"><span class="number">2.2.3</span><span class="title"><a href="MobileRobotManeuverability.html#x8-470002.2.3">Robot maneuverability</a></span></span><span class="sectionToc"><span class="number">2.3</span><span class="title"><a href="MobileRobotWorkspace.html#x9-480002.3">Mobile Robot
+Workspace</a></span></span><span class="subsectionToc"><span class="number">2.3.1</span><span class="title"><a href="MobileRobotWorkspace.html#x9-490002.3.1">Degrees of freedom</a></span></span><span class="subsectionToc"><span class="number">2.3.2</span><span class="title"><a href="MobileRobotWorkspace.html#x9-500002.3.2">Holonomic robots</a></span></span><span class="subsectionToc"><span class="number">2.3.3</span><span class="title"><a href="MobileRobotWorkspace.html#x9-530002.3.3">Path and trajectory
+considerations</a></span></span><span class="subsectionToc"><span class="number">2.3.4</span><span class="title"><a href="MobileRobotWorkspace.html#x9-540002.3.4">Beyond Basic Kinematics</a></span></span><span class="sectionToc"><span class="number">2.4</span><span class="title"><a href="MotionControlKinematicControl.html#x10-550002.4">Motion Control (Kinematic
+Control)</a></span></span><span class="subsectionToc"><span class="number">2.4.1</span><span class="title"><a href="MotionControlKinematicControl.html#x10-560002.4.1">Open loop control</a></span></span><span class="subsectionToc"><span class="number">2.4.2</span><span class="title"><a href="MotionControlKinematicControl.html#x10-570002.4.2">Feedback control</a></span></span><span class="chapterToc"><span class="number">3</span><span class="title"><a href="Perception.html#x11-630003">Perception</a></span></span><span class="sectionToc"><span class="number">3.1</span><span class="title"><a href="SensorsforMobileRobotics.html#x12-640003.1">Sensors for Mobile
+Robotics</a></span></span><span class="subsectionToc"><span class="number">3.1.1</span><span class="title"><a href="SensorsforMobileRobotics.html#x12-650003.1.1">Sensor Classification</a></span></span><span class="subsectionToc"><span class="number">3.1.2</span><span class="title"><a href="SensorsforMobileRobotics.html#x12-660003.1.2">Characterisation of Sensor Performance</a></span></span><span class="subsectionToc"><span class="number">3.1.3</span><span class="title"><a href="SensorsforMobileRobotics.html#x12-720003.1.3">Wheel
+and Motor Sensors</a></span></span><span class="subsectionToc"><span class="number">3.1.4</span><span class="title"><a href="SensorsforMobileRobotics.html#x12-740003.1.4">Heading Sensors</a></span></span><span class="subsectionToc"><span class="number">3.1.5</span><span class="title"><a href="SensorsforMobileRobotics.html#x12-810003.1.5">Ground Based Beacons</a></span></span><span class="subsectionToc"><span class="number">3.1.6</span><span class="title"><a href="SensorsforMobileRobotics.html#x12-830003.1.6">Active
+Ranging</a></span></span><span class="subsectionToc"><span class="number">3.1.7</span><span class="title"><a href="SensorsforMobileRobotics.html#x12-850003.1.7">The Ultrasonic Sensor</a></span></span><span class="subsectionToc"><span class="number">3.1.8</span><span class="title"><a href="SensorsforMobileRobotics.html#x12-920003.1.8">Motion and Speed Sensors</a></span></span><span class="sectionToc"><span class="number">3.2</span><span class="title"><a href="VisionBasedSensors.html#x13-940003.2">Vision Based
+Sensors</a></span></span><span class="subsectionToc"><span class="number">3.2.1</span><span class="title"><a href="VisionBasedSensors.html#x13-950003.2.1">CCD Sensors</a></span></span><span class="subsectionToc"><span class="number">3.2.2</span><span class="title"><a href="VisionBasedSensors.html#x13-970003.2.2">CMOS Technology</a></span></span><span class="subsectionToc"><span class="number">3.2.3</span><span class="title"><a href="VisionBasedSensors.html#x13-980003.2.3">Visual Ranging Sensors</a></span></span><span class="subsectionToc"><span class="number">3.2.4</span><span class="title"><a href="VisionBasedSensors.html#x13-990003.2.4">Depth
+from Focus</a></span></span><span class="sectionToc"><span class="number">3.3</span><span class="title"><a href="RepresentingUncertainty.html#x14-1070003.3">Representing Uncertainty</a></span></span><span class="subsectionToc"><span class="number">3.3.1</span><span class="title"><a href="RepresentingUncertainty.html#x14-1080003.3.1">Statistical Representation</a></span></span><span class="subsectionToc"><span class="number">3.3.2</span><span class="title"><a href="RepresentingUncertainty.html#x14-1090003.3.2">Independence
+of random variables</a></span></span><span class="subsectionToc"><span class="number">3.3.3</span><span class="title"><a href="RepresentingUncertainty.html#x14-1110003.3.3">Propagation of Error</a></span></span><span class="sectionToc"><span class="number">3.4</span><span class="title"><a href="FeatureExtraction.html#x15-1120003.4">Feature Extraction</a></span></span><span class="subsectionToc"><span class="number">3.4.1</span><span class="title"><a href="FeatureExtraction.html#x15-1130003.4.1">Defining
+Feature</a></span></span><span class="subsectionToc"><span class="number">3.4.2</span><span class="title"><a href="FeatureExtraction.html#x15-1140003.4.2">Using Range Data</a></span></span><span class="chapterToc"><span class="number">4</span><span class="title"><a href="MobileRobotLocalisation.html#x16-1290004">Mobile Robot Localisation</a></span></span><span class="sectionToc"><span class="number">4.1</span><span class="title"><a href="TheProblemsofNoiseandAliasing.html#x17-1300004.1">The Problems of Noise and
+Aliasing</a></span></span><span class="subsectionToc"><span class="number">4.1.1</span><span class="title"><a href="TheProblemsofNoiseandAliasing.html#x17-1310004.1.1">Sensor Noise</a></span></span><span class="subsectionToc"><span class="number">4.1.2</span><span class="title"><a href="TheProblemsofNoiseandAliasing.html#x17-1320004.1.2">Sensor Aliasing</a></span></span><span class="subsectionToc"><span class="number">4.1.3</span><span class="title"><a href="TheProblemsofNoiseandAliasing.html#x17-1330004.1.3">Effector Noise</a></span></span><span class="subsectionToc"><span class="number">4.1.4</span><span class="title"><a href="TheProblemsofNoiseandAliasing.html#x17-1340004.1.4">An Error Model for
+Odometric Position Estimation</a></span></span><span class="sectionToc"><span class="number">4.2</span><span class="title"><a href="LocalisationTechniques.html#x18-1350004.2">Localisation Techniques</a></span></span><span class="sectionToc"><span class="number">4.3</span><span class="title"><a href="RepresentingBelief.html#x19-1360004.3">Representing Belief</a></span></span><span class="subsectionToc"><span class="number">4.3.1</span><span class="title"><a href="RepresentingBelief.html#x19-1370004.3.1">Single
+Hypothesis Belief</a></span></span><span class="subsectionToc"><span class="number">4.3.2</span><span class="title"><a href="RepresentingBelief.html#x19-1380004.3.2">Multiple Hypothesis Belief</a></span></span><span class="sectionToc"><span class="number">4.4</span><span class="title"><a href="RepresentingMaps.html#x20-1390004.4">Representing Maps</a></span></span><span class="subsectionToc"><span class="number">4.4.1</span><span class="title"><a href="RepresentingMaps.html#x20-1400004.4.1">Continuous
+Representation</a></span></span><span class="subsectionToc"><span class="number">4.4.2</span><span class="title"><a href="RepresentingMaps.html#x20-1410004.4.2">Decomposition Methods</a></span></span><span class="subsectionToc"><span class="number">4.4.3</span><span class="title"><a href="RepresentingMaps.html#x20-1420004.4.3">Current Challenges</a></span></span><span class="sectionToc"><span class="number">4.5</span><span class="title"><a href="ProbabilisticMapBasedLocalisation.html#x21-1430004.5">Probabilistic
+Map-Based Localisation</a></span></span><span class="subsectionToc"><span class="number">4.5.1</span><span class="title"><a href="ProbabilisticMapBasedLocalisation.html#x21-1440004.5.1">Problem Definition</a></span></span><span class="subsectionToc"><span class="number">4.5.2</span><span class="title"><a href="ProbabilisticMapBasedLocalisation.html#x21-1450004.5.2">Markov Localisation</a></span></span><span class="subsectionToc"><span class="number">4.5.3</span><span class="title"><a href="ProbabilisticMapBasedLocalisation.html#x21-1490004.5.3">Kalman
+Filter Localisation</a></span></span><span class="subsectionToc"><span class="number">4.5.4</span><span class="title"><a href="ProbabilisticMapBasedLocalisation.html#x21-1500004.5.4">An Implementation of Kalman Filter</a></span></span><span class="sectionToc"><span class="number">4.6</span><span class="title"><a href="OtherExamplesofLocalisationMethods.html#x22-1550004.6">Other Examples
+of Localisation Methods</a></span></span><span class="subsectionToc"><span class="number">4.6.1</span><span class="title"><a href="OtherExamplesofLocalisationMethods.html#x22-1560004.6.1">Landmark-based Navigation</a></span></span><span class="subsectionToc"><span class="number">4.6.2</span><span class="title"><a href="OtherExamplesofLocalisationMethods.html#x22-1570004.6.2">Globally Unique
+Localisation</a></span></span><span class="subsectionToc"><span class="number">4.6.3</span><span class="title"><a href="OtherExamplesofLocalisationMethods.html#x22-1580004.6.3">Positioning Beacon systems</a></span></span><span class="subsectionToc"><span class="number">4.6.4</span><span class="title"><a href="OtherExamplesofLocalisationMethods.html#x22-1590004.6.4">Route-Based Localisation</a></span></span><span class="sectionToc"><span class="number">4.7</span><span class="title"><a href="BuildingMaps.html#x23-1600004.7">Building
+Maps</a></span></span><span class="subsectionToc"><span class="number">4.7.1</span><span class="title"><a href="BuildingMaps.html#x23-1610004.7.1">Stochastic Map Technique</a></span></span><span class="subsectionToc"><span class="number">4.7.2</span><span class="title"><a href="BuildingMaps.html#x23-1620004.7.2">Other Mapping Techniques</a></span></span><span class="chapterToc"><span class="number">5</span><span class="title"><a href="WelcometoLinux.html#x24-1650005">Welcome to Linux</a></span></span><span class="sectionToc"><span class="number">5.1</span><span class="title"><a href="AHistoryofUNIXLinux.html#x25-1660005.1">A
+History of UNIX/Linux</a></span></span><span class="subsectionToc"><span class="number">5.1.1</span><span class="title"><a href="AHistoryofUNIXLinux.html#x25-1680005.1.1">A Short History on Computer Interfaces</a></span></span><span class="subsectionToc"><span class="number">5.1.2</span><span class="title"><a href="AHistoryofUNIXLinux.html#x25-1700005.1.2">Linux is a
+Nutshell</a></span></span><span class="subsectionToc"><span class="number">5.1.3</span><span class="title"><a href="AHistoryofUNIXLinux.html#x25-1730005.1.3">Linux Distributions</a></span></span><span class="sectionToc"><span class="number">5.2</span><span class="title"><a href="#x26-1740005.2">Installation</a></span></span><span class="subsectionToc"><span class="number">5.2.1</span><span class="title"><a href="#x26-1750005.2.1">Docker</a></span></span><span class="subsectionToc"><span class="number">5.2.2</span><span class="title"><a href="#x26-1760005.2.2">Dockerfile</a></span></span><span class="subsectionToc"><span class="number">5.2.3</span><span class="title"><a href="#x26-1770005.2.3">Running
+the Container</a></span></span><span class="chapterToc"><span class="number">6</span><span class="title"><a href="CommandLineFundamentals.html#x27-1780006">Command Line Fundamentals</a></span></span><span class="sectionToc"><span class="number">6.1</span><span class="title"><a href="ToCommandaComputer.html#x28-1790006.1">To Command a Computer</a></span></span><span class="subsectionToc"><span class="number">6.1.1</span><span class="title"><a href="ToCommandaComputer.html#x28-1800006.1.1">The
+Command Line Interface</a></span></span><span class="subsectionToc"><span class="number">6.1.2</span><span class="title"><a href="ToCommandaComputer.html#x28-1810006.1.2">The Structure of Commands</a></span></span><span class="subsectionToc"><span class="number">6.1.3</span><span class="title"><a href="ToCommandaComputer.html#x28-1820006.1.3">Some Rules Regarding
+the Syntax</a></span></span><span class="sectionToc"><span class="number">6.2</span><span class="title"><a href="WhenWeNeedHelpwithCommands.html#x29-1830006.2">When We Need Help with Commands</a></span></span><span class="subsectionToc"><span class="number">6.2.1</span><span class="title"><a href="WhenWeNeedHelpwithCommands.html#x29-1840006.2.1">Use Tab completion on
+the Shell</a></span></span><span class="subsectionToc"><span class="number">6.2.2</span><span class="title"><a href="WhenWeNeedHelpwithCommands.html#x29-1850006.2.2">The info command</a></span></span><span class="subsectionToc"><span class="number">6.2.3</span><span class="title"><a href="WhenWeNeedHelpwithCommands.html#x29-1860006.2.3">The whatis command</a></span></span><span class="chapterToc"><span class="number">7</span><span class="title"><a href="WorkingwithFilesandFolders.html#x30-1880007">Working with Files
+and Folders</a></span></span><span class="sectionToc"><span class="number">7.1</span><span class="title"><a href="FilesandFolders.html#x31-1890007.1">Files and Folders</a></span></span><span class="subsectionToc"><span class="number">7.1.1</span><span class="title"><a href="FilesandFolders.html#x31-1900007.1.1">A Detailed Look in ls Command</a></span></span><span class="subsectionToc"><span class="number">7.1.2</span><span class="title"><a href="FilesandFolders.html#x31-1910007.1.2">Creating
+and Removing Folders</a></span></span><span class="subsectionToc"><span class="number">7.1.3</span><span class="title"><a href="FilesandFolders.html#x31-1920007.1.3">Move, Copy and Delete Files and Folders</a></span></span><span class="sectionToc"><span class="number">7.2</span><span class="title"><a href="PermissionsandLinks.html#x32-1990007.2">Permissions
+and Links</a></span></span><span class="subsectionToc"><span class="number">7.2.1</span><span class="title"><a href="PermissionsandLinks.html#x32-2000007.2.1">Role to Users and sudo</a></span></span><span class="subsectionToc"><span class="number">7.2.2</span><span class="title"><a href="PermissionsandLinks.html#x32-2010007.2.2">File Permissions</a></span></span><span class="subsectionToc"><span class="number">7.2.3</span><span class="title"><a href="PermissionsandLinks.html#x32-2040007.2.3">Hard and Symbolic
+Links</a></span></span><span class="subsectionToc"><span class="number">7.2.4</span><span class="title"><a href="PermissionsandLinks.html#x32-2050007.2.4">Soft (Symbolic) Links</a></span></span><span class="subsectionToc"><span class="number">7.2.5</span><span class="title"><a href="PermissionsandLinks.html#x32-2070007.2.5">The Linux File System</a></span></span><span class="subsectionToc"><span class="number">7.2.6</span><span class="title"><a href="PermissionsandLinks.html#x32-2080007.2.6">The UNIX
+Philosophy</a></span></span><span class="sectionToc"><span class="number">7.3</span><span class="title"><a href="CommonCommandLineToolsandTasks.html#x33-2090007.3">Common Command-Line Tools and Tasks</a></span></span><span class="subsectionToc"><span class="number">7.3.1</span><span class="title"><a href="CommonCommandLineToolsandTasks.html#x33-2100007.3.1">Connecting Commands
+with Pipes</a></span></span><span class="subsectionToc"><span class="number">7.3.2</span><span class="title"><a href="CommonCommandLineToolsandTasks.html#x33-2110007.3.2">Viewing Text Files with cat, head, tail, and less</a></span></span><span class="subsectionToc"><span class="number">7.3.3</span><span class="title"><a href="CommonCommandLineToolsandTasks.html#x33-2120007.3.3">Finding
+Linux Distribution and Kernel Information</a></span></span><span class="subsectionToc"><span class="number">7.3.4</span><span class="title"><a href="CommonCommandLineToolsandTasks.html#x33-2140007.3.4">Find System Hardware and Disk
+Information</a></span></span><span class="chapterToc"><span class="number">8</span><span class="title"><a href="ROSConcepts.html#x34-2160008">ROS Concepts</a></span></span><span class="sectionToc"><span class="number">8.1</span><span class="title"><a href="PublisherandSubscriberArchitecture.html#x35-2170008.1">Publisher and Subscriber Architecture</a></span></span><span class="subsectionToc"><span class="number">8.1.1</span><span class="title"><a href="PublisherandSubscriberArchitecture.html#x35-2180008.1.1">ROS 2
+Architecture</a></span></span><span class="sectionToc"><span class="number">8.2</span><span class="title"><a href="BuildingBlocks.html#x36-2200008.2">Building Blocks</a></span></span><span class="subsectionToc"><span class="number">8.2.1</span><span class="title"><a href="BuildingBlocks.html#x36-2210008.2.1">Nodes</a></span></span><span class="subsectionToc"><span class="number">8.2.2</span><span class="title"><a href="BuildingBlocks.html#x36-2220008.2.2">The Discovery Process</a></span></span><span class="subsectionToc"><span class="number">8.2.3</span><span class="title"><a href="BuildingBlocks.html#x36-2230008.2.3">Communication
+Interface</a></span></span><span class="subsectionToc"><span class="number">8.2.4</span><span class="title"><a href="BuildingBlocks.html#x36-2320008.2.4">Topics</a></span></span><span class="subsectionToc"><span class="number">8.2.5</span><span class="title"><a href="BuildingBlocks.html#x36-2360008.2.5">Services</a></span></span><span class="subsectionToc"><span class="number">8.2.6</span><span class="title"><a href="BuildingBlocks.html#x36-2390008.2.6">Actions</a></span></span><span class="subsectionToc"><span class="number">8.2.7</span><span class="title"><a href="BuildingBlocks.html#x36-2420008.2.7">Parameters</a></span></span><span class="subsectionToc"><span class="number">8.2.8</span><span class="title"><a href="BuildingBlocks.html#x36-2510008.2.8">Working with
+Command Line</a></span></span><span class="subsectionToc"><span class="number">8.2.9</span><span class="title"><a href="BuildingBlocks.html#x36-2530008.2.9">Launch Files</a></span></span><span class="sectionToc"><span class="number">8.3</span><span class="title"><a href="AdvancedConcepts.html#x37-2540008.3">Advanced Concepts</a></span></span><span class="subsectionToc"><span class="number">8.3.1</span><span class="title"><a href="AdvancedConcepts.html#x37-2550008.3.1">ROS DOMAIN ID</a></span></span><span class="chapterToc"><span class="number">9</span><span class="title"><a href="CommandLineTools.html#x38-2570009">Command
+Line Tools</a></span></span><span class="sectionToc"><span class="number">9.1</span><span class="title"><a href="SettingtheEnvironment.html#x39-2580009.1">Setting the Environment</a></span></span><span class="sectionToc"><span class="number">9.2</span><span class="title"><a href="TurtlesandGraphs.html#x40-2630009.2">Turtles and Graphs</a></span></span><span class="sectionToc"><span class="number">9.3</span><span class="title"><a href="ADeeperLookintoNodes.html#x41-2710009.3">A Deeper Look into
+Nodes</a></span></span><span class="sectionToc"><span class="number">9.4</span><span class="title"><a href="WorkingwithTopics.html#x42-2760009.4">Working with Topics</a></span></span><span class="sectionToc"><span class="number">9.5</span><span class="title"><a href="WorkingwithServices.html#x43-2820009.5">Working with Services</a></span></span><span class="sectionToc"><span class="number">9.6</span><span class="title"><a href="WorkingwithParameters.html#x44-2890009.6">Working with Parameters</a></span></span><span class="sectionToc"><span class="number">9.7</span><span class="title"><a href="APracticalLookintoActions.html#x45-2960009.7">A
+Practical Look into Actions</a></span></span><span class="sectionToc"><span class="number">9.8</span><span class="title"><a href="LaunchingNodes.html#x46-3030009.8">Launching Nodes</a></span></span><span class="chapterToc"><span class="number">10</span><span class="title"><a href="ClientLibraries.html#x47-30500010">Client Libraries</a></span></span><span class="sectionToc"><span class="number">10.1</span><span class="title"><a href="GettingStartedwithColcon.html#x48-30600010.1">Getting Started with
+Colcon</a></span></span><span class="subsectionToc"><span class="number">10.1.1</span><span class="title"><a href="GettingStartedwithColcon.html#x48-30700010.1.1">The Structure of a Package</a></span></span><span class="subsectionToc"><span class="number">10.1.2</span><span class="title"><a href="GettingStartedwithColcon.html#x48-30800010.1.2">Sourcing an Underlay</a></span></span><span class="subsectionToc"><span class="number">10.1.3</span><span class="title"><a href="GettingStartedwithColcon.html#x48-30900010.1.3">Building the
+Workspace</a></span></span><span class="subsectionToc"><span class="number">10.1.4</span><span class="title"><a href="GettingStartedwithColcon.html#x48-31000010.1.4">Sourcing the New Package</a></span></span><span class="subsectionToc"><span class="number">10.1.5</span><span class="title"><a href="GettingStartedwithColcon.html#x48-31100010.1.5">Creating a Workspace</a></span></span><span class="subsectionToc"><span class="number">10.1.6</span><span class="title"><a href="GettingStartedwithColcon.html#x48-31200010.1.6">Sourcing the
+Environment</a></span></span><span class="subsectionToc"><span class="number">10.1.7</span><span class="title"><a href="GettingStartedwithColcon.html#x48-31300010.1.7">Creating a New Directory</a></span></span><span class="subsectionToc"><span class="number">10.1.8</span><span class="title"><a href="GettingStartedwithColcon.html#x48-31400010.1.8">Cloning a Sample Repo</a></span></span><span class="subsectionToc"><span class="number">10.1.9</span><span class="title"><a href="GettingStartedwithColcon.html#x48-31500010.1.9">Resolving
+Dependencies</a></span></span><span class="subsectionToc"><span class="number">10.1.10</span><span class="title"><a href="GettingStartedwithColcon.html#x48-31600010.1.10">Building the Workspace</a></span></span><span class="subsectionToc"><span class="number">10.1.11</span><span class="title"><a href="GettingStartedwithColcon.html#x48-31700010.1.11">Sourcing our Overlay</a></span></span><span class="subsectionToc"><span class="number">10.1.12</span><span class="title"><a href="GettingStartedwithColcon.html#x48-31800010.1.12">Modifying
+the Overlay</a></span></span><span class="subsectionToc"><span class="number">10.1.13</span><span class="title"><a href="GettingStartedwithColcon.html#x48-31900010.1.13">Creating a Package</a></span></span><span class="sectionToc"><span class="number">10.2</span><span class="title"><a href="WritingaSimplePublisherandSubscriber.html#x49-32200010.2">Writing a Simple Publisher and
+Subscriber</a></span></span><span class="subsectionToc"><span class="number">10.2.1</span><span class="title"><a href="WritingaSimplePublisherandSubscriber.html#x49-32300010.2.1">Creating a ROS Packages</a></span></span><span class="subsectionToc"><span class="number">10.2.2</span><span class="title"><a href="WritingaSimplePublisherandSubscriber.html#x49-32400010.2.2">Writing the Publisher Node</a></span></span><span class="subsectionToc"><span class="number">10.2.3</span><span class="title"><a href="WritingaSimplePublisherandSubscriber.html#x49-32900010.2.3">Writing
+the Subscriber Node</a></span></span><span class="subsectionToc"><span class="number">10.2.4</span><span class="title"><a href="WritingaSimplePublisherandSubscriber.html#x49-33200010.2.4">Building and Running</a></span></span><span class="sectionToc"><span class="number">10.3</span><span class="title"><a href="WritingaSimpleServiceandClient.html#x50-33300010.3">Writing a Simple Service and
+Client</a></span></span><span class="subsectionToc"><span class="number">10.3.1</span><span class="title"><a href="WritingaSimpleServiceandClient.html#x50-33400010.3.1">Creating a New Package</a></span></span><span class="subsectionToc"><span class="number">10.3.2</span><span class="title"><a href="WritingaSimpleServiceandClient.html#x50-33700010.3.2">Writing the Service Node</a></span></span><span class="subsectionToc"><span class="number">10.3.3</span><span class="title"><a href="WritingaSimpleServiceandClient.html#x50-34000010.3.3">Writing the Client
+Node</a></span></span><span class="sectionToc"><span class="number">10.4</span><span class="title"><a href="CreatingCustommsgandsrvFiles.html#x51-34300010.4">Creating Custom msg and srv Files</a></span></span><span class="subsectionToc"><span class="number">10.4.1</span><span class="title"><a href="CreatingCustommsgandsrvFiles.html#x51-34400010.4.1">Creating a New Package</a></span></span><span class="subsectionToc"><span class="number">10.4.2</span><span class="title"><a href="CreatingCustommsgandsrvFiles.html#x51-34500010.4.2">Creating
+Custom Definitions</a></span></span><span class="subsectionToc"><span class="number">10.4.3</span><span class="title"><a href="CreatingCustommsgandsrvFiles.html#x51-35200010.4.3">Testing the Newly Built Interfaces</a></span></span><span class="sectionToc"><span class="number">10.5</span><span class="title"><a href="UsingParametersinaClass.html#x52-35400010.5">Using Parameters in a
+Class</a></span></span><span class="subsectionToc"><span class="number">10.5.1</span><span class="title"><a href="UsingParametersinaClass.html#x52-35500010.5.1">Creating a Package</a></span></span><span class="subsectionToc"><span class="number">10.5.2</span><span class="title"><a href="UsingParametersinaClass.html#x52-35700010.5.2">Writing our Python Code</a></span></span><span class="subsectionToc"><span class="number">10.5.3</span><span class="title"><a href="UsingParametersinaClass.html#x52-36200010.5.3">Changing Output using
+the Console</a></span></span><span class="subsectionToc"><span class="number">10.5.4</span><span class="title"><a href="UsingParametersinaClass.html#x52-36300010.5.4">Changing using the Launch File</a></span></span><span class="sectionToc"><span class="number">10.6</span><span class="title"><a href="ManagingDependencies.html#x53-36400010.6">Managing Dependencies</a></span></span><span class="sectionToc"><span class="number">10.7</span><span class="title"><a href="CreatinganAction.html#x54-36600010.7">Creating
+an Action</a></span></span><span class="sectionToc"><span class="number">10.8</span><span class="title"><a href="WritinganActionServerandClient.html#x55-36900010.8">Writing an Action Server and Client</a></span></span><span class="sectionToc"><span class="number">10.9</span><span class="title"><a href="WritingaLaunchFile.html#x56-37100010.9">Writing a Launch File</a></span></span>
+<div class="nav-footer"><div class="nav-footer-left"><span class="nav-footer-lecture">D. T. McGuiness, PhD</span>
+<span class="nav-footer-webBook"><b>Last Updated:</b> 13.10.2026, at 8:16.</span></div></div><p class="nav-comments">The website you are viewing is auto-generated using lms-WebBook and therefore subject to slight errors in typography and formatting. When in doubt, please consult the LectureBook. </p></div></nav>
+<article class="chapter">
+<nav class="crosslinks-top"> <span class="nav-button"><i class="fa-solid fa-caret-right"></i><a class="nav-link" href="CommandLineFundamentals.html">Chapter: Command Line
+Fundamentals</a></span><span class="nav-button"><i class="fa-solid fa-caret-left"></i><a class="nav-link" href="AHistoryofUNIXLinux.html">A History of UNIX/Linux</a></span><span class="nav-button"><i class="fa-solid fa-caret-up"></i><a class="nav-link" href="WelcometoLinux.html#Installation.html">Chapter: Welcome to
+Linux</a></span><span class="nav-button">
+<a href="index.html" rel="index" title="Visit Entry Point">
+<i class="fa-solid fa-table-list">
+</i>
+<span class="nav-info">Visit Index Page</span>
+</a></span><span class="nav-button">
+<a href="Index.html" rel="index" title="Visit Material GitHub Repo">
+<i class="fa-brands fa-git-alt"></i>
+<span class="nav-info">Visit Material GitHub Repo</span>
+</a></span></nav>
+<div class="section-header"> <h3 id="header-section-5.2"> <a class="pdf-icon" href="AutonomousMobileRoboticsLectureBook.pdf#section.5.2"><svg class="bi bi-file-pdf" fill="currentColor" height="20" viewbox="0 0 16 16" width="20" xmlns="http://www.w3.org/2000/svg"><path d="M4 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H4zm0 1h8a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1z"></path><path d="M4.603 12.087a.81.81 0 0 1-.438-.42c-.195-.388-.13-.776.08-1.102.198-.307.526-.568.897-.787a7.68 7.68 0 0 1 1.482-.645 19.701 19.701 0 0 0 1.062-2.227 7.269 7.269 0 0 1-.43-1.295c-.086-.4-.119-.796-.046-1.136.075-.354.274-.672.65-.823.192-.077.4-.12.602-.077a.7.7 0 0 1 .477.365c.088.164.12.356.127.538.007.187-.012.395-.047.614-.084.51-.27 1.134-.52 1.794a10.954 10.954 0 0 0 .98 1.686 5.753 5.753 0 0 1 1.334.05c.364.065.734.195.96.465.12.144.193.32.2.518.007.192-.047.382-.138.563a1.04 1.04 0 0 1-.354.416.856.856 0 0 1-.51.138c-.331-.014-.654-.196-.933-.417a5.716 5.716 0 0 1-.911-.95 11.642 11.642 0 0 0-1.997.406 11.311 11.311 0 0 1-1.021 1.51c-.29.35-.608.655-.926.787a.793.793 0 0 1-.58.029zm1.379-1.901c-.166.076-.32.156-.459.238-.328.194-.541.383-.647.547-.094.145-.096.25-.04.361.01.022.02.036.026.044a.27.27 0 0 0 .035-.012c.137-.056.355-.235.635-.572a8.18 8.18 0 0 0 .45-.606zm1.64-1.33a12.647 12.647 0 0 1 1.01-.193 11.666 11.666 0 0 1-.51-.858 20.741 20.741 0 0 1-.5 1.05zm2.446.45c.15.162.296.3.435.41.24.19.407.253.498.256a.107.107 0 0 0 .07-.015.307.307 0 0 0 .094-.125.436.436 0 0 0 .059-.2.095.095 0 0 0-.026-.063c-.052-.062-.2-.152-.518-.209a3.881 3.881 0 0 0-.612-.053zM8.078 5.8a6.7 6.7 0 0 0 .2-.828c.031-.188.043-.343.038-.465a.613.613 0 0 0-.032-.198.517.517 0 0 0-.145.04c-.087.035-.158.106-.196.283-.04.192-.03.469.046.822.024.111.054.227.09.346z"></path></svg></a> <span class="number">5.2</span> <span class="title"> <a id="x26-1740005.2"></a>Installation</span></h3></div>
+<p class="noindent">There are a wide variety of ways of installing Linux on a computer. These include: </p>
+<dl class="description"><dt class="description"><a id="x26-174001x5.2"></a>
+<span style="color:#0A2A0A;">Creating a virtual environment</span>
+</dt><dd class="description">
+<p class="noindent"> Allows you to install Linux within your primary <span class="acronym"><span class="acronym-short"><a class="glossary" href="#glo:os">OS</a></span><span class="acronym-detail"><span class="acronym-long"><a class="glossary" href="#glo:os">Operating System</a></span><span class="acronym-desc"><a class="glossary" href="#glo:os">Operating System</a></span></span></span>.
+There are great many benefits to this approach as it allows you to test an experimental
+<span class="acronym"><span class="acronym-short"><a class="glossary" href="#glo:os">OS</a></span><span class="acronym-detail"><span class="acronym-long"><a class="glossary" href="#glo:os">Operating  System</a></span><span class="acronym-desc"><a class="glossary" href="#glo:os">Operating  System</a></span></span></span>  without  affecting  your  primary  setup.  It  also
+allows  you  to  run  simple  applications  without  leaving  your  primary  <span class="acronym"><span class="acronym-short"><a class="glossary" href="#glo:os">OS</a></span><span class="acronym-detail"><span class="acronym-long"><a class="glossary" href="#glo:os">Operating
+System</a></span><span class="acronym-desc"><a class="glossary" href="#glo:os">Operating System</a></span></span></span> and can have various inter-operability options such as shared
+folder, and shared network settings.
+The disadvantages include some hit to performance as both the host and virtual <span class="acronym"><span class="acronym-short"><a class="glossary" href="#glo:os">OS</a></span><span class="acronym-detail"><span class="acronym-long"><a class="glossary" href="#glo:os">Operating
+System</a></span><span class="acronym-desc"><a class="glossary" href="#glo:os">Operating System</a></span></span></span> have to share the same pool of resources. In addition, graphically
+virtual ram limits are set to <math display="inline"><mn>2</mn><mn>5</mn><mn>6</mn></math> <math display="inline"><mstyle mathvariant="normal"><mi>M</mi><mi>B</mi></mstyle></math>.
+</p>
+</dd>
+<dt class="description"><a id="x26-174002x5.2"></a>
+<span style="color:#0A2A0A;">Creating a partition on your computer</span>
+</dt><dd class="description">
+<p class="noindent"> and install it alongside your primary <span class="acronym"><span class="acronym-short"><a class="glossary" href="#glo:os">OS</a></span><span class="acronym-detail"><span class="acronym-long"><a class="glossary" href="#glo:os">Operating System</a></span><span class="acronym-desc"><a class="glossary" href="#glo:os">Operating System</a></span></span></span>. This option
+is generally done by most people who know what they are doing as they generally have one
+or two software where there is no alternative on Linux and therefore would like to keep
+their primary <span class="acronym"><span class="acronym-short"><a class="glossary" href="#glo:os">OS</a></span><span class="acronym-detail"><span class="acronym-long"><a class="glossary" href="#glo:os">Operating System</a></span><span class="acronym-desc"><a class="glossary" href="#glo:os">Operating System</a></span></span></span> for those specific software.
+</p>
+</dd>
+<dt class="description"><a id="x26-174003x5.2"></a>
+<span style="color:#0A2A0A;">Using a container</span>
+</dt><dd class="description">
+<p class="noindent"> One of the more popular option in recent times. The way it works is similar to that
+of using a virtual machine but heavily stripped one. Basically a container houses enough
+components to house an application. Think of running Linux per application instead of a
+full blown os.</p></dd></dl>
+<p class="noindent">There are many merits and demerits to using an option and in this lecture we will focus on building a
+container image for both Linux programming and <span class="acronym"><span class="acronym-short"><a class="glossary" href="#glo:ros">ROS</a></span><span class="acronym-detail"><span class="acronym-long"><a class="glossary" href="#glo:ros">Robot Operating System 2</a></span><span class="acronym-desc"><a class="glossary" href="#glo:ros">Robot Operating
+System 2</a></span></span></span> application
+</p>
+<p class="noindent"></p><figure class="float">
+<p class="noindent"> <img alt="PIC" src="figures/Welcome-to-Linux/vector/docker-logo-.png" style=""/> <a id="x26-174004r6"></a>
+</p>
+<figcaption class="caption"><span class="id">Figure 5.6: </span><span class="content">The docker logo                                                            </span></figcaption>
+</figure>
+<p class="noindent"><div class="subsection-header"> <h4 id="header-subsection-5.2.1"> <a class="pdf-icon" href="AutonomousMobileRoboticsLectureBook.pdf#subsection.5.2.1"><svg class="bi bi-file-pdf" fill="currentColor" height="20" viewbox="0 0 16 16" width="20" xmlns="http://www.w3.org/2000/svg"><path d="M4 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H4zm0 1h8a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1z"></path><path d="M4.603 12.087a.81.81 0 0 1-.438-.42c-.195-.388-.13-.776.08-1.102.198-.307.526-.568.897-.787a7.68 7.68 0 0 1 1.482-.645 19.701 19.701 0 0 0 1.062-2.227 7.269 7.269 0 0 1-.43-1.295c-.086-.4-.119-.796-.046-1.136.075-.354.274-.672.65-.823.192-.077.4-.12.602-.077a.7.7 0 0 1 .477.365c.088.164.12.356.127.538.007.187-.012.395-.047.614-.084.51-.27 1.134-.52 1.794a10.954 10.954 0 0 0 .98 1.686 5.753 5.753 0 0 1 1.334.05c.364.065.734.195.96.465.12.144.193.32.2.518.007.192-.047.382-.138.563a1.04 1.04 0 0 1-.354.416.856.856 0 0 1-.51.138c-.331-.014-.654-.196-.933-.417a5.716 5.716 0 0 1-.911-.95 11.642 11.642 0 0 0-1.997.406 11.311 11.311 0 0 1-1.021 1.51c-.29.35-.608.655-.926.787a.793.793 0 0 1-.58.029zm1.379-1.901c-.166.076-.32.156-.459.238-.328.194-.541.383-.647.547-.094.145-.096.25-.04.361.01.022.02.036.026.044a.27.27 0 0 0 .035-.012c.137-.056.355-.235.635-.572a8.18 8.18 0 0 0 .45-.606zm1.64-1.33a12.647 12.647 0 0 1 1.01-.193 11.666 11.666 0 0 1-.51-.858 20.741 20.741 0 0 1-.5 1.05zm2.446.45c.15.162.296.3.435.41.24.19.407.253.498.256a.107.107 0 0 0 .07-.015.307.307 0 0 0 .094-.125.436.436 0 0 0 .059-.2.095.095 0 0 0-.026-.063c-.052-.062-.2-.152-.518-.209a3.881 3.881 0 0 0-.612-.053zM8.078 5.8a6.7 6.7 0 0 0 .2-.828c.031-.188.043-.343.038-.465a.613.613 0 0 0-.032-.198.517.517 0 0 0-.145.04c-.087.035-.158.106-.196.283-.04.192-.03.469.046.822.024.111.054.227.09.346z"></path></svg></a><span class="number">5.2.1</span> <span class="title"> <a id="x26-1750005.2.1"></a>Docker</span></h4></div>
+</p><p class="noindent">Docker is an open-source platform that has completely changed the way we develop, deploy, and use
+apps. The application development lifecycle is a dynamic process, and developers are always looking for
+ways to make it more efficient. Docker enables developers to package their work and all
+of its dependencies into standardised units called containers by utilizing containerisation
+technology.
+</p><p class="noindent">By separating apps from the underlying infrastructure, these lightweight containers provide reliable
+performance and functionality in a variety of environments. Because of this, Docker is a game-changer
+for developers because it frees them up to concentrate on creating amazing software rather than
+handling difficult infrastructure.
+</p><p class="noindent">Regardless of your level of experience, Docker provides an extensive feature set and a strong toolset
+that can greatly enhance your development process. In this tutorial, we will provide you with a
+thorough understanding of Docker, going over its main features, advantages, and ways to use it to
+develop, launch, and distribute apps more quickly and easily.
+</p>
+<div class="knowledge"><div class="knowledge-upper">Knowledge</div><div class="body">
+<p class="noindent">Docker is not the only containerisation software available as there is also <span class="margin-block"><span class="margin"><span>podman <a class="ellipsis" href="#m-ref-153">[153]</a></span><span class="sidenote"><a class="copiable-link" href="#m-ref-153" id="m-ref-153"> ¶</a><span class="sidenote-image"><img alt="PIC" src="figures/Welcome-to-Linux/raster/podman-logo.png" style=""/></span><span class="sidenote-text"><span class="ellipsis">[153]</span>The logo of the
+podman software.</span></span></span></span> which is almost compatible and is developed by RHEL. </p></div></div>
+<div class="info-block" id="info-block-5.24"> <a class="copiable-link" href="#info-block-5.24"> ¶</a> <span class="info-upper"> <span class="info-header"> <b>Information 5.<a id="x26-175001r24"></a>24: </b> </span> <span class="info-title"> Docker v. Podman </span> </span> <div class="body">
+<p class="noindent">The biggest difference is the underlying architecture each is built on. Docker heavily relies on a daemon,
+while Podman is daemonless. Think of a daemon as a process that runs in the background on the host
+<span class="acronym"><span class="acronym-short"><a class="glossary" href="#glo:os">OS</a></span><span class="acronym-detail"><span class="acronym-long"><a class="glossary" href="#glo:os">Operating System</a></span><span class="acronym-desc"><a class="glossary" href="#glo:os">Operating System</a></span></span></span>. In Docker’s case, its daemon is responsible for managing
+Docker <span class="margin-block">objects <span class="margin-comment"><a class="ellipsis" href="#m-ref-154">[154]</a>
+<span class="sidenote">such as images and containers</span></span></span> and communicating with other systems. To run its
+daemon, Docker uses a package called <code class="verb">dockerd</code> . Daemons typically require root-level access to the machine
+they run on. This lends itself to <b>security vulnerabilities</b>. If a bad actor can get access to a daemon,
+they now have access to the entire machine.
+</p><p class="noindent">Podman’s daemonless architecture comes with a few benefits. Since running daemons almost always
+requires root privileges, a daemonless architecture can be thought of as “rootless.” This means that
+users who don’t have system-level access to the machine their containers are running on can still use
+Podman which isn’t always the case with Docker. Instead of a daemon, Podman uses a Linux package
+known as systemd. Since systemd is native to the Linux operating system, Podman is often considered
+more “light-weight” than Docker and will usually see faster container spin-up times than when using
+Docker.  </p></div></div>
+<p class="noindent"><div class="subsection-header"> <h4 id="header-subsection-5.2.2"> <a class="pdf-icon" href="AutonomousMobileRoboticsLectureBook.pdf#subsection.5.2.2"><svg class="bi bi-file-pdf" fill="currentColor" height="20" viewbox="0 0 16 16" width="20" xmlns="http://www.w3.org/2000/svg"><path d="M4 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H4zm0 1h8a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1z"></path><path d="M4.603 12.087a.81.81 0 0 1-.438-.42c-.195-.388-.13-.776.08-1.102.198-.307.526-.568.897-.787a7.68 7.68 0 0 1 1.482-.645 19.701 19.701 0 0 0 1.062-2.227 7.269 7.269 0 0 1-.43-1.295c-.086-.4-.119-.796-.046-1.136.075-.354.274-.672.65-.823.192-.077.4-.12.602-.077a.7.7 0 0 1 .477.365c.088.164.12.356.127.538.007.187-.012.395-.047.614-.084.51-.27 1.134-.52 1.794a10.954 10.954 0 0 0 .98 1.686 5.753 5.753 0 0 1 1.334.05c.364.065.734.195.96.465.12.144.193.32.2.518.007.192-.047.382-.138.563a1.04 1.04 0 0 1-.354.416.856.856 0 0 1-.51.138c-.331-.014-.654-.196-.933-.417a5.716 5.716 0 0 1-.911-.95 11.642 11.642 0 0 0-1.997.406 11.311 11.311 0 0 1-1.021 1.51c-.29.35-.608.655-.926.787a.793.793 0 0 1-.58.029zm1.379-1.901c-.166.076-.32.156-.459.238-.328.194-.541.383-.647.547-.094.145-.096.25-.04.361.01.022.02.036.026.044a.27.27 0 0 0 .035-.012c.137-.056.355-.235.635-.572a8.18 8.18 0 0 0 .45-.606zm1.64-1.33a12.647 12.647 0 0 1 1.01-.193 11.666 11.666 0 0 1-.51-.858 20.741 20.741 0 0 1-.5 1.05zm2.446.45c.15.162.296.3.435.41.24.19.407.253.498.256a.107.107 0 0 0 .07-.015.307.307 0 0 0 .094-.125.436.436 0 0 0 .059-.2.095.095 0 0 0-.026-.063c-.052-.062-.2-.152-.518-.209a3.881 3.881 0 0 0-.612-.053zM8.078 5.8a6.7 6.7 0 0 0 .2-.828c.031-.188.043-.343.038-.465a.613.613 0 0 0-.032-.198.517.517 0 0 0-.145.04c-.087.035-.158.106-.196.283-.04.192-.03.469.046.822.024.111.054.227.09.346z"></path></svg></a><span class="number">5.2.2</span> <span class="title"> <a id="x26-1760005.2.2"></a>Dockerfile</span></h4></div>
+</p><p class="noindent">A Dockerfile is a text document in which you can lay down all the instructions you want for an image
+to be created. </p>
+<ul class="itemize1">
+<li class="itemize">
+<p class="noindent">The first entry in the file specifies the base image, which is a pre-made image containing
+all the dependencies you need for your application.
+</p>
+</li>
+<li class="itemize">
+<p class="noindent">Then, there are commands you can send to the Dockerfile to install additional software,
+copy files, or run scripts.</p></li></ul>
+<p class="noindent">The result is a Docker image: </p><div class="quote">  a self-sufficient, executable file with all the information needed to run an
+application. </div>
+<p class="noindent">Dockerfiles are an easy way to create and deploy applications. They help in creating an environment <span class="alert">consistently reproducibly</span>,
+and in an easier way.
+</p><p class="noindent">A Dockerfile is used to create new custom images prepared individually according to specific needs. For
+instance, a Docker image can have a particular version of a web server or, for example, a database
+server, or in this case run an entire Linux <span class="acronym"><span class="acronym-short"><a class="glossary" href="#glo:os">OS</a></span><span class="acronym-detail"><span class="acronym-long"><a class="glossary" href="#glo:os">Operating System</a></span><span class="acronym-desc"><a class="glossary" href="#glo:os">Operating System</a></span></span></span> with <span class="acronym"><span class="acronym-short"><a class="glossary" href="#glo:ros">ROS</a></span><span class="acronym-detail"><span class="acronym-long"><a class="glossary" href="#glo:ros">Robot
+Operating System 2</a></span><span class="acronym-desc"><a class="glossary" href="#glo:ros">Robot Operating System 2</a></span></span></span> installed.
+For the preparation of the lecture the following Dockerfile is written which you can see in snippets
+below, which is a great way to start explaining how the document works:
+</p>
+<pre><div class="code-header"> <span class="code-language">dockerfile</span> </div> <code class="language-dockerfile">
+<pre class="fancyvrb" id="fancyvrb3"><a id="x26-176002r77"></a><span style="color:#918273;"><i># Declare the ubuntu version</i></span> 
+<a id="x26-176004r78"></a><span style="color:#9E0005;">FROM</span> <span style="color:#78730D;">ubuntu:jammy-20250404</span></pre>
+</code></pre>
+<p class="noindent">Here we are declaring a base image. A base image is a bare-bones <span class="acronym"><span class="acronym-short"><a class="glossary" href="#glo:os">OS</a></span><span class="acronym-detail"><span class="acronym-long"><a class="glossary" href="#glo:os">Operating System</a></span><span class="acronym-desc"><a class="glossary" href="#glo:os">Operating
+System</a></span></span></span> and/or application in which we build our software on. In this case it is an Ubuntu jammy
+jellyfish (22.04).
+</p>
+<pre><div class="code-header"> <span class="code-language">dockerfile</span> </div> <code class="language-dockerfile">
+<pre class="fancyvrb" id="fancyvrb4"><a id="x26-176006r83"></a><span style="color:#918273;"><i># Define the target-platform and the current maintainer</i></span> 
+<a id="x26-176008r84"></a><span style="color:#9E0005;">ARG</span> TARGETPLATFORM 
+<a id="x26-176010r85"></a><span style="color:#9E0005;">LABEL</span> <span style="color:#086678;">maintainer</span>=<span style="color:#78730D;">"Daniel.McGuiness@mci.edu"</span></pre>
+</code></pre>
+<p class="noindent">We define an <code class="verb">ARG</code>  which is a variable. We set a <code class="verb">TARGETPLATFORM</code>  which we can use to change the architecture of the install.
+<code class="verb">LABEL</code> is used to give a meta-data information which in this case is a simple email information of the current
+maintainer.
+</p>
+<pre><div class="code-header"> <span class="code-language">dockerfile</span> </div> <code class="language-dockerfile">
+<pre class="fancyvrb" id="fancyvrb5"><a id="x26-176012r90"></a><span style="color:#918273;"><i># Execute the following command as string</i></span> 
+<a id="x26-176014r91"></a><span style="color:#9E0005;">SHELL</span> [<span style="color:#78730D;">"/bin/bash"</span>, <span style="color:#78730D;">"-c"</span>]</pre>
+</code></pre>
+<p class="noindent">Next we configure the shell of the container to use <code class="verb">bash</code>  and process the given input as a string and
+<b>NOT</b> as a command.
+</p>
+<pre><div class="code-header"> <span class="code-language">dockerfile</span> </div> <code class="language-dockerfile">
+<pre class="fancyvrb" id="fancyvrb6"><a id="x26-176016r96"></a><span style="color:#918273;"><i># Upgrade Ubuntu Jammy and remove downloaded list of packages</i></span> 
+<a id="x26-176018r97"></a><span style="color:#9E0005;">RUN</span> apt-get update -q &amp;&amp; <span style="color:#B03B03;">\</span> 
+<a id="x26-176020r98"></a>    <span style="color:#086678;">DEBIAN_FRONTEND</span>=noninteractive apt-get upgrade -y &amp;&amp; <span style="color:#B03B03;">\</span> 
+<a id="x26-176022r99"></a>    apt-get autoclean &amp;&amp; <span style="color:#B03B03;">\</span> 
+<a id="x26-176024r100"></a>    apt-get autoremove &amp;&amp; <span style="color:#B03B03;">\</span> 
+<a id="x26-176026r101"></a>    rm -rf /var/lib/apt/lists/*</pre>
+</code></pre>
+<p class="noindent">We now start with building the <span class="acronym"><span class="acronym-short"><a class="glossary" href="#glo:os">OS</a></span><span class="acronym-detail"><span class="acronym-long"><a class="glossary" href="#glo:os">Operating System</a></span><span class="acronym-desc"><a class="glossary" href="#glo:os">Operating System</a></span></span></span>. We start with declaring an
+update of the <span class="acronym"><span class="acronym-short"><a class="glossary" href="#glo:os">OS</a></span><span class="acronym-detail"><span class="acronym-long"><a class="glossary" href="#glo:os">Operating System</a></span><span class="acronym-desc"><a class="glossary" href="#glo:os">Operating System</a></span></span></span> and ask it to do it non-interactively. Once it
+updates the system, we ask it to remove the repo-list to save up on space.
+</p>
+<pre><div class="code-header"> <span class="code-language">dockerfile</span> </div> <code class="language-dockerfile">
+<pre class="fancyvrb" id="fancyvrb7"><a id="x26-176028r106"></a><span style="color:#918273;"><i># Install Ubuntu Mate desktop and remove downloaded list of packages</i></span> 
+<a id="x26-176030r107"></a><span style="color:#9E0005;">RUN</span> apt-get update -q &amp;&amp; <span style="color:#B03B03;">\</span> 
+<a id="x26-176032r108"></a>    <span style="color:#086678;">DEBIAN_FRONTEND</span>=noninteractive apt-get install -y <span style="color:#B03B03;">\</span> 
+<a id="x26-176034r109"></a>        ubuntu-mate-desktop &amp;&amp; <span style="color:#B03B03;">\</span> 
+<a id="x26-176036r110"></a>    apt-get autoclean &amp;&amp; <span style="color:#B03B03;">\</span> 
+<a id="x26-176038r111"></a>    apt-get autoremove &amp;&amp; <span style="color:#B03B03;">\</span> 
+<a id="x26-176040r112"></a>    rm -rf /var/lib/apt/lists/*</pre>
+</code></pre>
+<p class="noindent">To make our programming easier and creating a more friendly environment, we shall install a
+<span class="acronym"><span class="acronym-short"><a class="glossary" href="#glo:gui">GUI</a></span><span class="acronym-detail"><span class="acronym-long"><a class="glossary" href="#glo:gui">Graphical User Interface</a></span><span class="acronym-desc"><a class="glossary" href="#glo:gui">Graphical User Interface</a></span></span></span>. There are a wide variety of desktop
+environments for use in Linux, such as GNOME, KDE, Xcfe but for our application we shall use mate
+which is the default environment for Linux Mint.
+</p>
+<pre><div class="code-header"> <span class="code-language">dockerfile</span> </div> <code class="language-dockerfile">
+<pre class="fancyvrb" id="fancyvrb8"><a id="x26-176042r117"></a><span style="color:#918273;"><i># Add important packages</i></span> 
+<a id="x26-176044r118"></a><span style="color:#9E0005;">RUN</span> apt-get update &amp;&amp; <span style="color:#B03B03;">\</span> 
+<a id="x26-176046r119"></a>    <span style="color:#086678;">DEBIAN_FRONTEND</span>=noninteractive apt-get install -y <span style="color:#B03B03;">\</span> 
+<a id="x26-176048r120"></a>        tigervnc-standalone-server tigervnc-common <span style="color:#B03B03;">\</span> 
+<a id="x26-176050r121"></a>        supervisor wget curl gosu git sudo python3-pip tini nano<span style="color:#B03B03;">\</span> 
+<a id="x26-176052r122"></a>        build-essential vim sudo lsb-release locales info<span style="color:#B03B03;">\</span> 
+<a id="x26-176054r123"></a>        bash-completion tzdata emacs tmux <span style="color:#B03B03;">\</span> 
+<a id="x26-176056r124"></a>        dos2unix &amp;&amp; <span style="color:#B03B03;">\ </span> 
+<a id="x26-176058r125"></a>    apt-get autoclean &amp;&amp; <span style="color:#B03B03;">\</span> 
+<a id="x26-176060r126"></a>    apt-get autoremove &amp;&amp; <span style="color:#B03B03;">\</span> 
+<a id="x26-176062r127"></a>    rm -rf /var/lib/apt/lists/* 
+<a id="x26-176064r128"></a> 
+<a id="x26-176066r129"></a><span style="color:#918273;"><i># Here we install a great emacs distribution `doom'</i></span> 
+<a id="x26-176068r130"></a><span style="color:#918273;"><i># RUN git clone --depth 1 \</i></span> 
+<a id="x26-176070r131"></a><span style="color:#918273;"><i>#     https://github.com/doomemacs/doomemacs \</i></span> 
+<a id="x26-176072r132"></a><span style="color:#918273;"><i>#     ~/.config/emacs &amp;&amp; \</i></span> 
+<a id="x26-176074r133"></a><span style="color:#918273;"><i>#     yes | ~/.config/emacs/bin/doom install</i></span> 
+<a id="x26-176076r134"></a> 
+<a id="x26-176078r135"></a><span style="color:#918273;"><i># Here we unminimize the ubunutu to get all the useful commands for</i></span> 
+<a id="x26-176080r136"></a><span style="color:#918273;"><i># Learning linux</i></span> 
+<a id="x26-176082r137"></a><span style="color:#9E0005;">RUN</span> yes | unminimize</pre>
+</code></pre>
+<p class="noindent">We start now with installing software on top of the <span class="acronym"><span class="acronym-short"><a class="glossary" href="#glo:os">OS</a></span><span class="acronym-detail"><span class="acronym-long"><a class="glossary" href="#glo:os">Operating System</a></span><span class="acronym-desc"><a class="glossary" href="#glo:os">Operating System</a></span></span></span>. Remember,
+we are installing a bare bones system which means it is stripped from all the software suites we take for
+granted.
+</p>
+<pre><div class="code-header"> <span class="code-language">dockerfile</span> </div> <code class="language-dockerfile">
+<pre class="fancyvrb" id="fancyvrb9"><a id="x26-176084r142"></a><span style="color:#918273;"><i># Install noVNC and Websockify</i></span> 
+<a id="x26-176086r143"></a><span style="color:#9E0005;">RUN</span> git clone <span style="color:#B03B03;">\</span> 
+<a id="x26-176088r144"></a>    https://github.com/AtsushiSaito/noVNC.git <span style="color:#B03B03;">\</span> 
+<a id="x26-176090r145"></a>    -b add_clipboard_support /usr/lib/novnc 
+<a id="x26-176092r146"></a> 
+<a id="x26-176094r147"></a><span style="color:#9E0005;">RUN</span> pip install git+https://github.com/novnc/websockify.git@v0.10.0 
+<a id="x26-176096r148"></a><span style="color:#9E0005;">RUN</span> ln -s /usr/lib/novnc/vnc.html /usr/lib/novnc/index.html 
+<a id="x26-176098r149"></a> 
+<a id="x26-176100r150"></a><span style="color:#918273;"><i># Set remote resize function enabled by default</i></span> 
+<a id="x26-176102r151"></a><span style="color:#9E0005;">RUN</span> sed -i <span style="color:#B03B03;">\</span> 
+<a id="x26-176104r152"></a>    <span style="color:#78730D;">"s/UI.initSetting('resize', 'off');/UI.initSetting('resize', 'remote');/g"</span> <span style="color:#B03B03;">\</span> 
+<a id="x26-176106r153"></a>    /usr/lib/novnc/app/ui.js 
+<a id="x26-176108r154"></a> 
+<a id="x26-176110r155"></a><span style="color:#918273;"><i># Disable auto update and crash report</i></span> 
+<a id="x26-176112r156"></a><span style="color:#9E0005;">RUN</span> sed -i <span style="color:#78730D;">'s/Prompt=.*/Prompt=never/'</span> /etc/update-manager/release-upgrades 
+<a id="x26-176114r157"></a><span style="color:#9E0005;">RUN</span> sed -i <span style="color:#78730D;">'s/enabled=1/enabled=0/g'</span> /etc/default/apport</pre>
+</code></pre>
+<p class="noindent">This section is all about installing a <span class="acronym"><span class="acronym-short"><a class="glossary" href="#glo:vnc">VNC</a></span><span class="acronym-detail"><span class="acronym-long"><a class="glossary" href="#glo:vnc">Virtual Network Computing</a></span><span class="acronym-desc"><a class="glossary" href="#glo:vnc">Virtual Network Computing</a></span></span></span>
+which is a graphical desktop-sharing system which allows remote controlling of another computer.
+It transmits the keyboard and mouse input from one computer to another, relaying the
+graphical-screen updates, over a network. We also do some text manipulation to fix some
+glitches.
+</p>
+<pre><div class="code-header"> <span class="code-language">dockerfile</span> </div> <code class="language-dockerfile">
+<pre class="fancyvrb" id="fancyvrb10"><a id="x26-176116r162"></a><span style="color:#918273;"><i># Install Firefox and its configuration</i></span> 
+<a id="x26-176118r163"></a><span style="color:#9E0005;">RUN</span> <span style="color:#086678;">DEBIAN_FRONTEND</span>=noninteractive add-apt-repository ppa:mozillateam/ppa -y &amp;&amp; <span style="color:#B03B03;">\</span> 
+<a id="x26-176120r164"></a>    <span style="color:#B03B03;">echo</span> <span style="color:#78730D;">'Package: *'</span> &gt; /etc/apt/preferences.d/mozilla-firefox &amp;&amp; <span style="color:#B03B03;">\</span> 
+<a id="x26-176122r165"></a>    <span style="color:#B03B03;">echo</span> <span style="color:#78730D;">'Pin: release o=LP-PPA-mozillateam'</span> <span style="color:#B03B03;">\</span> 
+<a id="x26-176124r166"></a>    » /etc/apt/preferences.d/mozilla-firefox &amp;&amp; <span style="color:#B03B03;">\</span> 
+<a id="x26-176126r167"></a>    <span style="color:#B03B03;">echo</span> <span style="color:#78730D;">'Pin-Priority: 1001'</span> » /etc/apt/preferences.d/mozilla-firefox &amp;&amp; <span style="color:#B03B03;">\</span> 
+<a id="x26-176128r168"></a>    apt-get update -q &amp;&amp; <span style="color:#B03B03;">\</span> 
+<a id="x26-176130r169"></a>    apt-get install -y <span style="color:#B03B03;">\</span> 
+<a id="x26-176132r170"></a>    firefox &amp;&amp; <span style="color:#B03B03;">\</span> 
+<a id="x26-176134r171"></a>    apt-get autoclean &amp;&amp; <span style="color:#B03B03;">\</span> 
+<a id="x26-176136r172"></a>    apt-get autoremove &amp;&amp; <span style="color:#B03B03;">\</span> 
+<a id="x26-176138r173"></a>    rm -rf /var/lib/apt/lists/*</pre>
+</code></pre>
+<p class="noindent">To aid in easy navigation and searching information, we shall also install Firefox into this docker
+container as well.
+</p>
+<pre><div class="code-header"> <span class="code-language">dockerfile</span> </div> <code class="language-dockerfile">
+<pre class="fancyvrb" id="fancyvrb11"><a id="x26-176140r178"></a><span style="color:#918273;"><i># Install VSCodium for people who are accosstomed to VSCode but</i></span> 
+<a id="x26-176142r179"></a><span style="color:#918273;"><i># prefer to keep it open-source</i></span> 
+<a id="x26-176144r180"></a><span style="color:#9E0005;">RUN</span> wget https://gitlab.com/paulcarroty/vscodium-deb-rpm-repo/raw/master/pub.gpg <span style="color:#B03B03;">\</span> 
+<a id="x26-176146r181"></a>    -O /usr/share/keyrings/vscodium-archive-keyring.asc &amp;&amp; <span style="color:#B03B03;">\</span> 
+<a id="x26-176148r182"></a>    <span style="color:#B03B03;">echo</span> <span style="color:#78730D;">'deb [ signed-by=/usr/share/keyrings/vscodium-archive-keyring.asc ] https://paulcarroty.gitlab.io/vscodium-deb-rpm-repo/debs vscodium main'</span> <span style="color:#B03B03;">\</span> 
+<a id="x26-176150r183"></a>    | tee /etc/apt/sources.list.d/vscodium.list &amp;&amp; <span style="color:#B03B03;">\</span> 
+<a id="x26-176152r184"></a>    apt-get update -q &amp;&amp; <span style="color:#B03B03;">\</span> 
+<a id="x26-176154r185"></a>    apt-get install -y codium &amp;&amp; <span style="color:#B03B03;">\</span> 
+<a id="x26-176156r186"></a>    apt-get autoclean &amp;&amp; <span style="color:#B03B03;">\</span> 
+<a id="x26-176158r187"></a>    apt-get autoremove &amp;&amp; <span style="color:#B03B03;">\</span> 
+<a id="x26-176160r188"></a>    rm -rf /var/lib/apt/lists/*</pre>
+</code></pre>
+<p class="noindent">To allow us to do easy programming, we shall install VSCodium, an open-source implementation of
+VSCode.
+</p>
+<pre><div class="code-header"> <span class="code-language">dockerfile</span> </div> <code class="language-dockerfile">
+<pre class="fancyvrb" id="fancyvrb12"><a id="x26-176162r193"></a><span style="color:#918273;"><i># Install ROS Humble version</i></span> 
+<a id="x26-176164r194"></a><span style="color:#9E0005;">ENV</span> <span style="color:#086678;">ROS_DISTRO</span>=humble 
+<a id="x26-176166r195"></a> 
+<a id="x26-176168r196"></a><span style="color:#918273;"><i># Install Desktop version</i></span> 
+<a id="x26-176170r197"></a><span style="color:#9E0005;">ARG</span> <span style="color:#086678;">INSTALL_PACKAGE</span>=desktop 
+<a id="x26-176172r198"></a> 
+<a id="x26-176174r199"></a><span style="color:#9E0005;">RUN</span> apt-get update -q &amp;&amp; <span style="color:#B03B03;">\</span> 
+<a id="x26-176176r200"></a>    apt-get install -y curl gnupg2 lsb-release &amp;&amp; <span style="color:#B03B03;">\</span> 
+<a id="x26-176178r201"></a>    curl -sSL https://raw.githubusercontent.com/ros/rosdistro/master/ros.key <span style="color:#B03B03;">\</span> 
+<a id="x26-176180r202"></a>    -o /usr/share/keyrings/ros-archive-keyring.gpg &amp;&amp; <span style="color:#B03B03;">\</span> 
+<a id="x26-176182r203"></a>    <span style="color:#B03B03;">echo</span> <span style="color:#78730D;">"deb [arch=</span><span style="color:#9E0005;">$(</span>dpkg --print-architecture<span style="color:#9E0005;">)</span><span style="color:#78730D;"> signed-by=/usr/share/keyrings/ros-archive-keyring.gpg] http://packages.ros.org/ros2/ubuntu </span><span style="color:#9E0005;">$(</span>lsb_release -cs<span style="color:#9E0005;">)</span><span style="color:#78730D;"> main"</span> | tee /etc/apt/sources.list.d/ros2.list &gt; /dev/null &amp;&amp; <span style="color:#B03B03;">\</span> 
+<a id="x26-176184r204"></a>    apt-get update -q &amp;&amp; <span style="color:#B03B03;">\</span> 
+<a id="x26-176186r205"></a>    apt-get install -y ros-<span style="color:#78730D;">${</span><span style="color:#086678;">ROS_DISTRO</span><span style="color:#78730D;">}</span>-<span style="color:#78730D;">${</span><span style="color:#086678;">INSTALL_PACKAGE</span><span style="color:#78730D;">}</span> <span style="color:#B03B03;">\</span> 
+<a id="x26-176188r206"></a>    python3-argcomplete <span style="color:#B03B03;">\</span> 
+<a id="x26-176190r207"></a>    python3-colcon-common-extensions <span style="color:#B03B03;">\</span> 
+<a id="x26-176192r208"></a>    python3-rosdep python3-vcstool &amp;&amp; <span style="color:#B03B03;">\</span> 
+<a id="x26-176194r209"></a>    rosdep init &amp;&amp; 
+<a id="x26-176196r210"></a>    ros-humble-turtlesim  &amp;&amp;  <span style="color:#B03B03;">\</span> 
+<a id="x26-176198r211"></a>    rm -rf /var/lib/apt/lists/* 
+<a id="x26-176200r212"></a> 
+<a id="x26-176202r213"></a><span style="color:#9E0005;">RUN</span> rosdep update 
+<a id="x26-176204r214"></a> 
+<a id="x26-176206r215"></a><span style="color:#918273;"><i># Install simulation package only on amd64</i></span> 
+<a id="x26-176208r216"></a><span style="color:#9E0005;">RUN</span> <span style="color:#9E0005;">if</span> [ <span style="color:#78730D;">"</span><span style="color:#086678;">$TARGETPLATFORM</span><span style="color:#78730D;">"</span> = <span style="color:#78730D;">"linux/amd64"</span> ]; <span style="color:#9E0005;">then</span> <span style="color:#B03B03;">\</span> 
+<a id="x26-176210r217"></a>    apt-get update -q &amp;&amp; <span style="color:#B03B03;">\</span> 
+<a id="x26-176212r218"></a>    apt-get install -y <span style="color:#B03B03;">\</span> 
+<a id="x26-176214r219"></a>    ros-<span style="color:#78730D;">${</span><span style="color:#086678;">ROS_DISTRO</span><span style="color:#78730D;">}</span>-gazebo-ros-pkgs <span style="color:#B03B03;">\</span> 
+<a id="x26-176216r220"></a>    ros-<span style="color:#78730D;">${</span><span style="color:#086678;">ROS_DISTRO</span><span style="color:#78730D;">}</span>-ros-ign &amp;&amp; <span style="color:#B03B03;">\</span> 
+<a id="x26-176218r221"></a>    rm -rf /var/lib/apt/lists/*; <span style="color:#B03B03;">\</span> 
+<a id="x26-176220r222"></a>    <span style="color:#9E0005;">fi</span></pre>
+</code></pre>
+<p class="noindent">Now that everything is installed, we start the installation of <span class="acronym"><span class="acronym-short"><a class="glossary" href="#glo:ros">ROS</a></span><span class="acronym-detail"><span class="acronym-long"><a class="glossary" href="#glo:ros">Robot Operating System 2</a></span><span class="acronym-desc"><a class="glossary" href="#glo:ros">Robot
+Operating System 2</a></span></span></span> and its dependencies. Here we define <code class="verb">ENV</code>  variable which allows us set which version of
+<span class="acronym"><span class="acronym-short"><a class="glossary" href="#glo:ros">ROS</a></span><span class="acronym-detail"><span class="acronym-long"><a class="glossary" href="#glo:ros">Robot Operating System 2</a></span><span class="acronym-desc"><a class="glossary" href="#glo:ros">Robot Operating System 2</a></span></span></span> to install.
+</p>
+<pre><div class="code-header"> <span class="code-language">dockerfile</span> </div> <code class="language-dockerfile">
+<pre class="fancyvrb" id="fancyvrb13"><a id="x26-176222r227"></a><span style="color:#918273;"><i># Download the Linux Tutorial file from repo</i></span> 
+<a id="x26-176224r228"></a><span style="color:#9E0005;">ARG</span> <span style="color:#086678;">ZIPFILE</span>=<span style="color:#78730D;">"https://github.com/dTmC0945/L-MCI-BSc-Mobile-Robotics/raw/refs/heads/main/datasets/linux-tutorials.zip"</span> 
+<a id="x26-176226r229"></a> 
+<a id="x26-176228r230"></a><span style="color:#918273;"><i># Create some user directories to simulate a desktop environment</i></span> 
+<a id="x26-176230r231"></a><span style="color:#9E0005;">RUN</span> mkdir -p <span style="color:#B03B03;">\</span> 
+<a id="x26-176232r232"></a>    /home/ubuntu/Downloads <span style="color:#B03B03;">\</span> 
+<a id="x26-176234r233"></a>    /home/ubuntu/Downloads <span style="color:#B03B03;">\</span> 
+<a id="x26-176236r234"></a>    /home/ubuntu/Desktop 
+<a id="x26-176238r235"></a> 
+<a id="x26-176240r236"></a><span style="color:#918273;"><i># Download the tutorial files to their correct place</i></span> 
+<a id="x26-176242r237"></a><span style="color:#9E0005;">RUN</span> <span style="color:#B03B03;">cd</span> <span style="color:#78730D;">"/home/ubuntu/Desktop"</span> &amp;&amp; <span style="color:#B03B03;">\</span> 
+<a id="x26-176244r238"></a>    wget -O <span style="color:#78730D;">"linux.zip"</span> <span style="color:#78730D;">"</span><span style="color:#086678;">$ZIPFILE</span><span style="color:#78730D;">"</span> &amp;&amp; <span style="color:#B03B03;">\</span> 
+<a id="x26-176246r239"></a>    unzip <span style="color:#78730D;">"linux.zip"</span> &amp;&amp; <span style="color:#B03B03;">\</span> 
+<a id="x26-176248r240"></a>    rm <span style="color:#78730D;">"linux.zip"</span> 
+<a id="x26-176250r241"></a> 
+<a id="x26-176252r242"></a><span style="color:#918273;"><i># Enable apt-get completion after running `apt-get update` in the container</i></span> 
+<a id="x26-176254r243"></a><span style="color:#9E0005;">RUN</span> rm /etc/apt/apt.conf.d/docker-clean 
+<a id="x26-176256r244"></a> 
+<a id="x26-176258r245"></a><span style="color:#918273;"><i># Copy the entrypoint.sh into the image</i></span> 
+<a id="x26-176260r246"></a><span style="color:#9E0005;">COPY</span> ./entrypoint.sh / 
+<a id="x26-176262r247"></a> 
+<a id="x26-176264r248"></a><span style="color:#918273;"><i># Convert file for linux compatability</i></span> 
+<a id="x26-176266r249"></a><span style="color:#9E0005;">RUN</span> dos2unix /entrypoint.sh 
+<a id="x26-176268r250"></a><span style="color:#9E0005;">ENTRYPOINT</span> [ <span style="color:#78730D;">"/bin/bash"</span>, <span style="color:#78730D;">"-c"</span>, <span style="color:#78730D;">"/entrypoint.sh"</span> ] 
+<a id="x26-176270r251"></a> 
+<a id="x26-176272r252"></a><span style="color:#918273;"><i># Define user and password</i></span> 
+<a id="x26-176274r253"></a><span style="color:#9E0005;">ENV</span> <span style="color:#086678;">USER</span>=ubuntu 
+<a id="x26-176276r254"></a><span style="color:#9E0005;">ENV</span> <span style="color:#086678;">PASSWD</span>=ubuntu</pre>
+</code></pre>
+<p class="noindent">Finally, we download some additional files from a repo which will be a folder containing tutorial files for
+use in learning Linux. We then unzip it to Desktop and remove the image. To finish of we define a user
+called <code class="verb">ubuntu</code>  with a password of <code class="verb">ubuntu</code> .
+</p><p class="noindent">As mentioned, a Dockerfile is a text document which includes all the different steps and instructions on
+how to build a Docker image. In a general sense, the main elements described in the Dockerfile are:
+</p>
+<ul class="itemize1">
+<li class="itemize">
+<p class="noindent">the base image,
+</p>
+</li>
+<li class="itemize">
+<p class="noindent">required dependencies, and
+</p>
+</li>
+<li class="itemize">
+<p class="noindent">commands to execute application deployment within a container.</p></li></ul>
+<p class="noindent">Let’s have a look in detail as to what is going on under-the-hood. Here we will have a look at command
+used in the file. For a more detailed explanation of what is going on, please have a look at the
+file.
+</p>
+<dl class="description"><dt class="description"><a id="x26-176277x5.2.2"></a>
+<span style="color:#0A2A0A;"><code class="verb">FROM</code> </span>
+</dt><dd class="description">
+<p class="noindent"> This instruction sets the base image on which the new image is going to be built upon. It
+is usually the first instruction in a Dockerfile.
+</p>
+<p class="noindent">In this case we are downloading the official <code class="verb">ubuntu:jammy-20250404</code>  version from the docker repository.
+</p>
+</dd>
+<dt class="description"><a id="x26-176278x5.2.2"></a>
+<span style="color:#0A2A0A;"><code class="verb">ARG</code> </span>
+</dt><dd class="description">
+<p class="noindent"> These define variables used during the building of the image.
+</p>
+<p class="noindent">Here, we define a variable called <code class="verb">TARGETPLATFORM</code>  to control the architecture installed on the <span class="acronym"><span class="acronym-short"><a class="glossary" href="#glo:os">OS</a></span><span class="acronym-detail"><span class="acronym-long"><a class="glossary" href="#glo:os">Operating
+System</a></span><span class="acronym-desc"><a class="glossary" href="#glo:os">Operating System</a></span></span></span>
+</p>
+</dd>
+<dt class="description"><a id="x26-176279x5.2.2"></a>
+<span style="color:#0A2A0A;"><code class="verb">LABEL</code> </span>
+</dt><dd class="description">
+<p class="noindent"> Allows writing meta-data information to the docker image. This could be the maintainer
+of the code or the version as an example.
+</p>
+</dd>
+<dt class="description"><a id="x26-176280x5.2.2"></a>
+<span style="color:#0A2A0A;"><code class="verb">RUN</code>    </span>
+</dt><dd class="description">
+<p class="noindent"> This will be an instruction that will be executed for running the commands inside the
+container while building. It is typically used to install an application, update libraries, or
+do general setup.
+</p>
+</dd>
+<dt class="description"><a id="x26-176281x5.2.2"></a>
+<span style="color:#0A2A0A;"><code class="verb">COPY</code> </span>
+</dt><dd class="description">
+<p class="noindent"> Allows us to copy a file from the host to the image. In this case we are copying a special
+file called <code class="verb">entrypoint.sh</code>  which sets up the container with various configurations.
+</p>
+</dd>
+<dt class="description"><a id="x26-176282x5.2.2"></a>
+<span style="color:#0A2A0A;"><code class="verb">ENV</code>    </span>
+</dt><dd class="description">
+<p class="noindent"> Sets up environmental parameters inside the image.</p></dd></dl>
+<p class="noindent">To build this image we need to use the <span class="acronym"><span class="acronym-short"><a class="glossary" href="#glo:cli">CLI</a></span><span class="acronym-detail"><span class="acronym-long"><a class="glossary" href="#glo:cli">Command-Line Interface</a></span><span class="acronym-desc"><a class="glossary" href="#glo:cli">A software mechanism you use to
+interact with your operating system using your keyboard</a></span></span></span>, move to the directory where both <code class="verb">Dockerfile</code>  and <code class="verb">entrypoint.sh</code>  is
+present and run the following code to build image.
+</p>
+<pre><div class="code-header"> <span class="code-language">bash</span> </div> <code class="language-bash">
+<pre class="fancyvrb" id="fancyvrb14"><a id="x26-176284r264"></a>docker build . -t mci:ros2 -f Dockerfile</pre>
+</code></pre>
+<p class="noindent"><div class="subsection-header"> <h4 id="header-subsection-5.2.3"> <a class="pdf-icon" href="AutonomousMobileRoboticsLectureBook.pdf#subsection.5.2.3"><svg class="bi bi-file-pdf" fill="currentColor" height="20" viewbox="0 0 16 16" width="20" xmlns="http://www.w3.org/2000/svg"><path d="M4 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H4zm0 1h8a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1z"></path><path d="M4.603 12.087a.81.81 0 0 1-.438-.42c-.195-.388-.13-.776.08-1.102.198-.307.526-.568.897-.787a7.68 7.68 0 0 1 1.482-.645 19.701 19.701 0 0 0 1.062-2.227 7.269 7.269 0 0 1-.43-1.295c-.086-.4-.119-.796-.046-1.136.075-.354.274-.672.65-.823.192-.077.4-.12.602-.077a.7.7 0 0 1 .477.365c.088.164.12.356.127.538.007.187-.012.395-.047.614-.084.51-.27 1.134-.52 1.794a10.954 10.954 0 0 0 .98 1.686 5.753 5.753 0 0 1 1.334.05c.364.065.734.195.96.465.12.144.193.32.2.518.007.192-.047.382-.138.563a1.04 1.04 0 0 1-.354.416.856.856 0 0 1-.51.138c-.331-.014-.654-.196-.933-.417a5.716 5.716 0 0 1-.911-.95 11.642 11.642 0 0 0-1.997.406 11.311 11.311 0 0 1-1.021 1.51c-.29.35-.608.655-.926.787a.793.793 0 0 1-.58.029zm1.379-1.901c-.166.076-.32.156-.459.238-.328.194-.541.383-.647.547-.094.145-.096.25-.04.361.01.022.02.036.026.044a.27.27 0 0 0 .035-.012c.137-.056.355-.235.635-.572a8.18 8.18 0 0 0 .45-.606zm1.64-1.33a12.647 12.647 0 0 1 1.01-.193 11.666 11.666 0 0 1-.51-.858 20.741 20.741 0 0 1-.5 1.05zm2.446.45c.15.162.296.3.435.41.24.19.407.253.498.256a.107.107 0 0 0 .07-.015.307.307 0 0 0 .094-.125.436.436 0 0 0 .059-.2.095.095 0 0 0-.026-.063c-.052-.062-.2-.152-.518-.209a3.881 3.881 0 0 0-.612-.053zM8.078 5.8a6.7 6.7 0 0 0 .2-.828c.031-.188.043-.343.038-.465a.613.613 0 0 0-.032-.198.517.517 0 0 0-.145.04c-.087.035-.158.106-.196.283-.04.192-.03.469.046.822.024.111.054.227.09.346z"></path></svg></a><span class="number">5.2.3</span> <span class="title"> <a id="x26-1770005.2.3"></a>Running the Container</span></h4></div>
+</p><p class="noindent">Now we built the image, we now need to create a container. The following command will create a new
+container from an image.
+</p>
+<div class="warning"><div class="warning-upper">Warning</div><div class="body">
+<p class="noindent">This command will create a container every time it is invoked. </p></div></div>
+<div class="quote"> An image is a read-only, self-contained template containing instructions for building a Docker
+container, like a blueprint for a building. Container is a running instance of that image, like
+the building itself, and is a fully isolated environment for running applications. Images are
+used to create containers, and multiple containers can be created from the same image.
+</div>
+<pre><div class="code-header"> <span class="code-language">bash</span> </div> <code class="language-bash">
+<pre class="fancyvrb" id="fancyvrb15"><a id="x26-177002r386"></a>docker run <span style="color:#B03B03;">\</span> 
+<a id="x26-177004r387"></a>       --volume ~/Documents/docker-documents:/home/ubuntu/Desktop/Host <span style="color:#B03B03;">\</span> 
+<a id="x26-177006r388"></a>       --publish <span style="color:#8F4070;">6080</span>:80 <span style="color:#B03B03;">\</span> 
+<a id="x26-177008r389"></a>       --name=<span style="color:#78730D;">"ros2linux"</span> <span style="color:#B03B03;">\</span> 
+<a id="x26-177010r390"></a>       --security-opt <span style="color:#086678;">seccomp</span>=unconfined <span style="color:#B03B03;">\</span> 
+<a id="x26-177012r391"></a>       --shm-size=512m <span style="color:#B03B03;">\</span> 
+<a id="x26-177014r392"></a>       mci:ros2</pre>
+</code></pre>
+<p class="noindent">Let’s have a look at all the options given here and understand whats going on:
+</p>
+<dl class="description"><dt class="description"><a id="x26-177015x5.2.3"></a>
+<span style="color:#0A2A0A;"><code class="verb">docker run</code> </span>
+</dt><dd class="description">
+<p class="noindent"> Our main command. It <span class="alert">runs</span> a command in a new container, pulling the image if needed and
+starting the container. Of course, in our file it is already written so when this is executed,
+there won’t be any additional downloads needed.
+</p>
+</dd>
+<dt class="description"><a id="x26-177016x5.2.3"></a>
+<span style="color:#0A2A0A;"><code class="verb">--volume</code> </span>
+</dt><dd class="description">
+<p class="noindent"> Binds volume between the host and the computer. Here we introduce a path from our host
+computer <code class="verb">\T1\textasciitilde /Documents/docker-documents</code>  and link it to the docker container <code class="verb">root/home/ubuntu/Desktop/Host</code>  to allow us to share files between host and docker
+container. </p><div class="warning"><div class="warning-upper">Warning</div><div class="body">
+<p class="noindent">The left side of the path may need to be adjusted for your computer. </p></div></div>
+</dd>
+<dt class="description"><a id="x26-177017x5.2.3"></a>
+<span style="color:#0A2A0A;"><code class="verb">--publish</code> </span>
+</dt><dd class="description">
+<p class="noindent"> Publish a container’s port(s) to the host. Here we are allowing access of the port 6080 (TCP) to
+the host computer which is used by noVNC.
+</p>
+</dd>
+<dt class="description"><a id="x26-177018x5.2.3"></a>
+<span style="color:#0A2A0A;"><code class="verb">--name</code> </span>
+</dt><dd class="description">
+<p class="noindent"> Adds a specific name to a container. If this option is not set a random will be given.
+</p>
+</dd>
+<dt class="description"><a id="x26-177019x5.2.3"></a>
+<span style="color:#0A2A0A;"><code class="verb">--security-opt</code> </span>
+</dt><dd class="description">
+<p class="noindent"> Additional security options. Here we are passing no additional security options. This is done due
+to the requirements by noVNC.
+</p>
+</dd>
+<dt class="description"><a id="x26-177020x5.2.3"></a>
+<span style="color:#0A2A0A;"><code class="verb">--shm-size</code> </span>
+</dt><dd class="description">
+<p class="noindent"> the amount of shared memory allotted to a docker container. A temporary file storage filesystem
+using <span class="acronym"><span class="acronym-short"><a class="glossary" href="#glo:ram">RAM</a></span><span class="acronym-detail"><span class="acronym-long"><a class="glossary" href="#glo:ram">Random Access Memory</a></span><span class="acronym-desc"><a class="glossary" href="#glo:ram">a form of electronic computer memory that can be read and
+changed in any order, typically used to store working data and machine code.</a></span></span></span> for storing
+files.</p></dd></dl>
+<p class="noindent">Once the container is created, please use the following to close it properly.
+</p>
+<pre><div class="code-header"> <span class="code-language">bash</span> </div> <code class="language-bash">
+<pre class="fancyvrb" id="fancyvrb16"><a id="x26-177022r397"></a>docker container stop <span style="color:#78730D;">"ros2linux"</span> </pre>
+</code></pre>
+<p class="noindent">To re-run the container and continue where left off, use the following.
+</p>
+<pre><div class="code-header"> <span class="code-language">bash</span> </div> <code class="language-bash">
+<pre class="fancyvrb" id="fancyvrb17"><a id="x26-177024r402"></a>docker container start <span style="color:#78730D;">"ros2linux"</span> </pre>
+</code></pre>
+<div class="section-header">
+<h3 id="header-section-glossary">
+<span class="number">
+<i class="fa-regular fa-bookmark"></i>
+</span>
+<span class="title">
+<a id="page-glossary"></a>
+        Page Glossary Terms</span>
+</h3>
+</div>
+<div class="acronym-block">
+<dl class="acr-list">
+<a class="copiable-link" href="#glo:ram">¶</a>
+<dt class="acr-bottom" id="glo:ram"><span class="acr-short">RAM</span><span class="acr-long">Random Access Memory</span></dt>
+<dd class="acr-desc"><p>a form of electronic computer memory that can be read and
+changed in any order, typically used to store working data and machine code.</p></dd>
+</dl>
+<dl class="acr-list">
+<a class="copiable-link" href="#glo:cli">¶</a>
+<dt class="acr-bottom" id="glo:cli"><span class="acr-short">CLI</span><span class="acr-long">Command-Line Interface</span></dt>
+<dd class="acr-desc"><p>A software mechanism you use to
+interact with your operating system using your keyboard</p></dd>
+</dl>
+<dl class="acr-list">
+<a class="copiable-link" href="#glo:vnc">¶</a>
+<dt class="acr-bottom" id="glo:vnc"><span class="acr-short">VNC</span><span class="acr-long">Virtual Network Computing</span></dt>
+<dd class="acr-desc"><p>Virtual Network Computing</p></dd>
+</dl>
+<dl class="acr-list">
+<a class="copiable-link" href="#glo:gui">¶</a>
+<dt class="acr-bottom" id="glo:gui"><span class="acr-short">GUI</span><span class="acr-long">Graphical User Interface</span></dt>
+<dd class="acr-desc"><p>Graphical User Interface</p></dd>
+</dl>
+<dl class="acr-list">
+<a class="copiable-link" href="#glo:ros">¶</a>
+<dt class="acr-bottom" id="glo:ros"><span class="acr-short">ROS</span><span class="acr-long">Robot Operating System 2</span></dt>
+<dd class="acr-desc"><p>Robot Operating
+System 2</p></dd>
+</dl>
+<dl class="acr-list">
+<a class="copiable-link" href="#glo:os">¶</a>
+<dt class="acr-bottom" id="glo:os"><span class="acr-short">OS</span><span class="acr-long">Operating System</span></dt>
+<dd class="acr-desc"><p>Operating System</p></dd>
+</dl>
+</div>
+<div class="section-header">
+<h3 id="header-section-references">
+<span class="number">
+<i class="fa-regular fa-note-sticky"></i>
+</span>
+<span class="title">
+<a id="page-glossary"></a>
+                    Page Footnotes</span>
+</h3>
+</div>
+<div class="footnote-block">
+<dl class="enumerate-enumitem">
+<dt class="enumerate-enumitem" id="m-ref-154"><span class="acr-short">[154].</span></dt>
+<dd class="enumerate-enumitem"><span class="">such as images and containers</span></dd>
+</dl></div><nav class="crosslinks-bottom"><div class="navigation"><span class="nav-button"><a href="CommandLineFundamentals.html"><i class="fa-solid fa-caret-right"></i></a></span><span class="nav-button"><a href="AHistoryofUNIXLinux.html"><i class="fa-solid fa-caret-left"></i></a></span><span class="nav-button"><a href="WelcometoLinux.html#Installation.html"><i class="fa-solid fa-caret-up"></i></a></span><span class="nav-button">
+<a href="index.html" rel="index" title="Index">
+<i class="fa-solid fa-table-list">
+</i>
+</a></span><span class="nav-button">
+<a href="Index.html" rel="index" title="Index">
+<i class="fa-brands fa-git-alt"></i>
+</a></span></div></nav> <div class="footer"> <div class="footer-left"><span class="footer-lecture">D. T. McGuiness, PhD</span>
+<span class="footer-webBook"><b>Last Updated:</b> 13.10.2026, at 8:16.</span></div></div><div class="author-notes">
+<span class="note">Authors Note </span>
+<span class="text">The website you are viewing is auto-generated using lms-WebBook and therefore subject to slight errors in typography and formatting. When in doubt, please consult the LectureBook. </span>
+</div>
+</article>
+<div class="mode-line">
+<div class="core-line"><div class="core-line-image"><img class="webbook-logo" src="logo/webbook-logo.svg"/></div>
+<div class="current-header">
+<span class="header-pretext">Viewing | </span>
+<span class="header-text">Section 5.2: Installation</span>
+</div>
+<div class="button-group">
+</div>
+</div>
+<div class="supp-line"></div>
+</div>
+</page>
+</body>
+</html>

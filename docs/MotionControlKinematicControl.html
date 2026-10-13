@@ -1,0 +1,551 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><title>Motion Control (Kinematic Control)</title>
+<meta charset="utf-8"/>
+<meta content="lms-WebBook" name="generator"/>
+<meta content="width=device-width,initial-scale=1" name="viewport"/>
+<script async="async" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/mml-chtml.js" type="text/javascript"></script>
+<link href="logo/lms.ico" rel="icon" type="image/x-icon"/>
+<link href="./pagefind/pagefind-component-ui.css" rel="stylesheet"/>
+<script src="./pagefind/pagefind-component-ui.js" type="text/javascript"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<link href="https://cdn.jsdelivr.net/gh/sugina-dev/latin-modern-web@1.0.1/style/latinmodern-mono.css" rel="stylesheet"/>
+<link href="https://cdn.jsdelivr.net/gh/dTmC0945/Wb-LMS-WebBook-Infrastructure/flatweb.css" rel="stylesheet" type="text/css"/>
+<script async="true" crossorigin="anonymous" src="https://cdn.jsdelivr.net/gh/dTmC0945/Wb-LMS-WebBook-Infrastructure/flatweb.js"></script>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/styles/default.min.css" rel="stylesheet"/>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/highlight.min.js"></script>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/styles/base16/solarized-light.min.css" rel="stylesheet"/>
+<script src="https://unpkg.com/highlightjs-copy/dist/highlightjs-copy.min.js"></script>
+<link href="https://unpkg.com/highlightjs-copy/dist/highlightjs-copy.min.css" rel="stylesheet"/>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css?family=Roboto:400,100,100italic,300,300italic,400italic,500,500italic,700,700italic,900italic,900" rel="stylesheet"/>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/languages/cpp.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/languages/latex.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/languages/matlab.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/languages/dockerfile.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/languages/cmake.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/languages/makefile.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/languages/markdown.min.js"></script>
+ </head><body>
+<page>
+<nav class="wide"> <div class="header"><div class="header-left"><span class="header-lecture-grade">M.Sc</span>
+<span class="header-lecture-name">Autonomous Mobile Robotics</span>
+<span class="header-webBook">WebBook 2.1</span></div><div class="header-right"><span class="header-version">2026.WS</span>
+<span class="header-chapter">Mobile Robot Kinematics</span></div></div><div class="toc"><pagefind-modal-trigger></pagefind-modal-trigger><pagefind-modal></pagefind-modal><div class="toc-links"><a href="https://github.com/dTmC0945" title="Lecturer GitHub Repo"><i class="fab fa-github" style="font-size:20px"></i></a><a href="https://scholar.google.com/citations?view_op=list_works\&amp;hl=en\&amp;user=lxQGADMAAAAJ" title="Lecturer Google Scholar Page"><i class="fa-brands fa-google-scholar" style="font-size:20px"></i></a><a href="https://www.researchgate.net/profile/Daniel-Mcguiness-2" title="Lecturer ResearchGate Account"><i class="fa-brands fa-researchgate" style="font-size:20px"></i></a><a href="https://dtmc0945.github.io/Th-MCI-Thesis-Topics/" title="Lecturer Thesis Ideas for B.Sc and M.Sc"><i class="fa-solid fa-book" style="font-size:20px"></i></a><a href="https://github.com/dTmC0945/C-MCI-LaTeX-Class-mcidoc/tree/main" title="mcidoc LaTeX Standard"><i class="fa-regular fa-file-lines" style="font-size:20px"></i></a></div><hr/><span class="chapterToc"><span class="number"></span><span class="title"><a href="index.html#x2-10000">Entry Point</a></span></span><span class="chapterToc"><span class="number">1</span><span class="title"><a href="Locomotion.html#x3-20001">Locomotion</a></span></span><span class="subsectionToc"><span class="number">1.0.1</span><span class="title"><a href="Locomotion.html#x3-30001.0.1">Key  Issues  for  Locomotion</a></span></span><span class="sectionToc"><span class="number">1.1</span><span class="title"><a href="LeggedMobileRobots.html#x4-40001.1">Legged  Mobile
+Robots</a></span></span><span class="subsectionToc"><span class="number">1.1.1</span><span class="title"><a href="LeggedMobileRobots.html#x4-60001.1.1">Examples  of  Legged  Robot  Locomotion</a></span></span><span class="sectionToc"><span class="number">1.2</span><span class="title"><a href="WheeledMobileRobots.html#x5-120001.2">Wheeled  Mobile
+Robots</a></span></span><span class="subsectionToc"><span class="number">1.2.1</span><span class="title"><a href="WheeledMobileRobots.html#x5-130001.2.1">Design</a></span></span><span class="subsectionToc"><span class="number">1.2.2</span><span class="title"><a href="WheeledMobileRobots.html#x5-160001.2.2">Stability</a></span></span><span class="subsectionToc"><span class="number">1.2.3</span><span class="title"><a href="WheeledMobileRobots.html#x5-170001.2.3">Manoeuvrability</a></span></span><span class="subsectionToc"><span class="number">1.2.4</span><span class="title"><a href="WheeledMobileRobots.html#x5-180001.2.4">Controllability</a></span></span><span class="subsectionToc"><span class="number">1.2.5</span><span class="title"><a href="WheeledMobileRobots.html#x5-190001.2.5">Case
+Studies for Wheeled Motion</a></span></span><span class="subsectionToc"><span class="number">1.2.6</span><span class="title"><a href="WheeledMobileRobots.html#x5-260001.2.6">Walking Wheels</a></span></span><span class="chapterToc"><span class="number">2</span><span class="title"><a href="MobileRobotKinematics.html#x6-270002">Mobile Robot Kinematics</a></span></span><span class="sectionToc"><span class="number">2.1</span><span class="title"><a href="KinematicModelsandConstraints.html#x7-280002.1">Kinematic
+Models and Constraints</a></span></span><span class="subsectionToc"><span class="number">2.1.1</span><span class="title"><a href="KinematicModelsandConstraints.html#x7-290002.1.1">Representing robot position</a></span></span><span class="subsectionToc"><span class="number">2.1.2</span><span class="title"><a href="KinematicModelsandConstraints.html#x7-300002.1.2">Forward kinematic
+models</a></span></span><span class="subsectionToc"><span class="number">2.1.3</span><span class="title"><a href="KinematicModelsandConstraints.html#x7-310002.1.3">Wheel kinematic constraints</a></span></span><span class="subsectionToc"><span class="number">2.1.4</span><span class="title"><a href="KinematicModelsandConstraints.html#x7-370002.1.4">Robot kinematic constraints</a></span></span><span class="subsectionToc"><span class="number">2.1.5</span><span class="title"><a href="KinematicModelsandConstraints.html#x7-380002.1.5">Examples:
+robot kinematic models and constraints</a></span></span><span class="sectionToc"><span class="number">2.2</span><span class="title"><a href="MobileRobotManeuverability.html#x8-410002.2">Mobile Robot Maneuverability</a></span></span><span class="subsectionToc"><span class="number">2.2.1</span><span class="title"><a href="MobileRobotManeuverability.html#x8-420002.2.1">Degree
+of Mobility</a></span></span><span class="subsectionToc"><span class="number">2.2.2</span><span class="title"><a href="MobileRobotManeuverability.html#x8-450002.2.2">Degree of steerability</a></span></span><span class="subsectionToc"><span class="number">2.2.3</span><span class="title"><a href="MobileRobotManeuverability.html#x8-470002.2.3">Robot maneuverability</a></span></span><span class="sectionToc"><span class="number">2.3</span><span class="title"><a href="MobileRobotWorkspace.html#x9-480002.3">Mobile Robot
+Workspace</a></span></span><span class="subsectionToc"><span class="number">2.3.1</span><span class="title"><a href="MobileRobotWorkspace.html#x9-490002.3.1">Degrees of freedom</a></span></span><span class="subsectionToc"><span class="number">2.3.2</span><span class="title"><a href="MobileRobotWorkspace.html#x9-500002.3.2">Holonomic robots</a></span></span><span class="subsectionToc"><span class="number">2.3.3</span><span class="title"><a href="MobileRobotWorkspace.html#x9-530002.3.3">Path and trajectory
+considerations</a></span></span><span class="subsectionToc"><span class="number">2.3.4</span><span class="title"><a href="MobileRobotWorkspace.html#x9-540002.3.4">Beyond Basic Kinematics</a></span></span><span class="sectionToc"><span class="number">2.4</span><span class="title"><a href="#x10-550002.4">Motion Control (Kinematic
+Control)</a></span></span><span class="subsectionToc"><span class="number">2.4.1</span><span class="title"><a href="#x10-560002.4.1">Open loop control</a></span></span><span class="subsectionToc"><span class="number">2.4.2</span><span class="title"><a href="#x10-570002.4.2">Feedback control</a></span></span><span class="chapterToc"><span class="number">3</span><span class="title"><a href="Perception.html#x11-630003">Perception</a></span></span><span class="sectionToc"><span class="number">3.1</span><span class="title"><a href="SensorsforMobileRobotics.html#x12-640003.1">Sensors for Mobile
+Robotics</a></span></span><span class="subsectionToc"><span class="number">3.1.1</span><span class="title"><a href="SensorsforMobileRobotics.html#x12-650003.1.1">Sensor Classification</a></span></span><span class="subsectionToc"><span class="number">3.1.2</span><span class="title"><a href="SensorsforMobileRobotics.html#x12-660003.1.2">Characterisation of Sensor Performance</a></span></span><span class="subsectionToc"><span class="number">3.1.3</span><span class="title"><a href="SensorsforMobileRobotics.html#x12-720003.1.3">Wheel
+and Motor Sensors</a></span></span><span class="subsectionToc"><span class="number">3.1.4</span><span class="title"><a href="SensorsforMobileRobotics.html#x12-740003.1.4">Heading Sensors</a></span></span><span class="subsectionToc"><span class="number">3.1.5</span><span class="title"><a href="SensorsforMobileRobotics.html#x12-810003.1.5">Ground Based Beacons</a></span></span><span class="subsectionToc"><span class="number">3.1.6</span><span class="title"><a href="SensorsforMobileRobotics.html#x12-830003.1.6">Active
+Ranging</a></span></span><span class="subsectionToc"><span class="number">3.1.7</span><span class="title"><a href="SensorsforMobileRobotics.html#x12-850003.1.7">The Ultrasonic Sensor</a></span></span><span class="subsectionToc"><span class="number">3.1.8</span><span class="title"><a href="SensorsforMobileRobotics.html#x12-920003.1.8">Motion and Speed Sensors</a></span></span><span class="sectionToc"><span class="number">3.2</span><span class="title"><a href="VisionBasedSensors.html#x13-940003.2">Vision Based
+Sensors</a></span></span><span class="subsectionToc"><span class="number">3.2.1</span><span class="title"><a href="VisionBasedSensors.html#x13-950003.2.1">CCD Sensors</a></span></span><span class="subsectionToc"><span class="number">3.2.2</span><span class="title"><a href="VisionBasedSensors.html#x13-970003.2.2">CMOS Technology</a></span></span><span class="subsectionToc"><span class="number">3.2.3</span><span class="title"><a href="VisionBasedSensors.html#x13-980003.2.3">Visual Ranging Sensors</a></span></span><span class="subsectionToc"><span class="number">3.2.4</span><span class="title"><a href="VisionBasedSensors.html#x13-990003.2.4">Depth
+from Focus</a></span></span><span class="sectionToc"><span class="number">3.3</span><span class="title"><a href="RepresentingUncertainty.html#x14-1070003.3">Representing Uncertainty</a></span></span><span class="subsectionToc"><span class="number">3.3.1</span><span class="title"><a href="RepresentingUncertainty.html#x14-1080003.3.1">Statistical Representation</a></span></span><span class="subsectionToc"><span class="number">3.3.2</span><span class="title"><a href="RepresentingUncertainty.html#x14-1090003.3.2">Independence
+of random variables</a></span></span><span class="subsectionToc"><span class="number">3.3.3</span><span class="title"><a href="RepresentingUncertainty.html#x14-1110003.3.3">Propagation of Error</a></span></span><span class="sectionToc"><span class="number">3.4</span><span class="title"><a href="FeatureExtraction.html#x15-1120003.4">Feature Extraction</a></span></span><span class="subsectionToc"><span class="number">3.4.1</span><span class="title"><a href="FeatureExtraction.html#x15-1130003.4.1">Defining
+Feature</a></span></span><span class="subsectionToc"><span class="number">3.4.2</span><span class="title"><a href="FeatureExtraction.html#x15-1140003.4.2">Using Range Data</a></span></span><span class="chapterToc"><span class="number">4</span><span class="title"><a href="MobileRobotLocalisation.html#x16-1290004">Mobile Robot Localisation</a></span></span><span class="sectionToc"><span class="number">4.1</span><span class="title"><a href="TheProblemsofNoiseandAliasing.html#x17-1300004.1">The Problems of Noise and
+Aliasing</a></span></span><span class="subsectionToc"><span class="number">4.1.1</span><span class="title"><a href="TheProblemsofNoiseandAliasing.html#x17-1310004.1.1">Sensor Noise</a></span></span><span class="subsectionToc"><span class="number">4.1.2</span><span class="title"><a href="TheProblemsofNoiseandAliasing.html#x17-1320004.1.2">Sensor Aliasing</a></span></span><span class="subsectionToc"><span class="number">4.1.3</span><span class="title"><a href="TheProblemsofNoiseandAliasing.html#x17-1330004.1.3">Effector Noise</a></span></span><span class="subsectionToc"><span class="number">4.1.4</span><span class="title"><a href="TheProblemsofNoiseandAliasing.html#x17-1340004.1.4">An Error Model for
+Odometric Position Estimation</a></span></span><span class="sectionToc"><span class="number">4.2</span><span class="title"><a href="LocalisationTechniques.html#x18-1350004.2">Localisation Techniques</a></span></span><span class="sectionToc"><span class="number">4.3</span><span class="title"><a href="RepresentingBelief.html#x19-1360004.3">Representing Belief</a></span></span><span class="subsectionToc"><span class="number">4.3.1</span><span class="title"><a href="RepresentingBelief.html#x19-1370004.3.1">Single
+Hypothesis Belief</a></span></span><span class="subsectionToc"><span class="number">4.3.2</span><span class="title"><a href="RepresentingBelief.html#x19-1380004.3.2">Multiple Hypothesis Belief</a></span></span><span class="sectionToc"><span class="number">4.4</span><span class="title"><a href="RepresentingMaps.html#x20-1390004.4">Representing Maps</a></span></span><span class="subsectionToc"><span class="number">4.4.1</span><span class="title"><a href="RepresentingMaps.html#x20-1400004.4.1">Continuous
+Representation</a></span></span><span class="subsectionToc"><span class="number">4.4.2</span><span class="title"><a href="RepresentingMaps.html#x20-1410004.4.2">Decomposition Methods</a></span></span><span class="subsectionToc"><span class="number">4.4.3</span><span class="title"><a href="RepresentingMaps.html#x20-1420004.4.3">Current Challenges</a></span></span><span class="sectionToc"><span class="number">4.5</span><span class="title"><a href="ProbabilisticMapBasedLocalisation.html#x21-1430004.5">Probabilistic
+Map-Based Localisation</a></span></span><span class="subsectionToc"><span class="number">4.5.1</span><span class="title"><a href="ProbabilisticMapBasedLocalisation.html#x21-1440004.5.1">Problem Definition</a></span></span><span class="subsectionToc"><span class="number">4.5.2</span><span class="title"><a href="ProbabilisticMapBasedLocalisation.html#x21-1450004.5.2">Markov Localisation</a></span></span><span class="subsectionToc"><span class="number">4.5.3</span><span class="title"><a href="ProbabilisticMapBasedLocalisation.html#x21-1490004.5.3">Kalman
+Filter Localisation</a></span></span><span class="subsectionToc"><span class="number">4.5.4</span><span class="title"><a href="ProbabilisticMapBasedLocalisation.html#x21-1500004.5.4">An Implementation of Kalman Filter</a></span></span><span class="sectionToc"><span class="number">4.6</span><span class="title"><a href="OtherExamplesofLocalisationMethods.html#x22-1550004.6">Other Examples
+of Localisation Methods</a></span></span><span class="subsectionToc"><span class="number">4.6.1</span><span class="title"><a href="OtherExamplesofLocalisationMethods.html#x22-1560004.6.1">Landmark-based Navigation</a></span></span><span class="subsectionToc"><span class="number">4.6.2</span><span class="title"><a href="OtherExamplesofLocalisationMethods.html#x22-1570004.6.2">Globally Unique
+Localisation</a></span></span><span class="subsectionToc"><span class="number">4.6.3</span><span class="title"><a href="OtherExamplesofLocalisationMethods.html#x22-1580004.6.3">Positioning Beacon systems</a></span></span><span class="subsectionToc"><span class="number">4.6.4</span><span class="title"><a href="OtherExamplesofLocalisationMethods.html#x22-1590004.6.4">Route-Based Localisation</a></span></span><span class="sectionToc"><span class="number">4.7</span><span class="title"><a href="BuildingMaps.html#x23-1600004.7">Building
+Maps</a></span></span><span class="subsectionToc"><span class="number">4.7.1</span><span class="title"><a href="BuildingMaps.html#x23-1610004.7.1">Stochastic Map Technique</a></span></span><span class="subsectionToc"><span class="number">4.7.2</span><span class="title"><a href="BuildingMaps.html#x23-1620004.7.2">Other Mapping Techniques</a></span></span><span class="chapterToc"><span class="number">5</span><span class="title"><a href="WelcometoLinux.html#x24-1650005">Welcome to Linux</a></span></span><span class="sectionToc"><span class="number">5.1</span><span class="title"><a href="AHistoryofUNIXLinux.html#x25-1660005.1">A
+History of UNIX/Linux</a></span></span><span class="subsectionToc"><span class="number">5.1.1</span><span class="title"><a href="AHistoryofUNIXLinux.html#x25-1680005.1.1">A Short History on Computer Interfaces</a></span></span><span class="subsectionToc"><span class="number">5.1.2</span><span class="title"><a href="AHistoryofUNIXLinux.html#x25-1700005.1.2">Linux is a
+Nutshell</a></span></span><span class="subsectionToc"><span class="number">5.1.3</span><span class="title"><a href="AHistoryofUNIXLinux.html#x25-1730005.1.3">Linux Distributions</a></span></span><span class="sectionToc"><span class="number">5.2</span><span class="title"><a href="Installation.html#x26-1740005.2">Installation</a></span></span><span class="subsectionToc"><span class="number">5.2.1</span><span class="title"><a href="Installation.html#x26-1750005.2.1">Docker</a></span></span><span class="subsectionToc"><span class="number">5.2.2</span><span class="title"><a href="Installation.html#x26-1760005.2.2">Dockerfile</a></span></span><span class="subsectionToc"><span class="number">5.2.3</span><span class="title"><a href="Installation.html#x26-1770005.2.3">Running
+the Container</a></span></span><span class="chapterToc"><span class="number">6</span><span class="title"><a href="CommandLineFundamentals.html#x27-1780006">Command Line Fundamentals</a></span></span><span class="sectionToc"><span class="number">6.1</span><span class="title"><a href="ToCommandaComputer.html#x28-1790006.1">To Command a Computer</a></span></span><span class="subsectionToc"><span class="number">6.1.1</span><span class="title"><a href="ToCommandaComputer.html#x28-1800006.1.1">The
+Command Line Interface</a></span></span><span class="subsectionToc"><span class="number">6.1.2</span><span class="title"><a href="ToCommandaComputer.html#x28-1810006.1.2">The Structure of Commands</a></span></span><span class="subsectionToc"><span class="number">6.1.3</span><span class="title"><a href="ToCommandaComputer.html#x28-1820006.1.3">Some Rules Regarding
+the Syntax</a></span></span><span class="sectionToc"><span class="number">6.2</span><span class="title"><a href="WhenWeNeedHelpwithCommands.html#x29-1830006.2">When We Need Help with Commands</a></span></span><span class="subsectionToc"><span class="number">6.2.1</span><span class="title"><a href="WhenWeNeedHelpwithCommands.html#x29-1840006.2.1">Use Tab completion on
+the Shell</a></span></span><span class="subsectionToc"><span class="number">6.2.2</span><span class="title"><a href="WhenWeNeedHelpwithCommands.html#x29-1850006.2.2">The info command</a></span></span><span class="subsectionToc"><span class="number">6.2.3</span><span class="title"><a href="WhenWeNeedHelpwithCommands.html#x29-1860006.2.3">The whatis command</a></span></span><span class="chapterToc"><span class="number">7</span><span class="title"><a href="WorkingwithFilesandFolders.html#x30-1880007">Working with Files
+and Folders</a></span></span><span class="sectionToc"><span class="number">7.1</span><span class="title"><a href="FilesandFolders.html#x31-1890007.1">Files and Folders</a></span></span><span class="subsectionToc"><span class="number">7.1.1</span><span class="title"><a href="FilesandFolders.html#x31-1900007.1.1">A Detailed Look in ls Command</a></span></span><span class="subsectionToc"><span class="number">7.1.2</span><span class="title"><a href="FilesandFolders.html#x31-1910007.1.2">Creating
+and Removing Folders</a></span></span><span class="subsectionToc"><span class="number">7.1.3</span><span class="title"><a href="FilesandFolders.html#x31-1920007.1.3">Move, Copy and Delete Files and Folders</a></span></span><span class="sectionToc"><span class="number">7.2</span><span class="title"><a href="PermissionsandLinks.html#x32-1990007.2">Permissions
+and Links</a></span></span><span class="subsectionToc"><span class="number">7.2.1</span><span class="title"><a href="PermissionsandLinks.html#x32-2000007.2.1">Role to Users and sudo</a></span></span><span class="subsectionToc"><span class="number">7.2.2</span><span class="title"><a href="PermissionsandLinks.html#x32-2010007.2.2">File Permissions</a></span></span><span class="subsectionToc"><span class="number">7.2.3</span><span class="title"><a href="PermissionsandLinks.html#x32-2040007.2.3">Hard and Symbolic
+Links</a></span></span><span class="subsectionToc"><span class="number">7.2.4</span><span class="title"><a href="PermissionsandLinks.html#x32-2050007.2.4">Soft (Symbolic) Links</a></span></span><span class="subsectionToc"><span class="number">7.2.5</span><span class="title"><a href="PermissionsandLinks.html#x32-2070007.2.5">The Linux File System</a></span></span><span class="subsectionToc"><span class="number">7.2.6</span><span class="title"><a href="PermissionsandLinks.html#x32-2080007.2.6">The UNIX
+Philosophy</a></span></span><span class="sectionToc"><span class="number">7.3</span><span class="title"><a href="CommonCommandLineToolsandTasks.html#x33-2090007.3">Common Command-Line Tools and Tasks</a></span></span><span class="subsectionToc"><span class="number">7.3.1</span><span class="title"><a href="CommonCommandLineToolsandTasks.html#x33-2100007.3.1">Connecting Commands
+with Pipes</a></span></span><span class="subsectionToc"><span class="number">7.3.2</span><span class="title"><a href="CommonCommandLineToolsandTasks.html#x33-2110007.3.2">Viewing Text Files with cat, head, tail, and less</a></span></span><span class="subsectionToc"><span class="number">7.3.3</span><span class="title"><a href="CommonCommandLineToolsandTasks.html#x33-2120007.3.3">Finding
+Linux Distribution and Kernel Information</a></span></span><span class="subsectionToc"><span class="number">7.3.4</span><span class="title"><a href="CommonCommandLineToolsandTasks.html#x33-2140007.3.4">Find System Hardware and Disk
+Information</a></span></span><span class="chapterToc"><span class="number">8</span><span class="title"><a href="ROSConcepts.html#x34-2160008">ROS Concepts</a></span></span><span class="sectionToc"><span class="number">8.1</span><span class="title"><a href="PublisherandSubscriberArchitecture.html#x35-2170008.1">Publisher and Subscriber Architecture</a></span></span><span class="subsectionToc"><span class="number">8.1.1</span><span class="title"><a href="PublisherandSubscriberArchitecture.html#x35-2180008.1.1">ROS 2
+Architecture</a></span></span><span class="sectionToc"><span class="number">8.2</span><span class="title"><a href="BuildingBlocks.html#x36-2200008.2">Building Blocks</a></span></span><span class="subsectionToc"><span class="number">8.2.1</span><span class="title"><a href="BuildingBlocks.html#x36-2210008.2.1">Nodes</a></span></span><span class="subsectionToc"><span class="number">8.2.2</span><span class="title"><a href="BuildingBlocks.html#x36-2220008.2.2">The Discovery Process</a></span></span><span class="subsectionToc"><span class="number">8.2.3</span><span class="title"><a href="BuildingBlocks.html#x36-2230008.2.3">Communication
+Interface</a></span></span><span class="subsectionToc"><span class="number">8.2.4</span><span class="title"><a href="BuildingBlocks.html#x36-2320008.2.4">Topics</a></span></span><span class="subsectionToc"><span class="number">8.2.5</span><span class="title"><a href="BuildingBlocks.html#x36-2360008.2.5">Services</a></span></span><span class="subsectionToc"><span class="number">8.2.6</span><span class="title"><a href="BuildingBlocks.html#x36-2390008.2.6">Actions</a></span></span><span class="subsectionToc"><span class="number">8.2.7</span><span class="title"><a href="BuildingBlocks.html#x36-2420008.2.7">Parameters</a></span></span><span class="subsectionToc"><span class="number">8.2.8</span><span class="title"><a href="BuildingBlocks.html#x36-2510008.2.8">Working with
+Command Line</a></span></span><span class="subsectionToc"><span class="number">8.2.9</span><span class="title"><a href="BuildingBlocks.html#x36-2530008.2.9">Launch Files</a></span></span><span class="sectionToc"><span class="number">8.3</span><span class="title"><a href="AdvancedConcepts.html#x37-2540008.3">Advanced Concepts</a></span></span><span class="subsectionToc"><span class="number">8.3.1</span><span class="title"><a href="AdvancedConcepts.html#x37-2550008.3.1">ROS DOMAIN ID</a></span></span><span class="chapterToc"><span class="number">9</span><span class="title"><a href="CommandLineTools.html#x38-2570009">Command
+Line Tools</a></span></span><span class="sectionToc"><span class="number">9.1</span><span class="title"><a href="SettingtheEnvironment.html#x39-2580009.1">Setting the Environment</a></span></span><span class="sectionToc"><span class="number">9.2</span><span class="title"><a href="TurtlesandGraphs.html#x40-2630009.2">Turtles and Graphs</a></span></span><span class="sectionToc"><span class="number">9.3</span><span class="title"><a href="ADeeperLookintoNodes.html#x41-2710009.3">A Deeper Look into
+Nodes</a></span></span><span class="sectionToc"><span class="number">9.4</span><span class="title"><a href="WorkingwithTopics.html#x42-2760009.4">Working with Topics</a></span></span><span class="sectionToc"><span class="number">9.5</span><span class="title"><a href="WorkingwithServices.html#x43-2820009.5">Working with Services</a></span></span><span class="sectionToc"><span class="number">9.6</span><span class="title"><a href="WorkingwithParameters.html#x44-2890009.6">Working with Parameters</a></span></span><span class="sectionToc"><span class="number">9.7</span><span class="title"><a href="APracticalLookintoActions.html#x45-2960009.7">A
+Practical Look into Actions</a></span></span><span class="sectionToc"><span class="number">9.8</span><span class="title"><a href="LaunchingNodes.html#x46-3030009.8">Launching Nodes</a></span></span><span class="chapterToc"><span class="number">10</span><span class="title"><a href="ClientLibraries.html#x47-30500010">Client Libraries</a></span></span><span class="sectionToc"><span class="number">10.1</span><span class="title"><a href="GettingStartedwithColcon.html#x48-30600010.1">Getting Started with
+Colcon</a></span></span><span class="subsectionToc"><span class="number">10.1.1</span><span class="title"><a href="GettingStartedwithColcon.html#x48-30700010.1.1">The Structure of a Package</a></span></span><span class="subsectionToc"><span class="number">10.1.2</span><span class="title"><a href="GettingStartedwithColcon.html#x48-30800010.1.2">Sourcing an Underlay</a></span></span><span class="subsectionToc"><span class="number">10.1.3</span><span class="title"><a href="GettingStartedwithColcon.html#x48-30900010.1.3">Building the
+Workspace</a></span></span><span class="subsectionToc"><span class="number">10.1.4</span><span class="title"><a href="GettingStartedwithColcon.html#x48-31000010.1.4">Sourcing the New Package</a></span></span><span class="subsectionToc"><span class="number">10.1.5</span><span class="title"><a href="GettingStartedwithColcon.html#x48-31100010.1.5">Creating a Workspace</a></span></span><span class="subsectionToc"><span class="number">10.1.6</span><span class="title"><a href="GettingStartedwithColcon.html#x48-31200010.1.6">Sourcing the
+Environment</a></span></span><span class="subsectionToc"><span class="number">10.1.7</span><span class="title"><a href="GettingStartedwithColcon.html#x48-31300010.1.7">Creating a New Directory</a></span></span><span class="subsectionToc"><span class="number">10.1.8</span><span class="title"><a href="GettingStartedwithColcon.html#x48-31400010.1.8">Cloning a Sample Repo</a></span></span><span class="subsectionToc"><span class="number">10.1.9</span><span class="title"><a href="GettingStartedwithColcon.html#x48-31500010.1.9">Resolving
+Dependencies</a></span></span><span class="subsectionToc"><span class="number">10.1.10</span><span class="title"><a href="GettingStartedwithColcon.html#x48-31600010.1.10">Building the Workspace</a></span></span><span class="subsectionToc"><span class="number">10.1.11</span><span class="title"><a href="GettingStartedwithColcon.html#x48-31700010.1.11">Sourcing our Overlay</a></span></span><span class="subsectionToc"><span class="number">10.1.12</span><span class="title"><a href="GettingStartedwithColcon.html#x48-31800010.1.12">Modifying
+the Overlay</a></span></span><span class="subsectionToc"><span class="number">10.1.13</span><span class="title"><a href="GettingStartedwithColcon.html#x48-31900010.1.13">Creating a Package</a></span></span><span class="sectionToc"><span class="number">10.2</span><span class="title"><a href="WritingaSimplePublisherandSubscriber.html#x49-32200010.2">Writing a Simple Publisher and
+Subscriber</a></span></span><span class="subsectionToc"><span class="number">10.2.1</span><span class="title"><a href="WritingaSimplePublisherandSubscriber.html#x49-32300010.2.1">Creating a ROS Packages</a></span></span><span class="subsectionToc"><span class="number">10.2.2</span><span class="title"><a href="WritingaSimplePublisherandSubscriber.html#x49-32400010.2.2">Writing the Publisher Node</a></span></span><span class="subsectionToc"><span class="number">10.2.3</span><span class="title"><a href="WritingaSimplePublisherandSubscriber.html#x49-32900010.2.3">Writing
+the Subscriber Node</a></span></span><span class="subsectionToc"><span class="number">10.2.4</span><span class="title"><a href="WritingaSimplePublisherandSubscriber.html#x49-33200010.2.4">Building and Running</a></span></span><span class="sectionToc"><span class="number">10.3</span><span class="title"><a href="WritingaSimpleServiceandClient.html#x50-33300010.3">Writing a Simple Service and
+Client</a></span></span><span class="subsectionToc"><span class="number">10.3.1</span><span class="title"><a href="WritingaSimpleServiceandClient.html#x50-33400010.3.1">Creating a New Package</a></span></span><span class="subsectionToc"><span class="number">10.3.2</span><span class="title"><a href="WritingaSimpleServiceandClient.html#x50-33700010.3.2">Writing the Service Node</a></span></span><span class="subsectionToc"><span class="number">10.3.3</span><span class="title"><a href="WritingaSimpleServiceandClient.html#x50-34000010.3.3">Writing the Client
+Node</a></span></span><span class="sectionToc"><span class="number">10.4</span><span class="title"><a href="CreatingCustommsgandsrvFiles.html#x51-34300010.4">Creating Custom msg and srv Files</a></span></span><span class="subsectionToc"><span class="number">10.4.1</span><span class="title"><a href="CreatingCustommsgandsrvFiles.html#x51-34400010.4.1">Creating a New Package</a></span></span><span class="subsectionToc"><span class="number">10.4.2</span><span class="title"><a href="CreatingCustommsgandsrvFiles.html#x51-34500010.4.2">Creating
+Custom Definitions</a></span></span><span class="subsectionToc"><span class="number">10.4.3</span><span class="title"><a href="CreatingCustommsgandsrvFiles.html#x51-35200010.4.3">Testing the Newly Built Interfaces</a></span></span><span class="sectionToc"><span class="number">10.5</span><span class="title"><a href="UsingParametersinaClass.html#x52-35400010.5">Using Parameters in a
+Class</a></span></span><span class="subsectionToc"><span class="number">10.5.1</span><span class="title"><a href="UsingParametersinaClass.html#x52-35500010.5.1">Creating a Package</a></span></span><span class="subsectionToc"><span class="number">10.5.2</span><span class="title"><a href="UsingParametersinaClass.html#x52-35700010.5.2">Writing our Python Code</a></span></span><span class="subsectionToc"><span class="number">10.5.3</span><span class="title"><a href="UsingParametersinaClass.html#x52-36200010.5.3">Changing Output using
+the Console</a></span></span><span class="subsectionToc"><span class="number">10.5.4</span><span class="title"><a href="UsingParametersinaClass.html#x52-36300010.5.4">Changing using the Launch File</a></span></span><span class="sectionToc"><span class="number">10.6</span><span class="title"><a href="ManagingDependencies.html#x53-36400010.6">Managing Dependencies</a></span></span><span class="sectionToc"><span class="number">10.7</span><span class="title"><a href="CreatinganAction.html#x54-36600010.7">Creating
+an Action</a></span></span><span class="sectionToc"><span class="number">10.8</span><span class="title"><a href="WritinganActionServerandClient.html#x55-36900010.8">Writing an Action Server and Client</a></span></span><span class="sectionToc"><span class="number">10.9</span><span class="title"><a href="WritingaLaunchFile.html#x56-37100010.9">Writing a Launch File</a></span></span>
+<div class="nav-footer"><div class="nav-footer-left"><span class="nav-footer-lecture">D. T. McGuiness, PhD</span>
+<span class="nav-footer-webBook"><b>Last Updated:</b> 13.10.2026, at 8:16.</span></div></div><p class="nav-comments">The website you are viewing is auto-generated using lms-WebBook and therefore subject to slight errors in typography and formatting. When in doubt, please consult the LectureBook. </p></div></nav>
+<article class="chapter">
+<nav class="crosslinks-top"> <span class="nav-button"><i class="fa-solid fa-caret-right"></i><a class="nav-link" href="Perception.html">Chapter: Perception</a></span><span class="nav-button"><i class="fa-solid fa-caret-left"></i><a class="nav-link" href="MobileRobotWorkspace.html">Mobile Robot Workspace</a></span><span class="nav-button"><i class="fa-solid fa-caret-up"></i><a class="nav-link" href="MobileRobotKinematics.html#MotionControlKinematicControl.html">Chapter: Mobile Robot
+Kinematics</a></span><span class="nav-button">
+<a href="index.html" rel="index" title="Visit Entry Point">
+<i class="fa-solid fa-table-list">
+</i>
+<span class="nav-info">Visit Index Page</span>
+</a></span><span class="nav-button">
+<a href="Index.html" rel="index" title="Visit Material GitHub Repo">
+<i class="fa-brands fa-git-alt"></i>
+<span class="nav-info">Visit Material GitHub Repo</span>
+</a></span></nav>
+<div class="section-header"> <h3 id="header-section-2.4"> <a class="pdf-icon" href="AutonomousMobileRoboticsLectureBook.pdf#section.2.4"><svg class="bi bi-file-pdf" fill="currentColor" height="20" viewbox="0 0 16 16" width="20" xmlns="http://www.w3.org/2000/svg"><path d="M4 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H4zm0 1h8a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1z"></path><path d="M4.603 12.087a.81.81 0 0 1-.438-.42c-.195-.388-.13-.776.08-1.102.198-.307.526-.568.897-.787a7.68 7.68 0 0 1 1.482-.645 19.701 19.701 0 0 0 1.062-2.227 7.269 7.269 0 0 1-.43-1.295c-.086-.4-.119-.796-.046-1.136.075-.354.274-.672.65-.823.192-.077.4-.12.602-.077a.7.7 0 0 1 .477.365c.088.164.12.356.127.538.007.187-.012.395-.047.614-.084.51-.27 1.134-.52 1.794a10.954 10.954 0 0 0 .98 1.686 5.753 5.753 0 0 1 1.334.05c.364.065.734.195.96.465.12.144.193.32.2.518.007.192-.047.382-.138.563a1.04 1.04 0 0 1-.354.416.856.856 0 0 1-.51.138c-.331-.014-.654-.196-.933-.417a5.716 5.716 0 0 1-.911-.95 11.642 11.642 0 0 0-1.997.406 11.311 11.311 0 0 1-1.021 1.51c-.29.35-.608.655-.926.787a.793.793 0 0 1-.58.029zm1.379-1.901c-.166.076-.32.156-.459.238-.328.194-.541.383-.647.547-.094.145-.096.25-.04.361.01.022.02.036.026.044a.27.27 0 0 0 .035-.012c.137-.056.355-.235.635-.572a8.18 8.18 0 0 0 .45-.606zm1.64-1.33a12.647 12.647 0 0 1 1.01-.193 11.666 11.666 0 0 1-.51-.858 20.741 20.741 0 0 1-.5 1.05zm2.446.45c.15.162.296.3.435.41.24.19.407.253.498.256a.107.107 0 0 0 .07-.015.307.307 0 0 0 .094-.125.436.436 0 0 0 .059-.2.095.095 0 0 0-.026-.063c-.052-.062-.2-.152-.518-.209a3.881 3.881 0 0 0-.612-.053zM8.078 5.8a6.7 6.7 0 0 0 .2-.828c.031-.188.043-.343.038-.465a.613.613 0 0 0-.032-.198.517.517 0 0 0-.145.04c-.087.035-.158.106-.196.283-.04.192-.03.469.046.822.024.111.054.227.09.346z"></path></svg></a> <span class="number">2.4</span> <span class="title"> <a id="x10-550002.4"></a>Motion Control
+(Kinematic Control)</span></h3></div>
+<p class="noindent">As seen above, motion control might not be an easy task for <i>nonholonomi</i>c systems. However, it has
+been studied by various research groups, for example, [8, 39, 52, 53, 137] and some adequate solutions
+for motion control of an <span class="acronym"><span class="acronym-short"><a class="glossary" href="#glo:amr">AMR</a></span><span class="acronym-detail"><span class="acronym-long"><a class="glossary" href="#glo:amr">Autonomous Mobile Robotics</a></span><span class="acronym-desc"><a class="glossary" href="#glo:amr">Self-navigating machines moving materials
+and goods independently without fixed tracks or wires. They use smart software, cameras,
+and sensors to map spaces and safely steer around people or obstacles in real time.</a></span></span></span> are
+available.
+</p>
+<p class="noindent"><div class="subsection-header"> <h4 id="header-subsection-2.4.1"> <a class="pdf-icon" href="AutonomousMobileRoboticsLectureBook.pdf#subsection.2.4.1"><svg class="bi bi-file-pdf" fill="currentColor" height="20" viewbox="0 0 16 16" width="20" xmlns="http://www.w3.org/2000/svg"><path d="M4 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H4zm0 1h8a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1z"></path><path d="M4.603 12.087a.81.81 0 0 1-.438-.42c-.195-.388-.13-.776.08-1.102.198-.307.526-.568.897-.787a7.68 7.68 0 0 1 1.482-.645 19.701 19.701 0 0 0 1.062-2.227 7.269 7.269 0 0 1-.43-1.295c-.086-.4-.119-.796-.046-1.136.075-.354.274-.672.65-.823.192-.077.4-.12.602-.077a.7.7 0 0 1 .477.365c.088.164.12.356.127.538.007.187-.012.395-.047.614-.084.51-.27 1.134-.52 1.794a10.954 10.954 0 0 0 .98 1.686 5.753 5.753 0 0 1 1.334.05c.364.065.734.195.96.465.12.144.193.32.2.518.007.192-.047.382-.138.563a1.04 1.04 0 0 1-.354.416.856.856 0 0 1-.51.138c-.331-.014-.654-.196-.933-.417a5.716 5.716 0 0 1-.911-.95 11.642 11.642 0 0 0-1.997.406 11.311 11.311 0 0 1-1.021 1.51c-.29.35-.608.655-.926.787a.793.793 0 0 1-.58.029zm1.379-1.901c-.166.076-.32.156-.459.238-.328.194-.541.383-.647.547-.094.145-.096.25-.04.361.01.022.02.036.026.044a.27.27 0 0 0 .035-.012c.137-.056.355-.235.635-.572a8.18 8.18 0 0 0 .45-.606zm1.64-1.33a12.647 12.647 0 0 1 1.01-.193 11.666 11.666 0 0 1-.51-.858 20.741 20.741 0 0 1-.5 1.05zm2.446.45c.15.162.296.3.435.41.24.19.407.253.498.256a.107.107 0 0 0 .07-.015.307.307 0 0 0 .094-.125.436.436 0 0 0 .059-.2.095.095 0 0 0-.026-.063c-.052-.062-.2-.152-.518-.209a3.881 3.881 0 0 0-.612-.053zM8.078 5.8a6.7 6.7 0 0 0 .2-.828c.031-.188.043-.343.038-.465a.613.613 0 0 0-.032-.198.517.517 0 0 0-.145.04c-.087.035-.158.106-.196.283-.04.192-.03.469.046.822.024.111.054.227.09.346z"></path></svg></a><span class="number">2.4.1</span> <span class="title"> <a id="x10-560002.4.1"></a>Open loop control</span></h4></div>
+</p><p class="noindent">The objective of a <span class="alert">kinematic controller</span> is to follow a trajectory described by its position or velocity profile as a function of
+time. This is often done by dividing the trajectory, i.e., path, in motion segments of clearly defined
+shape, for example, straight lines and segments of a circle.
+</p><p class="noindent">The control problem is therefore to calculate beforehand a smooth trajectory based on line and circle
+segments which drives the robot from the initial position to the final position (figure 3.18). This
+approach can be regarded as <b>open-loop motion control</b>, because the measured robot position is not
+fed back for velocity or position control.
+</p><p class="noindent">This approach has several disadvantages: </p>
+<ul class="itemize1">
+<li class="itemize">
+<p class="noindent">It is not at all an easy task to calculate beforehand a feasible trajectory if all limitations
+and constraints of the robot’s velocities and accelerations have to be considered.
+</p>
+</li>
+<li class="itemize">
+<p class="noindent">The robot will not automatically adapt or correct the trajectory if dynamic changes of the
+environment occur.
+</p>
+</li>
+<li class="itemize">
+<p class="noindent">The  resulting  trajectories  are  usually  not  smooth,  because  the  transitions  from  one
+trajectory segment to another are, for most of the commonly used <span class="margin-block">segments, <span class="margin-comment"><a class="ellipsis" href="#m-ref-29">[29]</a>
+<span class="sidenote">e.g., lines and
+part of circles</span></span></span> not smooth.
+</p>
+<div class="warning"><div class="warning-upper">Warning</div><div class="body">
+<p class="noindent">This means there is a <span class="alert">discontinuity in the robot's acceleration</span>. </p></div></div>
+</li></ul>
+<p class="noindent"><div class="subsection-header"> <h4 id="header-subsection-2.4.2"> <a class="pdf-icon" href="AutonomousMobileRoboticsLectureBook.pdf#subsection.2.4.2"><svg class="bi bi-file-pdf" fill="currentColor" height="20" viewbox="0 0 16 16" width="20" xmlns="http://www.w3.org/2000/svg"><path d="M4 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H4zm0 1h8a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1z"></path><path d="M4.603 12.087a.81.81 0 0 1-.438-.42c-.195-.388-.13-.776.08-1.102.198-.307.526-.568.897-.787a7.68 7.68 0 0 1 1.482-.645 19.701 19.701 0 0 0 1.062-2.227 7.269 7.269 0 0 1-.43-1.295c-.086-.4-.119-.796-.046-1.136.075-.354.274-.672.65-.823.192-.077.4-.12.602-.077a.7.7 0 0 1 .477.365c.088.164.12.356.127.538.007.187-.012.395-.047.614-.084.51-.27 1.134-.52 1.794a10.954 10.954 0 0 0 .98 1.686 5.753 5.753 0 0 1 1.334.05c.364.065.734.195.96.465.12.144.193.32.2.518.007.192-.047.382-.138.563a1.04 1.04 0 0 1-.354.416.856.856 0 0 1-.51.138c-.331-.014-.654-.196-.933-.417a5.716 5.716 0 0 1-.911-.95 11.642 11.642 0 0 0-1.997.406 11.311 11.311 0 0 1-1.021 1.51c-.29.35-.608.655-.926.787a.793.793 0 0 1-.58.029zm1.379-1.901c-.166.076-.32.156-.459.238-.328.194-.541.383-.647.547-.094.145-.096.25-.04.361.01.022.02.036.026.044a.27.27 0 0 0 .035-.012c.137-.056.355-.235.635-.572a8.18 8.18 0 0 0 .45-.606zm1.64-1.33a12.647 12.647 0 0 1 1.01-.193 11.666 11.666 0 0 1-.51-.858 20.741 20.741 0 0 1-.5 1.05zm2.446.45c.15.162.296.3.435.41.24.19.407.253.498.256a.107.107 0 0 0 .07-.015.307.307 0 0 0 .094-.125.436.436 0 0 0 .059-.2.095.095 0 0 0-.026-.063c-.052-.062-.2-.152-.518-.209a3.881 3.881 0 0 0-.612-.053zM8.078 5.8a6.7 6.7 0 0 0 .2-.828c.031-.188.043-.343.038-.465a.613.613 0 0 0-.032-.198.517.517 0 0 0-.145.04c-.087.035-.158.106-.196.283-.04.192-.03.469.046.822.024.111.054.227.09.346z"></path></svg></a><span class="number">2.4.2</span> <span class="title"> <a id="x10-570002.4.2"></a>Feedback control</span></h4></div>
+</p><p class="noindent">A more appropriate approach in motion control of an <span class="acronym"><span class="acronym-short"><a class="glossary" href="#glo:amr">AMR</a></span><span class="acronym-detail"><span class="acronym-long"><a class="glossary" href="#glo:amr">Autonomous Mobile Robotics</a></span><span class="acronym-desc"><a class="glossary" href="#glo:amr">Self-navigating
+machines moving materials and goods independently without fixed tracks or wires. They use smart
+software, cameras, and sensors to map spaces and safely steer around people or obstacles in real time.</a></span></span></span> is
+to use a real-state feedback controller. With such a controller the robot’s path-planning task is
+reduced to setting intermediate <span class="margin-block">positions <span class="margin-comment"><a class="ellipsis" href="#m-ref-30">[30]</a>
+<span class="sidenote">we can call this sub-goals.</span></span></span> lying on the requested
+path.
+</p><p class="noindent">One useful solution for a stabilizing feedback control of differential-drive mobile robots is presented in
+section 3.6.2.1. It is very similar to the controllers presented in [39, 100]. Others can be found in [8, 52,
+53, 137].
+</p>
+<p class="noindent"><h5 class="subsubsectionHead" id="header-subsubsection-21"> <a id="x10-58000"></a>Problem statement</h5>
+</p><p class="noindent">Consider the situation shown in figure 3.17, with an <i>arbitrary position</i> and <i>orientation</i> of the robot and
+a predefined goal position and orientation. The actual pose error vector given in the robot reference
+frame <math display="inline"><mi>{</mi><msub><mrow><mi>X</mi></mrow><mrow><mi>R</mi></mrow></msub><mo class="MathClass-punc" stretchy="false">,</mo><msub><mrow><mi>Y</mi> </mrow><mrow><mi>R</mi></mrow></msub><mo class="MathClass-punc" stretchy="false">,</mo><mi>𝜃</mi><mi>}</mi></math>
+is <math display="inline"><mi>e</mi> <msup><mrow><mo class="MathClass-rel" stretchy="false">=</mo> </mrow><mrow><mi>R</mi></mrow></msup><msup><mrow><mo class="MathClass-open" stretchy="false">[</mo><mi>x</mi><mo class="MathClass-punc" stretchy="false">,</mo><mi>y</mi><mo class="MathClass-punc" stretchy="false">,</mo><mi>𝜃</mi><mo class="MathClass-close" stretchy="false">]</mo></mrow><mrow><mi>T</mi></mrow></msup></math> with
+<math display="inline"><mi>x</mi><mo class="MathClass-punc" stretchy="false">,</mo><mi>y</mi></math>, and
+<math display="inline"><mi>𝜃</mi></math> being
+the goal coordinates of the robot.
+</p><p class="noindent">The task of the controller layout is to find a control matrix
+<math display="inline"><mi>K</mi></math>, if it
+exists
+</p>
+<table class="equation"><tr><td>
+<math class="equation" display="block">
+<mstyle class="label" id="x10-58001r42"></mstyle><mi>K</mi> <mo class="MathClass-rel" stretchy="false">=</mo> <mrow><mo fence="true" form="prefix">[</mo><mrow><mtable align="axis" class="array" columnlines="none none none none none none none none none" displaystyle="true" equalcolumns="false" equalrows="false" style=""> <mtr class="array-row"><mtd class="array-td" columnalign="center"> <msub><mrow><mi>k</mi></mrow><mrow><mn>1</mn><mn>1</mn></mrow></msub> </mtd><mtd class="array-td" columnalign="center"> <msub><mrow><mi>k</mi></mrow><mrow><mn>1</mn><mn>2</mn></mrow></msub> </mtd><mtd class="array-td" columnalign="center"> <msub><mrow><mi>k</mi></mrow><mrow><mn>1</mn><mn>3</mn></mrow></msub> </mtd>
+</mtr> <mtr class="array-row"><mtd class="array-td" columnalign="center"> <msub><mrow><mi>k</mi></mrow><mrow>
+<mn>2</mn><mn>1</mn></mrow></msub> </mtd><mtd class="array-td" columnalign="center"> <msub><mrow><mi>k</mi></mrow><mrow>
+<mn>2</mn><mn>2</mn></mrow></msub> </mtd><mtd class="array-td" columnalign="center"> <msub><mrow><mi>k</mi></mrow><mrow>
+<mn>2</mn><mn>3</mn></mrow></msub> </mtd>
+</mtr>
+</mtable> </mrow><mo fence="true" form="postfix">]</mo></mrow> <mspace class="qquad" width="2em"></mspace><mstyle class="text"><mtext>wihh</mtext></mstyle><mspace class="qquad" width="2em"></mspace><msub><mrow><mi>k</mi></mrow><mrow><mi>i</mi><mi>j</mi></mrow></msub> <mo class="MathClass-rel" stretchy="false">=</mo> <mi>k</mi><mo class="MathClass-open" stretchy="false">(</mo><mi>t</mi><mo class="MathClass-punc" stretchy="false">,</mo><mi>e</mi><mo class="MathClass-close" stretchy="false">)</mo>
+</math></td><td class="eq-no">(2.42)</td></tr></table>
+<p class="noindent"></p>
+<p class="noindent">such that the control of <math display="inline"><mi>v</mi><mo class="MathClass-open" stretchy="false">(</mo><mi>t</mi><mo class="MathClass-close" stretchy="false">)</mo></math>
+and <math display="inline"><mi>ω</mi><mo class="MathClass-open" stretchy="false">(</mo><mi>t</mi><mo class="MathClass-close" stretchy="false">)</mo></math>:
+</p><table class="equation"><tr><td>
+<math class="equation" display="block">
+<mstyle class="label" id="x10-58002r43"></mstyle>
+<mrow><mo fence="true" form="prefix">[</mo><mrow><mtable align="axis" class="array" columnlines="none none none none none none none none none" displaystyle="true" equalcolumns="false" equalrows="false" style=""><mtr class="array-row"><mtd class="array-td" columnalign="center"> <mi>v</mi><mo class="MathClass-open" stretchy="false">(</mo><mi>t</mi><mo class="MathClass-close" stretchy="false">)</mo> </mtd></mtr> <mtr class="array-row"><mtd class="array-td" columnalign="center"> <mi>ω</mi><mo class="MathClass-open" stretchy="false">(</mo><mi>t</mi><mo class="MathClass-close" stretchy="false">)</mo></mtd>
+</mtr>
+</mtable>
+</mrow><mo fence="true" form="postfix">]</mo></mrow> <mo class="MathClass-rel" stretchy="false">=</mo> <mi>K</mi><mi>·</mi><mi>e</mi> <mo class="MathClass-rel" stretchy="false">=</mo> <mi>K</mi><msubsup><mrow><mrow class="prescript"></mrow></mrow><mrow></mrow><mrow><mi>R</mi></mrow></msubsup> <mrow><mo fence="true" form="prefix">[</mo><mrow><mtable align="axis" class="array" columnlines="none none none none none none none none none" displaystyle="true" equalcolumns="false" equalrows="false" style=""> <mtr class="array-row"><mtd class="array-td" columnalign="center"> <mi>x</mi> </mtd></mtr> <mtr class="array-row"><mtd class="array-td" columnalign="center"> <mi>y</mi></mtd>
+</mtr> <mtr class="array-row"><mtd class="array-td" columnalign="center"> <mi>𝜃</mi> </mtd></mtr></mtable> </mrow><mo fence="true" form="postfix">]</mo></mrow>
+</math></td><td class="eq-no">(2.43)</td></tr></table>
+<p class="noindent"></p>
+<p class="noindent">drives the error <math display="inline"><mi>e</mi></math> toward
+<span class="margin-block">zero. <span class="margin-comment"><a class="ellipsis" href="#m-ref-31">[31]</a>
+<span class="sidenote">Remember that <math display="inline"><mi>v</mi><mo class="MathClass-open" stretchy="false">(</mo><mi>t</mi><mo class="MathClass-close" stretchy="false">)</mo></math> is
+always heading in the <math display="inline"><msub><mrow><mi>X</mi></mrow><mrow><mi>R</mi></mrow></msub></math>
+direction of the robot’s reference frame due to the nonholonomic constraint.</span></span></span> </p><table class="equation"><tr><td>
+<math class="equation" display="block">
+<mstyle class="label" id="x10-58003r44"></mstyle>
+<munder class="msub"><mrow><mi class="qopname">lim</mi><mo> ⁡ </mo></mrow><mrow><mi>t</mi><mi>→</mi><mi>∞</mi></mrow></munder><mi>e</mi><mo class="MathClass-open" stretchy="false">(</mo><mi>t</mi><mo class="MathClass-close" stretchy="false">)</mo> <mo class="MathClass-rel" stretchy="false">=</mo> <mn>0</mn>
+</math></td><td class="eq-no">(2.44)</td></tr></table>
+<p class="noindent"></p>
+<p class="noindent"><h5 class="subsubsectionHead" id="header-subsubsection-22"> <a id="x10-59000"></a>Kinematic model</h5>
+</p><p class="noindent">We assume, without loss of generality, that the goal is at the origin of the inertial frame (fig- ure 3.19). In the following
+the position vector <math display="inline"> <mrow><mo fence="true" form="prefix">[</mo><mrow><mi>x</mi><mo class="MathClass-punc" stretchy="false">,</mo><mi>y</mi><mo class="MathClass-punc" stretchy="false">,</mo><mi>𝜃</mi></mrow><mo fence="true" form="postfix">]</mo></mrow><mi>T</mi> <mstyle class="text"><mtext></mtext></mstyle></math>
+is always represented in the inertial frame.
+</p><p class="noindent">The kinematics of a differential-drive mobile robot described in the inertial frame
+<math display="inline"><mi>{</mi><msub><mrow><mi>X</mi></mrow><mrow><mi>I</mi></mrow></msub><mo class="MathClass-punc" stretchy="false">,</mo><msub><mrow><mi>Y</mi> </mrow><mrow><mi>I</mi></mrow></msub><mo class="MathClass-punc" stretchy="false">,</mo><mi>𝜃</mi><mi>}</mi></math> is given
+by </p><table class="equation"><tr><td>
+<math class="equation" display="block">
+<mstyle class="label" id="x10-59001r45"></mstyle>
+<mrow><mo fence="true" form="prefix">|</mo><mrow><mtable align="axis" class="array" columnlines="none none none none none none none none none" displaystyle="true" equalcolumns="false" equalrows="false" style=""><mtr class="array-row"><mtd class="array-td" columnalign="center"> <mi>ẋ</mi> </mtd></mtr> <mtr class="array-row"><mtd class="array-td" columnalign="center"> <mi>ẏ</mi></mtd>
+</mtr> <mtr class="array-row"><mtd class="array-td" columnalign="center"> <mover accent="true"><mrow><mi>𝜃</mi></mrow><mo accent="true">˙</mo></mover> </mtd></mtr></mtable>
+</mrow><mo fence="true" form="postfix">|</mo></mrow> <mo class="MathClass-rel" stretchy="false">=</mo> <mrow><mo fence="true" form="prefix">[</mo><mrow><mtable align="axis" class="array" columnlines="none none none none none none none none none" displaystyle="true" equalcolumns="false" equalrows="false" style=""> <mtr class="array-row"><mtd class="array-td" columnalign="center"> <mi class="loglike">cos</mi><mo>⁡</mo><mi>𝜃</mi> </mtd><mtd class="array-td" columnalign="center"> <mn>0</mn> </mtd></mtr> <mtr class="array-row"><mtd class="array-td" columnalign="center"> <mi class="loglike">sin</mi><mo>⁡</mo>  <mi>𝜃</mi> </mtd> <mtd class="array-td" columnalign="center"> <mn>0</mn></mtd>
+</mtr>
+<mtr class="array-row"><mtd class="array-td" columnalign="center"> <mn>0</mn> </mtd>
+<mtd class="array-td" columnalign="center"> <mn>1</mn> </mtd>
+</mtr>
+</mtable> </mrow><mo fence="true" form="postfix">]</mo></mrow> <mrow><mo fence="true" form="prefix">[</mo><mrow><mtable align="axis" class="array" columnlines="none none none none none none none none none" displaystyle="true" equalcolumns="false" equalrows="false" style=""><mtr class="array-row"><mtd class="array-td" columnalign="center"> <mi>v</mi> </mtd></mtr> <mtr class="array-row"><mtd class="array-td" columnalign="center"> <mi>ω</mi></mtd></mtr></mtable> </mrow><mo fence="true" form="postfix">]</mo></mrow>
+</math></td><td class="eq-no">(2.45)</td></tr></table>
+<p class="noindent"></p>
+<p class="noindent">where <math display="inline"><mi>ẋ</mi></math> and
+<math display="inline"><mi>ẏ</mi></math> are the linear velocities
+in the direction of the <math display="inline"><msub><mrow><mi>X</mi></mrow><mrow><mi>I</mi></mrow></msub></math>
+and <math display="inline"><msub><mrow><mi>Y</mi> </mrow><mrow><mi>I</mi></mrow></msub></math> of
+the inertial frame.
+</p><p class="noindent">Let <math display="inline"><mi>α</mi></math> denote the angle between
+the <math display="inline"><msub><mrow><mi>x</mi></mrow><mrow><mi>R</mi></mrow></msub></math> axis of the robot’s
+reference frame and the vector <math display="inline"><mover accent="true"><mrow><mi>x</mi></mrow><mo accent="true">^</mo></mover></math>
+connecting the center of the axle of the wheels with the final position. If
+<math display="inline"><mi>α</mi> <mi>∈</mi> <msub><mrow><mi>I</mi></mrow><mrow><mn>1</mn></mrow></msub></math>, where
+</p><table class="equation"><tr><td>
+<math class="equation" display="block">
+<mstyle class="label" id="x10-59002r46"></mstyle>
+<msub><mrow><mi>I</mi></mrow><mrow><mn>1</mn></mrow></msub> <mo class="MathClass-rel" stretchy="false">=</mo> <mrow><mo fence="true" form="prefix">(</mo><mrow><mo class="MathClass-bin" stretchy="false">−</mo><mfrac><mrow><mi>π</mi></mrow>
+<mrow>
+<mn>2</mn></mrow></mfrac> <mo class="MathClass-punc" stretchy="false">,</mo> <mfrac><mrow><mi>π</mi></mrow>
+<mrow>
+<mn>2</mn></mrow></mfrac> </mrow><mo fence="true" form="postfix">]</mo></mrow>
+</math></td><td class="eq-no">(2.46)</td></tr></table>
+<p class="noindent"></p>
+<p class="noindent">then consider the coordinate transformation into polar coordinates with its origin at the goal position.
+</p><table class="equation"><tr><td>
+<math class="equation" display="block">
+<mstyle class="label" id="x10-59003r47"></mstyle><mtable class="aligned" displaystyle="true"><mtr><mtd columnalign="right"><mi>ρ</mi></mtd>
+<mtd columnalign="left"> <mo class="MathClass-rel" stretchy="false">=</mo> <msqrt><mrow>
+<mi mathvariant="normal">Δ</mi><msup><mrow><mi>x</mi></mrow><mrow><mn>2</mn></mrow></msup> <mo class="MathClass-bin" stretchy="false">+</mo> <mi mathvariant="normal">Δ</mi><msup><mrow><mi>y</mi></mrow><mrow><mn>2</mn></mrow></msup></mrow></msqrt></mtd>
+<mtd columnalign="right"></mtd>
+</mtr><mtr><mtd columnalign="right"><mi>α</mi></mtd><mtd columnalign="left"> <mo class="MathClass-rel" stretchy="false">=</mo> <mo class="MathClass-bin" stretchy="false">−</mo><mi>𝜃</mi> <mo class="MathClass-bin" stretchy="false">+</mo> <mi>a</mi><mi class="loglike">tan</mi><mo>⁡</mo><mn>2</mn><mo class="MathClass-open" stretchy="false">(</mo><mi mathvariant="normal">Δ</mi><mi>y</mi><mo class="MathClass-punc" stretchy="false">,</mo><mi mathvariant="normal">Δ</mi><mi>x</mi><mo class="MathClass-close" stretchy="false">)</mo></mtd>
+</mtr><mtr><mtd columnalign="right"><mi>β</mi></mtd>
+<mtd columnalign="left"> <mo class="MathClass-rel" stretchy="false">=</mo> <mo class="MathClass-bin" stretchy="false">−</mo><mi>𝜃</mi> <mo class="MathClass-bin" stretchy="false">−</mo> <mi>α</mi></mtd>
+</mtr> </mtable>
+</math></td><td class="eq-no">(2.47)</td></tr></table>
+<p class="noindent"></p>
+<p class="noindent">This gives a system description, in the new polar coordinates, using a matrix equation </p><table class="equation"><tr><td>
+<math class="equation" display="block">
+<mstyle class="label" id="x10-59004r48"></mstyle>
+<mrow><mo fence="true" form="prefix">[</mo><mrow><mtable align="axis" class="array" columnlines="none none none none none none none none none" displaystyle="true" equalcolumns="false" equalrows="false" style=""><mtr class="array-row"><mtd class="array-td" columnalign="center"> <mover accent="true"><mrow><mi>ρ</mi></mrow><mo accent="true">˙</mo></mover> </mtd>
+</mtr><mtr class="array-row"><mtd class="array-td" columnalign="center"> <mover accent="true"><mrow><mi>α</mi></mrow><mo accent="true">˙</mo></mover> </mtd></mtr> <mtr class="array-row"><mtd class="array-td" columnalign="center"> <mover accent="true"><mrow><mi>β</mi></mrow><mo accent="true">˙</mo></mover></mtd></mtr></mtable>
+</mrow><mo fence="true" form="postfix">]</mo></mrow> <mo class="MathClass-rel" stretchy="false">=</mo> <mrow><mo fence="true" form="prefix">[</mo><mrow><mtable align="axis" class="array" columnlines="none none none none none none none none none" displaystyle="true" equalcolumns="false" equalrows="false" style=""> <mtr class="array-row"><mtd class="array-td" columnalign="center"> <mo class="MathClass-bin" stretchy="false">−</mo> <mi class="loglike">cos</mi><mo>⁡</mo><mi>α</mi> </mtd>
+<mtd class="array-td" columnalign="center"> <mn>0</mn> </mtd>
+</mtr><mtr class="array-row"><mtd class="array-td" columnalign="center"> <mfrac><mrow><mi class="loglike">sin</mi><mo>⁡</mo><mi>α</mi></mrow>
+<mrow>
+<mi>ρ</mi></mrow></mfrac> </mtd><mtd class="array-td" columnalign="center"> <mo class="MathClass-bin" stretchy="false">−</mo><mn>1</mn> </mtd>
+</mtr>
+<mtr class="array-row"><mtd class="array-td" columnalign="center"> <mo class="MathClass-bin" stretchy="false">−</mo><mfrac><mrow><mi class="loglike">sin</mi><mo>⁡</mo><mi>α</mi></mrow>
+<mrow>
+<mi>ρ</mi></mrow></mfrac> </mtd>
+<mtd class="array-td" columnalign="center"> <mn>0</mn> </mtd>
+</mtr>
+</mtable> </mrow><mo fence="true" form="postfix">]</mo></mrow> <mrow><mo fence="true" form="prefix">[</mo><mrow><mtable align="axis" class="array" columnlines="none none none none none none none none none" displaystyle="true" equalcolumns="false" equalrows="false" style=""><mtr class="array-row"><mtd class="array-td" columnalign="center"> <mi>v</mi> </mtd></mtr> <mtr class="array-row"><mtd class="array-td" columnalign="center"> <mi>ω</mi></mtd></mtr></mtable> </mrow><mo fence="true" form="postfix">]</mo></mrow>
+</math></td><td class="eq-no">(2.48)</td></tr></table>
+<p class="noindent"></p>
+<p class="noindent">where <math display="inline"><mi>ρ</mi></math>
+is the distance between the center of the robot’s wheel axle and the goal position,
+<math display="inline"><mi>𝜃</mi></math> denotes the angle between
+the <math display="inline"><msub><mrow><mi>X</mi></mrow><mrow><mi>R</mi></mrow></msub></math> axis of the robot reference
+frame, and the <math display="inline"><msub><mrow><mi>X</mi></mrow><mrow><mi>I</mi></mrow></msub></math> axis associated
+with the final position <math display="inline"><mi>v</mi></math>
+and <math display="inline"><mi>ω</mi></math> are
+the tangent and the angular velocity respectively.
+</p><p class="noindent">On the other hand, if <math display="inline"><mi>α</mi> <mi>∈</mi> <msub><mrow><mi>I</mi></mrow><mrow><mn>2</mn></mrow></msub></math>,
+where </p><table class="equation"><tr><td>
+<math class="equation" display="block">
+<mstyle class="label" id="x10-59005r49"></mstyle>
+<msub><mrow><mi>I</mi></mrow><mrow><mn>2</mn></mrow></msub> <mo class="MathClass-rel" stretchy="false">=</mo> <mo class="MathClass-open" stretchy="false">(</mo><mo class="MathClass-bin" stretchy="false">−</mo><mi>π</mi><mo class="MathClass-punc" stretchy="false">,</mo> <mo class="MathClass-bin" stretchy="false">−</mo><mi>π</mi><mo class="MathClass-bin" stretchy="false">/</mo><mn>2</mn><mo class="MathClass-close" stretchy="false">]</mo> <mi>⋃</mi> <mo class="MathClass-open" stretchy="false">(</mo><mi>π</mi><mo class="MathClass-bin" stretchy="false">/</mo><mn>2</mn><mo class="MathClass-punc" stretchy="false">,</mo><mi>π</mi><mo class="MathClass-close" stretchy="false">]</mo>
+</math></td><td class="eq-no">(2.49)</td></tr></table>
+<p class="noindent"></p>
+<p class="noindent">redefining the forward direction of the robot by setting
+<math display="inline"><mi>v</mi> <mo class="MathClass-rel" stretchy="false">=</mo> <mo class="MathClass-bin" stretchy="false">−</mo><mi>v</mi></math>, we
+obtain a system described by a matrix equation of the form </p><table class="equation"><tr><td>
+<math class="equation" display="block">
+<mstyle class="label" id="x10-59006r50"></mstyle>
+<mrow><mo fence="true" form="prefix">[</mo><mrow><mtable align="axis" class="array" columnlines="none none none none none none none none none" displaystyle="true" equalcolumns="false" equalrows="false" style=""><mtr class="array-row"><mtd class="array-td" columnalign="center"> <mover accent="true"><mrow><mi>ρ</mi></mrow><mo accent="true">˙</mo></mover> </mtd>
+</mtr><mtr class="array-row"><mtd class="array-td" columnalign="center"> <mover accent="true"><mrow><mi>α</mi></mrow><mo accent="true">˙</mo></mover> </mtd></mtr> <mtr class="array-row"><mtd class="array-td" columnalign="center"> <mover accent="true"><mrow><mi>β</mi></mrow><mo accent="true">˙</mo></mover></mtd></mtr></mtable>
+</mrow><mo fence="true" form="postfix">]</mo></mrow> <mo class="MathClass-rel" stretchy="false">=</mo> <mrow><mo fence="true" form="prefix">[</mo><mrow><mtable align="axis" class="array" columnlines="none none none none none none none none none" displaystyle="true" equalcolumns="false" equalrows="false" style=""> <mtr class="array-row"><mtd class="array-td" columnalign="center"> <mi class="loglike">cos</mi><mo>⁡</mo><mi>α</mi> </mtd>
+<mtd class="array-td" columnalign="center"> <mn>0</mn> </mtd>
+</mtr><mtr class="array-row"><mtd class="array-td" columnalign="center"> <mo class="MathClass-bin" stretchy="false">−</mo><mfrac><mrow><mi class="loglike">sin</mi><mo>⁡</mo><mi>α</mi></mrow>
+<mrow>
+<mi>ρ</mi></mrow></mfrac> </mtd><mtd class="array-td" columnalign="center"> <mn>1</mn> </mtd>
+</mtr>
+<mtr class="array-row"><mtd class="array-td" columnalign="center"> <mfrac><mrow><mi class="loglike">sin</mi><mo>⁡</mo><mi>α</mi></mrow>
+<mrow>
+<mi>ρ</mi></mrow></mfrac> </mtd>
+<mtd class="array-td" columnalign="center"> <mn>0</mn> </mtd>
+</mtr>
+</mtable> </mrow><mo fence="true" form="postfix">]</mo></mrow> <mrow><mo fence="true" form="prefix">[</mo><mrow><mtable align="axis" class="array" columnlines="none none none none none none none none none" displaystyle="true" equalcolumns="false" equalrows="false" style=""><mtr class="array-row"><mtd class="array-td" columnalign="center"> <mi>v</mi> </mtd></mtr> <mtr class="array-row"><mtd class="array-td" columnalign="center"> <mi>ω</mi></mtd></mtr></mtable> </mrow><mo fence="true" form="postfix">]</mo></mrow>
+</math></td><td class="eq-no">(2.50)</td></tr></table>
+<p class="noindent"></p>
+<p class="noindent"><h5 class="subsubsectionHead" id="header-subsubsection-23"> <a id="x10-60000"></a>Remarks on the kinematic model in polar coordinates</h5>
+</p>
+<ul class="itemize1">
+<li class="itemize">
+<p class="noindent">The coordinate transformation is not defined at <math display="inline"><mi>x</mi> <mo class="MathClass-rel" stretchy="false">=</mo> <mi>y</mi> <mo class="MathClass-rel" stretchy="false">=</mo> <mn>0</mn></math>,
+as in such a point the determinant of the <i>Jacobian matrix</i> of the transformation is not
+defined, that is unbounded.
+</p>
+</li>
+<li class="itemize">
+<p class="noindent">For <math display="inline"><mi>α</mi> <mi>∈</mi> <msub><mrow><mi>I</mi></mrow><mrow><mn>1</mn></mrow></msub></math>
+the forward direction of the robot points toward the goal, for <math display="inline"><mi>α</mi> <mi>∈</mi> <msub><mrow><mi>I</mi></mrow><mrow><mn>2</mn></mrow></msub></math>
+it is the reverse direction.
+</p>
+</li>
+<li class="itemize">
+<p class="noindent">By properly defining the forward direction of the robot at its initial configuration, it is
+always possible to have <math display="inline"><mi>α</mi> <mi>∈</mi> <msub><mrow><mi>I</mi></mrow><mrow><mn>1</mn></mrow></msub></math>
+at <math display="inline"><mi>t</mi> <mo class="MathClass-rel" stretchy="false">=</mo> <mn>0</mn></math>.
+However, this does not mean that <math display="inline"><mi>α</mi></math>
+remains in <math display="inline"><msub><mrow><mi>I</mi></mrow><mrow><mi>I</mi></mrow></msub></math>
+for all time <math display="inline"><mi>t</mi></math>.
+</p>
+<p class="noindent">Hence, to avoid that the robot changes direction during approaching the goal, it is necessary
+to determine, if possible, the controller in such a way that <math display="inline"><mi>α</mi> <mi>∈</mi> <msub><mrow><mi>I</mi></mrow><mrow><mn>1</mn></mrow></msub></math>
+for all t, whenever <math display="inline"><mi>α</mi><mo class="MathClass-open" stretchy="false">(</mo><mn>0</mn><mo class="MathClass-close" stretchy="false">)</mo> <mi>∈</mi> <msub><mrow><mi>I</mi></mrow><mrow><mn>1</mn></mrow></msub></math>.
+</p>
+<div class="knowledge"><div class="knowledge-upper">Knowledge</div><div class="body">
+<p class="noindent">The same applies for the <span class="alert">reverse direction</span>. </p></div></div>
+</li></ul>
+<p class="noindent"><h5 class="subsubsectionHead" id="header-subsubsection-24"> <a id="x10-61000"></a>The Control law</h5>
+</p><p class="noindent">The control signals <math display="inline"><mi>v</mi></math>
+and <math display="inline"><mi>ω</mi></math>
+must now be designed to drive the robot from its actual configuration, say
+<math display="inline"><mo class="MathClass-open" stretchy="false">(</mo><msub><mrow><mi>ρ</mi></mrow><mrow><mn>0</mn></mrow></msub><mo class="MathClass-punc" stretchy="false">,</mo><msub><mrow><mi>α</mi></mrow><mrow><mn>0</mn></mrow></msub><mo class="MathClass-punc" stretchy="false">,</mo><msub><mrow><mi>β</mi></mrow><mrow><mn>0</mn></mrow></msub><mo class="MathClass-close" stretchy="false">)</mo></math>,
+to the goal position. It is obvious that Eq. (<a href="#x10-59004r48">2.48</a>) presents a discontinuity at
+<math display="inline"><mi>ρ</mi> <mo class="MathClass-rel" stretchy="false">=</mo> <mn>0</mn></math>; thus
+the theorem of Brockett does not obstruct smooth stabilizability.
+</p><p class="noindent">If we consider now the linear control law </p><table class="equation"><tr><td>
+<math class="equation" display="block">
+<mstyle class="label" id="x10-61001r51"></mstyle><mtable class="aligned" displaystyle="true"><mtr><mtd columnalign="right"><mi>v</mi></mtd>
+<mtd columnalign="left"> <mo class="MathClass-rel" stretchy="false">=</mo> <msub><mrow><mi>k</mi></mrow><mrow><mn>0</mn></mrow></msub><mi>ρ</mi></mtd>
+<mtd columnalign="right"></mtd>
+</mtr><mtr><mtd columnalign="right"><mi>ω</mi></mtd><mtd columnalign="left"> <mo class="MathClass-rel" stretchy="false">=</mo> <msub><mrow><mi>k</mi></mrow><mrow><mi>α</mi></mrow></msub><mi>α</mi> <mo class="MathClass-bin" stretchy="false">+</mo> <msub><mrow><mi>k</mi></mrow><mrow><mi>β</mi></mrow></msub><mi>β</mi></mtd>
+</mtr> </mtable>
+</math></td><td class="eq-no">(2.51)</td></tr></table>
+<p class="noindent"></p>
+<p class="noindent">we get with Eq. (<a href="#x10-59004r48">2.48</a>) a closed-loop system described by </p><table class="equation"><tr><td>
+<math class="equation" display="block">
+<mstyle class="label" id="x10-61002r52"></mstyle>
+<mrow><mo fence="true" form="prefix">[</mo><mrow><mtable align="axis" class="array" columnlines="none none none none none none none none none" displaystyle="true" equalcolumns="false" equalrows="false" style=""><mtr class="array-row"><mtd class="array-td" columnalign="center"> <mover accent="true"><mrow><mi>ρ</mi></mrow><mo accent="true">˙</mo></mover> </mtd>
+</mtr><mtr class="array-row"><mtd class="array-td" columnalign="center"> <mover accent="true"><mrow><mi>α</mi></mrow><mo accent="true">˙</mo></mover> </mtd></mtr> <mtr class="array-row"><mtd class="array-td" columnalign="center"> <mover accent="true"><mrow><mi>β</mi></mrow><mo accent="true">˙</mo></mover></mtd></mtr></mtable>
+</mrow><mo fence="true" form="postfix">]</mo></mrow> <mo class="MathClass-rel" stretchy="false">=</mo> <mrow><mo fence="true" form="prefix">[</mo><mrow><mtable align="axis" class="array" columnlines="none none none none none none none none none" displaystyle="true" equalcolumns="false" equalrows="false" style=""> <mtr class="array-row"><mtd class="array-td" columnalign="center"> <mo class="MathClass-bin" stretchy="false">−</mo><msub><mrow><mi>k</mi></mrow><mrow><mi>ρ</mi></mrow></msub><mi>ρ</mi><mi class="loglike">cos</mi><mo>⁡</mo><mi>α</mi> </mtd>
+</mtr><mtr class="array-row"><mtd class="array-td" columnalign="center"> <msub><mrow><mi>k</mi></mrow><mrow><mi>ρ</mi></mrow></msub> <mi class="loglike">sin</mi><mo>⁡</mo><mi>α</mi> <mo class="MathClass-bin" stretchy="false">−</mo> <msub><mrow><mi>k</mi></mrow><mrow><mi>α</mi></mrow></msub><mi>α</mi> <mo class="MathClass-bin" stretchy="false">−</mo> <msub><mrow><mi>k</mi></mrow><mrow><mi>β</mi></mrow></msub><mi>β</mi> </mtd>
+</mtr>
+<mtr class="array-row"><mtd class="array-td" columnalign="center"> <mo class="MathClass-bin" stretchy="false">−</mo><msub><mrow><mi>k</mi></mrow><mrow><mi>β</mi></mrow></msub> <mi class="loglike">sin</mi><mo>⁡</mo><mi>α</mi> </mtd>
+</mtr>
+</mtable> </mrow><mo fence="true" form="postfix">]</mo></mrow>
+</math></td><td class="eq-no">(2.52)</td></tr></table>
+<p class="noindent"></p>
+<p class="noindent">The system does not have any singularity at <math display="inline"><mi>ρ</mi> <mo class="MathClass-rel" stretchy="false">=</mo> <mn>0</mn></math>
+and has a unique equilibrium point at <math display="inline"><mo class="MathClass-open" stretchy="false">(</mo><mi>ρ</mi><mo class="MathClass-punc" stretchy="false">,</mo><mi>α</mi><mo class="MathClass-punc" stretchy="false">,</mo><mi>β</mi><mo class="MathClass-close" stretchy="false">)</mo> <mo class="MathClass-rel" stretchy="false">=</mo> <mo class="MathClass-open" stretchy="false">(</mo><mn>0</mn><mo class="MathClass-punc" stretchy="false">,</mo><mn>0</mn><mo class="MathClass-punc" stretchy="false">,</mo><mn>0</mn><mo class="MathClass-close" stretchy="false">)</mo></math>.
+Thus it will drive the robot to this point, which is the goal position. </p>
+<ul class="itemize1">
+<li class="itemize">
+<p class="noindent">In the Cartesian coordinate system the control law, Eq. (<a href="#x10-61001r51">2.51</a>), leads to equations which are
+not defined at <math display="inline"><mi>x</mi> <mo class="MathClass-rel" stretchy="false">=</mo> <mi>y</mi> <mo class="MathClass-rel" stretchy="false">=</mo> <mn>0</mn></math>.
+</p>
+</li>
+<li class="itemize">
+<p class="noindent">Be aware of the fact that the angles <math display="inline"><mi>α</mi></math>
+and <math display="inline"><mi>β</mi></math>
+have always to be expressed in the range <math display="inline"><mo class="MathClass-open" stretchy="false">(</mo><mo class="MathClass-bin" stretchy="false">−</mo><mi>π</mi><mo class="MathClass-punc" stretchy="false">,</mo><mi>π</mi><mo class="MathClass-close" stretchy="false">)</mo></math>.
+</p>
+</li>
+<li class="itemize">
+<p class="noindent">Observe the control signal <math display="inline"><mi>v</mi></math>
+has always a constant sign, that is, it is positive whenever <math display="inline"><mi>α</mi><mo class="MathClass-open" stretchy="false">(</mo><mn>0</mn><mo class="MathClass-close" stretchy="false">)</mo> <mi>∈</mi> <msub><mrow><mi>I</mi></mrow><mrow><mn>1</mn></mrow></msub></math>
+and it is always negative otherwise.
+</p>
+<div class="knowledge"><div class="knowledge-upper">Knowledge</div><div class="body">
+<p class="noindent">This implies that the robot performs its parking maneuver always in a single direction and
+without reversing its motion. </p></div></div>
+</li></ul>
+<p class="noindent">In figure 3.20 you find the resulting paths when the robot is initially on a circle in the <i>xy</i>-plane. All
+movements have smooth trajectories toward the goal in the center. The control parameters for this
+simulation were set to </p><table class="equation"><tr><td>
+<math class="equation" display="block">
+<mstyle class="label" id="x10-61003r53"></mstyle>
+<mi>k</mi> <mo class="MathClass-rel" stretchy="false">=</mo> <mo class="MathClass-open" stretchy="false">(</mo><msub><mrow><mi>k</mi></mrow><mrow><mn>0</mn></mrow></msub><mo class="MathClass-punc" stretchy="false">,</mo><msub><mrow><mi>k</mi></mrow><mrow><mn>0</mn></mrow></msub><mo class="MathClass-punc" stretchy="false">,</mo><msub><mrow><mi>k</mi></mrow><mrow><mn>0</mn></mrow></msub><mo class="MathClass-close" stretchy="false">)</mo> <mo class="MathClass-rel" stretchy="false">=</mo> <mo class="MathClass-open" stretchy="false">(</mo><mn>3</mn><mo class="MathClass-punc" stretchy="false">,</mo><mn>8</mn><mo class="MathClass-punc" stretchy="false">,</mo> <mo class="MathClass-bin" stretchy="false">−</mo><mn>1</mn><mo class="MathClass-punc" stretchy="false">.</mo><mn>5</mn><mo class="MathClass-close" stretchy="false">)</mo>
+</math></td><td class="eq-no">(2.53)</td></tr></table>
+<p class="noindent"></p>
+<p class="noindent"><h5 class="subsubsectionHead" id="header-subsubsection-25"> <a id="x10-62000"></a>Local stability issue</h5>
+</p><p class="noindent">It can further be shown, that the closed-loop control system, Eq. (<a href="#x10-61002r52">2.52</a>), is locally exponentially stable
+if </p><table class="equation"><tr><td>
+<math class="equation" display="block">
+<mstyle class="label" id="x10-62001r54"></mstyle>
+<msub><mrow><mi>k</mi></mrow><mrow><mn>0</mn></mrow></msub> <mo class="MathClass-rel" stretchy="false">&gt;</mo> <mn>0</mn><mspace class="qquad" width="2em"></mspace><msub><mrow><mi>k</mi></mrow><mrow><mn>0</mn></mrow></msub> <mo class="MathClass-rel" stretchy="false">&lt;</mo> <mn>0</mn><mspace class="qquad" width="2em"></mspace><msub><mrow><mi>k</mi></mrow><mrow><mi>α</mi></mrow></msub> <mo class="MathClass-bin" stretchy="false">−</mo> <msub><mrow><mi>k</mi></mrow><mrow><mn>0</mn></mrow></msub> <mo class="MathClass-rel" stretchy="false">&gt;</mo> <mn>0</mn>
+</math></td><td class="eq-no">(2.54)</td></tr></table>
+<p class="noindent"></p>
+<p class="noindent">Proof: Linearized around the equilibrium (<math display="inline"><mi class="loglike">cos</mi><mo>⁡</mo><mi>x</mi> <mo class="MathClass-rel" stretchy="false">=</mo> <mn>1</mn></math>,
+<math display="inline"><mi class="loglike">sin</mi><mo>⁡</mo><mi>x</mi> <mo class="MathClass-rel" stretchy="false">=</mo> <mi>x</mi></math>)
+position, Eq. (<a href="#x10-61002r52">2.52</a>), can be written as </p><table class="equation"><tr><td>
+<math class="equation" display="block">
+<mstyle class="label" id="x10-62002r55"></mstyle>
+<mrow><mo fence="true" form="prefix">[</mo><mrow><mtable align="axis" class="array" columnlines="none none none none none none none none none" displaystyle="true" equalcolumns="false" equalrows="false" style=""><mtr class="array-row"><mtd class="array-td" columnalign="center"> <mover accent="true"><mrow><mi>ρ</mi></mrow><mo accent="true">˙</mo></mover> </mtd>
+</mtr><mtr class="array-row"><mtd class="array-td" columnalign="center"> <mover accent="true"><mrow><mi>α</mi></mrow><mo accent="true">˙</mo></mover> </mtd></mtr> <mtr class="array-row"><mtd class="array-td" columnalign="center"> <mover accent="true"><mrow><mi>β</mi></mrow><mo accent="true">˙</mo></mover></mtd></mtr></mtable>
+</mrow><mo fence="true" form="postfix">]</mo></mrow> <mo class="MathClass-rel" stretchy="false">=</mo> <mrow><mo fence="true" form="prefix">[</mo><mrow><mtable align="axis" class="array" columnlines="none none none none none none none none none" displaystyle="true" equalcolumns="false" equalrows="false" style=""> <mtr class="array-row"><mtd class="array-td" columnalign="center"> <mo class="MathClass-bin" stretchy="false">−</mo><msub><mrow><mi>k</mi></mrow><mrow><mi>ρ</mi></mrow></msub> </mtd>
+<mtd class="array-td" columnalign="center"> <mn>0</mn> </mtd>
+<mtd class="array-td" columnalign="center"> <mn>0</mn> </mtd>
+</mtr><mtr class="array-row"><mtd class="array-td" columnalign="center"> <mn>0</mn> </mtd><mtd class="array-td" columnalign="center"> <mo class="MathClass-bin" stretchy="false">−</mo><mo class="MathClass-open" stretchy="false">(</mo><msub><mrow><mi>k</mi></mrow><mrow><mi>α</mi></mrow></msub> <mo class="MathClass-bin" stretchy="false">−</mo> <msub><mrow><mi>k</mi></mrow><mrow><mi>ρ</mi></mrow></msub><mo class="MathClass-close" stretchy="false">)</mo> </mtd><mtd class="array-td" columnalign="center"> <mo class="MathClass-bin" stretchy="false">−</mo><msub><mrow><mi>k</mi></mrow><mrow><mi>β</mi></mrow></msub> </mtd>
+</mtr>
+<mtr class="array-row"><mtd class="array-td" columnalign="center"> <mn>0</mn> </mtd>
+<mtd class="array-td" columnalign="center"> <mo class="MathClass-bin" stretchy="false">−</mo><mi>k</mi> </mtd>
+<mtd class="array-td" columnalign="center"> <mn>0</mn> </mtd>
+</mtr>
+</mtable> </mrow><mo fence="true" form="postfix">]</mo></mrow> <mrow><mo fence="true" form="prefix">[</mo><mrow><mtable align="axis" class="array" columnlines="none none none none none none none none none" displaystyle="true" equalcolumns="false" equalrows="false" style=""><mtr class="array-row"><mtd class="array-td" columnalign="center"> <mi>ρ</mi> </mtd>
+</mtr><mtr class="array-row"><mtd class="array-td" columnalign="center"> <mi>α</mi> </mtd></mtr> <mtr class="array-row"><mtd class="array-td" columnalign="center"> <mi>β</mi></mtd></mtr></mtable> </mrow><mo fence="true" form="postfix">]</mo></mrow>
+</math></td><td class="eq-no">(2.55)</td></tr></table>
+<p class="noindent"></p>
+<p class="noindent">therefore it is locally exponentially stable if the eigenvalues of the matrix: </p><table class="equation"><tr><td>
+<math class="equation" display="block">
+<mstyle class="label" id="x10-62003r56"></mstyle><mstyle mathvariant="bold"><mi>A</mi>
+</mstyle>
+<mo class="MathClass-rel" stretchy="false">=</mo> <mrow><mo fence="true" form="prefix">[</mo><mrow><mtable align="axis" class="array" columnlines="none none none none none none none none none" displaystyle="true" equalcolumns="false" equalrows="false" style=""> <mtr class="array-row"><mtd class="array-td" columnalign="center"> <mo class="MathClass-bin" stretchy="false">−</mo><msub><mrow><mi>k</mi></mrow><mrow><mi>ρ</mi></mrow></msub> </mtd>
+<mtd class="array-td" columnalign="center"> <mn>0</mn> </mtd>
+<mtd class="array-td" columnalign="center"> <mn>0</mn> </mtd>
+</mtr><mtr class="array-row"><mtd class="array-td" columnalign="center"> <mn>0</mn> </mtd><mtd class="array-td" columnalign="center"> <mo class="MathClass-bin" stretchy="false">−</mo><mo class="MathClass-open" stretchy="false">(</mo><msub><mrow><mi>k</mi></mrow><mrow><mi>α</mi></mrow></msub> <mo class="MathClass-bin" stretchy="false">−</mo> <msub><mrow><mi>k</mi></mrow><mrow><mi>ρ</mi></mrow></msub><mo class="MathClass-close" stretchy="false">)</mo> </mtd><mtd class="array-td" columnalign="center"> <mo class="MathClass-bin" stretchy="false">−</mo><msub><mrow><mi>k</mi></mrow><mrow><mi>β</mi></mrow></msub> </mtd>
+</mtr>
+<mtr class="array-row"><mtd class="array-td" columnalign="center"> <mn>0</mn> </mtd>
+<mtd class="array-td" columnalign="center"> <mo class="MathClass-bin" stretchy="false">−</mo><msub><mrow><mi>k</mi></mrow><mrow><mi>ρ</mi></mrow></msub> </mtd>
+<mtd class="array-td" columnalign="center"> <mn>0</mn> </mtd>
+</mtr>
+</mtable> </mrow><mo fence="true" form="postfix">]</mo></mrow>
+</math></td><td class="eq-no">(2.56)</td></tr></table>
+<p class="noindent"></p>
+<p class="noindent">all have a negative real part. The <b>characteristic polynomial</b> of the matrix
+<math display="inline"><mstyle mathvariant="bold"><mi>A</mi></mstyle></math> is
+</p><table class="equation"><tr><td>
+<math class="equation" display="block">
+<mstyle class="label" id="x10-62004r57"></mstyle>
+<mo class="MathClass-open" stretchy="false">(</mo><mi>λ</mi> <mo class="MathClass-bin" stretchy="false">+</mo> <msub><mrow><mi>k</mi></mrow><mrow><mn>0</mn></mrow></msub><mo class="MathClass-close" stretchy="false">)</mo><mo class="MathClass-open" stretchy="false">(</mo><msup><mrow><mi>λ</mi></mrow><mrow><mn>2</mn></mrow></msup> <mo class="MathClass-bin" stretchy="false">+</mo> <mi>λ</mi><mo class="MathClass-open" stretchy="false">(</mo><msub><mrow><mi>k</mi></mrow><mrow>
+<mn>0</mn></mrow></msub> <mo class="MathClass-bin" stretchy="false">−</mo> <msub><mrow><mi>k</mi></mrow><mrow><mn>0</mn></mrow></msub><mo class="MathClass-close" stretchy="false">)</mo> <mo class="MathClass-bin" stretchy="false">−</mo> <msub><mrow><mi>k</mi></mrow><mrow><mn>0</mn></mrow></msub><msub><mrow><mi>k</mi></mrow><mrow><mi>B</mi></mrow></msub><mo class="MathClass-close" stretchy="false">)</mo>
+</math></td><td class="eq-no">(2.57)</td></tr></table>
+<p class="noindent"></p>
+<p class="noindent">and all roots have negative real part if </p><table class="equation"><tr><td>
+<math class="equation" display="block">
+<mstyle class="label" id="x10-62005r58"></mstyle>
+<msub><mrow><mi>k</mi></mrow><mrow><mi>ρ</mi></mrow></msub> <mo class="MathClass-rel" stretchy="false">&gt;</mo> <mn>0</mn><mspace class="qquad" width="2em"></mspace> <mo class="MathClass-bin" stretchy="false">−</mo> <msub><mrow><mi>k</mi></mrow><mrow><mi>β</mi></mrow></msub> <mo class="MathClass-rel" stretchy="false">&gt;</mo> <mn>0</mn><mspace class="qquad" width="2em"></mspace><msub><mrow><mi>k</mi></mrow><mrow><mi>α</mi></mrow></msub> <mo class="MathClass-bin" stretchy="false">−</mo> <msub><mrow><mi>k</mi></mrow><mrow><mi>ρ</mi></mrow></msub> <mo class="MathClass-rel" stretchy="false">&gt;</mo> <mn>0</mn>
+</math></td><td class="eq-no">(2.58)</td></tr></table>
+<p class="noindent"></p>
+<p class="noindent">which proves the claim.
+</p><p class="noindent">For robust position control, it might be advisable to apply the strong stability condition,
+which ensures that the robot does not change direction during its approach to the goal:
+</p><table class="equation"><tr><td>
+<math class="equation" display="block">
+<mstyle class="label" id="x10-62006r59"></mstyle>
+<msub><mrow><mi>k</mi></mrow><mrow><mi>ρ</mi></mrow></msub> <mo class="MathClass-rel" stretchy="false">&gt;</mo> <mn>0</mn><mspace class="qquad" width="2em"></mspace><msub><mrow><mi>k</mi></mrow><mrow><mi>β</mi></mrow></msub> <mo class="MathClass-rel" stretchy="false">&lt;</mo> <mn>0</mn><mspace class="qquad" width="2em"></mspace><msub><mrow><mi>k</mi></mrow><mrow><mi>α</mi></mrow></msub> <mo class="MathClass-bin" stretchy="false">+</mo> <mfrac><mrow><mn>5</mn></mrow>
+<mrow>
+<mn>3</mn></mrow></mfrac><msub><mrow><mi>k</mi></mrow><mrow><mi>β</mi></mrow></msub> <mo class="MathClass-bin" stretchy="false">−</mo> <mfrac><mrow><mn>2</mn></mrow>
+<mrow>
+<mi>π</mi></mrow></mfrac><msub><mrow><mi>k</mi></mrow><mrow><mi>ρ</mi></mrow></msub> <mo class="MathClass-rel" stretchy="false">&gt;</mo> <mn>0</mn>
+</math></td><td class="eq-no">(2.59)</td></tr></table>
+<p class="noindent"></p>
+<p class="noindent">This implies that <math display="inline"><mi>α</mi> <mi>∈</mi> <msub><mrow><mi>I</mi></mrow><mrow><mn>1</mn></mrow></msub></math>
+for all <math display="inline"><mi>t</mi></math>,
+whenever <math display="inline"><mi>α</mi><mo class="MathClass-open" stretchy="false">(</mo><mn>0</mn><mo class="MathClass-close" stretchy="false">)</mo> <mi>∈</mi> <msub><mrow><mi>I</mi></mrow><mrow><mn>1</mn></mrow></msub></math>
+and <math display="inline"><mi>α</mi> <mi>∈</mi> <msub><mrow><mi>I</mi></mrow><mrow><mn>2</mn></mrow></msub></math> for
+all <math display="inline"><mi>t</mi></math>,
+whenever <math display="inline"><mi>α</mi><mo class="MathClass-open" stretchy="false">(</mo><mn>0</mn><mo class="MathClass-close" stretchy="false">)</mo> <mi>∈</mi> <msub><mrow><mi>I</mi></mrow><mrow><mn>2</mn></mrow></msub></math>
+respectively. This strong stability condition has also been verified in applications.
+<div class="section-header">
+<h3 id="header-section-glossary">
+<span class="number">
+<i class="fa-regular fa-bookmark"></i>
+</span>
+<span class="title">
+<a id="page-glossary"></a>
+        Page Glossary Terms</span>
+</h3>
+</div>
+<div class="acronym-block">
+<dl class="acr-list">
+<a class="copiable-link" href="#glo:amr">¶</a>
+<dt class="acr-bottom" id="glo:amr"><span class="acr-short">AMR</span><span class="acr-long">Autonomous Mobile Robotics</span></dt>
+<dd class="acr-desc"><p>Self-navigating machines moving materials
+and goods independently without fixed tracks or wires. They use smart software, cameras,
+and sensors to map spaces and safely steer around people or obstacles in real time.</p></dd>
+</dl>
+</div>
+<div class="section-header">
+<h3 id="header-section-references">
+<span class="number">
+<i class="fa-regular fa-note-sticky"></i>
+</span>
+<span class="title">
+<a id="page-glossary"></a>
+                    Page Footnotes</span>
+</h3>
+</div>
+<div class="footnote-block">
+<dl class="enumerate-enumitem">
+<dt class="enumerate-enumitem" id="m-ref-29"><span class="acr-short">[29].</span></dt>
+<dd class="enumerate-enumitem"><span class="">e.g., lines and
+part of circles</span></dd>
+</dl>
+<dl class="enumerate-enumitem">
+<dt class="enumerate-enumitem" id="m-ref-30"><span class="acr-short">[30].</span></dt>
+<dd class="enumerate-enumitem"><span class="">we can call this sub-goals.</span></dd>
+</dl>
+<dl class="enumerate-enumitem">
+<dt class="enumerate-enumitem" id="m-ref-31"><span class="acr-short">[31].</span></dt>
+<dd class="enumerate-enumitem"><span class="">Remember that <math display="inline"><mi>v</mi><mo class="MathClass-open" stretchy="false">(</mo><mi>t</mi><mo class="MathClass-close" stretchy="false">)</mo></math> is
+always heading in the <math display="inline"><msub><mrow><mi>X</mi></mrow><mrow><mi>R</mi></mrow></msub></math>
+direction of the robot’s reference frame due to the nonholonomic constraint.</span></dd>
+</dl></div><nav class="crosslinks-bottom"><div class="navigation"><span class="nav-button"><a href="Perception.html"><i class="fa-solid fa-caret-right"></i></a></span><span class="nav-button"><a href="MobileRobotWorkspace.html"><i class="fa-solid fa-caret-left"></i></a></span><span class="nav-button"><a href="MobileRobotKinematics.html#MotionControlKinematicControl.html"><i class="fa-solid fa-caret-up"></i></a></span><span class="nav-button">
+<a href="index.html" rel="index" title="Index">
+<i class="fa-solid fa-table-list">
+</i>
+</a></span><span class="nav-button">
+<a href="Index.html" rel="index" title="Index">
+<i class="fa-brands fa-git-alt"></i>
+</a></span></div></nav> </p><div class="footer"> <div class="footer-left"><span class="footer-lecture">D. T. McGuiness, PhD</span>
+<span class="footer-webBook"><b>Last Updated:</b> 13.10.2026, at 8:16.</span></div></div><div class="author-notes">
+<span class="note">Authors Note </span>
+<span class="text">The website you are viewing is auto-generated using lms-WebBook and therefore subject to slight errors in typography and formatting. When in doubt, please consult the LectureBook. </span>
+</div>
+</article>
+<div class="mode-line">
+<div class="core-line"><div class="core-line-image"><img class="webbook-logo" src="logo/webbook-logo.svg"/></div>
+<div class="current-header">
+<span class="header-pretext">Viewing | </span>
+<span class="header-text">Section 2.4: Motion Control (Kinematic Control)</span>
+</div>
+<div class="button-group">
+</div>
+</div>
+<div class="supp-line"></div>
+</div>
+</page>
+</body>
+</html>

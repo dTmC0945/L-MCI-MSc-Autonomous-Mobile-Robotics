@@ -1,0 +1,1114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><title>Kinematic Models and Constraints</title>
+<meta charset="utf-8"/>
+<meta content="lms-WebBook" name="generator"/>
+<meta content="width=device-width,initial-scale=1" name="viewport"/>
+<script async="async" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/mml-chtml.js" type="text/javascript"></script>
+<link href="logo/lms.ico" rel="icon" type="image/x-icon"/>
+<link href="./pagefind/pagefind-component-ui.css" rel="stylesheet"/>
+<script src="./pagefind/pagefind-component-ui.js" type="text/javascript"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<link href="https://cdn.jsdelivr.net/gh/sugina-dev/latin-modern-web@1.0.1/style/latinmodern-mono.css" rel="stylesheet"/>
+<link href="https://cdn.jsdelivr.net/gh/dTmC0945/Wb-LMS-WebBook-Infrastructure/flatweb.css" rel="stylesheet" type="text/css"/>
+<script async="true" crossorigin="anonymous" src="https://cdn.jsdelivr.net/gh/dTmC0945/Wb-LMS-WebBook-Infrastructure/flatweb.js"></script>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/styles/default.min.css" rel="stylesheet"/>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/highlight.min.js"></script>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/styles/base16/solarized-light.min.css" rel="stylesheet"/>
+<script src="https://unpkg.com/highlightjs-copy/dist/highlightjs-copy.min.js"></script>
+<link href="https://unpkg.com/highlightjs-copy/dist/highlightjs-copy.min.css" rel="stylesheet"/>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css?family=Roboto:400,100,100italic,300,300italic,400italic,500,500italic,700,700italic,900italic,900" rel="stylesheet"/>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/languages/cpp.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/languages/latex.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/languages/matlab.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/languages/dockerfile.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/languages/cmake.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/languages/makefile.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/languages/markdown.min.js"></script>
+ </head><body>
+<page>
+<nav class="wide"> <div class="header"><div class="header-left"><span class="header-lecture-grade">M.Sc</span>
+<span class="header-lecture-name">Autonomous Mobile Robotics</span>
+<span class="header-webBook">WebBook 2.1</span></div><div class="header-right"><span class="header-version">2026.WS</span>
+<span class="header-chapter">Mobile Robot Kinematics</span></div></div><div class="toc"><pagefind-modal-trigger></pagefind-modal-trigger><pagefind-modal></pagefind-modal><div class="toc-links"><a href="https://github.com/dTmC0945" title="Lecturer GitHub Repo"><i class="fab fa-github" style="font-size:20px"></i></a><a href="https://scholar.google.com/citations?view_op=list_works\&amp;hl=en\&amp;user=lxQGADMAAAAJ" title="Lecturer Google Scholar Page"><i class="fa-brands fa-google-scholar" style="font-size:20px"></i></a><a href="https://www.researchgate.net/profile/Daniel-Mcguiness-2" title="Lecturer ResearchGate Account"><i class="fa-brands fa-researchgate" style="font-size:20px"></i></a><a href="https://dtmc0945.github.io/Th-MCI-Thesis-Topics/" title="Lecturer Thesis Ideas for B.Sc and M.Sc"><i class="fa-solid fa-book" style="font-size:20px"></i></a><a href="https://github.com/dTmC0945/C-MCI-LaTeX-Class-mcidoc/tree/main" title="mcidoc LaTeX Standard"><i class="fa-regular fa-file-lines" style="font-size:20px"></i></a></div><hr/><span class="chapterToc"><span class="number"></span><span class="title"><a href="index.html#x2-10000">Entry Point</a></span></span><span class="chapterToc"><span class="number">1</span><span class="title"><a href="Locomotion.html#x3-20001">Locomotion</a></span></span><span class="subsectionToc"><span class="number">1.0.1</span><span class="title"><a href="Locomotion.html#x3-30001.0.1">Key  Issues  for  Locomotion</a></span></span><span class="sectionToc"><span class="number">1.1</span><span class="title"><a href="LeggedMobileRobots.html#x4-40001.1">Legged  Mobile
+Robots</a></span></span><span class="subsectionToc"><span class="number">1.1.1</span><span class="title"><a href="LeggedMobileRobots.html#x4-60001.1.1">Examples  of  Legged  Robot  Locomotion</a></span></span><span class="sectionToc"><span class="number">1.2</span><span class="title"><a href="WheeledMobileRobots.html#x5-120001.2">Wheeled  Mobile
+Robots</a></span></span><span class="subsectionToc"><span class="number">1.2.1</span><span class="title"><a href="WheeledMobileRobots.html#x5-130001.2.1">Design</a></span></span><span class="subsectionToc"><span class="number">1.2.2</span><span class="title"><a href="WheeledMobileRobots.html#x5-160001.2.2">Stability</a></span></span><span class="subsectionToc"><span class="number">1.2.3</span><span class="title"><a href="WheeledMobileRobots.html#x5-170001.2.3">Manoeuvrability</a></span></span><span class="subsectionToc"><span class="number">1.2.4</span><span class="title"><a href="WheeledMobileRobots.html#x5-180001.2.4">Controllability</a></span></span><span class="subsectionToc"><span class="number">1.2.5</span><span class="title"><a href="WheeledMobileRobots.html#x5-190001.2.5">Case
+Studies for Wheeled Motion</a></span></span><span class="subsectionToc"><span class="number">1.2.6</span><span class="title"><a href="WheeledMobileRobots.html#x5-260001.2.6">Walking Wheels</a></span></span><span class="chapterToc"><span class="number">2</span><span class="title"><a href="MobileRobotKinematics.html#x6-270002">Mobile Robot Kinematics</a></span></span><span class="sectionToc"><span class="number">2.1</span><span class="title"><a href="#x7-280002.1">Kinematic
+Models and Constraints</a></span></span><span class="subsectionToc"><span class="number">2.1.1</span><span class="title"><a href="#x7-290002.1.1">Representing robot position</a></span></span><span class="subsectionToc"><span class="number">2.1.2</span><span class="title"><a href="#x7-300002.1.2">Forward kinematic
+models</a></span></span><span class="subsectionToc"><span class="number">2.1.3</span><span class="title"><a href="#x7-310002.1.3">Wheel kinematic constraints</a></span></span><span class="subsectionToc"><span class="number">2.1.4</span><span class="title"><a href="#x7-370002.1.4">Robot kinematic constraints</a></span></span><span class="subsectionToc"><span class="number">2.1.5</span><span class="title"><a href="#x7-380002.1.5">Examples:
+robot kinematic models and constraints</a></span></span><span class="sectionToc"><span class="number">2.2</span><span class="title"><a href="MobileRobotManeuverability.html#x8-410002.2">Mobile Robot Maneuverability</a></span></span><span class="subsectionToc"><span class="number">2.2.1</span><span class="title"><a href="MobileRobotManeuverability.html#x8-420002.2.1">Degree
+of Mobility</a></span></span><span class="subsectionToc"><span class="number">2.2.2</span><span class="title"><a href="MobileRobotManeuverability.html#x8-450002.2.2">Degree of steerability</a></span></span><span class="subsectionToc"><span class="number">2.2.3</span><span class="title"><a href="MobileRobotManeuverability.html#x8-470002.2.3">Robot maneuverability</a></span></span><span class="sectionToc"><span class="number">2.3</span><span class="title"><a href="MobileRobotWorkspace.html#x9-480002.3">Mobile Robot
+Workspace</a></span></span><span class="subsectionToc"><span class="number">2.3.1</span><span class="title"><a href="MobileRobotWorkspace.html#x9-490002.3.1">Degrees of freedom</a></span></span><span class="subsectionToc"><span class="number">2.3.2</span><span class="title"><a href="MobileRobotWorkspace.html#x9-500002.3.2">Holonomic robots</a></span></span><span class="subsectionToc"><span class="number">2.3.3</span><span class="title"><a href="MobileRobotWorkspace.html#x9-530002.3.3">Path and trajectory
+considerations</a></span></span><span class="subsectionToc"><span class="number">2.3.4</span><span class="title"><a href="MobileRobotWorkspace.html#x9-540002.3.4">Beyond Basic Kinematics</a></span></span><span class="sectionToc"><span class="number">2.4</span><span class="title"><a href="MotionControlKinematicControl.html#x10-550002.4">Motion Control (Kinematic
+Control)</a></span></span><span class="subsectionToc"><span class="number">2.4.1</span><span class="title"><a href="MotionControlKinematicControl.html#x10-560002.4.1">Open loop control</a></span></span><span class="subsectionToc"><span class="number">2.4.2</span><span class="title"><a href="MotionControlKinematicControl.html#x10-570002.4.2">Feedback control</a></span></span><span class="chapterToc"><span class="number">3</span><span class="title"><a href="Perception.html#x11-630003">Perception</a></span></span><span class="sectionToc"><span class="number">3.1</span><span class="title"><a href="SensorsforMobileRobotics.html#x12-640003.1">Sensors for Mobile
+Robotics</a></span></span><span class="subsectionToc"><span class="number">3.1.1</span><span class="title"><a href="SensorsforMobileRobotics.html#x12-650003.1.1">Sensor Classification</a></span></span><span class="subsectionToc"><span class="number">3.1.2</span><span class="title"><a href="SensorsforMobileRobotics.html#x12-660003.1.2">Characterisation of Sensor Performance</a></span></span><span class="subsectionToc"><span class="number">3.1.3</span><span class="title"><a href="SensorsforMobileRobotics.html#x12-720003.1.3">Wheel
+and Motor Sensors</a></span></span><span class="subsectionToc"><span class="number">3.1.4</span><span class="title"><a href="SensorsforMobileRobotics.html#x12-740003.1.4">Heading Sensors</a></span></span><span class="subsectionToc"><span class="number">3.1.5</span><span class="title"><a href="SensorsforMobileRobotics.html#x12-810003.1.5">Ground Based Beacons</a></span></span><span class="subsectionToc"><span class="number">3.1.6</span><span class="title"><a href="SensorsforMobileRobotics.html#x12-830003.1.6">Active
+Ranging</a></span></span><span class="subsectionToc"><span class="number">3.1.7</span><span class="title"><a href="SensorsforMobileRobotics.html#x12-850003.1.7">The Ultrasonic Sensor</a></span></span><span class="subsectionToc"><span class="number">3.1.8</span><span class="title"><a href="SensorsforMobileRobotics.html#x12-920003.1.8">Motion and Speed Sensors</a></span></span><span class="sectionToc"><span class="number">3.2</span><span class="title"><a href="VisionBasedSensors.html#x13-940003.2">Vision Based
+Sensors</a></span></span><span class="subsectionToc"><span class="number">3.2.1</span><span class="title"><a href="VisionBasedSensors.html#x13-950003.2.1">CCD Sensors</a></span></span><span class="subsectionToc"><span class="number">3.2.2</span><span class="title"><a href="VisionBasedSensors.html#x13-970003.2.2">CMOS Technology</a></span></span><span class="subsectionToc"><span class="number">3.2.3</span><span class="title"><a href="VisionBasedSensors.html#x13-980003.2.3">Visual Ranging Sensors</a></span></span><span class="subsectionToc"><span class="number">3.2.4</span><span class="title"><a href="VisionBasedSensors.html#x13-990003.2.4">Depth
+from Focus</a></span></span><span class="sectionToc"><span class="number">3.3</span><span class="title"><a href="RepresentingUncertainty.html#x14-1070003.3">Representing Uncertainty</a></span></span><span class="subsectionToc"><span class="number">3.3.1</span><span class="title"><a href="RepresentingUncertainty.html#x14-1080003.3.1">Statistical Representation</a></span></span><span class="subsectionToc"><span class="number">3.3.2</span><span class="title"><a href="RepresentingUncertainty.html#x14-1090003.3.2">Independence
+of random variables</a></span></span><span class="subsectionToc"><span class="number">3.3.3</span><span class="title"><a href="RepresentingUncertainty.html#x14-1110003.3.3">Propagation of Error</a></span></span><span class="sectionToc"><span class="number">3.4</span><span class="title"><a href="FeatureExtraction.html#x15-1120003.4">Feature Extraction</a></span></span><span class="subsectionToc"><span class="number">3.4.1</span><span class="title"><a href="FeatureExtraction.html#x15-1130003.4.1">Defining
+Feature</a></span></span><span class="subsectionToc"><span class="number">3.4.2</span><span class="title"><a href="FeatureExtraction.html#x15-1140003.4.2">Using Range Data</a></span></span><span class="chapterToc"><span class="number">4</span><span class="title"><a href="MobileRobotLocalisation.html#x16-1290004">Mobile Robot Localisation</a></span></span><span class="sectionToc"><span class="number">4.1</span><span class="title"><a href="TheProblemsofNoiseandAliasing.html#x17-1300004.1">The Problems of Noise and
+Aliasing</a></span></span><span class="subsectionToc"><span class="number">4.1.1</span><span class="title"><a href="TheProblemsofNoiseandAliasing.html#x17-1310004.1.1">Sensor Noise</a></span></span><span class="subsectionToc"><span class="number">4.1.2</span><span class="title"><a href="TheProblemsofNoiseandAliasing.html#x17-1320004.1.2">Sensor Aliasing</a></span></span><span class="subsectionToc"><span class="number">4.1.3</span><span class="title"><a href="TheProblemsofNoiseandAliasing.html#x17-1330004.1.3">Effector Noise</a></span></span><span class="subsectionToc"><span class="number">4.1.4</span><span class="title"><a href="TheProblemsofNoiseandAliasing.html#x17-1340004.1.4">An Error Model for
+Odometric Position Estimation</a></span></span><span class="sectionToc"><span class="number">4.2</span><span class="title"><a href="LocalisationTechniques.html#x18-1350004.2">Localisation Techniques</a></span></span><span class="sectionToc"><span class="number">4.3</span><span class="title"><a href="RepresentingBelief.html#x19-1360004.3">Representing Belief</a></span></span><span class="subsectionToc"><span class="number">4.3.1</span><span class="title"><a href="RepresentingBelief.html#x19-1370004.3.1">Single
+Hypothesis Belief</a></span></span><span class="subsectionToc"><span class="number">4.3.2</span><span class="title"><a href="RepresentingBelief.html#x19-1380004.3.2">Multiple Hypothesis Belief</a></span></span><span class="sectionToc"><span class="number">4.4</span><span class="title"><a href="RepresentingMaps.html#x20-1390004.4">Representing Maps</a></span></span><span class="subsectionToc"><span class="number">4.4.1</span><span class="title"><a href="RepresentingMaps.html#x20-1400004.4.1">Continuous
+Representation</a></span></span><span class="subsectionToc"><span class="number">4.4.2</span><span class="title"><a href="RepresentingMaps.html#x20-1410004.4.2">Decomposition Methods</a></span></span><span class="subsectionToc"><span class="number">4.4.3</span><span class="title"><a href="RepresentingMaps.html#x20-1420004.4.3">Current Challenges</a></span></span><span class="sectionToc"><span class="number">4.5</span><span class="title"><a href="ProbabilisticMapBasedLocalisation.html#x21-1430004.5">Probabilistic
+Map-Based Localisation</a></span></span><span class="subsectionToc"><span class="number">4.5.1</span><span class="title"><a href="ProbabilisticMapBasedLocalisation.html#x21-1440004.5.1">Problem Definition</a></span></span><span class="subsectionToc"><span class="number">4.5.2</span><span class="title"><a href="ProbabilisticMapBasedLocalisation.html#x21-1450004.5.2">Markov Localisation</a></span></span><span class="subsectionToc"><span class="number">4.5.3</span><span class="title"><a href="ProbabilisticMapBasedLocalisation.html#x21-1490004.5.3">Kalman
+Filter Localisation</a></span></span><span class="subsectionToc"><span class="number">4.5.4</span><span class="title"><a href="ProbabilisticMapBasedLocalisation.html#x21-1500004.5.4">An Implementation of Kalman Filter</a></span></span><span class="sectionToc"><span class="number">4.6</span><span class="title"><a href="OtherExamplesofLocalisationMethods.html#x22-1550004.6">Other Examples
+of Localisation Methods</a></span></span><span class="subsectionToc"><span class="number">4.6.1</span><span class="title"><a href="OtherExamplesofLocalisationMethods.html#x22-1560004.6.1">Landmark-based Navigation</a></span></span><span class="subsectionToc"><span class="number">4.6.2</span><span class="title"><a href="OtherExamplesofLocalisationMethods.html#x22-1570004.6.2">Globally Unique
+Localisation</a></span></span><span class="subsectionToc"><span class="number">4.6.3</span><span class="title"><a href="OtherExamplesofLocalisationMethods.html#x22-1580004.6.3">Positioning Beacon systems</a></span></span><span class="subsectionToc"><span class="number">4.6.4</span><span class="title"><a href="OtherExamplesofLocalisationMethods.html#x22-1590004.6.4">Route-Based Localisation</a></span></span><span class="sectionToc"><span class="number">4.7</span><span class="title"><a href="BuildingMaps.html#x23-1600004.7">Building
+Maps</a></span></span><span class="subsectionToc"><span class="number">4.7.1</span><span class="title"><a href="BuildingMaps.html#x23-1610004.7.1">Stochastic Map Technique</a></span></span><span class="subsectionToc"><span class="number">4.7.2</span><span class="title"><a href="BuildingMaps.html#x23-1620004.7.2">Other Mapping Techniques</a></span></span><span class="chapterToc"><span class="number">5</span><span class="title"><a href="WelcometoLinux.html#x24-1650005">Welcome to Linux</a></span></span><span class="sectionToc"><span class="number">5.1</span><span class="title"><a href="AHistoryofUNIXLinux.html#x25-1660005.1">A
+History of UNIX/Linux</a></span></span><span class="subsectionToc"><span class="number">5.1.1</span><span class="title"><a href="AHistoryofUNIXLinux.html#x25-1680005.1.1">A Short History on Computer Interfaces</a></span></span><span class="subsectionToc"><span class="number">5.1.2</span><span class="title"><a href="AHistoryofUNIXLinux.html#x25-1700005.1.2">Linux is a
+Nutshell</a></span></span><span class="subsectionToc"><span class="number">5.1.3</span><span class="title"><a href="AHistoryofUNIXLinux.html#x25-1730005.1.3">Linux Distributions</a></span></span><span class="sectionToc"><span class="number">5.2</span><span class="title"><a href="Installation.html#x26-1740005.2">Installation</a></span></span><span class="subsectionToc"><span class="number">5.2.1</span><span class="title"><a href="Installation.html#x26-1750005.2.1">Docker</a></span></span><span class="subsectionToc"><span class="number">5.2.2</span><span class="title"><a href="Installation.html#x26-1760005.2.2">Dockerfile</a></span></span><span class="subsectionToc"><span class="number">5.2.3</span><span class="title"><a href="Installation.html#x26-1770005.2.3">Running
+the Container</a></span></span><span class="chapterToc"><span class="number">6</span><span class="title"><a href="CommandLineFundamentals.html#x27-1780006">Command Line Fundamentals</a></span></span><span class="sectionToc"><span class="number">6.1</span><span class="title"><a href="ToCommandaComputer.html#x28-1790006.1">To Command a Computer</a></span></span><span class="subsectionToc"><span class="number">6.1.1</span><span class="title"><a href="ToCommandaComputer.html#x28-1800006.1.1">The
+Command Line Interface</a></span></span><span class="subsectionToc"><span class="number">6.1.2</span><span class="title"><a href="ToCommandaComputer.html#x28-1810006.1.2">The Structure of Commands</a></span></span><span class="subsectionToc"><span class="number">6.1.3</span><span class="title"><a href="ToCommandaComputer.html#x28-1820006.1.3">Some Rules Regarding
+the Syntax</a></span></span><span class="sectionToc"><span class="number">6.2</span><span class="title"><a href="WhenWeNeedHelpwithCommands.html#x29-1830006.2">When We Need Help with Commands</a></span></span><span class="subsectionToc"><span class="number">6.2.1</span><span class="title"><a href="WhenWeNeedHelpwithCommands.html#x29-1840006.2.1">Use Tab completion on
+the Shell</a></span></span><span class="subsectionToc"><span class="number">6.2.2</span><span class="title"><a href="WhenWeNeedHelpwithCommands.html#x29-1850006.2.2">The info command</a></span></span><span class="subsectionToc"><span class="number">6.2.3</span><span class="title"><a href="WhenWeNeedHelpwithCommands.html#x29-1860006.2.3">The whatis command</a></span></span><span class="chapterToc"><span class="number">7</span><span class="title"><a href="WorkingwithFilesandFolders.html#x30-1880007">Working with Files
+and Folders</a></span></span><span class="sectionToc"><span class="number">7.1</span><span class="title"><a href="FilesandFolders.html#x31-1890007.1">Files and Folders</a></span></span><span class="subsectionToc"><span class="number">7.1.1</span><span class="title"><a href="FilesandFolders.html#x31-1900007.1.1">A Detailed Look in ls Command</a></span></span><span class="subsectionToc"><span class="number">7.1.2</span><span class="title"><a href="FilesandFolders.html#x31-1910007.1.2">Creating
+and Removing Folders</a></span></span><span class="subsectionToc"><span class="number">7.1.3</span><span class="title"><a href="FilesandFolders.html#x31-1920007.1.3">Move, Copy and Delete Files and Folders</a></span></span><span class="sectionToc"><span class="number">7.2</span><span class="title"><a href="PermissionsandLinks.html#x32-1990007.2">Permissions
+and Links</a></span></span><span class="subsectionToc"><span class="number">7.2.1</span><span class="title"><a href="PermissionsandLinks.html#x32-2000007.2.1">Role to Users and sudo</a></span></span><span class="subsectionToc"><span class="number">7.2.2</span><span class="title"><a href="PermissionsandLinks.html#x32-2010007.2.2">File Permissions</a></span></span><span class="subsectionToc"><span class="number">7.2.3</span><span class="title"><a href="PermissionsandLinks.html#x32-2040007.2.3">Hard and Symbolic
+Links</a></span></span><span class="subsectionToc"><span class="number">7.2.4</span><span class="title"><a href="PermissionsandLinks.html#x32-2050007.2.4">Soft (Symbolic) Links</a></span></span><span class="subsectionToc"><span class="number">7.2.5</span><span class="title"><a href="PermissionsandLinks.html#x32-2070007.2.5">The Linux File System</a></span></span><span class="subsectionToc"><span class="number">7.2.6</span><span class="title"><a href="PermissionsandLinks.html#x32-2080007.2.6">The UNIX
+Philosophy</a></span></span><span class="sectionToc"><span class="number">7.3</span><span class="title"><a href="CommonCommandLineToolsandTasks.html#x33-2090007.3">Common Command-Line Tools and Tasks</a></span></span><span class="subsectionToc"><span class="number">7.3.1</span><span class="title"><a href="CommonCommandLineToolsandTasks.html#x33-2100007.3.1">Connecting Commands
+with Pipes</a></span></span><span class="subsectionToc"><span class="number">7.3.2</span><span class="title"><a href="CommonCommandLineToolsandTasks.html#x33-2110007.3.2">Viewing Text Files with cat, head, tail, and less</a></span></span><span class="subsectionToc"><span class="number">7.3.3</span><span class="title"><a href="CommonCommandLineToolsandTasks.html#x33-2120007.3.3">Finding
+Linux Distribution and Kernel Information</a></span></span><span class="subsectionToc"><span class="number">7.3.4</span><span class="title"><a href="CommonCommandLineToolsandTasks.html#x33-2140007.3.4">Find System Hardware and Disk
+Information</a></span></span><span class="chapterToc"><span class="number">8</span><span class="title"><a href="ROSConcepts.html#x34-2160008">ROS Concepts</a></span></span><span class="sectionToc"><span class="number">8.1</span><span class="title"><a href="PublisherandSubscriberArchitecture.html#x35-2170008.1">Publisher and Subscriber Architecture</a></span></span><span class="subsectionToc"><span class="number">8.1.1</span><span class="title"><a href="PublisherandSubscriberArchitecture.html#x35-2180008.1.1">ROS 2
+Architecture</a></span></span><span class="sectionToc"><span class="number">8.2</span><span class="title"><a href="BuildingBlocks.html#x36-2200008.2">Building Blocks</a></span></span><span class="subsectionToc"><span class="number">8.2.1</span><span class="title"><a href="BuildingBlocks.html#x36-2210008.2.1">Nodes</a></span></span><span class="subsectionToc"><span class="number">8.2.2</span><span class="title"><a href="BuildingBlocks.html#x36-2220008.2.2">The Discovery Process</a></span></span><span class="subsectionToc"><span class="number">8.2.3</span><span class="title"><a href="BuildingBlocks.html#x36-2230008.2.3">Communication
+Interface</a></span></span><span class="subsectionToc"><span class="number">8.2.4</span><span class="title"><a href="BuildingBlocks.html#x36-2320008.2.4">Topics</a></span></span><span class="subsectionToc"><span class="number">8.2.5</span><span class="title"><a href="BuildingBlocks.html#x36-2360008.2.5">Services</a></span></span><span class="subsectionToc"><span class="number">8.2.6</span><span class="title"><a href="BuildingBlocks.html#x36-2390008.2.6">Actions</a></span></span><span class="subsectionToc"><span class="number">8.2.7</span><span class="title"><a href="BuildingBlocks.html#x36-2420008.2.7">Parameters</a></span></span><span class="subsectionToc"><span class="number">8.2.8</span><span class="title"><a href="BuildingBlocks.html#x36-2510008.2.8">Working with
+Command Line</a></span></span><span class="subsectionToc"><span class="number">8.2.9</span><span class="title"><a href="BuildingBlocks.html#x36-2530008.2.9">Launch Files</a></span></span><span class="sectionToc"><span class="number">8.3</span><span class="title"><a href="AdvancedConcepts.html#x37-2540008.3">Advanced Concepts</a></span></span><span class="subsectionToc"><span class="number">8.3.1</span><span class="title"><a href="AdvancedConcepts.html#x37-2550008.3.1">ROS DOMAIN ID</a></span></span><span class="chapterToc"><span class="number">9</span><span class="title"><a href="CommandLineTools.html#x38-2570009">Command
+Line Tools</a></span></span><span class="sectionToc"><span class="number">9.1</span><span class="title"><a href="SettingtheEnvironment.html#x39-2580009.1">Setting the Environment</a></span></span><span class="sectionToc"><span class="number">9.2</span><span class="title"><a href="TurtlesandGraphs.html#x40-2630009.2">Turtles and Graphs</a></span></span><span class="sectionToc"><span class="number">9.3</span><span class="title"><a href="ADeeperLookintoNodes.html#x41-2710009.3">A Deeper Look into
+Nodes</a></span></span><span class="sectionToc"><span class="number">9.4</span><span class="title"><a href="WorkingwithTopics.html#x42-2760009.4">Working with Topics</a></span></span><span class="sectionToc"><span class="number">9.5</span><span class="title"><a href="WorkingwithServices.html#x43-2820009.5">Working with Services</a></span></span><span class="sectionToc"><span class="number">9.6</span><span class="title"><a href="WorkingwithParameters.html#x44-2890009.6">Working with Parameters</a></span></span><span class="sectionToc"><span class="number">9.7</span><span class="title"><a href="APracticalLookintoActions.html#x45-2960009.7">A
+Practical Look into Actions</a></span></span><span class="sectionToc"><span class="number">9.8</span><span class="title"><a href="LaunchingNodes.html#x46-3030009.8">Launching Nodes</a></span></span><span class="chapterToc"><span class="number">10</span><span class="title"><a href="ClientLibraries.html#x47-30500010">Client Libraries</a></span></span><span class="sectionToc"><span class="number">10.1</span><span class="title"><a href="GettingStartedwithColcon.html#x48-30600010.1">Getting Started with
+Colcon</a></span></span><span class="subsectionToc"><span class="number">10.1.1</span><span class="title"><a href="GettingStartedwithColcon.html#x48-30700010.1.1">The Structure of a Package</a></span></span><span class="subsectionToc"><span class="number">10.1.2</span><span class="title"><a href="GettingStartedwithColcon.html#x48-30800010.1.2">Sourcing an Underlay</a></span></span><span class="subsectionToc"><span class="number">10.1.3</span><span class="title"><a href="GettingStartedwithColcon.html#x48-30900010.1.3">Building the
+Workspace</a></span></span><span class="subsectionToc"><span class="number">10.1.4</span><span class="title"><a href="GettingStartedwithColcon.html#x48-31000010.1.4">Sourcing the New Package</a></span></span><span class="subsectionToc"><span class="number">10.1.5</span><span class="title"><a href="GettingStartedwithColcon.html#x48-31100010.1.5">Creating a Workspace</a></span></span><span class="subsectionToc"><span class="number">10.1.6</span><span class="title"><a href="GettingStartedwithColcon.html#x48-31200010.1.6">Sourcing the
+Environment</a></span></span><span class="subsectionToc"><span class="number">10.1.7</span><span class="title"><a href="GettingStartedwithColcon.html#x48-31300010.1.7">Creating a New Directory</a></span></span><span class="subsectionToc"><span class="number">10.1.8</span><span class="title"><a href="GettingStartedwithColcon.html#x48-31400010.1.8">Cloning a Sample Repo</a></span></span><span class="subsectionToc"><span class="number">10.1.9</span><span class="title"><a href="GettingStartedwithColcon.html#x48-31500010.1.9">Resolving
+Dependencies</a></span></span><span class="subsectionToc"><span class="number">10.1.10</span><span class="title"><a href="GettingStartedwithColcon.html#x48-31600010.1.10">Building the Workspace</a></span></span><span class="subsectionToc"><span class="number">10.1.11</span><span class="title"><a href="GettingStartedwithColcon.html#x48-31700010.1.11">Sourcing our Overlay</a></span></span><span class="subsectionToc"><span class="number">10.1.12</span><span class="title"><a href="GettingStartedwithColcon.html#x48-31800010.1.12">Modifying
+the Overlay</a></span></span><span class="subsectionToc"><span class="number">10.1.13</span><span class="title"><a href="GettingStartedwithColcon.html#x48-31900010.1.13">Creating a Package</a></span></span><span class="sectionToc"><span class="number">10.2</span><span class="title"><a href="WritingaSimplePublisherandSubscriber.html#x49-32200010.2">Writing a Simple Publisher and
+Subscriber</a></span></span><span class="subsectionToc"><span class="number">10.2.1</span><span class="title"><a href="WritingaSimplePublisherandSubscriber.html#x49-32300010.2.1">Creating a ROS Packages</a></span></span><span class="subsectionToc"><span class="number">10.2.2</span><span class="title"><a href="WritingaSimplePublisherandSubscriber.html#x49-32400010.2.2">Writing the Publisher Node</a></span></span><span class="subsectionToc"><span class="number">10.2.3</span><span class="title"><a href="WritingaSimplePublisherandSubscriber.html#x49-32900010.2.3">Writing
+the Subscriber Node</a></span></span><span class="subsectionToc"><span class="number">10.2.4</span><span class="title"><a href="WritingaSimplePublisherandSubscriber.html#x49-33200010.2.4">Building and Running</a></span></span><span class="sectionToc"><span class="number">10.3</span><span class="title"><a href="WritingaSimpleServiceandClient.html#x50-33300010.3">Writing a Simple Service and
+Client</a></span></span><span class="subsectionToc"><span class="number">10.3.1</span><span class="title"><a href="WritingaSimpleServiceandClient.html#x50-33400010.3.1">Creating a New Package</a></span></span><span class="subsectionToc"><span class="number">10.3.2</span><span class="title"><a href="WritingaSimpleServiceandClient.html#x50-33700010.3.2">Writing the Service Node</a></span></span><span class="subsectionToc"><span class="number">10.3.3</span><span class="title"><a href="WritingaSimpleServiceandClient.html#x50-34000010.3.3">Writing the Client
+Node</a></span></span><span class="sectionToc"><span class="number">10.4</span><span class="title"><a href="CreatingCustommsgandsrvFiles.html#x51-34300010.4">Creating Custom msg and srv Files</a></span></span><span class="subsectionToc"><span class="number">10.4.1</span><span class="title"><a href="CreatingCustommsgandsrvFiles.html#x51-34400010.4.1">Creating a New Package</a></span></span><span class="subsectionToc"><span class="number">10.4.2</span><span class="title"><a href="CreatingCustommsgandsrvFiles.html#x51-34500010.4.2">Creating
+Custom Definitions</a></span></span><span class="subsectionToc"><span class="number">10.4.3</span><span class="title"><a href="CreatingCustommsgandsrvFiles.html#x51-35200010.4.3">Testing the Newly Built Interfaces</a></span></span><span class="sectionToc"><span class="number">10.5</span><span class="title"><a href="UsingParametersinaClass.html#x52-35400010.5">Using Parameters in a
+Class</a></span></span><span class="subsectionToc"><span class="number">10.5.1</span><span class="title"><a href="UsingParametersinaClass.html#x52-35500010.5.1">Creating a Package</a></span></span><span class="subsectionToc"><span class="number">10.5.2</span><span class="title"><a href="UsingParametersinaClass.html#x52-35700010.5.2">Writing our Python Code</a></span></span><span class="subsectionToc"><span class="number">10.5.3</span><span class="title"><a href="UsingParametersinaClass.html#x52-36200010.5.3">Changing Output using
+the Console</a></span></span><span class="subsectionToc"><span class="number">10.5.4</span><span class="title"><a href="UsingParametersinaClass.html#x52-36300010.5.4">Changing using the Launch File</a></span></span><span class="sectionToc"><span class="number">10.6</span><span class="title"><a href="ManagingDependencies.html#x53-36400010.6">Managing Dependencies</a></span></span><span class="sectionToc"><span class="number">10.7</span><span class="title"><a href="CreatinganAction.html#x54-36600010.7">Creating
+an Action</a></span></span><span class="sectionToc"><span class="number">10.8</span><span class="title"><a href="WritinganActionServerandClient.html#x55-36900010.8">Writing an Action Server and Client</a></span></span><span class="sectionToc"><span class="number">10.9</span><span class="title"><a href="WritingaLaunchFile.html#x56-37100010.9">Writing a Launch File</a></span></span>
+<div class="nav-footer"><div class="nav-footer-left"><span class="nav-footer-lecture">D. T. McGuiness, PhD</span>
+<span class="nav-footer-webBook"><b>Last Updated:</b> 13.10.2026, at 8:16.</span></div></div><p class="nav-comments">The website you are viewing is auto-generated using lms-WebBook and therefore subject to slight errors in typography and formatting. When in doubt, please consult the LectureBook. </p></div></nav>
+<article class="chapter">
+<nav class="crosslinks-top"> <span class="nav-button"><i class="fa-solid fa-caret-right"></i><a class="nav-link" href="MobileRobotManeuverability.html">Mobile Robot Maneuverability</a></span><span class="nav-button"><i class="fa-solid fa-caret-left"></i><a class="nav-link" href="MobileRobotKinematics.html">Chapter: Mobile Robot
+Kinematics</a></span><span class="nav-button"><i class="fa-solid fa-caret-up"></i><a class="nav-link" href="MobileRobotKinematics.html#KinematicModelsandConstraints.html">Chapter: Mobile Robot
+Kinematics</a></span><span class="nav-button">
+<a href="index.html" rel="index" title="Visit Entry Point">
+<i class="fa-solid fa-table-list">
+</i>
+<span class="nav-info">Visit Index Page</span>
+</a></span><span class="nav-button">
+<a href="Index.html" rel="index" title="Visit Material GitHub Repo">
+<i class="fa-brands fa-git-alt"></i>
+<span class="nav-info">Visit Material GitHub Repo</span>
+</a></span></nav>
+<div class="section-header"> <h3 id="header-section-2.1"> <a class="pdf-icon" href="AutonomousMobileRoboticsLectureBook.pdf#section.2.1"><svg class="bi bi-file-pdf" fill="currentColor" height="20" viewbox="0 0 16 16" width="20" xmlns="http://www.w3.org/2000/svg"><path d="M4 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H4zm0 1h8a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1z"></path><path d="M4.603 12.087a.81.81 0 0 1-.438-.42c-.195-.388-.13-.776.08-1.102.198-.307.526-.568.897-.787a7.68 7.68 0 0 1 1.482-.645 19.701 19.701 0 0 0 1.062-2.227 7.269 7.269 0 0 1-.43-1.295c-.086-.4-.119-.796-.046-1.136.075-.354.274-.672.65-.823.192-.077.4-.12.602-.077a.7.7 0 0 1 .477.365c.088.164.12.356.127.538.007.187-.012.395-.047.614-.084.51-.27 1.134-.52 1.794a10.954 10.954 0 0 0 .98 1.686 5.753 5.753 0 0 1 1.334.05c.364.065.734.195.96.465.12.144.193.32.2.518.007.192-.047.382-.138.563a1.04 1.04 0 0 1-.354.416.856.856 0 0 1-.51.138c-.331-.014-.654-.196-.933-.417a5.716 5.716 0 0 1-.911-.95 11.642 11.642 0 0 0-1.997.406 11.311 11.311 0 0 1-1.021 1.51c-.29.35-.608.655-.926.787a.793.793 0 0 1-.58.029zm1.379-1.901c-.166.076-.32.156-.459.238-.328.194-.541.383-.647.547-.094.145-.096.25-.04.361.01.022.02.036.026.044a.27.27 0 0 0 .035-.012c.137-.056.355-.235.635-.572a8.18 8.18 0 0 0 .45-.606zm1.64-1.33a12.647 12.647 0 0 1 1.01-.193 11.666 11.666 0 0 1-.51-.858 20.741 20.741 0 0 1-.5 1.05zm2.446.45c.15.162.296.3.435.41.24.19.407.253.498.256a.107.107 0 0 0 .07-.015.307.307 0 0 0 .094-.125.436.436 0 0 0 .059-.2.095.095 0 0 0-.026-.063c-.052-.062-.2-.152-.518-.209a3.881 3.881 0 0 0-.612-.053zM8.078 5.8a6.7 6.7 0 0 0 .2-.828c.031-.188.043-.343.038-.465a.613.613 0 0 0-.032-.198.517.517 0 0 0-.145.04c-.087.035-.158.106-.196.283-.04.192-.03.469.046.822.024.111.054.227.09.346z"></path></svg></a> <span class="number">2.1</span> <span class="title"> <a id="x7-280002.1"></a>Kinematic Models and
+Constraints</span></h3></div>
+<p class="noindent"></p><figure class="float">
+<a id="x7-28001r1"></a>
+<figcaption class="caption"><span class="id">Figure 2.1: </span><span class="content">The global reference frame and the robot local reference frame.                            </span></figcaption>
+<img alt="PIC" src="figures/Mobile-Robot-Kinematics/figures-1.png" style=""/>
+</figure>
+<p class="noindent">Deriving a model for the whole robot’s motion is a bottom-up process. Each individual wheel
+contributes to the robot’s motion and, at the same time, imposes constraints on robot motion. Wheels
+are tied together based on robot chassis geometry, and therefore their con- straints combine to form
+constraints on the overall motion of the robot chassis. But the forces and constraints of each wheel
+must be expressed with respect to a clear and consis- tent reference frame. This is particularly
+important in mobile robotics because of its self- contained and mobile nature; a clear mapping between
+global and local frames of reference is required. We begin by defining these reference frames formally,
+then using the resulting formalism to annotate the kinematics of individual wheels and whole robots.
+Throughout this process we draw extensively on the notation and terminology presented in
+[52].
+</p>
+<p class="noindent"><div class="subsection-header"> <h4 id="header-subsection-2.1.1"> <a class="pdf-icon" href="AutonomousMobileRoboticsLectureBook.pdf#subsection.2.1.1"><svg class="bi bi-file-pdf" fill="currentColor" height="20" viewbox="0 0 16 16" width="20" xmlns="http://www.w3.org/2000/svg"><path d="M4 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H4zm0 1h8a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1z"></path><path d="M4.603 12.087a.81.81 0 0 1-.438-.42c-.195-.388-.13-.776.08-1.102.198-.307.526-.568.897-.787a7.68 7.68 0 0 1 1.482-.645 19.701 19.701 0 0 0 1.062-2.227 7.269 7.269 0 0 1-.43-1.295c-.086-.4-.119-.796-.046-1.136.075-.354.274-.672.65-.823.192-.077.4-.12.602-.077a.7.7 0 0 1 .477.365c.088.164.12.356.127.538.007.187-.012.395-.047.614-.084.51-.27 1.134-.52 1.794a10.954 10.954 0 0 0 .98 1.686 5.753 5.753 0 0 1 1.334.05c.364.065.734.195.96.465.12.144.193.32.2.518.007.192-.047.382-.138.563a1.04 1.04 0 0 1-.354.416.856.856 0 0 1-.51.138c-.331-.014-.654-.196-.933-.417a5.716 5.716 0 0 1-.911-.95 11.642 11.642 0 0 0-1.997.406 11.311 11.311 0 0 1-1.021 1.51c-.29.35-.608.655-.926.787a.793.793 0 0 1-.58.029zm1.379-1.901c-.166.076-.32.156-.459.238-.328.194-.541.383-.647.547-.094.145-.096.25-.04.361.01.022.02.036.026.044a.27.27 0 0 0 .035-.012c.137-.056.355-.235.635-.572a8.18 8.18 0 0 0 .45-.606zm1.64-1.33a12.647 12.647 0 0 1 1.01-.193 11.666 11.666 0 0 1-.51-.858 20.741 20.741 0 0 1-.5 1.05zm2.446.45c.15.162.296.3.435.41.24.19.407.253.498.256a.107.107 0 0 0 .07-.015.307.307 0 0 0 .094-.125.436.436 0 0 0 .059-.2.095.095 0 0 0-.026-.063c-.052-.062-.2-.152-.518-.209a3.881 3.881 0 0 0-.612-.053zM8.078 5.8a6.7 6.7 0 0 0 .2-.828c.031-.188.043-.343.038-.465a.613.613 0 0 0-.032-.198.517.517 0 0 0-.145.04c-.087.035-.158.106-.196.283-.04.192-.03.469.046.822.024.111.054.227.09.346z"></path></svg></a><span class="number">2.1.1</span> <span class="title"> <a id="x7-290002.1.1"></a>Representing robot position</span></h4></div>
+</p><p class="noindent">Throughout this analysis we model the robot as a rigid body on wheels, operating on a hor- izontal
+plane. The total dimensionality of this robot chassis on the plane is three, two for position in the
+plane and one for orientation along the vertical axis, which is orthogonal to the plane. Of
+course, there are additional degrees of freedom and flexibility due to the wheel axles, wheel
+steering joints, and wheel castor joints. However by robot <i>chassis</i> we refer only to the rigid
+body of the robot, ignoring the joints and degrees of freedom internal to the robot and its
+wheels.
+</p><p class="noindent">In order to specify the position of the robot on the plane we establish a relationship between the global
+reference frame of the plane and the local reference frame of the robot, as in figure 3.1. The axes
+<math display="inline"><msub><mrow><mi>X</mi></mrow><mrow><mi>I</mi></mrow></msub></math> and
+<math display="inline"><msub><mrow><mi>Y</mi> </mrow><mrow><mi>I</mi></mrow></msub></math> define
+an arbitrary inertial basis on the plane as the global reference frame from some origin O:
+<math display="inline"><mi>{</mi><msub><mrow><mi>X</mi></mrow><mrow><mi>i</mi></mrow></msub><mo class="MathClass-punc" stretchy="false">,</mo><msub><mrow><mi>Y</mi> </mrow><mrow><mi>i</mi></mrow></msub><mi>}</mi></math>. To specify
+the position of the robot, choose a point P on the robot chassis as its position reference point. The basis
+<math display="inline"><mi>{</mi><msub><mrow><mi>X</mi></mrow><mrow><mi>R</mi></mrow></msub><mo class="MathClass-punc" stretchy="false">,</mo><msub><mrow><mi>Y</mi> </mrow><mrow><mi>R</mi></mrow></msub><mi>}</mi></math> defines two
+axes relative to <math display="inline"><mi>P</mi></math>
+on the robot chassis and is thus the robot’s local reference frame. The position of
+<math display="inline"><mi>P</mi></math> in the global reference frame
+is specified by coordinates <math display="inline"><mi>x</mi></math>
+and <math display="inline"><mi>y</mi></math>,
+and the angular difference between the global and local reference frames is given by
+<math display="inline"><mi>𝜃</mi></math>. We
+can describe the pose of the robot as a vector with these three elements. Note the use of the subscript
+<math display="inline"><mi>I</mi></math> to
+clarify the basis of this pose as the global reference frame: </p><table class="equation"><tr><td>
+<math class="equation" display="block">
+<mstyle class="label" id="x7-29001r1"></mstyle><msubsup><mrow><mi>ξ</mi></mrow><mrow><mi>I</mi></mrow><mrow></mrow></msubsup> <mo class="MathClass-rel" stretchy="false">=</mo> <mrow><mo fence="true" form="prefix">[</mo><mrow><mtable align="axis" class="array" columnlines="none none none none none none none none none" displaystyle="true" equalcolumns="false" equalrows="false" style=""> <mtr class="array-row"><mtd class="array-td" columnalign="center"> <mi>x</mi> </mtd></mtr> <mtr class="array-row"><mtd class="array-td" columnalign="center"> <mi>y</mi></mtd>
+</mtr> <mtr class="array-row"><mtd class="array-td" columnalign="center"> <mi>𝜃</mi> </mtd></mtr></mtable> </mrow><mo fence="true" form="postfix">]</mo></mrow>
+</math></td><td class="eq-no">(2.1)</td></tr></table>
+<p class="noindent"></p>
+<p class="noindent">To describe robot motion in terms of component motions, it will be necessary to map motion along the
+axes of the global reference frame to motion along the axes of the robot’s local reference frame. Of
+course, the mapping is a function of the current pose of the robot. This mapping is accomplished using
+the orthogonal rotation matrix: </p><table class="equation"><tr><td>
+<math class="equation" display="block">
+<mstyle class="label" id="x7-29002r2"></mstyle><mi>R</mi><msup><mrow><mrow><mo fence="true" form="prefix">(</mo><mrow><mi>𝜃</mi></mrow><mo fence="true" form="postfix">)</mo></mrow></mrow><mrow></mrow></msup> <mo class="MathClass-rel" stretchy="false">=</mo> <mrow><mo fence="true" form="prefix">[</mo><mrow><mtable align="axis" class="array" columnlines="none none none none none none none none none" displaystyle="true" equalcolumns="false" equalrows="false" style=""> <mtr class="array-row"><mtd class="array-td" columnalign="center"> <mi class="loglike">cos</mi><mo>⁡</mo><mi>𝜃</mi> </mtd><mtd class="array-td" columnalign="center"> <mi class="loglike">sin</mi><mo>⁡</mo><mi>𝜃</mi> </mtd><mtd class="array-td" columnalign="center"> <mn>0</mn> </mtd></mtr> <mtr class="array-row"><mtd class="array-td" columnalign="center"> <mo class="MathClass-bin" stretchy="false">−</mo> <mi class="loglike">sin</mi><mo>⁡</mo>  <mi>𝜃</mi> </mtd> <mtd class="array-td" columnalign="center"> <mi class="loglike">cos</mi><mo>⁡</mo>  <mi>𝜃</mi> </mtd> <mtd class="array-td" columnalign="center"> <mn>0</mn></mtd>
+</mtr>
+<mtr class="array-row"><mtd class="array-td" columnalign="center"> <mn>0</mn> </mtd>
+<mtd class="array-td" columnalign="center"> <mn>0</mn> </mtd>
+<mtd class="array-td" columnalign="center"> <mn>1</mn> </mtd>
+</mtr>
+</mtable> </mrow><mo fence="true" form="postfix">]</mo></mrow>
+</math></td><td class="eq-no">(2.2)</td></tr></table>
+<p class="noindent"></p>
+<p class="noindent">This matrix can be used to map motion in the global reference frame
+<math display="inline"><mi>{</mi><msub><mrow><mi>X</mi></mrow><mrow><mi>I</mi></mrow></msub><mo class="MathClass-punc" stretchy="false">,</mo><msub><mrow><mi>Y</mi> </mrow><mrow><mi>I</mi></mrow></msub><mi>}</mi></math> to motion in terms of the
+local reference frame <math display="inline"><mi>{</mi><msub><mrow><mi>X</mi></mrow><mrow><mi>R</mi></mrow></msub><mo class="MathClass-punc" stretchy="false">,</mo><msub><mrow><mi>Y</mi> </mrow><mrow><mi>R</mi></mrow></msub><mi>}</mi></math>. This
+operation is denoted by <math display="inline"><mi>R</mi><mo class="MathClass-open" stretchy="false">(</mo><mi>𝜃</mi><mo class="MathClass-close" stretchy="false">)</mo><msub><mrow><mi>ξ</mi></mrow><mrow><mi>I</mi></mrow></msub></math>
+because the computation of this operation depends on the value of
+<math display="inline"><mi>𝜃</mi></math>:
+</p><table class="equation"><tr><td>
+<math class="equation" display="block">
+<mstyle class="label" id="x7-29003r3"></mstyle><msub><mrow>
+<mover accent="true"><mrow><mi>ξ</mi></mrow><mo accent="true">˙</mo></mover>
+</mrow><mrow><mi>R</mi></mrow></msub>
+<mo class="MathClass-rel" stretchy="false">=</mo> <mi>R</mi><mo class="MathClass-open" stretchy="false">(</mo><mfrac><mrow><mi>π</mi></mrow>
+<mrow>
+<mn>2</mn></mrow></mfrac> <mo class="MathClass-close" stretchy="false">)</mo><msub><mrow><mover accent="true"><mrow><mi>ξ</mi></mrow><mo accent="true">˙</mo></mover></mrow><mrow><mi>I</mi></mrow></msub>
+</math></td><td class="eq-no">(2.3)</td></tr></table>
+<p class="noindent"></p>
+<p class="noindent">For example, consider the robot in figure 3.2. For this robot, because
+<math display="inline"><mi>𝜃</mi> <mo class="MathClass-rel" stretchy="false">=</mo> <mfrac><mrow><mi>π</mi></mrow>
+<mrow>
+<mn>2</mn></mrow></mfrac> </math> we can
+easily compute the instantaneous rotation matrix R: </p><table class="equation"><tr><td>
+<math class="equation" display="block">
+<mstyle class="label" id="x7-29004r4"></mstyle><mi>R</mi><mo class="MathClass-open" stretchy="false">(</mo><mfrac><mrow><mi>π</mi></mrow>
+<mrow>
+<mn>2</mn></mrow></mfrac> <mo class="MathClass-close" stretchy="false">)</mo> <mo class="MathClass-rel" stretchy="false">=</mo> <mrow><mo fence="true" form="prefix">[</mo><mrow><mtable align="axis" class="array" columnlines="none none none none none none none none none" displaystyle="true" equalcolumns="false" equalrows="false" style=""> <mtr class="array-row"><mtd class="array-td" columnalign="center"> <mn>0</mn> </mtd><mtd class="array-td" columnalign="center"> <mn>1</mn> </mtd><mtd class="array-td" columnalign="center"> <mn>0</mn> </mtd></mtr> <mtr class="array-row"><mtd class="array-td" columnalign="center"> <mo class="MathClass-bin" stretchy="false">−</mo><mn>1</mn> </mtd> <mtd class="array-td" columnalign="center"> <mn>0</mn> </mtd> <mtd class="array-td" columnalign="center"> <mn>0</mn></mtd>
+</mtr>
+<mtr class="array-row"><mtd class="array-td" columnalign="center"> <mn>0</mn> </mtd>
+<mtd class="array-td" columnalign="center"> <mn>0</mn> </mtd>
+<mtd class="array-td" columnalign="center"> <mn>1</mn> </mtd>
+</mtr>
+</mtable> </mrow><mo fence="true" form="postfix">]</mo></mrow>
+</math></td><td class="eq-no">(2.4)</td></tr></table>
+<p class="noindent"></p>
+<p class="noindent">Given some velocity <math display="inline"><mo class="MathClass-open" stretchy="false">(</mo><mi>x</mi><mo class="MathClass-punc" stretchy="false">,</mo><mi>ẏ</mi><mo class="MathClass-punc" stretchy="false">,</mo><mover accent="true"><mrow><mi>𝜃</mi></mrow><mo accent="true">˙</mo></mover><mo class="MathClass-close" stretchy="false">)</mo></math>
+in the global reference frame we can compute the components of motion along this robot’s local axes
+<math display="inline"><msub><mrow><mi>X</mi></mrow><mrow><mi>R</mi></mrow></msub></math> and
+<math display="inline"><msub><mrow><mi>Y</mi> </mrow><mrow><mi>R</mi></mrow></msub></math>.
+In this case, due to the spe- cific angle of the robot, motion along
+<math display="inline"><msub><mrow><mi>X</mi></mrow><mrow><mi>R</mi></mrow></msub></math> is equal to
+<math display="inline"><mi>ẏ</mi></math> and motion
+along <math display="inline"><msub><mrow><mi>Y</mi> </mrow><mrow><mi>R</mi></mrow></msub></math>
+is <math display="inline"> <mo class="MathClass-bin" stretchy="false">−</mo> <mi>ẋ</mi></math>:
+</p><table class="equation"><tr><td>
+<math class="equation" display="block">
+<mstyle class="label" id="x7-29005r5"></mstyle><msub><mrow><mi>ξ</mi></mrow><mrow><mi>R</mi></mrow></msub> <mo class="MathClass-rel" stretchy="false">=</mo> <mi>R</mi><mo class="MathClass-open" stretchy="false">(</mo><mfrac><mrow><mi>π</mi></mrow>
+<mrow>
+<mn>2</mn></mrow></mfrac> <mo class="MathClass-close" stretchy="false">)</mo><msub><mrow><mi>ξ</mi></mrow><mrow><mi>I</mi></mrow></msub> <mo class="MathClass-rel" stretchy="false">=</mo> <mrow><mo fence="true" form="prefix">[</mo><mrow><mtable align="axis" class="array" columnlines="none none none none none none none none none" displaystyle="true" equalcolumns="false" equalrows="false" style=""> <mtr class="array-row"><mtd class="array-td" columnalign="center"> <mn>0</mn> </mtd><mtd class="array-td" columnalign="center"> <mn>1</mn> </mtd><mtd class="array-td" columnalign="center"> <mn>0</mn> </mtd></mtr> <mtr class="array-row"><mtd class="array-td" columnalign="center"> <mo class="MathClass-bin" stretchy="false">−</mo><mn>1</mn> </mtd> <mtd class="array-td" columnalign="center"> <mn>0</mn> </mtd> <mtd class="array-td" columnalign="center"> <mn>0</mn></mtd>
+</mtr>
+<mtr class="array-row"><mtd class="array-td" columnalign="center"> <mn>0</mn> </mtd>
+<mtd class="array-td" columnalign="center"> <mn>0</mn> </mtd>
+<mtd class="array-td" columnalign="center"> <mn>1</mn> </mtd>
+</mtr>
+</mtable> </mrow><mo fence="true" form="postfix">]</mo></mrow> <mrow><mo fence="true" form="prefix">[</mo><mrow><mtable align="axis" class="array" columnlines="none none none none none none none none none" displaystyle="true" equalcolumns="false" equalrows="false" style=""><mtr class="array-row"><mtd class="array-td" columnalign="center"> <mi>ẋ</mi> </mtd></mtr> <mtr class="array-row"><mtd class="array-td" columnalign="center"> <mi>ẏ</mi></mtd>
+</mtr> <mtr class="array-row"><mtd class="array-td" columnalign="center"> <mover accent="true"><mrow><mi>𝜃</mi></mrow><mo accent="true">˙</mo></mover> </mtd></mtr></mtable> </mrow><mo fence="true" form="postfix">]</mo></mrow> <mo class="MathClass-rel" stretchy="false">=</mo> <mrow><mo fence="true" form="prefix">[</mo><mrow><mtable align="axis" class="array" columnlines="none none none none none none none none none" displaystyle="true" equalcolumns="false" equalrows="false" style=""> <mtr class="array-row"><mtd class="array-td" columnalign="center"> <mi>ẏ</mi> </mtd></mtr> <mtr class="array-row"><mtd class="array-td" columnalign="center"> <mo class="MathClass-bin" stretchy="false">−</mo><mi>ẋ</mi></mtd>
+</mtr> <mtr class="array-row"><mtd class="array-td" columnalign="center"> <mover accent="true"><mrow><mi>𝜃</mi></mrow><mo accent="true">˙</mo></mover> </mtd></mtr></mtable> </mrow><mo fence="true" form="postfix">]</mo></mrow>
+</math></td><td class="eq-no">(2.5)</td></tr></table>
+<p class="noindent"></p>
+<p class="noindent"><div class="subsection-header"> <h4 id="header-subsection-2.1.2"> <a class="pdf-icon" href="AutonomousMobileRoboticsLectureBook.pdf#subsection.2.1.2"><svg class="bi bi-file-pdf" fill="currentColor" height="20" viewbox="0 0 16 16" width="20" xmlns="http://www.w3.org/2000/svg"><path d="M4 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H4zm0 1h8a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1z"></path><path d="M4.603 12.087a.81.81 0 0 1-.438-.42c-.195-.388-.13-.776.08-1.102.198-.307.526-.568.897-.787a7.68 7.68 0 0 1 1.482-.645 19.701 19.701 0 0 0 1.062-2.227 7.269 7.269 0 0 1-.43-1.295c-.086-.4-.119-.796-.046-1.136.075-.354.274-.672.65-.823.192-.077.4-.12.602-.077a.7.7 0 0 1 .477.365c.088.164.12.356.127.538.007.187-.012.395-.047.614-.084.51-.27 1.134-.52 1.794a10.954 10.954 0 0 0 .98 1.686 5.753 5.753 0 0 1 1.334.05c.364.065.734.195.96.465.12.144.193.32.2.518.007.192-.047.382-.138.563a1.04 1.04 0 0 1-.354.416.856.856 0 0 1-.51.138c-.331-.014-.654-.196-.933-.417a5.716 5.716 0 0 1-.911-.95 11.642 11.642 0 0 0-1.997.406 11.311 11.311 0 0 1-1.021 1.51c-.29.35-.608.655-.926.787a.793.793 0 0 1-.58.029zm1.379-1.901c-.166.076-.32.156-.459.238-.328.194-.541.383-.647.547-.094.145-.096.25-.04.361.01.022.02.036.026.044a.27.27 0 0 0 .035-.012c.137-.056.355-.235.635-.572a8.18 8.18 0 0 0 .45-.606zm1.64-1.33a12.647 12.647 0 0 1 1.01-.193 11.666 11.666 0 0 1-.51-.858 20.741 20.741 0 0 1-.5 1.05zm2.446.45c.15.162.296.3.435.41.24.19.407.253.498.256a.107.107 0 0 0 .07-.015.307.307 0 0 0 .094-.125.436.436 0 0 0 .059-.2.095.095 0 0 0-.026-.063c-.052-.062-.2-.152-.518-.209a3.881 3.881 0 0 0-.612-.053zM8.078 5.8a6.7 6.7 0 0 0 .2-.828c.031-.188.043-.343.038-.465a.613.613 0 0 0-.032-.198.517.517 0 0 0-.145.04c-.087.035-.158.106-.196.283-.04.192-.03.469.046.822.024.111.054.227.09.346z"></path></svg></a><span class="number">2.1.2</span> <span class="title"> <a id="x7-300002.1.2"></a>Forward kinematic models</span></h4></div>
+</p><p class="noindent">In the simplest cases, the coordinate mapping described in <span> Eq. (<a href="#x7-29003r3">2.3</a>)</span>  is sufficient to generate a
+mathematical model which captures the forward kinematics of the mobile robot in regards to how it
+moves, given its geometry and the speeds of its wheels.
+</p><p class="noindent">More formally, consider the example shown in figure 3.3.
+</p><p class="noindent">This differential drive robot has two wheels, each with diameter
+<math display="inline"><mi>r</mi></math>.
+Given a point P centered between the two drive wheels, each wheel is a distance
+<math display="inline"><mi>l</mi></math> from
+<math display="inline"><mi>P</mi></math>. Given
+<math display="inline"><mi>r</mi></math>,
+<math display="inline"><mi>l</mi></math>,
+<math display="inline"><mi>𝜃</mi></math>, and the spinning
+speed of each wheel, <math display="inline"><msub><mrow><mover accent="true"><mrow><mi>φ</mi></mrow><mo accent="true">˙</mo></mover></mrow><mrow><mn>1</mn></mrow></msub></math>
+and <math display="inline"><msub><mrow><mover accent="true"><mrow><mi>φ</mi></mrow><mo accent="true">˙</mo></mover></mrow><mrow><mn>2</mn></mrow></msub></math>, a
+forward kinematic model would predict the robot’s overall speed in the global reference frame:
+</p><table class="equation"><tr><td>
+<math class="equation" display="block">
+<mstyle class="label" id="x7-30001r6"></mstyle><msub><mrow><mover accent="true"><mrow><mi>ξ</mi></mrow><mo accent="true">˙</mo></mover>
+</mrow><mrow><mi>I</mi></mrow></msub>
+<mo class="MathClass-rel" stretchy="false">=</mo> <mrow><mo fence="true" form="prefix">|</mo><mrow><mtable align="axis" class="array" columnlines="none none none none none none none none none" displaystyle="true" equalcolumns="false" equalrows="false" style=""> <mtr class="array-row"><mtd class="array-td" columnalign="center"> <mi>ẋ</mi> </mtd></mtr> <mtr class="array-row"><mtd class="array-td" columnalign="center"> <mi>ẏ</mi></mtd>
+</mtr> <mtr class="array-row"><mtd class="array-td" columnalign="center"> <mover accent="true"><mrow><mi>𝜃</mi></mrow><mo accent="true">˙</mo></mover> </mtd></mtr></mtable> </mrow><mo fence="true" form="postfix">|</mo></mrow> <mo class="MathClass-rel" stretchy="false">=</mo> <mi>f</mi><mo class="MathClass-open" stretchy="false">(</mo><mi>l</mi><mo class="MathClass-punc" stretchy="false">,</mo><mi>r</mi><mo class="MathClass-punc" stretchy="false">,</mo><mi>𝜃</mi><mo class="MathClass-punc" stretchy="false">,</mo><msub><mrow><mover accent="true"><mrow><mi>ϕ</mi></mrow><mo accent="true">˙</mo></mover></mrow><mrow><mn>1</mn></mrow></msub><mo class="MathClass-punc" stretchy="false">,</mo><msub><mrow><mover accent="true"><mrow><mi>ϕ</mi></mrow><mo accent="true">˙</mo></mover></mrow><mrow><mn>2</mn></mrow></msub><mo class="MathClass-close" stretchy="false">)</mo>
+</math></td><td class="eq-no">(2.6)</td></tr></table>
+<p class="noindent"></p>
+<p class="noindent">From equation (3.3) we know that we can compute the robot’s motion in the global ref- erence frame from motion in its
+local reference frame: <math display="inline"><msub><mrow><mi>ξ</mi></mrow><mrow><mi>I</mi></mrow></msub> <mo class="MathClass-rel" stretchy="false">=</mo> <mi>R</mi><msup><mrow><mo class="MathClass-open" stretchy="false">(</mo><mi>𝜃</mi><mo class="MathClass-close" stretchy="false">)</mo></mrow><mrow><mo class="MathClass-bin" stretchy="false">−</mo><mn>1</mn></mrow></msup><msub><mrow><mi>ξ</mi></mrow><mrow><mi>R</mi></mrow></msub></math>.
+Therefore, the strat- egy will be to first compute the contribution of each of the two wheels in the local reference
+frame, <math display="inline"><msub><mrow><mover accent="true"><mrow><mi>ξ</mi></mrow><mo accent="true">˙</mo></mover></mrow><mrow><mi>R</mi></mrow></msub></math>.
+For this example of a differential-drive chassis, this problem is particularly straightforward.
+</p><p class="noindent">Suppose that the robot’s local reference frame is aligned such that the robot moves for- ward along
+<math display="inline"> <mo class="MathClass-bin" stretchy="false">+</mo> <msub><mrow><mi>X</mi></mrow><mrow><mi>R</mi></mrow></msub></math>, as shown in
+figure 3.1. First consider the contribution of each wheel’s spinning speed to the translation speed at P in the
+direction of <math display="inline"> <mo class="MathClass-bin" stretchy="false">+</mo> <msub><mrow><mi>X</mi></mrow><mrow><mi>R</mi></mrow></msub></math>.
+If one wheel spins while the other wheel contributes nothing and is stationary, since
+<math display="inline"><mi>P</mi></math>
+is halfway between the two wheels, it will move instantaneously with half the speed:
+<math display="inline"><msub><mrow><mi>x</mi></mrow><mrow><mi>r</mi><mn>1</mn></mrow></msub> <mo class="MathClass-rel" stretchy="false">=</mo> <mo class="MathClass-open" stretchy="false">(</mo><mn>1</mn><mo class="MathClass-bin" stretchy="false">/</mo><mn>2</mn><mo class="MathClass-close" stretchy="false">)</mo><mi>r</mi><msub><mrow><mover accent="true"><mrow><mi>ϕ</mi></mrow><mo accent="true">˙</mo></mover></mrow><mrow><mn>1</mn></mrow></msub></math> and
+<math display="inline"><msub><mrow><mi>x</mi></mrow><mrow><mi>r</mi><mn>2</mn></mrow></msub> <mo class="MathClass-rel" stretchy="false">=</mo> <mo class="MathClass-open" stretchy="false">(</mo><mn>1</mn><mo class="MathClass-bin" stretchy="false">/</mo><mn>2</mn><mo class="MathClass-close" stretchy="false">)</mo><mi>r</mi><msub><mrow><mover accent="true"><mrow><mi>φ</mi></mrow><mo accent="true">˙</mo></mover></mrow><mrow><mn>2</mn></mrow></msub></math>. In
+a differential drive robot, these two contributions can simply be added to calculate the
+<math display="inline"><msub><mrow><mi>x</mi></mrow><mrow><mi>R</mi></mrow></msub></math> component
+of <math display="inline"><msub><mrow><mi>ξ</mi></mrow><mrow><mi>R</mi></mrow></msub></math>.
+Consider, for example, a differential robot in which each wheel spins with equal speed
+but in opposite directions. The result is a stationary, spinning robot. As expected,
+<math display="inline"><msub><mrow><mi>x</mi></mrow><mrow><mi>R</mi></mrow></msub></math> will be zero in this
+case. The value of <math display="inline"><msub><mrow><mi>y</mi></mrow><mrow><mi>R</mi></mrow></msub></math>
+is even simpler to calculate. Neither wheel can contribute to sideways motion in the robot’s reference frame,
+and so <math display="inline"><msub><mrow><mi>y</mi></mrow><mrow><mi>R</mi></mrow></msub></math>
+is always zero. Finally, we must compute the rotational component
+<math display="inline"><msub><mrow><mi>𝜃</mi></mrow><mrow><mi>R</mi></mrow></msub></math> of
+<math display="inline"><msub><mrow><mover accent="true"><mrow><mi>ξ</mi></mrow><mo accent="true">˙</mo></mover></mrow><mrow><mi>R</mi></mrow></msub></math>. Once
+again, the contributions of each wheel can be computed independently and just added. Consider the
+right wheel (we will call this wheel 1). Forward spin of this wheel results in <i>counterclockwise</i> rotation at
+point <math display="inline"><mi>P</mi></math>.
+Recall that if wheel 1 spins alone, the robot pivots around wheel 2. The rotation velocity
+<math display="inline"><msub><mrow><mi>ω</mi></mrow><mrow><mn>1</mn></mrow></msub></math> at P
+can be computed because the wheel is instantaneously moving along the arc of a circle of radius
+<math display="inline"><mn>2</mn><mi>l</mi></math>:
+</p><table class="equation"><tr><td>
+<math class="equation" display="block">
+<mstyle class="label" id="x7-30002r7"></mstyle>
+<msub><mrow><mi>ω</mi></mrow><mrow><mn>1</mn></mrow></msub> <mo class="MathClass-rel" stretchy="false">=</mo> <mfrac><mrow><mi>r</mi><msub><mrow><mover accent="true"><mrow><mi>φ</mi></mrow><mo accent="true">˙</mo></mover></mrow><mrow><mn>1</mn></mrow></msub></mrow>
+<mrow>
+<mn>2</mn><mi>l</mi></mrow></mfrac>
+</math></td><td class="eq-no">(2.7)</td></tr></table>
+<p class="noindent"></p>
+<p class="noindent">The same calculation applies to the left wheel, with the exception that forward spin results in <i>clockwise</i> rotation
+at point <math display="inline"><mi>P</mi></math>:
+</p><table class="equation"><tr><td>
+<math class="equation" display="block">
+<mstyle class="label" id="x7-30003r8"></mstyle>
+<msub><mrow><mi>ω</mi></mrow><mrow><mn>2</mn></mrow></msub> <mo class="MathClass-rel" stretchy="false">=</mo> <mfrac><mrow> <mo class="MathClass-bin" stretchy="false">−</mo> <mi>r</mi><msub><mrow><mover accent="true"><mrow><mi>φ</mi></mrow><mo accent="true">˙</mo></mover></mrow><mrow><mn>2</mn></mrow></msub></mrow>
+<mrow>
+<mn>2</mn><mi>l</mi></mrow></mfrac>
+</math></td><td class="eq-no">(2.8)</td></tr></table>
+<p class="noindent"></p>
+<p class="noindent">Combining these individual formulas yields a kinematic model for the differential-drive example robot:
+</p><table class="equation"><tr><td>
+<math class="equation" display="block">
+<mstyle class="label" id="x7-30004r9"></mstyle><msubsup><mrow><mi>ξ</mi></mrow><mrow><mi>I</mi></mrow><mrow></mrow></msubsup> <mo class="MathClass-rel" stretchy="false">=</mo> <mi>R</mi><msup><mrow><mrow><mo fence="true" form="prefix">(</mo><mrow><mi>𝜃</mi></mrow><mo fence="true" form="postfix">)</mo></mrow></mrow><mrow></mrow></msup><msup><mrow></mrow><mrow><mstyle class="mbox"><mtext>-1</mtext></mstyle></mrow></msup> <mrow><mo fence="true" form="prefix">[</mo><mrow><mtable align="axis" class="array" columnlines="none none none none none none none none none" displaystyle="true" equalcolumns="false" equalrows="false" style=""> <mtr class="array-row"><mtd class="array-td" columnalign="center"> <mfrac><mrow><mi>r</mi><msub><mrow><mover accent="true"><mrow><mi>φ</mi></mrow><mo accent="true">˙</mo></mover></mrow><mrow><mn>1</mn></mrow></msub></mrow>
+<mrow><mn>2</mn></mrow></mfrac> <mo class="MathClass-bin" stretchy="false">+</mo> <mfrac><mrow><mi>r</mi><msub><mrow><mover accent="true"><mrow><mi>φ</mi></mrow><mo accent="true">˙</mo></mover></mrow><mrow><mn>2</mn></mrow></msub></mrow>
+<mrow><mn>2</mn></mrow></mfrac> </mtd>
+</mtr> <mtr class="array-row"><mtd class="array-td" columnalign="center"> <mn>0</mn> </mtd>
+</mtr>
+<mtr class="array-row"><mtd class="array-td" columnalign="center"> <mfrac><mrow><mi>r</mi><msub><mrow><mover accent="true"><mrow><mi>φ</mi></mrow><mo accent="true">˙</mo></mover></mrow><mrow><mn>1</mn></mrow></msub></mrow>
+<mrow><mn>2</mn><mi>I</mi></mrow></mfrac> <mo class="MathClass-bin" stretchy="false">+</mo> <mfrac><mrow><mo class="MathClass-bin" stretchy="false">−</mo><mi>r</mi><msub><mrow><mover accent="true"><mrow><mi>φ</mi></mrow><mo accent="true">˙</mo></mover></mrow><mrow><mn>2</mn></mrow></msub></mrow>
+<mrow><mn>2</mn><mi>I</mi></mrow></mfrac> </mtd>
+</mtr>
+</mtable> </mrow><mo fence="true" form="postfix">]</mo></mrow>
+</math></td><td class="eq-no">(2.9)</td></tr></table>
+<p class="noindent"></p>
+<p class="noindent">We can now use this kinematic model in an example. However, we must first compute
+<math display="inline"><mi>R</mi><msup><mrow><mo class="MathClass-open" stretchy="false">(</mo><mi>𝜃</mi><mo class="MathClass-close" stretchy="false">)</mo></mrow><mrow><mo class="MathClass-bin" stretchy="false">−</mo><mn>1</mn></mrow></msup></math>. In general,
+calculating the inverse of a matrix may be challenging. In this case, however, it is easy because it is simply a
+transform from <math display="inline"><msub><mrow><mover accent="true"><mrow><mi>ξ</mi></mrow><mo accent="true">˙</mo></mover></mrow><mrow><mi>R</mi></mrow></msub></math>
+to <math display="inline"><msub><mrow><mover accent="true"><mrow><mi>ξ</mi></mrow><mo accent="true">˙</mo></mover></mrow><mrow><mi>I</mi></mrow></msub></math>
+rather than vice versa: </p><table class="equation"><tr><td>
+<math class="equation" display="block">
+<mstyle class="label" id="x7-30005r10"></mstyle><mi>R</mi><msup><mrow><mo class="MathClass-open" stretchy="false">(</mo><mi>𝜃</mi><mo class="MathClass-close" stretchy="false">)</mo></mrow><mrow><mo class="MathClass-bin" stretchy="false">−</mo><mn>1</mn></mrow></msup> <mo class="MathClass-rel" stretchy="false">=</mo> <mrow><mo fence="true" form="prefix">[</mo><mrow><mtable align="axis" class="array" columnlines="none none none none none none none none none" displaystyle="true" equalcolumns="false" equalrows="false" style=""> <mtr class="array-row"><mtd class="array-td" columnalign="center"> <mi class="loglike">cos</mi><mo>⁡</mo><mi>𝜃</mi> </mtd><mtd class="array-td" columnalign="center"> <mo class="MathClass-bin" stretchy="false">−</mo> <mi class="loglike">sin</mi><mo>⁡</mo><mi>𝜃</mi> </mtd><mtd class="array-td" columnalign="center"> <mn>0</mn> </mtd></mtr> <mtr class="array-row"><mtd class="array-td" columnalign="center"> <mi class="loglike">sin</mi><mo>⁡</mo>  <mi>𝜃</mi> </mtd> <mtd class="array-td" columnalign="center"> <mi class="loglike">cos</mi><mo>⁡</mo>  <mi>𝜃</mi> </mtd> <mtd class="array-td" columnalign="center"> <mn>0</mn></mtd>
+</mtr>
+<mtr class="array-row"><mtd class="array-td" columnalign="center"> <mn>0</mn> </mtd>
+<mtd class="array-td" columnalign="center"> <mn>0</mn> </mtd>
+<mtd class="array-td" columnalign="center"> <mn>1</mn> </mtd>
+</mtr>
+</mtable> </mrow><mo fence="true" form="postfix">]</mo></mrow>
+</math></td><td class="eq-no">(2.10)</td></tr></table>
+<p class="noindent"></p>
+<p class="noindent">Suppose that the robot is positioned such that <math display="inline"><mi>𝜃</mi> <mo class="MathClass-rel" stretchy="false">=</mo> <mi>π</mi><mo class="MathClass-bin" stretchy="false">/</mo><mn>2</mn></math>,
+<math display="inline"><mi>r</mi> <mo class="MathClass-rel" stretchy="false">=</mo> <mn>1</mn></math>, and
+<math display="inline"><mi>l</mi> <mo class="MathClass-rel" stretchy="false">=</mo> <mn>1</mn></math>. If the robot engages its
+wheels unevenly, with speeds <math display="inline"><msub><mrow><mover accent="true"><mrow><mi>φ</mi></mrow><mo accent="true">˙</mo></mover></mrow><mrow><mn>1</mn></mrow></msub> <mo class="MathClass-rel" stretchy="false">=</mo> <mn>4</mn></math>
+and <math display="inline"><msub><mrow><mover accent="true"><mrow><mi>φ</mi></mrow><mo accent="true">˙</mo></mover></mrow><mrow><mn>2</mn></mrow></msub> <mo class="MathClass-rel" stretchy="false">=</mo> <mn>2</mn></math>,
+we can compute its veloc- ity in the global reference frame: </p><table class="equation"><tr><td>
+<math class="equation" display="block">
+<mstyle class="label" id="x7-30006r11"></mstyle><msub><mrow><mi>ξ</mi></mrow><mrow><mi>I</mi></mrow></msub> <mo class="MathClass-rel" stretchy="false">=</mo> <mrow><mo fence="true" form="prefix">[</mo><mrow><mtable align="axis" class="array" columnlines="none none none none none none none none none" displaystyle="true" equalcolumns="false" equalrows="false" style=""> <mtr class="array-row"><mtd class="array-td" columnalign="center"> <mi>ẋ</mi> </mtd></mtr> <mtr class="array-row"><mtd class="array-td" columnalign="center"> <mi>ẏ</mi></mtd>
+</mtr> <mtr class="array-row"><mtd class="array-td" columnalign="center"> <mover accent="true"><mrow><mi>𝜃</mi></mrow><mo accent="true">˙</mo></mover> </mtd></mtr></mtable> </mrow><mo fence="true" form="postfix">]</mo></mrow> <mo class="MathClass-rel" stretchy="false">=</mo> <mrow><mo fence="true" form="prefix">[</mo><mrow><mtable align="axis" class="array" columnlines="none none none none none none none none none" displaystyle="true" equalcolumns="false" equalrows="false" style=""> <mtr class="array-row"><mtd class="array-td" columnalign="center"> <mn>0</mn> </mtd><mtd class="array-td" columnalign="center"> <mo class="MathClass-bin" stretchy="false">−</mo><mn>1</mn> </mtd><mtd class="array-td" columnalign="center"> <mn>0</mn> </mtd></mtr> <mtr class="array-row"><mtd class="array-td" columnalign="center"> <mn>1</mn> </mtd> <mtd class="array-td" columnalign="center"> <mn>0</mn> </mtd> <mtd class="array-td" columnalign="center"> <mn>0</mn></mtd>
+</mtr>
+<mtr class="array-row"><mtd class="array-td" columnalign="center"> <mn>0</mn> </mtd>
+<mtd class="array-td" columnalign="center"> <mn>0</mn> </mtd>
+<mtd class="array-td" columnalign="center"> <mn>1</mn> </mtd>
+</mtr>
+</mtable> </mrow><mo fence="true" form="postfix">]</mo></mrow> <mrow><mo fence="true" form="prefix">[</mo><mrow><mtable align="axis" class="array" columnlines="none none none none none none none none none" displaystyle="true" equalcolumns="false" equalrows="false" style=""><mtr class="array-row"><mtd class="array-td" columnalign="center"> <mn>3</mn> </mtd></mtr> <mtr class="array-row"><mtd class="array-td" columnalign="center"> <mn>0</mn></mtd>
+</mtr> <mtr class="array-row"><mtd class="array-td" columnalign="center"> <mn>1</mn> </mtd></mtr></mtable> </mrow><mo fence="true" form="postfix">]</mo></mrow> <mo class="MathClass-rel" stretchy="false">=</mo> <mrow><mo fence="true" form="prefix">[</mo><mrow><mtable align="axis" class="array" columnlines="none none none none none none none none none" displaystyle="true" equalcolumns="false" equalrows="false" style=""> <mtr class="array-row"><mtd class="array-td" columnalign="center"> <mn>0</mn> </mtd></mtr> <mtr class="array-row"><mtd class="array-td" columnalign="center"> <mn>3</mn></mtd>
+</mtr> <mtr class="array-row"><mtd class="array-td" columnalign="center"> <mn>1</mn> </mtd></mtr></mtable> </mrow><mo fence="true" form="postfix">]</mo></mrow>
+</math></td><td class="eq-no">(2.11)</td></tr></table>
+<p class="noindent"></p>
+<p class="noindent">So this robot will move instantaneously along the y-axis of the global reference frame with speed 3
+while rotating with speed 1. This approach to kinematic modeling can provide information about the
+motion of a robot given its component wheel speeds in straightfor- ward cases. However, we wish to
+determine the space of possible motions for each robot chassis design. To do this, we must go
+further, describing formally the constraints on robot motion imposed by each wheel. Section
+3.2.3 begins this process by describing constraints for various wheel types; the rest of this
+chapter provides tools for analyzing the character- istics and workspace of a robot given these
+constraints.
+</p>
+<p class="noindent"><div class="subsection-header"> <h4 id="header-subsection-2.1.3"> <a class="pdf-icon" href="AutonomousMobileRoboticsLectureBook.pdf#subsection.2.1.3"><svg class="bi bi-file-pdf" fill="currentColor" height="20" viewbox="0 0 16 16" width="20" xmlns="http://www.w3.org/2000/svg"><path d="M4 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H4zm0 1h8a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1z"></path><path d="M4.603 12.087a.81.81 0 0 1-.438-.42c-.195-.388-.13-.776.08-1.102.198-.307.526-.568.897-.787a7.68 7.68 0 0 1 1.482-.645 19.701 19.701 0 0 0 1.062-2.227 7.269 7.269 0 0 1-.43-1.295c-.086-.4-.119-.796-.046-1.136.075-.354.274-.672.65-.823.192-.077.4-.12.602-.077a.7.7 0 0 1 .477.365c.088.164.12.356.127.538.007.187-.012.395-.047.614-.084.51-.27 1.134-.52 1.794a10.954 10.954 0 0 0 .98 1.686 5.753 5.753 0 0 1 1.334.05c.364.065.734.195.96.465.12.144.193.32.2.518.007.192-.047.382-.138.563a1.04 1.04 0 0 1-.354.416.856.856 0 0 1-.51.138c-.331-.014-.654-.196-.933-.417a5.716 5.716 0 0 1-.911-.95 11.642 11.642 0 0 0-1.997.406 11.311 11.311 0 0 1-1.021 1.51c-.29.35-.608.655-.926.787a.793.793 0 0 1-.58.029zm1.379-1.901c-.166.076-.32.156-.459.238-.328.194-.541.383-.647.547-.094.145-.096.25-.04.361.01.022.02.036.026.044a.27.27 0 0 0 .035-.012c.137-.056.355-.235.635-.572a8.18 8.18 0 0 0 .45-.606zm1.64-1.33a12.647 12.647 0 0 1 1.01-.193 11.666 11.666 0 0 1-.51-.858 20.741 20.741 0 0 1-.5 1.05zm2.446.45c.15.162.296.3.435.41.24.19.407.253.498.256a.107.107 0 0 0 .07-.015.307.307 0 0 0 .094-.125.436.436 0 0 0 .059-.2.095.095 0 0 0-.026-.063c-.052-.062-.2-.152-.518-.209a3.881 3.881 0 0 0-.612-.053zM8.078 5.8a6.7 6.7 0 0 0 .2-.828c.031-.188.043-.343.038-.465a.613.613 0 0 0-.032-.198.517.517 0 0 0-.145.04c-.087.035-.158.106-.196.283-.04.192-.03.469.046.822.024.111.054.227.09.346z"></path></svg></a><span class="number">2.1.3</span> <span class="title"> <a id="x7-310002.1.3"></a>Wheel kinematic constraints</span></h4></div>
+</p><p class="noindent">The first step to a kinematic model of the robot is to express constraints on the motions of individual
+wheels. Just as shown in section 3.2.2, the motions of individual wheels can later be combined to
+compute the motion of the robot as a whole. As discussed in chapter 2, there are four basic wheel
+types with widely varying kinematic properties. Therefore, we begin by presenting sets of
+constraints specific to each wheel type. However, several important assumptions will simplify this
+presentation. We assume that the plane of the wheel always remains vertical and that there is in all
+cases one single point of contact between the wheel and the ground plane. Furthermore, we
+assume that there is no sliding at this single point of contact. That is, the wheel undergoes
+motion only under conditions of pure rolling and rotation about the vertical axis through the
+contact point. For a more thorough treatment of kinematics, including sliding contact, refer to
+[25].
+</p><p class="noindent">Under these assumptions, we present two constraints for every wheel type. The first con- straint
+enforces the concept of rolling contact - that the wheel must roll when motion takes place in the
+appropriate direction. The second constraint enforces the concept of no lateral slippage - that the wheel
+must not slide orthogonal to the wheel plane.
+</p>
+<p class="noindent"><h5 class="subsubsectionHead" id="header-subsubsection-10"> <a id="x7-32000"></a>Fixed standard wheel</h5>
+</p><p class="noindent">To start, the fixed standard wheel has no vertical axis of rotation for steering. It’s angle to
+the chassis is thus fixed, and it is limited to motion back and forth along the wheel plane
+and rotation around its contact point with the ground plane. Figure 3.4 depicts a fixed
+standard wheel A and indicates its position pose relative to the robot’s local reference frame
+<math display="inline"><mi>{</mi><msub><mrow><mi>X</mi></mrow><mrow><mi>R</mi></mrow></msub><mo class="MathClass-punc" stretchy="false">,</mo><msub><mrow><mi>Y</mi> </mrow><mrow><mi>R</mi></mrow></msub><mi>}</mi></math>.
+The position of A is expressed in polar coordinates by distance l and angle
+<math display="inline"><mi>α</mi></math>.
+The angle of the wheel plane relative to the chassis is denoted by
+<math display="inline"><mi>β</mi></math>,
+which is fixed since the fixed standard wheel is not steerable. The wheel, which has radius
+<math display="inline"><mi>r</mi></math>, can
+spin over time, and so its rota- tional position around its horizontal axle is a function of time
+<math display="inline"><mi>t</mi><mo class="MathClass-rel" stretchy="false"> :</mo> <mi>φ</mi><mo class="MathClass-open" stretchy="false">(</mo><mi>t</mi><mo class="MathClass-close" stretchy="false">)</mo></math>. The
+rolling constraint for this wheel enforces that all motion along the direction of the wheel plane must be
+accompanied by the appropriate amount of wheel spin so that there is pure rolling at the contact point:
+</p><table class="equation"><tr><td>
+<math class="equation" display="block">
+<mstyle class="label" id="x7-32001r12"></mstyle>
+<mrow><mo fence="true" form="prefix">[</mo><mrow><mtable align="axis" class="array" columnlines="none none none none none none none none none" displaystyle="true" equalcolumns="false" equalrows="false" style=""><mtr class="array-row"><mtd class="array-td" columnalign="center"> <mi class="loglike">sin</mi><mo>⁡</mo><mo class="MathClass-open" stretchy="false">(</mo><mi>α</mi> <mo class="MathClass-bin" stretchy="false">+</mo> <mi>β</mi><mo class="MathClass-close" stretchy="false">)</mo> </mtd><mtd class="array-td" columnalign="center"> <mo class="MathClass-bin" stretchy="false">−</mo> <mi class="loglike">cos</mi><mo>⁡</mo><mo class="MathClass-open" stretchy="false">(</mo><mi>α</mi> <mo class="MathClass-bin" stretchy="false">+</mo> <mi>β</mi><mo class="MathClass-close" stretchy="false">)</mo> </mtd><mtd class="array-td" columnalign="center"> <mo class="MathClass-open" stretchy="false">(</mo><mo class="MathClass-bin" stretchy="false">−</mo><mi>l</mi><mo class="MathClass-close" stretchy="false">)</mo> <mi class="loglike">cos</mi><mo>⁡</mo><mi>β</mi> </mtd></mtr> <mtr class="array-row"><mtd class="array-td" columnalign="center"> </mtd></mtr></mtable>
+</mrow><mo fence="true" form="postfix">]</mo></mrow><mi>R</mi><mo class="MathClass-open" stretchy="false">(</mo><mi>𝜃</mi><mo class="MathClass-close" stretchy="false">)</mo><msub><mrow><mi>ξ</mi></mrow><mrow><mi>l</mi></mrow></msub><mo class="MathClass-bin" stretchy="false">−</mo><mi>r</mi><mover accent="true"><mrow><mi>ϕ</mi></mrow><mo accent="true">˙</mo></mover> <mo class="MathClass-rel" stretchy="false">=</mo> <mn>0</mn>
+</math></td><td class="eq-no">(2.12)</td></tr></table>
+<p class="noindent"></p>
+<p class="noindent">Let’s briefly look at what the terms mean in this equation: </p>
+<ul class="itemize1">
+<li class="itemize">
+<p class="noindent">The first term of the sum denotes the <span class="alert">total motion along the wheel plane</span>.
+</p>
+</li>
+<li class="itemize">
+<p class="noindent">The three (<span class="alert">3</span>) elements of the vector on the <span class="acronym"><span class="acronym-short"><a class="glossary" href="#glo:lhs">LHS</a></span><span class="acronym-detail"><span class="acronym-long"><a class="glossary" href="#glo:lhs">Left Hand Side</a></span><span class="acronym-desc"><a class="glossary" href="#glo:lhs">Left Hand Side</a></span></span></span> represent
+mappings from each of <math display="inline"><msubsup><mrow><mover class="overset"><mrow><mi>x</mi></mrow><mrow> <mi>•</mi> </mrow></mover></mrow><mrow></mrow><mrow></mrow></msubsup><mo class="MathClass-punc" stretchy="false">,</mo><mspace class="thinspace" width="0.17em"></mspace><msubsup><mrow><mover class="overset"><mrow><mi>y</mi></mrow><mrow> <mi>•</mi> </mrow></mover></mrow><mrow></mrow><mrow></mrow></msubsup></math>,
+and <math display="inline"><mover accent="true"><mrow><mi>𝜃</mi></mrow><mo accent="true">˙</mo></mover></math>
+to their contributions for motion along the wheel plane.</p></li></ul>
+<p class="noindent">Note that the <math display="inline"><mi>R</mi><mo class="MathClass-open" stretchy="false">(</mo><mi>𝜃</mi><mo class="MathClass-close" stretchy="false">)</mo><msub><mrow><mi>ξ</mi></mrow><mrow><mi>I</mi></mrow></msub></math>
+term is used to transform the motion parameters
+<math display="inline"><msub><mrow><mi>ξ</mi></mrow><mrow><mi>I</mi></mrow></msub></math> that are in the global reference
+frame <math display="inline"><mi>{</mi><msub><mrow><mi>X</mi></mrow><mrow><mi>I</mi></mrow></msub><mo class="MathClass-punc" stretchy="false">,</mo><msub><mrow><mi>Y</mi> </mrow><mrow><mi>I</mi></mrow></msub><mi>}</mi></math> into motion parameters
+in the local reference frame <math display="inline"><mi>{</mi><msub><mrow><mi>X</mi></mrow><mrow><mi>R</mi></mrow></msub><mo class="MathClass-punc" stretchy="false">,</mo><msub><mrow><mi>Y</mi> </mrow><mrow><mi>R</mi></mrow></msub><mi>}</mi></math>
+as shown in example equation (3.5). This is necessary because all other parameters in the equation,
+<math display="inline"><mi>α</mi></math>,
+<math display="inline"><mi>β</mi></math>, l,
+are in terms of the robot’s local reference frame. This motion along the wheel plane must
+be equal, according to this constraint, to the motion accomplished by spinning the wheel,
+<math display="inline"><mi>r</mi><mover accent="true"><mrow><mi>ϕ</mi></mrow><mo accent="true">˙</mo></mover></math>. The
+sliding constraint for this wheel enforces that the component of the wheel’s motion orthogonal to the
+wheel plane must be zero: </p><table class="equation"><tr><td>
+<math class="equation" display="block">
+<mstyle class="label" id="x7-32002r13"></mstyle>
+<mrow><mo fence="true" form="prefix">[</mo><mrow><mi class="loglike">cos</mi><mo>⁡</mo><mo class="MathClass-open" stretchy="false">(</mo><mi>α</mi> <mo class="MathClass-bin" stretchy="false">+</mo> <mi>β</mi><mo class="MathClass-close" stretchy="false">)</mo><mo> <mi class="loglike">sin</mi><mo>⁡</mo></mo><mo class="MathClass-open" stretchy="false">(</mo><mi>α</mi> <mo class="MathClass-bin" stretchy="false">+</mo> <mi>β</mi><mo class="MathClass-close" stretchy="false">)</mo><mi>l</mi><mo><mi class="loglike">sin</mi><mo>⁡</mo></mo><mi>β</mi>
+</mrow><mo fence="true" form="postfix">]</mo></mrow><mi>R</mi><mo class="MathClass-open" stretchy="false">(</mo><mi>𝜃</mi><mo class="MathClass-close" stretchy="false">)</mo><msub><mrow><mi>ξ</mi></mrow><mrow><mi>i</mi></mrow></msub> <mo class="MathClass-rel" stretchy="false">=</mo> <mn>0</mn>
+</math></td><td class="eq-no">(2.13)</td></tr></table>
+<p class="noindent"></p>
+<div class="quote">  For example, suppose wheel A is in a position such that
+<math display="inline"><mi>α</mi> <mo class="MathClass-rel" stretchy="false">=</mo> <mn>0</mn></math>, and
+<math display="inline"><mi>β</mi> <mo class="MathClass-rel" stretchy="false">=</mo> <mn>0</mn></math>. This would place the contact point
+of the wheel on <math display="inline"><msubsup><mrow><mi>X</mi></mrow><mrow><mi>I</mi></mrow><mrow></mrow></msubsup></math> with the plane of
+the wheel oriented <b>parallel</b> to <math display="inline"><msubsup><mrow><mi>Y</mi> </mrow><mrow><mi>I</mi></mrow><mrow></mrow></msubsup></math>.
+<p class="noindent">If <math display="inline"><mi>𝜃</mi> <mo class="MathClass-rel" stretchy="false">=</mo> <mn>0</mn></math>, then
+the sliding constraint <span> Eq. (<a href="#x7-32002r13">2.13</a>)</span>  reduces to: </p><table class="equation"><tr><td>
+<math class="equation" display="block">
+<mstyle class="label" id="x7-32003r14"></mstyle>
+<mrow><mo fence="true" form="prefix">[</mo><mrow><mtable align="axis" class="array" columnlines="none none none none none none none none none" displaystyle="true" equalcolumns="false" equalrows="false" style=""><mtr class="array-row"><mtd class="array-td" columnalign="center"> <mn>1</mn> </mtd><mtd class="array-td" columnalign="center"> <mn>0</mn> </mtd><mtd class="array-td" columnalign="center"> <mn>0</mn> </mtd></mtr> <mtr class="array-row"><mtd class="array-td" columnalign="center"> <mn>0</mn> </mtd> <mtd class="array-td" columnalign="center"> <mn>1</mn> </mtd> <mtd class="array-td" columnalign="center"> <mn>0</mn></mtd>
+</mtr> <mtr class="array-row"><mtd class="array-td" columnalign="center"> <mn>0</mn> </mtd><mtd class="array-td" columnalign="center"> <mn>0</mn> </mtd><mtd class="array-td" columnalign="center"> <mn>1</mn> </mtd></mtr></mtable>
+</mrow><mo fence="true" form="postfix">]</mo></mrow> <mrow><mo fence="true" form="prefix">[</mo><mrow><mtable align="axis" class="array" columnlines="none none none none none none none none none" displaystyle="true" equalcolumns="false" equalrows="false" style=""><mtr class="array-row"><mtd class="array-td" columnalign="center"><msubsup><mrow> <mover class="overset"><mrow><mi>x</mi></mrow><mrow> <mi>•</mi> </mrow></mover></mrow><mrow></mrow><mrow></mrow></msubsup> </mtd>
+</mtr> <mtr class="array-row"><mtd class="array-td" columnalign="center"><msubsup><mrow> <mover class="overset"><mrow><mi>y</mi></mrow><mrow> <mi>•</mi> </mrow></mover></mrow><mrow></mrow><mrow></mrow></msubsup> </mtd></mtr> <mtr class="array-row"><mtd class="array-td" columnalign="center"> <mover accent="true"><mrow><mi>𝜃</mi></mrow><mo accent="true">˙</mo></mover></mtd></mtr></mtable> </mrow><mo fence="true" form="postfix">]</mo></mrow> <mo class="MathClass-rel" stretchy="false">=</mo> <mrow><mo fence="true" form="prefix">[</mo><mrow><mtable align="axis" class="array" columnlines="none none none none none none none none none" displaystyle="true" equalcolumns="false" equalrows="false" style=""> <mtr class="array-row"><mtd class="array-td" columnalign="center"> <mn>1</mn> </mtd><mtd class="array-td" columnalign="center"> <mn>0</mn> </mtd><mtd class="array-td" columnalign="center"> <mn>0</mn> </mtd></mtr></mtable> </mrow><mo fence="true" form="postfix">]</mo></mrow> <mrow><mo fence="true" form="prefix">[</mo><mrow><mtable align="axis" class="array" columnlines="none none none none none none none none none" displaystyle="true" equalcolumns="false" equalrows="false" style=""><mtr class="array-row"><mtd class="array-td" columnalign="center"> <mi>x</mi> </mtd></mtr> <mtr class="array-row"><mtd class="array-td" columnalign="center"> <mi>y</mi></mtd>
+</mtr> <mtr class="array-row"><mtd class="array-td" columnalign="center"> <mover accent="true"><mrow><mi>𝜃</mi></mrow><mo accent="true">˙</mo></mover> </mtd></mtr></mtable> </mrow><mo fence="true" form="postfix">]</mo></mrow> <mo class="MathClass-rel" stretchy="false">=</mo> <mn>0</mn>
+</math></td><td class="eq-no">(2.14)</td></tr></table>
+<p class="noindent"></p>
+<p class="noindent">This constrains the component of motion along
+<math display="inline"><msubsup><mrow><mi>X</mi></mrow><mrow><mi>I</mi></mrow><mrow></mrow></msubsup></math>-axis to zero
+and since <math display="inline"><msubsup><mrow><mi>X</mi></mrow><mrow><mi>I</mi></mrow><mrow></mrow></msubsup></math>
+and <math display="inline"><msubsup><mrow><mi>X</mi></mrow><mrow><mi>R</mi></mrow><mrow></mrow></msubsup></math>
+are parallel in this example, the wheel is constrained from sliding sideways, as expected
+<math display="inline"><mspace class="quad" width="1em"></mspace><mo class="MathClass-ord">■</mo></math>
+</p></div>
+<p class="noindent"><h5 class="subsubsectionHead" id="header-subsubsection-11"> <a id="x7-33000"></a>Steered standard wheel</h5>
+</p><p class="noindent">The steered standard wheel differs from the fixed standard wheel only there is an additional degree of
+freedom:
+</p>
+<div class="warning"><div class="warning-upper">Warning</div><div class="body">
+<p class="noindent">the wheel may rotate around a vertical axis passing through the center of the wheel and the ground
+contact point. </p></div></div>
+<p class="noindent">The equations of position for the steered standard wheel (figure 3.5) are identical
+to that of the fixed standard wheel shown in figure 3.4 with one exception. The
+orientation of the wheel to the robot chassis is no longer a single fixed value,
+<math display="inline"><mi>β</mi></math>, but instead varies as
+a function of time: <math display="inline"><mi>β</mi><mo class="MathClass-open" stretchy="false">(</mo><mi>t</mi><mo class="MathClass-close" stretchy="false">)</mo></math>.
+The rolling and sliding constraints are </p><table class="equation"><tr><td>
+<math class="equation" display="block">
+<mstyle class="label" id="x7-33001r15"></mstyle>
+<mrow><mo fence="true" form="prefix">[</mo><mrow><mi class="loglike">sin</mi><mo>⁡</mo><mo class="MathClass-open" stretchy="false">(</mo><mi>α</mi> <mo class="MathClass-bin" stretchy="false">+</mo> <mi>β</mi><mo class="MathClass-close" stretchy="false">)</mo> <mo class="MathClass-bin" stretchy="false">−</mo><mo> <mi class="loglike">cos</mi><mo>⁡</mo></mo><mo class="MathClass-open" stretchy="false">(</mo><mi>α</mi> <mo class="MathClass-bin" stretchy="false">+</mo> <mi>β</mi><mo class="MathClass-close" stretchy="false">)</mo><mo class="MathClass-open" stretchy="false">(</mo><mo class="MathClass-bin" stretchy="false">−</mo><mi>l</mi><mo class="MathClass-close" stretchy="false">)</mo><mo> <mi class="loglike">cos</mi><mo>⁡</mo></mo><mi>β</mi>
+</mrow><mo fence="true" form="postfix">]</mo></mrow><mi>R</mi><mo class="MathClass-open" stretchy="false">(</mo><mi>𝜃</mi><mo class="MathClass-close" stretchy="false">)</mo><msub><mrow><mi>ξ</mi></mrow><mrow><mi>l</mi></mrow></msub> <mo class="MathClass-bin" stretchy="false">−</mo> <mi>r</mi><mi>ϕ</mi> <mo class="MathClass-rel" stretchy="false">=</mo> <mn>0</mn>
+</math></td><td class="eq-no">(2.15)</td></tr></table>
+<p class="noindent"></p>
+<table class="equation"><tr><td>
+<math class="equation" display="block">
+<mstyle class="label" id="x7-33002r16"></mstyle>
+<mrow><mo fence="true" form="prefix">[</mo><mrow><mi class="loglike">cos</mi><mo>⁡</mo><mo class="MathClass-open" stretchy="false">(</mo><mi>α</mi> <mo class="MathClass-bin" stretchy="false">+</mo> <mi>β</mi><mo class="MathClass-close" stretchy="false">)</mo><mo> <mi class="loglike">sin</mi><mo>⁡</mo></mo><mo class="MathClass-open" stretchy="false">(</mo><mi>α</mi> <mo class="MathClass-bin" stretchy="false">+</mo> <mi>β</mi><mo class="MathClass-close" stretchy="false">)</mo><mi>l</mi><mo><mi class="loglike">sin</mi><mo>⁡</mo></mo><mi>β</mi>
+</mrow><mo fence="true" form="postfix">]</mo></mrow><mi>R</mi><mo class="MathClass-open" stretchy="false">(</mo><mi>𝜃</mi><mo class="MathClass-close" stretchy="false">)</mo><msub><mrow><mi>ξ</mi></mrow><mrow><mi>l</mi></mrow></msub> <mo class="MathClass-rel" stretchy="false">=</mo> <mn>0</mn>
+</math></td><td class="eq-no">(2.16)</td></tr></table>
+<p class="noindent"></p>
+<p class="noindent">These constraints are identical to those of the fixed standard wheel because, unlike
+<math display="inline"><mover accent="true"><mrow><mi>φ</mi></mrow><mo accent="true">˙</mo></mover></math>,
+<math display="inline"><mover accent="true"><mrow><mi>β</mi></mrow><mo accent="true">˙</mo></mover></math> does
+not have a direct impact on the instantaneous motion constraints of a robot. It is only by
+integrating over time that changes in steering angle can affect the mobility of a vehicle. This
+may seem subtle, but is a very important distinction between change in steer- ing position,
+<math display="inline"><mi>β</mi></math>, and change in
+wheel spin, <math display="inline"><mover accent="true"><mrow><mi>φ</mi></mrow><mo accent="true">˙</mo></mover></math>.
+</p>
+<p class="noindent"><h5 class="subsubsectionHead" id="header-subsubsection-12"> <a id="x7-34000"></a>Castor wheel</h5>
+</p><p class="noindent">Castor wheels are able to steer around a vertical axis. However, unlike the steered standard wheel, the
+vertical axis of rotation in a castor wheel does not pass through the ground con- tact point.
+Figure 3.6 depicts a castor wheel, demonstrating that formal specification of the castor
+wheel’s position requires an additional parameter. The wheel contact point is now at position
+<math display="inline"><mi>B</mi></math>, which is connected
+by a rigid rod <math display="inline"><mi>A</mi><mi>B</mi></math> of
+fixed length <math display="inline"><mi>d</mi></math> to point
+<math display="inline"><mi>A</mi></math> fixes the location of the
+vertical axis about which <math display="inline"><mi>B</mi></math>
+steers, and this point <math display="inline"><mi>A</mi></math>
+has a position specified in the robot’s reference frame, as in figure 3.6. We assume that the plane of the wheel is
+aligned with <math display="inline"><mi>A</mi><mi>B</mi></math> at all
+times. Similar to the steered standard wheel, the castor wheel has two parameters that vary as a function of time.
+<math display="inline"><mi>φ</mi><mo class="MathClass-open" stretchy="false">(</mo><mi>t</mi><mo class="MathClass-close" stretchy="false">)</mo></math> represents the wheel spin over
+time as before. <math display="inline"><mi>β</mi><mo class="MathClass-open" stretchy="false">(</mo><mi>t</mi><mo class="MathClass-close" stretchy="false">)</mo></math> denotes the
+steering angle and orienta- tion of <math display="inline"><mi>A</mi><mi>B</mi></math>
+over time. For the castor wheel, the rolling constraint is identical to equation
+<math display="inline"><mo class="MathClass-open" stretchy="false">(</mo><mn>3</mn><mo class="MathClass-punc" stretchy="false">.</mo><mn>1</mn><mn>5</mn><mo class="MathClass-close" stretchy="false">)</mo></math>
+because the offset axis plays no role during motion that is aligned with the wheel plane:
+</p><table class="equation"><tr><td>
+<math class="equation" display="block">
+<mstyle class="label" id="x7-34001r17"></mstyle>
+<mo>∫
+ </mo><mo><mi class="loglike">sin</mi><mo>⁡</mo></mo><mo class="MathClass-open" stretchy="false">(</mo><mi>α</mi> <mo class="MathClass-bin" stretchy="false">+</mo> <mi>β</mi><mo class="MathClass-close" stretchy="false">)</mo> <mo class="MathClass-bin" stretchy="false">−</mo><mo> <mi class="loglike">cos</mi><mo>⁡</mo></mo><mo class="MathClass-open" stretchy="false">(</mo><mi>α</mi> <mo class="MathClass-bin" stretchy="false">+</mo> <mi>β</mi><mo class="MathClass-close" stretchy="false">)</mo><mo class="MathClass-open" stretchy="false">(</mo><mo class="MathClass-bin" stretchy="false">−</mo><mi>l</mi><mo class="MathClass-close" stretchy="false">)</mo><mo> <mi class="loglike">cos</mi><mo>⁡</mo></mo><mi>β</mi><mi>R</mi><mo class="MathClass-open" stretchy="false">(</mo><mi>𝜃</mi><mo class="MathClass-close" stretchy="false">)</mo><msub><mrow><mi>ξ</mi></mrow><mrow><mi>l</mi></mrow></msub> <mo class="MathClass-bin" stretchy="false">−</mo> <mi>r</mi><mover accent="true"><mrow><mi>φ</mi></mrow><mo accent="true">˙</mo></mover> <mo class="MathClass-rel" stretchy="false">=</mo> <mn>0</mn>
+</math></td><td class="eq-no">(2.17)</td></tr></table>
+<p class="noindent"></p>
+<p class="noindent">The castor geometry does, however, have significant impact on the sliding
+constraint. The critical issue is that the lateral force on the wheel occurs at point
+<math display="inline"><mi>A</mi></math> because
+this is the attachment point of the wheel to the chassis. Because of the offset ground contact point rel- ative
+to <math display="inline"><mi>A</mi></math>, the
+constraint that there be zero lateral movement would be wrong. Instead, the constraint is much
+like a rolling constraint, in that appropriate rotation of the vertical axis must take place:
+</p><table class="equation"><tr><td>
+<math class="equation" display="block">
+<mstyle class="label" id="x7-34002r18"></mstyle>
+<mrow><mo fence="true" form="prefix">[</mo><mrow><mi class="loglike">cos</mi><mo>⁡</mo><mo class="MathClass-open" stretchy="false">(</mo><mi>α</mi> <mo class="MathClass-bin" stretchy="false">+</mo> <mi>β</mi><mo class="MathClass-close" stretchy="false">)</mo><mo> <mi class="loglike">sin</mi><mo>⁡</mo></mo><mo class="MathClass-open" stretchy="false">(</mo><mi>α</mi> <mo class="MathClass-bin" stretchy="false">+</mo> <mi>β</mi><mo class="MathClass-close" stretchy="false">)</mo><mi>d</mi> <mo class="MathClass-bin" stretchy="false">+</mo> <mi>l</mi><mo><mi class="loglike">sin</mi><mo>⁡</mo></mo><mi>β</mi>
+</mrow><mo fence="true" form="postfix">]</mo></mrow><mi>R</mi><mo class="MathClass-open" stretchy="false">(</mo><mi>𝜃</mi><mo class="MathClass-close" stretchy="false">)</mo><msub><mrow><mi>ξ</mi></mrow><mrow><mi>i</mi></mrow></msub> <mo class="MathClass-bin" stretchy="false">+</mo> <mi>d</mi><mi>β</mi> <mo class="MathClass-rel" stretchy="false">=</mo> <mn>0</mn>
+</math></td><td class="eq-no">(2.18)</td></tr></table>
+<p class="noindent"></p>
+<p class="noindent">In equation <math display="inline"><mo class="MathClass-open" stretchy="false">(</mo><mn>3</mn><mo class="MathClass-punc" stretchy="false">.</mo><mn>1</mn><mn>8</mn><mo class="MathClass-close" stretchy="false">)</mo></math>,
+any motion orthogonal to the wheel plane must be balanced by an equivalent and opposite amount of
+castor steering motion. This result is critical to the suc- cess of castor wheels because by setting the value of
+<math display="inline"><mover accent="true"><mrow><mi>β</mi></mrow><mo accent="true">˙</mo></mover></math> any
+arbitrary lateral motion can be acceptable. In a steered standard wheel, the steering action does not by
+itself cause a move- ment of the robot chassis. But in a castor wheel the steering action itself moves the
+robot chassis because of the offset between the ground contact point and the vertical axis of rota-
+tion.
+</p><p class="noindent">More concisely, it can be surmised from equations
+<math display="inline"><mo class="MathClass-open" stretchy="false">(</mo><mn>3</mn><mo class="MathClass-punc" stretchy="false">.</mo><mn>1</mn><mn>7</mn><mo class="MathClass-close" stretchy="false">)</mo></math> and
+<math display="inline"><mo class="MathClass-open" stretchy="false">(</mo><mn>3</mn><mo class="MathClass-punc" stretchy="false">.</mo><mn>1</mn><mn>8</mn><mo class="MathClass-close" stretchy="false">)</mo></math> that, given <i>any</i> robot
+chassis motion <math display="inline"><msub><mrow><mi>ξ</mi></mrow><mrow><mi>l</mi></mrow></msub></math>, there exists
+some value for spin speed <math display="inline"><mi>ϕ</mi></math>
+and steering speed <math display="inline"><mi>β</mi></math>
+such that the constraints are met. Therefore, a robot with only castor wheels can move with any
+velocity in the space of possible robot motions. We term such systems <i>omnidirectional</i>. A real-world
+example of such a system is the five-castor wheel office chair shown in figure 3.7. Assuming that all
+joints are able to move freely, you may select any motion vector on the plane for the chair and push it
+by hand. Its castor wheels will spin and steer as needed to achieve that motion without contact
+point sliding. By the same token, if each of the chair’s castor wheels housed two motors,
+one for spinning and one for steering, then a control system would be able to move the
+chair along any trajectory in the plane. Thus, although the kinematics of castor wheels is
+somewhat complex, such wheels do not impose any real constraints on the kinematics of a robot
+chassis.
+</p>
+<p class="noindent"><h5 class="subsubsectionHead" id="header-subsubsection-13"> <a id="x7-35000"></a>Swedish wheel</h5>
+</p><p class="noindent">Swedish wheels have no vertical axis of rotation, yet are able to move omnidirectionally like the castor
+wheel. This is possible by adding a degree of freedom to the fixed standard wheel. Swedish
+wheels consist of a fixed standard wheel with rollers attached to the wheel perimeter with
+axes that are antiparallel to the main axis of the fixed wheel component. The exact angle
+<math display="inline"><mi>γ</mi></math>
+between the roller axes and the main axis can vary, as shown in figure 3.8. For example, given a
+Swedish 45-degree wheel, the motion vectors of the principal axis and the roller axes can be drawn as in
+figure 3.8. Since each axis can spin clockwise or counterclockwise, one can combine any vector
+along one axis with any vector along the other axis. These two axes are not necessarily
+independent (except in the case of the Swed- ish 90-degree wheel); however, it is visually
+clear that any desired direction of motion is achievable by choosing the appropriate two
+vectors.
+</p><p class="noindent">The pose of a Swedish wheel is expressed exactly as in a fixed standard wheel, with the addition of a
+term, <math display="inline"><mi>γ</mi></math>,
+representing the angle between the main wheel plane and the axis of rotation of the small
+circumferential rollers. This is depicted in figure 3.8 within the robot’s reference frame.
+</p><p class="noindent">Formulating the constraint for a Swedish wheel requires some subtlety. The instanta- neous constraint
+is due to the specific orientation of the small rollers. The axis around which these rollers spin is a zero
+component of velocity at the contact point. That is, moving in that direction without spinning the main
+axis is not possible without sliding. The motion constraint that is derived looks identical to the rolling
+constraint for the fixed standard wheel in equation (3.12) except that the formula is modified by adding
+<math display="inline"><mi>γ</mi></math> such
+that the effective direction along which the rolling constraint holds is along this zero component rather
+than along the wheel plane: </p><table class="equation"><tr><td>
+<math class="equation" display="block">
+<mstyle class="label" id="x7-35001r19"></mstyle>
+<mrow><mo fence="true" form="prefix">[</mo><mrow><mi class="loglike">sin</mi><mo>⁡</mo><mo class="MathClass-open" stretchy="false">(</mo><mi>α</mi> <mo class="MathClass-bin" stretchy="false">+</mo> <mi>β</mi> <mo class="MathClass-bin" stretchy="false">+</mo> <mi>γ</mi><mo class="MathClass-close" stretchy="false">)</mo> <mo class="MathClass-bin" stretchy="false">−</mo><mo> <mi class="loglike">cos</mi><mo>⁡</mo></mo><mo class="MathClass-open" stretchy="false">(</mo><mi>α</mi> <mo class="MathClass-bin" stretchy="false">+</mo> <mi>β</mi> <mo class="MathClass-bin" stretchy="false">+</mo> <mi>γ</mi><mo class="MathClass-close" stretchy="false">)</mo><mo class="MathClass-open" stretchy="false">(</mo><mo class="MathClass-bin" stretchy="false">−</mo><mi>l</mi><mo class="MathClass-close" stretchy="false">)</mo><mo> <mi class="loglike">cos</mi><mo>⁡</mo></mo><mo class="MathClass-open" stretchy="false">(</mo><mi>β</mi> <mo class="MathClass-bin" stretchy="false">+</mo> <mi>γ</mi><mo class="MathClass-close" stretchy="false">)</mo>
+</mrow><mo fence="true" form="postfix">]</mo></mrow> <mi>R</mi><mo class="MathClass-open" stretchy="false">(</mo><mi>𝜃</mi><mo class="MathClass-close" stretchy="false">)</mo><msub><mrow><mi>ξ</mi></mrow><mrow><mi>l</mi></mrow></msub> <mo class="MathClass-bin" stretchy="false">−</mo> <mi>r</mi><mi>ϕ</mi><mi class="loglike">cos</mi><mo>⁡</mo><mi>γ</mi> <mo class="MathClass-rel" stretchy="false">=</mo> <mn>0</mn>
+</math></td><td class="eq-no">(2.19)</td></tr></table>
+<p class="noindent"></p>
+<p class="noindent">Orthogonal to this direction the motion is not constrained because of the free rotation
+<math display="inline"><msub><mrow><mover accent="true"><mrow><mi>φ</mi></mrow><mo accent="true">˙</mo></mover></mrow><mrow><mi>s</mi><mi>w</mi></mrow></msub></math> of the
+small rollers. </p><table class="equation"><tr><td>
+<math class="equation" display="block">
+<mstyle class="label" id="x7-35002r20"></mstyle>
+<mrow><mo fence="true" form="prefix">[</mo><mrow><mi class="loglike">cos</mi><mo>⁡</mo><mo class="MathClass-open" stretchy="false">(</mo><mi>α</mi> <mo class="MathClass-bin" stretchy="false">+</mo> <mi>β</mi> <mo class="MathClass-bin" stretchy="false">+</mo> <mi>γ</mi><mo class="MathClass-close" stretchy="false">)</mo><mo> <mi class="loglike">sin</mi><mo>⁡</mo></mo><mo class="MathClass-open" stretchy="false">(</mo><mi>α</mi> <mo class="MathClass-bin" stretchy="false">+</mo> <mi>β</mi> <mo class="MathClass-bin" stretchy="false">+</mo> <mi>γ</mi><mo class="MathClass-close" stretchy="false">)</mo><mo> <mi class="loglike">sin</mi><mo>⁡</mo></mo><mo class="MathClass-open" stretchy="false">(</mo><mi>β</mi> <mo class="MathClass-bin" stretchy="false">+</mo> <mi>γ</mi><mo class="MathClass-close" stretchy="false">)</mo>
+</mrow><mo fence="true" form="postfix">]</mo></mrow> <mi>R</mi><mo class="MathClass-open" stretchy="false">(</mo><mi>𝜃</mi><mo class="MathClass-close" stretchy="false">)</mo><msub><mrow><mi>ξ</mi></mrow><mrow><mi>I</mi></mrow></msub> <mo class="MathClass-bin" stretchy="false">−</mo> <mi>r</mi><mi>ϕ</mi><mi class="loglike">sin</mi><mo>⁡</mo><mi>γ</mi> <mo class="MathClass-bin" stretchy="false">−</mo> <msub><mrow><mi>r</mi></mrow><mrow><mi>s</mi><mi>w</mi></mrow></msub><msub><mrow><mi>ϕ</mi></mrow><mrow><mi>s</mi><mi>w</mi></mrow></msub> <mo class="MathClass-rel" stretchy="false">=</mo> <mn>0</mn>
+</math></td><td class="eq-no">(2.20)</td></tr></table>
+<p class="noindent"></p>
+<p class="noindent">The behavior of this constraint and thereby the Swedish wheel changes dramatically as the value
+<math display="inline"><mi>γ</mi></math> varies.
+Consider <math display="inline"><mi>γ</mi> <mo class="MathClass-rel" stretchy="false">=</mo> <mn>0</mn></math>. This
+represents the swedish 90-degree wheel. In this case, the zero component of velocity is in line with the wheel
+plane and so equation (3.19) reduces exactly to equation (3.12), the fixed standard wheel rolling constraint.
+But because of the rollers, there is no sliding constraint orthogonal to the wheel plane [see equation
+<math display="inline"><mo class="MathClass-open" stretchy="false">(</mo><mn>3</mn><mo class="MathClass-punc" stretchy="false">.</mo><mn>2</mn><mn>0</mn><mo class="MathClass-close" stretchy="false">)</mo></math>]. By varying
+the value of <math display="inline"><mover accent="true"><mrow><mi>φ</mi></mrow><mo accent="true">˙</mo></mover></math>,
+any desired motion vector can be made to satisfy equa- tion
+<math display="inline"><mo class="MathClass-open" stretchy="false">(</mo><mn>3</mn><mo class="MathClass-punc" stretchy="false">.</mo><mn>1</mn><mn>9</mn><mo class="MathClass-close" stretchy="false">)</mo></math> and
+therefore the wheel is omnidirectional. In fact, this special case of the Swed- ish design results in fully
+decoupled motion, in that the rollers and the main wheel provide orthogonal directions of
+motion.
+</p><p class="noindent">At the other extreme, consider <math display="inline"><mi>γ</mi> <mo class="MathClass-rel" stretchy="false">=</mo> <mi>π</mi><mo class="MathClass-bin" stretchy="false">/</mo><mn>2</mn></math>.
+In this case, the rollers have axes of rotation that are parallel to the main wheel axis of rotation. Interestingly, if this
+value is substituted for <math display="inline"><mi>γ</mi></math>
+in equation (3.19) the result is the fixed standard wheel sliding constraint, equation (3.13).
+In other words, the rollers provide no benefit in terms of lateral freedom of motion since
+they are simply aligned with the main wheel. However, in this case the main wheel never
+needs to spin and therefore the rolling constraint disappears. This is a degenerate form
+of the Swedish wheel and therefore we assume in the remainder of this chapter that
+<math display="inline"><mi>γ</mi> <mi>≠</mi> <mi>π</mi><mo class="MathClass-bin" stretchy="false">/</mo><mn>2</mn></math>.
+</p>
+<p class="noindent"><h5 class="subsubsectionHead" id="header-subsubsection-14"> <a id="x7-36000"></a>Spherical wheel</h5>
+</p><p class="noindent">The final wheel type, a ball or spherical wheel, places no direct constraints on motion (fig- ure 3.9).
+Such a mechanism has no principal axis of rotation, and therefore no appropriate rolling or sliding
+constraints exist. As with castor wheels and Swedish wheels, the spherical wheel is clearly
+omnidirectional and places no constraints on the robot chassis kinematics. Therefore equation
+<math display="inline"><mo class="MathClass-open" stretchy="false">(</mo><mn>3</mn><mo class="MathClass-punc" stretchy="false">.</mo><mn>2</mn><mn>1</mn><mo class="MathClass-close" stretchy="false">)</mo></math>
+simply describes the roll rate of the ball in the direction of motion
+<math display="inline"><msub><mrow><mi>v</mi></mrow><mrow><mi>A</mi></mrow></msub></math> of
+point A of the robot. </p><table class="equation"><tr><td>
+<math class="equation" display="block">
+<mstyle class="label" id="x7-36001r21"></mstyle>
+<mrow><mo fence="true" form="prefix">[</mo><mrow><mi class="loglike">sin</mi><mo>⁡</mo><mo class="MathClass-open" stretchy="false">(</mo><mi>α</mi> <mo class="MathClass-bin" stretchy="false">+</mo> <mi>β</mi><mo class="MathClass-close" stretchy="false">)</mo> <mo class="MathClass-bin" stretchy="false">−</mo><mo> <mi class="loglike">cos</mi><mo>⁡</mo></mo><mo class="MathClass-open" stretchy="false">(</mo><mi>α</mi> <mo class="MathClass-bin" stretchy="false">+</mo> <mi>β</mi><mo class="MathClass-close" stretchy="false">)</mo><mo class="MathClass-open" stretchy="false">(</mo><mo class="MathClass-bin" stretchy="false">−</mo><mi>l</mi><mo class="MathClass-close" stretchy="false">)</mo><mo> <mi class="loglike">cos</mi><mo>⁡</mo></mo><mi>β</mi>
+</mrow><mo fence="true" form="postfix">]</mo></mrow><mi>R</mi><mo class="MathClass-open" stretchy="false">(</mo><mi>𝜃</mi><mo class="MathClass-close" stretchy="false">)</mo><msub><mrow><mi>ξ</mi></mrow><mrow><mi>l</mi></mrow></msub> <mo class="MathClass-bin" stretchy="false">−</mo> <mi>r</mi><mi>ϕ</mi> <mo class="MathClass-rel" stretchy="false">=</mo> <mn>0</mn>
+</math></td><td class="eq-no">(2.21)</td></tr></table>
+<p class="noindent"></p>
+<p class="noindent">By definition the wheel rotation orthogonal to this direction is zero. </p><table class="equation"><tr><td>
+<math class="equation" display="block">
+<mstyle class="label" id="x7-36002r22"></mstyle>
+<mrow><mo fence="true" form="prefix">[</mo><mrow><mi class="loglike">cos</mi><mo>⁡</mo><mo class="MathClass-open" stretchy="false">(</mo><mi>α</mi> <mo class="MathClass-bin" stretchy="false">+</mo> <mi>β</mi><mo class="MathClass-close" stretchy="false">)</mo><mo> <mi class="loglike">sin</mi><mo>⁡</mo></mo><mo class="MathClass-open" stretchy="false">(</mo><mi>α</mi> <mo class="MathClass-bin" stretchy="false">+</mo> <mi>β</mi><mo class="MathClass-close" stretchy="false">)</mo><mi>l</mi><mo><mi class="loglike">sin</mi><mo>⁡</mo></mo><mi>β</mi>
+</mrow><mo fence="true" form="postfix">]</mo></mrow><mi>R</mi><mo class="MathClass-open" stretchy="false">(</mo><mi>𝜃</mi><mo class="MathClass-close" stretchy="false">)</mo><msub><mrow><mi>ξ</mi></mrow><mrow><mi>l</mi></mrow></msub> <mo class="MathClass-rel" stretchy="false">=</mo> <mn>0</mn>
+</math></td><td class="eq-no">(2.22)</td></tr></table>
+<p class="noindent"></p>
+<p class="noindent">As can be seen, the equations for the spherical wheel are exactly the same as for the fixed standard
+wheel. However, the interpretation of equation (3.22) is different. The omnidirec- tional spherical
+wheel can have any arbitrary direction of movement, where the motion direction given by
+<math display="inline"><mi>β</mi></math> is a free
+variable deduced from equation (3.22). Consider the case that the robot is in pure translation in the direction of
+<math display="inline"><msub><mrow><mi>Y</mi> </mrow><mrow><mi>R</mi></mrow></msub></math>. Then equation
+(3.22) reduces to <math display="inline"><mi>s</mi><mi>i</mi><mi>n</mi><mo class="MathClass-open" stretchy="false">(</mo><mi>α</mi> <mo class="MathClass-bin" stretchy="false">+</mo> <mi>β</mi><mo class="MathClass-close" stretchy="false">)</mo> <mo class="MathClass-rel" stretchy="false">=</mo> <mn>0</mn></math>,
+thus <math display="inline"><mi>β</mi> <mo class="MathClass-rel" stretchy="false">=</mo> <mo class="MathClass-bin" stretchy="false">−</mo><mi>α</mi></math>,
+which makes sense for this special case.
+</p>
+<p class="noindent"><div class="subsection-header"> <h4 id="header-subsection-2.1.4"> <a class="pdf-icon" href="AutonomousMobileRoboticsLectureBook.pdf#subsection.2.1.4"><svg class="bi bi-file-pdf" fill="currentColor" height="20" viewbox="0 0 16 16" width="20" xmlns="http://www.w3.org/2000/svg"><path d="M4 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H4zm0 1h8a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1z"></path><path d="M4.603 12.087a.81.81 0 0 1-.438-.42c-.195-.388-.13-.776.08-1.102.198-.307.526-.568.897-.787a7.68 7.68 0 0 1 1.482-.645 19.701 19.701 0 0 0 1.062-2.227 7.269 7.269 0 0 1-.43-1.295c-.086-.4-.119-.796-.046-1.136.075-.354.274-.672.65-.823.192-.077.4-.12.602-.077a.7.7 0 0 1 .477.365c.088.164.12.356.127.538.007.187-.012.395-.047.614-.084.51-.27 1.134-.52 1.794a10.954 10.954 0 0 0 .98 1.686 5.753 5.753 0 0 1 1.334.05c.364.065.734.195.96.465.12.144.193.32.2.518.007.192-.047.382-.138.563a1.04 1.04 0 0 1-.354.416.856.856 0 0 1-.51.138c-.331-.014-.654-.196-.933-.417a5.716 5.716 0 0 1-.911-.95 11.642 11.642 0 0 0-1.997.406 11.311 11.311 0 0 1-1.021 1.51c-.29.35-.608.655-.926.787a.793.793 0 0 1-.58.029zm1.379-1.901c-.166.076-.32.156-.459.238-.328.194-.541.383-.647.547-.094.145-.096.25-.04.361.01.022.02.036.026.044a.27.27 0 0 0 .035-.012c.137-.056.355-.235.635-.572a8.18 8.18 0 0 0 .45-.606zm1.64-1.33a12.647 12.647 0 0 1 1.01-.193 11.666 11.666 0 0 1-.51-.858 20.741 20.741 0 0 1-.5 1.05zm2.446.45c.15.162.296.3.435.41.24.19.407.253.498.256a.107.107 0 0 0 .07-.015.307.307 0 0 0 .094-.125.436.436 0 0 0 .059-.2.095.095 0 0 0-.026-.063c-.052-.062-.2-.152-.518-.209a3.881 3.881 0 0 0-.612-.053zM8.078 5.8a6.7 6.7 0 0 0 .2-.828c.031-.188.043-.343.038-.465a.613.613 0 0 0-.032-.198.517.517 0 0 0-.145.04c-.087.035-.158.106-.196.283-.04.192-.03.469.046.822.024.111.054.227.09.346z"></path></svg></a><span class="number">2.1.4</span> <span class="title"> <a id="x7-370002.1.4"></a>Robot kinematic constraints</span></h4></div>
+</p><p class="noindent">Given an <span class="acronym"><span class="acronym-short"><a class="glossary" href="#glo:amr">AMR</a></span><span class="acronym-detail"><span class="acronym-long"><a class="glossary" href="#glo:amr">Autonomous Mobile Robotics</a></span><span class="acronym-desc"><a class="glossary" href="#glo:amr">Self-navigating machines moving materials
+and goods independently without fixed tracks or wires. They use smart software, cameras,
+and sensors to map spaces and safely steer around people or obstacles in real time.</a></span></span></span> with
+<math display="inline"><mi>M</mi></math>
+number of wheels, we can now calculate the <span class="alert">kinematic constraints</span> of the robot chassis. The fundamental idea is that each
+wheel imposes either zero (<span class="alert">0</span>) or more constraints on robot motion, and therefore the process is simply
+one of appropriately <i>combining all of the kinematic constraints</i> arising from all of the wheels based on
+the placement of those wheels on the robot chassis.
+We have categorized all wheels into five (<span class="alert">5</span>) categories:
+</p>
+<dl class="enumerate-enumitem"><dt class="enumerate-enumitem">
+i. 
+</dt><dd class="enumerate-enumitem">Fixed standard wheels,
+</dd>
+<dt class="enumerate-enumitem">
+ii. 
+</dt><dd class="enumerate-enumitem">Steerable standard wheels,
+</dd>
+<dt class="enumerate-enumitem">
+iii. 
+</dt><dd class="enumerate-enumitem">Castor wheels,
+</dd>
+<dt class="enumerate-enumitem">
+iv. 
+</dt><dd class="enumerate-enumitem">Swedish wheels, and
+</dd>
+<dt class="enumerate-enumitem">
+v. 
+</dt><dd class="enumerate-enumitem">spherical wheels.</dd></dl>
+<div class="info-block" id="info-block-2.3"> <a class="copiable-link" href="#info-block-2.3"> ¶</a> <span class="info-upper"> <span class="info-header"> <b>Information 2.<a id="x7-37006r3"></a>3: </b> </span> <span class="info-title"> No Kinematic Constraints </span> </span> <div class="body">
+<p class="noindent">From the wheel kinematic constraints in <span> Eq. (<a href="#x7-34001r17">2.17</a>)</span> , <span> Eq. (<a href="#x7-34002r18">2.18</a>)</span> , and <span> Eq. (<a href="#x7-35001r19">2.19</a>)</span>  that the castor
+wheel, Swedish wheel, and spherical wheel impose no kinematic constraints on the robot chassis, since
+<math display="inline"><msub><mrow><mover accent="true"><mrow><mi>ξ</mi></mrow><mo accent="true">˙</mo></mover></mrow><mrow><mi>l</mi></mrow></msub></math> can
+range freely in all of these cases owing to the internal wheel degrees of freedom.
+</p>
+</div></div>
+<p class="noindent">Therefore only <b>fixed standard wheels</b> and <b>steerable standard wheels</b> have impact on
+robot chassis kinematics and require consideration when calculating the robot’s kinematic
+constraints.
+</p><p class="noindent">Suppose the robot has a total of <math display="inline"><mi>N</mi></math>
+standard wheels, comprising
+</p>
+<div class="quote"> <math display="inline"><msub><mrow><mi>N</mi></mrow><mrow><mi>f</mi></mrow></msub></math> fixed standard
+wheels, and <math display="inline"><msub><mrow><mi>N</mi></mrow><mrow><mi>s</mi></mrow></msub></math>
+steerable standard wheels. </div>
+<p class="noindent">We use <math display="inline"><msub><mrow><mi>β</mi></mrow><mrow><mi>s</mi></mrow></msub><mo class="MathClass-open" stretchy="false">(</mo><mi>t</mi><mo class="MathClass-close" stretchy="false">)</mo></math> to denote the variable
+steering angles of the <math display="inline"><msub><mrow><mi>N</mi></mrow><mrow><mi>s</mi></mrow></msub></math> steerable
+standard wheels. In contrast, <math display="inline"><msub><mrow><mi>β</mi></mrow><mrow><mi>f</mi></mrow></msub></math>
+refers to the orientation of the <math display="inline"><msub><mrow><mi>N</mi></mrow><mrow><mi>f</mi></mrow></msub></math>
+fixed standard wheels as depicted in figure 3.4.
+</p><p class="noindent">In the case of wheel spin, both the fixed and steerable wheels have rotational positions around the
+horizontal axle which vary as a function of time. We denote the fixed and steerable cases separately as
+<math display="inline"><msub><mrow><mi>φ</mi></mrow><mrow><mi>f</mi></mrow></msub><mo class="MathClass-open" stretchy="false">(</mo><mi>t</mi><mo class="MathClass-close" stretchy="false">)</mo></math> and
+<math display="inline"><msub><mrow><mi>φ</mi></mrow><mrow><mi>s</mi></mrow></msub><mo class="MathClass-open" stretchy="false">(</mo><mi>t</mi><mo class="MathClass-close" stretchy="false">)</mo></math>, and
+use <math display="inline"><mi>φ</mi><mo class="MathClass-open" stretchy="false">(</mo><mi>t</mi><mo class="MathClass-close" stretchy="false">)</mo></math> as
+an <b>aggregate</b> matrix that combines both values: </p><table class="equation"><tr><td>
+<math class="equation" display="block">
+<mstyle class="label" id="x7-37007r23"></mstyle><mi>φ</mi><mo class="MathClass-open" stretchy="false">(</mo><mi>t</mi><mo class="MathClass-close" stretchy="false">)</mo> <mo class="MathClass-rel" stretchy="false">=</mo> <mrow><mo fence="true" form="prefix">[</mo><mrow><mtable align="axis" class="array" columnlines="none none none none none none none none none" displaystyle="true" equalcolumns="false" equalrows="false" style=""> <mtr class="array-row"><mtd class="array-td" columnalign="center"> <msub><mrow><mi>φ</mi></mrow><mrow><mi>f</mi></mrow></msub><mo class="MathClass-open" stretchy="false">(</mo><mi>t</mi><mo class="MathClass-close" stretchy="false">)</mo> </mtd>
+</mtr> <mtr class="array-row"><mtd class="array-td" columnalign="center"> <msub><mrow><mi>φ</mi></mrow><mrow><mi>s</mi></mrow></msub><mo class="MathClass-open" stretchy="false">(</mo><mi>t</mi><mo class="MathClass-close" stretchy="false">)</mo> </mtd></mtr></mtable> </mrow><mo fence="true" form="postfix">]</mo></mrow> <mspace class="qquad" width="2em"></mspace><mstyle class="text"><mtext>with rolling constraints of all wheels</mtext></mstyle><mspace class="qquad" width="2em"></mspace><msub><mrow><mi>J</mi></mrow><mrow><mn>1</mn></mrow></msub><mo class="MathClass-open" stretchy="false">(</mo><msub><mrow><mi>β</mi></mrow><mrow><mi>s</mi></mrow></msub><mo class="MathClass-close" stretchy="false">)</mo><mi>R</mi><mo class="MathClass-open" stretchy="false">(</mo><mi>𝜃</mi><mo class="MathClass-close" stretchy="false">)</mo><msub><mrow><mover accent="true"><mrow><mi>ξ</mi></mrow><mo accent="true">˙</mo></mover></mrow><mrow><mi>I</mi></mrow></msub><mo class="MathClass-bin" stretchy="false">−</mo><msub><mrow><mi>J</mi></mrow><mrow><mn>2</mn></mrow></msub><mover accent="true"><mrow><mi>ϕ</mi></mrow><mo accent="true">˙</mo></mover> <mo class="MathClass-rel" stretchy="false">=</mo> <mn>0</mn>
+</math></td><td class="eq-no">(2.23)</td></tr></table>
+<p class="noindent"></p>
+<p class="noindent">This expression bears a strong resemblance to the rolling constraint of a single wheel, but
+substitutes matrices in lieu of single values, therefore taking into account all wheels.
+<math display="inline"><msub><mrow><mi>J</mi></mrow><mrow><mn>2</mn></mrow></msub></math> is a constant diagonal
+<math display="inline"><mi>N</mi> <mi>×</mi> <mi>N</mi></math> matrix whose
+entries are radii <math display="inline"><mi>r</mi></math> of
+all standard wheels. <math display="inline"><msub><mrow><mi>J</mi></mrow><mrow><mn>1</mn></mrow></msub><mo class="MathClass-open" stretchy="false">(</mo><msub><mrow><mi>β</mi></mrow><mrow><mi>s</mi></mrow></msub><mo class="MathClass-close" stretchy="false">)</mo></math>
+denotes a matrix with projections for all wheels to their motions along their individual wheel planes:
+</p><table class="equation"><tr><td>
+<math class="equation" display="block">
+<mstyle class="label" id="x7-37008r24"></mstyle><msub><mrow><mi>J</mi></mrow><mrow><mn>1</mn></mrow></msub><mo class="MathClass-open" stretchy="false">(</mo><msub><mrow><mi>β</mi></mrow><mrow><mi>s</mi></mrow></msub><mo class="MathClass-close" stretchy="false">)</mo> <mo class="MathClass-rel" stretchy="false">=</mo> <mrow><mo fence="true" form="prefix">[</mo><mrow><mtable align="axis" class="array" columnlines="none none none none none none none none none" displaystyle="true" equalcolumns="false" equalrows="false" style=""> <mtr class="array-row"><mtd class="array-td" columnalign="center"> <msub><mrow><mi>J</mi></mrow><mrow><mn>1</mn><mi>f</mi></mrow></msub> </mtd>
+</mtr> <mtr class="array-row"><mtd class="array-td" columnalign="center"> <msub><mrow><mi>J</mi></mrow><mrow>
+<mn>1</mn><mi>s</mi></mrow></msub><mo class="MathClass-open" stretchy="false">(</mo><msub><mrow><mi>β</mi></mrow><mrow><mi>s</mi></mrow></msub><mo class="MathClass-close" stretchy="false">)</mo> </mtd>
+</mtr>
+</mtable> </mrow><mo fence="true" form="postfix">]</mo></mrow>
+</math></td><td class="eq-no">(2.24)</td></tr></table>
+<p class="noindent"></p>
+<div class="warning"><div class="warning-upper">Warning</div><div class="body">
+<p class="noindent">Here, <math display="inline"><msub><mrow><mi>J</mi></mrow><mrow><mn>1</mn></mrow></msub><mo class="MathClass-open" stretchy="false">(</mo><msub><mrow><mi>β</mi></mrow><mrow><mi>s</mi></mrow></msub><mo class="MathClass-close" stretchy="false">)</mo></math> is only
+a function of <math display="inline"><msub><mrow><mi>β</mi></mrow><mrow><mi>s</mi></mrow></msub></math>
+and <b>NOT</b> <math display="inline"><msub><mrow><mi>β</mi></mrow><mrow><mi>f</mi></mrow></msub></math>.
+</p></div></div>
+<p class="noindent">This is because the orientations of steerable standard wheels vary as a <i>function of time</i>, whereas the
+orientations of fixed standard wheels are constant.
+</p><p class="noindent"><math display="inline"><msub><mrow><mi>J</mi></mrow><mrow><mn>1</mn><mi>f</mi></mrow></msub></math> is
+therefore a constant matrix of projections for all fixed standard wheels and has size
+(<math display="inline"><msub><mrow><mi>N</mi></mrow><mrow><mi>f</mi></mrow></msub> <mi>×</mi> <mn>3</mn></math>),
+where each row consisting of the three terms in the three-matrix from Eq. (<a href="#x7-32001r12">2.12</a>) for each fixed standard
+wheel.
+</p><p class="noindent"><math display="inline"><msub><mrow><mi>J</mi></mrow><mrow><mn>1</mn><mi>s</mi></mrow></msub><mo class="MathClass-open" stretchy="false">(</mo><msub><mrow><mi>β</mi></mrow><mrow><mi>s</mi></mrow></msub><mo class="MathClass-close" stretchy="false">)</mo></math> is a matrix
+of size <math display="inline"><mo class="MathClass-open" stretchy="false">(</mo><msub><mrow><mi>N</mi></mrow><mrow><mi>s</mi></mrow></msub> <mi>×</mi> <mn>3</mn><mo class="MathClass-close" stretchy="false">)</mo></math>,
+with each row consisting of the three terms in the three-matrix from Eq. (<a href="#x7-33001r15">2.15</a>) for each steerable
+standard wheel.
+</p><p class="noindent">In summary, Eq. (<a href="#x7-37007r23">2.23</a>) represents the constraint that all standard wheels must spin around their
+horizontal axis an appropriate amount based on their motions along the wheel plane so that rolling
+occurs at the ground contact point.
+</p><p class="noindent">We use the same technique to collect the sliding constraints of all standard wheels into a single
+expression with the same structure as Eq. (<a href="#x7-32002r13">2.13</a>) and Eq. (<a href="#x7-33002r16">2.16</a>): </p><table class="equation"><tr><td>
+<math class="equation" display="block">
+<mstyle class="label" id="x7-37009r25"></mstyle><msub><mrow><mi>C</mi></mrow><mrow><mn>1</mn></mrow></msub><mo class="MathClass-open" stretchy="false">(</mo><msub><mrow><mi>β</mi></mrow><mrow><mi>s</mi></mrow></msub><mo class="MathClass-close" stretchy="false">)</mo><mi>R</mi><mo class="MathClass-open" stretchy="false">(</mo><mi>𝜃</mi><mo class="MathClass-close" stretchy="false">)</mo><msub><mrow><mover accent="true"><mrow><mi>ξ</mi></mrow><mo accent="true">˙</mo></mover></mrow><mrow><mi>I</mi></mrow></msub> <mo class="MathClass-rel" stretchy="false">=</mo> <mn>0</mn><mspace class="qquad" width="2em"></mspace><mstyle class="text"><mtext>and</mtext></mstyle><mspace class="qquad" width="2em"></mspace><msub><mrow><mi>C</mi></mrow><mrow><mn>1</mn></mrow></msub><mo class="MathClass-open" stretchy="false">(</mo><msub><mrow><mi>β</mi></mrow><mrow><mi>s</mi></mrow></msub><mo class="MathClass-close" stretchy="false">)</mo> <mo class="MathClass-rel" stretchy="false">=</mo> <mrow><mo fence="true" form="prefix">[</mo><mrow><mtable align="axis" class="array" columnlines="none none none none none none none none none" displaystyle="true" equalcolumns="false" equalrows="false" style=""> <mtr class="array-row"><mtd class="array-td" columnalign="center"> <msub><mrow><mi>C</mi></mrow><mrow><mn>1</mn><mi>f</mi></mrow></msub> </mtd>
+</mtr> <mtr class="array-row"><mtd class="array-td" columnalign="center"> <msub><mrow><mi>C</mi></mrow><mrow>
+<mn>1</mn><mi>s</mi></mrow></msub><mo class="MathClass-open" stretchy="false">(</mo><msub><mrow><mi>β</mi></mrow><mrow><mi>s</mi></mrow></msub><mo class="MathClass-close" stretchy="false">)</mo> </mtd>
+</mtr>
+</mtable> </mrow><mo fence="true" form="postfix">]</mo></mrow>
+</math></td><td class="eq-no">(2.25)</td></tr></table>
+<p class="noindent"></p>
+<p class="noindent">where <math display="inline"><msub><mrow><mi>C</mi></mrow><mrow><mn>1</mn><mi>f</mi></mrow></msub></math>
+and <math display="inline"><msub><mrow><mi>C</mi></mrow><mrow><mn>1</mn><mi>s</mi></mrow></msub></math> are
+<math display="inline"><mo class="MathClass-open" stretchy="false">(</mo><msub><mrow><mi>N</mi></mrow><mrow><mi>f</mi></mrow></msub> <mi>×</mi> <mn>3</mn><mo class="MathClass-close" stretchy="false">)</mo></math> and
+<math display="inline"><mo class="MathClass-open" stretchy="false">(</mo><msub><mrow><mi>N</mi></mrow><mrow><mi>s</mi></mrow></msub> <mi>×</mi> <mn>3</mn><mo class="MathClass-close" stretchy="false">)</mo></math>
+matrices whose rows are the three terms in the three-matrix of Eq. (<a href="#x7-32002r13">2.13</a>) and Eq. (<a href="#x7-33002r16">2.16</a>)
+for all fixed and steerable standard wheels. Therefore Eq. (<a href="#x7-37009r25">2.25</a>) is a constraint over all
+standard wheels that their components of motion orthogonal to their wheel planes must be
+zero.
+</p>
+<div class="knowledge"><div class="knowledge-upper">Knowledge</div><div class="body">
+<p class="noindent">This sliding constraint over all standard wheels has the <span class="alert">most significant impact</span> on defining the overall maneuverability of the
+robot chassis. </p></div></div>
+<p class="noindent"><div class="subsection-header"> <h4 id="header-subsection-2.1.5"> <a class="pdf-icon" href="AutonomousMobileRoboticsLectureBook.pdf#subsection.2.1.5"><svg class="bi bi-file-pdf" fill="currentColor" height="20" viewbox="0 0 16 16" width="20" xmlns="http://www.w3.org/2000/svg"><path d="M4 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H4zm0 1h8a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1z"></path><path d="M4.603 12.087a.81.81 0 0 1-.438-.42c-.195-.388-.13-.776.08-1.102.198-.307.526-.568.897-.787a7.68 7.68 0 0 1 1.482-.645 19.701 19.701 0 0 0 1.062-2.227 7.269 7.269 0 0 1-.43-1.295c-.086-.4-.119-.796-.046-1.136.075-.354.274-.672.65-.823.192-.077.4-.12.602-.077a.7.7 0 0 1 .477.365c.088.164.12.356.127.538.007.187-.012.395-.047.614-.084.51-.27 1.134-.52 1.794a10.954 10.954 0 0 0 .98 1.686 5.753 5.753 0 0 1 1.334.05c.364.065.734.195.96.465.12.144.193.32.2.518.007.192-.047.382-.138.563a1.04 1.04 0 0 1-.354.416.856.856 0 0 1-.51.138c-.331-.014-.654-.196-.933-.417a5.716 5.716 0 0 1-.911-.95 11.642 11.642 0 0 0-1.997.406 11.311 11.311 0 0 1-1.021 1.51c-.29.35-.608.655-.926.787a.793.793 0 0 1-.58.029zm1.379-1.901c-.166.076-.32.156-.459.238-.328.194-.541.383-.647.547-.094.145-.096.25-.04.361.01.022.02.036.026.044a.27.27 0 0 0 .035-.012c.137-.056.355-.235.635-.572a8.18 8.18 0 0 0 .45-.606zm1.64-1.33a12.647 12.647 0 0 1 1.01-.193 11.666 11.666 0 0 1-.51-.858 20.741 20.741 0 0 1-.5 1.05zm2.446.45c.15.162.296.3.435.41.24.19.407.253.498.256a.107.107 0 0 0 .07-.015.307.307 0 0 0 .094-.125.436.436 0 0 0 .059-.2.095.095 0 0 0-.026-.063c-.052-.062-.2-.152-.518-.209a3.881 3.881 0 0 0-.612-.053zM8.078 5.8a6.7 6.7 0 0 0 .2-.828c.031-.188.043-.343.038-.465a.613.613 0 0 0-.032-.198.517.517 0 0 0-.145.04c-.087.035-.158.106-.196.283-.04.192-.03.469.046.822.024.111.054.227.09.346z"></path></svg></a><span class="number">2.1.5</span> <span class="title"> <a id="x7-380002.1.5"></a>Examples: robot kinematic models and constraints</span></h4></div>
+</p><p class="noindent">In section 3.2.2 we’ve presented a forward kinematic solution for
+<math display="inline"><msub><mrow><mover accent="true"><mrow><mi>ξ</mi></mrow><mo accent="true">˙</mo></mover></mrow><mrow><mi>I</mi></mrow></msub></math> in the
+case of a simple differential-drive robot by combining each wheel’s contribution to robot
+motion.
+</p><p class="noindent">We can now use the tools presented above to construct the same kinematic expression by direct
+application of the rolling constraints for every wheel type. We proceed with this technique applied
+again to the differential drive robot, enabling verification of the method as compared to the
+results of section 3.2.2. Then we proceed to the case of the three-wheeled omni-directional
+robot.
+</p>
+<p class="noindent"><h5 class="subsubsectionHead" id="header-subsubsection-15"> <a id="x7-39000"></a>A differential-drive robot example</h5>
+</p><p class="noindent">First, we look bat at Eq. (<a href="#x7-37007r23">2.23</a>) and Eq. (<a href="#x7-37009r25">2.25</a>). These equations relate robot motion to the rolling and sliding
+constraints <math display="inline"><msub><mrow><mi>J</mi></mrow><mrow><mn>1</mn></mrow></msub><mo class="MathClass-open" stretchy="false">(</mo><mi>β</mi><mo class="MathClass-close" stretchy="false">)</mo></math> and
+<math display="inline"><msub><mrow><mi>C</mi></mrow><mrow><mn>1</mn></mrow></msub><mo class="MathClass-open" stretchy="false">(</mo><mi>β</mi><mo class="MathClass-close" stretchy="false">)</mo></math>, and the wheel spin speed
+of the robot’s wheels, <math display="inline"><mover accent="true"><mrow><mi>φ</mi></mrow><mo accent="true">˙</mo></mover></math>.
+</p><p class="noindent">Combining these two equations gives the following expression: </p><table class="equation"><tr><td>
+<math class="equation" display="block">
+<mstyle class="label" id="x7-39001r26"></mstyle>
+<mrow><mo fence="true" form="prefix">[</mo><mrow><mtable align="axis" class="array" columnlines="none none none none none none none none none" displaystyle="true" equalcolumns="false" equalrows="false" style=""><mtr class="array-row"><mtd class="array-td" columnalign="center"> <msub><mrow><mi>J</mi></mrow><mrow><mn>1</mn></mrow></msub><mo class="MathClass-open" stretchy="false">(</mo><msub><mrow><mi>β</mi></mrow><mrow><mi>s</mi></mrow></msub><mo class="MathClass-close" stretchy="false">)</mo> </mtd>
+</mtr> <mtr class="array-row"><mtd class="array-td" columnalign="center"> <msub><mrow><mi>C</mi></mrow><mrow><mn>1</mn></mrow></msub><mo class="MathClass-open" stretchy="false">(</mo><msub><mrow><mi>β</mi></mrow><mrow><mi>s</mi></mrow></msub><mo class="MathClass-close" stretchy="false">)</mo> </mtd></mtr></mtable>
+</mrow><mo fence="true" form="postfix">]</mo></mrow> <mi>R</mi><mo class="MathClass-open" stretchy="false">(</mo><mi>𝜃</mi><mo class="MathClass-close" stretchy="false">)</mo><msub><mrow><mover accent="true"><mrow><mi>ξ</mi></mrow><mo accent="true">˙</mo></mover></mrow><mrow><mi>I</mi></mrow></msub> <mo class="MathClass-rel" stretchy="false">=</mo> <mrow><mo fence="true" form="prefix">[</mo><mrow><mtable align="axis" class="array" columnlines="none none none none none none none none none" displaystyle="true" equalcolumns="false" equalrows="false" style=""> <mtr class="array-row"><mtd class="array-td" columnalign="center"> <msub><mrow><mi>J</mi></mrow><mrow><mn>2</mn></mrow></msub><mi>φ</mi> </mtd></mtr> <mtr class="array-row"><mtd class="array-td" columnalign="center"> <mn>0</mn></mtd></mtr></mtable> </mrow><mo fence="true" form="postfix">]</mo></mrow>
+</math></td><td class="eq-no">(2.26)</td></tr></table>
+<p class="noindent"></p>
+<p class="noindent">Once again, consider the differential drive robot in figure 3.3.
+</p><p class="noindent">We will construct <math display="inline"><msub><mrow><mi>J</mi></mrow><mrow><mn>1</mn></mrow></msub><mo class="MathClass-open" stretchy="false">(</mo><msub><mrow><mi>β</mi></mrow><mrow><mn>0</mn></mrow></msub><mo class="MathClass-close" stretchy="false">)</mo></math>
+and <math display="inline"><msub><mrow><mi>C</mi></mrow><mrow><mn>1</mn></mrow></msub><mo class="MathClass-open" stretchy="false">(</mo><mi>β</mi><mo class="MathClass-close" stretchy="false">)</mo></math> directly
+from the rolling constraints of each wheel. The castor is unpowered and is free to move in any direction, so
+we ignore this third point of contact altogether. The two remaining drive wheels are not steerable, and
+therefore <math display="inline"><msub><mrow><mi>J</mi></mrow><mrow><mn>1</mn></mrow></msub><mo class="MathClass-open" stretchy="false">(</mo><msub><mrow><mi>β</mi></mrow><mrow><mi>s</mi></mrow></msub><mo class="MathClass-close" stretchy="false">)</mo></math> and
+<math display="inline"><msub><mrow><mi>C</mi></mrow><mrow><mn>1</mn></mrow></msub><mo class="MathClass-open" stretchy="false">(</mo><msub><mrow><mi>β</mi></mrow><mrow><mi>s</mi></mrow></msub><mo class="MathClass-close" stretchy="false">)</mo></math> simplify to
+<math display="inline"><msub><mrow><mi>J</mi></mrow><mrow><mn>1</mn><mi>f</mi></mrow></msub></math> and
+<math display="inline"><msub><mrow><mi>C</mi></mrow><mrow><mn>1</mn><mi>f</mi></mrow></msub></math> respectively. To
+employ the fixed standard wheel’s rolling constraint formula, equation (3.12), we must first identify each wheel’s
+values for <math display="inline"><mi>α</mi></math>
+and <math display="inline"><mi>β</mi></math>.
+Suppose that the robot’s local reference frame is aligned such that the robot moves forward along
+<math display="inline"> <mo class="MathClass-bin" stretchy="false">+</mo> <msub><mrow><mi>X</mi></mrow><mrow><mi>R</mi></mrow></msub></math>, as shown in figure 3.1. In
+this case, for the right wheel <math display="inline"><mi>α</mi> <mo class="MathClass-rel" stretchy="false">=</mo> <mo class="MathClass-bin" stretchy="false">−</mo><mi>π</mi><mo class="MathClass-bin" stretchy="false">/</mo><mn>2</mn></math>,
+<math display="inline"><mi>β</mi> <mo class="MathClass-rel" stretchy="false">=</mo> <mi>π</mi></math>, and for the
+left wheel, <math display="inline"><mi>α</mi> <mo class="MathClass-rel" stretchy="false">=</mo> <mi>π</mi><mo class="MathClass-bin" stretchy="false">/</mo><mn>2</mn></math>,
+<math display="inline"><mi>β</mi> <mo class="MathClass-rel" stretchy="false">=</mo> <mn>0</mn></math>. Note the
+value of <math display="inline"><mi>β</mi></math>
+for the right wheel is necessary to ensure that positive spin causes motion in the
+<math display="inline"> <mo class="MathClass-bin" stretchy="false">+</mo> <msub><mrow><mi>X</mi></mrow><mrow><mi>R</mi></mrow></msub></math> direction (figure 3.4).
+Now we can compute the <math display="inline"><msub><mrow><mi>J</mi></mrow><mrow><mn>1</mn><mi>f</mi></mrow></msub></math>
+and <math display="inline"><msub><mrow><mi>C</mi></mrow><mrow><mn>1</mn><mi>f</mi></mrow></msub></math>
+matrix using the matrix terms from equations (3.12) and (3.13). Because the two fixed standard wheels
+are parallel, equation (3.13) results in only one independent equation, and equation (3.28) gives
+</p><table class="equation"><tr><td>
+<math class="equation" display="block">
+<mstyle class="label" id="x7-39002r27"></mstyle>
+<mrow><mo fence="true" form="prefix">[</mo><mrow><mtable align="axis" class="array" columnlines="none none none none none none none none none" displaystyle="true" equalcolumns="false" equalrows="false" style=""><mtr class="array-row"><mtd class="array-td" columnalign="center"> <mrow><mo fence="true" form="prefix">[</mo><mrow><mtable align="axis" class="array" columnlines="none none none none none none none none none" displaystyle="true" equalcolumns="false" equalrows="false" style=""><mtr class="array-row"><mtd class="array-td" columnalign="center"> <mn>1</mn> </mtd><mtd class="array-td" columnalign="center"> <mn>0</mn> </mtd><mtd class="array-td" columnalign="center"> <mi>l</mi> </mtd></mtr> <mtr class="array-row"><mtd class="array-td" columnalign="center"> <mn>1</mn> </mtd> <mtd class="array-td" columnalign="center"> <mn>0</mn> </mtd> <mtd class="array-td" columnalign="center"> <mo class="MathClass-bin" stretchy="false">−</mo><mi>l</mi></mtd>
+</mtr></mtable> </mrow><mo fence="true" form="postfix">]</mo></mrow> </mtd></mtr> <mtr class="array-row"><mtd class="array-td" columnalign="center"> <mrow><mo fence="true" form="prefix">[</mo><mrow><mtable align="axis" class="array" columnlines="none none none none none none none none none" displaystyle="true" equalcolumns="false" equalrows="false" style=""> <mtr class="array-row"><mtd class="array-td" columnalign="center"> <mn>0</mn> </mtd> <mtd class="array-td" columnalign="center"> <mn>1</mn> </mtd> <mtd class="array-td" columnalign="center"> <mn>0</mn> </mtd></mtr></mtable> </mrow><mo fence="true" form="postfix">]</mo></mrow></mtd></mtr></mtable>
+</mrow><mo fence="true" form="postfix">]</mo></mrow><mi>R</mi><mo class="MathClass-open" stretchy="false">(</mo><mi>𝜃</mi><mo class="MathClass-close" stretchy="false">)</mo><msub><mrow><mover accent="true"><mrow><mi>ξ</mi></mrow><mo accent="true">˙</mo></mover></mrow><mrow><mi>I</mi></mrow></msub> <mo class="MathClass-rel" stretchy="false">=</mo> <mrow><mo fence="true" form="prefix">[</mo><mrow><mtable align="axis" class="array" columnlines="none none none none none none none none none" displaystyle="true" equalcolumns="false" equalrows="false" style=""> <mtr class="array-row"><mtd class="array-td" columnalign="center"> <msub><mrow><mi>J</mi></mrow><mrow><mn>2</mn></mrow></msub><mi>φ</mi> </mtd></mtr> <mtr class="array-row"><mtd class="array-td" columnalign="center"> <mn>0</mn></mtd></mtr></mtable> </mrow><mo fence="true" form="postfix">]</mo></mrow>
+</math></td><td class="eq-no">(2.27)</td></tr></table>
+<p class="noindent"></p>
+<p class="noindent">Inverting Eq. (<a href="#x7-39002r27">2.27</a>) gives the kinematic equation specific to our differential drive robot:
+</p><table class="equation"><tr><td>
+<math class="equation" display="block">
+<mstyle class="label" id="x7-39003r28"></mstyle><msub><mrow><mover accent="true"><mrow><mi>ξ</mi></mrow><mo accent="true">˙</mo></mover>
+</mrow><mrow><mi>I</mi></mrow></msub>
+<mo class="MathClass-rel" stretchy="false">=</mo> <mi>R</mi><msup><mrow><mo class="MathClass-open" stretchy="false">(</mo><mi>𝜃</mi><mo class="MathClass-close" stretchy="false">)</mo></mrow><mrow><mo class="MathClass-bin" stretchy="false">−</mo><mn>1</mn></mrow></msup><msup><mrow> <mrow><mo fence="true" form="prefix">[</mo><mrow><mtable align="axis" class="array" columnlines="none none none none none none none none none" displaystyle="true" equalcolumns="false" equalrows="false" style=""> <mtr class="array-row"><mtd class="array-td" columnalign="center"> <mn>1</mn> </mtd><mtd class="array-td" columnalign="center"> <mn>0</mn> </mtd><mtd class="array-td" columnalign="center"> <mi>l</mi> </mtd></mtr> <mtr class="array-row"><mtd class="array-td" columnalign="center"> <mn>1</mn> </mtd> <mtd class="array-td" columnalign="center"> <mn>0</mn> </mtd> <mtd class="array-td" columnalign="center"> <mo class="MathClass-bin" stretchy="false">−</mo><mi>l</mi></mtd>
+</mtr>
+<mtr class="array-row"><mtd class="array-td" columnalign="center"> <mn>0</mn> </mtd>
+<mtd class="array-td" columnalign="center"> <mn>1</mn> </mtd>
+<mtd class="array-td" columnalign="center"> <mn>0</mn> </mtd>
+</mtr>
+</mtable> </mrow><mo fence="true" form="postfix">]</mo></mrow></mrow><mrow><mo class="MathClass-bin" stretchy="false">−</mo><mn>1</mn></mrow></msup> <mrow><mo fence="true" form="prefix">[</mo><mrow><mtable align="axis" class="array" columnlines="none none none none none none none none none" displaystyle="true" equalcolumns="false" equalrows="false" style=""> <mtr class="array-row"><mtd class="array-td" columnalign="center"> <msub><mrow><mi>J</mi></mrow><mrow><mn>2</mn></mrow></msub><mi>φ</mi> </mtd>
+</mtr> <mtr class="array-row"><mtd class="array-td" columnalign="center"> <mn>0</mn> </mtd></mtr></mtable> </mrow><mo fence="true" form="postfix">]</mo></mrow> <mo class="MathClass-rel" stretchy="false">=</mo> <mi>R</mi><msup><mrow><mo class="MathClass-open" stretchy="false">(</mo><mi>𝜃</mi><mo class="MathClass-close" stretchy="false">)</mo></mrow><mrow><mo class="MathClass-bin" stretchy="false">−</mo><mn>1</mn></mrow></msup> <mrow><mo fence="true" form="prefix">[</mo><mrow><mtable align="axis" class="array" columnlines="none none none none none none none none none" displaystyle="true" equalcolumns="false" equalrows="false" style=""> <mtr class="array-row"><mtd class="array-td" columnalign="center"> <mfrac><mrow><mn>1</mn></mrow>
+<mrow>
+<mn>2</mn></mrow></mfrac> </mtd>
+<mtd class="array-td" columnalign="center"> <mfrac><mrow><mn>1</mn></mrow>
+<mrow>
+<mn>2</mn></mrow></mfrac> </mtd>
+<mtd class="array-td" columnalign="center"> <mn>0</mn> </mtd>
+</mtr><mtr class="array-row"><mtd class="array-td" columnalign="center"> <mn>0</mn> </mtd><mtd class="array-td" columnalign="center"> <mn>0</mn> </mtd><mtd class="array-td" columnalign="center"> <mn>1</mn> </mtd>
+</mtr>
+<mtr class="array-row"><mtd class="array-td" columnalign="center"> <mfrac><mrow><mn>1</mn></mrow>
+<mrow>
+<mn>2</mn><mi>l</mi></mrow></mfrac> </mtd>
+<mtd class="array-td" columnalign="center"> <mo class="MathClass-bin" stretchy="false">−</mo> <mfrac><mrow><mn>1</mn></mrow>
+<mrow>
+<mn>2</mn><mi>l</mi></mrow></mfrac> </mtd>
+<mtd class="array-td" columnalign="center"> <mn>0</mn> </mtd>
+</mtr>
+</mtable> </mrow><mo fence="true" form="postfix">]</mo></mrow> <mrow><mo fence="true" form="prefix">[</mo><mrow><mtable align="axis" class="array" columnlines="none none none none none none none none none" displaystyle="true" equalcolumns="false" equalrows="false" style=""><mtr class="array-row"><mtd class="array-td" columnalign="center"> <msub><mrow><mi>J</mi></mrow><mrow><mn>2</mn></mrow></msub><mi>φ</mi> </mtd></mtr> <mtr class="array-row"><mtd class="array-td" columnalign="center"> <mn>0</mn></mtd></mtr></mtable> </mrow><mo fence="true" form="postfix">]</mo></mrow>
+</math></td><td class="eq-no">(2.28)</td></tr></table>
+<p class="noindent"></p>
+<p class="noindent">This demonstrates that, for the simple differential-drive case, the combination of wheel rolling and
+sliding constraints describes the kinematic behavior, based on our manual cal- culation in section
+3.2.2.
+</p>
+<p class="noindent"><h5 class="subsubsectionHead" id="header-subsubsection-16"> <a id="x7-40000"></a>An omnidirectional robot example</h5>
+</p><p class="noindent">Consider the omniwheel robot shown in figure 3.10. This robot has three Swedish 90- degree wheels,
+arranged radially symmetrically, with the rollers perpendicular to each main wheel.
+</p><p class="noindent">First we must impose a specific local reference frame upon the robot. We do so by choosing point
+<math display="inline"><mi>P</mi></math> at
+the center of the robot, then aligning the robot with the local reference frame such that
+<math display="inline"><msub><mrow><mi>X</mi></mrow><mrow><mi>R</mi></mrow></msub></math> is
+colinear with the axis of wheel 2. Figure 3.11 shows the robot and its local reference frame arranged in
+this manner.
+</p><p class="noindent">We assume that the distance between each wheel and
+<math display="inline"><mi>P</mi></math> is
+<math display="inline"><mi>l</mi></math>,
+and that all three wheels have the same radius, r. Once again, the value of
+<math display="inline"><msub><mrow><mover accent="true"><mrow><mi>ξ</mi></mrow><mo accent="true">˙</mo></mover></mrow><mrow><mi>I</mi></mrow></msub></math> can be
+computed as a combination of the rolling constraints of the robot’s three omnidirectional wheels, as in
+equation (3.28). As with the differential-drive robot, since this robot has no steerable wheels,
+<math display="inline"><msub><mrow><mi>J</mi></mrow><mrow><mn>1</mn></mrow></msub><mo class="MathClass-open" stretchy="false">(</mo><msub><mrow><mi>β</mi></mrow><mrow><mi>s</mi></mrow></msub><mo class="MathClass-close" stretchy="false">)</mo></math> simplifies
+to <math display="inline"><msub><mrow><mi>J</mi></mrow><mrow><mn>1</mn><mi>f</mi></mrow></msub></math>:
+</p><table class="equation"><tr><td>
+<math class="equation" display="block">
+<mstyle class="label" id="x7-40001r29"></mstyle><msub><mrow>
+<mover accent="true"><mrow><mi>ξ</mi></mrow><mo accent="true">˙</mo></mover>
+</mrow><mrow><mi>I</mi></mrow></msub>
+<mo class="MathClass-rel" stretchy="false">=</mo> <mi>R</mi><msup><mrow><mo class="MathClass-open" stretchy="false">(</mo><mi>𝜃</mi><mo class="MathClass-close" stretchy="false">)</mo></mrow><mrow><mo class="MathClass-bin" stretchy="false">−</mo><mn>1</mn></mrow></msup><msubsup><mrow><mi>J</mi></mrow><mrow>
+<mn>1</mn><mi>f</mi></mrow><mrow><mo class="MathClass-bin" stretchy="false">−</mo><mn>1</mn></mrow></msubsup><msub><mrow><mi>J</mi></mrow><mrow>
+<mn>2</mn></mrow></msub><mover accent="true"><mrow><mi>ϕ</mi></mrow><mo accent="true">˙</mo></mover>
+</math></td><td class="eq-no">(2.29)</td></tr></table>
+<p class="noindent"></p>
+<p class="noindent">We calculate <math display="inline"><msub><mrow><mi>J</mi></mrow><mrow><mn>1</mn><mi>f</mi></mrow></msub></math>
+using the matrix elements of the rolling constraints for the Swedish wheel, given by equation
+<math display="inline"><mo class="MathClass-open" stretchy="false">(</mo><mn>3</mn><mo class="MathClass-punc" stretchy="false">.</mo><mn>1</mn><mn>9</mn><mo class="MathClass-close" stretchy="false">)</mo></math>. But to
+use these values, we must establish the values , ,  for each wheel. Referring to figure (3.8), we can see
+that <math display="inline"><mi>γ</mi></math>
+= 0 for the Swedish 90- degree wheel. Note that this immediately simplifies equation
+<math display="inline"><mo class="MathClass-open" stretchy="false">(</mo><mn>3</mn><mo class="MathClass-punc" stretchy="false">.</mo><mn>1</mn><mn>9</mn><mo class="MathClass-close" stretchy="false">)</mo></math> to equation
+<math display="inline"><mo class="MathClass-open" stretchy="false">(</mo><mn>3</mn><mo class="MathClass-punc" stretchy="false">.</mo><mn>1</mn><mn>2</mn><mo class="MathClass-close" stretchy="false">)</mo></math>, the rolling
+constraints of a fixed standard wheel. Given our particular placement of the local reference frame, the value of
+<math display="inline"><mi>α</mi></math> for each wheel is
+easily computed: <math display="inline"><mo class="MathClass-open" stretchy="false">(</mo><msub><mrow><mi>α</mi></mrow><mrow><mn>1</mn></mrow></msub> <mo class="MathClass-rel" stretchy="false">=</mo> <mi>π</mi><mo class="MathClass-bin" stretchy="false">/</mo><mn>3</mn><mo class="MathClass-close" stretchy="false">)</mo><mo class="MathClass-punc" stretchy="false">,</mo> <mo class="MathClass-open" stretchy="false">(</mo><msub><mrow><mi>α</mi></mrow><mrow><mn>2</mn></mrow></msub> <mo class="MathClass-rel" stretchy="false">=</mo> <mi>π</mi><mo class="MathClass-close" stretchy="false">)</mo><mo class="MathClass-punc" stretchy="false">,</mo> <mo class="MathClass-open" stretchy="false">(</mo><msub><mrow><mi>α</mi></mrow><mrow><mn>3</mn></mrow></msub> <mo class="MathClass-rel" stretchy="false">=</mo> <mo class="MathClass-bin" stretchy="false">−</mo><mi>π</mi><mo class="MathClass-bin" stretchy="false">/</mo><mn>3</mn><mo class="MathClass-close" stretchy="false">)</mo></math>.
+Furthermore, <math display="inline"><mi>β</mi> <mo class="MathClass-rel" stretchy="false">=</mo> <mn>0</mn></math>
+for all wheels because the wheels are tangent to the robot’s circular body. Constructing and simplifying
+<math display="inline"><msub><mrow><mi>J</mi></mrow><mrow><mn>1</mn><mi>f</mi></mrow></msub></math> using
+equation (3.12) yields </p><table class="equation"><tr><td>
+<math class="equation" display="block">
+<mstyle class="label" id="x7-40002r30"></mstyle><msub><mrow><mi>J</mi></mrow><mrow><mn>1</mn><mi>f</mi></mrow></msub> <mo class="MathClass-rel" stretchy="false">=</mo> <mrow><mo fence="true" form="prefix">[</mo><mrow><mtable align="axis" class="array" columnlines="none none none none none none none none none" displaystyle="true" equalcolumns="false" equalrows="false" style=""> <mtr class="array-row"><mtd class="array-td" columnalign="center"> <mi class="loglike">sin</mi><mo>⁡</mo> <mfrac><mrow><mi>π</mi></mrow>
+<mrow>
+<mn>3</mn></mrow></mfrac> </mtd>
+<mtd class="array-td" columnalign="center"> <mo class="MathClass-bin" stretchy="false">−</mo> <mi class="loglike">cos</mi><mo>⁡</mo> <mfrac><mrow><mi>π</mi></mrow>
+<mrow>
+<mn>3</mn></mrow></mfrac> </mtd>
+<mtd class="array-td" columnalign="center"> <mo class="MathClass-bin" stretchy="false">−</mo><mi>l</mi> </mtd>
+</mtr><mtr class="array-row"><mtd class="array-td" columnalign="center"> <mn>0</mn> </mtd><mtd class="array-td" columnalign="center"> <mo class="MathClass-bin" stretchy="false">−</mo> <mi class="loglike">cos</mi><mo>⁡</mo><mi>π</mi> </mtd><mtd class="array-td" columnalign="center"> <mo class="MathClass-bin" stretchy="false">−</mo><mi>l</mi> </mtd>
+</mtr>
+<mtr class="array-row"><mtd class="array-td" columnalign="center"> <mi class="loglike">sin</mi><mo>⁡</mo> <mfrac><mrow><mi>π</mi></mrow>
+<mrow>
+<mn>3</mn></mrow></mfrac> </mtd>
+<mtd class="array-td" columnalign="center"> <mo class="MathClass-bin" stretchy="false">−</mo> <mi class="loglike">cos</mi><mo>⁡</mo> <mfrac><mrow><mi>π</mi></mrow>
+<mrow>
+<mn>3</mn></mrow></mfrac> </mtd>
+<mtd class="array-td" columnalign="center"> <mo class="MathClass-bin" stretchy="false">−</mo><mi>l</mi> </mtd>
+</mtr>
+</mtable> </mrow><mo fence="true" form="postfix">]</mo></mrow> <mo class="MathClass-rel" stretchy="false">=</mo> <mrow><mo fence="true" form="prefix">[</mo><mrow><mtable align="axis" class="array" columnlines="none none none none none none none none none" displaystyle="true" equalcolumns="false" equalrows="false" style=""> <mtr class="array-row"><mtd class="array-td" columnalign="center"> <mfrac><mrow><msqrt><mrow>
+<mn>3</mn></mrow></msqrt></mrow>
+<mrow>
+<mn>2</mn></mrow></mfrac> </mtd>
+<mtd class="array-td" columnalign="center"> <mo class="MathClass-bin" stretchy="false">−</mo><mfrac><mrow><mn>1</mn></mrow>
+<mrow>
+<mn>2</mn></mrow></mfrac> </mtd>
+<mtd class="array-td" columnalign="center"> <mo class="MathClass-bin" stretchy="false">−</mo><mi>l</mi> </mtd>
+</mtr><mtr class="array-row"><mtd class="array-td" columnalign="center"> <mn>0</mn> </mtd><mtd class="array-td" columnalign="center"> <mn>1</mn> </mtd><mtd class="array-td" columnalign="center"> <mo class="MathClass-bin" stretchy="false">−</mo><mi>l</mi> </mtd>
+</mtr>
+<mtr class="array-row"><mtd class="array-td" columnalign="center"> <mo class="MathClass-bin" stretchy="false">−</mo><mfrac><mrow><msqrt><mrow>
+<mn>3</mn></mrow></msqrt></mrow>
+<mrow>
+<mn>2</mn></mrow></mfrac> </mtd>
+<mtd class="array-td" columnalign="center"> <mo class="MathClass-bin" stretchy="false">−</mo><mfrac><mrow><mn>1</mn></mrow>
+<mrow>
+<mn>2</mn></mrow></mfrac> </mtd>
+<mtd class="array-td" columnalign="center"> <mo class="MathClass-bin" stretchy="false">−</mo><mi>l</mi> </mtd>
+</mtr>
+</mtable> </mrow><mo fence="true" form="postfix">]</mo></mrow>
+</math></td><td class="eq-no">(2.30)</td></tr></table>
+<p class="noindent"></p>
+<p class="noindent">Once again, calculating the value of <math display="inline"><msub><mrow><mover accent="true"><mrow><mi>ξ</mi></mrow><mo accent="true">˙</mo></mover></mrow><mrow><mi>I</mi></mrow></msub></math>
+requires calculating the inverse, <math display="inline"><msubsup><mrow><mi>J</mi></mrow><mrow><mn>1</mn><mi>f</mi></mrow><mrow><mo class="MathClass-bin" stretchy="false">−</mo><mn>1</mn></mrow></msubsup></math>,
+as needed in Eq. (<a href="#x7-40001r29">2.29</a>). One approach would be to apply rote methods for calculating the inverse of a
+<math display="inline"><mn>3</mn> <mi>×</mi> <mn>3</mn></math> square
+matrix <span class="cite"><a class="cite-show" href="#w3-20001">[†-1]</a><span class="cite-detail"> <a id="x7-40003"></a>Zhang, R. &amp; Pan, C. Research on Inverse Matrix Teaching Design Based on Case-Driven
+and Values-Integrated Education: An Empirical Analysis Using Machine Learning in Proceedings
+of the 2025 4th International Conference on Artificial Intelligence and Education (2025),
+426–435</span></span>. A second approach would be to compute the contribution of each <i>Swedish wheel</i>
+to chassis motion, as shown in section 3.2.2. We leave this process as an exercise for the
+enthusiast.
+</p><p class="noindent">Once the inverse is obtained, <math display="inline"><msub><mrow><mover accent="true"><mrow><mi>ξ</mi></mrow><mo accent="true">˙</mo></mover></mrow><mrow><mi>I</mi></mrow></msub></math>
+can be isolated: </p><table class="equation"><tr><td>
+<math class="equation" display="block">
+<mstyle class="label" id="x7-40004r31"></mstyle><msub><mrow><mover accent="true"><mrow><mi>ξ</mi></mrow><mo accent="true">˙</mo></mover>
+</mrow><mrow><mi>I</mi></mrow></msub>
+<mo class="MathClass-rel" stretchy="false">=</mo> <mi>R</mi><msup><mrow><mo class="MathClass-open" stretchy="false">(</mo><mi>𝜃</mi><mo class="MathClass-close" stretchy="false">)</mo></mrow><mrow><mo class="MathClass-bin" stretchy="false">−</mo><mn>1</mn></mrow></msup> <mrow><mo fence="true" form="prefix">[</mo><mrow><mtable align="axis" class="array" columnlines="none none none none none none none none none" displaystyle="true" equalcolumns="false" equalrows="false" style=""> <mtr class="array-row"><mtd class="array-td" columnalign="center"> <mfrac><mrow><mn>1</mn></mrow>
+<mrow>
+<msqrt>
+<mrow>
+<mn>3</mn></mrow></msqrt></mrow></mfrac> </mtd>
+<mtd class="array-td" columnalign="center"> <mn>0</mn> </mtd>
+<mtd class="array-td" columnalign="center"> <mo class="MathClass-bin" stretchy="false">−</mo> <mfrac><mrow><mn>1</mn></mrow>
+<mrow>
+<msqrt>
+<mrow>
+<mn>3</mn></mrow></msqrt></mrow></mfrac> </mtd>
+</mtr> <mtr class="array-row"><mtd class="array-td" columnalign="center"> <mo class="MathClass-bin" stretchy="false">−</mo><mfrac><mrow><mn>1</mn></mrow><mrow><mn>3</mn></mrow></mfrac> </mtd><mtd class="array-td" columnalign="center"> <mfrac><mrow><mn>2</mn></mrow> <mrow><mn>3</mn></mrow></mfrac> </mtd><mtd class="array-td" columnalign="center"> <mo class="MathClass-bin" stretchy="false">−</mo><mfrac><mrow><mn>1</mn></mrow><mrow><mn>3</mn></mrow></mfrac> </mtd>
+</mtr>
+<mtr class="array-row"><mtd class="array-td" columnalign="center"> <mo class="MathClass-bin" stretchy="false">−</mo><mfrac><mrow><mn>1</mn></mrow>
+<mrow>
+<mn>3</mn></mrow></mfrac> </mtd>
+<mtd class="array-td" columnalign="center"> <mo class="MathClass-bin" stretchy="false">−</mo><mfrac><mrow><mn>1</mn></mrow>
+<mrow>
+<mn>3</mn></mrow></mfrac> </mtd>
+<mtd class="array-td" columnalign="center"> <mo class="MathClass-bin" stretchy="false">−</mo><mfrac><mrow><mn>1</mn></mrow>
+<mrow>
+<mn>3</mn></mrow></mfrac> </mtd>
+</mtr>
+</mtable> </mrow><mo fence="true" form="postfix">]</mo></mrow> <msub><mrow><mi>J</mi></mrow><mrow><mn>2</mn></mrow></msub><mover accent="true"><mrow><mi>ϕ</mi></mrow><mo accent="true">˙</mo></mover>
+</math></td><td class="eq-no">(2.31)</td></tr></table>
+<p class="noindent"></p>
+<p class="noindent">Consider a specific omnidrive chassis with <math display="inline"><mi>l</mi> <mo class="MathClass-rel" stretchy="false">=</mo> <mn>1</mn></math>
+and <math display="inline"><mi>r</mi> <mo class="MathClass-rel" stretchy="false">=</mo> <mn>1</mn></math> for
+all wheels. The robot’s local reference frame and global reference frame are aligned, so that
+<math display="inline"><mi>𝜃</mi> <mo class="MathClass-rel" stretchy="false">=</mo> <mn>0</mn></math>. </p><div class="quote">  If wheels 1, 2, and
+3 spin at speeds (<math display="inline"><msub><mrow><mi>φ</mi></mrow><mrow><mn>1</mn></mrow></msub></math>
+= 4), (<math display="inline"><msub><mrow><mi>φ</mi></mrow><mrow><mn>2</mn></mrow></msub></math>
+= 1), (<math display="inline"><msub><mrow><mi>φ</mi></mrow><mrow><mn>3</mn></mrow></msub></math>
+= 2), what is the resulting motion of the whole robot? </div>
+<p class="noindent">Using the equation above, the answer can be calculated readily: </p><table class="equation"><tr><td>
+<math class="equation" display="block">
+<mstyle class="label" id="x7-40005r32"></mstyle><msub><mrow><mover accent="true"><mrow><mi>ξ</mi></mrow><mo accent="true">˙</mo></mover>
+</mrow><mrow><mi>I</mi></mrow></msub>
+<mo class="MathClass-rel" stretchy="false">=</mo> <mrow><mo fence="true" form="prefix">[</mo><mrow><mtable align="axis" class="array" columnlines="none none none none none none none none none" displaystyle="true" equalcolumns="false" equalrows="false" style=""> <mtr class="array-row"><mtd class="array-td" columnalign="center"> <mi>ẋ</mi> </mtd></mtr> <mtr class="array-row"><mtd class="array-td" columnalign="center"> <mi>ẏ</mi></mtd>
+</mtr> <mtr class="array-row"><mtd class="array-td" columnalign="center"> <mover accent="true"><mrow><mi>𝜃</mi></mrow><mo accent="true">˙</mo></mover> </mtd></mtr></mtable> </mrow><mo fence="true" form="postfix">]</mo></mrow> <mo class="MathClass-rel" stretchy="false">=</mo> <mrow><mo fence="true" form="prefix">[</mo><mrow><mtable align="axis" class="array" columnlines="none none none none none none none none none" displaystyle="true" equalcolumns="false" equalrows="false" style=""> <mtr class="array-row"><mtd class="array-td" columnalign="center"> <mn>1</mn> </mtd><mtd class="array-td" columnalign="center"> <mn>0</mn> </mtd><mtd class="array-td" columnalign="center"> <mn>0</mn> </mtd></mtr> <mtr class="array-row"><mtd class="array-td" columnalign="center"> <mn>0</mn> </mtd> <mtd class="array-td" columnalign="center"> <mn>1</mn> </mtd> <mtd class="array-td" columnalign="center"> <mn>0</mn></mtd>
+</mtr> <mtr class="array-row"><mtd class="array-td" columnalign="center"> <mn>0</mn> </mtd><mtd class="array-td" columnalign="center"> <mn>0</mn> </mtd><mtd class="array-td" columnalign="center"> <mn>1</mn> </mtd></mtr></mtable> </mrow><mo fence="true" form="postfix">]</mo></mrow> <mrow><mo fence="true" form="prefix">[</mo><mrow><mtable align="axis" class="array" columnlines="none none none none none none none none none" displaystyle="true" equalcolumns="false" equalrows="false" style=""><mtr class="array-row"><mtd class="array-td" columnalign="center"> <mfrac><mrow><mn>1</mn></mrow>
+<mrow>
+<msqrt>
+<mrow>
+<mn>3</mn></mrow></msqrt></mrow></mfrac> </mtd>
+<mtd class="array-td" columnalign="center"> <mn>0</mn> </mtd>
+<mtd class="array-td" columnalign="center"> <mo class="MathClass-bin" stretchy="false">−</mo> <mfrac><mrow><mn>1</mn></mrow>
+<mrow>
+<msqrt>
+<mrow>
+<mn>3</mn></mrow></msqrt></mrow></mfrac> </mtd>
+</mtr> <mtr class="array-row"><mtd class="array-td" columnalign="center"> <mo class="MathClass-bin" stretchy="false">−</mo><mfrac><mrow><mn>1</mn></mrow><mrow><mn>3</mn></mrow></mfrac> </mtd><mtd class="array-td" columnalign="center"> <mfrac><mrow><mn>2</mn></mrow> <mrow><mn>3</mn></mrow></mfrac> </mtd><mtd class="array-td" columnalign="center"> <mo class="MathClass-bin" stretchy="false">−</mo><mfrac><mrow><mn>1</mn></mrow><mrow><mn>3</mn></mrow></mfrac> </mtd>
+</mtr>
+<mtr class="array-row"><mtd class="array-td" columnalign="center"> <mfrac><mrow><mn>1</mn></mrow>
+<mrow>
+<mn>3</mn></mrow></mfrac> </mtd>
+<mtd class="array-td" columnalign="center"> <mo class="MathClass-bin" stretchy="false">−</mo><mfrac><mrow><mn>1</mn></mrow>
+<mrow>
+<mn>3</mn></mrow></mfrac> </mtd>
+<mtd class="array-td" columnalign="center"> <mo class="MathClass-bin" stretchy="false">−</mo><mfrac><mrow><mn>1</mn></mrow>
+<mrow>
+<mn>3</mn></mrow></mfrac> </mtd>
+</mtr>
+</mtable> </mrow><mo fence="true" form="postfix">]</mo></mrow> <mrow><mo fence="true" form="prefix">[</mo><mrow><mtable align="axis" class="array" columnlines="none none none none none none none none none" displaystyle="true" equalcolumns="false" equalrows="false" style=""> <mtr class="array-row"><mtd class="array-td" columnalign="center"> <mn>1</mn> </mtd><mtd class="array-td" columnalign="center"> <mn>0</mn> </mtd><mtd class="array-td" columnalign="center"> <mn>0</mn> </mtd></mtr> <mtr class="array-row"><mtd class="array-td" columnalign="center"> <mn>0</mn> </mtd> <mtd class="array-td" columnalign="center"> <mn>1</mn> </mtd> <mtd class="array-td" columnalign="center"> <mn>0</mn></mtd>
+</mtr> <mtr class="array-row"><mtd class="array-td" columnalign="center"> <mn>0</mn> </mtd><mtd class="array-td" columnalign="center"> <mn>0</mn> </mtd><mtd class="array-td" columnalign="center"> <mn>1</mn> </mtd></mtr></mtable> </mrow><mo fence="true" form="postfix">]</mo></mrow> <mrow><mo fence="true" form="prefix">[</mo><mrow><mtable align="axis" class="array" columnlines="none none none none none none none none none" displaystyle="true" equalcolumns="false" equalrows="false" style=""><mtr class="array-row"><mtd class="array-td" columnalign="center"> <mn>4</mn> </mtd></mtr> <mtr class="array-row"><mtd class="array-td" columnalign="center"> <mn>1</mn></mtd>
+</mtr> <mtr class="array-row"><mtd class="array-td" columnalign="center"> <mn>2</mn> </mtd></mtr></mtable> </mrow><mo fence="true" form="postfix">]</mo></mrow> <mo class="MathClass-rel" stretchy="false">=</mo> <mrow><mo fence="true" form="prefix">[</mo><mrow><mtable align="axis" class="array" columnlines="none none none none none none none none none" displaystyle="true" equalcolumns="false" equalrows="false" style=""> <mtr class="array-row"><mtd class="array-td" columnalign="center"> <mfrac><mrow><mn>2</mn></mrow>
+<mrow>
+<msqrt>
+<mrow>
+<mn>3</mn></mrow></msqrt></mrow></mfrac> </mtd>
+</mtr> <mtr class="array-row"><mtd class="array-td" columnalign="center"> <mo class="MathClass-bin" stretchy="false">−</mo><mfrac><mrow><mn>4</mn></mrow><mrow><mn>3</mn></mrow></mfrac> </mtd>
+</mtr>
+<mtr class="array-row"><mtd class="array-td" columnalign="center"> <mo class="MathClass-bin" stretchy="false">−</mo><mfrac><mrow><mn>7</mn></mrow>
+<mrow>
+<mn>3</mn></mrow></mfrac> </mtd>
+</mtr>
+</mtable> </mrow><mo fence="true" form="postfix">]</mo></mrow>
+</math></td><td class="eq-no">(2.32)</td></tr></table>
+<p class="noindent"></p>
+<p class="noindent">From this calculation we can determine this robot will move instantaneously along the <i>x</i>-axis with
+positive speed and along the <i>y</i>-axis with <i>negative speed</i> while rotating clockwise.
+</p><p class="noindent">We can see from the above examples that robot motion can be predicted by <b>combining the rolling
+constraints of individual wheels</b>.
+</p><p class="noindent">The sliding constraints comprising <math display="inline"><msub><mrow><mi>C</mi></mrow><mrow><mn>1</mn></mrow></msub><mo class="MathClass-open" stretchy="false">(</mo><mi>β</mi><mo class="MathClass-close" stretchy="false">)</mo></math>
+can be used to go even further, enabling us to evaluate the maneuverability and workspace of the robot
+rather than just its predicted motion.
+</p><p class="noindent">Next, we examine methods for using the sliding constraints, sometimes in conjunction with rolling
+constraints, to generate powerful analyses of the maneuverability of a robot chassis.
+<div class="section-header">
+<h3 id="header-section-glossary">
+<span class="number">
+<i class="fa-regular fa-bookmark"></i>
+</span>
+<span class="title">
+<a id="page-glossary"></a>
+        Page Glossary Terms</span>
+</h3>
+</div>
+<div class="acronym-block">
+<dl class="acr-list">
+<a class="copiable-link" href="#glo:amr">¶</a>
+<dt class="acr-bottom" id="glo:amr"><span class="acr-short">AMR</span><span class="acr-long">Autonomous Mobile Robotics</span></dt>
+<dd class="acr-desc"><p>Self-navigating machines moving materials
+and goods independently without fixed tracks or wires. They use smart software, cameras,
+and sensors to map spaces and safely steer around people or obstacles in real time.</p></dd>
+</dl>
+<dl class="acr-list">
+<a class="copiable-link" href="#glo:lhs">¶</a>
+<dt class="acr-bottom" id="glo:lhs"><span class="acr-short">LHS</span><span class="acr-long">Left Hand Side</span></dt>
+<dd class="acr-desc"><p>Left Hand Side</p></dd>
+</dl>
+</div>
+<div class="section-header">
+<h3 id="header-section-references">
+<span class="number">
+<i class="fa-solid fa-magnifying-glass"></i>
+</span>
+<span class="title">
+<a id="page-glossary"></a>
+            Page References</span>
+</h3>
+</div>
+<div class="cite-block">
+<dl class="enumerate-enumitem">
+<dt class="enumerate-enumitem" id="w3-20001"><span class="acr-short">1.</span><span class="acr-long"></span></dt>
+<dd class="enumerate-enumitem"> Zhang, R. &amp; Pan, C. Research on Inverse Matrix Teaching Design Based on Case-Driven and Values-Integrated Education: An Empirical Analysis Using Machine Learning in Proceedings of the 2025 4th International Conference on Artificial Intelligence and Education (2025), 426–435</dd>
+</dl></div><nav class="crosslinks-bottom"><div class="navigation"><span class="nav-button"><a href="MobileRobotManeuverability.html"><i class="fa-solid fa-caret-right"></i></a></span><span class="nav-button"><a href="MobileRobotKinematics.html"><i class="fa-solid fa-caret-left"></i></a></span><span class="nav-button"><a href="MobileRobotKinematics.html#KinematicModelsandConstraints.html"><i class="fa-solid fa-caret-up"></i></a></span><span class="nav-button">
+<a href="index.html" rel="index" title="Index">
+<i class="fa-solid fa-table-list">
+</i>
+</a></span><span class="nav-button">
+<a href="Index.html" rel="index" title="Index">
+<i class="fa-brands fa-git-alt"></i>
+</a></span></div></nav> </p><div class="footer"> <div class="footer-left"><span class="footer-lecture">D. T. McGuiness, PhD</span>
+<span class="footer-webBook"><b>Last Updated:</b> 13.10.2026, at 8:16.</span></div></div><div class="author-notes">
+<span class="note">Authors Note </span>
+<span class="text">The website you are viewing is auto-generated using lms-WebBook and therefore subject to slight errors in typography and formatting. When in doubt, please consult the LectureBook. </span>
+</div>
+</article>
+<div class="mode-line">
+<div class="core-line"><div class="core-line-image"><img class="webbook-logo" src="logo/webbook-logo.svg"/></div>
+<div class="current-header">
+<span class="header-pretext">Viewing | </span>
+<span class="header-text">Section 2.1: Kinematic Models and Constraints</span>
+</div>
+<div class="button-group">
+</div>
+</div>
+<div class="supp-line"></div>
+</div>
+</page>
+</body>
+</html>

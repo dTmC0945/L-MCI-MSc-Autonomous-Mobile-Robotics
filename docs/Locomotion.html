@@ -1,440 +1,466 @@
-<!DOCTYPE html> 
-<html lang="en">  
-<head><title>1 Locomotion</title> 
-<meta  charset="utf-8" /> 
-<meta name="generator" content="TeX4ht (https://tug.org/tex4ht/)" /> 
-<meta name="viewport" content="width=device-width,initial-scale=1" /> 
-<link rel="stylesheet" type="text/css" href="\aa:CssFile " /> 
-<meta name="src" content="AutonomousMobileRoboticsLectureBook.tex" /> 
- <script type="text/javascript" id="MathJax-script" async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/mml-chtml.js"></script>  
-<title>Autonomous Mobile Robotics</title> 
-<link href="/pagefind/pagefind-component-ui.css" rel="stylesheet"> 
-<script src="/pagefind/pagefind-component-ui.js"></script> 
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script> 
-<link rel="stylesheet" type="text/css" href="flatweb.css"> 
-<script type="text/javascript" src="flatweb.js"></script> 
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/styles/default.min.css"> 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/highlight.min.js"></script> 
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/styles/base16/solarized-light.min.css"/> 
-<script src="https://unpkg.com/highlightjs-copy/dist/highlightjs-copy.min.js"></script> 
-<link rel="stylesheet" href="https://unpkg.com/highlightjs-copy/dist/highlightjs-copy.min.css"/> 
-<link href='http://fonts.googleapis.com/css?family=Roboto:400,100,100italic,300,300italic,400italic,500,500italic,700,700italic,900italic,900' rel='stylesheet'> 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/languages/cpp.min.js"></script> 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/languages/latex.min.js"></script> 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/languages/matlab.min.js"></script> 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/languages/dockerfile.min.js"></script> 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/languages/cmake.min.js"></script> 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/languages/makefile.min.js"></script> 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/languages/markdown.min.js"></script> 
- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/> <style> 
- </style> 
- <header> 
- <pagefind-modal></pagefind-modal> 
- </header> 
-</head><body 
->
-<page> 
-<div class="keyboard-help-menu"><div style="overflow-x:auto"> <table> <thead> <tr> <th>Key</th> <th>Description</th> </tr> </thead> <tbody> <tr> <td><kbd>t</kbd></td> <td>Enable/Disable Table of Contents</td> </tr> <tr> <td><kbd>n</kbd></td> <td>Visit Next Chapter</td> </tr> <tr> <td><kbd>p</kbd></td> <td>Visit Previous Chapter</td> </tr> <tr> <td><kbd>u</kbd></td> <td>Go to Top of Page</td> </tr> <tr> <td><kbd>b</kbd></td> <td>Go to Bottom of Page</td> </tr> <tr> <td><kbd>i</kbd></td> <td>Visit the Introduction Page</td> </tr> </tbody> </table> </div> </div> <nav class="wide"><img class="webbook-logo" src="logo/webbook-logo.svg"></img> <div class="header"> <div class="header-left"><span class="header-lecture-grade">M.Sc</span> 
-<span class="header-lecture-name">Autonomous Mobile Robotics</span> 
-<span class="header-webBook">WebBook 2.1</span> </div> <div class="header-right"> <span class="header-version">2026.WS</span> 
- <span class="header-chapter">index</span></div></div> <div class="toc"><pagefind-modal-trigger></pagefind-modal-trigger><div class="toc-links"><a href="https://github.com/dTmC0945" title="Lecturer GitHub Repo"><i class="fab fa-github" style='font-size:20px'></i></a><a href="https://scholar.google.com/citations?view_op=list_works\&hl=en\&user=lxQGADMAAAAJ" title="Lecturer Google Scholar Page"><i class="fa-brands fa-google-scholar" style='font-size:20px'></i></a><a href="https://www.researchgate.net/profile/Daniel-Mcguiness-2" title="Lecturer ResearchGate Account"><i class="fa-brands fa-researchgate" style='font-size:20px'></i></a><a href="https://dtmc0945.github.io/Th-MCI-Thesis-Topics/" title="Lecturer Thesis Ideas for B.Sc and M.Sc"><i class="fa-solid fa-book" style='font-size:20px'></i></a><a href="https://github.com/dTmC0945/C-MCI-LaTeX-Class-mcidoc/tree/main" title="mcidoc LaTeX Standard"><i class="fa-regular fa-file-lines" style='font-size:20px'></i></a></div><hr><span class="chapterToc"><span class="number">0</span><span class="title"><a 
-href="index.html#x2-10000">index</a></span></span><span class="chapterToc"><span class="number">1</span><span class="title"><a 
-href="#x3-20001">Locomotion</a></span></span><span class="subsectionToc"><span class="number">1.0.1</span><span class="title"><a 
-href="#x3-30001.0.1">Key Issues for Locomotion</a></span></span><span class="sectionToc"><span class="number">1.1</span><span class="title"><a 
-href="LeggedMobileRobots.html#x4-40001.1">Legged Mobile
-Robots</a></span></span><span class="subsectionToc"><span class="number">1.1.1</span><span class="title"><a 
-href="LeggedMobileRobots.html#x4-60001.1.1">Examples  of  Legged  Robot  Locomotion</a></span></span><span class="sectionToc"><span class="number">1.2</span><span class="title"><a 
-href="WheeledMobileRobots.html#x5-120001.2">Wheeled  Mobile
-Robots</a></span></span><span class="subsectionToc"><span class="number">1.2.1</span><span class="title"><a 
-href="WheeledMobileRobots.html#x5-130001.2.1">Design</a></span></span><span class="subsectionToc"><span class="number">1.2.2</span><span class="title"><a 
-href="WheeledMobileRobots.html#x5-160001.2.2">Stability</a></span></span><span class="subsectionToc"><span class="number">1.2.3</span><span class="title"><a 
-href="WheeledMobileRobots.html#x5-170001.2.3">Manoeuvrability</a></span></span><span class="subsectionToc"><span class="number">1.2.4</span><span class="title"><a 
-href="WheeledMobileRobots.html#x5-180001.2.4">Controllability</a></span></span><span class="subsectionToc"><span class="number">1.2.5</span><span class="title"><a 
-href="WheeledMobileRobots.html#x5-190001.2.5">Case
-Studies for Wheeled Motion</a></span></span><span class="subsectionToc"><span class="number">1.2.6</span><span class="title"><a 
-href="WheeledMobileRobots.html#x5-260001.2.6">Walking Wheels</a></span></span>
-<!--l. 10--><p class="noindent" ><div class="nav-footer"><div class="nav-footer-left"><span class="nav-footer-lecture">D. T. McGuiness, PhD</span> 
-<span class="nav-footer-webBook"><span id="bold" style="font-weight:bold;">Last Updated:</span> 5.8.2026, at 16:39.</span></div></div><span class="nav-comments">The website you are viewing is auto-generated using ParSnip and therefore subject to slight errors in typography and formatting. When in doubt, please consult the LectureBook. </span></div></div></nav> 
-
-</p>
-<article class="chapter"> 
-<nav class="crosslinks-top"> <a 
-href="LeggedMobileRobots.html" ><span class="nav-next">NEXT</span></a><a 
-href="index.html" ><span class="nav-prev">PREV</span></a><a 
-href="index.html#tailindex.html" ><span class="nav-prev-tail">PREV-TAIL</span></a><a 
-href="#tailLocomotion.html"><span class="nav-tail">TAIL</span></a><a 
-href="AutonomousMobileRoboticsLectureBook.html#Locomotion.html" ><span class="nav-up">UP</span></a></nav> 
-<h2 class="chapterHead"><div class="chapter-header">Chapter <span class="titlemark">1</span>  </div><br />  <a 
- id="x3-20001"></a>Locomotion</h2>
-<div class="sidenote"> <span class="figure" 
->
-                                                                                
-                                                                                
-                                                                                
-                                                                                
-<a 
- id="x3-2001r1"></a>
-<figcaption class="caption" ><span class="id">Figure 1.1: </span><span  
-class="content">Perhaps one of the greatest inventions, the wheel has shown to have no equivalence in nature.        </span></figcaption><!--tex4ht:label?: x3-2001r1 -->
-<img 
- 
-src="figures/Locomotion/raster/cart-wheel.jpg" alt="PIC"  
-style="" />
-                                                                                
-                                                                                
+<!DOCTYPE html>
+<html lang="en">
+<head><title>1 Locomotion</title>
+<meta charset="utf-8"/>
+<meta content="lms-WebBook" name="generator"/>
+<meta content="width=device-width,initial-scale=1" name="viewport"/>
+<script async="async" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/mml-chtml.js" type="text/javascript"></script>
+<link href="logo/lms.ico" rel="icon" type="image/x-icon"/>
+<link href="./pagefind/pagefind-component-ui.css" rel="stylesheet"/>
+<script src="./pagefind/pagefind-component-ui.js" type="text/javascript"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<link href="https://cdn.jsdelivr.net/gh/sugina-dev/latin-modern-web@1.0.1/style/latinmodern-mono.css" rel="stylesheet"/>
+<link href="https://cdn.jsdelivr.net/gh/dTmC0945/Wb-LMS-WebBook-Infrastructure/flatweb.css" rel="stylesheet" type="text/css"/>
+<script async="true" crossorigin="anonymous" src="https://cdn.jsdelivr.net/gh/dTmC0945/Wb-LMS-WebBook-Infrastructure/flatweb.js"></script>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/styles/default.min.css" rel="stylesheet"/>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/highlight.min.js"></script>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/styles/base16/solarized-light.min.css" rel="stylesheet"/>
+<script src="https://unpkg.com/highlightjs-copy/dist/highlightjs-copy.min.js"></script>
+<link href="https://unpkg.com/highlightjs-copy/dist/highlightjs-copy.min.css" rel="stylesheet"/>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css?family=Roboto:400,100,100italic,300,300italic,400italic,500,500italic,700,700italic,900italic,900" rel="stylesheet"/>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/languages/cpp.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/languages/latex.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/languages/matlab.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/languages/dockerfile.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/languages/cmake.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/languages/makefile.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/languages/markdown.min.js"></script>
+ </head><body>
+<page>
+<nav class="wide"> <div class="header"><div class="header-left"><span class="header-lecture-grade">M.Sc</span>
+<span class="header-lecture-name">Autonomous Mobile Robotics</span>
+<span class="header-webBook">WebBook 2.1</span></div><div class="header-right"><span class="header-version">2026.WS</span>
+<span class="header-chapter">Locomotion</span></div></div><div class="toc"><pagefind-modal-trigger></pagefind-modal-trigger><pagefind-modal></pagefind-modal><div class="toc-links"><a href="https://github.com/dTmC0945" title="Lecturer GitHub Repo"><i class="fab fa-github" style="font-size:20px"></i></a><a href="https://scholar.google.com/citations?view_op=list_works\&amp;hl=en\&amp;user=lxQGADMAAAAJ" title="Lecturer Google Scholar Page"><i class="fa-brands fa-google-scholar" style="font-size:20px"></i></a><a href="https://www.researchgate.net/profile/Daniel-Mcguiness-2" title="Lecturer ResearchGate Account"><i class="fa-brands fa-researchgate" style="font-size:20px"></i></a><a href="https://dtmc0945.github.io/Th-MCI-Thesis-Topics/" title="Lecturer Thesis Ideas for B.Sc and M.Sc"><i class="fa-solid fa-book" style="font-size:20px"></i></a><a href="https://github.com/dTmC0945/C-MCI-LaTeX-Class-mcidoc/tree/main" title="mcidoc LaTeX Standard"><i class="fa-regular fa-file-lines" style="font-size:20px"></i></a></div><hr/><span class="chapterToc"><span class="number"></span><span class="title"><a href="index.html#x2-10000">Entry Point</a></span></span><span class="chapterToc"><span class="number">1</span><span class="title"><a href="#x3-20001">Locomotion</a></span></span><span class="subsectionToc"><span class="number">1.0.1</span><span class="title"><a href="#x3-30001.0.1">Key  Issues  for  Locomotion</a></span></span><span class="sectionToc"><span class="number">1.1</span><span class="title"><a href="LeggedMobileRobots.html#x4-40001.1">Legged  Mobile
+Robots</a></span></span><span class="subsectionToc"><span class="number">1.1.1</span><span class="title"><a href="LeggedMobileRobots.html#x4-60001.1.1">Examples  of  Legged  Robot  Locomotion</a></span></span><span class="sectionToc"><span class="number">1.2</span><span class="title"><a href="WheeledMobileRobots.html#x5-120001.2">Wheeled  Mobile
+Robots</a></span></span><span class="subsectionToc"><span class="number">1.2.1</span><span class="title"><a href="WheeledMobileRobots.html#x5-130001.2.1">Design</a></span></span><span class="subsectionToc"><span class="number">1.2.2</span><span class="title"><a href="WheeledMobileRobots.html#x5-160001.2.2">Stability</a></span></span><span class="subsectionToc"><span class="number">1.2.3</span><span class="title"><a href="WheeledMobileRobots.html#x5-170001.2.3">Manoeuvrability</a></span></span><span class="subsectionToc"><span class="number">1.2.4</span><span class="title"><a href="WheeledMobileRobots.html#x5-180001.2.4">Controllability</a></span></span><span class="subsectionToc"><span class="number">1.2.5</span><span class="title"><a href="WheeledMobileRobots.html#x5-190001.2.5">Case
+Studies for Wheeled Motion</a></span></span><span class="subsectionToc"><span class="number">1.2.6</span><span class="title"><a href="WheeledMobileRobots.html#x5-260001.2.6">Walking Wheels</a></span></span><span class="chapterToc"><span class="number">2</span><span class="title"><a href="MobileRobotKinematics.html#x6-270002">Mobile Robot Kinematics</a></span></span><span class="sectionToc"><span class="number">2.1</span><span class="title"><a href="KinematicModelsandConstraints.html#x7-280002.1">Kinematic
+Models and Constraints</a></span></span><span class="subsectionToc"><span class="number">2.1.1</span><span class="title"><a href="KinematicModelsandConstraints.html#x7-290002.1.1">Representing robot position</a></span></span><span class="subsectionToc"><span class="number">2.1.2</span><span class="title"><a href="KinematicModelsandConstraints.html#x7-300002.1.2">Forward kinematic
+models</a></span></span><span class="subsectionToc"><span class="number">2.1.3</span><span class="title"><a href="KinematicModelsandConstraints.html#x7-310002.1.3">Wheel kinematic constraints</a></span></span><span class="subsectionToc"><span class="number">2.1.4</span><span class="title"><a href="KinematicModelsandConstraints.html#x7-370002.1.4">Robot kinematic constraints</a></span></span><span class="subsectionToc"><span class="number">2.1.5</span><span class="title"><a href="KinematicModelsandConstraints.html#x7-380002.1.5">Examples:
+robot kinematic models and constraints</a></span></span><span class="sectionToc"><span class="number">2.2</span><span class="title"><a href="MobileRobotManeuverability.html#x8-410002.2">Mobile Robot Maneuverability</a></span></span><span class="subsectionToc"><span class="number">2.2.1</span><span class="title"><a href="MobileRobotManeuverability.html#x8-420002.2.1">Degree
+of Mobility</a></span></span><span class="subsectionToc"><span class="number">2.2.2</span><span class="title"><a href="MobileRobotManeuverability.html#x8-450002.2.2">Degree of steerability</a></span></span><span class="subsectionToc"><span class="number">2.2.3</span><span class="title"><a href="MobileRobotManeuverability.html#x8-470002.2.3">Robot maneuverability</a></span></span><span class="sectionToc"><span class="number">2.3</span><span class="title"><a href="MobileRobotWorkspace.html#x9-480002.3">Mobile Robot
+Workspace</a></span></span><span class="subsectionToc"><span class="number">2.3.1</span><span class="title"><a href="MobileRobotWorkspace.html#x9-490002.3.1">Degrees of freedom</a></span></span><span class="subsectionToc"><span class="number">2.3.2</span><span class="title"><a href="MobileRobotWorkspace.html#x9-500002.3.2">Holonomic robots</a></span></span><span class="subsectionToc"><span class="number">2.3.3</span><span class="title"><a href="MobileRobotWorkspace.html#x9-530002.3.3">Path and trajectory
+considerations</a></span></span><span class="subsectionToc"><span class="number">2.3.4</span><span class="title"><a href="MobileRobotWorkspace.html#x9-540002.3.4">Beyond Basic Kinematics</a></span></span><span class="sectionToc"><span class="number">2.4</span><span class="title"><a href="MotionControlKinematicControl.html#x10-550002.4">Motion Control (Kinematic
+Control)</a></span></span><span class="subsectionToc"><span class="number">2.4.1</span><span class="title"><a href="MotionControlKinematicControl.html#x10-560002.4.1">Open loop control</a></span></span><span class="subsectionToc"><span class="number">2.4.2</span><span class="title"><a href="MotionControlKinematicControl.html#x10-570002.4.2">Feedback control</a></span></span><span class="chapterToc"><span class="number">3</span><span class="title"><a href="Perception.html#x11-630003">Perception</a></span></span><span class="sectionToc"><span class="number">3.1</span><span class="title"><a href="SensorsforMobileRobotics.html#x12-640003.1">Sensors for Mobile
+Robotics</a></span></span><span class="subsectionToc"><span class="number">3.1.1</span><span class="title"><a href="SensorsforMobileRobotics.html#x12-650003.1.1">Sensor Classification</a></span></span><span class="subsectionToc"><span class="number">3.1.2</span><span class="title"><a href="SensorsforMobileRobotics.html#x12-660003.1.2">Characterisation of Sensor Performance</a></span></span><span class="subsectionToc"><span class="number">3.1.3</span><span class="title"><a href="SensorsforMobileRobotics.html#x12-720003.1.3">Wheel
+and Motor Sensors</a></span></span><span class="subsectionToc"><span class="number">3.1.4</span><span class="title"><a href="SensorsforMobileRobotics.html#x12-740003.1.4">Heading Sensors</a></span></span><span class="subsectionToc"><span class="number">3.1.5</span><span class="title"><a href="SensorsforMobileRobotics.html#x12-810003.1.5">Ground Based Beacons</a></span></span><span class="subsectionToc"><span class="number">3.1.6</span><span class="title"><a href="SensorsforMobileRobotics.html#x12-830003.1.6">Active
+Ranging</a></span></span><span class="subsectionToc"><span class="number">3.1.7</span><span class="title"><a href="SensorsforMobileRobotics.html#x12-850003.1.7">The Ultrasonic Sensor</a></span></span><span class="subsectionToc"><span class="number">3.1.8</span><span class="title"><a href="SensorsforMobileRobotics.html#x12-920003.1.8">Motion and Speed Sensors</a></span></span><span class="sectionToc"><span class="number">3.2</span><span class="title"><a href="VisionBasedSensors.html#x13-940003.2">Vision Based
+Sensors</a></span></span><span class="subsectionToc"><span class="number">3.2.1</span><span class="title"><a href="VisionBasedSensors.html#x13-950003.2.1">CCD Sensors</a></span></span><span class="subsectionToc"><span class="number">3.2.2</span><span class="title"><a href="VisionBasedSensors.html#x13-970003.2.2">CMOS Technology</a></span></span><span class="subsectionToc"><span class="number">3.2.3</span><span class="title"><a href="VisionBasedSensors.html#x13-980003.2.3">Visual Ranging Sensors</a></span></span><span class="subsectionToc"><span class="number">3.2.4</span><span class="title"><a href="VisionBasedSensors.html#x13-990003.2.4">Depth
+from Focus</a></span></span><span class="sectionToc"><span class="number">3.3</span><span class="title"><a href="RepresentingUncertainty.html#x14-1070003.3">Representing Uncertainty</a></span></span><span class="subsectionToc"><span class="number">3.3.1</span><span class="title"><a href="RepresentingUncertainty.html#x14-1080003.3.1">Statistical Representation</a></span></span><span class="subsectionToc"><span class="number">3.3.2</span><span class="title"><a href="RepresentingUncertainty.html#x14-1090003.3.2">Independence
+of random variables</a></span></span><span class="subsectionToc"><span class="number">3.3.3</span><span class="title"><a href="RepresentingUncertainty.html#x14-1110003.3.3">Propagation of Error</a></span></span><span class="sectionToc"><span class="number">3.4</span><span class="title"><a href="FeatureExtraction.html#x15-1120003.4">Feature Extraction</a></span></span><span class="subsectionToc"><span class="number">3.4.1</span><span class="title"><a href="FeatureExtraction.html#x15-1130003.4.1">Defining
+Feature</a></span></span><span class="subsectionToc"><span class="number">3.4.2</span><span class="title"><a href="FeatureExtraction.html#x15-1140003.4.2">Using Range Data</a></span></span><span class="chapterToc"><span class="number">4</span><span class="title"><a href="MobileRobotLocalisation.html#x16-1290004">Mobile Robot Localisation</a></span></span><span class="sectionToc"><span class="number">4.1</span><span class="title"><a href="TheProblemsofNoiseandAliasing.html#x17-1300004.1">The Problems of Noise and
+Aliasing</a></span></span><span class="subsectionToc"><span class="number">4.1.1</span><span class="title"><a href="TheProblemsofNoiseandAliasing.html#x17-1310004.1.1">Sensor Noise</a></span></span><span class="subsectionToc"><span class="number">4.1.2</span><span class="title"><a href="TheProblemsofNoiseandAliasing.html#x17-1320004.1.2">Sensor Aliasing</a></span></span><span class="subsectionToc"><span class="number">4.1.3</span><span class="title"><a href="TheProblemsofNoiseandAliasing.html#x17-1330004.1.3">Effector Noise</a></span></span><span class="subsectionToc"><span class="number">4.1.4</span><span class="title"><a href="TheProblemsofNoiseandAliasing.html#x17-1340004.1.4">An Error Model for
+Odometric Position Estimation</a></span></span><span class="sectionToc"><span class="number">4.2</span><span class="title"><a href="LocalisationTechniques.html#x18-1350004.2">Localisation Techniques</a></span></span><span class="sectionToc"><span class="number">4.3</span><span class="title"><a href="RepresentingBelief.html#x19-1360004.3">Representing Belief</a></span></span><span class="subsectionToc"><span class="number">4.3.1</span><span class="title"><a href="RepresentingBelief.html#x19-1370004.3.1">Single
+Hypothesis Belief</a></span></span><span class="subsectionToc"><span class="number">4.3.2</span><span class="title"><a href="RepresentingBelief.html#x19-1380004.3.2">Multiple Hypothesis Belief</a></span></span><span class="sectionToc"><span class="number">4.4</span><span class="title"><a href="RepresentingMaps.html#x20-1390004.4">Representing Maps</a></span></span><span class="subsectionToc"><span class="number">4.4.1</span><span class="title"><a href="RepresentingMaps.html#x20-1400004.4.1">Continuous
+Representation</a></span></span><span class="subsectionToc"><span class="number">4.4.2</span><span class="title"><a href="RepresentingMaps.html#x20-1410004.4.2">Decomposition Methods</a></span></span><span class="subsectionToc"><span class="number">4.4.3</span><span class="title"><a href="RepresentingMaps.html#x20-1420004.4.3">Current Challenges</a></span></span><span class="sectionToc"><span class="number">4.5</span><span class="title"><a href="ProbabilisticMapBasedLocalisation.html#x21-1430004.5">Probabilistic
+Map-Based Localisation</a></span></span><span class="subsectionToc"><span class="number">4.5.1</span><span class="title"><a href="ProbabilisticMapBasedLocalisation.html#x21-1440004.5.1">Problem Definition</a></span></span><span class="subsectionToc"><span class="number">4.5.2</span><span class="title"><a href="ProbabilisticMapBasedLocalisation.html#x21-1450004.5.2">Markov Localisation</a></span></span><span class="subsectionToc"><span class="number">4.5.3</span><span class="title"><a href="ProbabilisticMapBasedLocalisation.html#x21-1490004.5.3">Kalman
+Filter Localisation</a></span></span><span class="subsectionToc"><span class="number">4.5.4</span><span class="title"><a href="ProbabilisticMapBasedLocalisation.html#x21-1500004.5.4">An Implementation of Kalman Filter</a></span></span><span class="sectionToc"><span class="number">4.6</span><span class="title"><a href="OtherExamplesofLocalisationMethods.html#x22-1550004.6">Other Examples
+of Localisation Methods</a></span></span><span class="subsectionToc"><span class="number">4.6.1</span><span class="title"><a href="OtherExamplesofLocalisationMethods.html#x22-1560004.6.1">Landmark-based Navigation</a></span></span><span class="subsectionToc"><span class="number">4.6.2</span><span class="title"><a href="OtherExamplesofLocalisationMethods.html#x22-1570004.6.2">Globally Unique
+Localisation</a></span></span><span class="subsectionToc"><span class="number">4.6.3</span><span class="title"><a href="OtherExamplesofLocalisationMethods.html#x22-1580004.6.3">Positioning Beacon systems</a></span></span><span class="subsectionToc"><span class="number">4.6.4</span><span class="title"><a href="OtherExamplesofLocalisationMethods.html#x22-1590004.6.4">Route-Based Localisation</a></span></span><span class="sectionToc"><span class="number">4.7</span><span class="title"><a href="BuildingMaps.html#x23-1600004.7">Building
+Maps</a></span></span><span class="subsectionToc"><span class="number">4.7.1</span><span class="title"><a href="BuildingMaps.html#x23-1610004.7.1">Stochastic Map Technique</a></span></span><span class="subsectionToc"><span class="number">4.7.2</span><span class="title"><a href="BuildingMaps.html#x23-1620004.7.2">Other Mapping Techniques</a></span></span><span class="chapterToc"><span class="number">5</span><span class="title"><a href="WelcometoLinux.html#x24-1650005">Welcome to Linux</a></span></span><span class="sectionToc"><span class="number">5.1</span><span class="title"><a href="AHistoryofUNIXLinux.html#x25-1660005.1">A
+History of UNIX/Linux</a></span></span><span class="subsectionToc"><span class="number">5.1.1</span><span class="title"><a href="AHistoryofUNIXLinux.html#x25-1680005.1.1">A Short History on Computer Interfaces</a></span></span><span class="subsectionToc"><span class="number">5.1.2</span><span class="title"><a href="AHistoryofUNIXLinux.html#x25-1700005.1.2">Linux is a
+Nutshell</a></span></span><span class="subsectionToc"><span class="number">5.1.3</span><span class="title"><a href="AHistoryofUNIXLinux.html#x25-1730005.1.3">Linux Distributions</a></span></span><span class="sectionToc"><span class="number">5.2</span><span class="title"><a href="Installation.html#x26-1740005.2">Installation</a></span></span><span class="subsectionToc"><span class="number">5.2.1</span><span class="title"><a href="Installation.html#x26-1750005.2.1">Docker</a></span></span><span class="subsectionToc"><span class="number">5.2.2</span><span class="title"><a href="Installation.html#x26-1760005.2.2">Dockerfile</a></span></span><span class="subsectionToc"><span class="number">5.2.3</span><span class="title"><a href="Installation.html#x26-1770005.2.3">Running
+the Container</a></span></span><span class="chapterToc"><span class="number">6</span><span class="title"><a href="CommandLineFundamentals.html#x27-1780006">Command Line Fundamentals</a></span></span><span class="sectionToc"><span class="number">6.1</span><span class="title"><a href="ToCommandaComputer.html#x28-1790006.1">To Command a Computer</a></span></span><span class="subsectionToc"><span class="number">6.1.1</span><span class="title"><a href="ToCommandaComputer.html#x28-1800006.1.1">The
+Command Line Interface</a></span></span><span class="subsectionToc"><span class="number">6.1.2</span><span class="title"><a href="ToCommandaComputer.html#x28-1810006.1.2">The Structure of Commands</a></span></span><span class="subsectionToc"><span class="number">6.1.3</span><span class="title"><a href="ToCommandaComputer.html#x28-1820006.1.3">Some Rules Regarding
+the Syntax</a></span></span><span class="sectionToc"><span class="number">6.2</span><span class="title"><a href="WhenWeNeedHelpwithCommands.html#x29-1830006.2">When We Need Help with Commands</a></span></span><span class="subsectionToc"><span class="number">6.2.1</span><span class="title"><a href="WhenWeNeedHelpwithCommands.html#x29-1840006.2.1">Use Tab completion on
+the Shell</a></span></span><span class="subsectionToc"><span class="number">6.2.2</span><span class="title"><a href="WhenWeNeedHelpwithCommands.html#x29-1850006.2.2">The info command</a></span></span><span class="subsectionToc"><span class="number">6.2.3</span><span class="title"><a href="WhenWeNeedHelpwithCommands.html#x29-1860006.2.3">The whatis command</a></span></span><span class="chapterToc"><span class="number">7</span><span class="title"><a href="WorkingwithFilesandFolders.html#x30-1880007">Working with Files
+and Folders</a></span></span><span class="sectionToc"><span class="number">7.1</span><span class="title"><a href="FilesandFolders.html#x31-1890007.1">Files and Folders</a></span></span><span class="subsectionToc"><span class="number">7.1.1</span><span class="title"><a href="FilesandFolders.html#x31-1900007.1.1">A Detailed Look in ls Command</a></span></span><span class="subsectionToc"><span class="number">7.1.2</span><span class="title"><a href="FilesandFolders.html#x31-1910007.1.2">Creating
+and Removing Folders</a></span></span><span class="subsectionToc"><span class="number">7.1.3</span><span class="title"><a href="FilesandFolders.html#x31-1920007.1.3">Move, Copy and Delete Files and Folders</a></span></span><span class="sectionToc"><span class="number">7.2</span><span class="title"><a href="PermissionsandLinks.html#x32-1990007.2">Permissions
+and Links</a></span></span><span class="subsectionToc"><span class="number">7.2.1</span><span class="title"><a href="PermissionsandLinks.html#x32-2000007.2.1">Role to Users and sudo</a></span></span><span class="subsectionToc"><span class="number">7.2.2</span><span class="title"><a href="PermissionsandLinks.html#x32-2010007.2.2">File Permissions</a></span></span><span class="subsectionToc"><span class="number">7.2.3</span><span class="title"><a href="PermissionsandLinks.html#x32-2040007.2.3">Hard and Symbolic
+Links</a></span></span><span class="subsectionToc"><span class="number">7.2.4</span><span class="title"><a href="PermissionsandLinks.html#x32-2050007.2.4">Soft (Symbolic) Links</a></span></span><span class="subsectionToc"><span class="number">7.2.5</span><span class="title"><a href="PermissionsandLinks.html#x32-2070007.2.5">The Linux File System</a></span></span><span class="subsectionToc"><span class="number">7.2.6</span><span class="title"><a href="PermissionsandLinks.html#x32-2080007.2.6">The UNIX
+Philosophy</a></span></span><span class="sectionToc"><span class="number">7.3</span><span class="title"><a href="CommonCommandLineToolsandTasks.html#x33-2090007.3">Common Command-Line Tools and Tasks</a></span></span><span class="subsectionToc"><span class="number">7.3.1</span><span class="title"><a href="CommonCommandLineToolsandTasks.html#x33-2100007.3.1">Connecting Commands
+with Pipes</a></span></span><span class="subsectionToc"><span class="number">7.3.2</span><span class="title"><a href="CommonCommandLineToolsandTasks.html#x33-2110007.3.2">Viewing Text Files with cat, head, tail, and less</a></span></span><span class="subsectionToc"><span class="number">7.3.3</span><span class="title"><a href="CommonCommandLineToolsandTasks.html#x33-2120007.3.3">Finding
+Linux Distribution and Kernel Information</a></span></span><span class="subsectionToc"><span class="number">7.3.4</span><span class="title"><a href="CommonCommandLineToolsandTasks.html#x33-2140007.3.4">Find System Hardware and Disk
+Information</a></span></span><span class="chapterToc"><span class="number">8</span><span class="title"><a href="ROSConcepts.html#x34-2160008">ROS Concepts</a></span></span><span class="sectionToc"><span class="number">8.1</span><span class="title"><a href="PublisherandSubscriberArchitecture.html#x35-2170008.1">Publisher and Subscriber Architecture</a></span></span><span class="subsectionToc"><span class="number">8.1.1</span><span class="title"><a href="PublisherandSubscriberArchitecture.html#x35-2180008.1.1">ROS 2
+Architecture</a></span></span><span class="sectionToc"><span class="number">8.2</span><span class="title"><a href="BuildingBlocks.html#x36-2200008.2">Building Blocks</a></span></span><span class="subsectionToc"><span class="number">8.2.1</span><span class="title"><a href="BuildingBlocks.html#x36-2210008.2.1">Nodes</a></span></span><span class="subsectionToc"><span class="number">8.2.2</span><span class="title"><a href="BuildingBlocks.html#x36-2220008.2.2">The Discovery Process</a></span></span><span class="subsectionToc"><span class="number">8.2.3</span><span class="title"><a href="BuildingBlocks.html#x36-2230008.2.3">Communication
+Interface</a></span></span><span class="subsectionToc"><span class="number">8.2.4</span><span class="title"><a href="BuildingBlocks.html#x36-2320008.2.4">Topics</a></span></span><span class="subsectionToc"><span class="number">8.2.5</span><span class="title"><a href="BuildingBlocks.html#x36-2360008.2.5">Services</a></span></span><span class="subsectionToc"><span class="number">8.2.6</span><span class="title"><a href="BuildingBlocks.html#x36-2390008.2.6">Actions</a></span></span><span class="subsectionToc"><span class="number">8.2.7</span><span class="title"><a href="BuildingBlocks.html#x36-2420008.2.7">Parameters</a></span></span><span class="subsectionToc"><span class="number">8.2.8</span><span class="title"><a href="BuildingBlocks.html#x36-2510008.2.8">Working with
+Command Line</a></span></span><span class="subsectionToc"><span class="number">8.2.9</span><span class="title"><a href="BuildingBlocks.html#x36-2530008.2.9">Launch Files</a></span></span><span class="sectionToc"><span class="number">8.3</span><span class="title"><a href="AdvancedConcepts.html#x37-2540008.3">Advanced Concepts</a></span></span><span class="subsectionToc"><span class="number">8.3.1</span><span class="title"><a href="AdvancedConcepts.html#x37-2550008.3.1">ROS DOMAIN ID</a></span></span><span class="chapterToc"><span class="number">9</span><span class="title"><a href="CommandLineTools.html#x38-2570009">Command
+Line Tools</a></span></span><span class="sectionToc"><span class="number">9.1</span><span class="title"><a href="SettingtheEnvironment.html#x39-2580009.1">Setting the Environment</a></span></span><span class="sectionToc"><span class="number">9.2</span><span class="title"><a href="TurtlesandGraphs.html#x40-2630009.2">Turtles and Graphs</a></span></span><span class="sectionToc"><span class="number">9.3</span><span class="title"><a href="ADeeperLookintoNodes.html#x41-2710009.3">A Deeper Look into
+Nodes</a></span></span><span class="sectionToc"><span class="number">9.4</span><span class="title"><a href="WorkingwithTopics.html#x42-2760009.4">Working with Topics</a></span></span><span class="sectionToc"><span class="number">9.5</span><span class="title"><a href="WorkingwithServices.html#x43-2820009.5">Working with Services</a></span></span><span class="sectionToc"><span class="number">9.6</span><span class="title"><a href="WorkingwithParameters.html#x44-2890009.6">Working with Parameters</a></span></span><span class="sectionToc"><span class="number">9.7</span><span class="title"><a href="APracticalLookintoActions.html#x45-2960009.7">A
+Practical Look into Actions</a></span></span><span class="sectionToc"><span class="number">9.8</span><span class="title"><a href="LaunchingNodes.html#x46-3030009.8">Launching Nodes</a></span></span><span class="chapterToc"><span class="number">10</span><span class="title"><a href="ClientLibraries.html#x47-30500010">Client Libraries</a></span></span><span class="sectionToc"><span class="number">10.1</span><span class="title"><a href="GettingStartedwithColcon.html#x48-30600010.1">Getting Started with
+Colcon</a></span></span><span class="subsectionToc"><span class="number">10.1.1</span><span class="title"><a href="GettingStartedwithColcon.html#x48-30700010.1.1">The Structure of a Package</a></span></span><span class="subsectionToc"><span class="number">10.1.2</span><span class="title"><a href="GettingStartedwithColcon.html#x48-30800010.1.2">Sourcing an Underlay</a></span></span><span class="subsectionToc"><span class="number">10.1.3</span><span class="title"><a href="GettingStartedwithColcon.html#x48-30900010.1.3">Building the
+Workspace</a></span></span><span class="subsectionToc"><span class="number">10.1.4</span><span class="title"><a href="GettingStartedwithColcon.html#x48-31000010.1.4">Sourcing the New Package</a></span></span><span class="subsectionToc"><span class="number">10.1.5</span><span class="title"><a href="GettingStartedwithColcon.html#x48-31100010.1.5">Creating a Workspace</a></span></span><span class="subsectionToc"><span class="number">10.1.6</span><span class="title"><a href="GettingStartedwithColcon.html#x48-31200010.1.6">Sourcing the
+Environment</a></span></span><span class="subsectionToc"><span class="number">10.1.7</span><span class="title"><a href="GettingStartedwithColcon.html#x48-31300010.1.7">Creating a New Directory</a></span></span><span class="subsectionToc"><span class="number">10.1.8</span><span class="title"><a href="GettingStartedwithColcon.html#x48-31400010.1.8">Cloning a Sample Repo</a></span></span><span class="subsectionToc"><span class="number">10.1.9</span><span class="title"><a href="GettingStartedwithColcon.html#x48-31500010.1.9">Resolving
+Dependencies</a></span></span><span class="subsectionToc"><span class="number">10.1.10</span><span class="title"><a href="GettingStartedwithColcon.html#x48-31600010.1.10">Building the Workspace</a></span></span><span class="subsectionToc"><span class="number">10.1.11</span><span class="title"><a href="GettingStartedwithColcon.html#x48-31700010.1.11">Sourcing our Overlay</a></span></span><span class="subsectionToc"><span class="number">10.1.12</span><span class="title"><a href="GettingStartedwithColcon.html#x48-31800010.1.12">Modifying
+the Overlay</a></span></span><span class="subsectionToc"><span class="number">10.1.13</span><span class="title"><a href="GettingStartedwithColcon.html#x48-31900010.1.13">Creating a Package</a></span></span><span class="sectionToc"><span class="number">10.2</span><span class="title"><a href="WritingaSimplePublisherandSubscriber.html#x49-32200010.2">Writing a Simple Publisher and
+Subscriber</a></span></span><span class="subsectionToc"><span class="number">10.2.1</span><span class="title"><a href="WritingaSimplePublisherandSubscriber.html#x49-32300010.2.1">Creating a ROS Packages</a></span></span><span class="subsectionToc"><span class="number">10.2.2</span><span class="title"><a href="WritingaSimplePublisherandSubscriber.html#x49-32400010.2.2">Writing the Publisher Node</a></span></span><span class="subsectionToc"><span class="number">10.2.3</span><span class="title"><a href="WritingaSimplePublisherandSubscriber.html#x49-32900010.2.3">Writing
+the Subscriber Node</a></span></span><span class="subsectionToc"><span class="number">10.2.4</span><span class="title"><a href="WritingaSimplePublisherandSubscriber.html#x49-33200010.2.4">Building and Running</a></span></span><span class="sectionToc"><span class="number">10.3</span><span class="title"><a href="WritingaSimpleServiceandClient.html#x50-33300010.3">Writing a Simple Service and
+Client</a></span></span><span class="subsectionToc"><span class="number">10.3.1</span><span class="title"><a href="WritingaSimpleServiceandClient.html#x50-33400010.3.1">Creating a New Package</a></span></span><span class="subsectionToc"><span class="number">10.3.2</span><span class="title"><a href="WritingaSimpleServiceandClient.html#x50-33700010.3.2">Writing the Service Node</a></span></span><span class="subsectionToc"><span class="number">10.3.3</span><span class="title"><a href="WritingaSimpleServiceandClient.html#x50-34000010.3.3">Writing the Client
+Node</a></span></span><span class="sectionToc"><span class="number">10.4</span><span class="title"><a href="CreatingCustommsgandsrvFiles.html#x51-34300010.4">Creating Custom msg and srv Files</a></span></span><span class="subsectionToc"><span class="number">10.4.1</span><span class="title"><a href="CreatingCustommsgandsrvFiles.html#x51-34400010.4.1">Creating a New Package</a></span></span><span class="subsectionToc"><span class="number">10.4.2</span><span class="title"><a href="CreatingCustommsgandsrvFiles.html#x51-34500010.4.2">Creating
+Custom Definitions</a></span></span><span class="subsectionToc"><span class="number">10.4.3</span><span class="title"><a href="CreatingCustommsgandsrvFiles.html#x51-35200010.4.3">Testing the Newly Built Interfaces</a></span></span><span class="sectionToc"><span class="number">10.5</span><span class="title"><a href="UsingParametersinaClass.html#x52-35400010.5">Using Parameters in a
+Class</a></span></span><span class="subsectionToc"><span class="number">10.5.1</span><span class="title"><a href="UsingParametersinaClass.html#x52-35500010.5.1">Creating a Package</a></span></span><span class="subsectionToc"><span class="number">10.5.2</span><span class="title"><a href="UsingParametersinaClass.html#x52-35700010.5.2">Writing our Python Code</a></span></span><span class="subsectionToc"><span class="number">10.5.3</span><span class="title"><a href="UsingParametersinaClass.html#x52-36200010.5.3">Changing Output using
+the Console</a></span></span><span class="subsectionToc"><span class="number">10.5.4</span><span class="title"><a href="UsingParametersinaClass.html#x52-36300010.5.4">Changing using the Launch File</a></span></span><span class="sectionToc"><span class="number">10.6</span><span class="title"><a href="ManagingDependencies.html#x53-36400010.6">Managing Dependencies</a></span></span><span class="sectionToc"><span class="number">10.7</span><span class="title"><a href="CreatinganAction.html#x54-36600010.7">Creating
+an Action</a></span></span><span class="sectionToc"><span class="number">10.8</span><span class="title"><a href="WritinganActionServerandClient.html#x55-36900010.8">Writing an Action Server and Client</a></span></span><span class="sectionToc"><span class="number">10.9</span><span class="title"><a href="WritingaLaunchFile.html#x56-37100010.9">Writing a Launch File</a></span></span>
+<div class="nav-footer"><div class="nav-footer-left"><span class="nav-footer-lecture">D. T. McGuiness, PhD</span>
+<span class="nav-footer-webBook"><b>Last Updated:</b> 13.10.2026, at 8:16.</span></div></div><p class="nav-comments">The website you are viewing is auto-generated using lms-WebBook and therefore subject to slight errors in typography and formatting. When in doubt, please consult the LectureBook. </p></div></nav>
+<article class="chapter">
+<nav class="crosslinks-top"> <span class="nav-button"><i class="fa-solid fa-caret-right"></i><a class="nav-link" href="LeggedMobileRobots.html">Legged Mobile Robots</a></span><span class="nav-button"><i class="fa-solid fa-caret-left"></i><a class="nav-link" href="index.html">Chapter: M.Sc Autonomous Mobile Robotics</a></span><span class="nav-button"><i class="fa-solid fa-caret-up"></i></span><span class="nav-button">
+<a href="index.html" rel="index" title="Visit Entry Point">
+<i class="fa-solid fa-table-list">
+</i>
+<span class="nav-info">Visit Index Page</span>
+</a></span><span class="nav-button">
+<a href="Index.html" rel="index" title="Visit Material GitHub Repo">
+<i class="fa-brands fa-git-alt"></i>
+<span class="nav-info">Visit Material GitHub Repo</span>
+</a></span></nav>
+<h2 class="chapterHead"><div class="chapter-header">Chapter <span class="titlemark">1</span>  </div><br/> <a id="x3-20001"></a>Locomotion</h2>
+<div class="sidenote"> <span class="figure">
+<a id="x3-2001r1"></a>
+<figcaption class="caption"><span class="id">Figure 1.1: </span><span class="content">Perhaps one of the greatest inventions, the wheel has shown to have no equivalence in nature.        </span></figcaption>
+<img alt="PIC" src="figures/Locomotion/raster/cart-wheel.jpg" style=""/>
+</span>
+<p class="noindent"></p></div>
+<p class="noindent">An <span class="acronym"><span class="acronym-short"><a class="glossary" href="#glo:amr">AMR</a></span><span class="acronym-detail"><span class="acronym-long"><a class="glossary" href="#glo:amr">Autonomous Mobile Robotics</a></span><span class="acronym-desc"><a class="glossary" href="#glo:amr">Self-navigating machines moving materials and goods
+independently without fixed tracks or wires. They use smart software, cameras, and sensors to map
+spaces and safely steer around people or obstacles in real time.</a></span></span></span> needs <b>locomotion mechanisms</b> which
+enables it to move <span class="alert">unbounded</span> throughout its environment. However, as with everything in engineering, our
+solution comes with options, and so the selection of a robot’s approach to locomotion is an important
+aspect of an <span class="acronym"><span class="acronym-short"><a class="glossary" href="#glo:amr">AMR</a></span><span class="acronym-detail"><span class="acronym-long"><a class="glossary" href="#glo:amr">Autonomous Mobile Robotics</a></span><span class="acronym-desc"><a class="glossary" href="#glo:amr">Self-navigating machines moving materials and goods
+independently without fixed tracks or wires. They use smart software, cameras, and sensors to
+map spaces and safely steer around people or obstacles in real time.</a></span></span></span> design. </p><div class="quote">  In laboratory
+settings, there are robots which can walk, jump, run, slide, swim, fly and of course roll.
 </div>
-<!--l. 21--><p class="noindent" ></div> </p><p>
-<!--l. 23--><p class="noindent" >An <span class="acronym"><span class="acronym-short"><a 
-href="#glo:amr" class="glossary" >AMR</a></span><span class="acronym-detail"><span class="acronym-long"><a 
-href="#glo:amr" class="glossary" >Autonomous Mobile Robotics</a></span><span class="acronym-desc"><a 
-href="#glo:amr" class="glossary" >Autonomous Mobile Robotics</a></span></span></span> needs <span id="bold" style="font-weight:bold;">locomotion mechanisms</span>
-which enables it to move <span class="alert"><alert style="color: #821131;">unbounded</alert></span> throughout its environment. However, as with everything in
-engineering, our solution comes with options, and so the selection of a robot’s approach to locomotion
-is an important aspect of an <span class="acronym"><span class="acronym-short"><a 
-href="#glo:amr" class="glossary" >AMR</a></span><span class="acronym-detail"><span class="acronym-long"><a 
-href="#glo:amr" class="glossary" >Autonomous Mobile Robotics</a></span><span class="acronym-desc"><a 
-href="#glo:amr" class="glossary" >Autonomous Mobile Robotics</a></span></span></span> design. <div class="quote"><p>
-In laboratory settings, there are robots which can walk, jump, run, slide, swim, fly and of course roll.
-</p></p></div><p>
-<div class="knowledge">
-<!--l. 36--><p class="noindent" >Most locomotion mechanisms have been inspired by biological counterparts, shown in <span id="bold" style="font-weight:bold;">Tbl.</span> <a 
-href="#x3-2004r1">1.1<!--tex4ht:ref: tbl:locomotion-mechanisms --></a>.
+<div class="knowledge"><div class="knowledge-upper">Knowledge</div><div class="body">
+<p class="noindent">Most locomotion mechanisms have been inspired by biological counterparts, shown in <b>Tbl.</b> <a href="#x3-2004r1">1.1</a>.
+</p></div></div>
+<p class="noindent">There is, however, one (<span class="alert">1</span>) exception where there is, practically, <b>NO</b> natural equivalent:
 </p>
-</div><p class="noindent">
-<!--l. 38--><p class="noindent" >There is, however, one (<span class="alert"><alert style="color: #821131;">1</alert></span>) exception where there is, practically, <span id="bold" style="font-weight:bold;">NO</span> natural equivalent:
-<div class="quote"><p> Actively powered wheel is a human invention achieving high efficiency on flat ground <span class="cite"><span class="cite-show">[†]</span><span class="cite-detail"><a 
- id="x3-2002"></a>Bulliet, R. W.
-The wheel: inventions and reinventions (Columbia University Press, 2016)</span></span>.  </p></p></div><p>
-This mechanism is <span id="bold" style="font-weight:bold;">NOT</span> completely foreign to biological <span class="margin-block">systems. <span class="margin-comment"><span class="ellipsis">[1]</span> 
-<span class="sidenote">While this statement is practically
-true, single cell organism use a similar locomotion to what we call wheel <span class="cite"><span class="cite-show">[†]</span><span class="cite-detail"><a 
- id="x3-2003"></a>LaBarbera, M. Why the
-wheels won’t go. The American Naturalist <span id="bold" style="font-weight:bold;">121</span><span id="bold" style="font-weight:bold;">,</span> 395–408 (1983)</span></span>.</span></span></span>. Our bi-pedal walking system can be
-approximated by a rolling polygon, with sides equal in length to the span of the step. As the step size
-decreases, the polygon approaches a circle or wheel.
-                                                                                
-                                                                                
-<!--l. 51--><p class="noindent" ></p><figure class="float" 
->
-                                                                                
-                                                                                
-<a 
- id="x3-2004r1"></a>
-<figcaption class="caption" ><span class="id">Table 1.1: </span><span  
-class="content">Types of locomotion mechanisms used in biological systems
-</span></figcaption><!--tex4ht:label?: x3-2004r1 -->
-<table class="tabularray tblr" id="tbl-1"> <tr id="row-1-1-"><td id="cell1-1-1" style="text-align:right;vertical-align:top;background-color:#F2F2F2;" > Type 
+<div class="quote"> Actively powered wheel is a human invention achieving high efficiency on flat ground <span class="cite"><a class="cite-show" href="#w3-20001">[†-1]</a><span class="cite-detail">
+<a id="x3-2002"></a>Bulliet, R. W. The wheel: inventions and reinventions (Columbia University Press, 2016)</span></span>.
+</div>
+<p class="noindent">This mechanism is <b>NOT</b> completely foreign to biological <span class="margin-block">systems. <span class="margin-comment"><a class="ellipsis" href="#m-ref-1">[1]</a>
+<span class="sidenote">While this statement is
+practically true, single cell organism use a similar locomotion to what we call wheel <span class="cite"><a class="cite-show" href="#w3-20001">[†-2]</a><span class="cite-detail">
+<a id="x3-2003"></a>LaBarbera, M. Why the wheels won’t go. The American Naturalist <b>121</b><b>,</b> 395–408 (1983)</span></span>.</span></span></span>. Our
+bi-pedal walking system can be approximated by a rolling polygon, with sides equal in
+length to the span of the step. As the step size decreases, the polygon approaches a circle or
+wheel.
+</p><p class="noindent"></p><figure class="float">
+<a id="x3-2004r1"></a>
+<figcaption class="caption"><span class="id">Table 1.1: </span><span class="content">Types of locomotion mechanisms used in biological systems
+</span></figcaption>
+<table class="tabularray tblr" id="tbl-1"> <tr id="row-1-1-"><td id="1-1" style=""> Type 
 of 
-Translation  </td> <td id="cell1-1-2" style="text-align:justify;vertical-align:top;background-color:#F2F2F2;" > Nature of Movement Resistance</td> <td id="cell1-1-3" style="text-align:justify;vertical-align:top;background-color:#F2F2F2;" > Kinematics of Motion</td></tr>
- <tr id="row-1-2-"><td id="cell1-2-1" style="text-align:right;vertical-align:top;background-color:#FAFAFA;" > Flow 
+Translation  </td><td id="1-2" style=""> Nature of Movement Resistance</td><td colspan="4" id="1-3" style=""> Kinematics of Motion</td></tr>
+<tr id="row-1-2-"><td id="2-1" style=""> Flow 
 in 
 a 
-channel  </td><td id="cell1-2-2" style="text-align:justify;vertical-align:top;" >  Hydrodynamic forces                  </td><td id="cell1-2-3" style="text-align:justify;vertical-align:top;" >  Eddies                                     </td></tr>
- <tr id="row-1-3-"><td id="cell1-3-1" style="text-align:right;vertical-align:top;background-color:#FAFAFA;" > Crawl</td><td id="cell1-3-2" style="text-align:justify;vertical-align:top;" >  Friction forces                           </td><td id="cell1-3-3" style="text-align:justify;vertical-align:top;" >  Longitudinal vibration                </td></tr>
- <tr id="row-1-4-"><td id="cell1-4-1" style="text-align:right;vertical-align:top;background-color:#FAFAFA;" > Sliding</td><td id="cell1-4-2" style="text-align:justify;vertical-align:top;" >  Friction Forces                           </td><td id="cell1-4-3" style="text-align:justify;vertical-align:top;" >  Transverse vibration                   </td></tr>
- <tr id="row-1-5-"><td id="cell1-5-1" style="text-align:right;vertical-align:top;background-color:#FAFAFA;" > Running</td><td id="cell1-5-2" style="text-align:justify;vertical-align:top;" >  Loss of kinetic energy                  </td><td id="cell1-5-3" style="text-align:justify;vertical-align:top;" >  Oscillatory    movement    of    a 
+channel  </td><td id="2-2" style="">  Hydrodynamic forces                  </td><td colspan="4" id="2-3" style="">  Eddies                                     </td></tr>
+<tr id="row-1-3-"><td id="3-1" style=""> Crawl</td><td id="3-2" style="">  Friction forces                           </td><td colspan="4" id="3-3" style="">  Longitudinal vibration                </td></tr>
+<tr id="row-1-4-"><td id="4-1" style=""> Sliding</td><td id="4-2" style="">  Friction Forces                           </td><td colspan="4" id="4-3" style="">  Transverse vibration                   </td></tr>
+<tr id="row-1-5-"><td id="5-1" style=""> Running</td><td id="5-2" style="">  Loss of kinetic energy                  </td><td colspan="4" id="5-3" style="">  Oscillatory    movement    of    a 
 multi-link pendulum                   </td></tr>
- <tr id="row-1-6-"><td id="cell1-6-1" style="text-align:right;vertical-align:top;background-color:#FAFAFA;" > Jumping</td><td id="cell1-6-2" style="text-align:justify;vertical-align:top;" >  Loss of kinetic energy                  </td><td id="cell1-6-3" style="text-align:justify;vertical-align:top;" >  Oscillatory    movement    of    a 
+<tr id="row-1-6-"><td id="6-1" style=""> Jumping</td><td id="6-2" style="">  Loss of kinetic energy                  </td><td colspan="4" id="6-3" style="">  Oscillatory    movement    of    a 
 mutli-link pendulum                   </td></tr>
- <tr id="row-1-7-"><td id="cell1-7-1" style="text-align:right;vertical-align:top;background-color:#FAFAFA;" > Walking</td><td id="cell1-7-2" style="text-align:justify;vertical-align:top;" >  Gravitational forces                    </td><td id="cell1-7-3" style="text-align:justify;vertical-align:top;" >  Rolling of a polygon                   </td></tr></table>
-                                                                                
-                                                                                
+<tr id="row-1-7-"><td id="7-1" style=""> Walking</td><td id="7-2" style="">  Gravitational forces                    </td><td colspan="4" id="7-3" style="">  Rolling of a polygon                   </td></tr></table>
 </figure>
-<div class="warning">
-<!--l. 68--><p class="noindent" >But nature did <span id="bold" style="font-weight:bold;">NOT</span> develop a fully rotating, actively powered joint, which is the technology
-necessary for wheeled locomotion.
-</p>
-</div>
-<!--l. 70--><p class="noindent" >Biological systems succeed in moving through a wide variety of harsh environments. Therefore it can be
+<div class="warning"><div class="warning-upper">Warning</div><div class="body">
+<p class="noindent">But nature did <b>NOT</b> develop a fully rotating, actively powered joint, which is the technology
+necessary for wheeled locomotion. </p></div></div>
+<p class="noindent">Biological systems succeed in moving through a wide variety of harsh environments. Therefore it can be
 desirable to copy their selection of locomotion mechanisms, which scientifically, this is called
-<span id="bold" style="font-weight:bold;">Biomimetics</span> <span class="cite"><span class="cite-show">[†]</span><span class="cite-detail"><a 
- id="x3-2005"></a>Vincent, J. F. et al. Biomimetics: its practice and theory. Journal of the Royal
-Society Interface <span id="bold" style="font-weight:bold;">3</span><span id="bold" style="font-weight:bold;">,</span> 471 (2006)</span></span>.
+<b>Biomimetics</b> <span class="cite"><a class="cite-show" href="#w3-20001">[†-3]</a><span class="cite-detail"> <a id="x3-2005"></a>Vincent, J. F. et al. Biomimetics: its practice and theory. Journal of the Royal
+Society Interface <b>3</b><b>,</b> 471 (2006)</span></span>.
 </p>
-<div class="info-block"> <span class="info-upper"> <span class="info-header"> <span id="bold" style="font-weight:bold;">Information 1.<a 
- id="x3-2006r1"></a>1: </span> </span> <span class="info-title"> Biomimetics </span> </span> <div class="body"><p>
-<span class="alert"><alert style="color: #821131;">Biomimetics</alert></span> or <span class="alert"><alert style="color: #821131;">biomimicry</alert></span> is the replication of the models, systems, and elements of nature for the
-purpose of solving complex human problems <span class="cite"><span class="cite-show">[†]</span><span class="cite-detail">Vincent, J. F. et al. Biomimetics: its practice and
-theory. Journal of the Royal Society Interface <span id="bold" style="font-weight:bold;">3</span><span id="bold" style="font-weight:bold;">,</span> 471 (2006)</span></span>. The terms “biomimetics” and
-“biomimicry” are derived from Ancient Greek <italic>bios</italic>, life, <italic>mimesis</italic>, imitation. To combine the word to
-mean imitating <span class="margin-block"><span class="margin"><span>life. [2]</span><span class="sidenote"><span class="sidenote-image"><img 
- 
-src="figures/Locomotion/raster/biomimicry.png" alt="PIC"  
-style="" /></span><span class="sidenote-text"><span class="ellipsis">[2]</span>A good engineering example of biomimicry is in the design of the
-<italic>shinkansen</italic>. To mitigate the noise it generated when exiting tunnels, engineers imitated the shape of a
-kingfishers beak to pierce the air more efficiency.</span></span></span></span> A closely related field is <span class="alert"><alert style="color: #821131;">bionics</alert></span>. <hr><p class="noindent">Nature has had
-roughly 3.8 billion years to iterate and optimize solutions. Biomimetics relies on this evolutionary
-genius to create efficient, functional, and often highly sustainable solutions across several major
+<div class="info-block" id="info-block-1.1"> <a class="copiable-link" href="#info-block-1.1"> ¶</a> <span class="info-upper"> <span class="info-header"> <b>Information 1.<a id="x3-2006r1"></a>1: </b> </span> <span class="info-title"> Biomimetics </span> </span> <div class="body">
+<p class="noindent"><span class="alert">Biomimetics</span> or <span class="alert">biomimicry</span> is the replication of the models, systems, and elements of nature for the purpose of solving complex
+human problems <span class="cite"><a class="cite-show" href="#w3-20001">[†-3]</a><span class="cite-detail"> Vincent, J. F. et al. Biomimetics: its practice and theory. Journal of the Royal
+Society Interface <b>3</b><b>,</b> 471 (2006)</span></span>. The terms “biomimetics” and “biomimicry” are derived from Ancient
+Greek <i>bios</i>, life, <i>mimesis</i>, imitation. To combine the word to mean imitating <span class="margin-block"><span class="margin"><span>life. <a class="ellipsis" href="#m-ref-2">[2]</a></span><span class="sidenote"><a class="copiable-link" href="#m-ref-2" id="m-ref-2"> ¶</a><span class="sidenote-image"><img alt="PIC" src="figures/Locomotion/raster/biomimicry.png" style=""/></span><span class="sidenote-text"><span class="ellipsis">[2]</span>A
+good engineering example of biomimicry is in the design of the <i>shinkansen</i>. To mitigate
+the noise it generated when exiting tunnels, engineers imitated the shape of a kingfishers
+beak to pierce the air more efficiency.</span></span></span></span> A closely related field is <span class="alert">bionics</span>. </p>
+<hr/>
+<p class="noindent"> 
+Nature has had roughly 3.8
+billion years to iterate and optimize solutions. Biomimetics relies on this evolutionary genius
+to create efficient, functional, and often highly sustainable solutions across several major
 fields.
-</p></div></div><p class="noindent">
-<!--l. 94--><p class="noindent" >Replicating nature in this regard, however, is extremely difficult for several reasons. </p>
-<ul class="itemize1">     
+</p>
+</div></div>
+<p class="noindent">Replicating nature in this regard, however, is extremely difficult for several reasons. </p>
+<ul class="itemize1">
 <li class="itemize">
-<!--l. 97--><p class="noindent" >Mechanical complexity is easily achieved in biological systems through <italic>structural replication</italic>. <div class="quote"><p>
+<p class="noindent">Mechanical complexity is easily achieved in biological systems through <i>structural replication</i>. </p><div class="quote">
 Cell division, in combination with specialisation, can readily produce a millipede with several
-hundred legs and several tens of thousands of individually sensed <span class="margin-block">cilia <span class="margin-comment"><span class="ellipsis">[3]</span> 
+hundred legs and several tens of thousands of individually sensed <span class="margin-block">cilia <span class="margin-comment"><a class="ellipsis" href="#m-ref-3">[3]</a>
 <span class="sidenote">short eyelash-like
 filament that is numerous on tissue cells of most animals and provides the means for
-locomotion of protozoans of the <italic>phylum Ciliophora</italic></span></span></span>. In man-made structures, each
+locomotion of protozoans of the <i>phylum Ciliophora</i></span></span></span>. In man-made structures, each
 part must be fabricated individually, and therefore, no such economies of scale exist.
-</p>     
-</p></div><p>
-</li>     
+</div>
+</li>
 <li class="itemize">
-<!--l. 109--><p class="noindent" >Cell is a microscopic building block that enables extreme miniaturisation. With very small size
+<p class="noindent">Cell is a microscopic building block that enables extreme miniaturisation. With very small size
 and weight, insects achieve a level of robustness that we have not been able to match with human
 fabrication techniques.
-</p>     
+</p>
 </li>
-<li class="itemize">     
-<!--l. 112--><p class="noindent" >The biological energy storage system and the muscular and hydraulic activation systems used in
+<li class="itemize">
+<p class="noindent">The biological energy storage system and the muscular and hydraulic activation systems used in
 animals and insects achieve torque, response time and conversion efficiencies that far exceed
 similarly scaled man-made systems.</p></li></ul>
-                                                                                
-                                                                                
-<!--l. 117--><p class="noindent" >Based on these aforementioned limitations, <span class="acronym"><span class="acronym-short"><a 
-href="#glo:amr" class="glossary" >AMR</a></span><span class="acronym-detail"><span class="acronym-long"><a 
-href="#glo:amr" class="glossary" >Autonomous Mobile Robotics</a></span><span class="acronym-desc"><a 
-href="#glo:amr" class="glossary" >Autonomous Mobile
-Robotics</a></span></span></span> generally generate motion, either using wheeled mechanisms, a well-known human technology
-for vehicles, or using a small number of articulated legs, the simplest of the biological approaches to
-locomotion, shown in <span id="bold" style="font-weight:bold;">Fig.</span> <a 
-href="#x3-2007r2">1.2<!--tex4ht:ref: fig:bipedal-motion --></a>.
+<p class="noindent">Based on these aforementioned limitations, <span class="acronym"><span class="acronym-short"><a class="glossary" href="#glo:amr">AMR</a></span><span class="acronym-detail"><span class="acronym-long"><a class="glossary" href="#glo:amr">Autonomous Mobile Robotics</a></span><span class="acronym-desc"><a class="glossary" href="#glo:amr">Self-navigating machines
+moving materials and goods independently without fixed tracks or wires. They use smart software,
+cameras, and sensors to map spaces and safely steer around people or obstacles in real time.</a></span></span></span> generally
+generate motion, either using wheeled mechanisms, a well-known human technology for vehicles, or
+using a small number of articulated legs, the simplest of the biological approaches to locomotion, shown
+in <b>Fig.</b> <a href="#x3-2007r2">1.2</a>.
 </p>
-<figure class="figure"> 
-
-                                                                                
-                                                                                
-                                                                                
-                                                                                
-<a 
- id="x3-2007r2"></a>
-<figcaption class="caption" ><span class="id">Figure 1.2: 
-         </span><span  
-class="content">Bipedal motion is not unique to only humans as a wide variety of animals show bipedal motion <span class="cite"><span class="cite-show">[†]</span><span class="cite-detail">Druelle,
+<p class="noindent"></p><figure class="float">
+<a id="x3-2007r2"></a>
+<figcaption class="caption"><span class="id">Figure 1.2: 
+         </span><span class="content">Bipedal motion is not unique to only humans as a wide variety of animals show bipedal motion <span class="cite"><a class="cite-show" href="#w3-20001">[†-4]</a><span class="cite-detail"> Druelle,
          F. et al. Convergence of bipedal locomotion: why walk or run on only two legs in Convergent Evolution:
-         Animal Form and Function 431–476 (Springer, 2023)</span></span>.                                  </span></figcaption><!--tex4ht:label?: x3-2007r2 -->
-<img 
- 
-src="figures/Locomotion/raster/bipedal-motion.png" alt="PIC"  
-style="width:60%" />
-                                                                                
-                                                                                
+         Animal Form and Function 431–476 (Springer, 2023)</span></span>.                                  </span></figcaption>
+<img alt="PIC" src="figures/Locomotion/raster/bipedal-motion.png" style="width:60%"/>
 </figure>
-<!--l. 129--><p class="noindent" >In general, legged locomotion requires higher <span class="acronym"><span class="acronym-short"><a 
-href="#glo:dof" class="glossary" >DoF</a></span><span class="acronym-detail"><span class="acronym-long"><a 
-href="#glo:dof" class="glossary" >Degrees of Freedom</a></span><span class="acronym-desc"><a 
-href="#glo:dof" class="glossary" >Degrees of Freedom</a></span></span></span> and therefore
-greater mechanical complexity than wheeled locomotion <span class="cite"><span class="cite-show">[†]</span><span class="cite-detail"><a 
- id="x3-2009"></a>Lyons, D. M. &#x0026; Pamnany, K. Rotational
+<p class="noindent">In general, legged locomotion requires higher <span class="acronym"><span class="acronym-short"><a class="glossary" href="#glo:dof">DoF</a></span><span class="acronym-detail"><span class="acronym-long"><a class="glossary" href="#glo:dof">Degrees of Freedom</a></span><span class="acronym-desc"><a class="glossary" href="#glo:dof">Degrees of Freedom</a></span></span></span> and therefore
+greater mechanical complexity than wheeled locomotion <span class="cite"><a class="cite-show" href="#w3-20001">[†-5]</a><span class="cite-detail"> <a id="x3-2009"></a>Lyons, D. M. &amp; Pamnany, K. Rotational
 legged locomotion in ICAR’05. Proceedings., 12th International Conference on Advanced Robotics, 2005.
 (2005), 223–228</span></span>. Wheels, in addition to being simple, are extremely well suited to flat ground. As
-<span id="bold" style="font-weight:bold;">Fig.</span> <a 
-href="#x3-2010r3">1.3<!--tex4ht:ref: fig:locomotion-plot --></a> depicts, on flat surfaces wheeled locomotion is one to two orders of magnitude more efficient
-than legged locomotion. <div class="quote"><p>  The railway is ideally engineered for <italic>wheeled locomotion</italic> as rolling
-friction is minimised using a hard and flat <span class="margin-block"><span class="margin"><span>steel surface. [4]</span><span class="sidenote"><span class="sidenote-image"><img 
- 
-src="figures/Locomotion/raster/rail-wheel.jpg" alt="PIC"  
-style="" /></span><span class="sidenote-text"><span class="ellipsis">[4]</span>when the path is well defined,
-significant optimization can be made to minimize any losses during motion. For example,
-the contact point of a rail wheel is significantly small to minimize any friction losses.</span></span></span></span>  </p></p></div><p>
-<figure class="figure"> 
-
-                                                                                
-                                                                                
-                                                                                
-                                                                                
-<!--l. 146--><p class="noindent" > <img 
- 
-src="figures/Locomotion/figures-1.png" alt="PIC"  
-style="width:100%" /> <a 
- id="x3-2010r3"></a>
+<b>Fig.</b> <a href="#x3-2010r3">1.3</a> depicts, on flat surfaces wheeled locomotion is one to two orders of magnitude more
+efficient than legged locomotion. </p><div class="quote">  The railway is ideally engineered for <i>wheeled locomotion</i> as
+rolling friction is minimised using a hard and flat <span class="margin-block"><span class="margin"><span>steel surface. <a class="ellipsis" href="#m-ref-4">[4]</a></span><span class="sidenote"><a class="copiable-link" href="#m-ref-4" id="m-ref-4"> ¶</a><span class="sidenote-image"><img alt="PIC" src="figures/Locomotion/raster/rail-wheel.jpg" style=""/></span><span class="sidenote-text"><span class="ellipsis">[4]</span>when the path is well
+defined, significant optimization can be made to minimize any losses during motion. For
+example, the contact point of a rail wheel is significantly small to minimize any friction losses.</span></span></span></span>
+</div>
+<p class="noindent"></p><figure class="float">
+<p class="noindent"> <img alt="PIC" src="figures/Locomotion/figures-1.png" style="width:100%"/> <a id="x3-2010r3"></a>
 </p>
-<figcaption class="caption" ><span class="id">Figure 1.3: 
-         </span><span  
-class="content">Specific power versus attainable speed of various locomotion mechanisms (Adapted from <span class="cite"><span class="cite-show">[†]</span><span class="cite-detail">Siegwart, R.,
-         Nourbakhsh, I. R. &#x0026; Scaramuzza, D. Introduction to autonomous mobile robots (MIT press, 2011)</span></span>).   </span></figcaption><!--tex4ht:label?: x3-2010r3 -->
-                                                                                
-                                                                                
+<figcaption class="caption"><span class="id">Figure 1.3: 
+         </span><span class="content">Specific power versus attainable speed of various locomotion mechanisms (Adapted from <span class="cite"><a class="cite-show" href="#w3-20001">[†-6]</a><span class="cite-detail"> Siegwart, R.,
+         Nourbakhsh, I. R. &amp; Scaramuzza, D. Introduction to autonomous mobile robots (MIT press, 2011)</span></span>).   </span></figcaption>
 </figure>
-<!--l. 152--><p class="noindent" >But as the surface becomes soft, wheeled locomotion accumulates inefficiencies due to <span id="bold" style="font-weight:bold;">rolling friction</span>
-while legged locomotion suffers much less because it consists only of <span id="bold" style="font-weight:bold;">point contacts</span> with the ground.
+<p class="noindent">But as the surface becomes soft, wheeled locomotion accumulates inefficiencies due to <b>rolling friction</b>
+while legged locomotion suffers much less because it consists only of <b>point contacts</b> with the ground.
 This is demonstrated in figure 2.3 by the dramatic loss of efficiency in the case of a tire on soft
 ground.
 </p>
-<div class="warning">
-<!--l. 161--><p class="noindent" >the efficiency of wheeled locomotion depends on environmental qualities, such as the flatness
-and hardness of the ground, while the efficiency of legged locomotion depends on the leg
-mass and body mass, both of which the robot must support at various points in a legged
-gait.
-</p>
-</div>
-<!--l. 163--><p class="noindent" >It is understandable therefore nature favours legged locomotion, as locomotion systems in nature must
+<div class="warning"><div class="warning-upper">Warning</div><div class="body">
+<p class="noindent">the efficiency of wheeled locomotion depends on environmental qualities, such as the flatness and
+hardness of the ground, while the efficiency of legged locomotion depends on the leg mass
+and body mass, both of which the robot must support at various points in a legged gait.
+</p></div></div>
+<p class="noindent">It is understandable therefore nature favours legged locomotion, as locomotion systems in nature must
 operate on rough and unstructured terrain. For example, in the case of insects in a forest the vertical
 variation in ground height is often an order of magnitude greater than the total height of the
 insect.
 </p>
-<div class="sidenote"> <span class="figure" 
->
-                                                                                
-                                                                                
-                                                                                
-                                                                                
-<div class="center" 
->
-<!--l. 169--><p class="noindent" >
-</p><!--l. 170--><p class="noindent" ><img 
- 
-src="figures/Locomotion/raster/robotrac.png" alt="PIC"  
-style="" /> <a 
- id="x3-2012r4"></a>
+<div class="sidenote"> <span class="figure">
+<div class="center">
+<p class="noindent">
+</p><p class="noindent"><img alt="PIC" src="figures/Locomotion/raster/robotrac.png" style=""/> <a id="x3-2012r4"></a>
 </p>
-<figcaption class="caption" ><span class="id">Figure 1.4: </span><span  
-class="content">RoboTrac, a hybrid wheel-leg vehicle for rough terrain.                                  </span></figcaption><!--tex4ht:label?: x3-2012r4 -->
+<figcaption class="caption"><span class="id">Figure 1.4: </span><span class="content">RoboTrac, a hybrid wheel-leg vehicle for rough terrain.                                  </span></figcaption>
 </div>
-</div>
-<!--l. 176--><p class="noindent" ></div> </p><p>
-<!--l. 178--><p class="noindent" >By the same token, the human environment frequently consists of engineered, smooth surfaces both
+</span>
+<p class="noindent"></p></div>
+<p class="noindent">By the same token, the human environment frequently consists of engineered, smooth surfaces both
 indoors and outdoors. Therefore, it is also understandable that virtually all industrial applications of
 mobile robotics utilise some form of wheeled locomotion. Recently, for more natural outdoor
 environments, there has been some progress toward hybrid and legged industrial robots such as the
-forestry robot <span class="cite"><span class="cite-show">[†]</span><span class="cite-detail"><a 
- id="x3-2013"></a>Schweitzer, G. ROBOTRAC-a Mobile Manipulator Platform for Rough
+forestry robot <span class="cite"><a class="cite-show" href="#w3-20001">[†-7]</a><span class="cite-detail"> <a id="x3-2013"></a>Schweitzer, G. ROBOTRAC-a Mobile Manipulator Platform for Rough
 Terrain in Proc. of Int. Symp. on Advanced Robot Technology (1991), 411–416</span></span> shown in
-<span id="bold" style="font-weight:bold;">Fig.</span> <a 
-href="#x3-2012r4">1.4<!--tex4ht:ref: fig:robotrac --></a>.
-</p><!--l. 184--><p class="noindent" >Now, we present general considerations that concern all forms of <span class="acronym"><span class="acronym-short"><a 
-href="#glo:amr" class="glossary" >AMR</a></span><span class="acronym-detail"><span class="acronym-long"><a 
-href="#glo:amr" class="glossary" >Autonomous Mobile
-Robotics</a></span><span class="acronym-desc"><a 
-href="#glo:amr" class="glossary" >Autonomous Mobile Robotics</a></span></span></span> locomotion. Following this will be overviews of legged
-locomotion and wheeled locomotion techniques for mobile robots.
-
+<b>Fig.</b> <a href="#x3-2012r4">1.4</a>.
+</p><p class="noindent">Now, we present general considerations that concern all forms of <span class="acronym"><span class="acronym-short"><a class="glossary" href="#glo:amr">AMR</a></span><span class="acronym-detail"><span class="acronym-long"><a class="glossary" href="#glo:amr">Autonomous Mobile
+Robotics</a></span><span class="acronym-desc"><a class="glossary" href="#glo:amr">Self-navigating machines moving materials and goods independently without fixed tracks or
+wires. They use smart software, cameras, and sensors to map spaces and safely steer around people or
+obstacles in real time.</a></span></span></span> locomotion. Following this will be overviews of legged locomotion and wheeled
+locomotion techniques for mobile robots.
 </p>
 <div class="subsectionTOCS">
-<span class="subsectionToc" >1.0.1  <a 
-href="#x3-30001.0.1">Key Issues for Locomotion</a></span>
-<br /><span class="sectionToc" >1.1  <a 
-href="LeggedMobileRobots.html#x4-40001.1">Legged Mobile Robots</a></span>
-<br /><span class="subsectionToc" >1.1.1  <a 
-href="LeggedMobileRobots.html#x4-60001.1.1">Examples of Legged Robot Locomotion</a></span>
-<br /><span class="sectionToc" >1.2  <a 
-href="WheeledMobileRobots.html#x5-120001.2">Wheeled Mobile Robots</a></span>
-<br /><span class="subsectionToc" >1.2.1  <a 
-href="WheeledMobileRobots.html#x5-130001.2.1">Design</a></span>
-<br /><span class="subsectionToc" >1.2.2  <a 
-href="WheeledMobileRobots.html#x5-160001.2.2">Stability</a></span>
-<br /><span class="subsectionToc" >1.2.3  <a 
-href="WheeledMobileRobots.html#x5-170001.2.3">Manoeuvrability</a></span>
-<br /><span class="subsectionToc" >1.2.4  <a 
-href="WheeledMobileRobots.html#x5-180001.2.4">Controllability</a></span>
-<br /><span class="subsectionToc" >1.2.5  <a 
-href="WheeledMobileRobots.html#x5-190001.2.5">Case Studies for Wheeled Motion</a></span>
-<br /><span class="subsectionToc" >1.2.6  <a 
-href="WheeledMobileRobots.html#x5-260001.2.6">Walking Wheels</a></span>
+<span class="subsectionToc">1.0.1  <a href="#x3-30001.0.1">Key Issues for Locomotion</a></span>
+<br/><span class="sectionToc">1.1  <a href="LeggedMobileRobots.html#x4-40001.1">Legged Mobile Robots</a></span>
+<br/><span class="subsectionToc">1.1.1  <a href="LeggedMobileRobots.html#x4-60001.1.1">Examples of Legged Robot Locomotion</a></span>
+<br/><span class="sectionToc">1.2  <a href="WheeledMobileRobots.html#x5-120001.2">Wheeled Mobile Robots</a></span>
+<br/><span class="subsectionToc">1.2.1  <a href="WheeledMobileRobots.html#x5-130001.2.1">Design</a></span>
+<br/><span class="subsectionToc">1.2.2  <a href="WheeledMobileRobots.html#x5-160001.2.2">Stability</a></span>
+<br/><span class="subsectionToc">1.2.3  <a href="WheeledMobileRobots.html#x5-170001.2.3">Manoeuvrability</a></span>
+<br/><span class="subsectionToc">1.2.4  <a href="WheeledMobileRobots.html#x5-180001.2.4">Controllability</a></span>
+<br/><span class="subsectionToc">1.2.5  <a href="WheeledMobileRobots.html#x5-190001.2.5">Case Studies for Wheeled Motion</a></span>
+<br/><span class="subsectionToc">1.2.6  <a href="WheeledMobileRobots.html#x5-260001.2.6">Walking Wheels</a></span>
 </div>
-<!--l. 188--><p class="noindent" >
-</p><!--l. 188--><p class="noindent" ><div class="subsection-header"> <h4 id="header-subsection-1.0.1"> <a class="pdf-icon" href="AutonomousMobileRoboticsLectureBook.pdf#subsection.1.0.1"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-file-pdf" viewBox="0 0 16 16"><path d="M4 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H4zm0 1h8a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1z"></path><path d="M4.603 12.087a.81.81 0 0 1-.438-.42c-.195-.388-.13-.776.08-1.102.198-.307.526-.568.897-.787a7.68 7.68 0 0 1 1.482-.645 19.701 19.701 0 0 0 1.062-2.227 7.269 7.269 0 0 1-.43-1.295c-.086-.4-.119-.796-.046-1.136.075-.354.274-.672.65-.823.192-.077.4-.12.602-.077a.7.7 0 0 1 .477.365c.088.164.12.356.127.538.007.187-.012.395-.047.614-.084.51-.27 1.134-.52 1.794a10.954 10.954 0 0 0 .98 1.686 5.753 5.753 0 0 1 1.334.05c.364.065.734.195.96.465.12.144.193.32.2.518.007.192-.047.382-.138.563a1.04 1.04 0 0 1-.354.416.856.856 0 0 1-.51.138c-.331-.014-.654-.196-.933-.417a5.716 5.716 0 0 1-.911-.95 11.642 11.642 0 0 0-1.997.406 11.311 11.311 0 0 1-1.021 1.51c-.29.35-.608.655-.926.787a.793.793 0 0 1-.58.029zm1.379-1.901c-.166.076-.32.156-.459.238-.328.194-.541.383-.647.547-.094.145-.096.25-.04.361.01.022.02.036.026.044a.27.27 0 0 0 .035-.012c.137-.056.355-.235.635-.572a8.18 8.18 0 0 0 .45-.606zm1.64-1.33a12.647 12.647 0 0 1 1.01-.193 11.666 11.666 0 0 1-.51-.858 20.741 20.741 0 0 1-.5 1.05zm2.446.45c.15.162.296.3.435.41.24.19.407.253.498.256a.107.107 0 0 0 .07-.015.307.307 0 0 0 .094-.125.436.436 0 0 0 .059-.2.095.095 0 0 0-.026-.063c-.052-.062-.2-.152-.518-.209a3.881 3.881 0 0 0-.612-.053zM8.078 5.8a6.7 6.7 0 0 0 .2-.828c.031-.188.043-.343.038-.465a.613.613 0 0 0-.032-.198.517.517 0 0 0-.145.04c-.087.035-.158.106-.196.283-.04.192-.03.469.046.822.024.111.054.227.09.346z"></path></svg></a><span class="number">1.0.1</span> <span class="title">  <a 
- id="x3-30001.0.1"></a>Key Issues for Locomotion</span></h4></div><p>
-</p><!--l. 190--><p class="noindent" >Locomotion is the <span class="alert"><alert style="color: #821131;">complement of manipulation</alert></span>: </p>
-<ul class="itemize1">     
+<p class="noindent">
+</p><p class="noindent"><div class="subsection-header"> <h4 id="header-subsection-1.0.1"> <a class="pdf-icon" href="AutonomousMobileRoboticsLectureBook.pdf#subsection.1.0.1"><svg class="bi bi-file-pdf" fill="currentColor" height="20" viewbox="0 0 16 16" width="20" xmlns="http://www.w3.org/2000/svg"><path d="M4 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H4zm0 1h8a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1z"></path><path d="M4.603 12.087a.81.81 0 0 1-.438-.42c-.195-.388-.13-.776.08-1.102.198-.307.526-.568.897-.787a7.68 7.68 0 0 1 1.482-.645 19.701 19.701 0 0 0 1.062-2.227 7.269 7.269 0 0 1-.43-1.295c-.086-.4-.119-.796-.046-1.136.075-.354.274-.672.65-.823.192-.077.4-.12.602-.077a.7.7 0 0 1 .477.365c.088.164.12.356.127.538.007.187-.012.395-.047.614-.084.51-.27 1.134-.52 1.794a10.954 10.954 0 0 0 .98 1.686 5.753 5.753 0 0 1 1.334.05c.364.065.734.195.96.465.12.144.193.32.2.518.007.192-.047.382-.138.563a1.04 1.04 0 0 1-.354.416.856.856 0 0 1-.51.138c-.331-.014-.654-.196-.933-.417a5.716 5.716 0 0 1-.911-.95 11.642 11.642 0 0 0-1.997.406 11.311 11.311 0 0 1-1.021 1.51c-.29.35-.608.655-.926.787a.793.793 0 0 1-.58.029zm1.379-1.901c-.166.076-.32.156-.459.238-.328.194-.541.383-.647.547-.094.145-.096.25-.04.361.01.022.02.036.026.044a.27.27 0 0 0 .035-.012c.137-.056.355-.235.635-.572a8.18 8.18 0 0 0 .45-.606zm1.64-1.33a12.647 12.647 0 0 1 1.01-.193 11.666 11.666 0 0 1-.51-.858 20.741 20.741 0 0 1-.5 1.05zm2.446.45c.15.162.296.3.435.41.24.19.407.253.498.256a.107.107 0 0 0 .07-.015.307.307 0 0 0 .094-.125.436.436 0 0 0 .059-.2.095.095 0 0 0-.026-.063c-.052-.062-.2-.152-.518-.209a3.881 3.881 0 0 0-.612-.053zM8.078 5.8a6.7 6.7 0 0 0 .2-.828c.031-.188.043-.343.038-.465a.613.613 0 0 0-.032-.198.517.517 0 0 0-.145.04c-.087.035-.158.106-.196.283-.04.192-.03.469.046.822.024.111.054.227.09.346z"></path></svg></a><span class="number">1.0.1</span> <span class="title"> <a id="x3-30001.0.1"></a>Key Issues for Locomotion</span></h4></div>
+</p><p class="noindent">Locomotion is the <span class="alert">complement of manipulation</span>: </p>
+<ul class="itemize1">
 <li class="itemize">
-<!--l. 193--><p class="noindent" >In manipulation, the robot arm is fixed but moves objects in the workspace by imparting
+<p class="noindent">In manipulation, the robot arm is fixed but moves objects in the workspace by imparting
 force to them.
-                                                                                
-                                                                                
-     
 </p>
-</li>     
+</li>
 <li class="itemize">
-<!--l. 195--><p class="noindent" >In locomotion, the environment is fixed and the robot moves by imparting force to the
+<p class="noindent">In locomotion, the environment is fixed and the robot moves by imparting force to the
 environment.</p></li></ul>
-<!--l. 199--><p class="noindent" >For both cases, the scientific basis is the <span class="alert"><alert style="color: #821131;">study of actuators</alert></span> which generate interaction forces, and
-mechanisms that implement desired kinematic and dynamic properties. Locomotion and manipulation
+<p class="noindent">For both cases, the scientific basis is the <span class="alert">study of actuators</span> which generate interaction forces, and mechanisms
+that implement desired kinematic and dynamic properties. Locomotion and manipulation
 therefore share the same core issues of stability, contact characteristics and environmental
 type:
-</p>     
-<ul class="itemize1">
-<li class="itemize">     
-<!--l. 208--><p class="noindent" >Stability </p>
-<ul class="itemize2">         
-<li class="itemize">
-<!--l. 211--><p class="noindent" >number and geometry of contact points
-</p>         
-</li>
-<li class="itemize">         
-<!--l. 212--><p class="noindent" >centre of gravity
-</p>         
-</li>
-<li class="itemize">         
-<!--l. 213--><p class="noindent" >static/dynamic stability
-</p>         
-</li>
-<li class="itemize">         
-<!--l. 214--><p class="noindent" >inclination of terrain</p></li></ul>
-</li>     
-<li class="itemize">
-<!--l. 217--><p class="noindent" >characteristics of contact </p>
-<ul class="itemize2">         
-<li class="itemize">
-<!--l. 220--><p class="noindent" >contact point/path size and shape
-</p>         
-</li>
-<li class="itemize">         
-<!--l. 221--><p class="noindent" >angle of contact
-</p>         
-</li>
-<li class="itemize">         
-<!--l. 222--><p class="noindent" >friction</p></li></ul>
-</li>     
-<li class="itemize">
-<!--l. 225--><p class="noindent" >type of environment </p>
-<ul class="itemize2">         
-<li class="itemize">
-<!--l. 228--><p class="noindent" >structure
-                                                                                
-                                                                                
-         
 </p>
-</li>         
+<ul class="itemize1">
 <li class="itemize">
-<!--l. 229--><p class="noindent" >medium (e.g., water, air, soft or hard ground)</p></li></ul>
+<p class="noindent">Stability </p>
+<ul class="itemize2">
+<li class="itemize">
+<p class="noindent">number and geometry of contact points
+</p>
+</li>
+<li class="itemize">
+<p class="noindent">centre of gravity
+</p>
+</li>
+<li class="itemize">
+<p class="noindent">static/dynamic stability
+</p>
+</li>
+<li class="itemize">
+<p class="noindent">inclination of terrain</p></li></ul>
+</li>
+<li class="itemize">
+<p class="noindent">characteristics of contact </p>
+<ul class="itemize2">
+<li class="itemize">
+<p class="noindent">contact point/path size and shape
+</p>
+</li>
+<li class="itemize">
+<p class="noindent">angle of contact
+</p>
+</li>
+<li class="itemize">
+<p class="noindent">friction</p></li></ul>
+</li>
+<li class="itemize">
+<p class="noindent">type of environment </p>
+<ul class="itemize2">
+<li class="itemize">
+<p class="noindent">structure
+</p>
+</li>
+<li class="itemize">
+<p class="noindent">medium (e.g., water, air, soft or hard ground)</p></li></ul>
 </li></ul>
-<!--l. 235--><p class="noindent" ><p>
-A theoretical analysis of locomotion begins with mechanics and physics. From this starting point, we
+<p class="noindent"><p>
+</p><p class="noindent">A theoretical analysis of locomotion begins with mechanics and physics. From this starting point, we
 can formally define and analyse all manner of mobile robot locomotion systems. However, this Lecture
 Book puts more emphasis on the mobile robot navigation problem, particularly on the topics of
 perception, localisation and cognition. Therefore, we will not delve deeply into the physical basis of
 locomotion. Nevertheless, two remaining sections in this chapter present overviews of issues in legged
 locomotion and wheeled locomotion.
-
 </p>
-                                                                                
-                                                                                
-<!--l. 567--><p class="noindent" >
+<p class="noindent">
 </p>
-                                                                                
-                                                                                
-<div class="crosslinks-bottom"><a 
-href="LeggedMobileRobots.html" ><span class="nav-next">NEXT</span></a><a 
-href="index.html" ><span class="nav-prev">PREV</span></a><a 
-href="index.html#tailindex.html" ><span class="nav-prev-tail">PREV-TAIL</span></a><a 
-href="Locomotion.html" ><span class="nav-front">FRONT</span></a><a 
-href="AutonomousMobileRoboticsLectureBook.html#Locomotion.html" ><span class="nav-up">UP</span></a></nav><a 
- id="tailLocomotion.html"></a>  </div> <div class="footer"> <div class="footer-left"><span class="footer-lecture">D. T. McGuiness, PhD</span> 
-<span class="footer-webBook"><span id="bold" style="font-weight:bold;">Last Updated:</span> 5.8.2026, at 16:39.</span> </div> </div> </div> <div class="author-notes"> 
-<span class="note">Authors Note </span> 
-<span class="text">The website you are viewing is auto-generated using ParSnip and therefore subject to slight errors in typography and formatting. When in doubt, please consult the LectureBook. </span> 
-</div> 
-</article> 
-<div class="mode-line"> 
-<div class="core-line"> 
-<div class="button-group"> 
-</div> 
-</div> 
-<div class="supp-line"></div> 
-</div> 
-</page> 
- 
-</body> 
+<div class="section-header">
+<h3 id="header-section-glossary">
+<span class="number">
+<i class="fa-regular fa-bookmark"></i>
+</span>
+<span class="title">
+<a id="page-glossary"></a>
+        Page Glossary Terms</span>
+</h3>
+</div>
+<div class="acronym-block">
+<dl class="acr-list">
+<a class="copiable-link" href="#glo:dof">¶</a>
+<dt class="acr-bottom" id="glo:dof"><span class="acr-short">DoF</span><span class="acr-long">Degrees of Freedom</span></dt>
+<dd class="acr-desc"><p>Degrees of Freedom</p></dd>
+</dl>
+<dl class="acr-list">
+<a class="copiable-link" href="#glo:amr">¶</a>
+<dt class="acr-bottom" id="glo:amr"><span class="acr-short">AMR</span><span class="acr-long">Autonomous Mobile Robotics</span></dt>
+<dd class="acr-desc"><p>Self-navigating machines moving materials and goods
+independently without fixed tracks or wires. They use smart software, cameras, and sensors to map
+spaces and safely steer around people or obstacles in real time.</p></dd>
+</dl>
+</div>
+<div class="section-header">
+<h3 id="header-section-references">
+<span class="number">
+<i class="fa-solid fa-magnifying-glass"></i>
+</span>
+<span class="title">
+<a id="page-glossary"></a>
+            Page References</span>
+</h3>
+</div>
+<div class="cite-block">
+<dl class="enumerate-enumitem">
+<dt class="enumerate-enumitem" id="w3-20001"><span class="acr-short">1.</span><span class="acr-long"></span></dt>
+<dd class="enumerate-enumitem"> Bulliet, R. W. The wheel: inventions and reinventions (Columbia University Press, 2016)</dd>
+</dl>
+<dl class="enumerate-enumitem">
+<dt class="enumerate-enumitem" id="w3-20001"><span class="acr-short">2.</span><span class="acr-long"></span></dt>
+<dd class="enumerate-enumitem"> LaBarbera, M. Why the wheels won’t go. The American Naturalist 121, 395–408 (1983)</dd>
+</dl>
+<dl class="enumerate-enumitem">
+<dt class="enumerate-enumitem" id="w3-20001"><span class="acr-short">3.</span><span class="acr-long"></span></dt>
+<dd class="enumerate-enumitem"> Vincent, J. F. et al. Biomimetics: its practice and theory. Journal of the Royal Society Interface 3, 471 (2006)</dd>
+</dl>
+<dl class="enumerate-enumitem">
+<dt class="enumerate-enumitem" id="w3-20001"><span class="acr-short">4.</span><span class="acr-long"></span></dt>
+<dd class="enumerate-enumitem"> Druelle, F. et al. Convergence of bipedal locomotion: why walk or run on only two legs in Convergent Evolution: Animal Form and Function 431–476 (Springer, 2023)</dd>
+</dl>
+<dl class="enumerate-enumitem">
+<dt class="enumerate-enumitem" id="w3-20001"><span class="acr-short">5.</span><span class="acr-long"></span></dt>
+<dd class="enumerate-enumitem"> Lyons, D. M. &amp; Pamnany, K. Rotational legged locomotion in ICAR’05. Proceedings., 12th International Conference on Advanced Robotics, 2005. (2005), 223–228</dd>
+</dl>
+<dl class="enumerate-enumitem">
+<dt class="enumerate-enumitem" id="w3-20001"><span class="acr-short">6.</span><span class="acr-long"></span></dt>
+<dd class="enumerate-enumitem"> Siegwart, R., Nourbakhsh, I. R. &amp; Scaramuzza, D. Introduction to autonomous mobile robots (MIT press, 2011)</dd>
+</dl>
+<dl class="enumerate-enumitem">
+<dt class="enumerate-enumitem" id="w3-20001"><span class="acr-short">7.</span><span class="acr-long"></span></dt>
+<dd class="enumerate-enumitem"> Schweitzer, G. ROBOTRAC-a Mobile Manipulator Platform for Rough Terrain in Proc. of Int. Symp. on Advanced Robot Technology (1991), 411–416</dd>
+</dl></div>
+<div class="section-header">
+<h3 id="header-section-references">
+<span class="number">
+<i class="fa-regular fa-note-sticky"></i>
+</span>
+<span class="title">
+<a id="page-glossary"></a>
+                    Page Footnotes</span>
+</h3>
+</div>
+<div class="footnote-block">
+<dl class="enumerate-enumitem">
+<dt class="enumerate-enumitem" id="m-ref-1"><span class="acr-short">[1].</span></dt>
+<dd class="enumerate-enumitem"><span class="">While this statement is
+practically true, single cell organism use a similar locomotion to what we call wheel <span class="cite"><a class="cite-show" href="#w3-20001">[†-2]</a><span class="cite-detail">
+<a id="x3-2003"></a>LaBarbera, M. Why the wheels won’t go. The American Naturalist <b>121</b><b>,</b> 395–408 (1983)</span></span>.</span></dd>
+</dl>
+<dl class="enumerate-enumitem">
+<dt class="enumerate-enumitem" id="m-ref-3"><span class="acr-short">[3].</span></dt>
+<dd class="enumerate-enumitem"><span class="">short eyelash-like
+filament that is numerous on tissue cells of most animals and provides the means for
+locomotion of protozoans of the <i>phylum Ciliophora</i></span></dd>
+</dl></div><nav class="crosslinks-bottom"><div class="navigation"><span class="nav-button"><a href="LeggedMobileRobots.html"><i class="fa-solid fa-caret-right"></i></a></span><span class="nav-button"><a href="index.html"><i class="fa-solid fa-caret-left"></i></a></span><span class="nav-button"><a href=""><i class="fa-solid fa-caret-up"></i></a></span><span class="nav-button">
+<a href="index.html" rel="index" title="Index">
+<i class="fa-solid fa-table-list">
+</i>
+</a></span><span class="nav-button">
+<a href="Index.html" rel="index" title="Index">
+<i class="fa-brands fa-git-alt"></i>
+</a></span></div></nav> <div class="footer"> <div class="footer-left"><span class="footer-lecture">D. T. McGuiness, PhD</span>
+<span class="footer-webBook"><b>Last Updated:</b> 13.10.2026, at 8:16.</span></div></div><div class="author-notes">
+<span class="note">Authors Note </span>
+<span class="text">The website you are viewing is auto-generated using lms-WebBook and therefore subject to slight errors in typography and formatting. When in doubt, please consult the LectureBook. </span>
+</div>
+</p></article>
+<div class="mode-line">
+<div class="core-line"><div class="core-line-image"><img class="webbook-logo" src="logo/webbook-logo.svg"/></div>
+<div class="current-header">
+<span class="header-pretext">Viewing | </span>
+<span class="header-text">Chapter 1: Locomotion</span>
+</div>
+<div class="button-group">
+</div>
+</div>
+<div class="supp-line"></div>
+</div>
+</page>
+</body>
 </html>
