@@ -1,0 +1,1 @@
+docker run  --volume <path>:/home/ubuntu/Desktop/Host --publish 6080:80 --name="ros2linux" --security-opt seccomp=unconfined  --shm-size=512m mci:ros2
