@@ -10,11 +10,10 @@
 <script src="./pagefind/pagefind-component-ui.js" type="text/javascript"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 <link href="https://cdn.jsdelivr.net/gh/sugina-dev/latin-modern-web@1.0.1/style/latinmodern-mono.css" rel="stylesheet"/>
-<link href="https://cdn.jsdelivr.net/gh/dTmC0945/Wb-LMS-WebBook-Infrastructure/flatweb.css" rel="stylesheet" type="text/css"/>
-<script async="true" crossorigin="anonymous" src="https://cdn.jsdelivr.net/gh/dTmC0945/Wb-LMS-WebBook-Infrastructure/flatweb.js"></script>
-<link href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/styles/default.min.css" rel="stylesheet"/>
+<link href="flatweb.css" rel="stylesheet" type="text/css"/>
+<script src="flatweb.js" type="text/javascript"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/highlight.min.js"></script>
-<link href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/styles/base16/solarized-light.min.css" rel="stylesheet"/>
+<link href="style-code/gruvbox-light-hard.min.css" id="code-style" rel="stylesheet"/>
 <script src="https://unpkg.com/highlightjs-copy/dist/highlightjs-copy.min.js"></script>
 <link href="https://unpkg.com/highlightjs-copy/dist/highlightjs-copy.min.css" rel="stylesheet"/>
 <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet"/>
@@ -41,61 +40,51 @@ robot kinematic models and constraints</a></span></span><span class="sectionToc"
 of Mobility</a></span></span><span class="subsectionToc"><span class="number">2.2.2</span><span class="title"><a href="MobileRobotManeuverability.html#x8-450002.2.2">Degree of steerability</a></span></span><span class="subsectionToc"><span class="number">2.2.3</span><span class="title"><a href="MobileRobotManeuverability.html#x8-470002.2.3">Robot maneuverability</a></span></span><span class="sectionToc"><span class="number">2.3</span><span class="title"><a href="MobileRobotWorkspace.html#x9-480002.3">Mobile Robot
 Workspace</a></span></span><span class="subsectionToc"><span class="number">2.3.1</span><span class="title"><a href="MobileRobotWorkspace.html#x9-490002.3.1">Degrees of freedom</a></span></span><span class="subsectionToc"><span class="number">2.3.2</span><span class="title"><a href="MobileRobotWorkspace.html#x9-500002.3.2">Holonomic robots</a></span></span><span class="subsectionToc"><span class="number">2.3.3</span><span class="title"><a href="MobileRobotWorkspace.html#x9-530002.3.3">Path and trajectory
 considerations</a></span></span><span class="subsectionToc"><span class="number">2.3.4</span><span class="title"><a href="MobileRobotWorkspace.html#x9-540002.3.4">Beyond Basic Kinematics</a></span></span><span class="sectionToc"><span class="number">2.4</span><span class="title"><a href="MotionControlKinematicControl.html#x10-550002.4">Motion Control (Kinematic
-Control)</a></span></span><span class="subsectionToc"><span class="number">2.4.1</span><span class="title"><a href="MotionControlKinematicControl.html#x10-560002.4.1">Open loop control</a></span></span><span class="subsectionToc"><span class="number">2.4.2</span><span class="title"><a href="MotionControlKinematicControl.html#x10-570002.4.2">Feedback control</a></span></span><span class="chapterToc"><span class="number">3</span><span class="title"><a href="Perception.html#x11-630003">Perception</a></span></span><span class="sectionToc"><span class="number">3.1</span><span class="title"><a href="SensorsforMobileRobotics.html#x12-640003.1">Sensors for Mobile
-Robotics</a></span></span><span class="subsectionToc"><span class="number">3.1.1</span><span class="title"><a href="SensorsforMobileRobotics.html#x12-650003.1.1">Sensor Classification</a></span></span><span class="subsectionToc"><span class="number">3.1.2</span><span class="title"><a href="SensorsforMobileRobotics.html#x12-660003.1.2">Characterisation of Sensor Performance</a></span></span><span class="subsectionToc"><span class="number">3.1.3</span><span class="title"><a href="SensorsforMobileRobotics.html#x12-720003.1.3">Wheel
-and Motor Sensors</a></span></span><span class="subsectionToc"><span class="number">3.1.4</span><span class="title"><a href="SensorsforMobileRobotics.html#x12-740003.1.4">Heading Sensors</a></span></span><span class="subsectionToc"><span class="number">3.1.5</span><span class="title"><a href="SensorsforMobileRobotics.html#x12-810003.1.5">Ground Based Beacons</a></span></span><span class="subsectionToc"><span class="number">3.1.6</span><span class="title"><a href="SensorsforMobileRobotics.html#x12-830003.1.6">Active
-Ranging</a></span></span><span class="subsectionToc"><span class="number">3.1.7</span><span class="title"><a href="SensorsforMobileRobotics.html#x12-850003.1.7">The Ultrasonic Sensor</a></span></span><span class="subsectionToc"><span class="number">3.1.8</span><span class="title"><a href="SensorsforMobileRobotics.html#x12-920003.1.8">Motion and Speed Sensors</a></span></span><span class="sectionToc"><span class="number">3.2</span><span class="title"><a href="VisionBasedSensors.html#x13-940003.2">Vision Based
-Sensors</a></span></span><span class="subsectionToc"><span class="number">3.2.1</span><span class="title"><a href="VisionBasedSensors.html#x13-950003.2.1">CCD Sensors</a></span></span><span class="subsectionToc"><span class="number">3.2.2</span><span class="title"><a href="VisionBasedSensors.html#x13-970003.2.2">CMOS Technology</a></span></span><span class="subsectionToc"><span class="number">3.2.3</span><span class="title"><a href="VisionBasedSensors.html#x13-980003.2.3">Visual Ranging Sensors</a></span></span><span class="subsectionToc"><span class="number">3.2.4</span><span class="title"><a href="VisionBasedSensors.html#x13-990003.2.4">Depth
-from Focus</a></span></span><span class="sectionToc"><span class="number">3.3</span><span class="title"><a href="RepresentingUncertainty.html#x14-1070003.3">Representing Uncertainty</a></span></span><span class="subsectionToc"><span class="number">3.3.1</span><span class="title"><a href="RepresentingUncertainty.html#x14-1080003.3.1">Statistical Representation</a></span></span><span class="subsectionToc"><span class="number">3.3.2</span><span class="title"><a href="RepresentingUncertainty.html#x14-1090003.3.2">Independence
-of random variables</a></span></span><span class="subsectionToc"><span class="number">3.3.3</span><span class="title"><a href="RepresentingUncertainty.html#x14-1110003.3.3">Propagation of Error</a></span></span><span class="sectionToc"><span class="number">3.4</span><span class="title"><a href="FeatureExtraction.html#x15-1120003.4">Feature Extraction</a></span></span><span class="subsectionToc"><span class="number">3.4.1</span><span class="title"><a href="FeatureExtraction.html#x15-1130003.4.1">Defining
-Feature</a></span></span><span class="subsectionToc"><span class="number">3.4.2</span><span class="title"><a href="FeatureExtraction.html#x15-1140003.4.2">Using Range Data</a></span></span><span class="chapterToc"><span class="number">4</span><span class="title"><a href="MobileRobotLocalisation.html#x16-1290004">Mobile Robot Localisation</a></span></span><span class="sectionToc"><span class="number">4.1</span><span class="title"><a href="TheProblemsofNoiseandAliasing.html#x17-1300004.1">The Problems of Noise and
-Aliasing</a></span></span><span class="subsectionToc"><span class="number">4.1.1</span><span class="title"><a href="TheProblemsofNoiseandAliasing.html#x17-1310004.1.1">Sensor Noise</a></span></span><span class="subsectionToc"><span class="number">4.1.2</span><span class="title"><a href="TheProblemsofNoiseandAliasing.html#x17-1320004.1.2">Sensor Aliasing</a></span></span><span class="subsectionToc"><span class="number">4.1.3</span><span class="title"><a href="TheProblemsofNoiseandAliasing.html#x17-1330004.1.3">Effector Noise</a></span></span><span class="subsectionToc"><span class="number">4.1.4</span><span class="title"><a href="TheProblemsofNoiseandAliasing.html#x17-1340004.1.4">An Error Model for
-Odometric Position Estimation</a></span></span><span class="sectionToc"><span class="number">4.2</span><span class="title"><a href="LocalisationTechniques.html#x18-1350004.2">Localisation Techniques</a></span></span><span class="sectionToc"><span class="number">4.3</span><span class="title"><a href="RepresentingBelief.html#x19-1360004.3">Representing Belief</a></span></span><span class="subsectionToc"><span class="number">4.3.1</span><span class="title"><a href="RepresentingBelief.html#x19-1370004.3.1">Single
-Hypothesis Belief</a></span></span><span class="subsectionToc"><span class="number">4.3.2</span><span class="title"><a href="RepresentingBelief.html#x19-1380004.3.2">Multiple Hypothesis Belief</a></span></span><span class="sectionToc"><span class="number">4.4</span><span class="title"><a href="RepresentingMaps.html#x20-1390004.4">Representing Maps</a></span></span><span class="subsectionToc"><span class="number">4.4.1</span><span class="title"><a href="RepresentingMaps.html#x20-1400004.4.1">Continuous
-Representation</a></span></span><span class="subsectionToc"><span class="number">4.4.2</span><span class="title"><a href="RepresentingMaps.html#x20-1410004.4.2">Decomposition Methods</a></span></span><span class="subsectionToc"><span class="number">4.4.3</span><span class="title"><a href="RepresentingMaps.html#x20-1420004.4.3">Current Challenges</a></span></span><span class="sectionToc"><span class="number">4.5</span><span class="title"><a href="ProbabilisticMapBasedLocalisation.html#x21-1430004.5">Probabilistic
-Map-Based Localisation</a></span></span><span class="subsectionToc"><span class="number">4.5.1</span><span class="title"><a href="ProbabilisticMapBasedLocalisation.html#x21-1440004.5.1">Problem Definition</a></span></span><span class="subsectionToc"><span class="number">4.5.2</span><span class="title"><a href="ProbabilisticMapBasedLocalisation.html#x21-1450004.5.2">Markov Localisation</a></span></span><span class="subsectionToc"><span class="number">4.5.3</span><span class="title"><a href="ProbabilisticMapBasedLocalisation.html#x21-1490004.5.3">Kalman
-Filter Localisation</a></span></span><span class="subsectionToc"><span class="number">4.5.4</span><span class="title"><a href="ProbabilisticMapBasedLocalisation.html#x21-1500004.5.4">An Implementation of Kalman Filter</a></span></span><span class="sectionToc"><span class="number">4.6</span><span class="title"><a href="OtherExamplesofLocalisationMethods.html#x22-1550004.6">Other Examples
-of Localisation Methods</a></span></span><span class="subsectionToc"><span class="number">4.6.1</span><span class="title"><a href="OtherExamplesofLocalisationMethods.html#x22-1560004.6.1">Landmark-based Navigation</a></span></span><span class="subsectionToc"><span class="number">4.6.2</span><span class="title"><a href="OtherExamplesofLocalisationMethods.html#x22-1570004.6.2">Globally Unique
-Localisation</a></span></span><span class="subsectionToc"><span class="number">4.6.3</span><span class="title"><a href="OtherExamplesofLocalisationMethods.html#x22-1580004.6.3">Positioning Beacon systems</a></span></span><span class="subsectionToc"><span class="number">4.6.4</span><span class="title"><a href="OtherExamplesofLocalisationMethods.html#x22-1590004.6.4">Route-Based Localisation</a></span></span><span class="sectionToc"><span class="number">4.7</span><span class="title"><a href="BuildingMaps.html#x23-1600004.7">Building
-Maps</a></span></span><span class="subsectionToc"><span class="number">4.7.1</span><span class="title"><a href="BuildingMaps.html#x23-1610004.7.1">Stochastic Map Technique</a></span></span><span class="subsectionToc"><span class="number">4.7.2</span><span class="title"><a href="BuildingMaps.html#x23-1620004.7.2">Other Mapping Techniques</a></span></span><span class="chapterToc"><span class="number">5</span><span class="title"><a href="WelcometoLinux.html#x24-1650005">Welcome to Linux</a></span></span><span class="sectionToc"><span class="number">5.1</span><span class="title"><a href="AHistoryofUNIXLinux.html#x25-1660005.1">A
-History of UNIX/Linux</a></span></span><span class="subsectionToc"><span class="number">5.1.1</span><span class="title"><a href="AHistoryofUNIXLinux.html#x25-1680005.1.1">A Short History on Computer Interfaces</a></span></span><span class="subsectionToc"><span class="number">5.1.2</span><span class="title"><a href="AHistoryofUNIXLinux.html#x25-1700005.1.2">Linux is a
-Nutshell</a></span></span><span class="subsectionToc"><span class="number">5.1.3</span><span class="title"><a href="AHistoryofUNIXLinux.html#x25-1730005.1.3">Linux Distributions</a></span></span><span class="sectionToc"><span class="number">5.2</span><span class="title"><a href="Installation.html#x26-1740005.2">Installation</a></span></span><span class="subsectionToc"><span class="number">5.2.1</span><span class="title"><a href="Installation.html#x26-1750005.2.1">Docker</a></span></span><span class="subsectionToc"><span class="number">5.2.2</span><span class="title"><a href="Installation.html#x26-1760005.2.2">Dockerfile</a></span></span><span class="subsectionToc"><span class="number">5.2.3</span><span class="title"><a href="Installation.html#x26-1770005.2.3">Running
-the Container</a></span></span><span class="chapterToc"><span class="number">6</span><span class="title"><a href="CommandLineFundamentals.html#x27-1780006">Command Line Fundamentals</a></span></span><span class="sectionToc"><span class="number">6.1</span><span class="title"><a href="ToCommandaComputer.html#x28-1790006.1">To Command a Computer</a></span></span><span class="subsectionToc"><span class="number">6.1.1</span><span class="title"><a href="ToCommandaComputer.html#x28-1800006.1.1">The
-Command Line Interface</a></span></span><span class="subsectionToc"><span class="number">6.1.2</span><span class="title"><a href="ToCommandaComputer.html#x28-1810006.1.2">The Structure of Commands</a></span></span><span class="subsectionToc"><span class="number">6.1.3</span><span class="title"><a href="ToCommandaComputer.html#x28-1820006.1.3">Some Rules Regarding
-the Syntax</a></span></span><span class="sectionToc"><span class="number">6.2</span><span class="title"><a href="WhenWeNeedHelpwithCommands.html#x29-1830006.2">When We Need Help with Commands</a></span></span><span class="subsectionToc"><span class="number">6.2.1</span><span class="title"><a href="WhenWeNeedHelpwithCommands.html#x29-1840006.2.1">Use Tab completion on
-the Shell</a></span></span><span class="subsectionToc"><span class="number">6.2.2</span><span class="title"><a href="WhenWeNeedHelpwithCommands.html#x29-1850006.2.2">The info command</a></span></span><span class="subsectionToc"><span class="number">6.2.3</span><span class="title"><a href="WhenWeNeedHelpwithCommands.html#x29-1860006.2.3">The whatis command</a></span></span><span class="chapterToc"><span class="number">7</span><span class="title"><a href="WorkingwithFilesandFolders.html#x30-1880007">Working with Files
-and Folders</a></span></span><span class="sectionToc"><span class="number">7.1</span><span class="title"><a href="FilesandFolders.html#x31-1890007.1">Files and Folders</a></span></span><span class="subsectionToc"><span class="number">7.1.1</span><span class="title"><a href="FilesandFolders.html#x31-1900007.1.1">A Detailed Look in ls Command</a></span></span><span class="subsectionToc"><span class="number">7.1.2</span><span class="title"><a href="FilesandFolders.html#x31-1910007.1.2">Creating
-and Removing Folders</a></span></span><span class="subsectionToc"><span class="number">7.1.3</span><span class="title"><a href="FilesandFolders.html#x31-1920007.1.3">Move, Copy and Delete Files and Folders</a></span></span><span class="sectionToc"><span class="number">7.2</span><span class="title"><a href="#x32-1990007.2">Permissions
-and Links</a></span></span><span class="subsectionToc"><span class="number">7.2.1</span><span class="title"><a href="#x32-2000007.2.1">Role to Users and sudo</a></span></span><span class="subsectionToc"><span class="number">7.2.2</span><span class="title"><a href="#x32-2010007.2.2">File Permissions</a></span></span><span class="subsectionToc"><span class="number">7.2.3</span><span class="title"><a href="#x32-2040007.2.3">Hard and Symbolic
-Links</a></span></span><span class="subsectionToc"><span class="number">7.2.4</span><span class="title"><a href="#x32-2050007.2.4">Soft (Symbolic) Links</a></span></span><span class="subsectionToc"><span class="number">7.2.5</span><span class="title"><a href="#x32-2070007.2.5">The Linux File System</a></span></span><span class="subsectionToc"><span class="number">7.2.6</span><span class="title"><a href="#x32-2080007.2.6">The UNIX
-Philosophy</a></span></span><span class="sectionToc"><span class="number">7.3</span><span class="title"><a href="CommonCommandLineToolsandTasks.html#x33-2090007.3">Common Command-Line Tools and Tasks</a></span></span><span class="subsectionToc"><span class="number">7.3.1</span><span class="title"><a href="CommonCommandLineToolsandTasks.html#x33-2100007.3.1">Connecting Commands
-with Pipes</a></span></span><span class="subsectionToc"><span class="number">7.3.2</span><span class="title"><a href="CommonCommandLineToolsandTasks.html#x33-2110007.3.2">Viewing Text Files with cat, head, tail, and less</a></span></span><span class="subsectionToc"><span class="number">7.3.3</span><span class="title"><a href="CommonCommandLineToolsandTasks.html#x33-2120007.3.3">Finding
-Linux Distribution and Kernel Information</a></span></span><span class="subsectionToc"><span class="number">7.3.4</span><span class="title"><a href="CommonCommandLineToolsandTasks.html#x33-2140007.3.4">Find System Hardware and Disk
-Information</a></span></span><span class="chapterToc"><span class="number">8</span><span class="title"><a href="ROSConcepts.html#x34-2160008">ROS Concepts</a></span></span><span class="sectionToc"><span class="number">8.1</span><span class="title"><a href="PublisherandSubscriberArchitecture.html#x35-2170008.1">Publisher and Subscriber Architecture</a></span></span><span class="subsectionToc"><span class="number">8.1.1</span><span class="title"><a href="PublisherandSubscriberArchitecture.html#x35-2180008.1.1">ROS 2
-Architecture</a></span></span><span class="sectionToc"><span class="number">8.2</span><span class="title"><a href="BuildingBlocks.html#x36-2200008.2">Building Blocks</a></span></span><span class="subsectionToc"><span class="number">8.2.1</span><span class="title"><a href="BuildingBlocks.html#x36-2210008.2.1">Nodes</a></span></span><span class="subsectionToc"><span class="number">8.2.2</span><span class="title"><a href="BuildingBlocks.html#x36-2220008.2.2">The Discovery Process</a></span></span><span class="subsectionToc"><span class="number">8.2.3</span><span class="title"><a href="BuildingBlocks.html#x36-2230008.2.3">Communication
-Interface</a></span></span><span class="subsectionToc"><span class="number">8.2.4</span><span class="title"><a href="BuildingBlocks.html#x36-2320008.2.4">Topics</a></span></span><span class="subsectionToc"><span class="number">8.2.5</span><span class="title"><a href="BuildingBlocks.html#x36-2360008.2.5">Services</a></span></span><span class="subsectionToc"><span class="number">8.2.6</span><span class="title"><a href="BuildingBlocks.html#x36-2390008.2.6">Actions</a></span></span><span class="subsectionToc"><span class="number">8.2.7</span><span class="title"><a href="BuildingBlocks.html#x36-2420008.2.7">Parameters</a></span></span><span class="subsectionToc"><span class="number">8.2.8</span><span class="title"><a href="BuildingBlocks.html#x36-2510008.2.8">Working with
-Command Line</a></span></span><span class="subsectionToc"><span class="number">8.2.9</span><span class="title"><a href="BuildingBlocks.html#x36-2530008.2.9">Launch Files</a></span></span><span class="sectionToc"><span class="number">8.3</span><span class="title"><a href="AdvancedConcepts.html#x37-2540008.3">Advanced Concepts</a></span></span><span class="subsectionToc"><span class="number">8.3.1</span><span class="title"><a href="AdvancedConcepts.html#x37-2550008.3.1">ROS DOMAIN ID</a></span></span><span class="chapterToc"><span class="number">9</span><span class="title"><a href="CommandLineTools.html#x38-2570009">Command
-Line Tools</a></span></span><span class="sectionToc"><span class="number">9.1</span><span class="title"><a href="SettingtheEnvironment.html#x39-2580009.1">Setting the Environment</a></span></span><span class="sectionToc"><span class="number">9.2</span><span class="title"><a href="TurtlesandGraphs.html#x40-2630009.2">Turtles and Graphs</a></span></span><span class="sectionToc"><span class="number">9.3</span><span class="title"><a href="ADeeperLookintoNodes.html#x41-2710009.3">A Deeper Look into
-Nodes</a></span></span><span class="sectionToc"><span class="number">9.4</span><span class="title"><a href="WorkingwithTopics.html#x42-2760009.4">Working with Topics</a></span></span><span class="sectionToc"><span class="number">9.5</span><span class="title"><a href="WorkingwithServices.html#x43-2820009.5">Working with Services</a></span></span><span class="sectionToc"><span class="number">9.6</span><span class="title"><a href="WorkingwithParameters.html#x44-2890009.6">Working with Parameters</a></span></span><span class="sectionToc"><span class="number">9.7</span><span class="title"><a href="APracticalLookintoActions.html#x45-2960009.7">A
-Practical Look into Actions</a></span></span><span class="sectionToc"><span class="number">9.8</span><span class="title"><a href="LaunchingNodes.html#x46-3030009.8">Launching Nodes</a></span></span><span class="chapterToc"><span class="number">10</span><span class="title"><a href="ClientLibraries.html#x47-30500010">Client Libraries</a></span></span><span class="sectionToc"><span class="number">10.1</span><span class="title"><a href="GettingStartedwithColcon.html#x48-30600010.1">Getting Started with
-Colcon</a></span></span><span class="subsectionToc"><span class="number">10.1.1</span><span class="title"><a href="GettingStartedwithColcon.html#x48-30700010.1.1">The Structure of a Package</a></span></span><span class="subsectionToc"><span class="number">10.1.2</span><span class="title"><a href="GettingStartedwithColcon.html#x48-30800010.1.2">Sourcing an Underlay</a></span></span><span class="subsectionToc"><span class="number">10.1.3</span><span class="title"><a href="GettingStartedwithColcon.html#x48-30900010.1.3">Building the
-Workspace</a></span></span><span class="subsectionToc"><span class="number">10.1.4</span><span class="title"><a href="GettingStartedwithColcon.html#x48-31000010.1.4">Sourcing the New Package</a></span></span><span class="subsectionToc"><span class="number">10.1.5</span><span class="title"><a href="GettingStartedwithColcon.html#x48-31100010.1.5">Creating a Workspace</a></span></span><span class="subsectionToc"><span class="number">10.1.6</span><span class="title"><a href="GettingStartedwithColcon.html#x48-31200010.1.6">Sourcing the
-Environment</a></span></span><span class="subsectionToc"><span class="number">10.1.7</span><span class="title"><a href="GettingStartedwithColcon.html#x48-31300010.1.7">Creating a New Directory</a></span></span><span class="subsectionToc"><span class="number">10.1.8</span><span class="title"><a href="GettingStartedwithColcon.html#x48-31400010.1.8">Cloning a Sample Repo</a></span></span><span class="subsectionToc"><span class="number">10.1.9</span><span class="title"><a href="GettingStartedwithColcon.html#x48-31500010.1.9">Resolving
-Dependencies</a></span></span><span class="subsectionToc"><span class="number">10.1.10</span><span class="title"><a href="GettingStartedwithColcon.html#x48-31600010.1.10">Building the Workspace</a></span></span><span class="subsectionToc"><span class="number">10.1.11</span><span class="title"><a href="GettingStartedwithColcon.html#x48-31700010.1.11">Sourcing our Overlay</a></span></span><span class="subsectionToc"><span class="number">10.1.12</span><span class="title"><a href="GettingStartedwithColcon.html#x48-31800010.1.12">Modifying
-the Overlay</a></span></span><span class="subsectionToc"><span class="number">10.1.13</span><span class="title"><a href="GettingStartedwithColcon.html#x48-31900010.1.13">Creating a Package</a></span></span><span class="sectionToc"><span class="number">10.2</span><span class="title"><a href="WritingaSimplePublisherandSubscriber.html#x49-32200010.2">Writing a Simple Publisher and
-Subscriber</a></span></span><span class="subsectionToc"><span class="number">10.2.1</span><span class="title"><a href="WritingaSimplePublisherandSubscriber.html#x49-32300010.2.1">Creating a ROS Packages</a></span></span><span class="subsectionToc"><span class="number">10.2.2</span><span class="title"><a href="WritingaSimplePublisherandSubscriber.html#x49-32400010.2.2">Writing the Publisher Node</a></span></span><span class="subsectionToc"><span class="number">10.2.3</span><span class="title"><a href="WritingaSimplePublisherandSubscriber.html#x49-32900010.2.3">Writing
-the Subscriber Node</a></span></span><span class="subsectionToc"><span class="number">10.2.4</span><span class="title"><a href="WritingaSimplePublisherandSubscriber.html#x49-33200010.2.4">Building and Running</a></span></span><span class="sectionToc"><span class="number">10.3</span><span class="title"><a href="WritingaSimpleServiceandClient.html#x50-33300010.3">Writing a Simple Service and
-Client</a></span></span><span class="subsectionToc"><span class="number">10.3.1</span><span class="title"><a href="WritingaSimpleServiceandClient.html#x50-33400010.3.1">Creating a New Package</a></span></span><span class="subsectionToc"><span class="number">10.3.2</span><span class="title"><a href="WritingaSimpleServiceandClient.html#x50-33700010.3.2">Writing the Service Node</a></span></span><span class="subsectionToc"><span class="number">10.3.3</span><span class="title"><a href="WritingaSimpleServiceandClient.html#x50-34000010.3.3">Writing the Client
-Node</a></span></span><span class="sectionToc"><span class="number">10.4</span><span class="title"><a href="CreatingCustommsgandsrvFiles.html#x51-34300010.4">Creating Custom msg and srv Files</a></span></span><span class="subsectionToc"><span class="number">10.4.1</span><span class="title"><a href="CreatingCustommsgandsrvFiles.html#x51-34400010.4.1">Creating a New Package</a></span></span><span class="subsectionToc"><span class="number">10.4.2</span><span class="title"><a href="CreatingCustommsgandsrvFiles.html#x51-34500010.4.2">Creating
-Custom Definitions</a></span></span><span class="subsectionToc"><span class="number">10.4.3</span><span class="title"><a href="CreatingCustommsgandsrvFiles.html#x51-35200010.4.3">Testing the Newly Built Interfaces</a></span></span><span class="sectionToc"><span class="number">10.5</span><span class="title"><a href="UsingParametersinaClass.html#x52-35400010.5">Using Parameters in a
-Class</a></span></span><span class="subsectionToc"><span class="number">10.5.1</span><span class="title"><a href="UsingParametersinaClass.html#x52-35500010.5.1">Creating a Package</a></span></span><span class="subsectionToc"><span class="number">10.5.2</span><span class="title"><a href="UsingParametersinaClass.html#x52-35700010.5.2">Writing our Python Code</a></span></span><span class="subsectionToc"><span class="number">10.5.3</span><span class="title"><a href="UsingParametersinaClass.html#x52-36200010.5.3">Changing Output using
-the Console</a></span></span><span class="subsectionToc"><span class="number">10.5.4</span><span class="title"><a href="UsingParametersinaClass.html#x52-36300010.5.4">Changing using the Launch File</a></span></span><span class="sectionToc"><span class="number">10.6</span><span class="title"><a href="ManagingDependencies.html#x53-36400010.6">Managing Dependencies</a></span></span><span class="sectionToc"><span class="number">10.7</span><span class="title"><a href="CreatinganAction.html#x54-36600010.7">Creating
-an Action</a></span></span><span class="sectionToc"><span class="number">10.8</span><span class="title"><a href="WritinganActionServerandClient.html#x55-36900010.8">Writing an Action Server and Client</a></span></span><span class="sectionToc"><span class="number">10.9</span><span class="title"><a href="WritingaLaunchFile.html#x56-37100010.9">Writing a Launch File</a></span></span>
+Control)</a></span></span><span class="subsectionToc"><span class="number">2.4.1</span><span class="title"><a href="MotionControlKinematicControl.html#x10-560002.4.1">Open loop control</a></span></span><span class="subsectionToc"><span class="number">2.4.2</span><span class="title"><a href="MotionControlKinematicControl.html#x10-570002.4.2">Feedback control</a></span></span><span class="chapterToc"><span class="number">3</span><span class="title"><a href="Perception.html#x11-630003">Perception</a></span></span><span class="sectionToc"><span class="number">3.1</span><span class="title"><a href="SensorsforMobileRobotics.html#x12-640003.1">Sensors
+for Mobile Robotics</a></span></span><span class="subsectionToc"><span class="number">3.1.1</span><span class="title"><a href="SensorsforMobileRobotics.html#x12-650003.1.1">Sensor Classification</a></span></span><span class="subsectionToc"><span class="number">3.1.2</span><span class="title"><a href="SensorsforMobileRobotics.html#x12-660003.1.2">Characterisation of Sensor
+Performance</a></span></span><span class="subsectionToc"><span class="number">3.1.3</span><span class="title"><a href="SensorsforMobileRobotics.html#x12-720003.1.3">Wheel and Motor Sensors</a></span></span><span class="subsectionToc"><span class="number">3.1.4</span><span class="title"><a href="SensorsforMobileRobotics.html#x12-740003.1.4">Heading Sensors</a></span></span><span class="subsectionToc"><span class="number">3.1.5</span><span class="title"><a href="SensorsforMobileRobotics.html#x12-810003.1.5">Ground Based
+Beacons</a></span></span><span class="subsectionToc"><span class="number">3.1.6</span><span class="title"><a href="SensorsforMobileRobotics.html#x12-830003.1.6">Active Ranging</a></span></span><span class="subsectionToc"><span class="number">3.1.7</span><span class="title"><a href="SensorsforMobileRobotics.html#x12-850003.1.7">The Ultrasonic Sensor</a></span></span><span class="subsectionToc"><span class="number">3.1.8</span><span class="title"><a href="SensorsforMobileRobotics.html#x12-920003.1.8">Motion and Speed
+Sensors</a></span></span><span class="sectionToc"><span class="number">3.2</span><span class="title"><a href="VisionBasedSensors.html#x13-940003.2">Vision Based Sensors</a></span></span><span class="subsectionToc"><span class="number">3.2.1</span><span class="title"><a href="VisionBasedSensors.html#x13-950003.2.1">CCD Sensors</a></span></span><span class="subsectionToc"><span class="number">3.2.2</span><span class="title"><a href="VisionBasedSensors.html#x13-970003.2.2">CMOS Technology</a></span></span><span class="subsectionToc"><span class="number">3.2.3</span><span class="title"><a href="VisionBasedSensors.html#x13-980003.2.3">Visual
+Ranging Sensors</a></span></span><span class="subsectionToc"><span class="number">3.2.4</span><span class="title"><a href="VisionBasedSensors.html#x13-990003.2.4">Depth from Focus</a></span></span><span class="sectionToc"><span class="number">3.3</span><span class="title"><a href="RepresentingUncertainty.html#x14-1070003.3">Representing Uncertainty</a></span></span><span class="subsectionToc"><span class="number">3.3.1</span><span class="title"><a href="RepresentingUncertainty.html#x14-1080003.3.1">Statistical
+Representation</a></span></span><span class="subsectionToc"><span class="number">3.3.2</span><span class="title"><a href="RepresentingUncertainty.html#x14-1090003.3.2">Independence of random variables</a></span></span><span class="subsectionToc"><span class="number">3.3.3</span><span class="title"><a href="RepresentingUncertainty.html#x14-1110003.3.3">Propagation of Error</a></span></span><span class="sectionToc"><span class="number">3.4</span><span class="title"><a href="FeatureExtraction.html#x15-1120003.4">Feature
+Extraction</a></span></span><span class="subsectionToc"><span class="number">3.4.1</span><span class="title"><a href="FeatureExtraction.html#x15-1130003.4.1">Defining Feature</a></span></span><span class="subsectionToc"><span class="number">3.4.2</span><span class="title"><a href="FeatureExtraction.html#x15-1140003.4.2">Using Range Data</a></span></span><span class="chapterToc"><span class="number">4</span><span class="title"><a href="WelcometoLinux.html#x16-1290004">Welcome to Linux</a></span></span><span class="sectionToc"><span class="number">4.1</span><span class="title"><a href="AHistoryofUNIXLinux.html#x17-1300004.1">A
+History of UNIX/Linux</a></span></span><span class="subsectionToc"><span class="number">4.1.1</span><span class="title"><a href="AHistoryofUNIXLinux.html#x17-1320004.1.1">A Short History on Computer Interfaces</a></span></span><span class="subsectionToc"><span class="number">4.1.2</span><span class="title"><a href="AHistoryofUNIXLinux.html#x17-1340004.1.2">Linux is a
+Nutshell</a></span></span><span class="subsectionToc"><span class="number">4.1.3</span><span class="title"><a href="AHistoryofUNIXLinux.html#x17-1370004.1.3">Linux Distributions</a></span></span><span class="sectionToc"><span class="number">4.2</span><span class="title"><a href="Installation.html#x18-1380004.2">Installation</a></span></span><span class="subsectionToc"><span class="number">4.2.1</span><span class="title"><a href="Installation.html#x18-1390004.2.1">Docker</a></span></span><span class="subsectionToc"><span class="number">4.2.2</span><span class="title"><a href="Installation.html#x18-1400004.2.2">Dockerfile</a></span></span><span class="subsectionToc"><span class="number">4.2.3</span><span class="title"><a href="Installation.html#x18-1410004.2.3">Running
+the Container</a></span></span><span class="chapterToc"><span class="number">5</span><span class="title"><a href="CommandLineFundamentals.html#x19-1420005">Command Line Fundamentals</a></span></span><span class="sectionToc"><span class="number">5.1</span><span class="title"><a href="ToCommandaComputer.html#x20-1430005.1">To Command a Computer</a></span></span><span class="subsectionToc"><span class="number">5.1.1</span><span class="title"><a href="ToCommandaComputer.html#x20-1440005.1.1">The
+Command Line Interface</a></span></span><span class="subsectionToc"><span class="number">5.1.2</span><span class="title"><a href="ToCommandaComputer.html#x20-1450005.1.2">The Structure of Commands</a></span></span><span class="subsectionToc"><span class="number">5.1.3</span><span class="title"><a href="ToCommandaComputer.html#x20-1460005.1.3">Some Rules Regarding
+the Syntax</a></span></span><span class="sectionToc"><span class="number">5.2</span><span class="title"><a href="WhenWeNeedHelpwithCommands.html#x21-1470005.2">When We Need Help with Commands</a></span></span><span class="subsectionToc"><span class="number">5.2.1</span><span class="title"><a href="WhenWeNeedHelpwithCommands.html#x21-1480005.2.1">Use Tab completion on
+the Shell</a></span></span><span class="subsectionToc"><span class="number">5.2.2</span><span class="title"><a href="WhenWeNeedHelpwithCommands.html#x21-1490005.2.2">The info command</a></span></span><span class="subsectionToc"><span class="number">5.2.3</span><span class="title"><a href="WhenWeNeedHelpwithCommands.html#x21-1500005.2.3">The whatis command</a></span></span><span class="chapterToc"><span class="number">6</span><span class="title"><a href="WorkingwithFilesandFolders.html#x22-1520006">Working with Files
+and Folders</a></span></span><span class="sectionToc"><span class="number">6.1</span><span class="title"><a href="FilesandFolders.html#x23-1530006.1">Files and Folders</a></span></span><span class="subsectionToc"><span class="number">6.1.1</span><span class="title"><a href="FilesandFolders.html#x23-1540006.1.1">A Detailed Look in ls Command</a></span></span><span class="subsectionToc"><span class="number">6.1.2</span><span class="title"><a href="FilesandFolders.html#x23-1550006.1.2">Creating
+and Removing Folders</a></span></span><span class="subsectionToc"><span class="number">6.1.3</span><span class="title"><a href="FilesandFolders.html#x23-1560006.1.3">Move, Copy and Delete Files and Folders</a></span></span><span class="sectionToc"><span class="number">6.2</span><span class="title"><a href="#x24-1630006.2">Permissions
+and Links</a></span></span><span class="subsectionToc"><span class="number">6.2.1</span><span class="title"><a href="#x24-1640006.2.1">Role to Users and sudo</a></span></span><span class="subsectionToc"><span class="number">6.2.2</span><span class="title"><a href="#x24-1650006.2.2">File Permissions</a></span></span><span class="subsectionToc"><span class="number">6.2.3</span><span class="title"><a href="#x24-1680006.2.3">Hard and Symbolic
+Links</a></span></span><span class="subsectionToc"><span class="number">6.2.4</span><span class="title"><a href="#x24-1690006.2.4">Soft (Symbolic) Links</a></span></span><span class="subsectionToc"><span class="number">6.2.5</span><span class="title"><a href="#x24-1710006.2.5">The Linux File System</a></span></span><span class="subsectionToc"><span class="number">6.2.6</span><span class="title"><a href="#x24-1720006.2.6">The UNIX
+Philosophy</a></span></span><span class="sectionToc"><span class="number">6.3</span><span class="title"><a href="CommonCommandLineToolsandTasks.html#x25-1730006.3">Common Command-Line Tools and Tasks</a></span></span><span class="subsectionToc"><span class="number">6.3.1</span><span class="title"><a href="CommonCommandLineToolsandTasks.html#x25-1740006.3.1">Connecting Commands
+with Pipes</a></span></span><span class="subsectionToc"><span class="number">6.3.2</span><span class="title"><a href="CommonCommandLineToolsandTasks.html#x25-1750006.3.2">Viewing Text Files with cat, head, tail, and less</a></span></span><span class="subsectionToc"><span class="number">6.3.3</span><span class="title"><a href="CommonCommandLineToolsandTasks.html#x25-1760006.3.3">Finding
+Linux Distribution and Kernel Information</a></span></span><span class="subsectionToc"><span class="number">6.3.4</span><span class="title"><a href="CommonCommandLineToolsandTasks.html#x25-1780006.3.4">Find System Hardware and Disk
+Information</a></span></span><span class="chapterToc"><span class="number">7</span><span class="title"><a href="ROSConcepts.html#x26-1800007">ROS Concepts</a></span></span><span class="sectionToc"><span class="number">7.1</span><span class="title"><a href="PublisherandSubscriberArchitecture.html#x27-1810007.1">Publisher and Subscriber Architecture</a></span></span><span class="subsectionToc"><span class="number">7.1.1</span><span class="title"><a href="PublisherandSubscriberArchitecture.html#x27-1820007.1.1">ROS 2
+Architecture</a></span></span><span class="sectionToc"><span class="number">7.2</span><span class="title"><a href="BuildingBlocks.html#x28-1840007.2">Building Blocks</a></span></span><span class="subsectionToc"><span class="number">7.2.1</span><span class="title"><a href="BuildingBlocks.html#x28-1850007.2.1">Nodes</a></span></span><span class="subsectionToc"><span class="number">7.2.2</span><span class="title"><a href="BuildingBlocks.html#x28-1860007.2.2">The Discovery Process</a></span></span><span class="subsectionToc"><span class="number">7.2.3</span><span class="title"><a href="BuildingBlocks.html#x28-1870007.2.3">Communication
+Interface</a></span></span><span class="subsectionToc"><span class="number">7.2.4</span><span class="title"><a href="BuildingBlocks.html#x28-1960007.2.4">Topics</a></span></span><span class="subsectionToc"><span class="number">7.2.5</span><span class="title"><a href="BuildingBlocks.html#x28-2000007.2.5">Services</a></span></span><span class="subsectionToc"><span class="number">7.2.6</span><span class="title"><a href="BuildingBlocks.html#x28-2030007.2.6">Actions</a></span></span><span class="subsectionToc"><span class="number">7.2.7</span><span class="title"><a href="BuildingBlocks.html#x28-2060007.2.7">Parameters</a></span></span><span class="subsectionToc"><span class="number">7.2.8</span><span class="title"><a href="BuildingBlocks.html#x28-2150007.2.8">Working with
+Command Line</a></span></span><span class="subsectionToc"><span class="number">7.2.9</span><span class="title"><a href="BuildingBlocks.html#x28-2170007.2.9">Launch Files</a></span></span><span class="sectionToc"><span class="number">7.3</span><span class="title"><a href="AdvancedConcepts.html#x29-2180007.3">Advanced Concepts</a></span></span><span class="subsectionToc"><span class="number">7.3.1</span><span class="title"><a href="AdvancedConcepts.html#x29-2190007.3.1">ROS DOMAIN
+ID</a></span></span><span class="chapterToc"><span class="number">8</span><span class="title"><a href="CommandLineTools.html#x30-2210008">Command Line Tools</a></span></span><span class="sectionToc"><span class="number">8.1</span><span class="title"><a href="SettingtheEnvironment.html#x31-2220008.1">Setting the Environment</a></span></span><span class="sectionToc"><span class="number">8.2</span><span class="title"><a href="TurtlesandGraphs.html#x32-2270008.2">Turtles and Graphs</a></span></span><span class="sectionToc"><span class="number">8.3</span><span class="title"><a href="ADeeperLookintoNodes.html#x33-2350008.3">A
+Deeper Look into Nodes</a></span></span><span class="sectionToc"><span class="number">8.4</span><span class="title"><a href="WorkingwithTopics.html#x34-2400008.4">Working with Topics</a></span></span><span class="sectionToc"><span class="number">8.5</span><span class="title"><a href="WorkingwithServices.html#x35-2460008.5">Working with Services</a></span></span><span class="sectionToc"><span class="number">8.6</span><span class="title"><a href="WorkingwithParameters.html#x36-2530008.6">Working
+with Parameters</a></span></span><span class="sectionToc"><span class="number">8.7</span><span class="title"><a href="APracticalLookintoActions.html#x37-2600008.7">A Practical Look into Actions</a></span></span><span class="sectionToc"><span class="number">8.8</span><span class="title"><a href="LaunchingNodes.html#x38-2670008.8">Launching Nodes</a></span></span><span class="chapterToc"><span class="number">9</span><span class="title"><a href="ClientLibraries.html#x39-2690009">Client
+Libraries</a></span></span><span class="sectionToc"><span class="number">9.1</span><span class="title"><a href="GettingStartedwithColcon.html#x40-2700009.1">Getting Started with Colcon</a></span></span><span class="subsectionToc"><span class="number">9.1.1</span><span class="title"><a href="GettingStartedwithColcon.html#x40-2710009.1.1">The Structure of a Package</a></span></span><span class="subsectionToc"><span class="number">9.1.2</span><span class="title"><a href="GettingStartedwithColcon.html#x40-2720009.1.2">Sourcing
+an Underlay</a></span></span><span class="subsectionToc"><span class="number">9.1.3</span><span class="title"><a href="GettingStartedwithColcon.html#x40-2730009.1.3">Building the Workspace</a></span></span><span class="subsectionToc"><span class="number">9.1.4</span><span class="title"><a href="GettingStartedwithColcon.html#x40-2740009.1.4">Sourcing the New Package</a></span></span><span class="subsectionToc"><span class="number">9.1.5</span><span class="title"><a href="GettingStartedwithColcon.html#x40-2750009.1.5">Creating a
+Workspace</a></span></span><span class="subsectionToc"><span class="number">9.1.6</span><span class="title"><a href="GettingStartedwithColcon.html#x40-2760009.1.6">Sourcing the Environment</a></span></span><span class="subsectionToc"><span class="number">9.1.7</span><span class="title"><a href="GettingStartedwithColcon.html#x40-2770009.1.7">Creating a New Directory</a></span></span><span class="subsectionToc"><span class="number">9.1.8</span><span class="title"><a href="GettingStartedwithColcon.html#x40-2780009.1.8">Cloning a
+Sample Repo</a></span></span><span class="subsectionToc"><span class="number">9.1.9</span><span class="title"><a href="GettingStartedwithColcon.html#x40-2790009.1.9">Resolving Dependencies</a></span></span><span class="subsectionToc"><span class="number">9.1.10</span><span class="title"><a href="GettingStartedwithColcon.html#x40-2800009.1.10">Building the Workspace</a></span></span><span class="subsectionToc"><span class="number">9.1.11</span><span class="title"><a href="GettingStartedwithColcon.html#x40-2810009.1.11">Sourcing our
+Overlay</a></span></span><span class="subsectionToc"><span class="number">9.1.12</span><span class="title"><a href="GettingStartedwithColcon.html#x40-2820009.1.12">Modifying the Overlay</a></span></span><span class="subsectionToc"><span class="number">9.1.13</span><span class="title"><a href="GettingStartedwithColcon.html#x40-2830009.1.13">Creating a Package</a></span></span><span class="sectionToc"><span class="number">9.2</span><span class="title"><a href="WritingaSimplePublisherandSubscriber.html#x41-2860009.2">Writing a Simple Publisher
+and Subscriber</a></span></span><span class="subsectionToc"><span class="number">9.2.1</span><span class="title"><a href="WritingaSimplePublisherandSubscriber.html#x41-2870009.2.1">Creating a ROS Packages</a></span></span><span class="subsectionToc"><span class="number">9.2.2</span><span class="title"><a href="WritingaSimplePublisherandSubscriber.html#x41-2880009.2.2">Writing the Publisher Node</a></span></span><span class="subsectionToc"><span class="number">9.2.3</span><span class="title"><a href="WritingaSimplePublisherandSubscriber.html#x41-2930009.2.3">Writing
+the Subscriber Node</a></span></span><span class="subsectionToc"><span class="number">9.2.4</span><span class="title"><a href="WritingaSimplePublisherandSubscriber.html#x41-2960009.2.4">Building and Running</a></span></span><span class="sectionToc"><span class="number">9.3</span><span class="title"><a href="WritingaSimpleServiceandClient.html#x42-2970009.3">Writing a Simple Service and
+Client</a></span></span><span class="subsectionToc"><span class="number">9.3.1</span><span class="title"><a href="WritingaSimpleServiceandClient.html#x42-2980009.3.1">Creating a New Package</a></span></span><span class="subsectionToc"><span class="number">9.3.2</span><span class="title"><a href="WritingaSimpleServiceandClient.html#x42-3010009.3.2">Writing the Service Node</a></span></span><span class="subsectionToc"><span class="number">9.3.3</span><span class="title"><a href="WritingaSimpleServiceandClient.html#x42-3040009.3.3">Writing the Client
+Node</a></span></span><span class="sectionToc"><span class="number">9.4</span><span class="title"><a href="CreatingCustommsgandsrvFiles.html#x43-3070009.4">Creating Custom msg and srv Files</a></span></span><span class="subsectionToc"><span class="number">9.4.1</span><span class="title"><a href="CreatingCustommsgandsrvFiles.html#x43-3080009.4.1">Creating a New Package</a></span></span><span class="subsectionToc"><span class="number">9.4.2</span><span class="title"><a href="CreatingCustommsgandsrvFiles.html#x43-3090009.4.2">Creating
+Custom Definitions</a></span></span><span class="subsectionToc"><span class="number">9.4.3</span><span class="title"><a href="CreatingCustommsgandsrvFiles.html#x43-3160009.4.3">Testing the Newly Built Interfaces</a></span></span><span class="sectionToc"><span class="number">9.5</span><span class="title"><a href="UsingParametersinaClass.html#x44-3180009.5">Using Parameters in a
+Class</a></span></span><span class="subsectionToc"><span class="number">9.5.1</span><span class="title"><a href="UsingParametersinaClass.html#x44-3190009.5.1">Creating a Package</a></span></span><span class="subsectionToc"><span class="number">9.5.2</span><span class="title"><a href="UsingParametersinaClass.html#x44-3210009.5.2">Writing our Python Code</a></span></span><span class="subsectionToc"><span class="number">9.5.3</span><span class="title"><a href="UsingParametersinaClass.html#x44-3260009.5.3">Changing Output using
+the Console</a></span></span><span class="subsectionToc"><span class="number">9.5.4</span><span class="title"><a href="UsingParametersinaClass.html#x44-3270009.5.4">Changing using the Launch File</a></span></span><span class="sectionToc"><span class="number">9.6</span><span class="title"><a href="ManagingDependencies.html#x45-3280009.6">Managing Dependencies</a></span></span><span class="sectionToc"><span class="number">9.7</span><span class="title"><a href="CreatinganAction.html#x46-3300009.7">Creating
+an Action</a></span></span><span class="sectionToc"><span class="number">9.8</span><span class="title"><a href="WritinganActionServerandClient.html#x47-3330009.8">Writing an Action Server and Client</a></span></span><span class="sectionToc"><span class="number">9.9</span><span class="title"><a href="WritingaLaunchFile.html#x48-3350009.9">Writing a Launch File</a></span></span>
 <div class="nav-footer"><div class="nav-footer-left"><span class="nav-footer-lecture">D. T. McGuiness, PhD</span>
-<span class="nav-footer-webBook"><b>Last Updated:</b> 13.10.2026, at 8:16.</span></div></div><p class="nav-comments">The website you are viewing is auto-generated using lms-WebBook and therefore subject to slight errors in typography and formatting. When in doubt, please consult the LectureBook. </p></div></nav>
+<span class="nav-footer-webBook"><b>Last Updated:</b> 24.11.2026, at 13:58.</span></div></div><p class="nav-comments">The website you are viewing is auto-generated using lms-WebBook and therefore subject to slight errors in typography and formatting. When in doubt, please consult the LectureBook. </p></div></nav>
 <article class="chapter">
-<nav class="crosslinks-top"> <span class="nav-button"><i class="fa-solid fa-caret-right"></i><a class="nav-link" href="CommonCommandLineToolsandTasks.html">Common Command-Line Tools and Tasks</a></span><span class="nav-button"><i class="fa-solid fa-caret-left"></i><a class="nav-link" href="FilesandFolders.html">Files and Folders</a></span><span class="nav-button"><i class="fa-solid fa-caret-up"></i><a class="nav-link" href="WorkingwithFilesandFolders.html#PermissionsandLinks.html">Chapter: Working with
-Files and Folders</a></span><span class="nav-button">
+<nav class="crosslinks-top"> <span class="nav-button"><i class="fa-solid fa-caret-right"></i><a class="nav-link" href="CommonCommandLineToolsandTasks.html">Common Command-Line Tools and Tasks</a></span><span class="nav-button"><i class="fa-solid fa-caret-left"></i><a class="nav-link" href="FilesandFolders.html">Files and Folders</a></span><span class="nav-button"><i class="fa-solid fa-caret-up"></i><a class="nav-link" href="WorkingwithFilesandFolders.html#PermissionsandLinks.html">Chapter: Working with Files and Folders</a></span><span class="nav-button">
 <a href="index.html" rel="index" title="Visit Entry Point">
 <i class="fa-solid fa-table-list">
 </i>
@@ -105,10 +94,10 @@ Files and Folders</a></span><span class="nav-button">
 <i class="fa-brands fa-git-alt"></i>
 <span class="nav-info">Visit Material GitHub Repo</span>
 </a></span></nav>
-<div class="section-header"> <h3 id="header-section-7.2"> <a class="pdf-icon" href="AutonomousMobileRoboticsLectureBook.pdf#section.7.2"><svg class="bi bi-file-pdf" fill="currentColor" height="20" viewbox="0 0 16 16" width="20" xmlns="http://www.w3.org/2000/svg"><path d="M4 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H4zm0 1h8a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1z"></path><path d="M4.603 12.087a.81.81 0 0 1-.438-.42c-.195-.388-.13-.776.08-1.102.198-.307.526-.568.897-.787a7.68 7.68 0 0 1 1.482-.645 19.701 19.701 0 0 0 1.062-2.227 7.269 7.269 0 0 1-.43-1.295c-.086-.4-.119-.796-.046-1.136.075-.354.274-.672.65-.823.192-.077.4-.12.602-.077a.7.7 0 0 1 .477.365c.088.164.12.356.127.538.007.187-.012.395-.047.614-.084.51-.27 1.134-.52 1.794a10.954 10.954 0 0 0 .98 1.686 5.753 5.753 0 0 1 1.334.05c.364.065.734.195.96.465.12.144.193.32.2.518.007.192-.047.382-.138.563a1.04 1.04 0 0 1-.354.416.856.856 0 0 1-.51.138c-.331-.014-.654-.196-.933-.417a5.716 5.716 0 0 1-.911-.95 11.642 11.642 0 0 0-1.997.406 11.311 11.311 0 0 1-1.021 1.51c-.29.35-.608.655-.926.787a.793.793 0 0 1-.58.029zm1.379-1.901c-.166.076-.32.156-.459.238-.328.194-.541.383-.647.547-.094.145-.096.25-.04.361.01.022.02.036.026.044a.27.27 0 0 0 .035-.012c.137-.056.355-.235.635-.572a8.18 8.18 0 0 0 .45-.606zm1.64-1.33a12.647 12.647 0 0 1 1.01-.193 11.666 11.666 0 0 1-.51-.858 20.741 20.741 0 0 1-.5 1.05zm2.446.45c.15.162.296.3.435.41.24.19.407.253.498.256a.107.107 0 0 0 .07-.015.307.307 0 0 0 .094-.125.436.436 0 0 0 .059-.2.095.095 0 0 0-.026-.063c-.052-.062-.2-.152-.518-.209a3.881 3.881 0 0 0-.612-.053zM8.078 5.8a6.7 6.7 0 0 0 .2-.828c.031-.188.043-.343.038-.465a.613.613 0 0 0-.032-.198.517.517 0 0 0-.145.04c-.087.035-.158.106-.196.283-.04.192-.03.469.046.822.024.111.054.227.09.346z"></path></svg></a> <span class="number">7.2</span> <span class="title"> <a id="x32-1990007.2"></a>Permissions and
+<div class="section-header"><h3 id="header-section-6.2"><span class="number">6.2</span><a class="pdf-icon" href="AutonomousMobileRoboticsLectureBook.pdf#section.6.2"><svg class="bi bi-file-pdf" fill="currentColor" height="20" viewbox="0 0 16 16" width="20" xmlns="http://www.w3.org/2000/svg"><path d="M4 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H4zm0 1h8a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1z"></path><path d="M4.603 12.087a.81.81 0 0 1-.438-.42c-.195-.388-.13-.776.08-1.102.198-.307.526-.568.897-.787a7.68 7.68 0 0 1 1.482-.645 19.701 19.701 0 0 0 1.062-2.227 7.269 7.269 0 0 1-.43-1.295c-.086-.4-.119-.796-.046-1.136.075-.354.274-.672.65-.823.192-.077.4-.12.602-.077a.7.7 0 0 1 .477.365c.088.164.12.356.127.538.007.187-.012.395-.047.614-.084.51-.27 1.134-.52 1.794a10.954 10.954 0 0 0 .98 1.686 5.753 5.753 0 0 1 1.334.05c.364.065.734.195.96.465.12.144.193.32.2.518.007.192-.047.382-.138.563a1.04 1.04 0 0 1-.354.416.856.856 0 0 1-.51.138c-.331-.014-.654-.196-.933-.417a5.716 5.716 0 0 1-.911-.95 11.642 11.642 0 0 0-1.997.406 11.311 11.311 0 0 1-1.021 1.51c-.29.35-.608.655-.926.787a.793.793 0 0 1-.58.029zm1.379-1.901c-.166.076-.32.156-.459.238-.328.194-.541.383-.647.547-.094.145-.096.25-.04.361.01.022.02.036.026.044a.27.27 0 0 0 .035-.012c.137-.056.355-.235.635-.572a8.18 8.18 0 0 0 .45-.606zm1.64-1.33a12.647 12.647 0 0 1 1.01-.193 11.666 11.666 0 0 1-.51-.858 20.741 20.741 0 0 1-.5 1.05zm2.446.45c.15.162.296.3.435.41.24.19.407.253.498.256a.107.107 0 0 0 .07-.015.307.307 0 0 0 .094-.125.436.436 0 0 0 .059-.2.095.095 0 0 0-.026-.063c-.052-.062-.2-.152-.518-.209a3.881 3.881 0 0 0-.612-.053zM8.078 5.8a6.7 6.7 0 0 0 .2-.828c.031-.188.043-.343.038-.465a.613.613 0 0 0-.032-.198.517.517 0 0 0-.145.04c-.087.035-.158.106-.196.283-.04.192-.03.469.046.822.024.111.054.227.09.346z"></path></svg></a><span class="title"> <a id="x24-1630006.2"></a>Permissions and
 Links</span></h3></div>
-<p class="noindent"><div class="subsection-header"> <h4 id="header-subsection-7.2.1"> <a class="pdf-icon" href="AutonomousMobileRoboticsLectureBook.pdf#subsection.7.2.1"><svg class="bi bi-file-pdf" fill="currentColor" height="20" viewbox="0 0 16 16" width="20" xmlns="http://www.w3.org/2000/svg"><path d="M4 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H4zm0 1h8a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1z"></path><path d="M4.603 12.087a.81.81 0 0 1-.438-.42c-.195-.388-.13-.776.08-1.102.198-.307.526-.568.897-.787a7.68 7.68 0 0 1 1.482-.645 19.701 19.701 0 0 0 1.062-2.227 7.269 7.269 0 0 1-.43-1.295c-.086-.4-.119-.796-.046-1.136.075-.354.274-.672.65-.823.192-.077.4-.12.602-.077a.7.7 0 0 1 .477.365c.088.164.12.356.127.538.007.187-.012.395-.047.614-.084.51-.27 1.134-.52 1.794a10.954 10.954 0 0 0 .98 1.686 5.753 5.753 0 0 1 1.334.05c.364.065.734.195.96.465.12.144.193.32.2.518.007.192-.047.382-.138.563a1.04 1.04 0 0 1-.354.416.856.856 0 0 1-.51.138c-.331-.014-.654-.196-.933-.417a5.716 5.716 0 0 1-.911-.95 11.642 11.642 0 0 0-1.997.406 11.311 11.311 0 0 1-1.021 1.51c-.29.35-.608.655-.926.787a.793.793 0 0 1-.58.029zm1.379-1.901c-.166.076-.32.156-.459.238-.328.194-.541.383-.647.547-.094.145-.096.25-.04.361.01.022.02.036.026.044a.27.27 0 0 0 .035-.012c.137-.056.355-.235.635-.572a8.18 8.18 0 0 0 .45-.606zm1.64-1.33a12.647 12.647 0 0 1 1.01-.193 11.666 11.666 0 0 1-.51-.858 20.741 20.741 0 0 1-.5 1.05zm2.446.45c.15.162.296.3.435.41.24.19.407.253.498.256a.107.107 0 0 0 .07-.015.307.307 0 0 0 .094-.125.436.436 0 0 0 .059-.2.095.095 0 0 0-.026-.063c-.052-.062-.2-.152-.518-.209a3.881 3.881 0 0 0-.612-.053zM8.078 5.8a6.7 6.7 0 0 0 .2-.828c.031-.188.043-.343.038-.465a.613.613 0 0 0-.032-.198.517.517 0 0 0-.145.04c-.087.035-.158.106-.196.283-.04.192-.03.469.046.822.024.111.054.227.09.346z"></path></svg></a><span class="number">7.2.1</span> <span class="title"> <a id="x32-2000007.2.1"></a>Role to Users and sudo</span></h4></div>
-</p><p class="noindent">Linux is a multi-user environment. Now, what this means is that multiple users can use the
+<div class="subsection-header"><h4 id="header-subsection-6.2.1"><span class="number">6.2.1</span><a class="pdf-icon" href="AutonomousMobileRoboticsLectureBook.pdf#subsection.6.2.1"><svg class="bi bi-file-pdf" fill="currentColor" height="20" viewbox="0 0 16 16" width="20" xmlns="http://www.w3.org/2000/svg"><path d="M4 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H4zm0 1h8a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1z"></path><path d="M4.603 12.087a.81.81 0 0 1-.438-.42c-.195-.388-.13-.776.08-1.102.198-.307.526-.568.897-.787a7.68 7.68 0 0 1 1.482-.645 19.701 19.701 0 0 0 1.062-2.227 7.269 7.269 0 0 1-.43-1.295c-.086-.4-.119-.796-.046-1.136.075-.354.274-.672.65-.823.192-.077.4-.12.602-.077a.7.7 0 0 1 .477.365c.088.164.12.356.127.538.007.187-.012.395-.047.614-.084.51-.27 1.134-.52 1.794a10.954 10.954 0 0 0 .98 1.686 5.753 5.753 0 0 1 1.334.05c.364.065.734.195.96.465.12.144.193.32.2.518.007.192-.047.382-.138.563a1.04 1.04 0 0 1-.354.416.856.856 0 0 1-.51.138c-.331-.014-.654-.196-.933-.417a5.716 5.716 0 0 1-.911-.95 11.642 11.642 0 0 0-1.997.406 11.311 11.311 0 0 1-1.021 1.51c-.29.35-.608.655-.926.787a.793.793 0 0 1-.58.029zm1.379-1.901c-.166.076-.32.156-.459.238-.328.194-.541.383-.647.547-.094.145-.096.25-.04.361.01.022.02.036.026.044a.27.27 0 0 0 .035-.012c.137-.056.355-.235.635-.572a8.18 8.18 0 0 0 .45-.606zm1.64-1.33a12.647 12.647 0 0 1 1.01-.193 11.666 11.666 0 0 1-.51-.858 20.741 20.741 0 0 1-.5 1.05zm2.446.45c.15.162.296.3.435.41.24.19.407.253.498.256a.107.107 0 0 0 .07-.015.307.307 0 0 0 .094-.125.436.436 0 0 0 .059-.2.095.095 0 0 0-.026-.063c-.052-.062-.2-.152-.518-.209a3.881 3.881 0 0 0-.612-.053zM8.078 5.8a6.7 6.7 0 0 0 .2-.828c.031-.188.043-.343.038-.465a.613.613 0 0 0-.032-.198.517.517 0 0 0-.145.04c-.087.035-.158.106-.196.283-.04.192-.03.469.046.822.024.111.054.227.09.346z"></path></svg></a><span class="title"> <a id="x24-1640006.2.1"></a>Role to Users and sudo</span></h4></div>
+<p class="noindent">Linux is a multi-user environment. Now, what this means is that multiple users can use the
 <span class="acronym"><span class="acronym-short"><a class="glossary" href="#glo:os">OS</a></span><span class="acronym-detail"><span class="acronym-long"><a class="glossary" href="#glo:os">Operating System</a></span><span class="acronym-desc"><a class="glossary" href="#glo:os">Operating System</a></span></span></span>. This is a concept we’re familiar with nowadays but was a new
 idea in the 1960s when UNIX came on the scene when it was mostly used by specialized engineers and
 programmers. In principle a person can have a user, someone else can have a user in the same
@@ -116,14 +105,14 @@ programmers. In principle a person can have a user, someone else can have a user
 folders.
 </p>
 <div class="sidenote"> <span class="figure">
-<a id="x32-200001r1"></a>
-<figcaption class="caption"><span class="id">Figure 7.1: </span><span class="content">Beware of the sudo ghost.
+<a id="x24-164001r1"></a>
+<figcaption class="caption"><span class="id">Figure 6.1: </span><span class="content">Beware of the sudo ghost.
 </span></figcaption>
 <img alt="PIC" src="figures/Working-with-Files-and-Folders/raster/boo.jpg" style=""/>
 </span>
 <p class="noindent"></p></div>
 <p class="noindent"></p><figure class="float">
-<p class="noindent"><dl class="first-deffn first-defun-alias-first-deffn def-block"><a class="copiable-link" href="#command-block-7.17"> ¶</a><dt class="deffn defun-alias-deffn def-line" id="command-block-7.17"><a id="x32-200002r17"></a><span class="category-def"><b>command:</b> </span><strong class="def-name">su</strong><var class="def-var-arguments"> [options] [-] [user|UID [argument...]]</var><span class="active-manual"><a href="https://man7.org/linux/man-pages/man1/su.1.html"><i class="fa-solid fa-globe"></i></a></span></dt><dd><p> Run a command with substitute user and group ID. </p></dd></dl></p> <dl class="first-deffn first-defun-alias-first-deffn def-block"><a class="copiable-link" href="#command-block-7.18"> ¶</a><dt class="deffn defun-alias-deffn def-line" id="command-block-7.18"><a id="x32-200003r18"></a><span class="category-def"><b>command:</b> </span><strong class="def-name">sudo,
+<p class="noindent"><dl class="first-deffn first-defun-alias-first-deffn def-block"><a class="copiable-link" href="#command-block-6.17"> ¶</a><dt class="deffn defun-alias-deffn def-line" id="command-block-6.17"><a id="x24-164002r17"></a><span class="category-def"><b>command:</b> </span><strong class="def-name">su</strong><var class="def-var-arguments"> [options] [-] [user|UID [argument...]]</var><span class="active-manual"><a href="https://man7.org/linux/man-pages/man1/su.1.html"><i class="fa-solid fa-globe"></i></a></span></dt><dd><p> Run a command with substitute user and group ID. </p></dd></dl></p> <dl class="first-deffn first-defun-alias-first-deffn def-block"><a class="copiable-link" href="#command-block-6.18"> ¶</a><dt class="deffn defun-alias-deffn def-line" id="command-block-6.18"><a id="x24-164003r18"></a><span class="category-def"><b>command:</b> </span><strong class="def-name">sudo,
 sudoedit</strong><var class="def-var-arguments"> [OPTIONS]</var><span class="active-manual"><a href="https://man7.org/linux/man-pages/man8/sudo.8.html"><i class="fa-solid fa-globe"></i></a></span></dt><dd><p> Execute a command as another user. </p></dd></dl>
 </figure>
 <p class="noindent">We can create files only one or another user can access. At the command line, we can switch between
@@ -143,7 +132,7 @@ There are two (<span class="alert">2</span>) basic user roles in Linux. </p>
 </p><p class="noindent">The normal user can modify, create, delete, and move their own files, but they can’t make changes to
 the system.
 </p>
-<div class="warning"><div class="warning-upper">Warning</div><div class="body">
+<div class="block-minor warning"><div class="body">
 <p class="noindent">They can’t install software, they can’t make changes to system files, and generally speaking, they can’t
 browse other users’ home folders. </p></div></div>
 <p class="noindent">The superuser, which is called <code class="verb">root</code> , can make changes to the system. It can install software, it can start
@@ -151,7 +140,7 @@ and stop services, and so on. Normal users can be granted the ability to tempora
 through a command called <code class="verb">sudo</code> . It’s uncommon and it’s really bad practice to log into the root user
 directly to do normal work.
 </p>
-<div class="knowledge"><div class="knowledge-upper">Knowledge</div><div class="body">
+<div class="block-minor knowledge"><div class="body">
 <p class="noindent">On many systems, the root user is actually disabled and can’t be logged into. </p></div></div>
 <p class="noindent">The idea is that we only want to borrow root’s power when we really need it, so let’s take
 a look at that. Let’s try to see what’s inside root’s home folder, which is located at the
@@ -168,29 +157,23 @@ ii.
 </dt><dd class="enumerate-enumitem">When we’re talking about accessing users, root is the superuser.</dd></dl>
 <p class="noindent">Let’s see what happens when we write <code class="verb">ls /root</code> , and we can see we are <span class="alert">denied permission</span>.
 </p>
-<pre><div class="code-header"> <span class="code-language">bash</span> </div> <code class="language-bash">
-<pre class="fancyvrb" id="fancyvrb93"><a id="x32-200007r482"></a>ls /root</pre>
-</code></pre>
-<pre><code class="language-text">
-<pre class="fancyvrb" id="fancyvrb94"><a id="x32-200009r487"></a>ls: cannot open directory '/root': Permission denied</pre>
-</code></pre>
+<div class="code-header"><span class="code-language">bash</span></div><div class="code-wrapper"><pre><code class="language-bash"><pre class="fancyvrb" id="fancyvrb93"><a id="x24-164007r482"></a>ls /root</pre></code></pre></div>
+<div class="code-wrapper"><pre><code class="language-text"><pre class="fancyvrb" id="fancyvrb94"><a id="x24-164009r487"></a>ls: cannot open directory '/root': Permission denied</pre></code></pre></div>
 <p class="noindent">We need to use the <code class="verb">sudo</code>  command to gain root’s privileges to see inside there. This command basically
 tells the system to run whatever command is after it with superuser privileges instead of the normal
 user’s privileges. So, write <code class="verb">sudo ls /root</code> . I’m prompted for my password. This is a good sign that the computer
 understood that I want superuser privileges.
 </p>
-<div class="info-block" id="info-block-7.29"> <a class="copiable-link" href="#info-block-7.29"> ¶</a> <span class="info-upper"> <span class="info-header"> <b>Information 7.<a id="x32-200010r29"></a>29: </b> </span> <span class="info-title"> Removing password from the system </span> </span> <div class="body">
+<dl class="def-block block-major info-block"> <a class="copiable-link" href="#info-block-6.21" id="info-block-6.21"> ¶</a> <dt class="def-line"> <span class="upper"> <span class="header"> <b>Information 6.<a id="x24-164010r21"></a>21: </b> </span> <span class="title"> Removing password from the system </span> </span> <input class="body-button" type="button" value="Show/Hide"/> </dt> <dd class="body">
 <p class="noindent">While it is not recommended, Linux gives you options to do anything and this includes <b>removing</b>
 user password from the computer. This would allow you to run <code class="verb">sudo</code>  commands without ever
-be. You start first use the <code class="verb">passwd</code>  command to delete the password of the user (which is you) </p><pre><div class="code-header"> <span class="code-language">bash</span> </div>
-<code class="language-bash">
-<pre class="fancyvrb" id="fancyvrb95"><a id="x32-200012r568"></a>sudo passwd -d username</pre>
-</code></pre>
+be. You start first use the <code class="verb">passwd</code>  command to delete the password of the user (which is you)
+</p><div class="code-header"><span class="code-language">bash</span></div><div class="code-wrapper"><pre><code class="language-bash"><pre class="fancyvrb" id="fancyvrb95"><a id="x24-164012r568"></a>sudo passwd -d username</pre></code></pre></div>
 <p class="noindent">After entering you username in place of <code class="verb">username</code> , if you see <span class="alert">password expiry information changed</span> in the output, the password has been
 deleted successfully and now you can do all superuser actions without the need of a password.
-</p></div></div>
-<p class="noindent"><div class="subsection-header"> <h4 id="header-subsection-7.2.2"> <a class="pdf-icon" href="AutonomousMobileRoboticsLectureBook.pdf#subsection.7.2.2"><svg class="bi bi-file-pdf" fill="currentColor" height="20" viewbox="0 0 16 16" width="20" xmlns="http://www.w3.org/2000/svg"><path d="M4 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H4zm0 1h8a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1z"></path><path d="M4.603 12.087a.81.81 0 0 1-.438-.42c-.195-.388-.13-.776.08-1.102.198-.307.526-.568.897-.787a7.68 7.68 0 0 1 1.482-.645 19.701 19.701 0 0 0 1.062-2.227 7.269 7.269 0 0 1-.43-1.295c-.086-.4-.119-.796-.046-1.136.075-.354.274-.672.65-.823.192-.077.4-.12.602-.077a.7.7 0 0 1 .477.365c.088.164.12.356.127.538.007.187-.012.395-.047.614-.084.51-.27 1.134-.52 1.794a10.954 10.954 0 0 0 .98 1.686 5.753 5.753 0 0 1 1.334.05c.364.065.734.195.96.465.12.144.193.32.2.518.007.192-.047.382-.138.563a1.04 1.04 0 0 1-.354.416.856.856 0 0 1-.51.138c-.331-.014-.654-.196-.933-.417a5.716 5.716 0 0 1-.911-.95 11.642 11.642 0 0 0-1.997.406 11.311 11.311 0 0 1-1.021 1.51c-.29.35-.608.655-.926.787a.793.793 0 0 1-.58.029zm1.379-1.901c-.166.076-.32.156-.459.238-.328.194-.541.383-.647.547-.094.145-.096.25-.04.361.01.022.02.036.026.044a.27.27 0 0 0 .035-.012c.137-.056.355-.235.635-.572a8.18 8.18 0 0 0 .45-.606zm1.64-1.33a12.647 12.647 0 0 1 1.01-.193 11.666 11.666 0 0 1-.51-.858 20.741 20.741 0 0 1-.5 1.05zm2.446.45c.15.162.296.3.435.41.24.19.407.253.498.256a.107.107 0 0 0 .07-.015.307.307 0 0 0 .094-.125.436.436 0 0 0 .059-.2.095.095 0 0 0-.026-.063c-.052-.062-.2-.152-.518-.209a3.881 3.881 0 0 0-.612-.053zM8.078 5.8a6.7 6.7 0 0 0 .2-.828c.031-.188.043-.343.038-.465a.613.613 0 0 0-.032-.198.517.517 0 0 0-.145.04c-.087.035-.158.106-.196.283-.04.192-.03.469.046.822.024.111.054.227.09.346z"></path></svg></a><span class="number">7.2.2</span> <span class="title"> <a id="x32-2010007.2.2"></a>File Permissions</span></h4></div>
-</p><p class="noindent">At a first glance, file permissions can seem rather cryptic as these were devised when every key stroke
+</p></dd></dl>
+<div class="subsection-header"><h4 id="header-subsection-6.2.2"><span class="number">6.2.2</span><a class="pdf-icon" href="AutonomousMobileRoboticsLectureBook.pdf#subsection.6.2.2"><svg class="bi bi-file-pdf" fill="currentColor" height="20" viewbox="0 0 16 16" width="20" xmlns="http://www.w3.org/2000/svg"><path d="M4 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H4zm0 1h8a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1z"></path><path d="M4.603 12.087a.81.81 0 0 1-.438-.42c-.195-.388-.13-.776.08-1.102.198-.307.526-.568.897-.787a7.68 7.68 0 0 1 1.482-.645 19.701 19.701 0 0 0 1.062-2.227 7.269 7.269 0 0 1-.43-1.295c-.086-.4-.119-.796-.046-1.136.075-.354.274-.672.65-.823.192-.077.4-.12.602-.077a.7.7 0 0 1 .477.365c.088.164.12.356.127.538.007.187-.012.395-.047.614-.084.51-.27 1.134-.52 1.794a10.954 10.954 0 0 0 .98 1.686 5.753 5.753 0 0 1 1.334.05c.364.065.734.195.96.465.12.144.193.32.2.518.007.192-.047.382-.138.563a1.04 1.04 0 0 1-.354.416.856.856 0 0 1-.51.138c-.331-.014-.654-.196-.933-.417a5.716 5.716 0 0 1-.911-.95 11.642 11.642 0 0 0-1.997.406 11.311 11.311 0 0 1-1.021 1.51c-.29.35-.608.655-.926.787a.793.793 0 0 1-.58.029zm1.379-1.901c-.166.076-.32.156-.459.238-.328.194-.541.383-.647.547-.094.145-.096.25-.04.361.01.022.02.036.026.044a.27.27 0 0 0 .035-.012c.137-.056.355-.235.635-.572a8.18 8.18 0 0 0 .45-.606zm1.64-1.33a12.647 12.647 0 0 1 1.01-.193 11.666 11.666 0 0 1-.51-.858 20.741 20.741 0 0 1-.5 1.05zm2.446.45c.15.162.296.3.435.41.24.19.407.253.498.256a.107.107 0 0 0 .07-.015.307.307 0 0 0 .094-.125.436.436 0 0 0 .059-.2.095.095 0 0 0-.026-.063c-.052-.062-.2-.152-.518-.209a3.881 3.881 0 0 0-.612-.053zM8.078 5.8a6.7 6.7 0 0 0 .2-.828c.031-.188.043-.343.038-.465a.613.613 0 0 0-.032-.198.517.517 0 0 0-.145.04c-.087.035-.158.106-.196.283-.04.192-.03.469.046.822.024.111.054.227.09.346z"></path></svg></a><span class="title"> <a id="x24-1650006.2.2"></a>File Permissions</span></h4></div>
+<p class="noindent">At a first glance, file permissions can seem rather cryptic as these were devised when every key stroke
 mattered. We’ve seen them before when listing files in a directory but it’s not immediately clear what
 they mean.
 </p><p class="noindent">For example, <code class="verb">rwxr-xr-x</code>  might not make any sense right now, but hopefully after this section you will have a
@@ -211,19 +194,19 @@ iii.
 </dt><dd class="enumerate-enumitem">Third group represents all other users not in the group that owns the file.</dd></dl>
 <p class="noindent">Each of the groups of three breaks down into three individual letters, which stand for
 </p>
-<dl class="description"><dt class="description"><a id="x32-201004x7.2.2"></a>
+<dl class="description"><dt class="description"><a id="x24-165004x6.2.2"></a>
 <span style="color:#0A2A0A;">Read</span>
 </dt><dd class="description">
 <p class="noindent"> someone can see the contents of a file but not modify it,
 </p>
 </dd>
-<dt class="description"><a id="x32-201005x7.2.2"></a>
+<dt class="description"><a id="x24-165005x6.2.2"></a>
 <span style="color:#0A2A0A;">Write</span>
 </dt><dd class="description">
 <p class="noindent"> someone can make a change to the file, but not read the contents,
 </p>
 </dd>
-<dt class="description"><a id="x32-201006x7.2.2"></a>
+<dt class="description"><a id="x24-165006x6.2.2"></a>
 <span style="color:#0A2A0A;">eXecute</span>
 </dt><dd class="description">
 <p class="noindent"> someone can run the file, for example, a program or script, without loading it into another
@@ -243,70 +226,64 @@ and there are two (<span class="alert">2</span>) ways to do it.
 permissions to change.</dd></dl>
 <p class="noindent">We’ll take a look at both, starting with the octal notation.
 </p>
-<div class="info-block" id="info-block-7.30"> <a class="copiable-link" href="#info-block-7.30"> ¶</a> <span class="info-upper"> <span class="info-header"> <b>Information 7.<a id="x32-201009r30"></a>30: </b> </span> <span class="info-title"> The <code class="verb">chmod</code>  Command </span> </span> <div class="body">
+<dl class="def-block block-major info-block"> <a class="copiable-link" href="#info-block-6.22" id="info-block-6.22"> ¶</a> <dt class="def-line"> <span class="upper"> <span class="header"> <b>Information 6.<a id="x24-165009r22"></a>22: </b> </span> <span class="title"> The <code class="verb">chmod</code>  Command </span> </span> <input class="body-button" type="button" value="Show/Hide"/> </dt> <dd class="body">
 <p class="noindent">A shell command for changing access permissions and special mode flags of files (including special files
 such as directories). The name is short for change mode where mode refers to the permissions and flags
-collectively  </p></div></div>
-<p class="noindent"><h5 class="subsubsectionHead" id="header-subsubsection-67"> <a id="x32-202000"></a>Octal Notation</h5>
-</p><p class="noindent">If you ever have worked with Linux or macOS or any other UNIX based OS you may have seen
+collectively  </p></dd></dl>
+<div class="subsubsection-header"><h5 id="header-subsubsection-6.2.2.60"><span class="number"></span><a class="pdf-icon" href=""></a><span class="title"> <a id="x24-166000"></a>Octal Notation</span></h5></div>
+<p class="noindent">If you ever have worked with Linux or macOS or any other UNIX based OS you may have seen
 commands like <code class="verb">chmod 777</code> , or <code class="verb">chmod 644</code> , and similar things. The way we arrive at those numbers is by assigning <span class="alert">read</span>, <span class="alert">write</span>, and <span class="alert">execute</span>
-each a different value. Which can be seen in <b>Tbl.</b> <a href="#x32-202001r1">7.1</a>.
+each a different value. Which can be seen in <b>Tbl.</b> <a href="#x24-166001r1">6.1</a>.
 </p><p class="noindent"></p><figure class="float">
-<a id="x32-202001r1"></a>
-<figcaption class="caption"><span class="id">Table 7.1: </span><span class="content">Octal Notation and their numerical meaning.                                         </span></figcaption>
-<table class="tabularray tblr" id="tbl-90"> <tr id="row-90-1-"><td id="1-1" style=""> Read</td><td id="1-2" style=""> <code class="verb">4</code> </td><td id="1-3" style=""> Write</td><td id="1-4" style=""> <code class="verb">2</code> </td><td id="1-5" style=""> Execute</td><td id="1-6" style=""> <code class="verb">1</code> </td></tr></table>
+<a id="x24-166001r1"></a>
+<figcaption class="caption"><span class="id">Table 6.1: </span><span class="content">Octal Notation and their numerical meaning.                                         </span></figcaption>
+<table class="tabularray tblr" id="tbl-82"> <tr id="row-82-1-"><td id="1-1" style=""> Read</td><td id="1-2" style=""> <code class="verb">4</code> </td><td id="1-3" style=""> Write</td><td id="1-4" style=""> <code class="verb">2</code> </td><td id="1-5" style=""> Execute</td><td id="1-6" style=""> <code class="verb">1</code> </td></tr></table>
 </figure>
 <p class="noindent">This notation makes it easy to represent different states of these three (<span class="alert">3</span>) values with just a single digit.
 So if a user can read, write and execute, that comes out to seven (<code class="verb">7</code> ), four plus two plus
 one (<code class="verb">4+2+1</code> ). If the group can only read and execute, that comes out to five (<code class="verb">5</code> ), four plus one (<code class="verb">4+1</code>
 ).
 </p>
-<div class="knowledge"><div class="knowledge-upper">Knowledge</div><div class="body">
+<div class="block-minor knowledge"><div class="body">
 <p class="noindent">With this system and a some basic maths, it’s impossible to be ambiguous about the permissions the
 user, group or others have. </p></div></div>
-<p class="noindent">If you don’t feel like doing the maths, you can make up a table like you in <b>Tbl.</b> <a href="#x32-202002r2">7.2</a>.
+<p class="noindent">If you don’t feel like doing the maths, you can make up a table like you in <b>Tbl.</b> <a href="#x24-166002r2">6.2</a>.
 </p><p class="noindent"></p><figure class="float">
-<a id="x32-202002r2"></a>
-<figcaption class="caption"><span class="id">Table 7.2: </span><span class="content">The value and their meaning using octal notation. 
+<a id="x24-166002r2"></a>
+<figcaption class="caption"><span class="id">Table 6.2: </span><span class="content">The value and their meaning using octal notation. 
 </span></figcaption>
-<table class="tabularray tblr" id="tbl-91"> <tr id="row-91-1-"><td id="1-1" style=""> <b>Octal</b></td><td id="1-2" style=""> 0</td><td id="1-3" style=""> 1</td><td id="1-4" style=""> 2</td><td id="1-5" style=""> 3</td><td id="1-6" style=""> 4</td><td id="1-7" style=""> 5</td><td id="1-8" style=""> 6</td><td id="1-9" style=""> 7</td></tr>
-<tr id="row-91-2-"><td id="2-1" style=""> <b>Binary</b></td><td id="2-2" style=""> <code class="verb">000</code> </td><td id="2-3" style=""> <code class="verb">001</code> </td><td id="2-4" style=""> <code class="verb">010</code> </td><td id="2-5" style=""> <code class="verb">011</code> </td><td id="2-6" style=""> <code class="verb">100</code> </td><td id="2-7" style=""> <code class="verb">101</code> </td><td id="2-8" style=""> <code class="verb">110</code> </td><td id="2-9" style=""> <code class="verb">111</code> </td></tr>
-<tr id="row-91-3-"><td id="3-1" style=""> <b>Mode</b></td><td id="3-2" style=""> <code class="verb">---</code> </td><td id="3-3" style=""> <code class="verb">--x</code> </td><td id="3-4" style=""> <code class="verb">-w-</code> </td><td id="3-5" style=""> <code class="verb">-wx</code> </td><td id="3-6" style=""> <code class="verb">r--</code> </td><td id="3-7" style=""> <code class="verb">r-x</code> </td><td id="3-8" style=""> <code class="verb">rw-</code> </td><td id="3-9" style=""> <code class="verb">rwx</code> </td></tr></table>
+<table class="tabularray tblr" id="tbl-83"> <tr id="row-83-1-"><td id="1-1" style=""> <b>Octal</b></td><td id="1-2" style=""> 0</td><td id="1-3" style=""> 1</td><td id="1-4" style=""> 2</td><td id="1-5" style=""> 3</td><td id="1-6" style=""> 4</td><td id="1-7" style=""> 5</td><td id="1-8" style=""> 6</td><td id="1-9" style=""> 7</td></tr>
+<tr id="row-83-2-"><td id="2-1" style=""> <b>Binary</b></td><td id="2-2" style=""> <code class="verb">000</code> </td><td id="2-3" style=""> <code class="verb">001</code> </td><td id="2-4" style=""> <code class="verb">010</code> </td><td id="2-5" style=""> <code class="verb">011</code> </td><td id="2-6" style=""> <code class="verb">100</code> </td><td id="2-7" style=""> <code class="verb">101</code> </td><td id="2-8" style=""> <code class="verb">110</code> </td><td id="2-9" style=""> <code class="verb">111</code> </td></tr>
+<tr id="row-83-3-"><td id="3-1" style=""> <b>Mode</b></td><td id="3-2" style=""> <code class="verb">---</code> </td><td id="3-3" style=""> <code class="verb">--x</code> </td><td id="3-4" style=""> <code class="verb">-w-</code> </td><td id="3-5" style=""> <code class="verb">-wx</code> </td><td id="3-6" style=""> <code class="verb">r--</code> </td><td id="3-7" style=""> <code class="verb">r-x</code> </td><td id="3-8" style=""> <code class="verb">rw-</code> </td><td id="3-9" style=""> <code class="verb">rwx</code> </td></tr></table>
 </figure>
-<div class="knowledge"><div class="knowledge-upper">Knowledge</div><div class="body">
+<div class="block-minor knowledge"><div class="body">
 <p class="noindent">To view the privileges a file has one simply has to write </p></div></div>
-<p class="noindent"><h5 class="subsubsectionHead" id="header-subsubsection-68"> <a id="x32-203000"></a>Symbolic Notation</h5>
-</p><p class="noindent">The symbolic way of representing permissions is a more approachable method to a lot of people,
+<div class="subsubsection-header"><h5 id="header-subsubsection-6.2.2.61"><span class="number"></span><a class="pdf-icon" href=""></a><span class="title"> <a id="x24-167000"></a>Symbolic Notation</span></h5></div>
+<p class="noindent">The symbolic way of representing permissions is a more approachable method to a lot of people,
 because instead of setting numbers for each value, you can add or remove a permission by letter. User is
 represented by the letter <code class="verb">u</code> , group by <code class="verb">g</code> , others by <code class="verb">o</code> , and changing all of the values is represented by <code class="verb">a</code> . If
 you leave off a prefix, <code class="verb">chmod</code>  applies your change to all values. There are three operators here you can
 use:
 </p>
-<table class="tabularray tblr" id="tbl-92"> <tr id="row-92-1-"><td id="1-1" style=""> Plus 
+<table class="tabularray tblr" id="tbl-84"> <tr id="row-84-1-"><td id="1-1" style=""> Plus 
 (<code class="verb">+</code> 
 )  </td><td colspan="1" id="1-2" style="">  adds whichever permission you specify to what’s already there                         </td></tr>
-<tr id="row-92-2-"><td id="2-1" style=""> Minus 
+<tr id="row-84-2-"><td id="2-1" style=""> Minus 
 (<code class="verb">-</code> 
 )  </td><td colspan="1" id="2-2" style="">  removes whatever is there                                                                         </td></tr>
-<tr id="row-92-3-"><td id="3-1" style=""> Equals 
+<tr id="row-84-3-"><td id="3-1" style=""> Equals 
 (<code class="verb">=</code> 
 )  </td><td colspan="1" id="3-2" style="">  sign resets the permissions to only whatever value you specify                          </td></tr>
 </table>
 <p class="noindent">For example, to set user permissions to read, write and execute, we need to use:
 </p>
-<pre><div class="code-header"> <span class="code-language">bash</span> </div> <code class="language-bash">
-<pre class="fancyvrb" id="fancyvrb96"><a id="x32-203002r518"></a>chmod u+rwx</pre>
-</code></pre>
+<div class="code-header"><span class="code-language">bash</span></div><div class="code-wrapper"><pre><code class="language-bash"><pre class="fancyvrb" id="fancyvrb96"><a id="x24-167002r518"></a>chmod u+rwx</pre></code></pre></div>
 <p class="noindent">If we wanted to set group (<code class="verb">g</code> ) permissions to only read (<code class="verb">r</code> ), then we use:
 </p>
-<pre><div class="code-header"> <span class="code-language">bash</span> </div> <code class="language-bash">
-<pre class="fancyvrb" id="fancyvrb97"><a id="x32-203004r523"></a>chmod <span style="color:#086678;">g</span>=r</pre>
-</code></pre>
+<div class="code-header"><span class="code-language">bash</span></div><div class="code-wrapper"><pre><code class="language-bash"><pre class="fancyvrb" id="fancyvrb97"><a id="x24-167004r523"></a>chmod <span style="color:#086678;">g</span>=r</pre></code></pre></div>
 <p class="noindent">and to remove read, write and execute from others, write:
 </p>
-<pre><div class="code-header"> <span class="code-language">bash</span> </div> <code class="language-bash">
-<pre class="fancyvrb" id="fancyvrb98"><a id="x32-203006r528"></a>chmod u-rwx</pre>
-</code></pre>
+<div class="code-header"><span class="code-language">bash</span></div><div class="code-wrapper"><pre><code class="language-bash"><pre class="fancyvrb" id="fancyvrb98"><a id="x24-167006r528"></a>chmod u-rwx</pre></code></pre></div>
 <p class="noindent">We can line up the octal and symbolic values and see what the results are. In octal, <code class="verb">777</code>  is the same as
 saying <code class="verb">a+rwx</code> . <code class="verb">755</code>  is the same as saying <code class="verb">u+rwx</code> , <code class="verb">g=rx</code> , <code class="verb">o=rx</code> . You can see the symbolic notation is a bit longer, but it contains
 more information and context, so it’s a little easier to work with. The nice thing about symbolic
@@ -315,15 +292,14 @@ what octal value to use. Using octal notation is kind of like using the = operat
 all the time. Saying whatever was there before, now it’s this value, rather than add read or remove
 execute.
 </p>
-<p class="noindent"><div class="subsection-header"> <h4 id="header-subsection-7.2.3"> <a class="pdf-icon" href="AutonomousMobileRoboticsLectureBook.pdf#subsection.7.2.3"><svg class="bi bi-file-pdf" fill="currentColor" height="20" viewbox="0 0 16 16" width="20" xmlns="http://www.w3.org/2000/svg"><path d="M4 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H4zm0 1h8a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1z"></path><path d="M4.603 12.087a.81.81 0 0 1-.438-.42c-.195-.388-.13-.776.08-1.102.198-.307.526-.568.897-.787a7.68 7.68 0 0 1 1.482-.645 19.701 19.701 0 0 0 1.062-2.227 7.269 7.269 0 0 1-.43-1.295c-.086-.4-.119-.796-.046-1.136.075-.354.274-.672.65-.823.192-.077.4-.12.602-.077a.7.7 0 0 1 .477.365c.088.164.12.356.127.538.007.187-.012.395-.047.614-.084.51-.27 1.134-.52 1.794a10.954 10.954 0 0 0 .98 1.686 5.753 5.753 0 0 1 1.334.05c.364.065.734.195.96.465.12.144.193.32.2.518.007.192-.047.382-.138.563a1.04 1.04 0 0 1-.354.416.856.856 0 0 1-.51.138c-.331-.014-.654-.196-.933-.417a5.716 5.716 0 0 1-.911-.95 11.642 11.642 0 0 0-1.997.406 11.311 11.311 0 0 1-1.021 1.51c-.29.35-.608.655-.926.787a.793.793 0 0 1-.58.029zm1.379-1.901c-.166.076-.32.156-.459.238-.328.194-.541.383-.647.547-.094.145-.096.25-.04.361.01.022.02.036.026.044a.27.27 0 0 0 .035-.012c.137-.056.355-.235.635-.572a8.18 8.18 0 0 0 .45-.606zm1.64-1.33a12.647 12.647 0 0 1 1.01-.193 11.666 11.666 0 0 1-.51-.858 20.741 20.741 0 0 1-.5 1.05zm2.446.45c.15.162.296.3.435.41.24.19.407.253.498.256a.107.107 0 0 0 .07-.015.307.307 0 0 0 .094-.125.436.436 0 0 0 .059-.2.095.095 0 0 0-.026-.063c-.052-.062-.2-.152-.518-.209a3.881 3.881 0 0 0-.612-.053zM8.078 5.8a6.7 6.7 0 0 0 .2-.828c.031-.188.043-.343.038-.465a.613.613 0 0 0-.032-.198.517.517 0 0 0-.145.04c-.087.035-.158.106-.196.283-.04.192-.03.469.046.822.024.111.054.227.09.346z"></path></svg></a><span class="number">7.2.3</span> <span class="title"> <a id="x32-2040007.2.3"></a>Hard and Symbolic Links</span></h4></div>
-</p>
+<div class="subsection-header"><h4 id="header-subsection-6.2.3"><span class="number">6.2.3</span><a class="pdf-icon" href="AutonomousMobileRoboticsLectureBook.pdf#subsection.6.2.3"><svg class="bi bi-file-pdf" fill="currentColor" height="20" viewbox="0 0 16 16" width="20" xmlns="http://www.w3.org/2000/svg"><path d="M4 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H4zm0 1h8a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1z"></path><path d="M4.603 12.087a.81.81 0 0 1-.438-.42c-.195-.388-.13-.776.08-1.102.198-.307.526-.568.897-.787a7.68 7.68 0 0 1 1.482-.645 19.701 19.701 0 0 0 1.062-2.227 7.269 7.269 0 0 1-.43-1.295c-.086-.4-.119-.796-.046-1.136.075-.354.274-.672.65-.823.192-.077.4-.12.602-.077a.7.7 0 0 1 .477.365c.088.164.12.356.127.538.007.187-.012.395-.047.614-.084.51-.27 1.134-.52 1.794a10.954 10.954 0 0 0 .98 1.686 5.753 5.753 0 0 1 1.334.05c.364.065.734.195.96.465.12.144.193.32.2.518.007.192-.047.382-.138.563a1.04 1.04 0 0 1-.354.416.856.856 0 0 1-.51.138c-.331-.014-.654-.196-.933-.417a5.716 5.716 0 0 1-.911-.95 11.642 11.642 0 0 0-1.997.406 11.311 11.311 0 0 1-1.021 1.51c-.29.35-.608.655-.926.787a.793.793 0 0 1-.58.029zm1.379-1.901c-.166.076-.32.156-.459.238-.328.194-.541.383-.647.547-.094.145-.096.25-.04.361.01.022.02.036.026.044a.27.27 0 0 0 .035-.012c.137-.056.355-.235.635-.572a8.18 8.18 0 0 0 .45-.606zm1.64-1.33a12.647 12.647 0 0 1 1.01-.193 11.666 11.666 0 0 1-.51-.858 20.741 20.741 0 0 1-.5 1.05zm2.446.45c.15.162.296.3.435.41.24.19.407.253.498.256a.107.107 0 0 0 .07-.015.307.307 0 0 0 .094-.125.436.436 0 0 0 .059-.2.095.095 0 0 0-.026-.063c-.052-.062-.2-.152-.518-.209a3.881 3.881 0 0 0-.612-.053zM8.078 5.8a6.7 6.7 0 0 0 .2-.828c.031-.188.043-.343.038-.465a.613.613 0 0 0-.032-.198.517.517 0 0 0-.145.04c-.087.035-.158.106-.196.283-.04.192-.03.469.046.822.024.111.054.227.09.346z"></path></svg></a><span class="title"> <a id="x24-1680006.2.3"></a>Hard and Symbolic Links</span></h4></div>
 <p class="noindent"></p><figure class="float">
-<a id="x32-204001r2"></a>
-<figcaption class="caption"><span class="id">Figure 7.2: </span><span class="content">A Visual comparison between soft and hard links.                                     </span></figcaption>
+<a id="x24-168001r2"></a>
+<figcaption class="caption"><span class="id">Figure 6.2: </span><span class="content">A Visual comparison between soft and hard links.                                     </span></figcaption>
 <img alt="PIC" src="figures/Working-with-Files-and-Folders/figures-2.png" style=""/>
 </figure>
 <p class="noindent">It is time to look at a special kind of file on the Linux system called <span class="alert">link</span>. These are basically files which are
-<span class="alert">references</span> to other files, and they’re used to avoid having multiple copies of the same file in different <span class="margin-block">places. <span class="margin-comment"><a class="ellipsis" href="#m-ref-184">[184]</a>
+<span class="alert">references</span> to other files, and they’re used to avoid having multiple copies of the same file in different <span class="margin-block">places. <span class="margin-comment"><a class="ellipsis" href="#m-ref-134">[134]</a>
 <span class="sidenote">It is
 always in your best interest to minimise the number of copies a file has as the maintenance of all these
 files would not be possible after some time.</span></span></span> The idea is simple: </p><div class="quote">  We keep one file in a well-known
@@ -334,25 +310,25 @@ with your operating system using your keyboard</a></span></span></span> we may <
 important to know what they are when you come across them, and can show their usefulness as we
 develop more complex applications.
 To put it simply, there are two (<span class="alert">2</span>) kinds of links: </p>
-<dl class="description"><dt class="description"><a id="x32-204002x7.2.3"></a>
+<dl class="description"><dt class="description"><a id="x24-168002x6.2.3"></a>
 <span style="color:#0A2A0A;">hard links</span>
 </dt><dd class="description">
 <p class="noindent"> point to data on the disk,
 </p>
 </dd>
-<dt class="description"><a id="x32-204003x7.2.3"></a>
+<dt class="description"><a id="x24-168003x6.2.3"></a>
 <span style="color:#0A2A0A;">Soft or symbolic links</span>
 </dt><dd class="description">
 <p class="noindent"> point to a file on the disk.</p></dd></dl>
 <p class="noindent">It’s kind of a subtle difference but it changes how the resulting links work. Let’s take a look at <span class="margin-block">soft links
-<span class="margin-comment"><a class="ellipsis" href="#m-ref-185">[185]</a>
+<span class="margin-comment"><a class="ellipsis" href="#m-ref-135">[135]</a>
 <span class="sidenote">These are also known as symbolic links</span></span></span> or quickly.
 </p>
-<p class="noindent"><div class="subsection-header"> <h4 id="header-subsection-7.2.4"> <a class="pdf-icon" href="AutonomousMobileRoboticsLectureBook.pdf#subsection.7.2.4"><svg class="bi bi-file-pdf" fill="currentColor" height="20" viewbox="0 0 16 16" width="20" xmlns="http://www.w3.org/2000/svg"><path d="M4 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H4zm0 1h8a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1z"></path><path d="M4.603 12.087a.81.81 0 0 1-.438-.42c-.195-.388-.13-.776.08-1.102.198-.307.526-.568.897-.787a7.68 7.68 0 0 1 1.482-.645 19.701 19.701 0 0 0 1.062-2.227 7.269 7.269 0 0 1-.43-1.295c-.086-.4-.119-.796-.046-1.136.075-.354.274-.672.65-.823.192-.077.4-.12.602-.077a.7.7 0 0 1 .477.365c.088.164.12.356.127.538.007.187-.012.395-.047.614-.084.51-.27 1.134-.52 1.794a10.954 10.954 0 0 0 .98 1.686 5.753 5.753 0 0 1 1.334.05c.364.065.734.195.96.465.12.144.193.32.2.518.007.192-.047.382-.138.563a1.04 1.04 0 0 1-.354.416.856.856 0 0 1-.51.138c-.331-.014-.654-.196-.933-.417a5.716 5.716 0 0 1-.911-.95 11.642 11.642 0 0 0-1.997.406 11.311 11.311 0 0 1-1.021 1.51c-.29.35-.608.655-.926.787a.793.793 0 0 1-.58.029zm1.379-1.901c-.166.076-.32.156-.459.238-.328.194-.541.383-.647.547-.094.145-.096.25-.04.361.01.022.02.036.026.044a.27.27 0 0 0 .035-.012c.137-.056.355-.235.635-.572a8.18 8.18 0 0 0 .45-.606zm1.64-1.33a12.647 12.647 0 0 1 1.01-.193 11.666 11.666 0 0 1-.51-.858 20.741 20.741 0 0 1-.5 1.05zm2.446.45c.15.162.296.3.435.41.24.19.407.253.498.256a.107.107 0 0 0 .07-.015.307.307 0 0 0 .094-.125.436.436 0 0 0 .059-.2.095.095 0 0 0-.026-.063c-.052-.062-.2-.152-.518-.209a3.881 3.881 0 0 0-.612-.053zM8.078 5.8a6.7 6.7 0 0 0 .2-.828c.031-.188.043-.343.038-.465a.613.613 0 0 0-.032-.198.517.517 0 0 0-.145.04c-.087.035-.158.106-.196.283-.04.192-.03.469.046.822.024.111.054.227.09.346z"></path></svg></a><span class="number">7.2.4</span> <span class="title"> <a id="x32-2050007.2.4"></a>Soft (Symbolic) Links</span></h4></div>
-</p><p class="noindent">We can create a symbolic link with the <code class="verb">ln</code>  command and a <code class="verb">-s</code>  option:
+<div class="subsection-header"><h4 id="header-subsection-6.2.4"><span class="number">6.2.4</span><a class="pdf-icon" href="AutonomousMobileRoboticsLectureBook.pdf#subsection.6.2.4"><svg class="bi bi-file-pdf" fill="currentColor" height="20" viewbox="0 0 16 16" width="20" xmlns="http://www.w3.org/2000/svg"><path d="M4 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H4zm0 1h8a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1z"></path><path d="M4.603 12.087a.81.81 0 0 1-.438-.42c-.195-.388-.13-.776.08-1.102.198-.307.526-.568.897-.787a7.68 7.68 0 0 1 1.482-.645 19.701 19.701 0 0 0 1.062-2.227 7.269 7.269 0 0 1-.43-1.295c-.086-.4-.119-.796-.046-1.136.075-.354.274-.672.65-.823.192-.077.4-.12.602-.077a.7.7 0 0 1 .477.365c.088.164.12.356.127.538.007.187-.012.395-.047.614-.084.51-.27 1.134-.52 1.794a10.954 10.954 0 0 0 .98 1.686 5.753 5.753 0 0 1 1.334.05c.364.065.734.195.96.465.12.144.193.32.2.518.007.192-.047.382-.138.563a1.04 1.04 0 0 1-.354.416.856.856 0 0 1-.51.138c-.331-.014-.654-.196-.933-.417a5.716 5.716 0 0 1-.911-.95 11.642 11.642 0 0 0-1.997.406 11.311 11.311 0 0 1-1.021 1.51c-.29.35-.608.655-.926.787a.793.793 0 0 1-.58.029zm1.379-1.901c-.166.076-.32.156-.459.238-.328.194-.541.383-.647.547-.094.145-.096.25-.04.361.01.022.02.036.026.044a.27.27 0 0 0 .035-.012c.137-.056.355-.235.635-.572a8.18 8.18 0 0 0 .45-.606zm1.64-1.33a12.647 12.647 0 0 1 1.01-.193 11.666 11.666 0 0 1-.51-.858 20.741 20.741 0 0 1-.5 1.05zm2.446.45c.15.162.296.3.435.41.24.19.407.253.498.256a.107.107 0 0 0 .07-.015.307.307 0 0 0 .094-.125.436.436 0 0 0 .059-.2.095.095 0 0 0-.026-.063c-.052-.062-.2-.152-.518-.209a3.881 3.881 0 0 0-.612-.053zM8.078 5.8a6.7 6.7 0 0 0 .2-.828c.031-.188.043-.343.038-.465a.613.613 0 0 0-.032-.198.517.517 0 0 0-.145.04c-.087.035-.158.106-.196.283-.04.192-.03.469.046.822.024.111.054.227.09.346z"></path></svg></a><span class="title"> <a id="x24-1690006.2.4"></a>Soft (Symbolic) Links</span></h4></div>
+<p class="noindent">We can create a symbolic link with the <code class="verb">ln</code>  command and a <code class="verb">-s</code>  option:
 </p>
 <p class="noindent"></p><figure class="float">
-<p class="noindent"><dl class="first-deffn first-defun-alias-first-deffn def-block"><a class="copiable-link" href="#command-block-7.19"> ¶</a><dt class="deffn defun-alias-deffn def-line" id="command-block-7.19"><a id="x32-205001r19"></a><span class="category-def"><b>command:</b> </span><strong class="def-name">ln</strong><var class="def-var-arguments"> [OPTION]... [-T] TARGET LINK_NAME</var><span class="active-manual"><a href="https://man7.org/linux/man-pages/man1/ln.1.html"><i class="fa-solid fa-globe"></i></a></span></dt><dd><p> Primarily used to create links for files in Linux, effectively
+<p class="noindent"><dl class="first-deffn first-defun-alias-first-deffn def-block"><a class="copiable-link" href="#command-block-6.19"> ¶</a><dt class="deffn defun-alias-deffn def-line" id="command-block-6.19"><a id="x24-169001r19"></a><span class="category-def"><b>command:</b> </span><strong class="def-name">ln</strong><var class="def-var-arguments"> [OPTION]... [-T] TARGET LINK_NAME</var><span class="active-manual"><a href="https://man7.org/linux/man-pages/man1/ln.1.html"><i class="fa-solid fa-globe"></i></a></span></dt><dd><p> Primarily used to create links for files in Linux, effectively
 allowing one file to reference another. Doing so allows you to manage files more efficiently without creating duplicates,
 making this command crucial for optimizing storage and managing files in Unix-like operating systems.
 </p></dd></dl></p>
@@ -370,20 +346,20 @@ making this command crucial for optimizing storage and managing files in Unix-li
 </dt><dd class="enumerate-enumitem">the name of the link I want to create.</dd></dl>
 <p class="noindent">To create a link to <code class="verb">novel.txt</code>  we create a file called <code class="verb">writing.txt</code>  and link it. Now the <code class="verb">writing.txt</code>  file is a link to the <code class="verb">novel.txt file</code> . If you were to
 Look at the contents of <code class="verb">writing.txt</code> , you would see the contents of the original file, and editing the <code class="verb">writing.txt</code>  file means
-editing the original as well. Think of <code class="verb">writing.txt</code>  not as a file, but a <span class="margin-block">pointer <span class="margin-comment"><a class="ellipsis" href="#m-ref-186">[186]</a>
+editing the original as well. Think of <code class="verb">writing.txt</code>  not as a file, but a <span class="margin-block">pointer <span class="margin-comment"><a class="ellipsis" href="#m-ref-136">[136]</a>
 <span class="sidenote">In this case it is very similar to that of
 a pointer in C as the main idea is the new symbolic link is <b>pointing</b> to the original file.</span></span></span> to the original
 one.
 </p>
-<div class="info-block" id="info-block-7.31"> <a class="copiable-link" href="#info-block-7.31"> ¶</a> <span class="info-upper"> <span class="info-header"> <b>Information 7.<a id="x32-205005r31"></a>31: </b> </span> <span class="info-title"> Limitations of Pointers </span> </span> <div class="body">
+<dl class="def-block block-major info-block"> <a class="copiable-link" href="#info-block-6.23" id="info-block-6.23"> ¶</a> <dt class="def-line"> <span class="upper"> <span class="header"> <b>Information 6.<a id="x24-169005r23"></a>23: </b> </span> <span class="title"> Limitations of Pointers </span> </span> <input class="body-button" type="button" value="Show/Hide"/> </dt> <dd class="body">
 <p class="noindent">It’s important to know that this kind of link is <span class="alert">relative</span>, that is if we move the link somewhere else on the file
 system the system won’t be able to reference the original file any more and if we move the original file,
 the link will break as well, because the system will be told to look at a particular path for the linked file
 and it won’t be there any more.
 </p>
-</div></div>
-<p class="noindent"><h5 class="subsubsectionHead" id="header-subsubsection-69"> <a id="x32-206000"></a>Hard Links</h5>
-</p><p class="noindent">You can create a hard link by leaving off the dash <code class="verb">-s</code>  option. If we write <code class="verb">ln text.txt</code> , this will create a
+</dd></dl>
+<div class="subsubsection-header"><h5 id="header-subsubsection-6.2.4.62"><span class="number"></span><a class="pdf-icon" href=""></a><span class="title"> <a id="x24-170000"></a>Hard Links</span></h5></div>
+<p class="noindent">You can create a hard link by leaving off the dash <code class="verb">-s</code>  option. If we write <code class="verb">ln text.txt</code> , this will create a
 hard link to <code class="verb">text.txt</code> . A hard link appears to be a regular file in a file listing but it’s also just a
 pointer to the original file or more specifically it’s a pointer to the data that the original file
 references.
@@ -391,34 +367,34 @@ references.
 instead of the file itself. In fact, every file on your system is a hard link to its underlying
 data.
 </p>
-<div class="knowledge"><div class="knowledge-upper">Knowledge</div><div class="body">
+<div class="block-minor knowledge"><div class="body">
 <p class="noindent">Hard links and soft links both have their uses depending on the applications you have in mind.
 </p></div></div>
 <p class="noindent">Below is a quick guide to the options the ln command has.
 </p>
-<table class="tabularray tblr" id="tbl-93"> <tr id="row-93-1-"><td id="1-1" style=""> <b>Command 
+<table class="tabularray tblr" id="tbl-85"> <tr id="row-85-1-"><td id="1-1" style=""> <b>Command 
 Arguments</b> </td><td colspan="13" id="1-2" style=""> <b>Description</b></td></tr>
-<tr id="row-93-2-"><td id="2-1" style=""> <code class="verb">--backup</code></td><td colspan="13" id="2-2" style="">  make a backup of each existing destination file                          </td></tr>
-<tr id="row-93-3-"><td id="3-1" style=""> <code class="verb">-b</code></td><td colspan="13" id="3-2" style="">  like <code class="verb">--backup</code>  but does not accept an argument                                    </td></tr>
-<tr id="row-93-4-"><td id="4-1" style=""> <code class="verb">-d</code></td><td colspan="13" id="4-2" style="">  allow the superuser to attempt to hard link directories (<b>note:</b> will 
+<tr id="row-85-2-"><td id="2-1" style=""> <code class="verb">--backup</code></td><td colspan="13" id="2-2" style="">  make a backup of each existing destination file                          </td></tr>
+<tr id="row-85-3-"><td id="3-1" style=""> <code class="verb">-b</code></td><td colspan="13" id="3-2" style="">  like <code class="verb">--backup</code>  but does not accept an argument                                    </td></tr>
+<tr id="row-85-4-"><td id="4-1" style=""> <code class="verb">-d</code></td><td colspan="13" id="4-2" style="">  allow the superuser to attempt to hard link directories (<b>note:</b> will 
 probably fail due to system restrictions, even for the superuser)   </td></tr>
-<tr id="row-93-5-"><td id="5-1" style=""> <code class="verb">-f</code></td><td colspan="13" id="5-2" style="">  remove existing destination files                                             </td></tr>
-<tr id="row-93-6-"><td id="6-1" style=""> <code class="verb">-i</code></td><td colspan="13" id="6-2" style="">  prompt whether to remove destinations                                   </td></tr>
-<tr id="row-93-7-"><td id="7-1" style=""> <code class="verb">-L</code></td><td colspan="13" id="7-2" style="">  dereference <code class="verb">TARGETs</code>  that are symbolic links                                       </td></tr>
-<tr id="row-93-8-"><td id="8-1" style=""> <code class="verb">-n</code></td><td colspan="13" id="8-2" style="">  treat <code class="verb">LINK_NAME</code>  as a normal file if it is a symbolic link to a directory         </td></tr>
-<tr id="row-93-9-"><td id="9-1" style=""> <code class="verb">-P</code></td><td colspan="13" id="9-2" style="">  make hard links directly to symbolic links                                </td></tr>
-<tr id="row-93-10-"><td id="10-1" style=""> <code class="verb">-r</code></td><td colspan="13" id="10-2" style="">  create symbolic links relative to link location                            </td></tr>
-<tr id="row-93-11-"><td id="11-1" style=""> <code class="verb">-s</code></td><td colspan="13" id="11-2" style="">  make symbolic links instead of hard links                                 </td></tr>
-<tr id="row-93-12-"><td id="12-1" style=""> <code class="verb">-S</code></td><td colspan="13" id="12-2" style="">  override the usual backup suffix                                             </td></tr>
-<tr id="row-93-13-"><td id="13-1" style=""> <code class="verb">-t</code></td><td colspan="13" id="13-2" style="">  specify the <code class="verb">DIRECTORY</code>  in which to create the links                                  </td></tr>
-<tr id="row-93-14-"><td id="14-1" style=""> <code class="verb">-T</code></td><td colspan="13" id="14-2" style="">  treat <code class="verb">LINK_NAME</code>  as a normal file always                                                </td></tr>
-<tr id="row-93-15-"><td id="15-1" style=""> <code class="verb">-v</code></td><td colspan="13" id="15-2" style="">  print name of each linked file                                                 </td></tr></table>
-<p class="noindent"><div class="subsection-header"> <h4 id="header-subsection-7.2.5"> <a class="pdf-icon" href="AutonomousMobileRoboticsLectureBook.pdf#subsection.7.2.5"><svg class="bi bi-file-pdf" fill="currentColor" height="20" viewbox="0 0 16 16" width="20" xmlns="http://www.w3.org/2000/svg"><path d="M4 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H4zm0 1h8a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1z"></path><path d="M4.603 12.087a.81.81 0 0 1-.438-.42c-.195-.388-.13-.776.08-1.102.198-.307.526-.568.897-.787a7.68 7.68 0 0 1 1.482-.645 19.701 19.701 0 0 0 1.062-2.227 7.269 7.269 0 0 1-.43-1.295c-.086-.4-.119-.796-.046-1.136.075-.354.274-.672.65-.823.192-.077.4-.12.602-.077a.7.7 0 0 1 .477.365c.088.164.12.356.127.538.007.187-.012.395-.047.614-.084.51-.27 1.134-.52 1.794a10.954 10.954 0 0 0 .98 1.686 5.753 5.753 0 0 1 1.334.05c.364.065.734.195.96.465.12.144.193.32.2.518.007.192-.047.382-.138.563a1.04 1.04 0 0 1-.354.416.856.856 0 0 1-.51.138c-.331-.014-.654-.196-.933-.417a5.716 5.716 0 0 1-.911-.95 11.642 11.642 0 0 0-1.997.406 11.311 11.311 0 0 1-1.021 1.51c-.29.35-.608.655-.926.787a.793.793 0 0 1-.58.029zm1.379-1.901c-.166.076-.32.156-.459.238-.328.194-.541.383-.647.547-.094.145-.096.25-.04.361.01.022.02.036.026.044a.27.27 0 0 0 .035-.012c.137-.056.355-.235.635-.572a8.18 8.18 0 0 0 .45-.606zm1.64-1.33a12.647 12.647 0 0 1 1.01-.193 11.666 11.666 0 0 1-.51-.858 20.741 20.741 0 0 1-.5 1.05zm2.446.45c.15.162.296.3.435.41.24.19.407.253.498.256a.107.107 0 0 0 .07-.015.307.307 0 0 0 .094-.125.436.436 0 0 0 .059-.2.095.095 0 0 0-.026-.063c-.052-.062-.2-.152-.518-.209a3.881 3.881 0 0 0-.612-.053zM8.078 5.8a6.7 6.7 0 0 0 .2-.828c.031-.188.043-.343.038-.465a.613.613 0 0 0-.032-.198.517.517 0 0 0-.145.04c-.087.035-.158.106-.196.283-.04.192-.03.469.046.822.024.111.054.227.09.346z"></path></svg></a><span class="number">7.2.5</span> <span class="title"> <a id="x32-2070007.2.5"></a>The Linux File System</span></h4></div>
-</p><p class="noindent">It makes sense to explore the Linux file system from a terminal window (i.e., CLI) as it has better tools
+<tr id="row-85-5-"><td id="5-1" style=""> <code class="verb">-f</code></td><td colspan="13" id="5-2" style="">  remove existing destination files                                             </td></tr>
+<tr id="row-85-6-"><td id="6-1" style=""> <code class="verb">-i</code></td><td colspan="13" id="6-2" style="">  prompt whether to remove destinations                                   </td></tr>
+<tr id="row-85-7-"><td id="7-1" style=""> <code class="verb">-L</code></td><td colspan="13" id="7-2" style="">  dereference <code class="verb">TARGETs</code>  that are symbolic links                                       </td></tr>
+<tr id="row-85-8-"><td id="8-1" style=""> <code class="verb">-n</code></td><td colspan="13" id="8-2" style="">  treat <code class="verb">LINK_NAME</code>  as a normal file if it is a symbolic link to a directory         </td></tr>
+<tr id="row-85-9-"><td id="9-1" style=""> <code class="verb">-P</code></td><td colspan="13" id="9-2" style="">  make hard links directly to symbolic links                                </td></tr>
+<tr id="row-85-10-"><td id="10-1" style=""> <code class="verb">-r</code></td><td colspan="13" id="10-2" style="">  create symbolic links relative to link location                            </td></tr>
+<tr id="row-85-11-"><td id="11-1" style=""> <code class="verb">-s</code></td><td colspan="13" id="11-2" style="">  make symbolic links instead of hard links                                 </td></tr>
+<tr id="row-85-12-"><td id="12-1" style=""> <code class="verb">-S</code></td><td colspan="13" id="12-2" style="">  override the usual backup suffix                                             </td></tr>
+<tr id="row-85-13-"><td id="13-1" style=""> <code class="verb">-t</code></td><td colspan="13" id="13-2" style="">  specify the <code class="verb">DIRECTORY</code>  in which to create the links                                  </td></tr>
+<tr id="row-85-14-"><td id="14-1" style=""> <code class="verb">-T</code></td><td colspan="13" id="14-2" style="">  treat <code class="verb">LINK_NAME</code>  as a normal file always                                                </td></tr>
+<tr id="row-85-15-"><td id="15-1" style=""> <code class="verb">-v</code></td><td colspan="13" id="15-2" style="">  print name of each linked file                                                 </td></tr></table>
+<div class="subsection-header"><h4 id="header-subsection-6.2.5"><span class="number">6.2.5</span><a class="pdf-icon" href="AutonomousMobileRoboticsLectureBook.pdf#subsection.6.2.5"><svg class="bi bi-file-pdf" fill="currentColor" height="20" viewbox="0 0 16 16" width="20" xmlns="http://www.w3.org/2000/svg"><path d="M4 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H4zm0 1h8a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1z"></path><path d="M4.603 12.087a.81.81 0 0 1-.438-.42c-.195-.388-.13-.776.08-1.102.198-.307.526-.568.897-.787a7.68 7.68 0 0 1 1.482-.645 19.701 19.701 0 0 0 1.062-2.227 7.269 7.269 0 0 1-.43-1.295c-.086-.4-.119-.796-.046-1.136.075-.354.274-.672.65-.823.192-.077.4-.12.602-.077a.7.7 0 0 1 .477.365c.088.164.12.356.127.538.007.187-.012.395-.047.614-.084.51-.27 1.134-.52 1.794a10.954 10.954 0 0 0 .98 1.686 5.753 5.753 0 0 1 1.334.05c.364.065.734.195.96.465.12.144.193.32.2.518.007.192-.047.382-.138.563a1.04 1.04 0 0 1-.354.416.856.856 0 0 1-.51.138c-.331-.014-.654-.196-.933-.417a5.716 5.716 0 0 1-.911-.95 11.642 11.642 0 0 0-1.997.406 11.311 11.311 0 0 1-1.021 1.51c-.29.35-.608.655-.926.787a.793.793 0 0 1-.58.029zm1.379-1.901c-.166.076-.32.156-.459.238-.328.194-.541.383-.647.547-.094.145-.096.25-.04.361.01.022.02.036.026.044a.27.27 0 0 0 .035-.012c.137-.056.355-.235.635-.572a8.18 8.18 0 0 0 .45-.606zm1.64-1.33a12.647 12.647 0 0 1 1.01-.193 11.666 11.666 0 0 1-.51-.858 20.741 20.741 0 0 1-.5 1.05zm2.446.45c.15.162.296.3.435.41.24.19.407.253.498.256a.107.107 0 0 0 .07-.015.307.307 0 0 0 .094-.125.436.436 0 0 0 .059-.2.095.095 0 0 0-.026-.063c-.052-.062-.2-.152-.518-.209a3.881 3.881 0 0 0-.612-.053zM8.078 5.8a6.7 6.7 0 0 0 .2-.828c.031-.188.043-.343.038-.465a.613.613 0 0 0-.032-.198.517.517 0 0 0-.145.04c-.087.035-.158.106-.196.283-.04.192-.03.469.046.822.024.111.054.227.09.346z"></path></svg></a><span class="title"> <a id="x24-1710006.2.5"></a>The Linux File System</span></h4></div>
+<p class="noindent">It makes sense to explore the Linux file system from a terminal window (i.e., CLI) as it has better tools
 to show the map of Linux’s directory tree.
-</p><p class="noindent">From top to bottom, the directories you <span class="margin-block"><span class="margin"><span>are: <a class="ellipsis" href="#m-ref-187">[187]</a></span><span class="sidenote"><a class="copiable-link" href="#m-ref-187" id="m-ref-187"> ¶</a><span class="sidenote-image"> <img alt="PIC" src="figures/Working-with-Files-and-Folders/figures-1.png" style=""/> </span><span class="sidenote-text"><span class="ellipsis">[187]</span>A Visual description of the linux file system</span></span></span></span>
+</p><p class="noindent">From top to bottom, the directories you <span class="margin-block"><span class="margin"><span>are: <a class="ellipsis" href="#m-ref-137">[137]</a></span><span class="sidenote"><a class="copiable-link" href="#m-ref-137" id="m-ref-137"> ¶</a><span class="sidenote-image"> <img alt="PIC" src="figures/Working-with-Files-and-Folders/figures-1.png" style=""/> </span><span class="sidenote-text"><span class="ellipsis">[137]</span>A Visual description of the linux file system</span></span></span></span>
 </p>
-<dl class="description"><dt class="description"><a id="x32-207001x7.2.5"></a>
+<dl class="description"><dt class="description"><a id="x24-171001x6.2.5"></a>
 <span style="color:#0A2A0A;">/bin</span>
 </dt><dd class="description">
 <p class="noindent"> contains binaries, that is, some of the applications and programs, such as <code class="verb">bash</code> , <code class="verb">cat</code> , <code class="verb">chmod</code>  …. (For
@@ -428,14 +404,14 @@ and directories, moving them around, etc.. There are more bin directories in oth
 the file system tree, but we’ll be talking about those in a minute.
 </p>
 </dd>
-<dt class="description"><a id="x32-207002x7.2.5"></a>
+<dt class="description"><a id="x24-171002x6.2.5"></a>
 <span style="color:#0A2A0A;">/boot</span>
 </dt><dd class="description">
 <p class="noindent"> contains files required for starting the OS. Messing up one of the files here, may cause
 Linux to malfunction. Superuser privileges are needed to edit/change files here.
 </p>
 </dd>
-<dt class="description"><a id="x32-207003x7.2.5"></a>
+<dt class="description"><a id="x24-171003x6.2.5"></a>
 <span style="color:#0A2A0A;">/dev</span>
 </dt><dd class="description">
 <p class="noindent"> contains device files. Many of these are generated at boot time or even on the fly. For
@@ -443,7 +419,7 @@ example, plugging a new webcam or a USB drive into the computer, will create a n
 device entry in this directory.
 </p>
 </dd>
-<dt class="description"><a id="x32-207004x7.2.5"></a>
+<dt class="description"><a id="x24-171004x6.2.5"></a>
 <span style="color:#0A2A0A;">/etc</span>
 </dt><dd class="description">
 <p class="noindent"> comes from the UNIX operating system, meaning “<i>et cetera</i>” (meaning "and other similar
@@ -455,7 +431,7 @@ machines on your network and when and where the partitions on your hard disks sh
 be mounted are all in here.
 </p>
 </dd>
-<dt class="description"><a id="x32-207005x7.2.5"></a>
+<dt class="description"><a id="x24-171005x6.2.5"></a>
 <span style="color:#0A2A0A;">/lib</span>
 </dt><dd class="description">
 <p class="noindent"> stores libraries which are files containing code that applications use. They contain code
@@ -466,13 +442,13 @@ modules. The kernel modules are drivers that make things like the video card, so
 Wi-Fi, printer, etc.
 </p>
 </dd>
-<dt class="description"><a id="x32-207006x7.2.5"></a>
+<dt class="description"><a id="x24-171006x6.2.5"></a>
 <span style="color:#0A2A0A;">/home</span>
 </dt><dd class="description">
 <p class="noindent"> contains users’ personal directories.
 </p>
 </dd>
-<dt class="description"><a id="x32-207007x7.2.5"></a>
+<dt class="description"><a id="x24-171007x6.2.5"></a>
 <span style="color:#0A2A0A;">/media</span>
 </dt><dd class="description">
 <p class="noindent"> where external storage will be automatically mounted when it is plugged in and being
@@ -481,21 +457,21 @@ mainly because inserting and detecting storage (USB hard disks, SD cards, extern
 etc.) while a computer is running, is relatively new.
 </p>
 </dd>
-<dt class="description"><a id="x32-207008x7.2.5"></a>
+<dt class="description"><a id="x24-171008x6.2.5"></a>
 <span style="color:#0A2A0A;">/mnt</span>
 </dt><dd class="description">
 <p class="noindent"> where mount storage devices or partitions are manually mounted which is not used often
 nowadays.
 </p>
 </dd>
-<dt class="description"><a id="x32-207009x7.2.5"></a>
+<dt class="description"><a id="x24-171009x6.2.5"></a>
 <span style="color:#0A2A0A;">/opt</span>
 </dt><dd class="description">
 <p class="noindent"> here compiled programs (i.e., non-system) are stored. Applications will end up in the <code class="verb">/opt/bin</code>
 directory and libraries in the <code class="verb">/opt/lib</code>  directory.
 </p>
 </dd>
-<dt class="description"><a id="x32-207010x7.2.5"></a>
+<dt class="description"><a id="x24-171010x6.2.5"></a>
 <span style="color:#0A2A0A;">/proc</span>
 </dt><dd class="description">
 <p class="noindent"> virtual like <code class="verb">/dev</code> , contains information about the computer, such as information about the CPU
@@ -504,21 +480,21 @@ needed as the system is running and things change therefore don’t save your do
 here.
 </p>
 </dd>
-<dt class="description"><a id="x32-207011x7.2.5"></a>
+<dt class="description"><a id="x24-171011x6.2.5"></a>
 <span style="color:#0A2A0A;">/root</span>
 </dt><dd class="description">
 <p class="noindent"> the home directory of the superuser (also known as the "Administrator") of the system. It
 is separate from the rest of the users’ home directories and it is not meant to be tampered.
 </p>
 </dd>
-<dt class="description"><a id="x32-207012x7.2.5"></a>
+<dt class="description"><a id="x24-171012x6.2.5"></a>
 <span style="color:#0A2A0A;">/run</span>
 </dt><dd class="description">
 <p class="noindent"> System processes use it to store temporary data for their own reasons. Similar to <code class="verb">/root</code>  and <code class="verb">/boot</code> ,
 it is best this folder is left alone.
 </p>
 </dd>
-<dt class="description"><a id="x32-207013x7.2.5"></a>
+<dt class="description"><a id="x24-171013x6.2.5"></a>
 <span style="color:#0A2A0A;">/sbin</span>
 </dt><dd class="description">
 <p class="noindent"> similar to <code class="verb">/bin</code> , but contains applications only the superuser (hence the initial s) needs.
@@ -526,7 +502,7 @@ Application here can be used with the <code class="verb">sudo</code>  command. <
 delete stuff and format stuff.
 </p>
 </dd>
-<dt class="description"><a id="x32-207014x7.2.5"></a>
+<dt class="description"><a id="x24-171014x6.2.5"></a>
 <span style="color:#0A2A0A;">/usr</span>
 </dt><dd class="description">
 <p class="noindent"> Originally where users’ home directories were kept. However, now /home is where users
@@ -534,26 +510,26 @@ kept their stuff as we saw above. These days, /usr contains a mish-mash of direc
 in turn contains: applications, libraries, documentation, wallpapers, icons, and a long list
 of other stuff that need to be shared by applications and services. You will also find /bin,
 /sbin and /lib directories in /usr.</p></dd></dl>
-<div class="info-block" id="info-block-7.32"> <a class="copiable-link" href="#info-block-7.32"> ¶</a> <span class="info-upper"> <span class="info-header"> <b>Information 7.<a id="x32-207015r32"></a>32: </b> </span> <span class="info-title"> <code class="verb">/usr/bin</code>  v. <code class="verb">/bin</code> </span> </span> <div class="body">
+<dl class="def-block block-major info-block"> <a class="copiable-link" href="#info-block-6.24" id="info-block-6.24"> ¶</a> <dt class="def-line"> <span class="upper"> <span class="header"> <b>Information 6.<a id="x24-171015r24"></a>24: </b> </span> <span class="title"> <code class="verb">/usr/bin</code>  v. <code class="verb">/bin</code> </span> </span> <input class="body-button" type="button" value="Show/Hide"/> </dt> <dd class="body">
 <p class="noindent">Not much nowadays. Originally, the <code class="verb">/bin</code>  directory would contain basic commands, like <code class="verb">ls</code> , <code class="verb">mv</code>  and <code class="verb">rm</code> ; the bare
 minimum to run and maintain a system whereas <code class="verb">/usr/bin</code>  would contain stuff the users would install and run
 to use the system as a work station, things like word processors, web browsers, and other apps.
 Many modern Linux distributions put everything into <code class="verb">/usr/bin</code>  and have <code class="verb">/bin</code>  point to <code class="verb">/usr/bin</code>  just in case.
-</p></div></div>
-<dl class="description"><dt class="description"><a id="x32-207016x7.2.5"></a>
+</p></dd></dl>
+<dl class="description"><dt class="description"><a id="x24-171016x6.2.5"></a>
 <span style="color:#0A2A0A;">/srv</span>
 </dt><dd class="description">
 <p class="noindent"> contains data for servers. When running a web server, HTML files for sites would go into
 <code class="verb">/srv/http</code> (or <code class="verb">/srv/www</code> ), or running an FTP (File Transfer Protocol) server, files would go into <code class="verb">/srv/ftp</code> .
 </p>
 </dd>
-<dt class="description"><a id="x32-207017x7.2.5"></a>
+<dt class="description"><a id="x24-171017x6.2.5"></a>
 <span style="color:#0A2A0A;">/sys</span>
 </dt><dd class="description">
 <p class="noindent"> virtual directory like <code class="verb">/proc</code>  and <code class="verb">/dev</code> , containing information from connected devices.
 </p>
 </dd>
-<dt class="description"><a id="x32-207018x7.2.5"></a>
+<dt class="description"><a id="x24-171018x6.2.5"></a>
 <span style="color:#0A2A0A;">/tmp</span>
 </dt><dd class="description">
 <p class="noindent"> contains  temporary  files,  usually  placed  there  by  running  applications.  The  files  and
@@ -562,7 +538,7 @@ may need later on. <code class="verb">/tmp</code>  also can store users’ tempo
 hanging off <code class="verb">/</code>  that can be used without superuser.
 </p>
 </dd>
-<dt class="description"><a id="x32-207019x7.2.5"></a>
+<dt class="description"><a id="x24-171019x6.2.5"></a>
 <span style="color:#0A2A0A;">/var</span>
 </dt><dd class="description">
 <p class="noindent"> originally named because its contents was deemed variable, in that it changed frequently.
@@ -571,11 +547,10 @@ data that changes frequently, especially the virtual directories. Be that as it 
 things like logs in the <code class="verb">/var/log</code>  sub-directories. Logs are files that register events that happen on
 the system. If something fails in the kernel, it will be logged in a file in <code class="verb">/var/log</code> ; If someone tries
 to break into the computer from outside, the firewall will also log the attempt here.</p></dd></dl>
-<p class="noindent"><div class="subsection-header"> <h4 id="header-subsection-7.2.6"> <a class="pdf-icon" href="AutonomousMobileRoboticsLectureBook.pdf#subsection.7.2.6"><svg class="bi bi-file-pdf" fill="currentColor" height="20" viewbox="0 0 16 16" width="20" xmlns="http://www.w3.org/2000/svg"><path d="M4 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H4zm0 1h8a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1z"></path><path d="M4.603 12.087a.81.81 0 0 1-.438-.42c-.195-.388-.13-.776.08-1.102.198-.307.526-.568.897-.787a7.68 7.68 0 0 1 1.482-.645 19.701 19.701 0 0 0 1.062-2.227 7.269 7.269 0 0 1-.43-1.295c-.086-.4-.119-.796-.046-1.136.075-.354.274-.672.65-.823.192-.077.4-.12.602-.077a.7.7 0 0 1 .477.365c.088.164.12.356.127.538.007.187-.012.395-.047.614-.084.51-.27 1.134-.52 1.794a10.954 10.954 0 0 0 .98 1.686 5.753 5.753 0 0 1 1.334.05c.364.065.734.195.96.465.12.144.193.32.2.518.007.192-.047.382-.138.563a1.04 1.04 0 0 1-.354.416.856.856 0 0 1-.51.138c-.331-.014-.654-.196-.933-.417a5.716 5.716 0 0 1-.911-.95 11.642 11.642 0 0 0-1.997.406 11.311 11.311 0 0 1-1.021 1.51c-.29.35-.608.655-.926.787a.793.793 0 0 1-.58.029zm1.379-1.901c-.166.076-.32.156-.459.238-.328.194-.541.383-.647.547-.094.145-.096.25-.04.361.01.022.02.036.026.044a.27.27 0 0 0 .035-.012c.137-.056.355-.235.635-.572a8.18 8.18 0 0 0 .45-.606zm1.64-1.33a12.647 12.647 0 0 1 1.01-.193 11.666 11.666 0 0 1-.51-.858 20.741 20.741 0 0 1-.5 1.05zm2.446.45c.15.162.296.3.435.41.24.19.407.253.498.256a.107.107 0 0 0 .07-.015.307.307 0 0 0 .094-.125.436.436 0 0 0 .059-.2.095.095 0 0 0-.026-.063c-.052-.062-.2-.152-.518-.209a3.881 3.881 0 0 0-.612-.053zM8.078 5.8a6.7 6.7 0 0 0 .2-.828c.031-.188.043-.343.038-.465a.613.613 0 0 0-.032-.198.517.517 0 0 0-.145.04c-.087.035-.158.106-.196.283-.04.192-.03.469.046.822.024.111.054.227.09.346z"></path></svg></a><span class="number">7.2.6</span> <span class="title"> <a id="x32-2080007.2.6"></a>The UNIX Philosophy</span></h4></div>
-</p>
+<div class="subsection-header"><h4 id="header-subsection-6.2.6"><span class="number">6.2.6</span><a class="pdf-icon" href="AutonomousMobileRoboticsLectureBook.pdf#subsection.6.2.6"><svg class="bi bi-file-pdf" fill="currentColor" height="20" viewbox="0 0 16 16" width="20" xmlns="http://www.w3.org/2000/svg"><path d="M4 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H4zm0 1h8a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1z"></path><path d="M4.603 12.087a.81.81 0 0 1-.438-.42c-.195-.388-.13-.776.08-1.102.198-.307.526-.568.897-.787a7.68 7.68 0 0 1 1.482-.645 19.701 19.701 0 0 0 1.062-2.227 7.269 7.269 0 0 1-.43-1.295c-.086-.4-.119-.796-.046-1.136.075-.354.274-.672.65-.823.192-.077.4-.12.602-.077a.7.7 0 0 1 .477.365c.088.164.12.356.127.538.007.187-.012.395-.047.614-.084.51-.27 1.134-.52 1.794a10.954 10.954 0 0 0 .98 1.686 5.753 5.753 0 0 1 1.334.05c.364.065.734.195.96.465.12.144.193.32.2.518.007.192-.047.382-.138.563a1.04 1.04 0 0 1-.354.416.856.856 0 0 1-.51.138c-.331-.014-.654-.196-.933-.417a5.716 5.716 0 0 1-.911-.95 11.642 11.642 0 0 0-1.997.406 11.311 11.311 0 0 1-1.021 1.51c-.29.35-.608.655-.926.787a.793.793 0 0 1-.58.029zm1.379-1.901c-.166.076-.32.156-.459.238-.328.194-.541.383-.647.547-.094.145-.096.25-.04.361.01.022.02.036.026.044a.27.27 0 0 0 .035-.012c.137-.056.355-.235.635-.572a8.18 8.18 0 0 0 .45-.606zm1.64-1.33a12.647 12.647 0 0 1 1.01-.193 11.666 11.666 0 0 1-.51-.858 20.741 20.741 0 0 1-.5 1.05zm2.446.45c.15.162.296.3.435.41.24.19.407.253.498.256a.107.107 0 0 0 .07-.015.307.307 0 0 0 .094-.125.436.436 0 0 0 .059-.2.095.095 0 0 0-.026-.063c-.052-.062-.2-.152-.518-.209a3.881 3.881 0 0 0-.612-.053zM8.078 5.8a6.7 6.7 0 0 0 .2-.828c.031-.188.043-.343.038-.465a.613.613 0 0 0-.032-.198.517.517 0 0 0-.145.04c-.087.035-.158.106-.196.283-.04.192-.03.469.046.822.024.111.054.227.09.346z"></path></svg></a><span class="title"> <a id="x24-1720006.2.6"></a>The UNIX Philosophy</span></h4></div>
 <div class="sidenote"> <span class="figure">
-<a id="x32-208001r3"></a>
-<figcaption class="caption"><span class="id">Figure 7.3: </span><span class="content">For anyone who is interested in the UNIX philosopy, I would suggest reading this book as it has parts
+<a id="x24-172001r3"></a>
+<figcaption class="caption"><span class="id">Figure 6.3: </span><span class="content">For anyone who is interested in the UNIX philosopy, I would suggest reading this book as it has parts
 written by numerous people who were the original developers of UNIX.                                </span></figcaption>
 <img alt="PIC" src="figures/Working-with-Files-and-Folders/raster/taolp.jpg" style=""/>
 </span>
@@ -628,13 +603,13 @@ do.
 </p><p class="noindent">While this may sound convenient, we have to consider there would be a lot of possible bugs and glitches
 of these sub-actions interacting with each other under this complex command. Therefore, we want one
 tool and one tool only to do each of those tasks, so we can use those specialised tools in any way we
-want <span class="margin-block">to. <span class="margin-comment"><a class="ellipsis" href="#m-ref-188">[188]</a>
+want <span class="margin-block">to. <span class="margin-comment"><a class="ellipsis" href="#m-ref-138">[138]</a>
 <span class="sidenote">Of course, there are many applications that include many features and that’s fine. However,
 those applications are beyond the scope of this lecture. We’re talking about the standard set of
 command line tools that can be configured to work together in an incredible number of
 ways.</span></span></span>
 </p>
-<div class="warning"><div class="warning-upper">Warning</div><div class="body">
+<div class="block-minor warning"><div class="body">
 <p class="noindent">Jack of all trades, master of none is <b>NOT</b> encouraged in programming. </p></div></div>
 <p class="noindent">To get real work done, quality is needed; tools dedicated to a specific task working together easily.
 Think of an assembly line where one machine does one task and then passes the product onto the next
@@ -650,43 +625,39 @@ result of that will get written back to a file.
 However, just because programmers strive for simplicity in their programming, it doesn’t mean they
 can’t have Easter eggs in them. In the terminal just type in:
 </p>
-<pre><div class="code-header"> <span class="code-language">bash</span> </div> <code class="language-bash">
-<pre class="fancyvrb" id="fancyvrb99"><a id="x32-208003r576"></a>apt <span style="color:#B03B03;">help</span></pre>
-</code></pre>
+<div class="code-header"><span class="code-language">bash</span></div><div class="code-wrapper"><pre><code class="language-bash"><pre class="fancyvrb" id="fancyvrb99"><a id="x24-172003r576"></a>apt <span style="color:#B03B03;">help</span></pre></code></pre></div>
 <p class="noindent">APT (Advanced Packaging Tools) is used to install updates and utilities and has Super Cow
 Powers.
 </p>
-<pre><code class="language-text">
-<pre class="fancyvrb" id="fancyvrb100"><a id="x32-208005r581"></a>apt 2.7.14 (arm64) 
-<a id="x32-208007r582"></a>Usage: apt [options] command 
-<a id="x32-208009r583"></a> 
-<a id="x32-208011r584"></a>apt is a commandline package manager and provides commands for 
-<a id="x32-208013r585"></a>searching and managing as well as querying information about packages. 
-<a id="x32-208015r586"></a>It provides the same functionality as the specialized APT tools, 
-<a id="x32-208017r587"></a>like apt-get and apt-cache, but enables options more suitable for 
-<a id="x32-208019r588"></a>interactive use by default. 
-<a id="x32-208021r589"></a> 
-<a id="x32-208023r590"></a>Most used commands: 
-<a id="x32-208025r591"></a>  list - list packages based on package names 
-<a id="x32-208027r592"></a>  search - search in package descriptions 
-<a id="x32-208029r593"></a>  show - show package details 
-<a id="x32-208031r594"></a>  install - install packages 
-<a id="x32-208033r595"></a>  reinstall - reinstall packages 
-<a id="x32-208035r596"></a>  remove - remove packages 
-<a id="x32-208037r597"></a>  autoremove - automatically remove all unused packages 
-<a id="x32-208039r598"></a>  update - update list of available packages 
-<a id="x32-208041r599"></a>  upgrade - upgrade the system by installing/upgrading packages 
-<a id="x32-208043r600"></a>  full-upgrade - upgrade the system by removing/installing/upgrading packages 
-<a id="x32-208045r601"></a>  edit-sources - edit the source information file 
-<a id="x32-208047r602"></a>  satisfy - satisfy dependency strings 
-<a id="x32-208049r603"></a> 
-<a id="x32-208051r604"></a>See apt(8) for more information about the available commands. 
-<a id="x32-208053r605"></a>Configuration options and syntax is detailed in apt.conf(5). 
-<a id="x32-208055r606"></a>Information about how to configure sources can be found in sources.list(5). 
-<a id="x32-208057r607"></a>Package and version choices can be expressed via apt_preferences(5). 
-<a id="x32-208059r608"></a>Security details are available in apt-secure(8). 
-<a id="x32-208061r609"></a>                                        This APT has Super Cow Powers.</pre>
-</code></pre>
+<div class="code-wrapper"><pre><code class="language-text"><pre class="fancyvrb" id="fancyvrb100"><a id="x24-172005r581"></a>apt 2.7.14 (arm64) 
+<a id="x24-172007r582"></a>Usage: apt [options] command 
+<a id="x24-172009r583"></a> 
+<a id="x24-172011r584"></a>apt is a commandline package manager and provides commands for 
+<a id="x24-172013r585"></a>searching and managing as well as querying information about packages. 
+<a id="x24-172015r586"></a>It provides the same functionality as the specialized APT tools, 
+<a id="x24-172017r587"></a>like apt-get and apt-cache, but enables options more suitable for 
+<a id="x24-172019r588"></a>interactive use by default. 
+<a id="x24-172021r589"></a> 
+<a id="x24-172023r590"></a>Most used commands: 
+<a id="x24-172025r591"></a>  list - list packages based on package names 
+<a id="x24-172027r592"></a>  search - search in package descriptions 
+<a id="x24-172029r593"></a>  show - show package details 
+<a id="x24-172031r594"></a>  install - install packages 
+<a id="x24-172033r595"></a>  reinstall - reinstall packages 
+<a id="x24-172035r596"></a>  remove - remove packages 
+<a id="x24-172037r597"></a>  autoremove - automatically remove all unused packages 
+<a id="x24-172039r598"></a>  update - update list of available packages 
+<a id="x24-172041r599"></a>  upgrade - upgrade the system by installing/upgrading packages 
+<a id="x24-172043r600"></a>  full-upgrade - upgrade the system by removing/installing/upgrading packages 
+<a id="x24-172045r601"></a>  edit-sources - edit the source information file 
+<a id="x24-172047r602"></a>  satisfy - satisfy dependency strings 
+<a id="x24-172049r603"></a> 
+<a id="x24-172051r604"></a>See apt(8) for more information about the available commands. 
+<a id="x24-172053r605"></a>Configuration options and syntax is detailed in apt.conf(5). 
+<a id="x24-172055r606"></a>Information about how to configure sources can be found in sources.list(5). 
+<a id="x24-172057r607"></a>Package and version choices can be expressed via apt_preferences(5). 
+<a id="x24-172059r608"></a>Security details are available in apt-secure(8). 
+<a id="x24-172061r609"></a>                                        This APT has Super Cow Powers.</pre></code></pre></div>
 <div class="section-header">
 <h3 id="header-section-glossary">
 <span class="number">
@@ -716,28 +687,28 @@ with your operating system using your keyboard</p></dd>
 <i class="fa-regular fa-note-sticky"></i>
 </span>
 <span class="title">
-<a id="page-glossary"></a>
+<a id="page-margin"></a>
                     Page Footnotes</span>
 </h3>
 </div>
 <div class="footnote-block">
 <dl class="enumerate-enumitem">
-<dt class="enumerate-enumitem" id="m-ref-184"><span class="acr-short">[184].</span></dt>
+<dt class="enumerate-enumitem" id="m-ref-134"><span class="acr-short">[134].</span></dt>
 <dd class="enumerate-enumitem"><span class="">It is
 always in your best interest to minimise the number of copies a file has as the maintenance of all these
 files would not be possible after some time.</span></dd>
 </dl>
 <dl class="enumerate-enumitem">
-<dt class="enumerate-enumitem" id="m-ref-185"><span class="acr-short">[185].</span></dt>
+<dt class="enumerate-enumitem" id="m-ref-135"><span class="acr-short">[135].</span></dt>
 <dd class="enumerate-enumitem"><span class="">These are also known as symbolic links</span></dd>
 </dl>
 <dl class="enumerate-enumitem">
-<dt class="enumerate-enumitem" id="m-ref-186"><span class="acr-short">[186].</span></dt>
+<dt class="enumerate-enumitem" id="m-ref-136"><span class="acr-short">[136].</span></dt>
 <dd class="enumerate-enumitem"><span class="">In this case it is very similar to that of
 a pointer in C as the main idea is the new symbolic link is <b>pointing</b> to the original file.</span></dd>
 </dl>
 <dl class="enumerate-enumitem">
-<dt class="enumerate-enumitem" id="m-ref-188"><span class="acr-short">[188].</span></dt>
+<dt class="enumerate-enumitem" id="m-ref-138"><span class="acr-short">[138].</span></dt>
 <dd class="enumerate-enumitem"><span class="">Of course, there are many applications that include many features and that’s fine. However,
 those applications are beyond the scope of this lecture. We’re talking about the standard set of
 command line tools that can be configured to work together in an incredible number of
@@ -750,7 +721,7 @@ ways.</span></dd>
 <a href="Index.html" rel="index" title="Index">
 <i class="fa-brands fa-git-alt"></i>
 </a></span></div></nav> <div class="footer"> <div class="footer-left"><span class="footer-lecture">D. T. McGuiness, PhD</span>
-<span class="footer-webBook"><b>Last Updated:</b> 13.10.2026, at 8:16.</span></div></div><div class="author-notes">
+<span class="footer-webBook"><b>Last Updated:</b> 24.11.2026, at 13:58.</span></div></div><div class="author-notes">
 <span class="note">Authors Note </span>
 <span class="text">The website you are viewing is auto-generated using lms-WebBook and therefore subject to slight errors in typography and formatting. When in doubt, please consult the LectureBook. </span>
 </div>
@@ -759,7 +730,7 @@ ways.</span></dd>
 <div class="core-line"><div class="core-line-image"><img class="webbook-logo" src="logo/webbook-logo.svg"/></div>
 <div class="current-header">
 <span class="header-pretext">Viewing | </span>
-<span class="header-text">Section 7.2: Permissions and Links</span>
+<span class="header-text">6.2: Permissions and Links</span>
 </div>
 <div class="button-group">
 </div>

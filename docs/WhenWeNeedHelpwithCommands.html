@@ -10,11 +10,10 @@
 <script src="./pagefind/pagefind-component-ui.js" type="text/javascript"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 <link href="https://cdn.jsdelivr.net/gh/sugina-dev/latin-modern-web@1.0.1/style/latinmodern-mono.css" rel="stylesheet"/>
-<link href="https://cdn.jsdelivr.net/gh/dTmC0945/Wb-LMS-WebBook-Infrastructure/flatweb.css" rel="stylesheet" type="text/css"/>
-<script async="true" crossorigin="anonymous" src="https://cdn.jsdelivr.net/gh/dTmC0945/Wb-LMS-WebBook-Infrastructure/flatweb.js"></script>
-<link href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/styles/default.min.css" rel="stylesheet"/>
+<link href="flatweb.css" rel="stylesheet" type="text/css"/>
+<script src="flatweb.js" type="text/javascript"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/highlight.min.js"></script>
-<link href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/styles/base16/solarized-light.min.css" rel="stylesheet"/>
+<link href="style-code/gruvbox-light-hard.min.css" id="code-style" rel="stylesheet"/>
 <script src="https://unpkg.com/highlightjs-copy/dist/highlightjs-copy.min.js"></script>
 <link href="https://unpkg.com/highlightjs-copy/dist/highlightjs-copy.min.css" rel="stylesheet"/>
 <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet"/>
@@ -41,62 +40,51 @@ robot kinematic models and constraints</a></span></span><span class="sectionToc"
 of Mobility</a></span></span><span class="subsectionToc"><span class="number">2.2.2</span><span class="title"><a href="MobileRobotManeuverability.html#x8-450002.2.2">Degree of steerability</a></span></span><span class="subsectionToc"><span class="number">2.2.3</span><span class="title"><a href="MobileRobotManeuverability.html#x8-470002.2.3">Robot maneuverability</a></span></span><span class="sectionToc"><span class="number">2.3</span><span class="title"><a href="MobileRobotWorkspace.html#x9-480002.3">Mobile Robot
 Workspace</a></span></span><span class="subsectionToc"><span class="number">2.3.1</span><span class="title"><a href="MobileRobotWorkspace.html#x9-490002.3.1">Degrees of freedom</a></span></span><span class="subsectionToc"><span class="number">2.3.2</span><span class="title"><a href="MobileRobotWorkspace.html#x9-500002.3.2">Holonomic robots</a></span></span><span class="subsectionToc"><span class="number">2.3.3</span><span class="title"><a href="MobileRobotWorkspace.html#x9-530002.3.3">Path and trajectory
 considerations</a></span></span><span class="subsectionToc"><span class="number">2.3.4</span><span class="title"><a href="MobileRobotWorkspace.html#x9-540002.3.4">Beyond Basic Kinematics</a></span></span><span class="sectionToc"><span class="number">2.4</span><span class="title"><a href="MotionControlKinematicControl.html#x10-550002.4">Motion Control (Kinematic
-Control)</a></span></span><span class="subsectionToc"><span class="number">2.4.1</span><span class="title"><a href="MotionControlKinematicControl.html#x10-560002.4.1">Open loop control</a></span></span><span class="subsectionToc"><span class="number">2.4.2</span><span class="title"><a href="MotionControlKinematicControl.html#x10-570002.4.2">Feedback control</a></span></span><span class="chapterToc"><span class="number">3</span><span class="title"><a href="Perception.html#x11-630003">Perception</a></span></span><span class="sectionToc"><span class="number">3.1</span><span class="title"><a href="SensorsforMobileRobotics.html#x12-640003.1">Sensors for Mobile
-Robotics</a></span></span><span class="subsectionToc"><span class="number">3.1.1</span><span class="title"><a href="SensorsforMobileRobotics.html#x12-650003.1.1">Sensor Classification</a></span></span><span class="subsectionToc"><span class="number">3.1.2</span><span class="title"><a href="SensorsforMobileRobotics.html#x12-660003.1.2">Characterisation of Sensor Performance</a></span></span><span class="subsectionToc"><span class="number">3.1.3</span><span class="title"><a href="SensorsforMobileRobotics.html#x12-720003.1.3">Wheel
-and Motor Sensors</a></span></span><span class="subsectionToc"><span class="number">3.1.4</span><span class="title"><a href="SensorsforMobileRobotics.html#x12-740003.1.4">Heading Sensors</a></span></span><span class="subsectionToc"><span class="number">3.1.5</span><span class="title"><a href="SensorsforMobileRobotics.html#x12-810003.1.5">Ground Based Beacons</a></span></span><span class="subsectionToc"><span class="number">3.1.6</span><span class="title"><a href="SensorsforMobileRobotics.html#x12-830003.1.6">Active
-Ranging</a></span></span><span class="subsectionToc"><span class="number">3.1.7</span><span class="title"><a href="SensorsforMobileRobotics.html#x12-850003.1.7">The Ultrasonic Sensor</a></span></span><span class="subsectionToc"><span class="number">3.1.8</span><span class="title"><a href="SensorsforMobileRobotics.html#x12-920003.1.8">Motion and Speed Sensors</a></span></span><span class="sectionToc"><span class="number">3.2</span><span class="title"><a href="VisionBasedSensors.html#x13-940003.2">Vision Based
-Sensors</a></span></span><span class="subsectionToc"><span class="number">3.2.1</span><span class="title"><a href="VisionBasedSensors.html#x13-950003.2.1">CCD Sensors</a></span></span><span class="subsectionToc"><span class="number">3.2.2</span><span class="title"><a href="VisionBasedSensors.html#x13-970003.2.2">CMOS Technology</a></span></span><span class="subsectionToc"><span class="number">3.2.3</span><span class="title"><a href="VisionBasedSensors.html#x13-980003.2.3">Visual Ranging Sensors</a></span></span><span class="subsectionToc"><span class="number">3.2.4</span><span class="title"><a href="VisionBasedSensors.html#x13-990003.2.4">Depth
-from Focus</a></span></span><span class="sectionToc"><span class="number">3.3</span><span class="title"><a href="RepresentingUncertainty.html#x14-1070003.3">Representing Uncertainty</a></span></span><span class="subsectionToc"><span class="number">3.3.1</span><span class="title"><a href="RepresentingUncertainty.html#x14-1080003.3.1">Statistical Representation</a></span></span><span class="subsectionToc"><span class="number">3.3.2</span><span class="title"><a href="RepresentingUncertainty.html#x14-1090003.3.2">Independence
-of random variables</a></span></span><span class="subsectionToc"><span class="number">3.3.3</span><span class="title"><a href="RepresentingUncertainty.html#x14-1110003.3.3">Propagation of Error</a></span></span><span class="sectionToc"><span class="number">3.4</span><span class="title"><a href="FeatureExtraction.html#x15-1120003.4">Feature Extraction</a></span></span><span class="subsectionToc"><span class="number">3.4.1</span><span class="title"><a href="FeatureExtraction.html#x15-1130003.4.1">Defining
-Feature</a></span></span><span class="subsectionToc"><span class="number">3.4.2</span><span class="title"><a href="FeatureExtraction.html#x15-1140003.4.2">Using Range Data</a></span></span><span class="chapterToc"><span class="number">4</span><span class="title"><a href="MobileRobotLocalisation.html#x16-1290004">Mobile Robot Localisation</a></span></span><span class="sectionToc"><span class="number">4.1</span><span class="title"><a href="TheProblemsofNoiseandAliasing.html#x17-1300004.1">The Problems of Noise and
-Aliasing</a></span></span><span class="subsectionToc"><span class="number">4.1.1</span><span class="title"><a href="TheProblemsofNoiseandAliasing.html#x17-1310004.1.1">Sensor Noise</a></span></span><span class="subsectionToc"><span class="number">4.1.2</span><span class="title"><a href="TheProblemsofNoiseandAliasing.html#x17-1320004.1.2">Sensor Aliasing</a></span></span><span class="subsectionToc"><span class="number">4.1.3</span><span class="title"><a href="TheProblemsofNoiseandAliasing.html#x17-1330004.1.3">Effector Noise</a></span></span><span class="subsectionToc"><span class="number">4.1.4</span><span class="title"><a href="TheProblemsofNoiseandAliasing.html#x17-1340004.1.4">An Error Model for
-Odometric Position Estimation</a></span></span><span class="sectionToc"><span class="number">4.2</span><span class="title"><a href="LocalisationTechniques.html#x18-1350004.2">Localisation Techniques</a></span></span><span class="sectionToc"><span class="number">4.3</span><span class="title"><a href="RepresentingBelief.html#x19-1360004.3">Representing Belief</a></span></span><span class="subsectionToc"><span class="number">4.3.1</span><span class="title"><a href="RepresentingBelief.html#x19-1370004.3.1">Single
-Hypothesis Belief</a></span></span><span class="subsectionToc"><span class="number">4.3.2</span><span class="title"><a href="RepresentingBelief.html#x19-1380004.3.2">Multiple Hypothesis Belief</a></span></span><span class="sectionToc"><span class="number">4.4</span><span class="title"><a href="RepresentingMaps.html#x20-1390004.4">Representing Maps</a></span></span><span class="subsectionToc"><span class="number">4.4.1</span><span class="title"><a href="RepresentingMaps.html#x20-1400004.4.1">Continuous
-Representation</a></span></span><span class="subsectionToc"><span class="number">4.4.2</span><span class="title"><a href="RepresentingMaps.html#x20-1410004.4.2">Decomposition Methods</a></span></span><span class="subsectionToc"><span class="number">4.4.3</span><span class="title"><a href="RepresentingMaps.html#x20-1420004.4.3">Current Challenges</a></span></span><span class="sectionToc"><span class="number">4.5</span><span class="title"><a href="ProbabilisticMapBasedLocalisation.html#x21-1430004.5">Probabilistic
-Map-Based Localisation</a></span></span><span class="subsectionToc"><span class="number">4.5.1</span><span class="title"><a href="ProbabilisticMapBasedLocalisation.html#x21-1440004.5.1">Problem Definition</a></span></span><span class="subsectionToc"><span class="number">4.5.2</span><span class="title"><a href="ProbabilisticMapBasedLocalisation.html#x21-1450004.5.2">Markov Localisation</a></span></span><span class="subsectionToc"><span class="number">4.5.3</span><span class="title"><a href="ProbabilisticMapBasedLocalisation.html#x21-1490004.5.3">Kalman
-Filter Localisation</a></span></span><span class="subsectionToc"><span class="number">4.5.4</span><span class="title"><a href="ProbabilisticMapBasedLocalisation.html#x21-1500004.5.4">An Implementation of Kalman Filter</a></span></span><span class="sectionToc"><span class="number">4.6</span><span class="title"><a href="OtherExamplesofLocalisationMethods.html#x22-1550004.6">Other Examples
-of Localisation Methods</a></span></span><span class="subsectionToc"><span class="number">4.6.1</span><span class="title"><a href="OtherExamplesofLocalisationMethods.html#x22-1560004.6.1">Landmark-based Navigation</a></span></span><span class="subsectionToc"><span class="number">4.6.2</span><span class="title"><a href="OtherExamplesofLocalisationMethods.html#x22-1570004.6.2">Globally Unique
-Localisation</a></span></span><span class="subsectionToc"><span class="number">4.6.3</span><span class="title"><a href="OtherExamplesofLocalisationMethods.html#x22-1580004.6.3">Positioning Beacon systems</a></span></span><span class="subsectionToc"><span class="number">4.6.4</span><span class="title"><a href="OtherExamplesofLocalisationMethods.html#x22-1590004.6.4">Route-Based Localisation</a></span></span><span class="sectionToc"><span class="number">4.7</span><span class="title"><a href="BuildingMaps.html#x23-1600004.7">Building
-Maps</a></span></span><span class="subsectionToc"><span class="number">4.7.1</span><span class="title"><a href="BuildingMaps.html#x23-1610004.7.1">Stochastic Map Technique</a></span></span><span class="subsectionToc"><span class="number">4.7.2</span><span class="title"><a href="BuildingMaps.html#x23-1620004.7.2">Other Mapping Techniques</a></span></span><span class="chapterToc"><span class="number">5</span><span class="title"><a href="WelcometoLinux.html#x24-1650005">Welcome to Linux</a></span></span><span class="sectionToc"><span class="number">5.1</span><span class="title"><a href="AHistoryofUNIXLinux.html#x25-1660005.1">A
-History of UNIX/Linux</a></span></span><span class="subsectionToc"><span class="number">5.1.1</span><span class="title"><a href="AHistoryofUNIXLinux.html#x25-1680005.1.1">A Short History on Computer Interfaces</a></span></span><span class="subsectionToc"><span class="number">5.1.2</span><span class="title"><a href="AHistoryofUNIXLinux.html#x25-1700005.1.2">Linux is a
-Nutshell</a></span></span><span class="subsectionToc"><span class="number">5.1.3</span><span class="title"><a href="AHistoryofUNIXLinux.html#x25-1730005.1.3">Linux Distributions</a></span></span><span class="sectionToc"><span class="number">5.2</span><span class="title"><a href="Installation.html#x26-1740005.2">Installation</a></span></span><span class="subsectionToc"><span class="number">5.2.1</span><span class="title"><a href="Installation.html#x26-1750005.2.1">Docker</a></span></span><span class="subsectionToc"><span class="number">5.2.2</span><span class="title"><a href="Installation.html#x26-1760005.2.2">Dockerfile</a></span></span><span class="subsectionToc"><span class="number">5.2.3</span><span class="title"><a href="Installation.html#x26-1770005.2.3">Running
-the Container</a></span></span><span class="chapterToc"><span class="number">6</span><span class="title"><a href="CommandLineFundamentals.html#x27-1780006">Command Line Fundamentals</a></span></span><span class="sectionToc"><span class="number">6.1</span><span class="title"><a href="ToCommandaComputer.html#x28-1790006.1">To Command a Computer</a></span></span><span class="subsectionToc"><span class="number">6.1.1</span><span class="title"><a href="ToCommandaComputer.html#x28-1800006.1.1">The
-Command Line Interface</a></span></span><span class="subsectionToc"><span class="number">6.1.2</span><span class="title"><a href="ToCommandaComputer.html#x28-1810006.1.2">The Structure of Commands</a></span></span><span class="subsectionToc"><span class="number">6.1.3</span><span class="title"><a href="ToCommandaComputer.html#x28-1820006.1.3">Some Rules Regarding
-the Syntax</a></span></span><span class="sectionToc"><span class="number">6.2</span><span class="title"><a href="#x29-1830006.2">When We Need Help with Commands</a></span></span><span class="subsectionToc"><span class="number">6.2.1</span><span class="title"><a href="#x29-1840006.2.1">Use Tab completion on
-the Shell</a></span></span><span class="subsectionToc"><span class="number">6.2.2</span><span class="title"><a href="#x29-1850006.2.2">The info command</a></span></span><span class="subsectionToc"><span class="number">6.2.3</span><span class="title"><a href="#x29-1860006.2.3">The whatis command</a></span></span><span class="chapterToc"><span class="number">7</span><span class="title"><a href="WorkingwithFilesandFolders.html#x30-1880007">Working with Files
-and Folders</a></span></span><span class="sectionToc"><span class="number">7.1</span><span class="title"><a href="FilesandFolders.html#x31-1890007.1">Files and Folders</a></span></span><span class="subsectionToc"><span class="number">7.1.1</span><span class="title"><a href="FilesandFolders.html#x31-1900007.1.1">A Detailed Look in ls Command</a></span></span><span class="subsectionToc"><span class="number">7.1.2</span><span class="title"><a href="FilesandFolders.html#x31-1910007.1.2">Creating
-and Removing Folders</a></span></span><span class="subsectionToc"><span class="number">7.1.3</span><span class="title"><a href="FilesandFolders.html#x31-1920007.1.3">Move, Copy and Delete Files and Folders</a></span></span><span class="sectionToc"><span class="number">7.2</span><span class="title"><a href="PermissionsandLinks.html#x32-1990007.2">Permissions
-and Links</a></span></span><span class="subsectionToc"><span class="number">7.2.1</span><span class="title"><a href="PermissionsandLinks.html#x32-2000007.2.1">Role to Users and sudo</a></span></span><span class="subsectionToc"><span class="number">7.2.2</span><span class="title"><a href="PermissionsandLinks.html#x32-2010007.2.2">File Permissions</a></span></span><span class="subsectionToc"><span class="number">7.2.3</span><span class="title"><a href="PermissionsandLinks.html#x32-2040007.2.3">Hard and Symbolic
-Links</a></span></span><span class="subsectionToc"><span class="number">7.2.4</span><span class="title"><a href="PermissionsandLinks.html#x32-2050007.2.4">Soft (Symbolic) Links</a></span></span><span class="subsectionToc"><span class="number">7.2.5</span><span class="title"><a href="PermissionsandLinks.html#x32-2070007.2.5">The Linux File System</a></span></span><span class="subsectionToc"><span class="number">7.2.6</span><span class="title"><a href="PermissionsandLinks.html#x32-2080007.2.6">The UNIX
-Philosophy</a></span></span><span class="sectionToc"><span class="number">7.3</span><span class="title"><a href="CommonCommandLineToolsandTasks.html#x33-2090007.3">Common Command-Line Tools and Tasks</a></span></span><span class="subsectionToc"><span class="number">7.3.1</span><span class="title"><a href="CommonCommandLineToolsandTasks.html#x33-2100007.3.1">Connecting Commands
-with Pipes</a></span></span><span class="subsectionToc"><span class="number">7.3.2</span><span class="title"><a href="CommonCommandLineToolsandTasks.html#x33-2110007.3.2">Viewing Text Files with cat, head, tail, and less</a></span></span><span class="subsectionToc"><span class="number">7.3.3</span><span class="title"><a href="CommonCommandLineToolsandTasks.html#x33-2120007.3.3">Finding
-Linux Distribution and Kernel Information</a></span></span><span class="subsectionToc"><span class="number">7.3.4</span><span class="title"><a href="CommonCommandLineToolsandTasks.html#x33-2140007.3.4">Find System Hardware and Disk
-Information</a></span></span><span class="chapterToc"><span class="number">8</span><span class="title"><a href="ROSConcepts.html#x34-2160008">ROS Concepts</a></span></span><span class="sectionToc"><span class="number">8.1</span><span class="title"><a href="PublisherandSubscriberArchitecture.html#x35-2170008.1">Publisher and Subscriber Architecture</a></span></span><span class="subsectionToc"><span class="number">8.1.1</span><span class="title"><a href="PublisherandSubscriberArchitecture.html#x35-2180008.1.1">ROS 2
-Architecture</a></span></span><span class="sectionToc"><span class="number">8.2</span><span class="title"><a href="BuildingBlocks.html#x36-2200008.2">Building Blocks</a></span></span><span class="subsectionToc"><span class="number">8.2.1</span><span class="title"><a href="BuildingBlocks.html#x36-2210008.2.1">Nodes</a></span></span><span class="subsectionToc"><span class="number">8.2.2</span><span class="title"><a href="BuildingBlocks.html#x36-2220008.2.2">The Discovery Process</a></span></span><span class="subsectionToc"><span class="number">8.2.3</span><span class="title"><a href="BuildingBlocks.html#x36-2230008.2.3">Communication
-Interface</a></span></span><span class="subsectionToc"><span class="number">8.2.4</span><span class="title"><a href="BuildingBlocks.html#x36-2320008.2.4">Topics</a></span></span><span class="subsectionToc"><span class="number">8.2.5</span><span class="title"><a href="BuildingBlocks.html#x36-2360008.2.5">Services</a></span></span><span class="subsectionToc"><span class="number">8.2.6</span><span class="title"><a href="BuildingBlocks.html#x36-2390008.2.6">Actions</a></span></span><span class="subsectionToc"><span class="number">8.2.7</span><span class="title"><a href="BuildingBlocks.html#x36-2420008.2.7">Parameters</a></span></span><span class="subsectionToc"><span class="number">8.2.8</span><span class="title"><a href="BuildingBlocks.html#x36-2510008.2.8">Working with
-Command Line</a></span></span><span class="subsectionToc"><span class="number">8.2.9</span><span class="title"><a href="BuildingBlocks.html#x36-2530008.2.9">Launch Files</a></span></span><span class="sectionToc"><span class="number">8.3</span><span class="title"><a href="AdvancedConcepts.html#x37-2540008.3">Advanced Concepts</a></span></span><span class="subsectionToc"><span class="number">8.3.1</span><span class="title"><a href="AdvancedConcepts.html#x37-2550008.3.1">ROS DOMAIN ID</a></span></span><span class="chapterToc"><span class="number">9</span><span class="title"><a href="CommandLineTools.html#x38-2570009">Command
-Line Tools</a></span></span><span class="sectionToc"><span class="number">9.1</span><span class="title"><a href="SettingtheEnvironment.html#x39-2580009.1">Setting the Environment</a></span></span><span class="sectionToc"><span class="number">9.2</span><span class="title"><a href="TurtlesandGraphs.html#x40-2630009.2">Turtles and Graphs</a></span></span><span class="sectionToc"><span class="number">9.3</span><span class="title"><a href="ADeeperLookintoNodes.html#x41-2710009.3">A Deeper Look into
-Nodes</a></span></span><span class="sectionToc"><span class="number">9.4</span><span class="title"><a href="WorkingwithTopics.html#x42-2760009.4">Working with Topics</a></span></span><span class="sectionToc"><span class="number">9.5</span><span class="title"><a href="WorkingwithServices.html#x43-2820009.5">Working with Services</a></span></span><span class="sectionToc"><span class="number">9.6</span><span class="title"><a href="WorkingwithParameters.html#x44-2890009.6">Working with Parameters</a></span></span><span class="sectionToc"><span class="number">9.7</span><span class="title"><a href="APracticalLookintoActions.html#x45-2960009.7">A
-Practical Look into Actions</a></span></span><span class="sectionToc"><span class="number">9.8</span><span class="title"><a href="LaunchingNodes.html#x46-3030009.8">Launching Nodes</a></span></span><span class="chapterToc"><span class="number">10</span><span class="title"><a href="ClientLibraries.html#x47-30500010">Client Libraries</a></span></span><span class="sectionToc"><span class="number">10.1</span><span class="title"><a href="GettingStartedwithColcon.html#x48-30600010.1">Getting Started with
-Colcon</a></span></span><span class="subsectionToc"><span class="number">10.1.1</span><span class="title"><a href="GettingStartedwithColcon.html#x48-30700010.1.1">The Structure of a Package</a></span></span><span class="subsectionToc"><span class="number">10.1.2</span><span class="title"><a href="GettingStartedwithColcon.html#x48-30800010.1.2">Sourcing an Underlay</a></span></span><span class="subsectionToc"><span class="number">10.1.3</span><span class="title"><a href="GettingStartedwithColcon.html#x48-30900010.1.3">Building the
-Workspace</a></span></span><span class="subsectionToc"><span class="number">10.1.4</span><span class="title"><a href="GettingStartedwithColcon.html#x48-31000010.1.4">Sourcing the New Package</a></span></span><span class="subsectionToc"><span class="number">10.1.5</span><span class="title"><a href="GettingStartedwithColcon.html#x48-31100010.1.5">Creating a Workspace</a></span></span><span class="subsectionToc"><span class="number">10.1.6</span><span class="title"><a href="GettingStartedwithColcon.html#x48-31200010.1.6">Sourcing the
-Environment</a></span></span><span class="subsectionToc"><span class="number">10.1.7</span><span class="title"><a href="GettingStartedwithColcon.html#x48-31300010.1.7">Creating a New Directory</a></span></span><span class="subsectionToc"><span class="number">10.1.8</span><span class="title"><a href="GettingStartedwithColcon.html#x48-31400010.1.8">Cloning a Sample Repo</a></span></span><span class="subsectionToc"><span class="number">10.1.9</span><span class="title"><a href="GettingStartedwithColcon.html#x48-31500010.1.9">Resolving
-Dependencies</a></span></span><span class="subsectionToc"><span class="number">10.1.10</span><span class="title"><a href="GettingStartedwithColcon.html#x48-31600010.1.10">Building the Workspace</a></span></span><span class="subsectionToc"><span class="number">10.1.11</span><span class="title"><a href="GettingStartedwithColcon.html#x48-31700010.1.11">Sourcing our Overlay</a></span></span><span class="subsectionToc"><span class="number">10.1.12</span><span class="title"><a href="GettingStartedwithColcon.html#x48-31800010.1.12">Modifying
-the Overlay</a></span></span><span class="subsectionToc"><span class="number">10.1.13</span><span class="title"><a href="GettingStartedwithColcon.html#x48-31900010.1.13">Creating a Package</a></span></span><span class="sectionToc"><span class="number">10.2</span><span class="title"><a href="WritingaSimplePublisherandSubscriber.html#x49-32200010.2">Writing a Simple Publisher and
-Subscriber</a></span></span><span class="subsectionToc"><span class="number">10.2.1</span><span class="title"><a href="WritingaSimplePublisherandSubscriber.html#x49-32300010.2.1">Creating a ROS Packages</a></span></span><span class="subsectionToc"><span class="number">10.2.2</span><span class="title"><a href="WritingaSimplePublisherandSubscriber.html#x49-32400010.2.2">Writing the Publisher Node</a></span></span><span class="subsectionToc"><span class="number">10.2.3</span><span class="title"><a href="WritingaSimplePublisherandSubscriber.html#x49-32900010.2.3">Writing
-the Subscriber Node</a></span></span><span class="subsectionToc"><span class="number">10.2.4</span><span class="title"><a href="WritingaSimplePublisherandSubscriber.html#x49-33200010.2.4">Building and Running</a></span></span><span class="sectionToc"><span class="number">10.3</span><span class="title"><a href="WritingaSimpleServiceandClient.html#x50-33300010.3">Writing a Simple Service and
-Client</a></span></span><span class="subsectionToc"><span class="number">10.3.1</span><span class="title"><a href="WritingaSimpleServiceandClient.html#x50-33400010.3.1">Creating a New Package</a></span></span><span class="subsectionToc"><span class="number">10.3.2</span><span class="title"><a href="WritingaSimpleServiceandClient.html#x50-33700010.3.2">Writing the Service Node</a></span></span><span class="subsectionToc"><span class="number">10.3.3</span><span class="title"><a href="WritingaSimpleServiceandClient.html#x50-34000010.3.3">Writing the Client
-Node</a></span></span><span class="sectionToc"><span class="number">10.4</span><span class="title"><a href="CreatingCustommsgandsrvFiles.html#x51-34300010.4">Creating Custom msg and srv Files</a></span></span><span class="subsectionToc"><span class="number">10.4.1</span><span class="title"><a href="CreatingCustommsgandsrvFiles.html#x51-34400010.4.1">Creating a New Package</a></span></span><span class="subsectionToc"><span class="number">10.4.2</span><span class="title"><a href="CreatingCustommsgandsrvFiles.html#x51-34500010.4.2">Creating
-Custom Definitions</a></span></span><span class="subsectionToc"><span class="number">10.4.3</span><span class="title"><a href="CreatingCustommsgandsrvFiles.html#x51-35200010.4.3">Testing the Newly Built Interfaces</a></span></span><span class="sectionToc"><span class="number">10.5</span><span class="title"><a href="UsingParametersinaClass.html#x52-35400010.5">Using Parameters in a
-Class</a></span></span><span class="subsectionToc"><span class="number">10.5.1</span><span class="title"><a href="UsingParametersinaClass.html#x52-35500010.5.1">Creating a Package</a></span></span><span class="subsectionToc"><span class="number">10.5.2</span><span class="title"><a href="UsingParametersinaClass.html#x52-35700010.5.2">Writing our Python Code</a></span></span><span class="subsectionToc"><span class="number">10.5.3</span><span class="title"><a href="UsingParametersinaClass.html#x52-36200010.5.3">Changing Output using
-the Console</a></span></span><span class="subsectionToc"><span class="number">10.5.4</span><span class="title"><a href="UsingParametersinaClass.html#x52-36300010.5.4">Changing using the Launch File</a></span></span><span class="sectionToc"><span class="number">10.6</span><span class="title"><a href="ManagingDependencies.html#x53-36400010.6">Managing Dependencies</a></span></span><span class="sectionToc"><span class="number">10.7</span><span class="title"><a href="CreatinganAction.html#x54-36600010.7">Creating
-an Action</a></span></span><span class="sectionToc"><span class="number">10.8</span><span class="title"><a href="WritinganActionServerandClient.html#x55-36900010.8">Writing an Action Server and Client</a></span></span><span class="sectionToc"><span class="number">10.9</span><span class="title"><a href="WritingaLaunchFile.html#x56-37100010.9">Writing a Launch File</a></span></span>
+Control)</a></span></span><span class="subsectionToc"><span class="number">2.4.1</span><span class="title"><a href="MotionControlKinematicControl.html#x10-560002.4.1">Open loop control</a></span></span><span class="subsectionToc"><span class="number">2.4.2</span><span class="title"><a href="MotionControlKinematicControl.html#x10-570002.4.2">Feedback control</a></span></span><span class="chapterToc"><span class="number">3</span><span class="title"><a href="Perception.html#x11-630003">Perception</a></span></span><span class="sectionToc"><span class="number">3.1</span><span class="title"><a href="SensorsforMobileRobotics.html#x12-640003.1">Sensors
+for Mobile Robotics</a></span></span><span class="subsectionToc"><span class="number">3.1.1</span><span class="title"><a href="SensorsforMobileRobotics.html#x12-650003.1.1">Sensor Classification</a></span></span><span class="subsectionToc"><span class="number">3.1.2</span><span class="title"><a href="SensorsforMobileRobotics.html#x12-660003.1.2">Characterisation of Sensor
+Performance</a></span></span><span class="subsectionToc"><span class="number">3.1.3</span><span class="title"><a href="SensorsforMobileRobotics.html#x12-720003.1.3">Wheel and Motor Sensors</a></span></span><span class="subsectionToc"><span class="number">3.1.4</span><span class="title"><a href="SensorsforMobileRobotics.html#x12-740003.1.4">Heading Sensors</a></span></span><span class="subsectionToc"><span class="number">3.1.5</span><span class="title"><a href="SensorsforMobileRobotics.html#x12-810003.1.5">Ground Based
+Beacons</a></span></span><span class="subsectionToc"><span class="number">3.1.6</span><span class="title"><a href="SensorsforMobileRobotics.html#x12-830003.1.6">Active Ranging</a></span></span><span class="subsectionToc"><span class="number">3.1.7</span><span class="title"><a href="SensorsforMobileRobotics.html#x12-850003.1.7">The Ultrasonic Sensor</a></span></span><span class="subsectionToc"><span class="number">3.1.8</span><span class="title"><a href="SensorsforMobileRobotics.html#x12-920003.1.8">Motion and Speed
+Sensors</a></span></span><span class="sectionToc"><span class="number">3.2</span><span class="title"><a href="VisionBasedSensors.html#x13-940003.2">Vision Based Sensors</a></span></span><span class="subsectionToc"><span class="number">3.2.1</span><span class="title"><a href="VisionBasedSensors.html#x13-950003.2.1">CCD Sensors</a></span></span><span class="subsectionToc"><span class="number">3.2.2</span><span class="title"><a href="VisionBasedSensors.html#x13-970003.2.2">CMOS Technology</a></span></span><span class="subsectionToc"><span class="number">3.2.3</span><span class="title"><a href="VisionBasedSensors.html#x13-980003.2.3">Visual
+Ranging Sensors</a></span></span><span class="subsectionToc"><span class="number">3.2.4</span><span class="title"><a href="VisionBasedSensors.html#x13-990003.2.4">Depth from Focus</a></span></span><span class="sectionToc"><span class="number">3.3</span><span class="title"><a href="RepresentingUncertainty.html#x14-1070003.3">Representing Uncertainty</a></span></span><span class="subsectionToc"><span class="number">3.3.1</span><span class="title"><a href="RepresentingUncertainty.html#x14-1080003.3.1">Statistical
+Representation</a></span></span><span class="subsectionToc"><span class="number">3.3.2</span><span class="title"><a href="RepresentingUncertainty.html#x14-1090003.3.2">Independence of random variables</a></span></span><span class="subsectionToc"><span class="number">3.3.3</span><span class="title"><a href="RepresentingUncertainty.html#x14-1110003.3.3">Propagation of Error</a></span></span><span class="sectionToc"><span class="number">3.4</span><span class="title"><a href="FeatureExtraction.html#x15-1120003.4">Feature
+Extraction</a></span></span><span class="subsectionToc"><span class="number">3.4.1</span><span class="title"><a href="FeatureExtraction.html#x15-1130003.4.1">Defining Feature</a></span></span><span class="subsectionToc"><span class="number">3.4.2</span><span class="title"><a href="FeatureExtraction.html#x15-1140003.4.2">Using Range Data</a></span></span><span class="chapterToc"><span class="number">4</span><span class="title"><a href="WelcometoLinux.html#x16-1290004">Welcome to Linux</a></span></span><span class="sectionToc"><span class="number">4.1</span><span class="title"><a href="AHistoryofUNIXLinux.html#x17-1300004.1">A
+History of UNIX/Linux</a></span></span><span class="subsectionToc"><span class="number">4.1.1</span><span class="title"><a href="AHistoryofUNIXLinux.html#x17-1320004.1.1">A Short History on Computer Interfaces</a></span></span><span class="subsectionToc"><span class="number">4.1.2</span><span class="title"><a href="AHistoryofUNIXLinux.html#x17-1340004.1.2">Linux is a
+Nutshell</a></span></span><span class="subsectionToc"><span class="number">4.1.3</span><span class="title"><a href="AHistoryofUNIXLinux.html#x17-1370004.1.3">Linux Distributions</a></span></span><span class="sectionToc"><span class="number">4.2</span><span class="title"><a href="Installation.html#x18-1380004.2">Installation</a></span></span><span class="subsectionToc"><span class="number">4.2.1</span><span class="title"><a href="Installation.html#x18-1390004.2.1">Docker</a></span></span><span class="subsectionToc"><span class="number">4.2.2</span><span class="title"><a href="Installation.html#x18-1400004.2.2">Dockerfile</a></span></span><span class="subsectionToc"><span class="number">4.2.3</span><span class="title"><a href="Installation.html#x18-1410004.2.3">Running
+the Container</a></span></span><span class="chapterToc"><span class="number">5</span><span class="title"><a href="CommandLineFundamentals.html#x19-1420005">Command Line Fundamentals</a></span></span><span class="sectionToc"><span class="number">5.1</span><span class="title"><a href="ToCommandaComputer.html#x20-1430005.1">To Command a Computer</a></span></span><span class="subsectionToc"><span class="number">5.1.1</span><span class="title"><a href="ToCommandaComputer.html#x20-1440005.1.1">The
+Command Line Interface</a></span></span><span class="subsectionToc"><span class="number">5.1.2</span><span class="title"><a href="ToCommandaComputer.html#x20-1450005.1.2">The Structure of Commands</a></span></span><span class="subsectionToc"><span class="number">5.1.3</span><span class="title"><a href="ToCommandaComputer.html#x20-1460005.1.3">Some Rules Regarding
+the Syntax</a></span></span><span class="sectionToc"><span class="number">5.2</span><span class="title"><a href="#x21-1470005.2">When We Need Help with Commands</a></span></span><span class="subsectionToc"><span class="number">5.2.1</span><span class="title"><a href="#x21-1480005.2.1">Use Tab completion on
+the Shell</a></span></span><span class="subsectionToc"><span class="number">5.2.2</span><span class="title"><a href="#x21-1490005.2.2">The info command</a></span></span><span class="subsectionToc"><span class="number">5.2.3</span><span class="title"><a href="#x21-1500005.2.3">The whatis command</a></span></span><span class="chapterToc"><span class="number">6</span><span class="title"><a href="WorkingwithFilesandFolders.html#x22-1520006">Working with Files
+and Folders</a></span></span><span class="sectionToc"><span class="number">6.1</span><span class="title"><a href="FilesandFolders.html#x23-1530006.1">Files and Folders</a></span></span><span class="subsectionToc"><span class="number">6.1.1</span><span class="title"><a href="FilesandFolders.html#x23-1540006.1.1">A Detailed Look in ls Command</a></span></span><span class="subsectionToc"><span class="number">6.1.2</span><span class="title"><a href="FilesandFolders.html#x23-1550006.1.2">Creating
+and Removing Folders</a></span></span><span class="subsectionToc"><span class="number">6.1.3</span><span class="title"><a href="FilesandFolders.html#x23-1560006.1.3">Move, Copy and Delete Files and Folders</a></span></span><span class="sectionToc"><span class="number">6.2</span><span class="title"><a href="PermissionsandLinks.html#x24-1630006.2">Permissions
+and Links</a></span></span><span class="subsectionToc"><span class="number">6.2.1</span><span class="title"><a href="PermissionsandLinks.html#x24-1640006.2.1">Role to Users and sudo</a></span></span><span class="subsectionToc"><span class="number">6.2.2</span><span class="title"><a href="PermissionsandLinks.html#x24-1650006.2.2">File Permissions</a></span></span><span class="subsectionToc"><span class="number">6.2.3</span><span class="title"><a href="PermissionsandLinks.html#x24-1680006.2.3">Hard and Symbolic
+Links</a></span></span><span class="subsectionToc"><span class="number">6.2.4</span><span class="title"><a href="PermissionsandLinks.html#x24-1690006.2.4">Soft (Symbolic) Links</a></span></span><span class="subsectionToc"><span class="number">6.2.5</span><span class="title"><a href="PermissionsandLinks.html#x24-1710006.2.5">The Linux File System</a></span></span><span class="subsectionToc"><span class="number">6.2.6</span><span class="title"><a href="PermissionsandLinks.html#x24-1720006.2.6">The UNIX
+Philosophy</a></span></span><span class="sectionToc"><span class="number">6.3</span><span class="title"><a href="CommonCommandLineToolsandTasks.html#x25-1730006.3">Common Command-Line Tools and Tasks</a></span></span><span class="subsectionToc"><span class="number">6.3.1</span><span class="title"><a href="CommonCommandLineToolsandTasks.html#x25-1740006.3.1">Connecting Commands
+with Pipes</a></span></span><span class="subsectionToc"><span class="number">6.3.2</span><span class="title"><a href="CommonCommandLineToolsandTasks.html#x25-1750006.3.2">Viewing Text Files with cat, head, tail, and less</a></span></span><span class="subsectionToc"><span class="number">6.3.3</span><span class="title"><a href="CommonCommandLineToolsandTasks.html#x25-1760006.3.3">Finding
+Linux Distribution and Kernel Information</a></span></span><span class="subsectionToc"><span class="number">6.3.4</span><span class="title"><a href="CommonCommandLineToolsandTasks.html#x25-1780006.3.4">Find System Hardware and Disk
+Information</a></span></span><span class="chapterToc"><span class="number">7</span><span class="title"><a href="ROSConcepts.html#x26-1800007">ROS Concepts</a></span></span><span class="sectionToc"><span class="number">7.1</span><span class="title"><a href="PublisherandSubscriberArchitecture.html#x27-1810007.1">Publisher and Subscriber Architecture</a></span></span><span class="subsectionToc"><span class="number">7.1.1</span><span class="title"><a href="PublisherandSubscriberArchitecture.html#x27-1820007.1.1">ROS 2
+Architecture</a></span></span><span class="sectionToc"><span class="number">7.2</span><span class="title"><a href="BuildingBlocks.html#x28-1840007.2">Building Blocks</a></span></span><span class="subsectionToc"><span class="number">7.2.1</span><span class="title"><a href="BuildingBlocks.html#x28-1850007.2.1">Nodes</a></span></span><span class="subsectionToc"><span class="number">7.2.2</span><span class="title"><a href="BuildingBlocks.html#x28-1860007.2.2">The Discovery Process</a></span></span><span class="subsectionToc"><span class="number">7.2.3</span><span class="title"><a href="BuildingBlocks.html#x28-1870007.2.3">Communication
+Interface</a></span></span><span class="subsectionToc"><span class="number">7.2.4</span><span class="title"><a href="BuildingBlocks.html#x28-1960007.2.4">Topics</a></span></span><span class="subsectionToc"><span class="number">7.2.5</span><span class="title"><a href="BuildingBlocks.html#x28-2000007.2.5">Services</a></span></span><span class="subsectionToc"><span class="number">7.2.6</span><span class="title"><a href="BuildingBlocks.html#x28-2030007.2.6">Actions</a></span></span><span class="subsectionToc"><span class="number">7.2.7</span><span class="title"><a href="BuildingBlocks.html#x28-2060007.2.7">Parameters</a></span></span><span class="subsectionToc"><span class="number">7.2.8</span><span class="title"><a href="BuildingBlocks.html#x28-2150007.2.8">Working with
+Command Line</a></span></span><span class="subsectionToc"><span class="number">7.2.9</span><span class="title"><a href="BuildingBlocks.html#x28-2170007.2.9">Launch Files</a></span></span><span class="sectionToc"><span class="number">7.3</span><span class="title"><a href="AdvancedConcepts.html#x29-2180007.3">Advanced Concepts</a></span></span><span class="subsectionToc"><span class="number">7.3.1</span><span class="title"><a href="AdvancedConcepts.html#x29-2190007.3.1">ROS DOMAIN
+ID</a></span></span><span class="chapterToc"><span class="number">8</span><span class="title"><a href="CommandLineTools.html#x30-2210008">Command Line Tools</a></span></span><span class="sectionToc"><span class="number">8.1</span><span class="title"><a href="SettingtheEnvironment.html#x31-2220008.1">Setting the Environment</a></span></span><span class="sectionToc"><span class="number">8.2</span><span class="title"><a href="TurtlesandGraphs.html#x32-2270008.2">Turtles and Graphs</a></span></span><span class="sectionToc"><span class="number">8.3</span><span class="title"><a href="ADeeperLookintoNodes.html#x33-2350008.3">A
+Deeper Look into Nodes</a></span></span><span class="sectionToc"><span class="number">8.4</span><span class="title"><a href="WorkingwithTopics.html#x34-2400008.4">Working with Topics</a></span></span><span class="sectionToc"><span class="number">8.5</span><span class="title"><a href="WorkingwithServices.html#x35-2460008.5">Working with Services</a></span></span><span class="sectionToc"><span class="number">8.6</span><span class="title"><a href="WorkingwithParameters.html#x36-2530008.6">Working
+with Parameters</a></span></span><span class="sectionToc"><span class="number">8.7</span><span class="title"><a href="APracticalLookintoActions.html#x37-2600008.7">A Practical Look into Actions</a></span></span><span class="sectionToc"><span class="number">8.8</span><span class="title"><a href="LaunchingNodes.html#x38-2670008.8">Launching Nodes</a></span></span><span class="chapterToc"><span class="number">9</span><span class="title"><a href="ClientLibraries.html#x39-2690009">Client
+Libraries</a></span></span><span class="sectionToc"><span class="number">9.1</span><span class="title"><a href="GettingStartedwithColcon.html#x40-2700009.1">Getting Started with Colcon</a></span></span><span class="subsectionToc"><span class="number">9.1.1</span><span class="title"><a href="GettingStartedwithColcon.html#x40-2710009.1.1">The Structure of a Package</a></span></span><span class="subsectionToc"><span class="number">9.1.2</span><span class="title"><a href="GettingStartedwithColcon.html#x40-2720009.1.2">Sourcing
+an Underlay</a></span></span><span class="subsectionToc"><span class="number">9.1.3</span><span class="title"><a href="GettingStartedwithColcon.html#x40-2730009.1.3">Building the Workspace</a></span></span><span class="subsectionToc"><span class="number">9.1.4</span><span class="title"><a href="GettingStartedwithColcon.html#x40-2740009.1.4">Sourcing the New Package</a></span></span><span class="subsectionToc"><span class="number">9.1.5</span><span class="title"><a href="GettingStartedwithColcon.html#x40-2750009.1.5">Creating a
+Workspace</a></span></span><span class="subsectionToc"><span class="number">9.1.6</span><span class="title"><a href="GettingStartedwithColcon.html#x40-2760009.1.6">Sourcing the Environment</a></span></span><span class="subsectionToc"><span class="number">9.1.7</span><span class="title"><a href="GettingStartedwithColcon.html#x40-2770009.1.7">Creating a New Directory</a></span></span><span class="subsectionToc"><span class="number">9.1.8</span><span class="title"><a href="GettingStartedwithColcon.html#x40-2780009.1.8">Cloning a
+Sample Repo</a></span></span><span class="subsectionToc"><span class="number">9.1.9</span><span class="title"><a href="GettingStartedwithColcon.html#x40-2790009.1.9">Resolving Dependencies</a></span></span><span class="subsectionToc"><span class="number">9.1.10</span><span class="title"><a href="GettingStartedwithColcon.html#x40-2800009.1.10">Building the Workspace</a></span></span><span class="subsectionToc"><span class="number">9.1.11</span><span class="title"><a href="GettingStartedwithColcon.html#x40-2810009.1.11">Sourcing our
+Overlay</a></span></span><span class="subsectionToc"><span class="number">9.1.12</span><span class="title"><a href="GettingStartedwithColcon.html#x40-2820009.1.12">Modifying the Overlay</a></span></span><span class="subsectionToc"><span class="number">9.1.13</span><span class="title"><a href="GettingStartedwithColcon.html#x40-2830009.1.13">Creating a Package</a></span></span><span class="sectionToc"><span class="number">9.2</span><span class="title"><a href="WritingaSimplePublisherandSubscriber.html#x41-2860009.2">Writing a Simple Publisher
+and Subscriber</a></span></span><span class="subsectionToc"><span class="number">9.2.1</span><span class="title"><a href="WritingaSimplePublisherandSubscriber.html#x41-2870009.2.1">Creating a ROS Packages</a></span></span><span class="subsectionToc"><span class="number">9.2.2</span><span class="title"><a href="WritingaSimplePublisherandSubscriber.html#x41-2880009.2.2">Writing the Publisher Node</a></span></span><span class="subsectionToc"><span class="number">9.2.3</span><span class="title"><a href="WritingaSimplePublisherandSubscriber.html#x41-2930009.2.3">Writing
+the Subscriber Node</a></span></span><span class="subsectionToc"><span class="number">9.2.4</span><span class="title"><a href="WritingaSimplePublisherandSubscriber.html#x41-2960009.2.4">Building and Running</a></span></span><span class="sectionToc"><span class="number">9.3</span><span class="title"><a href="WritingaSimpleServiceandClient.html#x42-2970009.3">Writing a Simple Service and
+Client</a></span></span><span class="subsectionToc"><span class="number">9.3.1</span><span class="title"><a href="WritingaSimpleServiceandClient.html#x42-2980009.3.1">Creating a New Package</a></span></span><span class="subsectionToc"><span class="number">9.3.2</span><span class="title"><a href="WritingaSimpleServiceandClient.html#x42-3010009.3.2">Writing the Service Node</a></span></span><span class="subsectionToc"><span class="number">9.3.3</span><span class="title"><a href="WritingaSimpleServiceandClient.html#x42-3040009.3.3">Writing the Client
+Node</a></span></span><span class="sectionToc"><span class="number">9.4</span><span class="title"><a href="CreatingCustommsgandsrvFiles.html#x43-3070009.4">Creating Custom msg and srv Files</a></span></span><span class="subsectionToc"><span class="number">9.4.1</span><span class="title"><a href="CreatingCustommsgandsrvFiles.html#x43-3080009.4.1">Creating a New Package</a></span></span><span class="subsectionToc"><span class="number">9.4.2</span><span class="title"><a href="CreatingCustommsgandsrvFiles.html#x43-3090009.4.2">Creating
+Custom Definitions</a></span></span><span class="subsectionToc"><span class="number">9.4.3</span><span class="title"><a href="CreatingCustommsgandsrvFiles.html#x43-3160009.4.3">Testing the Newly Built Interfaces</a></span></span><span class="sectionToc"><span class="number">9.5</span><span class="title"><a href="UsingParametersinaClass.html#x44-3180009.5">Using Parameters in a
+Class</a></span></span><span class="subsectionToc"><span class="number">9.5.1</span><span class="title"><a href="UsingParametersinaClass.html#x44-3190009.5.1">Creating a Package</a></span></span><span class="subsectionToc"><span class="number">9.5.2</span><span class="title"><a href="UsingParametersinaClass.html#x44-3210009.5.2">Writing our Python Code</a></span></span><span class="subsectionToc"><span class="number">9.5.3</span><span class="title"><a href="UsingParametersinaClass.html#x44-3260009.5.3">Changing Output using
+the Console</a></span></span><span class="subsectionToc"><span class="number">9.5.4</span><span class="title"><a href="UsingParametersinaClass.html#x44-3270009.5.4">Changing using the Launch File</a></span></span><span class="sectionToc"><span class="number">9.6</span><span class="title"><a href="ManagingDependencies.html#x45-3280009.6">Managing Dependencies</a></span></span><span class="sectionToc"><span class="number">9.7</span><span class="title"><a href="CreatinganAction.html#x46-3300009.7">Creating
+an Action</a></span></span><span class="sectionToc"><span class="number">9.8</span><span class="title"><a href="WritinganActionServerandClient.html#x47-3330009.8">Writing an Action Server and Client</a></span></span><span class="sectionToc"><span class="number">9.9</span><span class="title"><a href="WritingaLaunchFile.html#x48-3350009.9">Writing a Launch File</a></span></span>
 <div class="nav-footer"><div class="nav-footer-left"><span class="nav-footer-lecture">D. T. McGuiness, PhD</span>
-<span class="nav-footer-webBook"><b>Last Updated:</b> 13.10.2026, at 8:16.</span></div></div><p class="nav-comments">The website you are viewing is auto-generated using lms-WebBook and therefore subject to slight errors in typography and formatting. When in doubt, please consult the LectureBook. </p></div></nav>
+<span class="nav-footer-webBook"><b>Last Updated:</b> 24.11.2026, at 13:58.</span></div></div><p class="nav-comments">The website you are viewing is auto-generated using lms-WebBook and therefore subject to slight errors in typography and formatting. When in doubt, please consult the LectureBook. </p></div></nav>
 <article class="chapter">
-<nav class="crosslinks-top"> <span class="nav-button"><i class="fa-solid fa-caret-right"></i><a class="nav-link" href="WorkingwithFilesandFolders.html">Chapter: Working with
-Files and Folders</a></span><span class="nav-button"><i class="fa-solid fa-caret-left"></i><a class="nav-link" href="ToCommandaComputer.html">To Command a Computer</a></span><span class="nav-button"><i class="fa-solid fa-caret-up"></i><a class="nav-link" href="CommandLineFundamentals.html#WhenWeNeedHelpwithCommands.html">Chapter: Command Line
-Fundamentals</a></span><span class="nav-button">
+<nav class="crosslinks-top"> <span class="nav-button"><i class="fa-solid fa-caret-right"></i><a class="nav-link" href="WorkingwithFilesandFolders.html">Chapter: Working with Files and Folders</a></span><span class="nav-button"><i class="fa-solid fa-caret-left"></i><a class="nav-link" href="ToCommandaComputer.html">To Command a Computer</a></span><span class="nav-button"><i class="fa-solid fa-caret-up"></i><a class="nav-link" href="CommandLineFundamentals.html#WhenWeNeedHelpwithCommands.html">Chapter: Command Line Fundamentals</a></span><span class="nav-button">
 <a href="index.html" rel="index" title="Visit Entry Point">
 <i class="fa-solid fa-table-list">
 </i>
@@ -106,7 +94,7 @@ Fundamentals</a></span><span class="nav-button">
 <i class="fa-brands fa-git-alt"></i>
 <span class="nav-info">Visit Material GitHub Repo</span>
 </a></span></nav>
-<div class="section-header"> <h3 id="header-section-6.2"> <a class="pdf-icon" href="AutonomousMobileRoboticsLectureBook.pdf#section.6.2"><svg class="bi bi-file-pdf" fill="currentColor" height="20" viewbox="0 0 16 16" width="20" xmlns="http://www.w3.org/2000/svg"><path d="M4 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H4zm0 1h8a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1z"></path><path d="M4.603 12.087a.81.81 0 0 1-.438-.42c-.195-.388-.13-.776.08-1.102.198-.307.526-.568.897-.787a7.68 7.68 0 0 1 1.482-.645 19.701 19.701 0 0 0 1.062-2.227 7.269 7.269 0 0 1-.43-1.295c-.086-.4-.119-.796-.046-1.136.075-.354.274-.672.65-.823.192-.077.4-.12.602-.077a.7.7 0 0 1 .477.365c.088.164.12.356.127.538.007.187-.012.395-.047.614-.084.51-.27 1.134-.52 1.794a10.954 10.954 0 0 0 .98 1.686 5.753 5.753 0 0 1 1.334.05c.364.065.734.195.96.465.12.144.193.32.2.518.007.192-.047.382-.138.563a1.04 1.04 0 0 1-.354.416.856.856 0 0 1-.51.138c-.331-.014-.654-.196-.933-.417a5.716 5.716 0 0 1-.911-.95 11.642 11.642 0 0 0-1.997.406 11.311 11.311 0 0 1-1.021 1.51c-.29.35-.608.655-.926.787a.793.793 0 0 1-.58.029zm1.379-1.901c-.166.076-.32.156-.459.238-.328.194-.541.383-.647.547-.094.145-.096.25-.04.361.01.022.02.036.026.044a.27.27 0 0 0 .035-.012c.137-.056.355-.235.635-.572a8.18 8.18 0 0 0 .45-.606zm1.64-1.33a12.647 12.647 0 0 1 1.01-.193 11.666 11.666 0 0 1-.51-.858 20.741 20.741 0 0 1-.5 1.05zm2.446.45c.15.162.296.3.435.41.24.19.407.253.498.256a.107.107 0 0 0 .07-.015.307.307 0 0 0 .094-.125.436.436 0 0 0 .059-.2.095.095 0 0 0-.026-.063c-.052-.062-.2-.152-.518-.209a3.881 3.881 0 0 0-.612-.053zM8.078 5.8a6.7 6.7 0 0 0 .2-.828c.031-.188.043-.343.038-.465a.613.613 0 0 0-.032-.198.517.517 0 0 0-.145.04c-.087.035-.158.106-.196.283-.04.192-.03.469.046.822.024.111.054.227.09.346z"></path></svg></a> <span class="number">6.2</span> <span class="title"> <a id="x29-1830006.2"></a>When We Need Help with
+<div class="section-header"><h3 id="header-section-5.2"><span class="number">5.2</span><a class="pdf-icon" href="AutonomousMobileRoboticsLectureBook.pdf#section.5.2"><svg class="bi bi-file-pdf" fill="currentColor" height="20" viewbox="0 0 16 16" width="20" xmlns="http://www.w3.org/2000/svg"><path d="M4 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H4zm0 1h8a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1z"></path><path d="M4.603 12.087a.81.81 0 0 1-.438-.42c-.195-.388-.13-.776.08-1.102.198-.307.526-.568.897-.787a7.68 7.68 0 0 1 1.482-.645 19.701 19.701 0 0 0 1.062-2.227 7.269 7.269 0 0 1-.43-1.295c-.086-.4-.119-.796-.046-1.136.075-.354.274-.672.65-.823.192-.077.4-.12.602-.077a.7.7 0 0 1 .477.365c.088.164.12.356.127.538.007.187-.012.395-.047.614-.084.51-.27 1.134-.52 1.794a10.954 10.954 0 0 0 .98 1.686 5.753 5.753 0 0 1 1.334.05c.364.065.734.195.96.465.12.144.193.32.2.518.007.192-.047.382-.138.563a1.04 1.04 0 0 1-.354.416.856.856 0 0 1-.51.138c-.331-.014-.654-.196-.933-.417a5.716 5.716 0 0 1-.911-.95 11.642 11.642 0 0 0-1.997.406 11.311 11.311 0 0 1-1.021 1.51c-.29.35-.608.655-.926.787a.793.793 0 0 1-.58.029zm1.379-1.901c-.166.076-.32.156-.459.238-.328.194-.541.383-.647.547-.094.145-.096.25-.04.361.01.022.02.036.026.044a.27.27 0 0 0 .035-.012c.137-.056.355-.235.635-.572a8.18 8.18 0 0 0 .45-.606zm1.64-1.33a12.647 12.647 0 0 1 1.01-.193 11.666 11.666 0 0 1-.51-.858 20.741 20.741 0 0 1-.5 1.05zm2.446.45c.15.162.296.3.435.41.24.19.407.253.498.256a.107.107 0 0 0 .07-.015.307.307 0 0 0 .094-.125.436.436 0 0 0 .059-.2.095.095 0 0 0-.026-.063c-.052-.062-.2-.152-.518-.209a3.881 3.881 0 0 0-.612-.053zM8.078 5.8a6.7 6.7 0 0 0 .2-.828c.031-.188.043-.343.038-.465a.613.613 0 0 0-.032-.198.517.517 0 0 0-.145.04c-.087.035-.158.106-.196.283-.04.192-.03.469.046.822.024.111.054.227.09.346z"></path></svg></a><span class="title"> <a id="x21-1470005.2"></a>When We Need Help with
 Commands</span></h3></div>
 <p class="noindent">If we’ve ever seen someone typing away at the command line in blazing speeds, it can seem like
 memorising the ins and outs of commands and options is the only way to be productive and understand
@@ -118,58 +106,52 @@ getting started, we only need to remember a few commands. The first one is <code
 <b>manual pages</b>.
 </p>
 <p class="noindent"></p><figure class="float">
-<p class="noindent"><dl class="first-deffn first-defun-alias-first-deffn def-block"><a class="copiable-link" href="#command-block-6.2"> ¶</a><dt class="deffn defun-alias-deffn def-line" id="command-block-6.2"><a id="x29-183001r2"></a><span class="category-def"><b>command:</b> </span><strong class="def-name">man</strong><var class="def-var-arguments"> [man options] [[section] page ...] ...</var><span class="active-manual"><a href="https://man7.org/linux/man-pages/man1/man.1.html"><i class="fa-solid fa-globe"></i></a></span></dt><dd><p> An interface to the system reference manuals </p></dd></dl></p> <dl class="first-deffn first-defun-alias-first-deffn def-block"><a class="copiable-link" href="#command-block-6.3"> ¶</a><dt class="deffn defun-alias-deffn def-line" id="command-block-6.3"><a id="x29-183002r3"></a><span class="category-def"><b>command:</b>
+<p class="noindent"><dl class="first-deffn first-defun-alias-first-deffn def-block"><a class="copiable-link" href="#command-block-5.2"> ¶</a><dt class="deffn defun-alias-deffn def-line" id="command-block-5.2"><a id="x21-147001r2"></a><span class="category-def"><b>command:</b> </span><strong class="def-name">man</strong><var class="def-var-arguments"> [man options] [[section] page ...] ...</var><span class="active-manual"><a href="https://man7.org/linux/man-pages/man1/man.1.html"><i class="fa-solid fa-globe"></i></a></span></dt><dd><p> An interface to the system reference manuals </p></dd></dl></p> <dl class="first-deffn first-defun-alias-first-deffn def-block"><a class="copiable-link" href="#command-block-5.3"> ¶</a><dt class="deffn defun-alias-deffn def-line" id="command-block-5.3"><a id="x21-147002r3"></a><span class="category-def"><b>command:</b>
 </span><strong class="def-name">unminimize</strong><var class="def-var-arguments"> </var></dt><dd><p> Used in Ubuntu to restore missing, non-essential packages (such as man pages, documentation, and various
 utilities) to a minimal Ubuntu installation or cloud image. </p></dd></dl>
 </figure>
-<pre><code class="language-text">
-<pre class="fancyvrb" id="fancyvrb20"><a id="x29-183004r93"></a>MAN(1)                        Manual pager utils                        MAN(1) 
-<a id="x29-183006r94"></a> 
-<a id="x29-183008r95"></a>NAME 
-<a id="x29-183010r96"></a>       man - an interface to the system reference manuals 
-<a id="x29-183012r97"></a> 
-<a id="x29-183014r98"></a>SYNOPSIS 
-<a id="x29-183016r99"></a>       man [man options] [[section] page ...] ... 
-<a id="x29-183018r100"></a>       man -k [apropos options] regexp ... 
-<a id="x29-183020r101"></a>       man -K [man options] [section] term ... 
-<a id="x29-183022r102"></a>       man -f [whatis options] page ...</pre>
-</code></pre>
-<p class="noindent">A <code class="verb">man</code> <span class="margin-block">page <span class="margin-comment"><a class="ellipsis" href="#m-ref-163">[163]</a>
+<div class="code-wrapper"><pre><code class="language-text"><pre class="fancyvrb" id="fancyvrb20"><a id="x21-147004r93"></a>MAN(1)                        Manual pager utils                        MAN(1) 
+<a id="x21-147006r94"></a> 
+<a id="x21-147008r95"></a>NAME 
+<a id="x21-147010r96"></a>       man - an interface to the system reference manuals 
+<a id="x21-147012r97"></a> 
+<a id="x21-147014r98"></a>SYNOPSIS 
+<a id="x21-147016r99"></a>       man [man options] [[section] page ...] ... 
+<a id="x21-147018r100"></a>       man -k [apropos options] regexp ... 
+<a id="x21-147020r101"></a>       man -K [man options] [section] term ... 
+<a id="x21-147022r102"></a>       man -f [whatis options] page ...</pre></code></pre></div>
+<p class="noindent">A <code class="verb">man</code> <span class="margin-block">page <span class="margin-comment"><a class="ellipsis" href="#m-ref-113">[113]</a>
 <span class="sidenote">Stands for short for manual page.</span></span></span> is a form of software documentation found on UNIX and
 Unix-like operating systems. </p><div class="quote">  Topics covered include programs, system libraries, system calls,
 …</div>
-<p class="noindent">Think of the man pages as a <span class="alert">technical reference book</span> for our Linux <span class="margin-block">distribution <span class="margin-comment"><a class="ellipsis" href="#m-ref-164">[164]</a>
+<p class="noindent">Think of the man pages as a <span class="alert">technical reference book</span> for our Linux <span class="margin-block">distribution <span class="margin-comment"><a class="ellipsis" href="#m-ref-114">[114]</a>
 <span class="sidenote">i.e., Ubuntu, Mint</span></span></span>. If we know the name of a
 command, we can find out a wealth of information about what it does, what options it provides or what
 arguments it takes. To look up something in the manual pages, type <code class="verb">man</code> , followed by a command we
 would like to learn. Open up the Terminal by <kbd>Ctrl</kbd> + <kbd>Alt</kbd> + <kbd>T</kbd>. Earlier, we saw the command <code class="verb">ls</code> , so let’s
 look that up. Type <code class="verb">man ls</code>  and press <kbd>Return</kbd>.
 </p>
-<div class="knowledge"><div class="knowledge-upper">Knowledge</div><div class="body">
+<div class="block-minor knowledge"><div class="body">
 <p class="noindent">Some distributions or application specific installation of Linux remove the <code class="verb">man</code>  pages to save up on space.
 In these system one must first do <code class="verb">unminimize</code>  to install <code class="verb">man</code>  pages. </p></div></div>
-<pre><div class="code-header"> <span class="code-language">bash</span> </div> <code class="language-bash">
-<pre class="fancyvrb" id="fancyvrb21"><a id="x29-183024r107"></a>man ls | head -10</pre>
-</code></pre>
-<pre><code class="language-text">
-<pre class="fancyvrb" id="fancyvrb22"><a id="x29-183026r112"></a>LS(1)                            User Commands                           LS(1) 
-<a id="x29-183028r113"></a> 
-<a id="x29-183030r114"></a>NAME 
-<a id="x29-183032r115"></a>       ls - list directory contents 
-<a id="x29-183034r116"></a> 
-<a id="x29-183036r117"></a>SYNOPSIS 
-<a id="x29-183038r118"></a>       ls [OPTION]... [FILE]... 
-<a id="x29-183040r119"></a> 
-<a id="x29-183042r120"></a>DESCRIPTION 
-<a id="x29-183044r121"></a>       List  information  about  the FILEs (the current directory by default).</pre>
-</code></pre>
-<p class="noindent">Here, we can see some information about the <code class="verb">ls</code> <span class="margin-block">command. <span class="margin-comment"><a class="ellipsis" href="#m-ref-165">[165]</a>
+<div class="code-header"><span class="code-language">bash</span></div><div class="code-wrapper"><pre><code class="language-bash"><pre class="fancyvrb" id="fancyvrb21"><a id="x21-147024r107"></a>man ls | head -10</pre></code></pre></div>
+<div class="code-wrapper"><pre><code class="language-text"><pre class="fancyvrb" id="fancyvrb22"><a id="x21-147026r112"></a>LS(1)                            User Commands                           LS(1) 
+<a id="x21-147028r113"></a> 
+<a id="x21-147030r114"></a>NAME 
+<a id="x21-147032r115"></a>       ls - list directory contents 
+<a id="x21-147034r116"></a> 
+<a id="x21-147036r117"></a>SYNOPSIS 
+<a id="x21-147038r118"></a>       ls [OPTION]... [FILE]... 
+<a id="x21-147040r119"></a> 
+<a id="x21-147042r120"></a>DESCRIPTION 
+<a id="x21-147044r121"></a>       List  information  about  the FILEs (the current directory by default).</pre></code></pre></div>
+<p class="noindent">Here, we can see some information about the <code class="verb">ls</code> <span class="margin-block">command. <span class="margin-comment"><a class="ellipsis" href="#m-ref-115">[115]</a>
 <span class="sidenote">Please ignore the <code class="verb">head - 10</code> , we will have a look at it
 later. But this basically does is to only print our the first 10 lines of the <code class="verb">stdout</code> .</span></span></span> We can see that it’s for
 <b>listing directory contents</b> and in the synopsis section we get a quick overview of how to use the
 command. In this case it is <code class="verb">ls [OPTION]... [FILE]...</code> . We write <code class="verb">ls</code>  followed by any of the options we need, and the file or folder
 path we want to use.
-</p><p class="noindent">The terms in square <span class="margin-block">brackets <span class="margin-comment"><a class="ellipsis" href="#m-ref-166">[166]</a>
+</p><p class="noindent">The terms in square <span class="margin-block">brackets <span class="margin-comment"><a class="ellipsis" href="#m-ref-116">[116]</a>
 <span class="sidenote">for example <code class="verb">[OPTION]</code>  and <code class="verb">[FILE]</code> </span></span></span> are <span class="alert">optional</span>. This basically means <b>we don’t have to use
 these</b> for the command to work. We can just use the <code class="verb">ls</code>  command by itself to see the default output of
 listing the directory.
@@ -177,18 +159,16 @@ listing the directory.
 default behaviour and usage notes, and below that is a listing of the options that the command
 takes.
 </p>
-<pre><code class="language-text">
-<pre class="fancyvrb" id="fancyvrb23"><a id="x29-183046r131"></a>Usage: ls [OPTION]... [FILE]... 
-<a id="x29-183048r132"></a>List information about the FILEs (the current directory by default). 
-<a id="x29-183050r133"></a>Sort entries alphabetically if none of -cftuvSUX nor --sort is specified. 
-<a id="x29-183052r134"></a> 
-<a id="x29-183054r135"></a>Mandatory arguments to long options are mandatory for short options too. 
-<a id="x29-183056r136"></a>  -a, --all                  do not ignore entries starting with . 
-<a id="x29-183058r137"></a>  -A, --almost-all           do not list implied . and .. 
-<a id="x29-183060r138"></a>      --author               with -l, print the author of each file 
-<a id="x29-183062r139"></a>  -b, --escape               print C-style escapes for nongraphic characters 
-<a id="x29-183064r140"></a>      --block-size=SIZE      with -l, scale sizes by SIZE when printing them;</pre>
-</code></pre>
+<div class="code-wrapper"><pre><code class="language-text"><pre class="fancyvrb" id="fancyvrb23"><a id="x21-147046r131"></a>Usage: ls [OPTION]... [FILE]... 
+<a id="x21-147048r132"></a>List information about the FILEs (the current directory by default). 
+<a id="x21-147050r133"></a>Sort entries alphabetically if none of -cftuvSUX nor --sort is specified. 
+<a id="x21-147052r134"></a> 
+<a id="x21-147054r135"></a>Mandatory arguments to long options are mandatory for short options too. 
+<a id="x21-147056r136"></a>  -a, --all                  do not ignore entries starting with . 
+<a id="x21-147058r137"></a>  -A, --almost-all           do not list implied . and .. 
+<a id="x21-147060r138"></a>      --author               with -l, print the author of each file 
+<a id="x21-147062r139"></a>  -b, --escape               print C-style escapes for nongraphic characters 
+<a id="x21-147064r140"></a>      --block-size=SIZE      with -l, scale sizes by SIZE when printing them;</pre></code></pre></div>
 <p class="noindent">There are a lot of ways to use the <code class="verb">man</code>  pages efficiently and is a powerful tool when we need to find what
 can a command do. There are other ways to learn about a command. Most of commands also have an
 option called <code class="verb">help</code> , which provides a brief amount of information about them. However, they usually refer
@@ -196,43 +176,35 @@ us to the manual pages for more detailed documentation. Therefore, <code class="
 compared to the <code class="verb">man</code>  command.
 </p><p class="noindent">Here can see if a command we’re using has this feature available by typing <code class="verb">--help</code>  after the command.
 </p>
-<pre><div class="code-header"> <span class="code-language">bash</span> </div> <code class="language-bash">
-<pre class="fancyvrb" id="fancyvrb24"><a id="x29-183066r126"></a>ls --help | head -10</pre>
-</code></pre>
-<pre><code class="language-text">
-<pre class="fancyvrb" id="fancyvrb25"><a id="x29-183068r131"></a>Usage: ls [OPTION]... [FILE]... 
-<a id="x29-183070r132"></a>List information about the FILEs (the current directory by default). 
-<a id="x29-183072r133"></a>Sort entries alphabetically if none of -cftuvSUX nor --sort is specified. 
-<a id="x29-183074r134"></a> 
-<a id="x29-183076r135"></a>Mandatory arguments to long options are mandatory for short options too. 
-<a id="x29-183078r136"></a>  -a, --all                  do not ignore entries starting with . 
-<a id="x29-183080r137"></a>  -A, --almost-all           do not list implied . and .. 
-<a id="x29-183082r138"></a>      --author               with -l, print the author of each file 
-<a id="x29-183084r139"></a>  -b, --escape               print C-style escapes for nongraphic characters 
-<a id="x29-183086r140"></a>      --block-size=SIZE      with -l, scale sizes by SIZE when printing them;</pre>
-</code></pre>
+<div class="code-header"><span class="code-language">bash</span></div><div class="code-wrapper"><pre><code class="language-bash"><pre class="fancyvrb" id="fancyvrb24"><a id="x21-147066r126"></a>ls --help | head -10</pre></code></pre></div>
+<div class="code-wrapper"><pre><code class="language-text"><pre class="fancyvrb" id="fancyvrb25"><a id="x21-147068r131"></a>Usage: ls [OPTION]... [FILE]... 
+<a id="x21-147070r132"></a>List information about the FILEs (the current directory by default). 
+<a id="x21-147072r133"></a>Sort entries alphabetically if none of -cftuvSUX nor --sort is specified. 
+<a id="x21-147074r134"></a> 
+<a id="x21-147076r135"></a>Mandatory arguments to long options are mandatory for short options too. 
+<a id="x21-147078r136"></a>  -a, --all                  do not ignore entries starting with . 
+<a id="x21-147080r137"></a>  -A, --almost-all           do not list implied . and .. 
+<a id="x21-147082r138"></a>      --author               with -l, print the author of each file 
+<a id="x21-147084r139"></a>  -b, --escape               print C-style escapes for nongraphic characters 
+<a id="x21-147086r140"></a>      --block-size=SIZE      with -l, scale sizes by SIZE when printing them;</pre></code></pre></div>
 <p class="noindent">Here we can scroll up and down to have a look at some of the information. There is another command
 that’s useful when we’re working in Bash, and that’s just <code class="verb">help</code>  by itself.
 </p>
 <p class="noindent"></p><figure class="float">
-<p class="noindent"><dl class="first-deffn first-defun-alias-first-deffn def-block"><a class="copiable-link" href="#command-block-6.4"> ¶</a><dt class="deffn defun-alias-deffn def-line" id="command-block-6.4"><a id="x29-183087r4"></a><span class="category-def"><b>command:</b> </span><strong class="def-name">help</strong><var class="def-var-arguments"> [-dms] [PATTERN ...]</var><span class="active-manual"><a href="https://linuxcommand.org/lc3_man_pages/helph.html"><i class="fa-solid fa-globe"></i></a></span></dt><dd><p> Display information about builtin commands. </p></dd></dl></p> <dl class="first-deffn first-defun-alias-first-deffn def-block"><a class="copiable-link" href="#command-block-6.5"> ¶</a><dt class="deffn defun-alias-deffn def-line" id="command-block-6.5"><a id="x29-183088r5"></a><span class="category-def"><b>command:</b> </span><strong class="def-name">apropos</strong><var class="def-var-arguments"> [...]</var><span class="active-manual"><a href="https://man7.org/linux/man-pages/man1/apropos.1.html"><i class="fa-solid fa-globe"></i></a></span></dt><dd><p> Search the
+<p class="noindent"><dl class="first-deffn first-defun-alias-first-deffn def-block"><a class="copiable-link" href="#command-block-5.4"> ¶</a><dt class="deffn defun-alias-deffn def-line" id="command-block-5.4"><a id="x21-147087r4"></a><span class="category-def"><b>command:</b> </span><strong class="def-name">help</strong><var class="def-var-arguments"> [-dms] [PATTERN ...]</var><span class="active-manual"><a href="https://linuxcommand.org/lc3_man_pages/helph.html"><i class="fa-solid fa-globe"></i></a></span></dt><dd><p> Display information about builtin commands. </p></dd></dl></p> <dl class="first-deffn first-defun-alias-first-deffn def-block"><a class="copiable-link" href="#command-block-5.5"> ¶</a><dt class="deffn defun-alias-deffn def-line" id="command-block-5.5"><a id="x21-147088r5"></a><span class="category-def"><b>command:</b> </span><strong class="def-name">apropos</strong><var class="def-var-arguments"> [...]</var><span class="active-manual"><a href="https://man7.org/linux/man-pages/man1/apropos.1.html"><i class="fa-solid fa-globe"></i></a></span></dt><dd><p> Search the
 manual page names and descriptions. </p></dd></dl>
 </figure>
-<pre><div class="code-header"> <span class="code-language">bash</span> </div> <code class="language-bash">
-<pre class="fancyvrb" id="fancyvrb26"><a id="x29-183090r145"></a><span style="color:#B03B03;">help</span> | head -10</pre>
-</code></pre>
-<pre><code class="language-text">
-<pre class="fancyvrb" id="fancyvrb27"><a id="x29-183092r150"></a>GNU bash, version 5.2.21(1)-release (aarch64-unknown-linux-gnu) 
-<a id="x29-183094r151"></a>These shell commands are defined internally.  Type `help' to see this list. 
-<a id="x29-183096r152"></a>Type `help name' to find out more about the function `name'. 
-<a id="x29-183098r153"></a>Use `info bash' to find out more about the shell in general. 
-<a id="x29-183100r154"></a>Use `man -k' or `info' to find out more about commands not in this list. 
-<a id="x29-183102r155"></a> 
-<a id="x29-183104r156"></a>A star (*) next to a name means that the command is disabled. 
-<a id="x29-183106r157"></a> 
-<a id="x29-183108r158"></a> job_spec [&amp;]                            history [-c] [-d offset] [n] or hist&gt; 
-<a id="x29-183110r159"></a> (( expression ))                        if COMMANDS; then COMMANDS; [ elif C&gt;</pre>
-</code></pre>
+<div class="code-header"><span class="code-language">bash</span></div><div class="code-wrapper"><pre><code class="language-bash"><pre class="fancyvrb" id="fancyvrb26"><a id="x21-147090r145"></a><span style="color:#B03B03;">help</span> | head -10</pre></code></pre></div>
+<div class="code-wrapper"><pre><code class="language-text"><pre class="fancyvrb" id="fancyvrb27"><a id="x21-147092r150"></a>GNU bash, version 5.2.21(1)-release (aarch64-unknown-linux-gnu) 
+<a id="x21-147094r151"></a>These shell commands are defined internally.  Type `help' to see this list. 
+<a id="x21-147096r152"></a>Type `help name' to find out more about the function `name'. 
+<a id="x21-147098r153"></a>Use `info bash' to find out more about the shell in general. 
+<a id="x21-147100r154"></a>Use `man -k' or `info' to find out more about commands not in this list. 
+<a id="x21-147102r155"></a> 
+<a id="x21-147104r156"></a>A star (*) next to a name means that the command is disabled. 
+<a id="x21-147106r157"></a> 
+<a id="x21-147108r158"></a> job_spec [&amp;]                            history [-c] [-d offset] [n] or hist&gt; 
+<a id="x21-147110r159"></a> (( expression ))                        if COMMANDS; then COMMANDS; [ elif C&gt;</pre></code></pre></div>
 <p class="noindent">As we get into working with the Bash shell, the <code class="verb">help</code>  tool can act as a handy reminder for the syntax of
 some Bash specific commands.
 </p>
@@ -242,98 +214,84 @@ descriptions for text we provide as an argument.
 </p><p class="noindent">So if we wanted to find out what can list things, we could type <code class="verb">apropos list</code>  and see a number of results which
 match that word.
 </p>
-<pre><div class="code-header"> <span class="code-language">bash</span> </div> <code class="language-bash">
-<pre class="fancyvrb" id="fancyvrb28"><a id="x29-183112r164"></a>apropos list | head -10</pre>
-</code></pre>
-<pre><code class="language-text">
-<pre class="fancyvrb" id="fancyvrb29"><a id="x29-183114r169"></a>port-contents(1)         - List the files installed by a given port 
-<a id="x29-183116r170"></a>port-dependents(1), port-rdependents(1) - List ports that depend on a given (installed) port 
-<a id="x29-183118r171"></a>port-deps(1), port-rdeps(1) - Display a dependency listing for the given port(s) 
-<a id="x29-183120r172"></a>port-distfiles(1)        - Print a list of distribution files for a port 
-<a id="x29-183122r173"></a>port-echo(1)             - Print the list of ports the argument expands to 
-<a id="x29-183124r174"></a>port-installed(1)        - List installed versions of a given port, or all installed ports 
-<a id="x29-183126r175"></a>port-list(1)             - List available ports 
-<a id="x29-183128r176"></a>port-outdated(1)         - List outdated ports 
-<a id="x29-183130r177"></a>port-variants(1)         - Print a list of variants with descriptions provided by a port 
-<a id="x29-183132r178"></a>AllPlanes(3), BlackPixel(3), WhitePixel(3), ConnectionNumber(3), DefaultColormap(3), DefaultDepth(3), XListDepths(3), DefaultGC(3), DefaultRootWindow(3), DefaultScreenOfDisplay(3), DefaultScreen(3), DefaultVisual(3), DisplayCells(3), DisplayPlanes(3), DisplayString(3), XMaxRequestSize(3), XExtendedMaxRequestSize(3), LastKnownRequestProcessed(3), NextRequest(3), ProtocolVersion(3), ProtocolRevision(3), QLength(3), RootWindow(3), ScreenCount(3), ScreenOfDisplay(3), ServerVendor(3), VendorRelease(3) - Display macros and functions</pre>
-</code></pre>
+<div class="code-header"><span class="code-language">bash</span></div><div class="code-wrapper"><pre><code class="language-bash"><pre class="fancyvrb" id="fancyvrb28"><a id="x21-147112r164"></a>apropos list | head -10</pre></code></pre></div>
+<div class="code-wrapper"><pre><code class="language-text"><pre class="fancyvrb" id="fancyvrb29"><a id="x21-147114r169"></a>port-contents(1)         - List the files installed by a given port 
+<a id="x21-147116r170"></a>port-dependents(1), port-rdependents(1) - List ports that depend on a given (installed) port 
+<a id="x21-147118r171"></a>port-deps(1), port-rdeps(1) - Display a dependency listing for the given port(s) 
+<a id="x21-147120r172"></a>port-distfiles(1)        - Print a list of distribution files for a port 
+<a id="x21-147122r173"></a>port-echo(1)             - Print the list of ports the argument expands to 
+<a id="x21-147124r174"></a>port-installed(1)        - List installed versions of a given port, or all installed ports 
+<a id="x21-147126r175"></a>port-list(1)             - List available ports 
+<a id="x21-147128r176"></a>port-outdated(1)         - List outdated ports 
+<a id="x21-147130r177"></a>port-variants(1)         - Print a list of variants with descriptions provided by a port 
+<a id="x21-147132r178"></a>AllPlanes(3), BlackPixel(3), WhitePixel(3), ConnectionNumber(3), DefaultColormap(3), DefaultDepth(3), XListDepths(3), DefaultGC(3), DefaultRootWindow(3), DefaultScreenOfDisplay(3), DefaultScreen(3), DefaultVisual(3), DisplayCells(3), DisplayPlanes(3), DisplayString(3), XMaxRequestSize(3), XExtendedMaxRequestSize(3), LastKnownRequestProcessed(3), NextRequest(3), ProtocolVersion(3), ProtocolRevision(3), QLength(3), RootWindow(3), ScreenCount(3), ScreenOfDisplay(3), ServerVendor(3), VendorRelease(3) - Display macros and functions</pre></code></pre></div>
 <p class="noindent">Here’s the command that can list directory contents we were looking for.
 </p>
-<pre><code class="language-text">
-<pre class="fancyvrb" id="fancyvrb30"><a id="x29-183134r189"></a>ls(1)                    - list directory contents</pre>
-</code></pre>
+<div class="code-wrapper"><pre><code class="language-text"><pre class="fancyvrb" id="fancyvrb30"><a id="x21-147134r189"></a>ls(1)                    - list directory contents</pre></code></pre></div>
 <p class="noindent">Searching for commands this way can be time-consuming, but if we know what we need to do but not
 the command to do it, <code class="verb">apropos</code>  is very helpful and powerful.
 </p>
-<p class="noindent"><div class="subsection-header"> <h4 id="header-subsection-6.2.1"> <a class="pdf-icon" href="AutonomousMobileRoboticsLectureBook.pdf#subsection.6.2.1"><svg class="bi bi-file-pdf" fill="currentColor" height="20" viewbox="0 0 16 16" width="20" xmlns="http://www.w3.org/2000/svg"><path d="M4 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H4zm0 1h8a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1z"></path><path d="M4.603 12.087a.81.81 0 0 1-.438-.42c-.195-.388-.13-.776.08-1.102.198-.307.526-.568.897-.787a7.68 7.68 0 0 1 1.482-.645 19.701 19.701 0 0 0 1.062-2.227 7.269 7.269 0 0 1-.43-1.295c-.086-.4-.119-.796-.046-1.136.075-.354.274-.672.65-.823.192-.077.4-.12.602-.077a.7.7 0 0 1 .477.365c.088.164.12.356.127.538.007.187-.012.395-.047.614-.084.51-.27 1.134-.52 1.794a10.954 10.954 0 0 0 .98 1.686 5.753 5.753 0 0 1 1.334.05c.364.065.734.195.96.465.12.144.193.32.2.518.007.192-.047.382-.138.563a1.04 1.04 0 0 1-.354.416.856.856 0 0 1-.51.138c-.331-.014-.654-.196-.933-.417a5.716 5.716 0 0 1-.911-.95 11.642 11.642 0 0 0-1.997.406 11.311 11.311 0 0 1-1.021 1.51c-.29.35-.608.655-.926.787a.793.793 0 0 1-.58.029zm1.379-1.901c-.166.076-.32.156-.459.238-.328.194-.541.383-.647.547-.094.145-.096.25-.04.361.01.022.02.036.026.044a.27.27 0 0 0 .035-.012c.137-.056.355-.235.635-.572a8.18 8.18 0 0 0 .45-.606zm1.64-1.33a12.647 12.647 0 0 1 1.01-.193 11.666 11.666 0 0 1-.51-.858 20.741 20.741 0 0 1-.5 1.05zm2.446.45c.15.162.296.3.435.41.24.19.407.253.498.256a.107.107 0 0 0 .07-.015.307.307 0 0 0 .094-.125.436.436 0 0 0 .059-.2.095.095 0 0 0-.026-.063c-.052-.062-.2-.152-.518-.209a3.881 3.881 0 0 0-.612-.053zM8.078 5.8a6.7 6.7 0 0 0 .2-.828c.031-.188.043-.343.038-.465a.613.613 0 0 0-.032-.198.517.517 0 0 0-.145.04c-.087.035-.158.106-.196.283-.04.192-.03.469.046.822.024.111.054.227.09.346z"></path></svg></a><span class="number">6.2.1</span> <span class="title"> <a id="x29-1840006.2.1"></a>Use Tab completion on the Shell</span></h4></div>
-</p><p class="noindent">If we do not know the exact name of a command, then we can make use of <b>tab completion</b>. To use
+<div class="subsection-header"><h4 id="header-subsection-5.2.1"><span class="number">5.2.1</span><a class="pdf-icon" href="AutonomousMobileRoboticsLectureBook.pdf#subsection.5.2.1"><svg class="bi bi-file-pdf" fill="currentColor" height="20" viewbox="0 0 16 16" width="20" xmlns="http://www.w3.org/2000/svg"><path d="M4 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H4zm0 1h8a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1z"></path><path d="M4.603 12.087a.81.81 0 0 1-.438-.42c-.195-.388-.13-.776.08-1.102.198-.307.526-.568.897-.787a7.68 7.68 0 0 1 1.482-.645 19.701 19.701 0 0 0 1.062-2.227 7.269 7.269 0 0 1-.43-1.295c-.086-.4-.119-.796-.046-1.136.075-.354.274-.672.65-.823.192-.077.4-.12.602-.077a.7.7 0 0 1 .477.365c.088.164.12.356.127.538.007.187-.012.395-.047.614-.084.51-.27 1.134-.52 1.794a10.954 10.954 0 0 0 .98 1.686 5.753 5.753 0 0 1 1.334.05c.364.065.734.195.96.465.12.144.193.32.2.518.007.192-.047.382-.138.563a1.04 1.04 0 0 1-.354.416.856.856 0 0 1-.51.138c-.331-.014-.654-.196-.933-.417a5.716 5.716 0 0 1-.911-.95 11.642 11.642 0 0 0-1.997.406 11.311 11.311 0 0 1-1.021 1.51c-.29.35-.608.655-.926.787a.793.793 0 0 1-.58.029zm1.379-1.901c-.166.076-.32.156-.459.238-.328.194-.541.383-.647.547-.094.145-.096.25-.04.361.01.022.02.036.026.044a.27.27 0 0 0 .035-.012c.137-.056.355-.235.635-.572a8.18 8.18 0 0 0 .45-.606zm1.64-1.33a12.647 12.647 0 0 1 1.01-.193 11.666 11.666 0 0 1-.51-.858 20.741 20.741 0 0 1-.5 1.05zm2.446.45c.15.162.296.3.435.41.24.19.407.253.498.256a.107.107 0 0 0 .07-.015.307.307 0 0 0 .094-.125.436.436 0 0 0 .059-.2.095.095 0 0 0-.026-.063c-.052-.062-.2-.152-.518-.209a3.881 3.881 0 0 0-.612-.053zM8.078 5.8a6.7 6.7 0 0 0 .2-.828c.031-.188.043-.343.038-.465a.613.613 0 0 0-.032-.198.517.517 0 0 0-.145.04c-.087.035-.158.106-.196.283-.04.192-.03.469.046.822.024.111.054.227.09.346z"></path></svg></a><span class="title"> <a id="x21-1480005.2.1"></a>Use Tab completion on the Shell</span></h4></div>
+<p class="noindent">If we do not know the exact name of a command, then we can make use of <b>tab completion</b>. To use
 this action, launch the terminal by pressing <kbd>Ctrl</kbd> + <kbd>Alt</kbd> + <kbd>T</kbd> or just click on the terminal icon in the
 task bar. Just type the command name that we know in the terminal and then press <kbd>Tab</kbd> twice. </p><div class="quote">  For
 example, if we can’t remember <code class="verb">man</code> , we can write <code class="verb">ma</code>  and can choose one of the option the Bash shell
 presents us. </div>
-<pre><div class="code-header"> <span class="code-language">bash</span> </div> <code class="language-bash">
-<pre class="fancyvrb" id="fancyvrb31"><a id="x29-184002r194"></a>~$ ma</pre>
-</code></pre>
-<pre><code class="language-text">
-<pre class="fancyvrb" id="fancyvrb32"><a id="x29-184004r199"></a>macptopbm                   make-ssl-cert 
-<a id="x29-184006r200"></a>mag                         mako-render 
-<a id="x29-184008r201"></a>mailmail3                   man 
-<a id="x29-184010r202"></a>make                        mandb 
-<a id="x29-184012r203"></a>make4ht                     manpath 
-<a id="x29-184014r204"></a>makeconv                    man-recode 
-<a id="x29-184016r205"></a>makedtx                     mapfile 
-<a id="x29-184018r206"></a>make-first-existing-target  mapscrn 
-<a id="x29-184020r207"></a>makeglossaries              match_parens 
-<a id="x29-184022r208"></a>makeglossaries-lite         mathspic 
-<a id="x29-184024r209"></a>makeindex                   mattrib 
-<a id="x29-184026r210"></a>makejvf                     mawk</pre>
-</code></pre>
-<p class="noindent"><div class="subsection-header"> <h4 id="header-subsection-6.2.2"> <a class="pdf-icon" href="AutonomousMobileRoboticsLectureBook.pdf#subsection.6.2.2"><svg class="bi bi-file-pdf" fill="currentColor" height="20" viewbox="0 0 16 16" width="20" xmlns="http://www.w3.org/2000/svg"><path d="M4 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H4zm0 1h8a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1z"></path><path d="M4.603 12.087a.81.81 0 0 1-.438-.42c-.195-.388-.13-.776.08-1.102.198-.307.526-.568.897-.787a7.68 7.68 0 0 1 1.482-.645 19.701 19.701 0 0 0 1.062-2.227 7.269 7.269 0 0 1-.43-1.295c-.086-.4-.119-.796-.046-1.136.075-.354.274-.672.65-.823.192-.077.4-.12.602-.077a.7.7 0 0 1 .477.365c.088.164.12.356.127.538.007.187-.012.395-.047.614-.084.51-.27 1.134-.52 1.794a10.954 10.954 0 0 0 .98 1.686 5.753 5.753 0 0 1 1.334.05c.364.065.734.195.96.465.12.144.193.32.2.518.007.192-.047.382-.138.563a1.04 1.04 0 0 1-.354.416.856.856 0 0 1-.51.138c-.331-.014-.654-.196-.933-.417a5.716 5.716 0 0 1-.911-.95 11.642 11.642 0 0 0-1.997.406 11.311 11.311 0 0 1-1.021 1.51c-.29.35-.608.655-.926.787a.793.793 0 0 1-.58.029zm1.379-1.901c-.166.076-.32.156-.459.238-.328.194-.541.383-.647.547-.094.145-.096.25-.04.361.01.022.02.036.026.044a.27.27 0 0 0 .035-.012c.137-.056.355-.235.635-.572a8.18 8.18 0 0 0 .45-.606zm1.64-1.33a12.647 12.647 0 0 1 1.01-.193 11.666 11.666 0 0 1-.51-.858 20.741 20.741 0 0 1-.5 1.05zm2.446.45c.15.162.296.3.435.41.24.19.407.253.498.256a.107.107 0 0 0 .07-.015.307.307 0 0 0 .094-.125.436.436 0 0 0 .059-.2.095.095 0 0 0-.026-.063c-.052-.062-.2-.152-.518-.209a3.881 3.881 0 0 0-.612-.053zM8.078 5.8a6.7 6.7 0 0 0 .2-.828c.031-.188.043-.343.038-.465a.613.613 0 0 0-.032-.198.517.517 0 0 0-.145.04c-.087.035-.158.106-.196.283-.04.192-.03.469.046.822.024.111.054.227.09.346z"></path></svg></a><span class="number">6.2.2</span> <span class="title"> <a id="x29-1850006.2.2"></a>The info command</span></h4></div>
-</p><p class="noindent">Some commands do not have their manuals written or they are either <span class="alert">incomplete</span>. To get help with
+<div class="code-header"><span class="code-language">bash</span></div><div class="code-wrapper"><pre><code class="language-bash"><pre class="fancyvrb" id="fancyvrb31"><a id="x21-148002r194"></a>~$ ma</pre></code></pre></div>
+<div class="code-wrapper"><pre><code class="language-text"><pre class="fancyvrb" id="fancyvrb32"><a id="x21-148004r199"></a>macptopbm                   make-ssl-cert 
+<a id="x21-148006r200"></a>mag                         mako-render 
+<a id="x21-148008r201"></a>mailmail3                   man 
+<a id="x21-148010r202"></a>make                        mandb 
+<a id="x21-148012r203"></a>make4ht                     manpath 
+<a id="x21-148014r204"></a>makeconv                    man-recode 
+<a id="x21-148016r205"></a>makedtx                     mapfile 
+<a id="x21-148018r206"></a>make-first-existing-target  mapscrn 
+<a id="x21-148020r207"></a>makeglossaries              match_parens 
+<a id="x21-148022r208"></a>makeglossaries-lite         mathspic 
+<a id="x21-148024r209"></a>makeindex                   mattrib 
+<a id="x21-148026r210"></a>makejvf                     mawk</pre></code></pre></div>
+<div class="subsection-header"><h4 id="header-subsection-5.2.2"><span class="number">5.2.2</span><a class="pdf-icon" href="AutonomousMobileRoboticsLectureBook.pdf#subsection.5.2.2"><svg class="bi bi-file-pdf" fill="currentColor" height="20" viewbox="0 0 16 16" width="20" xmlns="http://www.w3.org/2000/svg"><path d="M4 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H4zm0 1h8a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1z"></path><path d="M4.603 12.087a.81.81 0 0 1-.438-.42c-.195-.388-.13-.776.08-1.102.198-.307.526-.568.897-.787a7.68 7.68 0 0 1 1.482-.645 19.701 19.701 0 0 0 1.062-2.227 7.269 7.269 0 0 1-.43-1.295c-.086-.4-.119-.796-.046-1.136.075-.354.274-.672.65-.823.192-.077.4-.12.602-.077a.7.7 0 0 1 .477.365c.088.164.12.356.127.538.007.187-.012.395-.047.614-.084.51-.27 1.134-.52 1.794a10.954 10.954 0 0 0 .98 1.686 5.753 5.753 0 0 1 1.334.05c.364.065.734.195.96.465.12.144.193.32.2.518.007.192-.047.382-.138.563a1.04 1.04 0 0 1-.354.416.856.856 0 0 1-.51.138c-.331-.014-.654-.196-.933-.417a5.716 5.716 0 0 1-.911-.95 11.642 11.642 0 0 0-1.997.406 11.311 11.311 0 0 1-1.021 1.51c-.29.35-.608.655-.926.787a.793.793 0 0 1-.58.029zm1.379-1.901c-.166.076-.32.156-.459.238-.328.194-.541.383-.647.547-.094.145-.096.25-.04.361.01.022.02.036.026.044a.27.27 0 0 0 .035-.012c.137-.056.355-.235.635-.572a8.18 8.18 0 0 0 .45-.606zm1.64-1.33a12.647 12.647 0 0 1 1.01-.193 11.666 11.666 0 0 1-.51-.858 20.741 20.741 0 0 1-.5 1.05zm2.446.45c.15.162.296.3.435.41.24.19.407.253.498.256a.107.107 0 0 0 .07-.015.307.307 0 0 0 .094-.125.436.436 0 0 0 .059-.2.095.095 0 0 0-.026-.063c-.052-.062-.2-.152-.518-.209a3.881 3.881 0 0 0-.612-.053zM8.078 5.8a6.7 6.7 0 0 0 .2-.828c.031-.188.043-.343.038-.465a.613.613 0 0 0-.032-.198.517.517 0 0 0-.145.04c-.087.035-.158.106-.196.283-.04.192-.03.469.046.822.024.111.054.227.09.346z"></path></svg></a><span class="title"> <a id="x21-1490005.2.2"></a>The info command</span></h4></div>
+<p class="noindent">Some commands do not have their manuals written or they are either <span class="alert">incomplete</span>. To get help with
 those commands, we use <code class="verb">info</code> . To use this command, launch the terminal by pressing <kbd>Ctrl</kbd>
 + <kbd>Alt</kbd> + <kbd>T</kbd> or just click on the terminal icon in the task bar. Just type <code class="verb">info</code>  in the terminal
 and with a space, type the name of the command whose manual does not exist and press
 <kbd>Return</kbd>.
 </p>
 <p class="noindent"></p><figure class="float">
-<p class="noindent"><dl class="first-deffn first-defun-alias-first-deffn def-block"><a class="copiable-link" href="#command-block-6.6"> ¶</a><dt class="deffn defun-alias-deffn def-line" id="command-block-6.6"><a id="x29-185001r6"></a><span class="category-def"><b>command:</b> </span><strong class="def-name">info</strong><var class="def-var-arguments"> [OPTION]... [MENU-ITEM...] </var><span class="active-manual"><a href="https://linux.die.net/man/1/info"><i class="fa-solid fa-globe"></i></a></span></dt><dd><p> read Info documents. </p></dd></dl></p>
+<p class="noindent"><dl class="first-deffn first-defun-alias-first-deffn def-block"><a class="copiable-link" href="#command-block-5.6"> ¶</a><dt class="deffn defun-alias-deffn def-line" id="command-block-5.6"><a id="x21-149001r6"></a><span class="category-def"><b>command:</b> </span><strong class="def-name">info</strong><var class="def-var-arguments"> [OPTION]... [MENU-ITEM...] </var><span class="active-manual"><a href="https://linux.die.net/man/1/info"><i class="fa-solid fa-globe"></i></a></span></dt><dd><p> read Info documents. </p></dd></dl></p>
 </figure>
-<pre><div class="code-header"> <span class="code-language">bash</span> </div> <code class="language-bash">
-<pre class="fancyvrb" id="fancyvrb33"><a id="x29-185003r50"></a>info ls | head -10</pre>
-</code></pre>
-<pre><code class="language-text">
-<pre class="fancyvrb" id="fancyvrb34"><a id="x29-185005r55"></a>File: coreutils.info,  Node: ls invocation,  Next: dir invocation,  Up: Directory listing 
-<a id="x29-185007r56"></a> 
-<a id="x29-185009r57"></a>10.1 ls: List directory contents 
-<a id="x29-185011r58"></a>================================== 
-<a id="x29-185013r59"></a> 
-<a id="x29-185015r60"></a>The ls program lists information about files (of any type, including 
-<a id="x29-185017r61"></a>directories).  Options and file arguments can be intermixed arbitrarily, 
-<a id="x29-185019r62"></a>as usual.  Later options override earlier options that are incompatible. 
-<a id="x29-185021r63"></a> 
-<a id="x29-185023r64"></a>   For non-option command-line arguments that are directories, by</pre>
-</code></pre>
-<p class="noindent">The <code class="verb">info</code>  command reads documentation in the <span class="margin-block">info format. <span class="margin-comment"><a class="ellipsis" href="#m-ref-167">[167]</a>
+<div class="code-header"><span class="code-language">bash</span></div><div class="code-wrapper"><pre><code class="language-bash"><pre class="fancyvrb" id="fancyvrb33"><a id="x21-149003r50"></a>info ls | head -10</pre></code></pre></div>
+<div class="code-wrapper"><pre><code class="language-text"><pre class="fancyvrb" id="fancyvrb34"><a id="x21-149005r55"></a>File: coreutils.info,  Node: ls invocation,  Next: dir invocation,  Up: Directory listing 
+<a id="x21-149007r56"></a> 
+<a id="x21-149009r57"></a>10.1 ls: List directory contents 
+<a id="x21-149011r58"></a>================================== 
+<a id="x21-149013r59"></a> 
+<a id="x21-149015r60"></a>The ls program lists information about files (of any type, including 
+<a id="x21-149017r61"></a>directories).  Options and file arguments can be intermixed arbitrarily, 
+<a id="x21-149019r62"></a>as usual.  Later options override earlier options that are incompatible. 
+<a id="x21-149021r63"></a> 
+<a id="x21-149023r64"></a>   For non-option command-line arguments that are directories, by</pre></code></pre></div>
+<p class="noindent">The <code class="verb">info</code>  command reads documentation in the <span class="margin-block">info format. <span class="margin-comment"><a class="ellipsis" href="#m-ref-117">[117]</a>
 <span class="sidenote">A mostly a plain text transliteration of the
 Texinfo source, with the addition of a few control characters to separate nodes and provide navigational
 information, designed by the NU project.</span></span></span> It will give detailed information for a command when
-compared with the man page. The pages are made using the <span class="margin-block">Texinfo <span class="margin-comment"><a class="ellipsis" href="#m-ref-168">[168]</a>
+compared with the man page. The pages are made using the <span class="margin-block">Texinfo <span class="margin-comment"><a class="ellipsis" href="#m-ref-118">[118]</a>
 <span class="sidenote">A typesetting syntax used for
 generating documentation in both on-line and printed form (creating filetypes as dvi, html, pdf, etc.,
 and a specific hypertext format, Info) with a single source file.</span></span></span> tools which can link with other pages,
 create menus, and easy navigation.
 </p>
-<div class="info-block" id="info-block-6.26"> <a class="copiable-link" href="#info-block-6.26"> ¶</a> <span class="info-upper"> <span class="info-header"> <b>Information 6.<a id="x29-185024r26"></a>26: </b> </span> <span class="info-title"> Man v. Info </span> </span> <div class="body">
+<dl class="def-block block-major info-block"> <a class="copiable-link" href="#info-block-5.18" id="info-block-5.18"> ¶</a> <dt class="def-line"> <span class="upper"> <span class="header"> <b>Information 5.<a id="x21-149024r18"></a>18: </b> </span> <span class="title"> Man v. Info </span> </span> <input class="body-button" type="button" value="Show/Hide"/> </dt> <dd class="body">
 <p class="noindent">Man pages are the UNIX traditional way of distributing documentation about programs. The term
 “man page” itself is short for “manual page”, as they correspond to the pages of the printed manual;
-the man pages <span class="margin-block">“sections” <span class="margin-comment"><a class="ellipsis" href="#m-ref-169">[169]</a>
+the man pages <span class="margin-block">“sections” <span class="margin-comment"><a class="ellipsis" href="#m-ref-119">[119]</a>
 <span class="sidenote">1 for commands, 2 for system calls, etc...</span></span></span> correspond to sections in the full
 UNIX manual. Support is still there if we want to print a man page to paper, although this is rarely
 done these days, and the sheer number of man pages make it just impossible to bind them all into a
 single book.
 </p><p class="noindent">In the early ’90s, the GNU project decided that “man” documentation system was outdated, and wrote
 the info command to replace it: info has basic hyperlinking features and a simpler markup language to
-use (compared to the <span class="margin-block">troff <span class="margin-comment"><a class="ellipsis" href="#m-ref-170">[170]</a>
+use (compared to the <span class="margin-block">troff <span class="margin-comment"><a class="ellipsis" href="#m-ref-120">[120]</a>
 <span class="sidenote">A major component of a document processing system developed by Bell
 Labs for the Unix operating system. It is mostly outdated.</span></span></span> system used for man pages). In addition,
 GNU advocates against the use of man pages at all and contends that complex software systems
@@ -343,9 +301,9 @@ pages.
 the project that provided the software in the first place – there is no globally accepted
 standard.
 </p>
-</div></div>
-<p class="noindent"><div class="subsection-header"> <h4 id="header-subsection-6.2.3"> <a class="pdf-icon" href="AutonomousMobileRoboticsLectureBook.pdf#subsection.6.2.3"><svg class="bi bi-file-pdf" fill="currentColor" height="20" viewbox="0 0 16 16" width="20" xmlns="http://www.w3.org/2000/svg"><path d="M4 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H4zm0 1h8a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1z"></path><path d="M4.603 12.087a.81.81 0 0 1-.438-.42c-.195-.388-.13-.776.08-1.102.198-.307.526-.568.897-.787a7.68 7.68 0 0 1 1.482-.645 19.701 19.701 0 0 0 1.062-2.227 7.269 7.269 0 0 1-.43-1.295c-.086-.4-.119-.796-.046-1.136.075-.354.274-.672.65-.823.192-.077.4-.12.602-.077a.7.7 0 0 1 .477.365c.088.164.12.356.127.538.007.187-.012.395-.047.614-.084.51-.27 1.134-.52 1.794a10.954 10.954 0 0 0 .98 1.686 5.753 5.753 0 0 1 1.334.05c.364.065.734.195.96.465.12.144.193.32.2.518.007.192-.047.382-.138.563a1.04 1.04 0 0 1-.354.416.856.856 0 0 1-.51.138c-.331-.014-.654-.196-.933-.417a5.716 5.716 0 0 1-.911-.95 11.642 11.642 0 0 0-1.997.406 11.311 11.311 0 0 1-1.021 1.51c-.29.35-.608.655-.926.787a.793.793 0 0 1-.58.029zm1.379-1.901c-.166.076-.32.156-.459.238-.328.194-.541.383-.647.547-.094.145-.096.25-.04.361.01.022.02.036.026.044a.27.27 0 0 0 .035-.012c.137-.056.355-.235.635-.572a8.18 8.18 0 0 0 .45-.606zm1.64-1.33a12.647 12.647 0 0 1 1.01-.193 11.666 11.666 0 0 1-.51-.858 20.741 20.741 0 0 1-.5 1.05zm2.446.45c.15.162.296.3.435.41.24.19.407.253.498.256a.107.107 0 0 0 .07-.015.307.307 0 0 0 .094-.125.436.436 0 0 0 .059-.2.095.095 0 0 0-.026-.063c-.052-.062-.2-.152-.518-.209a3.881 3.881 0 0 0-.612-.053zM8.078 5.8a6.7 6.7 0 0 0 .2-.828c.031-.188.043-.343.038-.465a.613.613 0 0 0-.032-.198.517.517 0 0 0-.145.04c-.087.035-.158.106-.196.283-.04.192-.03.469.046.822.024.111.054.227.09.346z"></path></svg></a><span class="number">6.2.3</span> <span class="title"> <a id="x29-1860006.2.3"></a>The whatis command</span></h4></div>
-</p><p class="noindent">This command is used with another command just to show a one liner usage of the latter command
+</dd></dl>
+<div class="subsection-header"><h4 id="header-subsection-5.2.3"><span class="number">5.2.3</span><a class="pdf-icon" href="AutonomousMobileRoboticsLectureBook.pdf#subsection.5.2.3"><svg class="bi bi-file-pdf" fill="currentColor" height="20" viewbox="0 0 16 16" width="20" xmlns="http://www.w3.org/2000/svg"><path d="M4 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H4zm0 1h8a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1z"></path><path d="M4.603 12.087a.81.81 0 0 1-.438-.42c-.195-.388-.13-.776.08-1.102.198-.307.526-.568.897-.787a7.68 7.68 0 0 1 1.482-.645 19.701 19.701 0 0 0 1.062-2.227 7.269 7.269 0 0 1-.43-1.295c-.086-.4-.119-.796-.046-1.136.075-.354.274-.672.65-.823.192-.077.4-.12.602-.077a.7.7 0 0 1 .477.365c.088.164.12.356.127.538.007.187-.012.395-.047.614-.084.51-.27 1.134-.52 1.794a10.954 10.954 0 0 0 .98 1.686 5.753 5.753 0 0 1 1.334.05c.364.065.734.195.96.465.12.144.193.32.2.518.007.192-.047.382-.138.563a1.04 1.04 0 0 1-.354.416.856.856 0 0 1-.51.138c-.331-.014-.654-.196-.933-.417a5.716 5.716 0 0 1-.911-.95 11.642 11.642 0 0 0-1.997.406 11.311 11.311 0 0 1-1.021 1.51c-.29.35-.608.655-.926.787a.793.793 0 0 1-.58.029zm1.379-1.901c-.166.076-.32.156-.459.238-.328.194-.541.383-.647.547-.094.145-.096.25-.04.361.01.022.02.036.026.044a.27.27 0 0 0 .035-.012c.137-.056.355-.235.635-.572a8.18 8.18 0 0 0 .45-.606zm1.64-1.33a12.647 12.647 0 0 1 1.01-.193 11.666 11.666 0 0 1-.51-.858 20.741 20.741 0 0 1-.5 1.05zm2.446.45c.15.162.296.3.435.41.24.19.407.253.498.256a.107.107 0 0 0 .07-.015.307.307 0 0 0 .094-.125.436.436 0 0 0 .059-.2.095.095 0 0 0-.026-.063c-.052-.062-.2-.152-.518-.209a3.881 3.881 0 0 0-.612-.053zM8.078 5.8a6.7 6.7 0 0 0 .2-.828c.031-.188.043-.343.038-.465a.613.613 0 0 0-.032-.198.517.517 0 0 0-.145.04c-.087.035-.158.106-.196.283-.04.192-.03.469.046.822.024.111.054.227.09.346z"></path></svg></a><span class="title"> <a id="x21-1500005.2.3"></a>The whatis command</span></h4></div>
+<p class="noindent">This command is used with another command just to show a one liner usage of the latter command
 from its manual. It’s a quick way of knowing the usage of a command without going through the whole
 manual.
 </p><p class="noindent"><code class="verb">whatis</code> command in Linux is used to get a one-line manual page description. In Linux, each manual page has
@@ -353,30 +311,26 @@ some sort of description within it. So, this command search for the manual pages
 manual page description of the specified filename or argument.
 </p><p class="noindent">To use this command, launch the terminal by pressing <kbd>Ctrl</kbd> + <kbd>Alt</kbd> + <kbd>T</kbd> or just click on
 the terminal icon in the task bar. Just type <code class="verb">whatis</code>  in the terminal and after a space, type the
-name of the command whose one liner description we <span class="margin-block">want <span class="margin-comment"><a class="ellipsis" href="#m-ref-171">[171]</a>
+name of the command whose one liner description we <span class="margin-block">want <span class="margin-comment"><a class="ellipsis" href="#m-ref-121">[121]</a>
 <span class="sidenote">for example <code class="verb">ls</code> .</span></span></span> and then press
 <kbd>Return</kbd>.
 </p>
-<pre><div class="code-header"> <span class="code-language">bash</span> </div> <code class="language-bash">
-<pre class="fancyvrb" id="fancyvrb35"><a id="x29-186002r69"></a>whatis ls | head -10</pre>
-</code></pre>
-<pre><code class="language-text">
-<pre class="fancyvrb" id="fancyvrb36"><a id="x29-186004r74"></a>dcmcjpls(1)              - Encode DICOM file to JPEG-LS transfer syntax 
-<a id="x29-186006r75"></a>dcmdjpls(1)              - Decode JPEG-LS compressed DICOM file 
-<a id="x29-186008r76"></a>gdircolors(1), dircolors(1) - color setup for ls 
-<a id="x29-186010r77"></a>gls(1), ls(1)            - list directory contents 
-<a id="x29-186012r78"></a>gdircolors(1), dircolors(1) - color setup for ls 
-<a id="x29-186014r79"></a>git-ls-files(1)          - Show information about files in the index and the working tree 
-<a id="x29-186016r80"></a>git-ls-remote(1)         - List references in a remote repository 
-<a id="x29-186018r81"></a>git-ls-tree(1)           - List the contents of a tree object 
-<a id="x29-186020r82"></a>git-mktree(1)            - Build a tree-object from ls-tree formatted text 
-<a id="x29-186022r83"></a>gls(1), ls(1)            - list directory contents</pre>
-</code></pre>
+<div class="code-header"><span class="code-language">bash</span></div><div class="code-wrapper"><pre><code class="language-bash"><pre class="fancyvrb" id="fancyvrb35"><a id="x21-150002r69"></a>whatis ls | head -10</pre></code></pre></div>
+<div class="code-wrapper"><pre><code class="language-text"><pre class="fancyvrb" id="fancyvrb36"><a id="x21-150004r74"></a>dcmcjpls(1)              - Encode DICOM file to JPEG-LS transfer syntax 
+<a id="x21-150006r75"></a>dcmdjpls(1)              - Decode JPEG-LS compressed DICOM file 
+<a id="x21-150008r76"></a>gdircolors(1), dircolors(1) - color setup for ls 
+<a id="x21-150010r77"></a>gls(1), ls(1)            - list directory contents 
+<a id="x21-150012r78"></a>gdircolors(1), dircolors(1) - color setup for ls 
+<a id="x21-150014r79"></a>git-ls-files(1)          - Show information about files in the index and the working tree 
+<a id="x21-150016r80"></a>git-ls-remote(1)         - List references in a remote repository 
+<a id="x21-150018r81"></a>git-ls-tree(1)           - List the contents of a tree object 
+<a id="x21-150020r82"></a>git-mktree(1)            - Build a tree-object from ls-tree formatted text 
+<a id="x21-150022r83"></a>gls(1), ls(1)            - list directory contents</pre></code></pre></div>
 <p class="noindent"></p><figure class="float">
-<p class="noindent"><dl class="first-deffn first-defun-alias-first-deffn def-block"><a class="copiable-link" href="#command-block-6.7"> ¶</a><dt class="deffn defun-alias-deffn def-line" id="command-block-6.7"><a id="x29-186023r7"></a><span class="category-def"><b>command:</b> </span><strong class="def-name">whatis</strong><var class="def-var-arguments"> [OPTIONS]</var><span class="active-manual"><a href="https://man7.org/linux/man-pages/man1/whatis.1.html"><i class="fa-solid fa-globe"></i></a></span></dt><dd><p> Display one-line manual page descriptions. </p></dd></dl></p>
+<p class="noindent"><dl class="first-deffn first-defun-alias-first-deffn def-block"><a class="copiable-link" href="#command-block-5.7"> ¶</a><dt class="deffn defun-alias-deffn def-line" id="command-block-5.7"><a id="x21-150023r7"></a><span class="category-def"><b>command:</b> </span><strong class="def-name">whatis</strong><var class="def-var-arguments"> [OPTIONS]</var><span class="active-manual"><a href="https://man7.org/linux/man-pages/man1/whatis.1.html"><i class="fa-solid fa-globe"></i></a></span></dt><dd><p> Display one-line manual page descriptions. </p></dd></dl></p>
 </figure>
-<p class="noindent"><span class="paragraphHead"> <a id="x29-187000"></a>Miscellaneous Information</span>
-Before we moving on to more specific commands and get into <span class="acronym"><span class="acronym-short"><a class="glossary" href="#glo:cli">CLI</a></span><span class="acronym-detail"><span class="acronym-long"><a class="glossary" href="#glo:cli">Command-Line Interface</a></span><span class="acronym-desc"><a class="glossary" href="#glo:cli">A software
+<div class="paragraph-header"><h6 id="header-paragraph-5.2.3.55.21"><span class="number"></span><a class="pdf-icon" href=""></a><span class="title"> <a id="x21-151000"></a>Miscellaneous Information</span></h6></div>
+<p class="noindent">Before we moving on to more specific commands and get into <span class="acronym"><span class="acronym-short"><a class="glossary" href="#glo:cli">CLI</a></span><span class="acronym-detail"><span class="acronym-long"><a class="glossary" href="#glo:cli">Command-Line Interface</a></span><span class="acronym-desc"><a class="glossary" href="#glo:cli">A software
 mechanism you use to interact with your operating system using your keyboard</a></span></span></span> programming, there’s a
 few other helpful things to know about working with the <span class="acronym"><span class="acronym-short"><a class="glossary" href="#glo:cli">CLI</a></span><span class="acronym-detail"><span class="acronym-long"><a class="glossary" href="#glo:cli">Command-Line Interface</a></span><span class="acronym-desc"><a class="glossary" href="#glo:cli">A software
 mechanism you use to interact with your operating system using your keyboard</a></span></span></span>. The first is <b>Tab
@@ -390,39 +344,39 @@ of which items can be completed to.
 </p><p class="noindent">For final reference, in the following page, there is a table for most useful keyboard shortcut for
 Bash.
 </p><p class="noindent"></p><figure class="float">
-<a id="x29-187001r2"></a>
-<figcaption class="caption"><span class="id">Table 6.2: </span><span class="content">A Reference table showing all quick keyboard shortcuts for Bash.
+<a id="x21-151001r2"></a>
+<figcaption class="caption"><span class="id">Table 5.2: </span><span class="content">A Reference table showing all quick keyboard shortcuts for Bash.
 </span></figcaption>
-<table class="tabularray tblr" id="tbl-89"> <tr id="row-89-1-"><td id="1-1" style=""></td><td id="1-2" style=""> <b>Shortcut</b></td><td colspan="25" id="1-3" style=""> <b>Action</b></td></tr>
-<tr id="row-89-2-"><td id="2-1" style=""> <b>Navigation</b></td><td id="2-2" style=""> <kbd>Ctrl</kbd> + <kbd>A</kbd> </td><td colspan="25" id="2-3" style="">  Go to the beginning of the line.                                             </td></tr>
-<tr id="row-89-3-"><td id="3-1" style=""></td><td id="3-2" style=""> <kbd>Ctrl</kbd> + <kbd>E</kbd> </td><td colspan="25" id="3-3" style="">  Go to the end of the line.                                                      </td></tr>
-<tr id="row-89-4-"><td id="4-1" style=""></td><td id="4-2" style=""> <kbd>Alt</kbd> + <kbd>F</kbd> </td><td colspan="25" id="4-3" style="">  Move the cursor forward one word.                                         </td></tr>
-<tr id="row-89-5-"><td id="5-1" style=""></td><td id="5-2" style=""> <kbd>Alt</kbd> + <kbd>B</kbd> </td><td colspan="25" id="5-3" style="">  Move the cursor back one word.                                             </td></tr>
-<tr id="row-89-6-"><td id="6-1" style=""></td><td id="6-2" style=""> <kbd>Ctrl</kbd> + <kbd>F</kbd> </td><td colspan="25" id="6-3" style="">  Move the cursor forward one character.                                   </td></tr>
-<tr id="row-89-7-"><td id="7-1" style=""></td><td id="7-2" style=""> <kbd>Ctrl</kbd> + <kbd>B</kbd> </td><td colspan="25" id="7-3" style="">  Move the cursor back one character.                                       </td></tr>
-<tr id="row-89-8-"><td id="8-1" style=""></td><td id="8-2" style=""> <kbd>Ctrl</kbd> + <kbd>X</kbd> </td><td colspan="25" id="8-3" style="">  Toggle between the current cursor position and the beginning of 
+<table class="tabularray tblr" id="tbl-81"> <tr id="row-81-1-"><td id="1-1" style=""></td><td id="1-2" style=""> <b>Shortcut</b></td><td colspan="25" id="1-3" style=""> <b>Action</b></td></tr>
+<tr id="row-81-2-"><td id="2-1" style=""> <b>Navigation</b></td><td id="2-2" style=""> <kbd>Ctrl</kbd> + <kbd>A</kbd> </td><td colspan="25" id="2-3" style="">  Go to the beginning of the line.                                             </td></tr>
+<tr id="row-81-3-"><td id="3-1" style=""></td><td id="3-2" style=""> <kbd>Ctrl</kbd> + <kbd>E</kbd> </td><td colspan="25" id="3-3" style="">  Go to the end of the line.                                                      </td></tr>
+<tr id="row-81-4-"><td id="4-1" style=""></td><td id="4-2" style=""> <kbd>Alt</kbd> + <kbd>F</kbd> </td><td colspan="25" id="4-3" style="">  Move the cursor forward one word.                                         </td></tr>
+<tr id="row-81-5-"><td id="5-1" style=""></td><td id="5-2" style=""> <kbd>Alt</kbd> + <kbd>B</kbd> </td><td colspan="25" id="5-3" style="">  Move the cursor back one word.                                             </td></tr>
+<tr id="row-81-6-"><td id="6-1" style=""></td><td id="6-2" style=""> <kbd>Ctrl</kbd> + <kbd>F</kbd> </td><td colspan="25" id="6-3" style="">  Move the cursor forward one character.                                   </td></tr>
+<tr id="row-81-7-"><td id="7-1" style=""></td><td id="7-2" style=""> <kbd>Ctrl</kbd> + <kbd>B</kbd> </td><td colspan="25" id="7-3" style="">  Move the cursor back one character.                                       </td></tr>
+<tr id="row-81-8-"><td id="8-1" style=""></td><td id="8-2" style=""> <kbd>Ctrl</kbd> + <kbd>X</kbd> </td><td colspan="25" id="8-3" style="">  Toggle between the current cursor position and the beginning of 
 the line.                                                                            </td></tr>
-<tr id="row-89-9-"><td id="9-1" style=""> <b>Editing</b></td><td id="9-2" style=""> <kbd>Ctrl</kbd> + <kbd>A</kbd> </td><td colspan="25" id="9-3" style="">  Undo! (That’s an underscore, so we’ll need to use <kbd>Shift</kbd> as well.).  </td></tr>
-<tr id="row-89-10-"><td id="10-1" style=""></td><td id="10-2" style=""> <kbd>Ctrl</kbd> + <kbd>X</kbd> </td><td colspan="25" id="10-3" style="">  Edit the current command in our <code class="verb">$EDITOR</code> .                                        </td></tr>
-<tr id="row-89-11-"><td id="11-1" style=""></td><td id="11-2" style=""> <kbd>Alt</kbd> + <kbd>D</kbd> </td><td colspan="25" id="11-3" style="">  Delete the word after the cursor.                                            </td></tr>
-<tr id="row-89-12-"><td id="12-1" style=""></td><td id="12-2" style=""> <kbd>Alt</kbd> </td><td colspan="25" id="12-3" style="">  Delete the word before the cursor.                                          </td></tr>
-<tr id="row-89-13-"><td id="13-1" style=""></td><td id="13-2" style=""> <kbd>Ctrl</kbd> + <kbd>D</kbd> </td><td colspan="25" id="13-3" style="">  Delete the character beneath the cursor.                                  </td></tr>
-<tr id="row-89-14-"><td id="14-1" style=""></td><td id="14-2" style=""> <kbd>Ctrl</kbd> + <kbd>H</kbd> </td><td colspan="25" id="14-3" style="">  Delete the character before the cursor (like backspace).              </td></tr>
-<tr id="row-89-15-"><td id="15-1" style=""></td><td id="15-2" style=""> <kbd>Ctrl</kbd> + <kbd>K</kbd> </td><td colspan="25" id="15-3" style="">  Cut the line after the cursor to the clipboard.                           </td></tr>
-<tr id="row-89-16-"><td id="16-1" style=""></td><td id="16-2" style=""> <kbd>Ctrl</kbd> + <kbd>U</kbd> </td><td colspan="25" id="16-3" style="">  Cut the line before the cursor to the clipboard.                         </td></tr>
-<tr id="row-89-17-"><td id="17-1" style=""></td><td id="17-2" style=""> <kbd>Ctrl</kbd> + <kbd>D</kbd> </td><td colspan="25" id="17-3" style="">  Cut the word after the cursor to the clipboard.                         </td></tr>
-<tr id="row-89-18-"><td id="18-1" style=""></td><td id="18-2" style=""> <kbd>Ctrl</kbd> + <kbd>W</kbd> </td><td colspan="25" id="18-3" style="">  Cut the word before the cursor to the clipboard.                       </td></tr>
-<tr id="row-89-19-"><td id="19-1" style=""></td><td id="19-2" style=""> <kbd>Ctrl</kbd> + <kbd>Y</kbd> </td><td colspan="25" id="19-3" style="">  Paste the last item to be cut.                                                </td></tr>
-<tr id="row-89-20-"><td id="20-1" style=""> <b>Processes</b></td><td id="20-2" style=""> <kbd>Ctrl</kbd> + <kbd>L</kbd> </td><td colspan="25" id="20-3" style="">  Clear the entire screen (like the clear command).                       </td></tr>
-<tr id="row-89-21-"><td id="21-1" style=""></td><td id="21-2" style=""> <kbd>Ctrl</kbd> + <kbd>Z</kbd> </td><td colspan="25" id="21-3" style="">  Place the currently running process into a suspended background 
+<tr id="row-81-9-"><td id="9-1" style=""> <b>Editing</b></td><td id="9-2" style=""> <kbd>Ctrl</kbd> + <kbd>A</kbd> </td><td colspan="25" id="9-3" style="">  Undo! (That’s an underscore, so we’ll need to use <kbd>Shift</kbd> as well.).  </td></tr>
+<tr id="row-81-10-"><td id="10-1" style=""></td><td id="10-2" style=""> <kbd>Ctrl</kbd> + <kbd>X</kbd> </td><td colspan="25" id="10-3" style="">  Edit the current command in our <code class="verb">$EDITOR</code> .                                        </td></tr>
+<tr id="row-81-11-"><td id="11-1" style=""></td><td id="11-2" style=""> <kbd>Alt</kbd> + <kbd>D</kbd> </td><td colspan="25" id="11-3" style="">  Delete the word after the cursor.                                            </td></tr>
+<tr id="row-81-12-"><td id="12-1" style=""></td><td id="12-2" style=""> <kbd>Alt</kbd> </td><td colspan="25" id="12-3" style="">  Delete the word before the cursor.                                          </td></tr>
+<tr id="row-81-13-"><td id="13-1" style=""></td><td id="13-2" style=""> <kbd>Ctrl</kbd> + <kbd>D</kbd> </td><td colspan="25" id="13-3" style="">  Delete the character beneath the cursor.                                  </td></tr>
+<tr id="row-81-14-"><td id="14-1" style=""></td><td id="14-2" style=""> <kbd>Ctrl</kbd> + <kbd>H</kbd> </td><td colspan="25" id="14-3" style="">  Delete the character before the cursor (like backspace).              </td></tr>
+<tr id="row-81-15-"><td id="15-1" style=""></td><td id="15-2" style=""> <kbd>Ctrl</kbd> + <kbd>K</kbd> </td><td colspan="25" id="15-3" style="">  Cut the line after the cursor to the clipboard.                           </td></tr>
+<tr id="row-81-16-"><td id="16-1" style=""></td><td id="16-2" style=""> <kbd>Ctrl</kbd> + <kbd>U</kbd> </td><td colspan="25" id="16-3" style="">  Cut the line before the cursor to the clipboard.                         </td></tr>
+<tr id="row-81-17-"><td id="17-1" style=""></td><td id="17-2" style=""> <kbd>Ctrl</kbd> + <kbd>D</kbd> </td><td colspan="25" id="17-3" style="">  Cut the word after the cursor to the clipboard.                         </td></tr>
+<tr id="row-81-18-"><td id="18-1" style=""></td><td id="18-2" style=""> <kbd>Ctrl</kbd> + <kbd>W</kbd> </td><td colspan="25" id="18-3" style="">  Cut the word before the cursor to the clipboard.                       </td></tr>
+<tr id="row-81-19-"><td id="19-1" style=""></td><td id="19-2" style=""> <kbd>Ctrl</kbd> + <kbd>Y</kbd> </td><td colspan="25" id="19-3" style="">  Paste the last item to be cut.                                                </td></tr>
+<tr id="row-81-20-"><td id="20-1" style=""> <b>Processes</b></td><td id="20-2" style=""> <kbd>Ctrl</kbd> + <kbd>L</kbd> </td><td colspan="25" id="20-3" style="">  Clear the entire screen (like the clear command).                       </td></tr>
+<tr id="row-81-21-"><td id="21-1" style=""></td><td id="21-2" style=""> <kbd>Ctrl</kbd> + <kbd>Z</kbd> </td><td colspan="25" id="21-3" style="">  Place the currently running process into a suspended background 
 process.                                                                             </td></tr>
-<tr id="row-89-22-"><td id="22-1" style=""></td><td id="22-2" style=""> <kbd>Ctrl</kbd> + <kbd>C</kbd> </td><td colspan="25" id="22-3" style="">  Kill the currently running process by sending the SIGINT signal.  </td></tr>
-<tr id="row-89-23-"><td id="23-1" style=""></td><td id="23-2" style=""> <kbd>Ctrl</kbd> + <kbd>D</kbd> </td><td colspan="25" id="23-3" style="">  Exit the current shell.                                                          </td></tr>
-<tr id="row-89-24-"><td id="24-1" style=""></td><td id="24-2" style=""> <kbd>Return</kbd> </td><td colspan="25" id="24-3" style="">  Exit a stalled SSH session.                                                    </td></tr>
-<tr id="row-89-25-"><td id="25-1" style=""> <b>History</b></td><td id="25-2" style=""> <kbd>Ctrl</kbd> + <kbd>R</kbd> </td><td colspan="25" id="25-3" style="">  Bring up the history search..                                                 </td></tr>
-<tr id="row-89-26-"><td id="26-1" style=""></td><td id="26-2" style=""> <kbd>Ctrl</kbd> + <kbd>G</kbd> </td><td colspan="25" id="26-3" style="">  Exit the history search.                                                        </td></tr>
-<tr id="row-89-27-"><td id="27-1" style=""></td><td id="27-2" style=""> <kbd>Ctrl</kbd> + <kbd>P</kbd> </td><td colspan="25" id="27-3" style="">  See the previous command in the history.                                </td></tr>
-<tr id="row-89-28-"><td id="28-1" style=""></td><td id="28-2" style=""> <kbd>Ctrl</kbd> + <kbd>N</kbd> </td><td colspan="25" id="28-3" style="">  See the next command in the history.                                      </td></tr></table>
+<tr id="row-81-22-"><td id="22-1" style=""></td><td id="22-2" style=""> <kbd>Ctrl</kbd> + <kbd>C</kbd> </td><td colspan="25" id="22-3" style="">  Kill the currently running process by sending the SIGINT signal.  </td></tr>
+<tr id="row-81-23-"><td id="23-1" style=""></td><td id="23-2" style=""> <kbd>Ctrl</kbd> + <kbd>D</kbd> </td><td colspan="25" id="23-3" style="">  Exit the current shell.                                                          </td></tr>
+<tr id="row-81-24-"><td id="24-1" style=""></td><td id="24-2" style=""> <kbd>Return</kbd> </td><td colspan="25" id="24-3" style="">  Exit a stalled SSH session.                                                    </td></tr>
+<tr id="row-81-25-"><td id="25-1" style=""> <b>History</b></td><td id="25-2" style=""> <kbd>Ctrl</kbd> + <kbd>R</kbd> </td><td colspan="25" id="25-3" style="">  Bring up the history search..                                                 </td></tr>
+<tr id="row-81-26-"><td id="26-1" style=""></td><td id="26-2" style=""> <kbd>Ctrl</kbd> + <kbd>G</kbd> </td><td colspan="25" id="26-3" style="">  Exit the history search.                                                        </td></tr>
+<tr id="row-81-27-"><td id="27-1" style=""></td><td id="27-2" style=""> <kbd>Ctrl</kbd> + <kbd>P</kbd> </td><td colspan="25" id="27-3" style="">  See the previous command in the history.                                </td></tr>
+<tr id="row-81-28-"><td id="28-1" style=""></td><td id="28-2" style=""> <kbd>Ctrl</kbd> + <kbd>N</kbd> </td><td colspan="25" id="28-3" style="">  See the next command in the history.                                      </td></tr></table>
 </figure>
 <div class="section-header">
 <h3 id="header-section-glossary">
@@ -448,51 +402,51 @@ mechanism you use to interact with your operating system using your keyboard</p>
 <i class="fa-regular fa-note-sticky"></i>
 </span>
 <span class="title">
-<a id="page-glossary"></a>
+<a id="page-margin"></a>
                     Page Footnotes</span>
 </h3>
 </div>
 <div class="footnote-block">
 <dl class="enumerate-enumitem">
-<dt class="enumerate-enumitem" id="m-ref-163"><span class="acr-short">[163].</span></dt>
+<dt class="enumerate-enumitem" id="m-ref-113"><span class="acr-short">[113].</span></dt>
 <dd class="enumerate-enumitem"><span class="">Stands for short for manual page.</span></dd>
 </dl>
 <dl class="enumerate-enumitem">
-<dt class="enumerate-enumitem" id="m-ref-164"><span class="acr-short">[164].</span></dt>
+<dt class="enumerate-enumitem" id="m-ref-114"><span class="acr-short">[114].</span></dt>
 <dd class="enumerate-enumitem"><span class="">i.e., Ubuntu, Mint</span></dd>
 </dl>
 <dl class="enumerate-enumitem">
-<dt class="enumerate-enumitem" id="m-ref-165"><span class="acr-short">[165].</span></dt>
+<dt class="enumerate-enumitem" id="m-ref-115"><span class="acr-short">[115].</span></dt>
 <dd class="enumerate-enumitem"><span class="">Please ignore the <code class="verb">head - 10</code> , we will have a look at it
 later. But this basically does is to only print our the first 10 lines of the <code class="verb">stdout</code> .</span></dd>
 </dl>
 <dl class="enumerate-enumitem">
-<dt class="enumerate-enumitem" id="m-ref-166"><span class="acr-short">[166].</span></dt>
+<dt class="enumerate-enumitem" id="m-ref-116"><span class="acr-short">[116].</span></dt>
 <dd class="enumerate-enumitem"><span class="">for example <code class="verb">[OPTION]</code>  and <code class="verb">[FILE]</code> </span></dd>
 </dl>
 <dl class="enumerate-enumitem">
-<dt class="enumerate-enumitem" id="m-ref-167"><span class="acr-short">[167].</span></dt>
+<dt class="enumerate-enumitem" id="m-ref-117"><span class="acr-short">[117].</span></dt>
 <dd class="enumerate-enumitem"><span class="">A mostly a plain text transliteration of the
 Texinfo source, with the addition of a few control characters to separate nodes and provide navigational
 information, designed by the NU project.</span></dd>
 </dl>
 <dl class="enumerate-enumitem">
-<dt class="enumerate-enumitem" id="m-ref-168"><span class="acr-short">[168].</span></dt>
+<dt class="enumerate-enumitem" id="m-ref-118"><span class="acr-short">[118].</span></dt>
 <dd class="enumerate-enumitem"><span class="">A typesetting syntax used for
 generating documentation in both on-line and printed form (creating filetypes as dvi, html, pdf, etc.,
 and a specific hypertext format, Info) with a single source file.</span></dd>
 </dl>
 <dl class="enumerate-enumitem">
-<dt class="enumerate-enumitem" id="m-ref-169"><span class="acr-short">[169].</span></dt>
+<dt class="enumerate-enumitem" id="m-ref-119"><span class="acr-short">[119].</span></dt>
 <dd class="enumerate-enumitem"><span class="">1 for commands, 2 for system calls, etc...</span></dd>
 </dl>
 <dl class="enumerate-enumitem">
-<dt class="enumerate-enumitem" id="m-ref-170"><span class="acr-short">[170].</span></dt>
+<dt class="enumerate-enumitem" id="m-ref-120"><span class="acr-short">[120].</span></dt>
 <dd class="enumerate-enumitem"><span class="">A major component of a document processing system developed by Bell
 Labs for the Unix operating system. It is mostly outdated.</span></dd>
 </dl>
 <dl class="enumerate-enumitem">
-<dt class="enumerate-enumitem" id="m-ref-171"><span class="acr-short">[171].</span></dt>
+<dt class="enumerate-enumitem" id="m-ref-121"><span class="acr-short">[121].</span></dt>
 <dd class="enumerate-enumitem"><span class="">for example <code class="verb">ls</code> .</span></dd>
 </dl></div><nav class="crosslinks-bottom"><div class="navigation"><span class="nav-button"><a href="WorkingwithFilesandFolders.html"><i class="fa-solid fa-caret-right"></i></a></span><span class="nav-button"><a href="ToCommandaComputer.html"><i class="fa-solid fa-caret-left"></i></a></span><span class="nav-button"><a href="CommandLineFundamentals.html#WhenWeNeedHelpwithCommands.html"><i class="fa-solid fa-caret-up"></i></a></span><span class="nav-button">
 <a href="index.html" rel="index" title="Index">
@@ -502,7 +456,7 @@ Labs for the Unix operating system. It is mostly outdated.</span></dd>
 <a href="Index.html" rel="index" title="Index">
 <i class="fa-brands fa-git-alt"></i>
 </a></span></div></nav> <div class="footer"> <div class="footer-left"><span class="footer-lecture">D. T. McGuiness, PhD</span>
-<span class="footer-webBook"><b>Last Updated:</b> 13.10.2026, at 8:16.</span></div></div><div class="author-notes">
+<span class="footer-webBook"><b>Last Updated:</b> 24.11.2026, at 13:58.</span></div></div><div class="author-notes">
 <span class="note">Authors Note </span>
 <span class="text">The website you are viewing is auto-generated using lms-WebBook and therefore subject to slight errors in typography and formatting. When in doubt, please consult the LectureBook. </span>
 </div>
@@ -511,7 +465,7 @@ Labs for the Unix operating system. It is mostly outdated.</span></dd>
 <div class="core-line"><div class="core-line-image"><img class="webbook-logo" src="logo/webbook-logo.svg"/></div>
 <div class="current-header">
 <span class="header-pretext">Viewing | </span>
-<span class="header-text">Section 6.2: When We Need Help with Commands</span>
+<span class="header-text">5.2: When We Need Help with Commands</span>
 </div>
 <div class="button-group">
 </div>

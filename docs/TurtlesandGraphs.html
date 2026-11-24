@@ -10,11 +10,10 @@
 <script src="./pagefind/pagefind-component-ui.js" type="text/javascript"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 <link href="https://cdn.jsdelivr.net/gh/sugina-dev/latin-modern-web@1.0.1/style/latinmodern-mono.css" rel="stylesheet"/>
-<link href="https://cdn.jsdelivr.net/gh/dTmC0945/Wb-LMS-WebBook-Infrastructure/flatweb.css" rel="stylesheet" type="text/css"/>
-<script async="true" crossorigin="anonymous" src="https://cdn.jsdelivr.net/gh/dTmC0945/Wb-LMS-WebBook-Infrastructure/flatweb.js"></script>
-<link href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/styles/default.min.css" rel="stylesheet"/>
+<link href="flatweb.css" rel="stylesheet" type="text/css"/>
+<script src="flatweb.js" type="text/javascript"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/highlight.min.js"></script>
-<link href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/styles/base16/solarized-light.min.css" rel="stylesheet"/>
+<link href="style-code/gruvbox-light-hard.min.css" id="code-style" rel="stylesheet"/>
 <script src="https://unpkg.com/highlightjs-copy/dist/highlightjs-copy.min.js"></script>
 <link href="https://unpkg.com/highlightjs-copy/dist/highlightjs-copy.min.css" rel="stylesheet"/>
 <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet"/>
@@ -41,61 +40,51 @@ robot kinematic models and constraints</a></span></span><span class="sectionToc"
 of Mobility</a></span></span><span class="subsectionToc"><span class="number">2.2.2</span><span class="title"><a href="MobileRobotManeuverability.html#x8-450002.2.2">Degree of steerability</a></span></span><span class="subsectionToc"><span class="number">2.2.3</span><span class="title"><a href="MobileRobotManeuverability.html#x8-470002.2.3">Robot maneuverability</a></span></span><span class="sectionToc"><span class="number">2.3</span><span class="title"><a href="MobileRobotWorkspace.html#x9-480002.3">Mobile Robot
 Workspace</a></span></span><span class="subsectionToc"><span class="number">2.3.1</span><span class="title"><a href="MobileRobotWorkspace.html#x9-490002.3.1">Degrees of freedom</a></span></span><span class="subsectionToc"><span class="number">2.3.2</span><span class="title"><a href="MobileRobotWorkspace.html#x9-500002.3.2">Holonomic robots</a></span></span><span class="subsectionToc"><span class="number">2.3.3</span><span class="title"><a href="MobileRobotWorkspace.html#x9-530002.3.3">Path and trajectory
 considerations</a></span></span><span class="subsectionToc"><span class="number">2.3.4</span><span class="title"><a href="MobileRobotWorkspace.html#x9-540002.3.4">Beyond Basic Kinematics</a></span></span><span class="sectionToc"><span class="number">2.4</span><span class="title"><a href="MotionControlKinematicControl.html#x10-550002.4">Motion Control (Kinematic
-Control)</a></span></span><span class="subsectionToc"><span class="number">2.4.1</span><span class="title"><a href="MotionControlKinematicControl.html#x10-560002.4.1">Open loop control</a></span></span><span class="subsectionToc"><span class="number">2.4.2</span><span class="title"><a href="MotionControlKinematicControl.html#x10-570002.4.2">Feedback control</a></span></span><span class="chapterToc"><span class="number">3</span><span class="title"><a href="Perception.html#x11-630003">Perception</a></span></span><span class="sectionToc"><span class="number">3.1</span><span class="title"><a href="SensorsforMobileRobotics.html#x12-640003.1">Sensors for Mobile
-Robotics</a></span></span><span class="subsectionToc"><span class="number">3.1.1</span><span class="title"><a href="SensorsforMobileRobotics.html#x12-650003.1.1">Sensor Classification</a></span></span><span class="subsectionToc"><span class="number">3.1.2</span><span class="title"><a href="SensorsforMobileRobotics.html#x12-660003.1.2">Characterisation of Sensor Performance</a></span></span><span class="subsectionToc"><span class="number">3.1.3</span><span class="title"><a href="SensorsforMobileRobotics.html#x12-720003.1.3">Wheel
-and Motor Sensors</a></span></span><span class="subsectionToc"><span class="number">3.1.4</span><span class="title"><a href="SensorsforMobileRobotics.html#x12-740003.1.4">Heading Sensors</a></span></span><span class="subsectionToc"><span class="number">3.1.5</span><span class="title"><a href="SensorsforMobileRobotics.html#x12-810003.1.5">Ground Based Beacons</a></span></span><span class="subsectionToc"><span class="number">3.1.6</span><span class="title"><a href="SensorsforMobileRobotics.html#x12-830003.1.6">Active
-Ranging</a></span></span><span class="subsectionToc"><span class="number">3.1.7</span><span class="title"><a href="SensorsforMobileRobotics.html#x12-850003.1.7">The Ultrasonic Sensor</a></span></span><span class="subsectionToc"><span class="number">3.1.8</span><span class="title"><a href="SensorsforMobileRobotics.html#x12-920003.1.8">Motion and Speed Sensors</a></span></span><span class="sectionToc"><span class="number">3.2</span><span class="title"><a href="VisionBasedSensors.html#x13-940003.2">Vision Based
-Sensors</a></span></span><span class="subsectionToc"><span class="number">3.2.1</span><span class="title"><a href="VisionBasedSensors.html#x13-950003.2.1">CCD Sensors</a></span></span><span class="subsectionToc"><span class="number">3.2.2</span><span class="title"><a href="VisionBasedSensors.html#x13-970003.2.2">CMOS Technology</a></span></span><span class="subsectionToc"><span class="number">3.2.3</span><span class="title"><a href="VisionBasedSensors.html#x13-980003.2.3">Visual Ranging Sensors</a></span></span><span class="subsectionToc"><span class="number">3.2.4</span><span class="title"><a href="VisionBasedSensors.html#x13-990003.2.4">Depth
-from Focus</a></span></span><span class="sectionToc"><span class="number">3.3</span><span class="title"><a href="RepresentingUncertainty.html#x14-1070003.3">Representing Uncertainty</a></span></span><span class="subsectionToc"><span class="number">3.3.1</span><span class="title"><a href="RepresentingUncertainty.html#x14-1080003.3.1">Statistical Representation</a></span></span><span class="subsectionToc"><span class="number">3.3.2</span><span class="title"><a href="RepresentingUncertainty.html#x14-1090003.3.2">Independence
-of random variables</a></span></span><span class="subsectionToc"><span class="number">3.3.3</span><span class="title"><a href="RepresentingUncertainty.html#x14-1110003.3.3">Propagation of Error</a></span></span><span class="sectionToc"><span class="number">3.4</span><span class="title"><a href="FeatureExtraction.html#x15-1120003.4">Feature Extraction</a></span></span><span class="subsectionToc"><span class="number">3.4.1</span><span class="title"><a href="FeatureExtraction.html#x15-1130003.4.1">Defining
-Feature</a></span></span><span class="subsectionToc"><span class="number">3.4.2</span><span class="title"><a href="FeatureExtraction.html#x15-1140003.4.2">Using Range Data</a></span></span><span class="chapterToc"><span class="number">4</span><span class="title"><a href="MobileRobotLocalisation.html#x16-1290004">Mobile Robot Localisation</a></span></span><span class="sectionToc"><span class="number">4.1</span><span class="title"><a href="TheProblemsofNoiseandAliasing.html#x17-1300004.1">The Problems of Noise and
-Aliasing</a></span></span><span class="subsectionToc"><span class="number">4.1.1</span><span class="title"><a href="TheProblemsofNoiseandAliasing.html#x17-1310004.1.1">Sensor Noise</a></span></span><span class="subsectionToc"><span class="number">4.1.2</span><span class="title"><a href="TheProblemsofNoiseandAliasing.html#x17-1320004.1.2">Sensor Aliasing</a></span></span><span class="subsectionToc"><span class="number">4.1.3</span><span class="title"><a href="TheProblemsofNoiseandAliasing.html#x17-1330004.1.3">Effector Noise</a></span></span><span class="subsectionToc"><span class="number">4.1.4</span><span class="title"><a href="TheProblemsofNoiseandAliasing.html#x17-1340004.1.4">An Error Model for
-Odometric Position Estimation</a></span></span><span class="sectionToc"><span class="number">4.2</span><span class="title"><a href="LocalisationTechniques.html#x18-1350004.2">Localisation Techniques</a></span></span><span class="sectionToc"><span class="number">4.3</span><span class="title"><a href="RepresentingBelief.html#x19-1360004.3">Representing Belief</a></span></span><span class="subsectionToc"><span class="number">4.3.1</span><span class="title"><a href="RepresentingBelief.html#x19-1370004.3.1">Single
-Hypothesis Belief</a></span></span><span class="subsectionToc"><span class="number">4.3.2</span><span class="title"><a href="RepresentingBelief.html#x19-1380004.3.2">Multiple Hypothesis Belief</a></span></span><span class="sectionToc"><span class="number">4.4</span><span class="title"><a href="RepresentingMaps.html#x20-1390004.4">Representing Maps</a></span></span><span class="subsectionToc"><span class="number">4.4.1</span><span class="title"><a href="RepresentingMaps.html#x20-1400004.4.1">Continuous
-Representation</a></span></span><span class="subsectionToc"><span class="number">4.4.2</span><span class="title"><a href="RepresentingMaps.html#x20-1410004.4.2">Decomposition Methods</a></span></span><span class="subsectionToc"><span class="number">4.4.3</span><span class="title"><a href="RepresentingMaps.html#x20-1420004.4.3">Current Challenges</a></span></span><span class="sectionToc"><span class="number">4.5</span><span class="title"><a href="ProbabilisticMapBasedLocalisation.html#x21-1430004.5">Probabilistic
-Map-Based Localisation</a></span></span><span class="subsectionToc"><span class="number">4.5.1</span><span class="title"><a href="ProbabilisticMapBasedLocalisation.html#x21-1440004.5.1">Problem Definition</a></span></span><span class="subsectionToc"><span class="number">4.5.2</span><span class="title"><a href="ProbabilisticMapBasedLocalisation.html#x21-1450004.5.2">Markov Localisation</a></span></span><span class="subsectionToc"><span class="number">4.5.3</span><span class="title"><a href="ProbabilisticMapBasedLocalisation.html#x21-1490004.5.3">Kalman
-Filter Localisation</a></span></span><span class="subsectionToc"><span class="number">4.5.4</span><span class="title"><a href="ProbabilisticMapBasedLocalisation.html#x21-1500004.5.4">An Implementation of Kalman Filter</a></span></span><span class="sectionToc"><span class="number">4.6</span><span class="title"><a href="OtherExamplesofLocalisationMethods.html#x22-1550004.6">Other Examples
-of Localisation Methods</a></span></span><span class="subsectionToc"><span class="number">4.6.1</span><span class="title"><a href="OtherExamplesofLocalisationMethods.html#x22-1560004.6.1">Landmark-based Navigation</a></span></span><span class="subsectionToc"><span class="number">4.6.2</span><span class="title"><a href="OtherExamplesofLocalisationMethods.html#x22-1570004.6.2">Globally Unique
-Localisation</a></span></span><span class="subsectionToc"><span class="number">4.6.3</span><span class="title"><a href="OtherExamplesofLocalisationMethods.html#x22-1580004.6.3">Positioning Beacon systems</a></span></span><span class="subsectionToc"><span class="number">4.6.4</span><span class="title"><a href="OtherExamplesofLocalisationMethods.html#x22-1590004.6.4">Route-Based Localisation</a></span></span><span class="sectionToc"><span class="number">4.7</span><span class="title"><a href="BuildingMaps.html#x23-1600004.7">Building
-Maps</a></span></span><span class="subsectionToc"><span class="number">4.7.1</span><span class="title"><a href="BuildingMaps.html#x23-1610004.7.1">Stochastic Map Technique</a></span></span><span class="subsectionToc"><span class="number">4.7.2</span><span class="title"><a href="BuildingMaps.html#x23-1620004.7.2">Other Mapping Techniques</a></span></span><span class="chapterToc"><span class="number">5</span><span class="title"><a href="WelcometoLinux.html#x24-1650005">Welcome to Linux</a></span></span><span class="sectionToc"><span class="number">5.1</span><span class="title"><a href="AHistoryofUNIXLinux.html#x25-1660005.1">A
-History of UNIX/Linux</a></span></span><span class="subsectionToc"><span class="number">5.1.1</span><span class="title"><a href="AHistoryofUNIXLinux.html#x25-1680005.1.1">A Short History on Computer Interfaces</a></span></span><span class="subsectionToc"><span class="number">5.1.2</span><span class="title"><a href="AHistoryofUNIXLinux.html#x25-1700005.1.2">Linux is a
-Nutshell</a></span></span><span class="subsectionToc"><span class="number">5.1.3</span><span class="title"><a href="AHistoryofUNIXLinux.html#x25-1730005.1.3">Linux Distributions</a></span></span><span class="sectionToc"><span class="number">5.2</span><span class="title"><a href="Installation.html#x26-1740005.2">Installation</a></span></span><span class="subsectionToc"><span class="number">5.2.1</span><span class="title"><a href="Installation.html#x26-1750005.2.1">Docker</a></span></span><span class="subsectionToc"><span class="number">5.2.2</span><span class="title"><a href="Installation.html#x26-1760005.2.2">Dockerfile</a></span></span><span class="subsectionToc"><span class="number">5.2.3</span><span class="title"><a href="Installation.html#x26-1770005.2.3">Running
-the Container</a></span></span><span class="chapterToc"><span class="number">6</span><span class="title"><a href="CommandLineFundamentals.html#x27-1780006">Command Line Fundamentals</a></span></span><span class="sectionToc"><span class="number">6.1</span><span class="title"><a href="ToCommandaComputer.html#x28-1790006.1">To Command a Computer</a></span></span><span class="subsectionToc"><span class="number">6.1.1</span><span class="title"><a href="ToCommandaComputer.html#x28-1800006.1.1">The
-Command Line Interface</a></span></span><span class="subsectionToc"><span class="number">6.1.2</span><span class="title"><a href="ToCommandaComputer.html#x28-1810006.1.2">The Structure of Commands</a></span></span><span class="subsectionToc"><span class="number">6.1.3</span><span class="title"><a href="ToCommandaComputer.html#x28-1820006.1.3">Some Rules Regarding
-the Syntax</a></span></span><span class="sectionToc"><span class="number">6.2</span><span class="title"><a href="WhenWeNeedHelpwithCommands.html#x29-1830006.2">When We Need Help with Commands</a></span></span><span class="subsectionToc"><span class="number">6.2.1</span><span class="title"><a href="WhenWeNeedHelpwithCommands.html#x29-1840006.2.1">Use Tab completion on
-the Shell</a></span></span><span class="subsectionToc"><span class="number">6.2.2</span><span class="title"><a href="WhenWeNeedHelpwithCommands.html#x29-1850006.2.2">The info command</a></span></span><span class="subsectionToc"><span class="number">6.2.3</span><span class="title"><a href="WhenWeNeedHelpwithCommands.html#x29-1860006.2.3">The whatis command</a></span></span><span class="chapterToc"><span class="number">7</span><span class="title"><a href="WorkingwithFilesandFolders.html#x30-1880007">Working with Files
-and Folders</a></span></span><span class="sectionToc"><span class="number">7.1</span><span class="title"><a href="FilesandFolders.html#x31-1890007.1">Files and Folders</a></span></span><span class="subsectionToc"><span class="number">7.1.1</span><span class="title"><a href="FilesandFolders.html#x31-1900007.1.1">A Detailed Look in ls Command</a></span></span><span class="subsectionToc"><span class="number">7.1.2</span><span class="title"><a href="FilesandFolders.html#x31-1910007.1.2">Creating
-and Removing Folders</a></span></span><span class="subsectionToc"><span class="number">7.1.3</span><span class="title"><a href="FilesandFolders.html#x31-1920007.1.3">Move, Copy and Delete Files and Folders</a></span></span><span class="sectionToc"><span class="number">7.2</span><span class="title"><a href="PermissionsandLinks.html#x32-1990007.2">Permissions
-and Links</a></span></span><span class="subsectionToc"><span class="number">7.2.1</span><span class="title"><a href="PermissionsandLinks.html#x32-2000007.2.1">Role to Users and sudo</a></span></span><span class="subsectionToc"><span class="number">7.2.2</span><span class="title"><a href="PermissionsandLinks.html#x32-2010007.2.2">File Permissions</a></span></span><span class="subsectionToc"><span class="number">7.2.3</span><span class="title"><a href="PermissionsandLinks.html#x32-2040007.2.3">Hard and Symbolic
-Links</a></span></span><span class="subsectionToc"><span class="number">7.2.4</span><span class="title"><a href="PermissionsandLinks.html#x32-2050007.2.4">Soft (Symbolic) Links</a></span></span><span class="subsectionToc"><span class="number">7.2.5</span><span class="title"><a href="PermissionsandLinks.html#x32-2070007.2.5">The Linux File System</a></span></span><span class="subsectionToc"><span class="number">7.2.6</span><span class="title"><a href="PermissionsandLinks.html#x32-2080007.2.6">The UNIX
-Philosophy</a></span></span><span class="sectionToc"><span class="number">7.3</span><span class="title"><a href="CommonCommandLineToolsandTasks.html#x33-2090007.3">Common Command-Line Tools and Tasks</a></span></span><span class="subsectionToc"><span class="number">7.3.1</span><span class="title"><a href="CommonCommandLineToolsandTasks.html#x33-2100007.3.1">Connecting Commands
-with Pipes</a></span></span><span class="subsectionToc"><span class="number">7.3.2</span><span class="title"><a href="CommonCommandLineToolsandTasks.html#x33-2110007.3.2">Viewing Text Files with cat, head, tail, and less</a></span></span><span class="subsectionToc"><span class="number">7.3.3</span><span class="title"><a href="CommonCommandLineToolsandTasks.html#x33-2120007.3.3">Finding
-Linux Distribution and Kernel Information</a></span></span><span class="subsectionToc"><span class="number">7.3.4</span><span class="title"><a href="CommonCommandLineToolsandTasks.html#x33-2140007.3.4">Find System Hardware and Disk
-Information</a></span></span><span class="chapterToc"><span class="number">8</span><span class="title"><a href="ROSConcepts.html#x34-2160008">ROS Concepts</a></span></span><span class="sectionToc"><span class="number">8.1</span><span class="title"><a href="PublisherandSubscriberArchitecture.html#x35-2170008.1">Publisher and Subscriber Architecture</a></span></span><span class="subsectionToc"><span class="number">8.1.1</span><span class="title"><a href="PublisherandSubscriberArchitecture.html#x35-2180008.1.1">ROS 2
-Architecture</a></span></span><span class="sectionToc"><span class="number">8.2</span><span class="title"><a href="BuildingBlocks.html#x36-2200008.2">Building Blocks</a></span></span><span class="subsectionToc"><span class="number">8.2.1</span><span class="title"><a href="BuildingBlocks.html#x36-2210008.2.1">Nodes</a></span></span><span class="subsectionToc"><span class="number">8.2.2</span><span class="title"><a href="BuildingBlocks.html#x36-2220008.2.2">The Discovery Process</a></span></span><span class="subsectionToc"><span class="number">8.2.3</span><span class="title"><a href="BuildingBlocks.html#x36-2230008.2.3">Communication
-Interface</a></span></span><span class="subsectionToc"><span class="number">8.2.4</span><span class="title"><a href="BuildingBlocks.html#x36-2320008.2.4">Topics</a></span></span><span class="subsectionToc"><span class="number">8.2.5</span><span class="title"><a href="BuildingBlocks.html#x36-2360008.2.5">Services</a></span></span><span class="subsectionToc"><span class="number">8.2.6</span><span class="title"><a href="BuildingBlocks.html#x36-2390008.2.6">Actions</a></span></span><span class="subsectionToc"><span class="number">8.2.7</span><span class="title"><a href="BuildingBlocks.html#x36-2420008.2.7">Parameters</a></span></span><span class="subsectionToc"><span class="number">8.2.8</span><span class="title"><a href="BuildingBlocks.html#x36-2510008.2.8">Working with
-Command Line</a></span></span><span class="subsectionToc"><span class="number">8.2.9</span><span class="title"><a href="BuildingBlocks.html#x36-2530008.2.9">Launch Files</a></span></span><span class="sectionToc"><span class="number">8.3</span><span class="title"><a href="AdvancedConcepts.html#x37-2540008.3">Advanced Concepts</a></span></span><span class="subsectionToc"><span class="number">8.3.1</span><span class="title"><a href="AdvancedConcepts.html#x37-2550008.3.1">ROS DOMAIN ID</a></span></span><span class="chapterToc"><span class="number">9</span><span class="title"><a href="CommandLineTools.html#x38-2570009">Command
-Line Tools</a></span></span><span class="sectionToc"><span class="number">9.1</span><span class="title"><a href="SettingtheEnvironment.html#x39-2580009.1">Setting the Environment</a></span></span><span class="sectionToc"><span class="number">9.2</span><span class="title"><a href="#x40-2630009.2">Turtles and Graphs</a></span></span><span class="sectionToc"><span class="number">9.3</span><span class="title"><a href="ADeeperLookintoNodes.html#x41-2710009.3">A Deeper Look into
-Nodes</a></span></span><span class="sectionToc"><span class="number">9.4</span><span class="title"><a href="WorkingwithTopics.html#x42-2760009.4">Working with Topics</a></span></span><span class="sectionToc"><span class="number">9.5</span><span class="title"><a href="WorkingwithServices.html#x43-2820009.5">Working with Services</a></span></span><span class="sectionToc"><span class="number">9.6</span><span class="title"><a href="WorkingwithParameters.html#x44-2890009.6">Working with Parameters</a></span></span><span class="sectionToc"><span class="number">9.7</span><span class="title"><a href="APracticalLookintoActions.html#x45-2960009.7">A
-Practical Look into Actions</a></span></span><span class="sectionToc"><span class="number">9.8</span><span class="title"><a href="LaunchingNodes.html#x46-3030009.8">Launching Nodes</a></span></span><span class="chapterToc"><span class="number">10</span><span class="title"><a href="ClientLibraries.html#x47-30500010">Client Libraries</a></span></span><span class="sectionToc"><span class="number">10.1</span><span class="title"><a href="GettingStartedwithColcon.html#x48-30600010.1">Getting Started with
-Colcon</a></span></span><span class="subsectionToc"><span class="number">10.1.1</span><span class="title"><a href="GettingStartedwithColcon.html#x48-30700010.1.1">The Structure of a Package</a></span></span><span class="subsectionToc"><span class="number">10.1.2</span><span class="title"><a href="GettingStartedwithColcon.html#x48-30800010.1.2">Sourcing an Underlay</a></span></span><span class="subsectionToc"><span class="number">10.1.3</span><span class="title"><a href="GettingStartedwithColcon.html#x48-30900010.1.3">Building the
-Workspace</a></span></span><span class="subsectionToc"><span class="number">10.1.4</span><span class="title"><a href="GettingStartedwithColcon.html#x48-31000010.1.4">Sourcing the New Package</a></span></span><span class="subsectionToc"><span class="number">10.1.5</span><span class="title"><a href="GettingStartedwithColcon.html#x48-31100010.1.5">Creating a Workspace</a></span></span><span class="subsectionToc"><span class="number">10.1.6</span><span class="title"><a href="GettingStartedwithColcon.html#x48-31200010.1.6">Sourcing the
-Environment</a></span></span><span class="subsectionToc"><span class="number">10.1.7</span><span class="title"><a href="GettingStartedwithColcon.html#x48-31300010.1.7">Creating a New Directory</a></span></span><span class="subsectionToc"><span class="number">10.1.8</span><span class="title"><a href="GettingStartedwithColcon.html#x48-31400010.1.8">Cloning a Sample Repo</a></span></span><span class="subsectionToc"><span class="number">10.1.9</span><span class="title"><a href="GettingStartedwithColcon.html#x48-31500010.1.9">Resolving
-Dependencies</a></span></span><span class="subsectionToc"><span class="number">10.1.10</span><span class="title"><a href="GettingStartedwithColcon.html#x48-31600010.1.10">Building the Workspace</a></span></span><span class="subsectionToc"><span class="number">10.1.11</span><span class="title"><a href="GettingStartedwithColcon.html#x48-31700010.1.11">Sourcing our Overlay</a></span></span><span class="subsectionToc"><span class="number">10.1.12</span><span class="title"><a href="GettingStartedwithColcon.html#x48-31800010.1.12">Modifying
-the Overlay</a></span></span><span class="subsectionToc"><span class="number">10.1.13</span><span class="title"><a href="GettingStartedwithColcon.html#x48-31900010.1.13">Creating a Package</a></span></span><span class="sectionToc"><span class="number">10.2</span><span class="title"><a href="WritingaSimplePublisherandSubscriber.html#x49-32200010.2">Writing a Simple Publisher and
-Subscriber</a></span></span><span class="subsectionToc"><span class="number">10.2.1</span><span class="title"><a href="WritingaSimplePublisherandSubscriber.html#x49-32300010.2.1">Creating a ROS Packages</a></span></span><span class="subsectionToc"><span class="number">10.2.2</span><span class="title"><a href="WritingaSimplePublisherandSubscriber.html#x49-32400010.2.2">Writing the Publisher Node</a></span></span><span class="subsectionToc"><span class="number">10.2.3</span><span class="title"><a href="WritingaSimplePublisherandSubscriber.html#x49-32900010.2.3">Writing
-the Subscriber Node</a></span></span><span class="subsectionToc"><span class="number">10.2.4</span><span class="title"><a href="WritingaSimplePublisherandSubscriber.html#x49-33200010.2.4">Building and Running</a></span></span><span class="sectionToc"><span class="number">10.3</span><span class="title"><a href="WritingaSimpleServiceandClient.html#x50-33300010.3">Writing a Simple Service and
-Client</a></span></span><span class="subsectionToc"><span class="number">10.3.1</span><span class="title"><a href="WritingaSimpleServiceandClient.html#x50-33400010.3.1">Creating a New Package</a></span></span><span class="subsectionToc"><span class="number">10.3.2</span><span class="title"><a href="WritingaSimpleServiceandClient.html#x50-33700010.3.2">Writing the Service Node</a></span></span><span class="subsectionToc"><span class="number">10.3.3</span><span class="title"><a href="WritingaSimpleServiceandClient.html#x50-34000010.3.3">Writing the Client
-Node</a></span></span><span class="sectionToc"><span class="number">10.4</span><span class="title"><a href="CreatingCustommsgandsrvFiles.html#x51-34300010.4">Creating Custom msg and srv Files</a></span></span><span class="subsectionToc"><span class="number">10.4.1</span><span class="title"><a href="CreatingCustommsgandsrvFiles.html#x51-34400010.4.1">Creating a New Package</a></span></span><span class="subsectionToc"><span class="number">10.4.2</span><span class="title"><a href="CreatingCustommsgandsrvFiles.html#x51-34500010.4.2">Creating
-Custom Definitions</a></span></span><span class="subsectionToc"><span class="number">10.4.3</span><span class="title"><a href="CreatingCustommsgandsrvFiles.html#x51-35200010.4.3">Testing the Newly Built Interfaces</a></span></span><span class="sectionToc"><span class="number">10.5</span><span class="title"><a href="UsingParametersinaClass.html#x52-35400010.5">Using Parameters in a
-Class</a></span></span><span class="subsectionToc"><span class="number">10.5.1</span><span class="title"><a href="UsingParametersinaClass.html#x52-35500010.5.1">Creating a Package</a></span></span><span class="subsectionToc"><span class="number">10.5.2</span><span class="title"><a href="UsingParametersinaClass.html#x52-35700010.5.2">Writing our Python Code</a></span></span><span class="subsectionToc"><span class="number">10.5.3</span><span class="title"><a href="UsingParametersinaClass.html#x52-36200010.5.3">Changing Output using
-the Console</a></span></span><span class="subsectionToc"><span class="number">10.5.4</span><span class="title"><a href="UsingParametersinaClass.html#x52-36300010.5.4">Changing using the Launch File</a></span></span><span class="sectionToc"><span class="number">10.6</span><span class="title"><a href="ManagingDependencies.html#x53-36400010.6">Managing Dependencies</a></span></span><span class="sectionToc"><span class="number">10.7</span><span class="title"><a href="CreatinganAction.html#x54-36600010.7">Creating
-an Action</a></span></span><span class="sectionToc"><span class="number">10.8</span><span class="title"><a href="WritinganActionServerandClient.html#x55-36900010.8">Writing an Action Server and Client</a></span></span><span class="sectionToc"><span class="number">10.9</span><span class="title"><a href="WritingaLaunchFile.html#x56-37100010.9">Writing a Launch File</a></span></span>
+Control)</a></span></span><span class="subsectionToc"><span class="number">2.4.1</span><span class="title"><a href="MotionControlKinematicControl.html#x10-560002.4.1">Open loop control</a></span></span><span class="subsectionToc"><span class="number">2.4.2</span><span class="title"><a href="MotionControlKinematicControl.html#x10-570002.4.2">Feedback control</a></span></span><span class="chapterToc"><span class="number">3</span><span class="title"><a href="Perception.html#x11-630003">Perception</a></span></span><span class="sectionToc"><span class="number">3.1</span><span class="title"><a href="SensorsforMobileRobotics.html#x12-640003.1">Sensors
+for Mobile Robotics</a></span></span><span class="subsectionToc"><span class="number">3.1.1</span><span class="title"><a href="SensorsforMobileRobotics.html#x12-650003.1.1">Sensor Classification</a></span></span><span class="subsectionToc"><span class="number">3.1.2</span><span class="title"><a href="SensorsforMobileRobotics.html#x12-660003.1.2">Characterisation of Sensor
+Performance</a></span></span><span class="subsectionToc"><span class="number">3.1.3</span><span class="title"><a href="SensorsforMobileRobotics.html#x12-720003.1.3">Wheel and Motor Sensors</a></span></span><span class="subsectionToc"><span class="number">3.1.4</span><span class="title"><a href="SensorsforMobileRobotics.html#x12-740003.1.4">Heading Sensors</a></span></span><span class="subsectionToc"><span class="number">3.1.5</span><span class="title"><a href="SensorsforMobileRobotics.html#x12-810003.1.5">Ground Based
+Beacons</a></span></span><span class="subsectionToc"><span class="number">3.1.6</span><span class="title"><a href="SensorsforMobileRobotics.html#x12-830003.1.6">Active Ranging</a></span></span><span class="subsectionToc"><span class="number">3.1.7</span><span class="title"><a href="SensorsforMobileRobotics.html#x12-850003.1.7">The Ultrasonic Sensor</a></span></span><span class="subsectionToc"><span class="number">3.1.8</span><span class="title"><a href="SensorsforMobileRobotics.html#x12-920003.1.8">Motion and Speed
+Sensors</a></span></span><span class="sectionToc"><span class="number">3.2</span><span class="title"><a href="VisionBasedSensors.html#x13-940003.2">Vision Based Sensors</a></span></span><span class="subsectionToc"><span class="number">3.2.1</span><span class="title"><a href="VisionBasedSensors.html#x13-950003.2.1">CCD Sensors</a></span></span><span class="subsectionToc"><span class="number">3.2.2</span><span class="title"><a href="VisionBasedSensors.html#x13-970003.2.2">CMOS Technology</a></span></span><span class="subsectionToc"><span class="number">3.2.3</span><span class="title"><a href="VisionBasedSensors.html#x13-980003.2.3">Visual
+Ranging Sensors</a></span></span><span class="subsectionToc"><span class="number">3.2.4</span><span class="title"><a href="VisionBasedSensors.html#x13-990003.2.4">Depth from Focus</a></span></span><span class="sectionToc"><span class="number">3.3</span><span class="title"><a href="RepresentingUncertainty.html#x14-1070003.3">Representing Uncertainty</a></span></span><span class="subsectionToc"><span class="number">3.3.1</span><span class="title"><a href="RepresentingUncertainty.html#x14-1080003.3.1">Statistical
+Representation</a></span></span><span class="subsectionToc"><span class="number">3.3.2</span><span class="title"><a href="RepresentingUncertainty.html#x14-1090003.3.2">Independence of random variables</a></span></span><span class="subsectionToc"><span class="number">3.3.3</span><span class="title"><a href="RepresentingUncertainty.html#x14-1110003.3.3">Propagation of Error</a></span></span><span class="sectionToc"><span class="number">3.4</span><span class="title"><a href="FeatureExtraction.html#x15-1120003.4">Feature
+Extraction</a></span></span><span class="subsectionToc"><span class="number">3.4.1</span><span class="title"><a href="FeatureExtraction.html#x15-1130003.4.1">Defining Feature</a></span></span><span class="subsectionToc"><span class="number">3.4.2</span><span class="title"><a href="FeatureExtraction.html#x15-1140003.4.2">Using Range Data</a></span></span><span class="chapterToc"><span class="number">4</span><span class="title"><a href="WelcometoLinux.html#x16-1290004">Welcome to Linux</a></span></span><span class="sectionToc"><span class="number">4.1</span><span class="title"><a href="AHistoryofUNIXLinux.html#x17-1300004.1">A
+History of UNIX/Linux</a></span></span><span class="subsectionToc"><span class="number">4.1.1</span><span class="title"><a href="AHistoryofUNIXLinux.html#x17-1320004.1.1">A Short History on Computer Interfaces</a></span></span><span class="subsectionToc"><span class="number">4.1.2</span><span class="title"><a href="AHistoryofUNIXLinux.html#x17-1340004.1.2">Linux is a
+Nutshell</a></span></span><span class="subsectionToc"><span class="number">4.1.3</span><span class="title"><a href="AHistoryofUNIXLinux.html#x17-1370004.1.3">Linux Distributions</a></span></span><span class="sectionToc"><span class="number">4.2</span><span class="title"><a href="Installation.html#x18-1380004.2">Installation</a></span></span><span class="subsectionToc"><span class="number">4.2.1</span><span class="title"><a href="Installation.html#x18-1390004.2.1">Docker</a></span></span><span class="subsectionToc"><span class="number">4.2.2</span><span class="title"><a href="Installation.html#x18-1400004.2.2">Dockerfile</a></span></span><span class="subsectionToc"><span class="number">4.2.3</span><span class="title"><a href="Installation.html#x18-1410004.2.3">Running
+the Container</a></span></span><span class="chapterToc"><span class="number">5</span><span class="title"><a href="CommandLineFundamentals.html#x19-1420005">Command Line Fundamentals</a></span></span><span class="sectionToc"><span class="number">5.1</span><span class="title"><a href="ToCommandaComputer.html#x20-1430005.1">To Command a Computer</a></span></span><span class="subsectionToc"><span class="number">5.1.1</span><span class="title"><a href="ToCommandaComputer.html#x20-1440005.1.1">The
+Command Line Interface</a></span></span><span class="subsectionToc"><span class="number">5.1.2</span><span class="title"><a href="ToCommandaComputer.html#x20-1450005.1.2">The Structure of Commands</a></span></span><span class="subsectionToc"><span class="number">5.1.3</span><span class="title"><a href="ToCommandaComputer.html#x20-1460005.1.3">Some Rules Regarding
+the Syntax</a></span></span><span class="sectionToc"><span class="number">5.2</span><span class="title"><a href="WhenWeNeedHelpwithCommands.html#x21-1470005.2">When We Need Help with Commands</a></span></span><span class="subsectionToc"><span class="number">5.2.1</span><span class="title"><a href="WhenWeNeedHelpwithCommands.html#x21-1480005.2.1">Use Tab completion on
+the Shell</a></span></span><span class="subsectionToc"><span class="number">5.2.2</span><span class="title"><a href="WhenWeNeedHelpwithCommands.html#x21-1490005.2.2">The info command</a></span></span><span class="subsectionToc"><span class="number">5.2.3</span><span class="title"><a href="WhenWeNeedHelpwithCommands.html#x21-1500005.2.3">The whatis command</a></span></span><span class="chapterToc"><span class="number">6</span><span class="title"><a href="WorkingwithFilesandFolders.html#x22-1520006">Working with Files
+and Folders</a></span></span><span class="sectionToc"><span class="number">6.1</span><span class="title"><a href="FilesandFolders.html#x23-1530006.1">Files and Folders</a></span></span><span class="subsectionToc"><span class="number">6.1.1</span><span class="title"><a href="FilesandFolders.html#x23-1540006.1.1">A Detailed Look in ls Command</a></span></span><span class="subsectionToc"><span class="number">6.1.2</span><span class="title"><a href="FilesandFolders.html#x23-1550006.1.2">Creating
+and Removing Folders</a></span></span><span class="subsectionToc"><span class="number">6.1.3</span><span class="title"><a href="FilesandFolders.html#x23-1560006.1.3">Move, Copy and Delete Files and Folders</a></span></span><span class="sectionToc"><span class="number">6.2</span><span class="title"><a href="PermissionsandLinks.html#x24-1630006.2">Permissions
+and Links</a></span></span><span class="subsectionToc"><span class="number">6.2.1</span><span class="title"><a href="PermissionsandLinks.html#x24-1640006.2.1">Role to Users and sudo</a></span></span><span class="subsectionToc"><span class="number">6.2.2</span><span class="title"><a href="PermissionsandLinks.html#x24-1650006.2.2">File Permissions</a></span></span><span class="subsectionToc"><span class="number">6.2.3</span><span class="title"><a href="PermissionsandLinks.html#x24-1680006.2.3">Hard and Symbolic
+Links</a></span></span><span class="subsectionToc"><span class="number">6.2.4</span><span class="title"><a href="PermissionsandLinks.html#x24-1690006.2.4">Soft (Symbolic) Links</a></span></span><span class="subsectionToc"><span class="number">6.2.5</span><span class="title"><a href="PermissionsandLinks.html#x24-1710006.2.5">The Linux File System</a></span></span><span class="subsectionToc"><span class="number">6.2.6</span><span class="title"><a href="PermissionsandLinks.html#x24-1720006.2.6">The UNIX
+Philosophy</a></span></span><span class="sectionToc"><span class="number">6.3</span><span class="title"><a href="CommonCommandLineToolsandTasks.html#x25-1730006.3">Common Command-Line Tools and Tasks</a></span></span><span class="subsectionToc"><span class="number">6.3.1</span><span class="title"><a href="CommonCommandLineToolsandTasks.html#x25-1740006.3.1">Connecting Commands
+with Pipes</a></span></span><span class="subsectionToc"><span class="number">6.3.2</span><span class="title"><a href="CommonCommandLineToolsandTasks.html#x25-1750006.3.2">Viewing Text Files with cat, head, tail, and less</a></span></span><span class="subsectionToc"><span class="number">6.3.3</span><span class="title"><a href="CommonCommandLineToolsandTasks.html#x25-1760006.3.3">Finding
+Linux Distribution and Kernel Information</a></span></span><span class="subsectionToc"><span class="number">6.3.4</span><span class="title"><a href="CommonCommandLineToolsandTasks.html#x25-1780006.3.4">Find System Hardware and Disk
+Information</a></span></span><span class="chapterToc"><span class="number">7</span><span class="title"><a href="ROSConcepts.html#x26-1800007">ROS Concepts</a></span></span><span class="sectionToc"><span class="number">7.1</span><span class="title"><a href="PublisherandSubscriberArchitecture.html#x27-1810007.1">Publisher and Subscriber Architecture</a></span></span><span class="subsectionToc"><span class="number">7.1.1</span><span class="title"><a href="PublisherandSubscriberArchitecture.html#x27-1820007.1.1">ROS 2
+Architecture</a></span></span><span class="sectionToc"><span class="number">7.2</span><span class="title"><a href="BuildingBlocks.html#x28-1840007.2">Building Blocks</a></span></span><span class="subsectionToc"><span class="number">7.2.1</span><span class="title"><a href="BuildingBlocks.html#x28-1850007.2.1">Nodes</a></span></span><span class="subsectionToc"><span class="number">7.2.2</span><span class="title"><a href="BuildingBlocks.html#x28-1860007.2.2">The Discovery Process</a></span></span><span class="subsectionToc"><span class="number">7.2.3</span><span class="title"><a href="BuildingBlocks.html#x28-1870007.2.3">Communication
+Interface</a></span></span><span class="subsectionToc"><span class="number">7.2.4</span><span class="title"><a href="BuildingBlocks.html#x28-1960007.2.4">Topics</a></span></span><span class="subsectionToc"><span class="number">7.2.5</span><span class="title"><a href="BuildingBlocks.html#x28-2000007.2.5">Services</a></span></span><span class="subsectionToc"><span class="number">7.2.6</span><span class="title"><a href="BuildingBlocks.html#x28-2030007.2.6">Actions</a></span></span><span class="subsectionToc"><span class="number">7.2.7</span><span class="title"><a href="BuildingBlocks.html#x28-2060007.2.7">Parameters</a></span></span><span class="subsectionToc"><span class="number">7.2.8</span><span class="title"><a href="BuildingBlocks.html#x28-2150007.2.8">Working with
+Command Line</a></span></span><span class="subsectionToc"><span class="number">7.2.9</span><span class="title"><a href="BuildingBlocks.html#x28-2170007.2.9">Launch Files</a></span></span><span class="sectionToc"><span class="number">7.3</span><span class="title"><a href="AdvancedConcepts.html#x29-2180007.3">Advanced Concepts</a></span></span><span class="subsectionToc"><span class="number">7.3.1</span><span class="title"><a href="AdvancedConcepts.html#x29-2190007.3.1">ROS DOMAIN
+ID</a></span></span><span class="chapterToc"><span class="number">8</span><span class="title"><a href="CommandLineTools.html#x30-2210008">Command Line Tools</a></span></span><span class="sectionToc"><span class="number">8.1</span><span class="title"><a href="SettingtheEnvironment.html#x31-2220008.1">Setting the Environment</a></span></span><span class="sectionToc"><span class="number">8.2</span><span class="title"><a href="#x32-2270008.2">Turtles and Graphs</a></span></span><span class="sectionToc"><span class="number">8.3</span><span class="title"><a href="ADeeperLookintoNodes.html#x33-2350008.3">A
+Deeper Look into Nodes</a></span></span><span class="sectionToc"><span class="number">8.4</span><span class="title"><a href="WorkingwithTopics.html#x34-2400008.4">Working with Topics</a></span></span><span class="sectionToc"><span class="number">8.5</span><span class="title"><a href="WorkingwithServices.html#x35-2460008.5">Working with Services</a></span></span><span class="sectionToc"><span class="number">8.6</span><span class="title"><a href="WorkingwithParameters.html#x36-2530008.6">Working
+with Parameters</a></span></span><span class="sectionToc"><span class="number">8.7</span><span class="title"><a href="APracticalLookintoActions.html#x37-2600008.7">A Practical Look into Actions</a></span></span><span class="sectionToc"><span class="number">8.8</span><span class="title"><a href="LaunchingNodes.html#x38-2670008.8">Launching Nodes</a></span></span><span class="chapterToc"><span class="number">9</span><span class="title"><a href="ClientLibraries.html#x39-2690009">Client
+Libraries</a></span></span><span class="sectionToc"><span class="number">9.1</span><span class="title"><a href="GettingStartedwithColcon.html#x40-2700009.1">Getting Started with Colcon</a></span></span><span class="subsectionToc"><span class="number">9.1.1</span><span class="title"><a href="GettingStartedwithColcon.html#x40-2710009.1.1">The Structure of a Package</a></span></span><span class="subsectionToc"><span class="number">9.1.2</span><span class="title"><a href="GettingStartedwithColcon.html#x40-2720009.1.2">Sourcing
+an Underlay</a></span></span><span class="subsectionToc"><span class="number">9.1.3</span><span class="title"><a href="GettingStartedwithColcon.html#x40-2730009.1.3">Building the Workspace</a></span></span><span class="subsectionToc"><span class="number">9.1.4</span><span class="title"><a href="GettingStartedwithColcon.html#x40-2740009.1.4">Sourcing the New Package</a></span></span><span class="subsectionToc"><span class="number">9.1.5</span><span class="title"><a href="GettingStartedwithColcon.html#x40-2750009.1.5">Creating a
+Workspace</a></span></span><span class="subsectionToc"><span class="number">9.1.6</span><span class="title"><a href="GettingStartedwithColcon.html#x40-2760009.1.6">Sourcing the Environment</a></span></span><span class="subsectionToc"><span class="number">9.1.7</span><span class="title"><a href="GettingStartedwithColcon.html#x40-2770009.1.7">Creating a New Directory</a></span></span><span class="subsectionToc"><span class="number">9.1.8</span><span class="title"><a href="GettingStartedwithColcon.html#x40-2780009.1.8">Cloning a
+Sample Repo</a></span></span><span class="subsectionToc"><span class="number">9.1.9</span><span class="title"><a href="GettingStartedwithColcon.html#x40-2790009.1.9">Resolving Dependencies</a></span></span><span class="subsectionToc"><span class="number">9.1.10</span><span class="title"><a href="GettingStartedwithColcon.html#x40-2800009.1.10">Building the Workspace</a></span></span><span class="subsectionToc"><span class="number">9.1.11</span><span class="title"><a href="GettingStartedwithColcon.html#x40-2810009.1.11">Sourcing our
+Overlay</a></span></span><span class="subsectionToc"><span class="number">9.1.12</span><span class="title"><a href="GettingStartedwithColcon.html#x40-2820009.1.12">Modifying the Overlay</a></span></span><span class="subsectionToc"><span class="number">9.1.13</span><span class="title"><a href="GettingStartedwithColcon.html#x40-2830009.1.13">Creating a Package</a></span></span><span class="sectionToc"><span class="number">9.2</span><span class="title"><a href="WritingaSimplePublisherandSubscriber.html#x41-2860009.2">Writing a Simple Publisher
+and Subscriber</a></span></span><span class="subsectionToc"><span class="number">9.2.1</span><span class="title"><a href="WritingaSimplePublisherandSubscriber.html#x41-2870009.2.1">Creating a ROS Packages</a></span></span><span class="subsectionToc"><span class="number">9.2.2</span><span class="title"><a href="WritingaSimplePublisherandSubscriber.html#x41-2880009.2.2">Writing the Publisher Node</a></span></span><span class="subsectionToc"><span class="number">9.2.3</span><span class="title"><a href="WritingaSimplePublisherandSubscriber.html#x41-2930009.2.3">Writing
+the Subscriber Node</a></span></span><span class="subsectionToc"><span class="number">9.2.4</span><span class="title"><a href="WritingaSimplePublisherandSubscriber.html#x41-2960009.2.4">Building and Running</a></span></span><span class="sectionToc"><span class="number">9.3</span><span class="title"><a href="WritingaSimpleServiceandClient.html#x42-2970009.3">Writing a Simple Service and
+Client</a></span></span><span class="subsectionToc"><span class="number">9.3.1</span><span class="title"><a href="WritingaSimpleServiceandClient.html#x42-2980009.3.1">Creating a New Package</a></span></span><span class="subsectionToc"><span class="number">9.3.2</span><span class="title"><a href="WritingaSimpleServiceandClient.html#x42-3010009.3.2">Writing the Service Node</a></span></span><span class="subsectionToc"><span class="number">9.3.3</span><span class="title"><a href="WritingaSimpleServiceandClient.html#x42-3040009.3.3">Writing the Client
+Node</a></span></span><span class="sectionToc"><span class="number">9.4</span><span class="title"><a href="CreatingCustommsgandsrvFiles.html#x43-3070009.4">Creating Custom msg and srv Files</a></span></span><span class="subsectionToc"><span class="number">9.4.1</span><span class="title"><a href="CreatingCustommsgandsrvFiles.html#x43-3080009.4.1">Creating a New Package</a></span></span><span class="subsectionToc"><span class="number">9.4.2</span><span class="title"><a href="CreatingCustommsgandsrvFiles.html#x43-3090009.4.2">Creating
+Custom Definitions</a></span></span><span class="subsectionToc"><span class="number">9.4.3</span><span class="title"><a href="CreatingCustommsgandsrvFiles.html#x43-3160009.4.3">Testing the Newly Built Interfaces</a></span></span><span class="sectionToc"><span class="number">9.5</span><span class="title"><a href="UsingParametersinaClass.html#x44-3180009.5">Using Parameters in a
+Class</a></span></span><span class="subsectionToc"><span class="number">9.5.1</span><span class="title"><a href="UsingParametersinaClass.html#x44-3190009.5.1">Creating a Package</a></span></span><span class="subsectionToc"><span class="number">9.5.2</span><span class="title"><a href="UsingParametersinaClass.html#x44-3210009.5.2">Writing our Python Code</a></span></span><span class="subsectionToc"><span class="number">9.5.3</span><span class="title"><a href="UsingParametersinaClass.html#x44-3260009.5.3">Changing Output using
+the Console</a></span></span><span class="subsectionToc"><span class="number">9.5.4</span><span class="title"><a href="UsingParametersinaClass.html#x44-3270009.5.4">Changing using the Launch File</a></span></span><span class="sectionToc"><span class="number">9.6</span><span class="title"><a href="ManagingDependencies.html#x45-3280009.6">Managing Dependencies</a></span></span><span class="sectionToc"><span class="number">9.7</span><span class="title"><a href="CreatinganAction.html#x46-3300009.7">Creating
+an Action</a></span></span><span class="sectionToc"><span class="number">9.8</span><span class="title"><a href="WritinganActionServerandClient.html#x47-3330009.8">Writing an Action Server and Client</a></span></span><span class="sectionToc"><span class="number">9.9</span><span class="title"><a href="WritingaLaunchFile.html#x48-3350009.9">Writing a Launch File</a></span></span>
 <div class="nav-footer"><div class="nav-footer-left"><span class="nav-footer-lecture">D. T. McGuiness, PhD</span>
-<span class="nav-footer-webBook"><b>Last Updated:</b> 13.10.2026, at 8:16.</span></div></div><p class="nav-comments">The website you are viewing is auto-generated using lms-WebBook and therefore subject to slight errors in typography and formatting. When in doubt, please consult the LectureBook. </p></div></nav>
+<span class="nav-footer-webBook"><b>Last Updated:</b> 24.11.2026, at 13:58.</span></div></div><p class="nav-comments">The website you are viewing is auto-generated using lms-WebBook and therefore subject to slight errors in typography and formatting. When in doubt, please consult the LectureBook. </p></div></nav>
 <article class="chapter">
-<nav class="crosslinks-top"> <span class="nav-button"><i class="fa-solid fa-caret-right"></i><a class="nav-link" href="ADeeperLookintoNodes.html">A Deeper Look into Nodes</a></span><span class="nav-button"><i class="fa-solid fa-caret-left"></i><a class="nav-link" href="SettingtheEnvironment.html">Setting the Environment</a></span><span class="nav-button"><i class="fa-solid fa-caret-up"></i><a class="nav-link" href="CommandLineTools.html#TurtlesandGraphs.html">Chapter: Command Line
-Tools</a></span><span class="nav-button">
+<nav class="crosslinks-top"> <span class="nav-button"><i class="fa-solid fa-caret-right"></i><a class="nav-link" href="ADeeperLookintoNodes.html">A Deeper Look into Nodes</a></span><span class="nav-button"><i class="fa-solid fa-caret-left"></i><a class="nav-link" href="SettingtheEnvironment.html">Setting the Environment</a></span><span class="nav-button"><i class="fa-solid fa-caret-up"></i><a class="nav-link" href="CommandLineTools.html#TurtlesandGraphs.html">Chapter: Command Line Tools</a></span><span class="nav-button">
 <a href="index.html" rel="index" title="Visit Entry Point">
 <i class="fa-solid fa-table-list">
 </i>
@@ -105,8 +94,7 @@ Tools</a></span><span class="nav-button">
 <i class="fa-brands fa-git-alt"></i>
 <span class="nav-info">Visit Material GitHub Repo</span>
 </a></span></nav>
-<div class="section-header"> <h3 id="header-section-9.2"> <a class="pdf-icon" href="AutonomousMobileRoboticsLectureBook.pdf#section.9.2"><svg class="bi bi-file-pdf" fill="currentColor" height="20" viewbox="0 0 16 16" width="20" xmlns="http://www.w3.org/2000/svg"><path d="M4 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H4zm0 1h8a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1z"></path><path d="M4.603 12.087a.81.81 0 0 1-.438-.42c-.195-.388-.13-.776.08-1.102.198-.307.526-.568.897-.787a7.68 7.68 0 0 1 1.482-.645 19.701 19.701 0 0 0 1.062-2.227 7.269 7.269 0 0 1-.43-1.295c-.086-.4-.119-.796-.046-1.136.075-.354.274-.672.65-.823.192-.077.4-.12.602-.077a.7.7 0 0 1 .477.365c.088.164.12.356.127.538.007.187-.012.395-.047.614-.084.51-.27 1.134-.52 1.794a10.954 10.954 0 0 0 .98 1.686 5.753 5.753 0 0 1 1.334.05c.364.065.734.195.96.465.12.144.193.32.2.518.007.192-.047.382-.138.563a1.04 1.04 0 0 1-.354.416.856.856 0 0 1-.51.138c-.331-.014-.654-.196-.933-.417a5.716 5.716 0 0 1-.911-.95 11.642 11.642 0 0 0-1.997.406 11.311 11.311 0 0 1-1.021 1.51c-.29.35-.608.655-.926.787a.793.793 0 0 1-.58.029zm1.379-1.901c-.166.076-.32.156-.459.238-.328.194-.541.383-.647.547-.094.145-.096.25-.04.361.01.022.02.036.026.044a.27.27 0 0 0 .035-.012c.137-.056.355-.235.635-.572a8.18 8.18 0 0 0 .45-.606zm1.64-1.33a12.647 12.647 0 0 1 1.01-.193 11.666 11.666 0 0 1-.51-.858 20.741 20.741 0 0 1-.5 1.05zm2.446.45c.15.162.296.3.435.41.24.19.407.253.498.256a.107.107 0 0 0 .07-.015.307.307 0 0 0 .094-.125.436.436 0 0 0 .059-.2.095.095 0 0 0-.026-.063c-.052-.062-.2-.152-.518-.209a3.881 3.881 0 0 0-.612-.053zM8.078 5.8a6.7 6.7 0 0 0 .2-.828c.031-.188.043-.343.038-.465a.613.613 0 0 0-.032-.198.517.517 0 0 0-.145.04c-.087.035-.158.106-.196.283-.04.192-.03.469.046.822.024.111.054.227.09.346z"></path></svg></a> <span class="number">9.2</span> <span class="title"> <a id="x40-2630009.2"></a>Turtles and
-Graphs</span></h3></div>
+<div class="section-header"><h3 id="header-section-8.2"><span class="number">8.2</span><a class="pdf-icon" href="AutonomousMobileRoboticsLectureBook.pdf#section.8.2"><svg class="bi bi-file-pdf" fill="currentColor" height="20" viewbox="0 0 16 16" width="20" xmlns="http://www.w3.org/2000/svg"><path d="M4 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H4zm0 1h8a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1z"></path><path d="M4.603 12.087a.81.81 0 0 1-.438-.42c-.195-.388-.13-.776.08-1.102.198-.307.526-.568.897-.787a7.68 7.68 0 0 1 1.482-.645 19.701 19.701 0 0 0 1.062-2.227 7.269 7.269 0 0 1-.43-1.295c-.086-.4-.119-.796-.046-1.136.075-.354.274-.672.65-.823.192-.077.4-.12.602-.077a.7.7 0 0 1 .477.365c.088.164.12.356.127.538.007.187-.012.395-.047.614-.084.51-.27 1.134-.52 1.794a10.954 10.954 0 0 0 .98 1.686 5.753 5.753 0 0 1 1.334.05c.364.065.734.195.96.465.12.144.193.32.2.518.007.192-.047.382-.138.563a1.04 1.04 0 0 1-.354.416.856.856 0 0 1-.51.138c-.331-.014-.654-.196-.933-.417a5.716 5.716 0 0 1-.911-.95 11.642 11.642 0 0 0-1.997.406 11.311 11.311 0 0 1-1.021 1.51c-.29.35-.608.655-.926.787a.793.793 0 0 1-.58.029zm1.379-1.901c-.166.076-.32.156-.459.238-.328.194-.541.383-.647.547-.094.145-.096.25-.04.361.01.022.02.036.026.044a.27.27 0 0 0 .035-.012c.137-.056.355-.235.635-.572a8.18 8.18 0 0 0 .45-.606zm1.64-1.33a12.647 12.647 0 0 1 1.01-.193 11.666 11.666 0 0 1-.51-.858 20.741 20.741 0 0 1-.5 1.05zm2.446.45c.15.162.296.3.435.41.24.19.407.253.498.256a.107.107 0 0 0 .07-.015.307.307 0 0 0 .094-.125.436.436 0 0 0 .059-.2.095.095 0 0 0-.026-.063c-.052-.062-.2-.152-.518-.209a3.881 3.881 0 0 0-.612-.053zM8.078 5.8a6.7 6.7 0 0 0 .2-.828c.031-.188.043-.343.038-.465a.613.613 0 0 0-.032-.198.517.517 0 0 0-.145.04c-.087.035-.158.106-.196.283-.04.192-.03.469.046.822.024.111.054.227.09.346z"></path></svg></a><span class="title"> <a id="x32-2270008.2"></a>Turtles and Graphs</span></h3></div>
 <p class="noindent">Turtlesim is a great introduction to <span class="acronym"><span class="acronym-short"><a class="glossary" href="#glo:ros">ROS</a></span><span class="acronym-detail"><span class="acronym-long"><a class="glossary" href="#glo:ros">Robot Operating System 2</a></span><span class="acronym-desc"><a class="glossary" href="#glo:ros">Robot Operating System 2</a></span></span></span> as it is a
 lightweight simulator and easy to work on. It illustrates what <span class="acronym"><span class="acronym-short"><a class="glossary" href="#glo:ros">ROS</a></span><span class="acronym-detail"><span class="acronym-long"><a class="glossary" href="#glo:ros">Robot Operating System 2</a></span><span class="acronym-desc"><a class="glossary" href="#glo:ros">Robot
 Operating System 2</a></span></span></span> does at a fundamental level to give us an idea of what we will do with a real robot
@@ -116,14 +104,14 @@ Operating System 2</a></span><span class="acronym-desc"><a class="glossary" href
 different aspects of the system and its operation.
 </p>
 <div class="quote"> <i>One might use it to start a node, set a parameter, listen to a topic, and many more.</i> </div>
-<div class="warning"><div class="warning-upper">Warning</div><div class="body">
+<div class="block-minor warning"><div class="body">
 <p class="noindent">The <code class="verb">ros2</code>  tool is part of the core <span class="acronym"><span class="acronym-short"><a class="glossary" href="#glo:ros">ROS</a></span><span class="acronym-detail"><span class="acronym-long"><a class="glossary" href="#glo:ros">Robot Operating System 2</a></span><span class="acronym-desc"><a class="glossary" href="#glo:ros">Robot Operating System 2</a></span></span></span>
 installation and should already be installed. This can easily be tested by typing <code class="verb">ros2</code>  into a terminal.
 </p></div></div>
 <p class="noindent">The second tool is <code class="verb">rqt</code> , a <span class="acronym"><span class="acronym-short"><a class="glossary" href="#glo:gui">GUI</a></span><span class="acronym-detail"><span class="acronym-long"><a class="glossary" href="#glo:gui">Graphical User Interface</a></span><span class="acronym-desc"><a class="glossary" href="#glo:gui">Graphical User Interface</a></span></span></span> tool for <span class="acronym"><span class="acronym-short"><a class="glossary" href="#glo:ros">ROS</a></span><span class="acronym-detail"><span class="acronym-long"><a class="glossary" href="#glo:ros">Robot
 Operating System 2</a></span><span class="acronym-desc"><a class="glossary" href="#glo:ros">Robot Operating System 2</a></span></span></span>.
 </p>
-<div class="knowledge"><div class="knowledge-upper">Knowledge</div><div class="body">
+<div class="block-minor knowledge"><div class="body">
 <p class="noindent">Everything done in <code class="verb">rqt</code>  can be done using <span class="acronym"><span class="acronym-short"><a class="glossary" href="#glo:cli">CLI</a></span><span class="acronym-detail"><span class="acronym-long"><a class="glossary" href="#glo:cli">Command-Line Interface</a></span><span class="acronym-desc"><a class="glossary" href="#glo:cli">A software mechanism you use to
 interact with your operating system using your keyboard</a></span></span></span>, but <code class="verb">rqt</code>  provides a more user-friendly
 way to manipulate <span class="acronym"><span class="acronym-short"><a class="glossary" href="#glo:ros">ROS</a></span><span class="acronym-detail"><span class="acronym-long"><a class="glossary" href="#glo:ros">Robot Operating System 2</a></span><span class="acronym-desc"><a class="glossary" href="#glo:ros">Robot Operating System 2</a></span></span></span> elements.
@@ -134,62 +122,46 @@ were discussed in a previous chapter theoretically and now, we will simply set u
 feel for them.
 </p>
 <p class="noindent"></p><figure class="float">
-<p class="noindent"><dl class="first-deffn first-defun-alias-first-deffn def-block"><a class="copiable-link" href="#command-block-9.24"> ¶</a><dt class="deffn defun-alias-deffn def-line" id="command-block-9.24"><a id="x40-263001r24"></a><span class="category-def"><b>command:</b> </span><strong class="def-name">ros2</strong><var class="def-var-arguments"> [COMMAND]</var></dt><dd><p> ros2 is an extensible command-line tool for ROS 2. </p></dd></dl></p>
+<p class="noindent"><dl class="first-deffn first-defun-alias-first-deffn def-block"><a class="copiable-link" href="#command-block-8.24"> ¶</a><dt class="deffn defun-alias-deffn def-line" id="command-block-8.24"><a id="x32-227001r24"></a><span class="category-def"><b>command:</b> </span><strong class="def-name">ros2</strong><var class="def-var-arguments"> [COMMAND]</var></dt><dd><p> ros2 is an extensible command-line tool for ROS 2. </p></dd></dl></p>
 </figure>
-<p class="noindent"><span class="paragraphHead"> <a id="x40-264000"></a>Installing the Required Packages</span>
-In case of <b>NOT</b> having a configured docker container which was discussed in detail previously, please
+<div class="paragraph-header"><h6 id="header-paragraph-8.2.0.79.36"><span class="number"></span><a class="pdf-icon" href=""></a><span class="title"> <a id="x32-228000"></a>Installing the Required Packages</span></h6></div>
+<p class="noindent">In case of <b>NOT</b> having a configured docker container which was discussed in detail previously, please
 use the following commands to install all the necessary packages.
 </p>
-<pre><div class="code-header"> <span class="code-language">bash</span> </div> <code class="language-bash">
-<pre class="fancyvrb" id="fancyvrb155"><a id="x40-264002r92"></a>sudo apt update 
-<a id="x40-264004r93"></a>sudo apt install ros-humble-turtlesim</pre>
-</code></pre>
-<pre><code class="language-text">
-<pre class="fancyvrb" id="fancyvrb156"><a id="x40-264006r98"></a>0 upgraded, 0 newly installed, 0 to remove and 6 not upgraded.</pre>
-</code></pre>
+<div class="code-header"><span class="code-language">bash</span></div><div class="code-wrapper"><pre><code class="language-bash"><pre class="fancyvrb" id="fancyvrb155"><a id="x32-228002r92"></a>sudo apt update 
+<a id="x32-228004r93"></a>sudo apt install ros-humble-turtlesim</pre></code></pre></div>
+<div class="code-wrapper"><pre><code class="language-text"><pre class="fancyvrb" id="fancyvrb156"><a id="x32-228006r98"></a>0 upgraded, 0 newly installed, 0 to remove and 6 not upgraded.</pre></code></pre></div>
 <p class="noindent">To check if the package is installed, let’s run the following command in the terminal, which should
 return a list of turtlesim’s executable options:
 </p>
-<pre><div class="code-header"> <span class="code-language">bash</span> </div> <code class="language-bash">
-<pre class="fancyvrb" id="fancyvrb157"><a id="x40-264008r103"></a>ros2 pkg executables turtlesim</pre>
-</code></pre>
-<pre><code class="language-text">
-<pre class="fancyvrb" id="fancyvrb158"><a id="x40-264010r108"></a>turtlesim draw_square 
-<a id="x40-264012r109"></a>turtlesim mimic 
-<a id="x40-264014r110"></a>turtlesim turtle_teleop_key 
-<a id="x40-264016r111"></a>turtlesim turtlesim_node</pre>
-</code></pre>
-<p class="noindent"><span class="paragraphHead"> <a id="x40-265000"></a>Installing and Starting Turtlesim</span>
-Let’s begin this tutorial by starting turtlesim. Once started, we will see messages from the node. There
+<div class="code-header"><span class="code-language">bash</span></div><div class="code-wrapper"><pre><code class="language-bash"><pre class="fancyvrb" id="fancyvrb157"><a id="x32-228008r103"></a>ros2 pkg executables turtlesim</pre></code></pre></div>
+<div class="code-wrapper"><pre><code class="language-text"><pre class="fancyvrb" id="fancyvrb158"><a id="x32-228010r108"></a>turtlesim draw_square 
+<a id="x32-228012r109"></a>turtlesim mimic 
+<a id="x32-228014r110"></a>turtlesim turtle_teleop_key 
+<a id="x32-228016r111"></a>turtlesim turtlesim_node</pre></code></pre></div>
+<div class="paragraph-header"><h6 id="header-paragraph-8.2.0.79.37"><span class="number"></span><a class="pdf-icon" href=""></a><span class="title"> <a id="x32-229000"></a>Installing and Starting Turtlesim</span></h6></div>
+<p class="noindent">Let’s begin this tutorial by starting turtlesim. Once started, we will see messages from the node. There
 we can see the default turtle’s name and the coordinates where it spawns.
 </p>
-<pre><div class="code-header"> <span class="code-language">bash</span> </div> <code class="language-bash">
-<pre class="fancyvrb" id="fancyvrb159"><a id="x40-265002r116"></a>ros2 run turtlesim turtlesim_node</pre>
-</code></pre>
-<pre><code class="language-text">
-<pre class="fancyvrb" id="fancyvrb160"><a id="x40-265004r121"></a>QStandardPaths: XDG_RUNTIME_DIR not set, defaulting to '/tmp/runtime-ubuntu' 
-<a id="x40-265006r122"></a>[INFO] [1748967100.900464593] [turtlesim]: Starting turtlesim with node name /turtlesim 
-<a id="x40-265008r123"></a>[INFO] [1748967100.908647551] [turtlesim]: Spawning turtle [turtle1] at x=[5.544445], y=[5.544445], theta=[0.000000]</pre>
-</code></pre>
-<p class="noindent">The simulator window should appear, with a random turtle in the <span class="margin-block"><span class="margin"><span>centre. <a class="ellipsis" href="#m-ref-214">[214]</a></span><span class="sidenote"><a class="copiable-link" href="#m-ref-214" id="m-ref-214"> ¶</a><span class="sidenote-image"><img alt="PIC" src="figures/Command-Line-Tools/raster/tsim-1.png" style=""/></span><span class="sidenote-text"><span class="ellipsis">[214]</span>Here we can see the
+<div class="code-header"><span class="code-language">bash</span></div><div class="code-wrapper"><pre><code class="language-bash"><pre class="fancyvrb" id="fancyvrb159"><a id="x32-229002r116"></a>ros2 run turtlesim turtlesim_node</pre></code></pre></div>
+<div class="code-wrapper"><pre><code class="language-text"><pre class="fancyvrb" id="fancyvrb160"><a id="x32-229004r121"></a>QStandardPaths: XDG_RUNTIME_DIR not set, defaulting to '/tmp/runtime-ubuntu' 
+<a id="x32-229006r122"></a>[INFO] [1748967100.900464593] [turtlesim]: Starting turtlesim with node name /turtlesim 
+<a id="x32-229008r123"></a>[INFO] [1748967100.908647551] [turtlesim]: Spawning turtle [turtle1] at x=[5.544445], y=[5.544445], theta=[0.000000]</pre></code></pre></div>
+<p class="noindent">The simulator window should appear, with a random turtle in the <span class="margin-block"><span class="margin"><span>centre. <a class="ellipsis" href="#m-ref-164">[164]</a></span><span class="sidenote"><a class="copiable-link" href="#m-ref-164" id="m-ref-164"> ¶</a><span class="sidenote-image"><img alt="PIC" src="figures/Command-Line-Tools/raster/tsim-1.png" style=""/></span><span class="sidenote-text"><span class="ellipsis">[164]</span>Here we can see the
 turtlebot in its natural habitat, the turtlesim environment. The type of the turtle changes every time a
 new turtlesim environment is called. All these turtles represent a version of <span class="acronym"><span class="acronym-short"><a class="glossary" href="#glo:ros">ROS</a></span><span class="acronym-detail"><span class="acronym-long"><a class="glossary" href="#glo:ros">Robot Operating
 System 2</a></span><span class="acronym-desc"><a class="glossary" href="#glo:ros">Robot Operating System 2</a></span></span></span>.</span></span></span></span>
 </p>
-<p class="noindent"><span class="paragraphHead"> <a id="x40-266000"></a>Making the Turtle Move Around</span>
-Now, <span class="alert">open a new terminal</span> and if it is <b>NOT</b> automatic, source <span class="acronym"><span class="acronym-short"><a class="glossary" href="#glo:ros">ROS</a></span><span class="acronym-detail"><span class="acronym-long"><a class="glossary" href="#glo:ros">Robot Operating System 2</a></span><span class="acronym-desc"><a class="glossary" href="#glo:ros">Robot Operating System 2</a></span></span></span>
+<div class="paragraph-header"><h6 id="header-paragraph-8.2.0.79.38"><span class="number"></span><a class="pdf-icon" href=""></a><span class="title"> <a id="x32-230000"></a>Making the Turtle Move Around</span></h6></div>
+<p class="noindent">Now, <span class="alert">open a new terminal</span> and if it is <b>NOT</b> automatic, source <span class="acronym"><span class="acronym-short"><a class="glossary" href="#glo:ros">ROS</a></span><span class="acronym-detail"><span class="acronym-long"><a class="glossary" href="#glo:ros">Robot Operating System 2</a></span><span class="acronym-desc"><a class="glossary" href="#glo:ros">Robot Operating System 2</a></span></span></span>
 again. Now we will run a new node to control the turtle in the first node:
 </p>
-<pre><div class="code-header"> <span class="code-language">bash</span> </div> <code class="language-bash">
-<pre class="fancyvrb" id="fancyvrb161"><a id="x40-266002r129"></a>ros2 run turtlesim turtle_teleop_key</pre>
-</code></pre>
-<pre><code class="language-text">
-<pre class="fancyvrb" id="fancyvrb162"><a id="x40-266004r134"></a>Reading from keyboard 
-<a id="x40-266006r135"></a>--------------------------- 
-<a id="x40-266008r136"></a>Use arrow keys to move the turtle. 
-<a id="x40-266010r137"></a>Use G|B|V|C|D|E|R|T keys to rotate to absolute orientations. 'F' to cancel a rotation. 
-<a id="x40-266012r138"></a>'Q' to quit.</pre>
-</code></pre>
+<div class="code-header"><span class="code-language">bash</span></div><div class="code-wrapper"><pre><code class="language-bash"><pre class="fancyvrb" id="fancyvrb161"><a id="x32-230002r129"></a>ros2 run turtlesim turtle_teleop_key</pre></code></pre></div>
+<div class="code-wrapper"><pre><code class="language-text"><pre class="fancyvrb" id="fancyvrb162"><a id="x32-230004r134"></a>Reading from keyboard 
+<a id="x32-230006r135"></a>--------------------------- 
+<a id="x32-230008r136"></a>Use arrow keys to move the turtle. 
+<a id="x32-230010r137"></a>Use G|B|V|C|D|E|R|T keys to rotate to absolute orientations. 'F' to cancel a rotation. 
+<a id="x32-230012r138"></a>'Q' to quit.</pre></code></pre></div>
 <p class="noindent">At this point we should have three (<span class="alert">3</span>) windows open:
 </p>
 <dl class="enumerate-enumitem"><dt class="enumerate-enumitem">
@@ -207,116 +179,108 @@ iii.
 active so we can control <code class="verb">turtlesim</code> ’s turtle using the arrow keys. It will move around the screen, using its
 attached “pen” to draw the path it followed so far.
 </p>
-<div class="info-block" id="info-block-9.38"> <a class="copiable-link" href="#info-block-9.38"> ¶</a> <span class="info-upper"> <span class="info-header"> <b>Information 9.<a id="x40-266016r38"></a>38: </b> </span> <span class="info-title"> Action is Temporary </span> </span> <div class="body">
+<dl class="def-block block-major info-block"> <a class="copiable-link" href="#info-block-8.30" id="info-block-8.30"> ¶</a> <dt class="def-line"> <span class="upper"> <span class="header"> <b>Information 8.<a id="x32-230016r30"></a>30: </b> </span> <span class="title"> Action is Temporary </span> </span> <input class="body-button" type="button" value="Show/Hide"/> </dt> <dd class="body">
 <p class="noindent">Pressing an arrow key will only cause the turtle to move a short distance and then stop. This is
 because, realistically, we wouldn’t want a robot to continue carrying on an instruction if, for example,
 the operator lost the connection to the robot.
 </p>
-</div></div>
+</dd></dl>
 <p class="noindent">We can see the nodes, and their associated topics, services, and actions, using the <code class="verb">list</code>  sub-commands of
 the respective commands:
 </p>
-<pre><div class="code-header"> <span class="code-language">bash</span> </div> <code class="language-bash">
-<pre class="fancyvrb" id="fancyvrb163"><a id="x40-266018r143"></a><span style="color:#B03B03;">echo</span> <span style="color:#78730D;">"~~ Node information ~~"</span> &amp;&amp; 
-<a id="x40-266020r144"></a>    ros2 node list &amp;&amp; 
-<a id="x40-266022r145"></a>    <span style="color:#B03B03;">echo</span> <span style="color:#78730D;">"~~ Topic information ~~"</span> &amp;&amp; 
-<a id="x40-266024r146"></a>    ros2 topic list &amp;&amp; 
-<a id="x40-266026r147"></a>    <span style="color:#B03B03;">echo</span> <span style="color:#78730D;">"~~ Service information ~~"</span> &amp;&amp; 
-<a id="x40-266028r148"></a>    ros2 service list &amp;&amp; 
-<a id="x40-266030r149"></a>    <span style="color:#B03B03;">echo</span> <span style="color:#78730D;">"~~ Action information ~~"</span> &amp;&amp; 
-<a id="x40-266032r150"></a>    ros2 action list </pre>
-</code></pre>
-<pre><code class="language-text">
-<pre class="fancyvrb" id="fancyvrb164"><a id="x40-266034r155"></a>~~ Node information ~~ 
-<a id="x40-266036r156"></a>/teleop_turtle 
-<a id="x40-266038r157"></a>/turtlesim 
-<a id="x40-266040r158"></a>~~ Topic information ~~ 
-<a id="x40-266042r159"></a>/parameter_events 
-<a id="x40-266044r160"></a>/rosout 
-<a id="x40-266046r161"></a>/turtle1/cmd_vel 
-<a id="x40-266048r162"></a>/turtle1/color_sensor 
-<a id="x40-266050r163"></a>/turtle1/pose 
-<a id="x40-266052r164"></a>~~ Service information ~~ 
-<a id="x40-266054r165"></a>/clear 
-<a id="x40-266056r166"></a>/kill 
-<a id="x40-266058r167"></a>/reset 
-<a id="x40-266060r168"></a>/spawn 
-<a id="x40-266062r169"></a>/teleop_turtle/describe_parameters 
-<a id="x40-266064r170"></a>/teleop_turtle/get_parameter_types 
-<a id="x40-266066r171"></a>/teleop_turtle/get_parameters 
-<a id="x40-266068r172"></a>/teleop_turtle/list_parameters 
-<a id="x40-266070r173"></a>/teleop_turtle/set_parameters 
-<a id="x40-266072r174"></a>/teleop_turtle/set_parameters_atomically 
-<a id="x40-266074r175"></a>/turtle1/set_pen 
-<a id="x40-266076r176"></a>/turtle1/teleport_absolute 
-<a id="x40-266078r177"></a>/turtle1/teleport_relative 
-<a id="x40-266080r178"></a>/turtlesim/describe_parameters 
-<a id="x40-266082r179"></a>/turtlesim/get_parameter_types 
-<a id="x40-266084r180"></a>/turtlesim/get_parameters 
-<a id="x40-266086r181"></a>/turtlesim/list_parameters 
-<a id="x40-266088r182"></a>/turtlesim/set_parameters 
-<a id="x40-266090r183"></a>/turtlesim/set_parameters_atomically 
-<a id="x40-266092r184"></a>~~ Action information ~~ 
-<a id="x40-266094r185"></a>/turtle1/rotate_absolute</pre>
-</code></pre>
+<div class="code-header"><span class="code-language">bash</span></div><div class="code-wrapper"><pre><code class="language-bash"><pre class="fancyvrb" id="fancyvrb163"><a id="x32-230018r143"></a><span style="color:#B03B03;">echo</span> <span style="color:#78730D;">"~~ Node information ~~"</span> &amp;&amp; 
+<a id="x32-230020r144"></a>    ros2 node list &amp;&amp; 
+<a id="x32-230022r145"></a>    <span style="color:#B03B03;">echo</span> <span style="color:#78730D;">"~~ Topic information ~~"</span> &amp;&amp; 
+<a id="x32-230024r146"></a>    ros2 topic list &amp;&amp; 
+<a id="x32-230026r147"></a>    <span style="color:#B03B03;">echo</span> <span style="color:#78730D;">"~~ Service information ~~"</span> &amp;&amp; 
+<a id="x32-230028r148"></a>    ros2 service list &amp;&amp; 
+<a id="x32-230030r149"></a>    <span style="color:#B03B03;">echo</span> <span style="color:#78730D;">"~~ Action information ~~"</span> &amp;&amp; 
+<a id="x32-230032r150"></a>    ros2 action list </pre></code></pre></div>
+<div class="code-wrapper"><pre><code class="language-text"><pre class="fancyvrb" id="fancyvrb164"><a id="x32-230034r155"></a>~~ Node information ~~ 
+<a id="x32-230036r156"></a>/teleop_turtle 
+<a id="x32-230038r157"></a>/turtlesim 
+<a id="x32-230040r158"></a>~~ Topic information ~~ 
+<a id="x32-230042r159"></a>/parameter_events 
+<a id="x32-230044r160"></a>/rosout 
+<a id="x32-230046r161"></a>/turtle1/cmd_vel 
+<a id="x32-230048r162"></a>/turtle1/color_sensor 
+<a id="x32-230050r163"></a>/turtle1/pose 
+<a id="x32-230052r164"></a>~~ Service information ~~ 
+<a id="x32-230054r165"></a>/clear 
+<a id="x32-230056r166"></a>/kill 
+<a id="x32-230058r167"></a>/reset 
+<a id="x32-230060r168"></a>/spawn 
+<a id="x32-230062r169"></a>/teleop_turtle/describe_parameters 
+<a id="x32-230064r170"></a>/teleop_turtle/get_parameter_types 
+<a id="x32-230066r171"></a>/teleop_turtle/get_parameters 
+<a id="x32-230068r172"></a>/teleop_turtle/list_parameters 
+<a id="x32-230070r173"></a>/teleop_turtle/set_parameters 
+<a id="x32-230072r174"></a>/teleop_turtle/set_parameters_atomically 
+<a id="x32-230074r175"></a>/turtle1/set_pen 
+<a id="x32-230076r176"></a>/turtle1/teleport_absolute 
+<a id="x32-230078r177"></a>/turtle1/teleport_relative 
+<a id="x32-230080r178"></a>/turtlesim/describe_parameters 
+<a id="x32-230082r179"></a>/turtlesim/get_parameter_types 
+<a id="x32-230084r180"></a>/turtlesim/get_parameters 
+<a id="x32-230086r181"></a>/turtlesim/list_parameters 
+<a id="x32-230088r182"></a>/turtlesim/set_parameters 
+<a id="x32-230090r183"></a>/turtlesim/set_parameters_atomically 
+<a id="x32-230092r184"></a>~~ Action information ~~ 
+<a id="x32-230094r185"></a>/turtle1/rotate_absolute</pre></code></pre></div>
 <p class="noindent">Don’t worry about what this all means as we will have a detailed look into each of them
 later.
 </p>
-<p class="noindent"><span class="paragraphHead"> <a id="x40-267000"></a>Running rqt</span>
-<code class="verb">rqt</code> is a <span class="acronym"><span class="acronym-short"><a class="glossary" href="#glo:gui">GUI</a></span><span class="acronym-detail"><span class="acronym-long"><a class="glossary" href="#glo:gui">Graphical User Interface</a></span><span class="acronym-desc"><a class="glossary" href="#glo:gui">Graphical User Interface</a></span></span></span> framework which implements numerous
+<div class="paragraph-header"><h6 id="header-paragraph-8.2.0.79.39"><span class="number"></span><a class="pdf-icon" href=""></a><span class="title"> <a id="x32-231000"></a>Running rqt</span></h6></div>
+<p class="noindent"><code class="verb">rqt</code> is a <span class="acronym"><span class="acronym-short"><a class="glossary" href="#glo:gui">GUI</a></span><span class="acronym-detail"><span class="acronym-long"><a class="glossary" href="#glo:gui">Graphical User Interface</a></span><span class="acronym-desc"><a class="glossary" href="#glo:gui">Graphical User Interface</a></span></span></span> framework which implements numerous
 tools and interfaces in the form of plugins. If it is not installed on our system please run the following
 commands:
 </p>
-<pre><div class="code-header"> <span class="code-language">bash</span> </div> <code class="language-bash">
-<pre class="fancyvrb" id="fancyvrb165"><a id="x40-267002r191"></a>sudo apt update 
-<a id="x40-267004r192"></a>sudo apt install <span style="color:#78730D;">'~nros-humble-rqt*'</span></pre>
-</code></pre>
+<div class="code-header"><span class="code-language">bash</span></div><div class="code-wrapper"><pre><code class="language-bash"><pre class="fancyvrb" id="fancyvrb165"><a id="x32-231002r191"></a>sudo apt update 
+<a id="x32-231004r192"></a>sudo apt install <span style="color:#78730D;">'~nros-humble-rqt*'</span></pre></code></pre></div>
 <p class="noindent">Once installed, running it is pretty straightforward:
 </p>
-<pre><div class="code-header"> <span class="code-language">bash</span> </div> <code class="language-bash">
-<pre class="fancyvrb" id="fancyvrb166"><a id="x40-267006r198"></a>rqt</pre>
-</code></pre>
+<div class="code-header"><span class="code-language">bash</span></div><div class="code-wrapper"><pre><code class="language-bash"><pre class="fancyvrb" id="fancyvrb166"><a id="x32-231006r198"></a>rqt</pre></code></pre></div>
 <p class="noindent">When running <code class="verb">rqt</code>  for the first time, the window will be blank. This is normal. To see what is currently
-going on just select <code class="verb">Plugins/Services/Service Caller</code>  from the menu bar at the <span class="margin-block"><span class="margin"><span>top. <a class="ellipsis" href="#m-ref-215">[215]</a></span><span class="sidenote"><a class="copiable-link" href="#m-ref-215" id="m-ref-215"> ¶</a><span class="sidenote-image"><img alt="PIC" src="figures/Command-Line-Tools/raster/rqt-1.png" style=""/></span><span class="sidenote-text"><span class="ellipsis">[215]</span>The view of <code class="verb">rqt</code>  with only <code class="verb">turtlesim</code>  and <code class="verb">teleop</code>
+going on just select <code class="verb">Plugins/Services/Service Caller</code>  from the menu bar at the <span class="margin-block"><span class="margin"><span>top. <a class="ellipsis" href="#m-ref-165">[165]</a></span><span class="sidenote"><a class="copiable-link" href="#m-ref-165" id="m-ref-165"> ¶</a><span class="sidenote-image"><img alt="PIC" src="figures/Command-Line-Tools/raster/rqt-1.png" style=""/></span><span class="sidenote-text"><span class="ellipsis">[165]</span>The view of <code class="verb">rqt</code>  with only <code class="verb">turtlesim</code>  and <code class="verb">teleop</code>
 running.</span></span></span></span>
 </p><p class="noindent">Use the refresh button to the left of the Service dropdown list to ensure all the services of our turtlesim
 node are available. Once refreshed, click on the Service dropdown list to see services belonging to <code class="verb">turtlesim</code> , and
 select the <code class="verb">/spawn</code>  service.
 </p>
-<p class="noindent"><span class="paragraphHead"> <a id="x40-268000"></a>Working the the spawn service</span>
-Let’s use <code class="verb">rqt</code>  to call the <code class="verb">/spawn</code>  service. We can guess from its name that <code class="verb">/spawn</code>  will create another turtle in the
+<div class="paragraph-header"><h6 id="header-paragraph-8.2.0.79.40"><span class="number"></span><a class="pdf-icon" href=""></a><span class="title"> <a id="x32-232000"></a>Working the the spawn service</span></h6></div>
+<p class="noindent">Let’s use <code class="verb">rqt</code>  to call the <code class="verb">/spawn</code>  service. We can guess from its name that <code class="verb">/spawn</code>  will create another turtle in the
 turtlesim window.
 </p><p class="noindent">Give the new turtle a unique name, like <code class="verb">turtle2</code> , by double-clicking between the empty single quotes in the
 <i>expression</i> column. We can see that this expression corresponds to the value of name and is of type
 string.
 </p><p class="noindent">Next enter some valid coordinates at which to spawn the new turtle, like <code class="verb">x = 1.0</code>  and <code class="verb">y = 1.0</code> .
 </p>
-<div class="warning"><div class="warning-upper">Warning</div><div class="body">
+<div class="block-minor warning"><div class="body">
 <p class="noindent">If we try to spawn a new turtle with the same name as an existing turtle, like the default <code class="verb">turtle1</code> , we will get
 an error message in the terminal running <code class="verb">turtlesim_node</code> . </p></div></div>
 <div class="sidenote"> <span class="figure">
-<a id="x40-268001r1"></a>
-<figcaption class="caption"><span class="id">Figure 9.1: </span><span class="content">Generating a new turtlebot to be spawned.                                          </span></figcaption>
+<a id="x32-232001r1"></a>
+<figcaption class="caption"><span class="id">Figure 8.1: </span><span class="content">Generating a new turtlebot to be spawned.                                          </span></figcaption>
 <img alt="PIC" src="figures/Command-Line-Tools/raster/rqt-2.png" style=""/>
 </span>
 <p class="noindent"></p></div>
 <p class="noindent">To spawn <code class="verb">turtle2</code> , we then need to call the service by clicking the Call button on the upper right side of the <code class="verb">rqt</code>
 window. If the service call was successful, we should see a new turtle, again with a <span class="margin-block">random design,
-<span class="margin-comment"><a class="ellipsis" href="#m-ref-216">[216]</a>
+<span class="margin-comment"><a class="ellipsis" href="#m-ref-166">[166]</a>
 <span class="sidenote">All these designs are based on <span class="acronym"><span class="acronym-short"><a class="glossary" href="#glo:ros">ROS</a></span><span class="acronym-detail"><span class="acronym-long"><a class="glossary" href="#glo:ros">Robot Operating System 2</a></span><span class="acronym-desc"><a class="glossary" href="#glo:ros">Robot Operating System 2</a></span></span></span>
 distributions logos.</span></span></span> spawn at the coordinates we input for <code class="verb">x</code>  and <code class="verb">y</code> . Refreshing the service list in <code class="verb">rqt</code> ,
 we will also see that now there are services related to the new turtle, <code class="verb">turtle2</code> , in addition to <code class="verb">turtle1</code>
 .
 </p>
-<p class="noindent"><span class="paragraphHead"> <a id="x40-269000"></a>Changing the Trail Parameters</span>
-Now let’s give <code class="verb">turtle1</code>  a unique pen using the <code class="verb">/set_pen</code>  service:
+<div class="paragraph-header"><h6 id="header-paragraph-8.2.0.79.41"><span class="number"></span><a class="pdf-icon" href=""></a><span class="title"> <a id="x32-233000"></a>Changing the Trail Parameters</span></h6></div>
+<p class="noindent">Now let’s give <code class="verb">turtle1</code>  a unique pen using the <code class="verb">/set_pen</code>  service:
 </p>
 <p class="noindent"></p><figure class="float">
 <div class="subfigure">
-<p class="noindent"></p><p class="noindent"><img alt="PIC" src="figures/Command-Line-Tools/raster/rqt-3.png" style=""/> <a id="x40-269001r1"></a>
+<p class="noindent"></p><p class="noindent"><img alt="PIC" src="figures/Command-Line-Tools/raster/rqt-3.png" style=""/> <a id="x32-233001r1"></a>
 </p>
 <div class="caption"><span class="id">(a) </span><span class="content">The parameters of the <code class="verb">/set_pen</code>  service.       </span></div></div>  <div class="subfigure">
-<p class="noindent"></p><p class="noindent"><img alt="PIC" src="figures/Command-Line-Tools/raster/tsim-3.png" style=""/> <a id="x40-269002r2"></a>
+<p class="noindent"></p><p class="noindent"><img alt="PIC" src="figures/Command-Line-Tools/raster/tsim-3.png" style=""/> <a id="x32-233002r2"></a>
 </p>
 <div class="caption"><span class="id">(b) </span><span class="content">The trail line of <code class="verb">turtle1</code>  has changed                    </span></div></div>
 </figure>
@@ -324,23 +288,21 @@ Now let’s give <code class="verb">turtle1</code>  a unique pen using the <code
 width sets the thickness of the line.
 </p><p class="noindent">To have <code class="verb">turtle1</code>  draw with a distinct red line, change the <code class="verb">r</code>  value to 255, and width value to 5.
 </p>
-<div class="warning"><div class="warning-upper">Warning</div><div class="body">
+<div class="block-minor warning"><div class="body">
 <p class="noindent">Don’t forget to call the service after updating the values. </p></div></div>
 <p class="noindent">If we were to return to the terminal where <code class="verb">turtle_teleop_key</code>  is running and press the arrow keys, we will see <code class="verb">turtle1</code> ’s pen has
 changed and also noticed that there’s no way to move <code class="verb">turtle2</code> . That’s because there is no teleop node for <code class="verb">turtle2</code>
 .
 </p>
-<p class="noindent"><span class="paragraphHead"> <a id="x40-270000"></a>Remapping Controls</span>
-We need a second teleop node in order to control <code class="verb">turtle2</code> . However, if we try to run the same command as
+<div class="paragraph-header"><h6 id="header-paragraph-8.2.0.79.42"><span class="number"></span><a class="pdf-icon" href=""></a><span class="title"> <a id="x32-234000"></a>Remapping Controls</span></h6></div>
+<p class="noindent">We need a second teleop node in order to control <code class="verb">turtle2</code> . However, if we try to run the same command as
 before, we will notice that this one also controls <code class="verb">turtle1</code> . The way to change this behavior is by remapping the
 <code class="verb">cmd_vel</code> topic.
 </p><p class="noindent">To do that, In a new terminal, source <span class="acronym"><span class="acronym-short"><a class="glossary" href="#glo:ros">ROS</a></span><span class="acronym-detail"><span class="acronym-long"><a class="glossary" href="#glo:ros">Robot Operating System 2</a></span><span class="acronym-desc"><a class="glossary" href="#glo:ros">Robot Operating System 2</a></span></span></span>, and
 run:
 </p>
-<pre><div class="code-header"> <span class="code-language">bash</span> </div> <code class="language-bash">
-<pre class="fancyvrb" id="fancyvrb167"><a id="x40-270002r204"></a>ros2 run turtlesim turtle_teleop_key <span style="color:#B03B03;">\</span> 
-<a id="x40-270004r205"></a>     --ros-args --remap turtle1/cmd_vel:=turtle2/cmd_vel</pre>
-</code></pre>
+<div class="code-header"><span class="code-language">bash</span></div><div class="code-wrapper"><pre><code class="language-bash"><pre class="fancyvrb" id="fancyvrb167"><a id="x32-234002r204"></a>ros2 run turtlesim turtle_teleop_key <span style="color:#B03B03;">\</span> 
+<a id="x32-234004r205"></a>     --ros-args --remap turtle1/cmd_vel:=turtle2/cmd_vel</pre></code></pre></div>
 <p class="noindent">Now, we can move <code class="verb">turtle2</code>  when this terminal is active, and <code class="verb">turtle1</code>  when the other terminal running <code class="verb">turtle_teleop_key</code>  is
 active.
 <div class="section-header">
@@ -377,13 +339,13 @@ interact with your operating system using your keyboard</p></dd>
 <i class="fa-regular fa-note-sticky"></i>
 </span>
 <span class="title">
-<a id="page-glossary"></a>
+<a id="page-margin"></a>
                     Page Footnotes</span>
 </h3>
 </div>
 <div class="footnote-block">
 <dl class="enumerate-enumitem">
-<dt class="enumerate-enumitem" id="m-ref-216"><span class="acr-short">[216].</span></dt>
+<dt class="enumerate-enumitem" id="m-ref-166"><span class="acr-short">[166].</span></dt>
 <dd class="enumerate-enumitem"><span class="">All these designs are based on <span class="acronym"><span class="acronym-short"><a class="glossary" href="#glo:ros">ROS</a></span><span class="acronym-detail"><span class="acronym-long"><a class="glossary" href="#glo:ros">Robot Operating System 2</a></span><span class="acronym-desc"><a class="glossary" href="#glo:ros">Robot Operating System 2</a></span></span></span>
 distributions logos.</span></dd>
 </dl></div><nav class="crosslinks-bottom"><div class="navigation"><span class="nav-button"><a href="ADeeperLookintoNodes.html"><i class="fa-solid fa-caret-right"></i></a></span><span class="nav-button"><a href="SettingtheEnvironment.html"><i class="fa-solid fa-caret-left"></i></a></span><span class="nav-button"><a href="CommandLineTools.html#TurtlesandGraphs.html"><i class="fa-solid fa-caret-up"></i></a></span><span class="nav-button">
@@ -394,7 +356,7 @@ distributions logos.</span></dd>
 <a href="Index.html" rel="index" title="Index">
 <i class="fa-brands fa-git-alt"></i>
 </a></span></div></nav> </p><div class="footer"> <div class="footer-left"><span class="footer-lecture">D. T. McGuiness, PhD</span>
-<span class="footer-webBook"><b>Last Updated:</b> 13.10.2026, at 8:16.</span></div></div><div class="author-notes">
+<span class="footer-webBook"><b>Last Updated:</b> 24.11.2026, at 13:58.</span></div></div><div class="author-notes">
 <span class="note">Authors Note </span>
 <span class="text">The website you are viewing is auto-generated using lms-WebBook and therefore subject to slight errors in typography and formatting. When in doubt, please consult the LectureBook. </span>
 </div>
@@ -403,7 +365,7 @@ distributions logos.</span></dd>
 <div class="core-line"><div class="core-line-image"><img class="webbook-logo" src="logo/webbook-logo.svg"/></div>
 <div class="current-header">
 <span class="header-pretext">Viewing | </span>
-<span class="header-text">Section 9.2: Turtles and Graphs</span>
+<span class="header-text">8.2: Turtles and Graphs</span>
 </div>
 <div class="button-group">
 </div>
