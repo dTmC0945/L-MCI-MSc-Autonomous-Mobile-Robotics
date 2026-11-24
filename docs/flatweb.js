@@ -1138,7 +1138,9 @@ function menu__toggleTOC() {
   if (tocState == "none") {
     $("nav.wide")
       .stop()
-      .animate({ width: "toggle", opacity: "toggle" }, "slow");
+      .animate({ width: "toggle", opacity: "toggle" }, "slow", function () {
+        nav__ensureActiveVisible(navWide);
+      });
 
     // Show screen size specific actions
     if (util__describeViewState("Tablet") || util__describeViewState("Phone")) {
@@ -1259,8 +1261,581 @@ function modeline__generateModeMenuList(json) {
   }
 }
 
+// SIDEBAR TOC ENHANCEMENTS ----------------------------------------------------
+
+const TOC_SCROLL_STORAGE_KEY = "webbook-toc-scrollTop";
+const TOC_OPEN_CHAPTERS_STORAGE_KEY = "webbook-toc-open-chapters";
+
+function nav__storageGet(key) {
+  try {
+    return window.sessionStorage.getItem(key);
+  } catch (e) {
+    return null;
+  }
+}
+
+function nav__storageSet(key, value) {
+  try {
+    window.sessionStorage.setItem(key, value);
+  } catch (e) {
+    // Ignore storage errors (e.g. restricted browsing contexts)
+  }
+}
+
+function nav__getOpenChaptersMap() {
+  const raw = nav__storageGet(TOC_OPEN_CHAPTERS_STORAGE_KEY);
+  if (!raw) {
+    return {};
+  }
+  try {
+    const parsed = JSON.parse(raw);
+    return parsed && typeof parsed === "object" ? parsed : {};
+  } catch (e) {
+    return {};
+  }
+}
+
+function nav__saveChapterOpenState(chapterKey, isOpen) {
+  if (!chapterKey) {
+    return;
+  }
+  const map = nav__getOpenChaptersMap();
+  map[chapterKey] = Boolean(isOpen);
+  nav__storageSet(TOC_OPEN_CHAPTERS_STORAGE_KEY, JSON.stringify(map));
+}
+
+function nav__setChapterGroupOpen(group, isOpen) {
+  if (!group || !group.classList.contains("toc-has-children")) {
+    return;
+  }
+  group.classList.toggle("toc-collapsed", !isOpen);
+  const toggleBtn = group.querySelector(":scope > .chapterToc .toc-chapter-toggle, :scope > .appendixToc .toc-chapter-toggle, :scope > .addchapToc .toc-chapter-toggle");
+  if (toggleBtn) {
+    toggleBtn.setAttribute("aria-expanded", isOpen ? "true" : "false");
+  }
+}
+
+function nav__normalizePathname(pathname) {
+  if (!pathname) {
+    return "/index.html";
+  }
+  return pathname.endsWith("/") ? pathname + "index.html" : pathname;
+}
+
+function nav__isLinkForCurrentPage(anchor) {
+  if (!anchor) {
+    return false;
+  }
+  const rawHref = (anchor.getAttribute("href") || "").trim();
+  if (!rawHref) {
+    return false;
+  }
+  if (rawHref.startsWith("#")) {
+    return true;
+  }
+  try {
+    const linkUrl = new URL(rawHref, window.location.href);
+    return (
+      linkUrl.origin === window.location.origin &&
+      nav__normalizePathname(linkUrl.pathname) ===
+        nav__normalizePathname(window.location.pathname)
+    );
+  } catch (e) {
+    return false;
+  }
+}
+
+function nav__buildCollapsibleTOC(tocEl) {
+  const chapterSelector = "span.chapterToc, span.appendixToc, span.addchapToc";
+  const childSelector =
+    "span.sectionToc, span.subsectionToc, span.subsubsectionToc";
+
+  const nodes = Array.from(tocEl.children);
+  let currentGroup = null;
+  let currentChildren = null;
+
+  nodes.forEach((node) => {
+    if (node.matches(chapterSelector)) {
+      currentGroup = document.createElement("div");
+      currentGroup.className = "toc-chapter-group";
+
+      const numberText = (
+        node.querySelector(".number")?.textContent || ""
+      ).trim();
+      const titleText = (node.querySelector(".title")?.textContent || "")
+        .replace(/\s+/g, " ")
+        .trim();
+      currentGroup.dataset.chapterKey = numberText + ":" + titleText;
+
+      currentChildren = document.createElement("div");
+      currentChildren.className = "toc-chapter-children";
+
+      tocEl.insertBefore(currentGroup, node);
+      currentGroup.appendChild(node);
+      currentGroup.appendChild(currentChildren);
+    } else if (node.matches(childSelector) && currentChildren) {
+      currentChildren.appendChild(node);
+    } else {
+      currentGroup = null;
+      currentChildren = null;
+    }
+  });
+
+  tocEl.querySelectorAll(".toc-chapter-group").forEach((group) => {
+    const childrenWrap = group.querySelector(":scope > .toc-chapter-children");
+    const chapterHeader = group.querySelector(":scope > " + chapterSelector);
+
+    if (!childrenWrap || childrenWrap.children.length === 0 || !chapterHeader) {
+      if (childrenWrap) {
+        childrenWrap.remove();
+      }
+      return;
+    }
+
+    group.classList.add("toc-has-children");
+
+    const toggleBtn = document.createElement("button");
+    toggleBtn.type = "button";
+    toggleBtn.className = "toc-chapter-toggle";
+    toggleBtn.setAttribute("aria-expanded", "false");
+    toggleBtn.setAttribute("aria-label", "Toggle chapter sections");
+    toggleBtn.innerHTML =
+      '<i class="fa-solid fa-chevron-right" aria-hidden="true"></i>';
+
+    toggleBtn.addEventListener("click", function (event) {
+      event.preventDefault();
+      event.stopPropagation();
+
+      const willOpen = group.classList.contains("toc-collapsed");
+      nav__setChapterGroupOpen(group, willOpen);
+
+      if (tocEl.dataset.filtering !== "true") {
+        nav__saveChapterOpenState(group.dataset.chapterKey, willOpen);
+      }
+    });
+
+    chapterHeader.insertBefore(toggleBtn, chapterHeader.firstChild);
+  });
+}
+
+function nav__applySavedChapterStates(tocEl) {
+  const savedMap = nav__getOpenChaptersMap();
+
+  tocEl.querySelectorAll(".toc-chapter-group.toc-has-children").forEach((group) => {
+    const containsCurrentPage = Boolean(group.querySelector(".toc-current-page"));
+    const key = group.dataset.chapterKey;
+    const isOpen = containsCurrentPage || savedMap[key] === true;
+    nav__setChapterGroupOpen(group, isOpen);
+  });
+}
+
+function nav__buildStickySearch(navWide, tocEl) {
+  const stickyBar = document.createElement("div");
+  stickyBar.className = "toc-sticky-bar";
+
+  const pagefindTrigger = tocEl.querySelector("pagefind-modal-trigger");
+  if (pagefindTrigger) {
+    stickyBar.appendChild(pagefindTrigger);
+  }
+
+  const filterWrap = document.createElement("div");
+  filterWrap.className = "toc-filter-wrap";
+
+  const icon = document.createElement("i");
+  icon.className = "fa-solid fa-magnifying-glass toc-filter-icon";
+  icon.setAttribute("aria-hidden", "true");
+
+  const input = document.createElement("input");
+  input.type = "search";
+  input.className = "toc-filter-input";
+  input.placeholder = "Filter contents...";
+  input.setAttribute("aria-label", "Filter table of contents");
+  input.autocomplete = "off";
+  input.spellcheck = false;
+
+  const clearBtn = document.createElement("button");
+  clearBtn.type = "button";
+  clearBtn.className = "toc-filter-clear";
+  clearBtn.setAttribute("aria-label", "Clear filter");
+  clearBtn.title = "Clear filter";
+  clearBtn.innerHTML = "&times;";
+  clearBtn.hidden = true;
+
+  filterWrap.appendChild(icon);
+  filterWrap.appendChild(input);
+  filterWrap.appendChild(clearBtn);
+  stickyBar.appendChild(filterWrap);
+
+  navWide.insertBefore(stickyBar, tocEl);
+
+  const emptyMsg = document.createElement("div");
+  emptyMsg.className = "toc-filter-empty";
+  emptyMsg.textContent = "No matching sections";
+  emptyMsg.hidden = true;
+
+  const navFooter = tocEl.querySelector(".nav-footer");
+  if (navFooter) {
+    tocEl.insertBefore(emptyMsg, navFooter);
+  } else {
+    tocEl.appendChild(emptyMsg);
+  }
+
+  const getNormalizedText = (el) =>
+    (el ? el.textContent : "").replace(/\s+/g, " ").trim().toLowerCase();
+
+  const applyFilter = (rawQuery) => {
+    const query = rawQuery.trim().toLowerCase();
+    clearBtn.hidden = query.length === 0;
+
+    const groups = tocEl.querySelectorAll(".toc-chapter-group");
+
+    if (!query) {
+      delete tocEl.dataset.filtering;
+      groups.forEach((group) => {
+        group.classList.remove("toc-filter-hidden");
+        group
+          .querySelectorAll(".toc-filter-hidden")
+          .forEach((el) => el.classList.remove("toc-filter-hidden"));
+      });
+      emptyMsg.hidden = true;
+      nav__applySavedChapterStates(tocEl);
+      return;
+    }
+
+    tocEl.dataset.filtering = "true";
+    let anyVisible = false;
+
+    groups.forEach((group) => {
+      const chapterHeader = group.querySelector(
+        ":scope > span.chapterToc, :scope > span.appendixToc, :scope > span.addchapToc",
+      );
+      const childrenWrap = group.querySelector(":scope > .toc-chapter-children");
+      const childItems = childrenWrap ? Array.from(childrenWrap.children) : [];
+
+      const chapterMatches = getNormalizedText(chapterHeader).includes(query);
+
+      if (chapterMatches) {
+        group.classList.remove("toc-filter-hidden");
+        childItems.forEach((item) => item.classList.remove("toc-filter-hidden"));
+        nav__setChapterGroupOpen(group, true);
+        anyVisible = true;
+        return;
+      }
+
+      let hasMatchingChild = false;
+      let currentSection = null;
+      let currentSectionMatched = false;
+
+      childItems.forEach((item) => {
+        const matches = getNormalizedText(item).includes(query);
+        if (item.classList.contains("sectionToc")) {
+          currentSection = item;
+          currentSectionMatched = matches;
+          item.classList.toggle("toc-filter-hidden", !matches);
+          if (matches) {
+            hasMatchingChild = true;
+          }
+        } else {
+          const showItem = matches || currentSectionMatched;
+          item.classList.toggle("toc-filter-hidden", !showItem);
+          if (matches) {
+            hasMatchingChild = true;
+            if (currentSection) {
+              currentSection.classList.remove("toc-filter-hidden");
+            }
+          }
+        }
+      });
+
+      if (hasMatchingChild) {
+        group.classList.remove("toc-filter-hidden");
+        nav__setChapterGroupOpen(group, true);
+        anyVisible = true;
+      } else {
+        group.classList.add("toc-filter-hidden");
+      }
+    });
+
+    emptyMsg.hidden = anyVisible;
+  };
+
+  input.addEventListener("input", function () {
+    applyFilter(input.value);
+  });
+
+  input.addEventListener("keydown", function (event) {
+    if (event.key === "Escape") {
+      event.preventDefault();
+      input.value = "";
+      applyFilter("");
+      input.blur();
+    }
+  });
+
+  input.addEventListener("keypress", function (event) {
+    event.stopPropagation();
+  });
+
+  clearBtn.addEventListener("click", function () {
+    input.value = "";
+    applyFilter("");
+    input.focus();
+  });
+}
+
+function nav__saveTOCScroll(navWide) {
+  if (!navWide) {
+    return;
+  }
+  nav__storageSet(TOC_SCROLL_STORAGE_KEY, String(Math.round(navWide.scrollTop)));
+}
+
+function nav__ensureActiveVisible(navWide) {
+  if (!navWide) {
+    return;
+  }
+  if (
+    getComputedStyle(navWide).display === "none" ||
+    navWide.clientHeight === 0
+  ) {
+    return;
+  }
+
+  const activeEl = navWide.querySelector(".toc .toc-active");
+  if (!activeEl || activeEl.offsetParent === null) {
+    return;
+  }
+
+  const navRect = navWide.getBoundingClientRect();
+  const stickyBar = navWide.querySelector(".toc-sticky-bar");
+  const stickyBottom = stickyBar
+    ? Math.max(navRect.top, stickyBar.getBoundingClientRect().bottom)
+    : navRect.top;
+  const activeRect = activeEl.getBoundingClientRect();
+  const buffer = 8;
+
+  const isVisible =
+    activeRect.top >= stickyBottom + buffer &&
+    activeRect.bottom <= navRect.bottom - buffer;
+
+  if (!isVisible) {
+    const activeOffsetInScroll =
+      activeRect.top - navRect.top + navWide.scrollTop;
+    const stickyHeight = stickyBar ? stickyBar.offsetHeight : 0;
+    const usableHeight = Math.max(0, navWide.clientHeight - stickyHeight);
+    const targetTop =
+      activeOffsetInScroll - stickyHeight - Math.floor(usableHeight / 3);
+    navWide.scrollTop = Math.max(0, targetTop);
+    nav__saveTOCScroll(navWide);
+  }
+}
+
+function nav__highlightActiveTOC(navWide, tocEl) {
+  const itemSelector =
+    "span.chapterToc, span.appendixToc, span.addchapToc, span.sectionToc, span.subsectionToc, span.subsubsectionToc";
+  const allItems = Array.from(tocEl.querySelectorAll(itemSelector));
+  const currentPageItems = [];
+
+  allItems.forEach((item) => {
+    const anchor = item.querySelector("a[href]");
+    if (nav__isLinkForCurrentPage(anchor)) {
+      item.classList.add("toc-current-page");
+      currentPageItems.push(item);
+    }
+  });
+
+  if (currentPageItems.length === 0) {
+    return;
+  }
+
+  let activeItem = null;
+  let suppressScrollSpyUntil = 0;
+
+  const setActiveItem = (item) => {
+    if (!item || item === activeItem) {
+      return;
+    }
+    if (activeItem) {
+      activeItem.classList.remove("toc-active");
+      const prevAnchor = activeItem.querySelector("a");
+      if (prevAnchor) {
+        prevAnchor.removeAttribute("aria-current");
+      }
+    }
+    activeItem = item;
+    activeItem.classList.add("toc-active");
+    const anchor = activeItem.querySelector("a");
+    if (anchor) {
+      anchor.setAttribute("aria-current", "location");
+    }
+  };
+
+  const findItemByHash = (hash) => {
+    if (!hash) {
+      return null;
+    }
+    return (
+      currentPageItems.find((item) => {
+        const anchor = item.querySelector("a[href]");
+        if (!anchor) {
+          return false;
+        }
+        try {
+          const url = new URL(anchor.getAttribute("href"), window.location.href);
+          return url.hash === hash;
+        } catch (e) {
+          return anchor.getAttribute("href") === hash;
+        }
+      }) || null
+    );
+  };
+
+  const initialMatch =
+    findItemByHash(window.location.hash) || currentPageItems[0];
+  setActiveItem(initialMatch);
+
+  window.addEventListener("hashchange", function () {
+    const match = findItemByHash(window.location.hash);
+    if (match) {
+      suppressScrollSpyUntil = Date.now() + 250;
+      setActiveItem(match);
+      const group = match.closest(".toc-chapter-group.toc-has-children");
+      if (group) {
+        nav__setChapterGroupOpen(group, true);
+      }
+      nav__ensureActiveVisible(navWide);
+    }
+  });
+
+  if (currentPageItems.length > 1) {
+    const spyTargets = currentPageItems
+      .map((item) => {
+        const anchor = item.querySelector("a[href]");
+        if (!anchor) {
+          return null;
+        }
+        let hash = "";
+        try {
+          hash = new URL(anchor.getAttribute("href"), window.location.href).hash;
+        } catch (e) {
+          hash = anchor.getAttribute("href") || "";
+        }
+        if (!hash || !hash.startsWith("#")) {
+          return null;
+        }
+        const targetAnchor = document.getElementById(hash.slice(1));
+        if (!targetAnchor) {
+          return null;
+        }
+        const headingEl =
+          targetAnchor.closest(
+            "h1, h2, h3, h4, h5, h6, .chapter-header, .section-header, .subsection-header",
+          ) || targetAnchor;
+        return { item, headingEl };
+      })
+      .filter(Boolean);
+
+    if (spyTargets.length > 1) {
+      let spyTicking = false;
+      const updateScrollSpy = () => {
+        spyTicking = false;
+        if (Date.now() < suppressScrollSpyUntil) {
+          return;
+        }
+
+        const topOffset = 120;
+        const nearBottom =
+          window.innerHeight + window.scrollY >=
+          document.documentElement.scrollHeight - 10;
+
+        let chosen = spyTargets[0].item;
+        if (nearBottom) {
+          chosen = spyTargets[spyTargets.length - 1].item;
+        } else {
+          for (let i = 0; i < spyTargets.length; i++) {
+            const rect = spyTargets[i].headingEl.getBoundingClientRect();
+            if (rect.top <= topOffset) {
+              chosen = spyTargets[i].item;
+            } else {
+              break;
+            }
+          }
+        }
+        setActiveItem(chosen);
+      };
+
+      window.addEventListener(
+        "scroll",
+        function () {
+          if (!spyTicking) {
+            spyTicking = true;
+            window.requestAnimationFrame(updateScrollSpy);
+          }
+        },
+        { passive: true },
+      );
+    }
+  }
+}
+
+function nav__initTOCScroll(navWide) {
+  const savedScroll = nav__storageGet(TOC_SCROLL_STORAGE_KEY);
+  if (savedScroll !== null) {
+    const parsed = parseInt(savedScroll, 10);
+    if (!Number.isNaN(parsed) && parsed >= 0) {
+      navWide.scrollTop = parsed;
+    }
+  }
+
+  nav__ensureActiveVisible(navWide);
+
+  let scrollTicking = false;
+  navWide.addEventListener(
+    "scroll",
+    function () {
+      if (!scrollTicking) {
+        scrollTicking = true;
+        window.requestAnimationFrame(function () {
+          scrollTicking = false;
+          nav__saveTOCScroll(navWide);
+        });
+      }
+    },
+    { passive: true },
+  );
+
+  navWide.addEventListener("click", function (event) {
+    if (event.target && event.target.closest("a[href]")) {
+      nav__saveTOCScroll(navWide);
+    }
+  });
+
+  window.addEventListener("pagehide", function () {
+    nav__saveTOCScroll(navWide);
+  });
+}
+
+function nav__initSidebarEnhancements() {
+  const navWide = document.querySelector("nav.wide");
+  if (!navWide) {
+    return;
+  }
+  const tocEl = navWide.querySelector(".toc");
+  if (!tocEl) {
+    return;
+  }
+
+  nav__buildCollapsibleTOC(tocEl);
+  nav__buildStickySearch(navWide, tocEl);
+  nav__highlightActiveTOC(navWide, tocEl);
+  nav__applySavedChapterStates(tocEl);
+  nav__initTOCScroll(navWide);
+}
+
 document.addEventListener("DOMContentLoaded", function () {
   let darkMode = localStorage.getItem("darkMode") == "true";
+
+  nav__initSidebarEnhancements();
 
   menu__makeCurrentPageTOC();
 
